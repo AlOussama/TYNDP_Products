@@ -1,0 +1,7 @@
+clustering   reference  validation_plain_RMSE_MW  validation_corrected_RMSE_MW  screening_coverage
+         A     uniform                  2.224621                      1.950534             1.00000
+         A    capacity                  3.149280                      1.533634             1.00000
+         A merit_order                  5.158044                      0.844668             1.00000
+         B     uniform                  1.100178                      0.637964             0.92366
+         B    capacity                  1.028149                      0.730288             0.92366
+         B merit_order                  1.669639                      1.337121             0.92366

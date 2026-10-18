@@ -1,0 +1,525 @@
+{
+  "description": "Chat-generated TYNDP/IoSN artifacts, not all independently PyPSA-validated",
+  "files": [
+    {
+      "path": "archive/IOSN_TYNDP2026_Revidierte_Berichte_und_PyPSA_Code.zip",
+      "bytes": 1351541,
+      "sha256": "a9988beb6832befab07b61ea5901987dd6ef653f6bc0988cdd330ffdb5ab878e"
+    },
+    {
+      "path": "archive/TYNDP_PyPSA_Methodenvergleich_Code_und_Implementierung.zip",
+      "bytes": 211482,
+      "sha256": "796f1ddefed1d0b7fac5df27986b0ba9a194207629a3196d02b14033ae2fa351"
+    },
+    {
+      "path": "archive/TYNDP_PyPSA_Methodenvergleich_FBMC_Codepaket.zip",
+      "bytes": 636736,
+      "sha256": "5df20231615f94668200aa25c518cbc440ff7bf7bf690bf94d5f674b357704d1"
+    },
+    {
+      "path": "code/legacy/TYNDP_Studie_Code/README.md",
+      "bytes": 2030,
+      "sha256": "b2efdb442be52ab74d1868c4498fbac0945af58725321abebb5eea517abfc445"
+    },
+    {
+      "path": "code/legacy/TYNDP_Studie_Code/outputs/comparison.csv",
+      "bytes": 1479,
+      "sha256": "d983d7dc91595114966a1a0be6d84b70fdfdf8e84d0e255a62c9247c580ce6cd"
+    },
+    {
+      "path": "code/legacy/TYNDP_Studie_Code/run_demo.py",
+      "bytes": 476,
+      "sha256": "94b464b3b931050235b1eeca25b01418de7669159dc7773aa297a63c944fb056"
+    },
+    {
+      "path": "code/legacy/merit_order_ptdf_pilot.py",
+      "bytes": 4456,
+      "sha256": "13b5c11a8ba3f441de3dd2ae5024509d7e2ff8e194f72286b0e7b960fb6ef342"
+    },
+    {
+      "path": "code/legacy/merit_order_ptdf_results.csv",
+      "bytes": 555,
+      "sha256": "f1b1711b6635eca467630bbd4495bb961a684a5b1dc6894403e3ed29500aa370"
+    },
+    {
+      "path": "docs/all_generated/ENTSOE_TYNDP2026_Netzreduktionsbericht.docx",
+      "bytes": 55785,
+      "sha256": "c57e0692b3e200d26042f1681b6d33459a9ddd77a2eda7df7b7b1bf933a8d568"
+    },
+    {
+      "path": "docs/all_generated/ENTSOE_TYNDP2026_Netzreduktionsbericht.md",
+      "bytes": 74794,
+      "sha256": "c1dd638b95b6b545401d9671d25417ee50cc4da6a50e693eed6fb30dc97ec229"
+    },
+    {
+      "path": "docs/all_generated/ENTSOE_TYNDP2026_Netzreduktionsbericht.pdf",
+      "bytes": 190155,
+      "sha256": "cdd8be6cb9edb3bf0cc0ac7882deea9350a758da188c553ba0fd64fefceeb244"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_II_PyPSA_Implementierung.docx",
+      "bytes": 29290,
+      "sha256": "975b972b433b617af1a17d12bab70241797ba887122858870e0c944ca18060d1"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_II_PyPSA_Implementierung.md",
+      "bytes": 29147,
+      "sha256": "4601b84c658a75824bf6a3714de84ee28ebb16951b819cb3f01056da7e2debc4"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_II_PyPSA_Implementierung.pdf",
+      "bytes": 172220,
+      "sha256": "e8f4a753ca4ce204847222bd5984af7ba14ddb8a876bf85e2308b0d71726623d"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_I_Wissenschaftliche_Methodik.docx",
+      "bytes": 43940,
+      "sha256": "3b6def07333fe2704b92cb8ba2ce9587a50e0a95d081f26f262258d64a6dd06e"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_I_Wissenschaftliche_Methodik.md",
+      "bytes": 53283,
+      "sha256": "987fae048616c00754dcdb61b905a8ddc0f4e4b7c28bba0da1fbdbdd47d4d9db"
+    },
+    {
+      "path": "docs/all_generated/IOSN_2026_Band_I_Wissenschaftliche_Methodik.pdf",
+      "bytes": 236160,
+      "sha256": "4490bf3b31a4062ad81bdcc1017cc70d0d144ddd25f85f7695b57c04f1ffb8cc"
+    },
+    {
+      "path": "docs/all_generated/IOSN_TYNDP2026_Wissenschaftlicher_Gesamtbericht_revidiert.pdf",
+      "bytes": 327287,
+      "sha256": "9a6bcb02cce77bd7047ad723a41bede49160650dfc0173285ea243a52cda02eb"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_FBMC_Wissenschaftliches_Addendum.docx",
+      "bytes": 25966,
+      "sha256": "9e6b85a73c60e7a1808693569d6d6758d02389a51d9bfc0e5c6ce33efe4491f2"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_FBMC_Wissenschaftliches_Addendum.md",
+      "bytes": 23907,
+      "sha256": "32f167ebe57760d6359714b8088399e2dc93c6ab57e86b849dd92d92380ef279"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_FBMC_Wissenschaftliches_Addendum.pdf",
+      "bytes": 102815,
+      "sha256": "d5d1e813ebe438c07b6e5c1cfa24caa9d2f68362aefc3fd0b7eee71cd396d08b"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Methodenvergleich_mit_FBMC_Gesamtbericht.pdf",
+      "bytes": 298293,
+      "sha256": "4e6b2d8da019f7af654008610d5a1c54e315ea9858f35982e4c5571e72ff6ca9"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Methodenvergleich_und_Softwaredesign.docx",
+      "bytes": 32979,
+      "sha256": "ab0bedea387be2c85b88e4498e8d0ab8b43522a303e68b35c1c5769481a18ec5"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Methodenvergleich_und_Softwaredesign.md",
+      "bytes": 36198,
+      "sha256": "171db2aca0768f70d9182051ab9780c72bf1c6f9b19ecdbcecf90a59fa150f41"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Methodenvergleich_und_Softwaredesign.pdf",
+      "bytes": 136971,
+      "sha256": "5ced4261133b58b6e7d0be2932cd484c1d852ba78d3309e2bded72ff2915efad"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Netzreduktion_Implementierungsbericht.docx",
+      "bytes": 43317,
+      "sha256": "73c38e401c5e36f5dc7e099b7e654c51ba2a3461d9bc1a4c30eb221c5c3dc1ed"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Netzreduktion_Implementierungsbericht.md",
+      "bytes": 52512,
+      "sha256": "81731583f7931d3a64dc59687b5f2c6281946047222bc82fa22eb6a77e7d2020"
+    },
+    {
+      "path": "docs/all_generated/TYNDP_PyPSA_Netzreduktion_Implementierungsbericht.pdf",
+      "bytes": 244064,
+      "sha256": "1a23e77a5556903c1b72a08c3358380d72ae58ebb653437e5556084522f769d1"
+    },
+    {
+      "path": "docs/all_generated/merit_order_ptdf_bericht.md",
+      "bytes": 5660,
+      "sha256": "21771c3a535297508c07254cff7b5feb201064855a2b04a2343985c45ef61472"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/CHANGELOG_Revision.md",
+      "bytes": 2488,
+      "sha256": "21f8ef3a7bac1714420de9b4c483775e9f0050ffbebda73711436b42c511c1fd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/VALIDATION_MANIFEST.json",
+      "bytes": 1906,
+      "sha256": "5c81f7027640c90a464e7bda69afea767f2d6e9151fbe45186c63792d728259a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_II_PyPSA_Implementierung.docx",
+      "bytes": 29290,
+      "sha256": "975b972b433b617af1a17d12bab70241797ba887122858870e0c944ca18060d1"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_II_PyPSA_Implementierung.md",
+      "bytes": 29147,
+      "sha256": "4601b84c658a75824bf6a3714de84ee28ebb16951b819cb3f01056da7e2debc4"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_II_PyPSA_Implementierung.pdf",
+      "bytes": 121540,
+      "sha256": "354433d8f47ed2f5559607d36a0d842b1b706954b05c899910952b4d9103e6cf"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_I_Wissenschaftliche_Methodik.docx",
+      "bytes": 43940,
+      "sha256": "3b6def07333fe2704b92cb8ba2ce9587a50e0a95d081f26f262258d64a6dd06e"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_I_Wissenschaftliche_Methodik.md",
+      "bytes": 53283,
+      "sha256": "987fae048616c00754dcdb61b905a8ddc0f4e4b7c28bba0da1fbdbdd47d4d9db"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_2026_Band_I_Wissenschaftliche_Methodik.pdf",
+      "bytes": 175122,
+      "sha256": "489ab4367e0f9d428f6f652ecef0d44e35be15e5b0a37f85236011f6762d282c"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/berichte/IOSN_TYNDP2026_Wissenschaftlicher_Gesamtbericht_revidiert.pdf",
+      "bytes": 302317,
+      "sha256": "c48fea2e1f7e5ed9f7c6b1bc1f44cb97a6921ec64c24d61006f8d9ebb64a8a90"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/README.md",
+      "bytes": 2797,
+      "sha256": "82ced27b8f53cc4430b2aa527befc5fac9a8b7ab27a7e809b70309b5c98ed150"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/Band_II_PyPSA_Implementierung_und_Validierung.md",
+      "bytes": 29147,
+      "sha256": "4601b84c658a75824bf6a3714de84ee28ebb16951b819cb3f01056da7e2debc4"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/Band_I_Wissenschaftliche_Methodik.md",
+      "bytes": 53283,
+      "sha256": "987fae048616c00754dcdb61b905a8ddc0f4e4b7c28bba0da1fbdbdd47d4d9db"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/FBMC_Addendum.docx",
+      "bytes": 25966,
+      "sha256": "9e6b85a73c60e7a1808693569d6d6758d02389a51d9bfc0e5c6ce33efe4491f2"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/FBMC_Addendum.md",
+      "bytes": 23877,
+      "sha256": "2e4498e949324ae44c68e0e08ac4e4b17ca8721a4d6e96543c1081afcd7bf8be"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/FBMC_Addendum.pdf",
+      "bytes": 102815,
+      "sha256": "d5d1e813ebe438c07b6e5c1cfa24caa9d2f68362aefc3fd0b7eee71cd396d08b"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/Gesamtbericht_Netzreduktion_FBMC.pdf",
+      "bytes": 282652,
+      "sha256": "27fb76a0991047a01202e56cd52e09ca084a39e8dbabf18faf9a3d2d613a8f3e"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/Wissenschaftlicher_Methodenvergleich.docx",
+      "bytes": 32979,
+      "sha256": "ab0bedea387be2c85b88e4498e8d0ab8b43522a303e68b35c1c5769481a18ec5"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/Wissenschaftlicher_Methodenvergleich.md",
+      "bytes": 36198,
+      "sha256": "171db2aca0768f70d9182051ab9780c72bf1c6f9b19ecdbcecf90a59fa150f41"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/docs/archiv_vor_revision/Wissenschaftlicher_Methodenvergleich.pdf",
+      "bytes": 136971,
+      "sha256": "5ced4261133b58b6e7d0be2932cd484c1d852ba78d3309e2bded72ff2915efad"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/config.json",
+      "bytes": 509,
+      "sha256": "88dd43ea6b5442a75914a7e51262a08f2cfc437bb5ebc956f2f0cb34e1fbd53c"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/pypsa_fbmc_market_template.py",
+      "bytes": 2074,
+      "sha256": "0e74838529a90720d0d41a86772c1792bc6bb36c3c801c4757633654e132cf28"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/pypsa_hac_baseline.py",
+      "bytes": 761,
+      "sha256": "e36e5162e601eebdaca73c814a0801f7e9c2d4329e09e66936072cf85c275907"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/pypsa_real_network.py",
+      "bytes": 1261,
+      "sha256": "394ad96135710af4a0fb68bdddfec19b94375065d3d9c15ae6b2cbabd74f211a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/run_fbmc_bridge.py",
+      "bytes": 3441,
+      "sha256": "604ffe0040bfa29ed162f8cfd2faa80a778b5e1adf5db01213cf5980c7a7feae"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/examples/run_security_projection.py",
+      "bytes": 1146,
+      "sha256": "139c647e0cdcde6207778ff283e26f23ef78738ba57c4cc680c0f0372f61788c"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/busmap_A.csv",
+      "bytes": 54,
+      "sha256": "2c2bd733e3a1900c483c1b4da9fe398e4ff838bc47c3db07aa0c5e1295eb7f90"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/busmap_B.csv",
+      "bytes": 54,
+      "sha256": "63b0aba364e0d6ddf3707eda5da7cd2d1576325f179c43510c0221a07674fe11"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/comparison.csv",
+      "bytes": 1479,
+      "sha256": "d983d7dc91595114966a1a0be6d84b70fdfdf8e84d0e255a62c9247c580ce6cd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/cuts_A.csv",
+      "bytes": 46,
+      "sha256": "173e431b9c231ab8a77b61905da7cbc7d68e6ea48f92c1308fbda537218fe402"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/cuts_B.csv",
+      "bytes": 42,
+      "sha256": "e981462082d7200083c90b3d80a320d8e788169687365e5a67bda18a93c7e9da"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/demo_stdout.txt",
+      "bytes": 693,
+      "sha256": "4456a096143e37de94e1c2327c11d2ca5cb6190acd710250f0e721959b0e02bb"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/fbmc/fbmc_domain_capacity.csv",
+      "bytes": 43721,
+      "sha256": "d5bcade76fb64441d73f028286779981e095e23e762e8e77c34c611c5e58bd5d"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/fbmc/fbmc_domain_merit_order.csv",
+      "bytes": 43763,
+      "sha256": "197b33c343b6e9f97bc47286638ea5e66a17798ae56c338cc8d20f11241c211f"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/fbmc/fbmc_domain_uniform.csv",
+      "bytes": 43640,
+      "sha256": "e1e851fb129c18152086021e3d5f2b7e3875fe5b36577b8c2fb20d65dec16b7b"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/fbmc/fbmc_gsk_comparison.csv",
+      "bytes": 541,
+      "sha256": "fd0ed98f5b1de49efb96f8e4286867d813850caa765c903db4026a0db45d40bd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/fbmc/test_results.txt",
+      "bytes": 99,
+      "sha256": "bb42f0eec486f8f1d3c88a38cc85346fa3377db51f893913af6a7ebca181c011"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/manifest.json",
+      "bytes": 170,
+      "sha256": "ee26f0da9f7fd2d9d238adcb08ce55130e05c80e4a6cb73ea0c6ff7a0cbe01bf"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/rank_A.csv",
+      "bytes": 565,
+      "sha256": "b90968dae8776df3df02522845b5730d33ad96360efccc245dd8b0bcec144c64"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/rank_B.csv",
+      "bytes": 961,
+      "sha256": "b068ab9cedb5801d9e31db76d9781e9388b07ea19805969c0a5b2d3a5b186f8a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/security_limits_A.csv",
+      "bytes": 1549,
+      "sha256": "5f35b28944ead56fb28512b5fd25efffbfe11d96197706e612de92fc836761f3"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/security_limits_B.csv",
+      "bytes": 1324,
+      "sha256": "5878b5c4b266e669f30f17d89f872901ef563bd81016f6e5ebae6f8addb09ecd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/test_results.txt",
+      "bytes": 98,
+      "sha256": "fd2e2043c6a07a60ee8300927e2cbcdb6cc31aeab89b93213a6ebd666e9141fd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/validation_A.json",
+      "bytes": 140,
+      "sha256": "f400396d5238aef10a9ab9612f184ddef766a62baa1187c3c170af3b601bd978"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs/validation_B.json",
+      "bytes": 140,
+      "sha256": "f400396d5238aef10a9ab9612f184ddef766a62baa1187c3c170af3b601bd978"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/busmap_A.csv",
+      "bytes": 54,
+      "sha256": "2c2bd733e3a1900c483c1b4da9fe398e4ff838bc47c3db07aa0c5e1295eb7f90"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/busmap_B.csv",
+      "bytes": 54,
+      "sha256": "63b0aba364e0d6ddf3707eda5da7cd2d1576325f179c43510c0221a07674fe11"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/comparison.csv",
+      "bytes": 1479,
+      "sha256": "d983d7dc91595114966a1a0be6d84b70fdfdf8e84d0e255a62c9247c580ce6cd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/cuts_A.csv",
+      "bytes": 46,
+      "sha256": "173e431b9c231ab8a77b61905da7cbc7d68e6ea48f92c1308fbda537218fe402"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/cuts_B.csv",
+      "bytes": 42,
+      "sha256": "e981462082d7200083c90b3d80a320d8e788169687365e5a67bda18a93c7e9da"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/manifest.json",
+      "bytes": 170,
+      "sha256": "ee26f0da9f7fd2d9d238adcb08ce55130e05c80e4a6cb73ea0c6ff7a0cbe01bf"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/rank_A.csv",
+      "bytes": 565,
+      "sha256": "b90968dae8776df3df02522845b5730d33ad96360efccc245dd8b0bcec144c64"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/rank_B.csv",
+      "bytes": 961,
+      "sha256": "b068ab9cedb5801d9e31db76d9781e9388b07ea19805969c0a5b2d3a5b186f8a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/security_limits_A.csv",
+      "bytes": 1549,
+      "sha256": "5f35b28944ead56fb28512b5fd25efffbfe11d96197706e612de92fc836761f3"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/security_limits_B.csv",
+      "bytes": 1324,
+      "sha256": "5878b5c4b266e669f30f17d89f872901ef563bd81016f6e5ebae6f8addb09ecd"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/validation_A.json",
+      "bytes": 140,
+      "sha256": "f400396d5238aef10a9ab9612f184ddef766a62baa1187c3c170af3b601bd978"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/outputs_revision/validation_B.json",
+      "bytes": 140,
+      "sha256": "f400396d5238aef10a9ab9612f184ddef766a62baa1187c3c170af3b601bd978"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/pyproject.toml",
+      "bytes": 488,
+      "sha256": "e9dbf0b180f96c4d82cf6a2ac3c1fd34caa27fcbf0662486daaf098bfdcbcbae"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/run_demo.py",
+      "bytes": 476,
+      "sha256": "94b464b3b931050235b1eeca25b01418de7669159dc7773aa297a63c944fb056"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tests/test_core.py",
+      "bytes": 3047,
+      "sha256": "87a824a76bc5ea9a904f75ed4340f7439f758c7c8fc28fcd4b2fa2d9635a4805"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tests/test_fbmc_bridge.py",
+      "bytes": 3515,
+      "sha256": "6991921ebff913ff2d26688858f8341746406f8a20ddd38a051d556a28267e75"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tests/test_reference.py",
+      "bytes": 1189,
+      "sha256": "6c9efd940e2b72e078f9ed404d7bb5ee32298ff80bc8952a16cbe688e9e3bcef"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tests/test_security_projection.py",
+      "bytes": 3824,
+      "sha256": "bb22d089bfbe414a2781b50d2a76dee199d8ef25b25dd1a84323e6b8236d2349"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/__init__.py",
+      "bytes": 97,
+      "sha256": "351385ac1c13771ff786c7260b67542a499aa54322364b5aec142b9e2ea6eb16"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/aggregation.py",
+      "bytes": 2027,
+      "sha256": "1a136d29f7edf20026972e3513d73bd0304a4a99d515ccc2339c5c8d41d0f613"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/clustering.py",
+      "bytes": 2888,
+      "sha256": "692f65453a3a00386e73e090fa4d459a190aa4450d0d0d547b0aae484d0ad96a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/dc.py",
+      "bytes": 3680,
+      "sha256": "741d1d259f8817ef96e1041697939647afe541aa2e3c2401c107bd7a706e7827"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/demo.py",
+      "bytes": 6305,
+      "sha256": "7113fc918fe5e305513afdaa015f5a05ca71cc2460b76346792a1ab558416225"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/distribution.py",
+      "bytes": 3488,
+      "sha256": "496c491be09d6e43ca2ec06651a15c21ac26ce6f055799d52d352eb15f405527"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/equivalent.py",
+      "bytes": 4249,
+      "sha256": "ee2cffa67ce7ae542e6d63525040074f2755002400414bed2fc7edd45514c1c9"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/fbmc_bridge.py",
+      "bytes": 9439,
+      "sha256": "15e329b4ec637d2c3ded7d1376fd4e1418479262f2b5991776f74013cba6f870"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/offsets.py",
+      "bytes": 1630,
+      "sha256": "cdd3dda5a5a6f087f505ecbad36f0062893b36dbb5cb8900fea55747e58b2aaf"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/pypsa_adapter.py",
+      "bytes": 4112,
+      "sha256": "4bc8889719baaea241c06704da8b56e7da891ad1c8ea3964e4b3447166c0d3f5"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/screening.py",
+      "bytes": 1287,
+      "sha256": "e7a26e2e9289c60f4a35cfd2299115646c37799bcb57c14c5355c7b23c970ab4"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/security.py",
+      "bytes": 3533,
+      "sha256": "a3e543f6ba2a890430ebf0a78e519ecc14b2d8ee11a9ca98c77dbc3e9457442a"
+    },
+    {
+      "path": "revision_snapshot/IOSN_Revision_2026/code/tyndp_reduce/security_projection.py",
+      "bytes": 9650,
+      "sha256": "71b19b5c13ce79efac2d08b8c787a8aa1f595b83f25550f0428407c31a08c3be"
+    }
+  ]
+}

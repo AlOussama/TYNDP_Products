@@ -1,0 +1,13 @@
+{
+  "network": "synthetic 9 bus 15 line single AC island",
+  "hours": 120,
+  "train_hours": 80,
+  "n_zones": 5,
+  "seed": 20261016,
+  "method_A": "complete dispatch overload MWh",
+  "method_B": "RES availability minus load, capacity-proportional balance, average loading",
+  "references": ["uniform", "capacity", "merit_order"],
+  "merit_order_levels": [0.35, 0.60, 0.85],
+  "merit_order_weights": [0.30, 0.45, 0.25],
+  "note": "Demonstration configuration; numeric values are invented, not ENTSO-E inputs"
+}

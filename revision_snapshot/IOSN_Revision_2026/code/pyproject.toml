@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tyndp-pypsa-reduction-prototype"
+version = "0.1.0"
+description = "Experimental TYNDP-like network reduction method comparison with optional PyPSA adapter"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0"]
+
+[project.optional-dependencies]
+pypsa = ["pypsa>=1.4,<2"]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["tyndp_reduce*"]

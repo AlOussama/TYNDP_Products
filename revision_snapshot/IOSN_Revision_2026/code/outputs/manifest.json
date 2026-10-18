@@ -1,0 +1,7 @@
+{
+  "seed": 20261016,
+  "snapshots": 120,
+  "pypsa_execution": false,
+  "network": "synthetic 9 bus DC network",
+  "data_source": "generated invented data; NOT ENTSO-E"
+}

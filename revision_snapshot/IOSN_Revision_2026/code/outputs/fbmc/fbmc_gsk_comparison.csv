@@ -1,0 +1,4 @@
+gsk,market_zones,candidate_CNEC_N0_N1,candidate_with_sensitivity_ge_5pct,zero_NP_offset_rmse_MW,bilateral_A_to_B_MW,bilateral_A_to_C_MW,reference_feasible,status
+uniform,3,225,166,5.380335852598862,88.77044360499416,74.13968626876203,True,"synthetic research, no official RAM or markets"
+capacity,3,225,198,5.09231701045714,84.1839214180385,76.60538312656833,True,"synthetic research, no official RAM or markets"
+merit_order,3,225,211,4.87355303478624,69.35922276801014,65.4751738367935,True,"synthetic research, no official RAM or markets"
