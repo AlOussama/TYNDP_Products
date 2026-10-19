@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-16",
+  "authority": "ENTSO-E TYNDP 2026 IoSN methodology, consultation 2026-02-25",
+  "primary_source": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/tyndp-documents/TYNDP2026/TYNDP_2026_identification_of_system_needs_methodology_for_consultation.pdf",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "pypsa_runtime_installed": false,
+  "kernel_tests": 24,
+  "test_status": "PASS",
+  "real_network_integration": "NOT_EXECUTED",
+  "synthesis": "synthetic 9 bus DC / 3 bus triangle only; not ENTSO-E or Core RAM data",
+  "report_pdf_pages": {"band_I": 18, "band_II": 10, "combined": 28},
+  "note": "Historical validation metadata for 2026-10-16 revision, not an assertion about newer PDF renderings."
+}
