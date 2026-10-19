@@ -1,40 +1,32 @@
-# TYNDP Products — IoSN / PyPSA Research
+# TYNDP Products — IoSN Network Reduction Research
 
-Research artifacts for ENTSO-E TYNDP 2026 Identification of System Needs (IoSN) network reduction, PyPSA implementations, technology-specific PTDF, merit-order GSKs, N-1/LODF security and flow-based market coupling.
+Research prototype covering ENTSO-E TYNDP 2026 Identification of System Needs (IoSN), PyPSA spatial aggregation, technology-specific PTDF/GSK, merit-order references, N-1 security and flow-based market coupling.
 
-## Scientific scope
+## Start here
 
-- **Method A:** full-dispatch overload-energy clustering (IoSN-near).
-- **Method B:** RES-and-load structural line-loading clustering (research extension).
-- Exact spatial aggregation: `p_z = P p_d`, `f_z = Gamma f_d`, `A_z Gamma = P A_d`.
-- Technology-specific zonal PTDF: `H_z^(k) = Gamma H_d R_k`.
-- Equivalent reactance, structural zero-balance flow offsets, and N-1 transfer-capacity estimation.
-- Woodbury/dual-LODF analyses and FBMC CNEC/GSK/RAM connections.
+- [Scientific methodology, Band I](docs/current/IOSN_2026_Band_I_Wissenschaftliche_Methodik.md)
+- [PyPSA implementation and validation, Band II](docs/current/IOSN_2026_Band_II_PyPSA_Implementierung.md)
+- [Research audit and open gaps](docs/REPOSITORY_AUDIT.md)
+- [Source package](src/tyndp_reduce/), [tests](tests/), [examples](examples/)
+- [Synthetic results](results/synthetic/), [historic reports](docs/archive/), [historic artifacts](artifacts/)
 
-## Artifact-import status
+## Core methodology
 
-**Important:** This initial repository commit only establishes the project index. The previously generated binary reports, code archives and test artifacts **have not yet been uploaded to GitHub**. They are available in the conversation's attached download package and require a filesystem-enabled Git upload.
+1. **Method A:** dispatch-based annual overload-energy clustering (close to published IoSN description).
+2. **Method B:** RES/load-driven line-loading clustering (independent scientific extension).
+3. Sparse node/line aggregation `p_z=P p_d`, `f_z=Gamma f_d` and `A_z Gamma=P A_d`.
+4. Technology-specific PTDF `H_z^k=Gamma H_d R_k`, equal/capacity/merit-order reference distribution, structural no-load flows.
+5. Equivalent reactance calibration, statistical IoSN-near N-1 proxy, analytical CNEC/PTDF/LODF projection and conservative security derating.
+6. FBMC bridge for GSKs, CNEC and RAM analyses.
 
-A reproducibility claim must distinguish synthetic unit tests from an unperformed real-network PyPSA integration test.
+## Install and test
 
-## Planned structure
-
-```text
-docs/
-  methodology/
-  implementation/
-  archive/
-src/
-tests/
-examples/
-results/
-artifacts/
-provenance/
+```bash
+python -m pip install -e ".[test]"
+pytest -q
+python run_demo.py --output results/example_run
 ```
 
-The latest authoritative reports for the current analysis are titled:
-- `IOSN_2026_Band_I_Wissenschaftliche_Methodik` (PDF/DOCX/Markdown)
-- `IOSN_2026_Band_II_PyPSA_Implementierung` (PDF/DOCX/Markdown)
-- `IOSN_TYNDP2026_Wissenschaftlicher_Gesamtbericht_revidiert.pdf`
+Install `.[pypsa]` for the optional real-network PyPSA adapter. **Integration against an actual TYNDP network is not verified.** The provided CSVs are synthetic test outputs, not ENTSO-E observations.
 
-The complete chat-generated collection must be imported without silently relabelling synthetic results as ENTSO-E evidence.
+This repository retains previous publications/artifact versions as archival evidence; `docs/current/` and `src/` are the canonical entry points.
