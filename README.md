@@ -2,6 +2,10 @@
 
 Research prototype covering ENTSO-E TYNDP 2026 Identification of System Needs (IoSN), PyPSA spatial aggregation, technology-specific PTDF/GSK, merit-order references, N-1 security and flow-based market coupling.
 
+## Tutorials and reproducible comparisons
+
+Start with the **[step-by-step tutorial index](docs/TUTORIALS.md)** (German). It covers installing the package, running clustering A/B, PTDF-reference and F0 comparisons, N-1/LODF security, FBMC/GSK sensitivity, and optional real-network PyPSA preparation. A dedicated CLI creates ranked comparison tables from the synthetic demonstration's CSV.
+
 ## Start here
 
 - [Scientific methodology, Band I](docs/current/IOSN_2026_Band_I_Wissenschaftliche_Methodik.md)
