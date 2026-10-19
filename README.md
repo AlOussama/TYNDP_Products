@@ -10,6 +10,8 @@ Start with the **[step-by-step tutorial index](docs/TUTORIALS.md)** (German). It
 
 - [Scientific methodology, Band I](docs/current/IOSN_2026_Band_I_Wissenschaftliche_Methodik.md)
 - [PyPSA implementation and validation, Band II](docs/current/IOSN_2026_Band_II_PyPSA_Implementierung.md)
+- [IoSN 2026 representative weather-year selection and weighting (V1)](docs/current/IOSN_2026_Wetterjahrauswahl_konsolidierte_Methodik_2024_2022.md)
+- [FlexPlan D1.1 comparison and refined whole-year selection (V2)](docs/current/IOSN_2026_Wetterjahrauswahl_V2_FlexPlan_Vergleich_und_Verfeinerung.md)
 - [Research audit and open gaps](docs/REPOSITORY_AUDIT.md)
 - [Source package](src/tyndp_reduce/), [tests](tests/), [examples](examples/)
 - [Synthetic results](results/synthetic/), [historic reports](docs/archive/), [historic artifacts](artifacts/)
