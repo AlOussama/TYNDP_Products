@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tyndp-pypsa-reduction-prototype"
+version = "0.1.0"
+description = "TYNDP-IoSN network reduction and security-research prototype"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0"]
+
+[project.optional-dependencies]
+pypsa = ["pypsa>=1.4,<2"]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tyndp_reduce*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
