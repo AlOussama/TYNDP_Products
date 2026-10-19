@@ -4,7 +4,7 @@
 - 102 blobs in the original tree, including 20+ report/source variants, ZIP collections, source snippets, four tests, and synthetic CSV outputs.
 - Canonical source had been nested under `revision_snapshot/IOSN_Revision_2026/code/`, which made package discovery and CI setup difficult.
 - Identical reports/results occurred in multiple places; the original content is retained under `docs/archive/` and `artifacts/snapshots/`.
-- **Missing in the original extracted source tree:** `__init__.py`, `screening.py`, `security.py`, and `security_projection.py`. These were present within the retained original code ZIP and must be restored before tests are considered executable.
+- **Missing in the original extracted source tree:** `__init__.py`, `screening.py`, `security.py`, and `security_projection.py`. These were restored to the canonical src package on the review branch. The original code ZIP passes 24/24 local mathematical core tests (2026-10-19); remote CI and PyPSA integration must still be verified.
 
 ## Scientific and integration restrictions
 - IoSN normative algorithm is not fully public. The implementation is IoSN-near; do not claim exact ENTSO-E reproduction.
