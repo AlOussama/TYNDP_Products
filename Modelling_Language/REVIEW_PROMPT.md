@@ -17,7 +17,7 @@ Führe ein evidenzbasiertes, nach Möglichkeit reproduzierbares Review der vorha
 Unterscheide strikt:
 1. Requirements Clarification: Was muss ein Planungsprozess normativ/fachlich leisten?
 2. 1:1 Translation: Bleibt die mathematische und semantische Bedeutung bei der Konvertierung erhalten?
-3. Interoperation: Können heterogene Tools und Transformationsketten die Planungsfrage bearbeitet und Ergebnisse verglichen werden?
+3. Interoperation: Können heterogene Tools und Transformationsketten die Planungsfrage bearbeiten und die Ergebnisse belastbar vergleichen?
 4. Conformance: Interpretieren unabhängige Engines dieselbe freigegebene Formulierung korrekt?
 5. Robustness: Bleibt eine Planungsentscheidung bei plausiblen Methoden-, Modell-, numerischen und Zukunftsvarianten stabil?
 
