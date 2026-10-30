@@ -47,7 +47,7 @@ Geprüft am eingefrorenen Basiscommit: README.md, docs/REPOSITORY_AUDIT.md und d
 | **Sparlectra.jl** | CGMES-Import 2.4, 3; Exportquelle explizit 2.4 | D/C | C (2.4; 3 UNKNOWN) | deterministische mRID-Ausgabe, kein eigener SSI/SV-Deltadienst belegt | Julia-Netzmodell, **nicht Python** | fachliche CGMES-Importcommits 19.–24.10.2026; Release 1.0.0 25.10.2026 | unabhängige Referenz |
 | **SiennaSchemas** | **keine CGMES-Implementierung** | nein | nein | nein | JSON/OpenAPI, Python-/Julia-/SQL-Modellgeneratoren | lebhaftes Schema-Projekt 2026, aber **keine CGMES-Wartung** | evtl. Tabellen-/Units-Idee, nicht Parser |
 
-**Quellen:** [E1–E25] sowie die jeweils verlinkten Source-/Release-Anker. Die Feindifferenzierung in „ja/bedingt/UNKNOWN“ ist wichtiger als eine pauschale Unterstützt-Flagge.
+**Quellen:** [E1–E23] sowie die jeweils verlinkten Source-/Release-Anker. Die Feindifferenzierung in „ja/bedingt/UNKNOWN“ ist wichtiger als eine pauschale Unterstützt-Flagge.
 
 ### 3.1 Strikte Profilabdeckung (Untersuchungsstand, nicht Konformitätszertifikat)
 
