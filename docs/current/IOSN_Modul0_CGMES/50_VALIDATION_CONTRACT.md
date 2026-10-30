@@ -106,7 +106,7 @@ Alle Schwellen **sind interne Initialvorgaben** zur späteren Prüfung und Kalib
 | CRS, geografische Originalpunkte, DL | E bei Roh-/GL-Import | A: Bus x/y; N für volle Geometrie im Standard-PyPSA | E | N außer explizit neu gesetzte Geopositionen |
 | unbekannte/noch nicht gemappte CIM-Felder | E im unveränderten Source Graph | N ohne Sidecar | E unverändert, sonst BLOCK | N |
 
-**Datenverlustmeldung:** Jede Instanz von `A`/`N` mit Modellwirkung oder erforderlichem Exportinhalt erzeugt `loss_manifest(transaction_id, object, field_or_relation, reason, severity, physical_effect, acknowledgment)`; Summenbericht nach Typ und Profil. Kein automatisches „best effort“ ohne bestelltes Capability-Downgrade. Für kritische akustische? **Nein:** Die Schwere hängt ausschließlich von elektrischer/semantischer Wirkung ab; nur vorhandene definierte Domänen gelten.
+**Datenverlustmeldung:** Jede Instanz von `A`/`N` mit Modellwirkung oder erforderlichem Exportinhalt erzeugt `loss_manifest(transaction_id, object, field_or_relation, reason, severity, physical_effect, acknowledgment)`; Summenbericht nach Typ und Profil. Kein automatisches „best effort“ ohne bestelltes Capability-Downgrade. Die Schwere richtet sich ausschließlich nach elektrischer oder semantischer Wirkung sowie nach dem ausgewählten Exportmodus und dessen Pflichtfeldern.
 
 ## 4. Validierungsstrategie und Prüfkatalog T-01…T-24
 
