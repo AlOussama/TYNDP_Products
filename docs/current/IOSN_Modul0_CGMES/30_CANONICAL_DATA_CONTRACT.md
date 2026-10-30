@@ -76,7 +76,7 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 | `buses` | `(revision_id, operating_state_id, bus_id)`; FK `topological_nodes/countries` | `bus_id:U, topological_node_id:U, v_nom_kv:F[kV], carrier:E, country_code:S, island_id:U` | `substation_id:U?, voltage_level_id:U?, x:F?, y:F?, crs:S?, geo_quality:E?, v_set_pu:F[pu]?` | D |
 | `ac_islands` | `(revision_id, operating_state_id, island_id)` | `island_id:U, bus_count:I, active_branch_count:I, connectivity_status:E` | `slack_source_id:U?, boundary_touch_count:I?, solvability_status:E?` | D |
 
-**Konsequenz:** `country_code` kommt aus fachlich überprüften Substation-/Region-/Territory-Zuordnungen, nicht aus Koordinaten-Heuristik ohne Kennzeichnung. Ein auf zwei Länder verteiltes Asset hat **länderspezifische Endport-Zuordnungen**; seine Leitung selbst muss nicht eine einzige „physische Länder“-Wahrheit haben. `location_id` und alle Originalpositionen bleiben unverändert; zu `buses` projizierte x/y sind ausdrücklich DERIVED. `island_id` ist ein AC-Synchronisierungsverbund; HVDC-Links verschmelzen solche Inseln nicht.
+**Konsequenz:** Der aktive Geräte-Status wird aus `equipment_states` **und** dem maßgeblichen Terminal-/Switch-Zustand gewonnen, nicht aus einem unveränderlichen `in_service`-Feld der Leitungs- oder Transformer-Stammtabelle. `country_code` kommt aus fachlich überprüften Substation-/Region-/Territory-Zuordnungen, nicht aus Koordinaten-Heuristik ohne Kennzeichnung. Ein auf zwei Länder verteiltes Asset hat **länderspezifische Endport-Zuordnungen**; seine Leitung selbst muss nicht eine einzige „physische Länder“-Wahrheit haben. `location_id` und alle Originalpositionen bleiben unverändert; zu `buses` projizierte x/y sind ausdrücklich DERIVED. `island_id` ist ein AC-Synchronisierungsverbund; HVDC-Links verschmelzen solche Inseln nicht.
 
 ### 3.3 Passive Betriebsmittel, Transformatoren, Generatoren und Last
 
@@ -95,7 +95,7 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 | `regulating_controls` | `(revision_id, regulating_control_id, operating_state_id)`; FK `source_objects` | `mode:E, enabled:B, controlled_equipment_ids:J, target_terminal_id:U` | `target_value:F?, target_unit:S?, deadband:F?, discrete:B?, monitored_remote_bus_id:U?` | O |
 | `operating_states` | `operating_state_id:U`; FK `network_revision_id` | `state_kind:E{SSH,SV,DERIVED}, source_model_id:S, consistency_hash:S` | `scenario_time:TS?, pf_iteration:S?, loadflow_reference_id:U?, precedence_policy_id:S?` | O |
 
-***Zustandsabhängigkeit:*** `equipment.inService` und `Terminal.connected`/`Switch.open` gehören zur betrachteten Betriebs-/Topologiekonfiguration. Original-Parameter, technische P/Q-Grenzen und Unit-Associations sind von `operating_state_id` zu trennen, wo sie zeitinvariant sind. Die Tabellen kodieren den Snapshot-Schlüssel explizit, selbst wenn ein Input nur einen Snapshot enthält. Bei Import einer „unsolved“ Lieferung darf `SV` nicht mit synthetischen Nullen ersetzt werden.
+***Zustandsabhängigkeit:*** `equipment.inService` liegt in `equipment_states` und `Terminal.connected`/`Switch.open` in zustandsgebundenen Tabellen. Die in `switches` und `equipment_states` wiedergegebenen Service-Flags müssen widerspruchsfrei sein. Original-Parameter, technische P/Q-Grenzen und Unit-Associations sind von `operating_state_id` zu trennen, wo sie zeitinvariant sind. Die Tabellen kodieren den Snapshot-Schlüssel explizit, selbst wenn ein Input nur einen Snapshot enthält. Bei Import einer „unsolved“ Lieferung darf `SV` nicht mit synthetischen Nullen ersetzt werden.
 
 ### 3.4 HVDC, Boundary, Limits, State Variables und Export-Audit
 
@@ -135,7 +135,7 @@ Umrechnung einer Zweigimpedanz von Basis 1 nach 2: `z_pu,2 = z_pu,1 · (S_base,2
 
 | CGMES | Canonical | PyPSA | Gate |
 |---|---|---|---|
-| `ACLineSegment` `r,x` [Ω], `gch,bch` [S] als **gesamte** Serien-/Ladeparameter; End-Terminals | `ac_lines` `r_ohm,x_ohm,g_total_s,b_total_s`, echte Orientation | `Line(bus0,bus1,r,x,g,b,v_nom,s_nom)`, Parameter direkt, kein `Line.type`-Override | `z ≠ 0`, positive sinnvolle Basis, 2 aktive Endports, Gleichspannungsniveau ohne expliziten Transformator |
+| `ACLineSegment` `r,x` [Ω], `gch,bch` [S] als **gesamte** Serien-/Ladeparameter; End-Terminals | `ac_lines` `r_ohm,x_ohm,g_total_s,b_total_s`, echte Orientation | `Line(bus0,bus1,r,x,g,b,s_nom)` (Leitungs-Nennspannung kommt aus dem Anschluss-`Bus.v_nom`), Parameter direkt, kein `Line.type`-Override | `z ≠ 0`, positive sinnvolle Basis, 2 aktive Endports, Gleichspannungsniveau ohne expliziten Transformator |
 | `EquivalentBranch` `r,x` etc. | `equivalent_branches`, `branch_kind` und Herkunft | `Line` **nur** als gekennzeichnetes Ersatzmodell (nicht echte Leitung) oder dedizierter passiver Sonderadapter | Ersatzcharakter sichtbar, Steuereffekte nur bei nachgewiesener Äquivalenz |
 | `ACLineSegment` gesperrt/ausgeschaltet | Rohobjekt bleibt; aktiver Teilgraph ohne leitenden Zweig | `Line.active=False` oder keine aktive View-Zeile, abhängig von geprüfter PyPSA-Version | keine Neuanbindung über geöffnetes Switch-Objekt |
 
