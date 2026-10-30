@@ -133,7 +133,7 @@ Gates: **G0** Profil-/Datei-/Modell-Scope; **G1** Objekt-/FK- und Boundary-Integ
 ## 4. Entscheidungen, konservative Annahmen und Restrisiken
 
 1. **D-01:** Canonical v1.0 ist *logisch* tabellarisch, mit relationalen IDs und referenzierten Opaque-Attributen; ein physisches Format (Parquet, SQL, Arrow) ist noch keine Architekturvoraussetzung.
-2. **D-02:** Für freigegebene Übertragungs-Busse ist `country_code` MUSS; Geokoordinaten sind nullable und müssen bei Fehlen im Quality-Report erscheinen. Eine Geolücke ist **kein** Anlass für fiktive Koordinaten. Für räumliche Folgealgorithmen kann dies ein eigenes nachgelagertes Blocking-Gate sein.
+2. **D-02:** Für freigegebene Übertragungs-Busse ist `country_code` MUSS (bevorzugt ISO-3166-1 alpha-2; kontrollierter Sondercode nur mit Registry-/Provenienznachweis); Geokoordinaten sind nullable und müssen bei Fehlen im Quality-Report erscheinen. Eine Geolücke ist **kein** Anlass für fiktive Koordinaten. Für räumliche Folgealgorithmen kann dies ein eigenes nachgelagertes Blocking-Gate sein.
 3. **D-03:** Ein 3-Wicklungstransformator wird für PyPSA als Stern-Ersatz mit künstlichem internem Bus modelliert; das **ursprüngliche** dreipolige Equipment bleibt im Canonical-Graph erhalten.
 4. **D-04:** Die ungeprüfte Nutzung von PyPSA-`TransformerType` ist untersagt, wenn sie Quellparameter überschreiben würde; explizite Parameterübertragung hat Vorrang.
 5. **D-05:** HVDC wird für einen begrenzten steady-state Transportfall als steuerbarer Link/Portverbund abgebildet; differenzierte Verlust-/Regelmodelle werden nicht „exakt“ genannt.
