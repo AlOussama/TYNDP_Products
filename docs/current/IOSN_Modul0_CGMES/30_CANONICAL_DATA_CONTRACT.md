@@ -61,7 +61,7 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 
 | Tabelle | PK; FK | Pflichtfelder | Optional / Bedeutung | V |
 |---|---|---|---|---|
-| `countries` | `country_code:S` | `iso3166_1_alpha2:S, name:S` | `region_code:S?` | N |
+| `countries` | `country_code:S` | `name:S, country_registry_version:S` | `iso3166_1_alpha2:S?, region_code:S?, non_iso_extension_reason:S?` | N |
 | `substations` | `(revision_id, substation_id)`; FK `source_objects/countries` | `substation_id:U, country_code:S, name:S` | `source_object_id:U?, location_id:U?, tso_id:S?` | N |
 | `voltage_levels` | `(revision_id, voltage_level_id)`; FK `substations` | `substation_id:U, base_voltage_kv:F[kV], voltage_level_id:U` | `source_object_id:U?, nominal_name:S?` | N |
 | `locations` | `(revision_id, location_id)`; FK `source_objects` | `location_id:U, coordinate_system:S, location_type:E` | `source_object_id:U?, geometry_source:E?, route_geometry_type:E?` | N |
@@ -76,7 +76,7 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 | `buses` | `(revision_id, operating_state_id, bus_id)`; FK `topological_nodes/countries` | `bus_id:U, topological_node_id:U, v_nom_kv:F[kV], carrier:E, country_code:S, island_id:U` | `substation_id:U?, voltage_level_id:U?, x:F?, y:F?, crs:S?, geo_quality:E?, v_set_pu:F[pu]?` | D |
 | `ac_islands` | `(revision_id, operating_state_id, island_id)` | `island_id:U, bus_count:I, active_branch_count:I, connectivity_status:E` | `slack_source_id:U?, boundary_touch_count:I?, solvability_status:E?` | D |
 
-**Konsequenz:** Der aktive Geräte-Status wird aus `equipment_states` **und** dem maßgeblichen Terminal-/Switch-Zustand gewonnen, nicht aus einem unveränderlichen `in_service`-Feld der Leitungs- oder Transformer-Stammtabelle. `country_code` kommt aus fachlich überprüften Substation-/Region-/Territory-Zuordnungen, nicht aus Koordinaten-Heuristik ohne Kennzeichnung. Ein auf zwei Länder verteiltes Asset hat **länderspezifische Endport-Zuordnungen**; seine Leitung selbst muss nicht eine einzige „physische Länder“-Wahrheit haben. `location_id` und alle Originalpositionen bleiben unverändert; zu `buses` projizierte x/y sind ausdrücklich DERIVED. `island_id` ist ein AC-Synchronisierungsverbund; HVDC-Links verschmelzen solche Inseln nicht.
+**Konsequenz:** Der aktive Geräte-Status wird aus `equipment_states` **und** dem maßgeblichen Terminal-/Switch-Zustand gewonnen, nicht aus einem unveränderlichen `in_service`-Feld der Leitungs- oder Transformer-Stammtabelle. `country_code` verweist auf ein **versioniertes Länderregister** (ISO-3166-Werte, wo vorhanden; projektweit genehmigte Sondercodes wie `XK` nur explizit). Der Ländercode kommt aus fachlich überprüften Substation-/Region-/Territory-Zuordnungen, nicht aus Koordinaten-Heuristik ohne Kennzeichnung. Ein auf zwei Länder verteiltes Asset hat **länderspezifische Endport-Zuordnungen**; seine Leitung selbst muss nicht eine einzige „physische Länder“-Wahrheit haben. `location_id` und alle Originalpositionen bleiben unverändert; zu `buses` projizierte x/y sind ausdrücklich DERIVED. `island_id` ist ein AC-Synchronisierungsverbund; HVDC-Links verschmelzen solche Inseln nicht.
 
 ### 3.3 Passive Betriebsmittel, Transformatoren, Generatoren und Last
 
@@ -165,7 +165,7 @@ Für die PyPSA-View wird ein **synthetischer, eindeutig benannter Sternbus** `vi
 
 **Zustandsreihenfolge:** (1) Roh-Gültigkeit EQ/MAS/Boundary und Equipment/Terminal-FKs; (2) `inService`/`Terminal.connected`/`Switch.open` für den konkreten SSH-State; (3) Vereinigung der ConnectivityNodes **nur** über elektrisch geschlossene, leitende Switches; (4) Abgleich gegen geliefertes TP; (5) Erzeugung TopologicalNodes/Buses; (6) aktiver Zweiggraph und AC-Inseln; (7) Terminal-/Asset-Anschlussauflösung. `Switch.normalOpen` ist ein nominaler Hinweis, **kein** Ersatz des aktuellen `open`. Leitungen und Transformatoren verbinden Busse als **Impedanzzweige**, verschmelzen keine Knoten zu einem Bus. Geschlossene Schalter müssen nicht als Nullimpedanz-PyPSA-Leitung erzeugt werden. Offene Schalter dürfen nicht als Bus-Kurzschluss gelten.
 
-Boundary-Assemblierung nach Authority und Originalreferenz (CGMES 2.4.15 EQ_BD/TP_BD vs CGMES 3.0 EQ/Boundary-Regeln). Gemeinsame Objekte werden **referenziell**, nicht geometrisch, vereinigt. Mehrdeutige X-/Boundary-Nodes, abweichende BaseVoltage oder ungültige Cross-Model-Refs → BLOCK. Eine unsolved Importlieferung ohne TP ist nur zugelassen, wenn der dokumentierte topology-processor die Äquivalenz schlüssig ableiten kann.
+Boundary-Assemblierung nach Authority und Originalreferenz (CGMES 2.4.15 EQ_BD/TP_BD vs CGMES 3.0 Core-EQ/Boundary-Regeln mit ggf. zugelassenem EQBD-Übergangspfad). Gemeinsame Objekte werden **referenziell**, nicht geometrisch, vereinigt. Mehrdeutige X-/Boundary-Nodes, abweichende BaseVoltage oder ungültige Cross-Model-Refs → BLOCK. Eine unsolved Importlieferung ohne TP ist nur zugelassen, wenn der dokumentierte topology-processor die Äquivalenz schlüssig ableiten kann.
 
 ### 4.6 Erzeugung, Verbraucher, Shunts, Limits
 
@@ -329,6 +329,7 @@ Diese Spezifikation ist **solver-free**; noch nicht belegt sind die tatsächlich
 - **[C1]** ENTSO-E, [CGMES Library v2.4/v3.0](https://www.entsoe.eu/data/cim/cim-for-grid-models-exchange/).
 - **[C2]** IEC, [61970-600-2:2021 Exchange Profiles](https://webstore.iec.ch/en/publication/63867) und 61970-600-1:2021 (via C1).
 - **[C3]** ENTSO-E, [CGMES 2.4.15 profiles](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/140807_ENTSOE_CGMES_v2.4.15.pdf), [CGMES Implementation Guide](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/160315_ImplementationGuide_CGMES_2_4_15.pdf).
+- **[C6]** ENTSO-E, [Boundary and Reference Data Exchange v1.0](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/Boundary_and_reference_data_exchange_specification_v1.0.pdf), insbesondere CGMES-3.0-Übergang von EQBD zu Core-EQ.
 - **[C5]** [CGMES PowerTransformerEnd interpretation / 3-winding star](https://modellen.netbeheernederland.nl/cgmes/Short%20Circuit/PowerTransformerEnd/); am jeweiligen Profil zu verifizieren.
 - **[P1]** PyPSA, [Design & Components](https://docs.pypsa.org/latest/user-guide/design/).
 - **[P2]** PyPSA, [AC Power Flow: line/transformer admittance, signs and controls](https://docs.pypsa.org/latest/user-guide/power-flow/).
