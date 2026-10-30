@@ -82,8 +82,8 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 
 | Tabelle | PK; FK | Pflichtfelder | Optional / Bedeutung | V |
 |---|---|---|---|---|
-| `ac_lines` | `(revision_id, equipment_id)`; FK `equipment/terminal0/terminal1` | `terminal0_id:U, terminal1_id:U, r_ohm:F[Ω], x_ohm:F[Ω], g_total_s:F[S], b_total_s:F[S], in_service:B` | `length_km:F[km]?, is_underground:B?, r0_ohm:F?, x0_ohm:F?, asset_owner:S?` | N |
-| `equivalent_branches` | `(revision_id, equipment_id)`; FK `equipment/terminals` | `terminal0_id:U, terminal1_id:U, branch_kind:E, r_ohm:F[Ω], x_ohm:F[Ω], in_service:B` | `g_total_s:F[S]?, b_total_s:F[S]?, equivalent_source:E?, control_offset_deg:F?` | N |
+| `ac_lines` | `(revision_id, equipment_id)`; FK `equipment/terminal0/terminal1` | `terminal0_id:U, terminal1_id:U, r_ohm:F[Ω], x_ohm:F[Ω], g_total_s:F[S], b_total_s:F[S]` | `length_km:F[km]?, is_underground:B?, r0_ohm:F?, x0_ohm:F?, asset_owner:S?` | N |
+| `equivalent_branches` | `(revision_id, equipment_id)`; FK `equipment/terminals` | `terminal0_id:U, terminal1_id:U, branch_kind:E, r_ohm:F[Ω], x_ohm:F[Ω]` | `g_total_s:F[S]?, b_total_s:F[S]?, equivalent_source:E?, control_offset_deg:F?` | N |
 | `transformers` | `(revision_id, equipment_id)`; FK `equipment` | `winding_count:I{2,3}, source_mrid:S` | `s_rated_mva:F[MVA]?, vector_group:S?, model_preference:E?, magnetizing_loss_kw:F[kW]?` | N |
 | `transformer_ends` | `(revision_id, equipment_id, end_number)`; FK `transformers/terminals` | `terminal_id:U, rated_u_kv:F[kV], end_number:I, r_ohm:F[Ω], x_ohm:F[Ω], g_s:F[S], b_s:F[S]` | `rated_s_mva:F[MVA]?, connection_kind:E?, ground_impedance:J?, end_source_object_id:U?` | N |
 | `tap_changers` | `(revision_id, tap_changer_id, operating_state_id)`; FK `transformer_ends` | `tap_kind:E{RATIO,PHASE,OTHER}, transformer_id:U, end_number:I, low_step:I, high_step:I, neutral_step:I, current_step:I, regulating_enabled:B` | `step_voltage_increment_pct:F[%]?, x_step_parameters:J?, phase_step_table:J?, ratio_step_table:J?, control_target_id:U?, target_value:F?, target_unit:S?, ltc_flag:B?, phase_shift_deg:F[deg]?` | O |
@@ -102,7 +102,7 @@ Ein `terminal` verweist auf `equipment` und `connectivity_node`; eine zustandsab
 | Tabelle | PK; FK | Pflichtfelder | Optional / Bedeutung | V |
 |---|---|---|---|---|
 | `hvdc_systems` | `(revision_id, hvdc_system_id)`; FK `equipment?` | `topology_kind:E{POINT_TO_POINT,MULTITERMINAL,UNKNOWN}, source_authority_id:S, converter_count:I` | `technology:E{LCC,VSC,UNKNOWN}?, power_nom_mw:F?, loss_model_ref:U?, control_mode:E?` | N |
-| `hvdc_converters` | `(revision_id, converter_id, operating_state_id)`; FK `hvdc_systems/equipment/terminals` | `ac_terminal_id:U, converter_kind:E, is_in_service:B` | `dc_terminal_id:U?, voltage_dc_kv:F?, current_dc_a:F?, loss_coefficients:J?, p_min_mw:F?, p_max_mw:F?, control_mode:E?` | O |
+| `hvdc_converters` | `(revision_id, converter_id, operating_state_id)`; FK `hvdc_systems/equipment/terminals` | `ac_terminal_id:U, converter_kind:E, is_in_service:B` | `dc_terminal_id:U?, p_ac_inj_mw:F[MW]?, q_ac_inj_mvar:F[Mvar]?, voltage_dc_kv:F?, current_dc_a:F?, loss_coefficients:J?, p_min_mw:F?, p_max_mw:F?, control_mode:E?` | O |
 | `dc_branches` | `(revision_id, dc_branch_id)`; FK `hvdc_systems/dc_terminal_ids` | `dc_terminal0_id:U, dc_terminal1_id:U, branch_kind:E` | `r_ohm:F[Ω]?, current_limit_a:F[A]?, dc_voltage_kv:F[kV]?` | N |
 | `boundary_connections` | `(revision_id, boundary_id)`; FK `source_objects/terminals?` | `boundary_authority_id:S, model_a_id:S, model_b_id:S, join_kind:E, status:E` | `shared_source_mrid:S?, external_terminal_id:U?, equivalence_group:S?, original_cross_refs:J?` | N |
 | `operational_limit_sets` | `(revision_id, limit_set_id)`; FK `equipment/terminal?` | `equipment_id:U, limit_set_id:U, limiting_context:E` | `terminal_id:U?, authority_id:S?, applicability:J?, overload_management:J?` | N |
