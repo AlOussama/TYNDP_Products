@@ -25,7 +25,7 @@ CGMES **2.4.15** bezeichnet den historischen ENTSO-E-Anwendungsprofilstand von 2
 | SSH | Pflicht für betrieblichen Zustandsimport | Pflicht | Betrieb, Schalter, P/Q, Tap-Positionen |
 | TP | importieren/abgleichen, wenn geliefert; sonst aus EQ/SSH ableiten | analog | TopologicalNodes und Netztopologie |
 | SV | optional beim unsolved Import, erforderlich für SV-Referenzvergleich | analog | berechnete Referenzspannungen/-Terminalflüsse, **keine** Stammdaten |
-| EQ_BD / EQBD | bei Mehr-IGM/Boundary soweit vom Exchange benötigt | in IEC-2021 als eigenständiges Profil *deprecated*; Boundary nach gültigem EQ/Exchange-Profile-Pfad | Grenzmodell und Authority-Abgleich |
+| EQ_BD / EQBD | bei Mehr-IGM/Boundary soweit vom Exchange benötigt | in IEC-2021 *deprecated*; für neue Exchanges Core-EQ, EQBD befristet als Übergangspfad nach passender Exchange-Policy | Grenzmodell und Authority-Abgleich |
 | TP_BD / TPBD | bei entsprechendem 2.4.15-Boundary-Set | **nicht** als 3.0-Pflichtprofil fingieren | historische Boundary-Topologie |
 | GL | optionaler ergänzender Import; Pflicht der *Prüfung*, falls geliefert | analog | `Location`/`PositionPoint`/CRS |
 | DL, DY, SC, OP | nur referenziert/erhalten, sofern vorhanden; außerhalb Kernmodellierung | 3.0 ggf. `OP`/`SC`-Sicht | keine dynamische bzw. Kurzschluss-Simulation; verlustfreier unveränderter Pass-through in Modus 1 |
@@ -68,7 +68,7 @@ Gates: **G0** Profil-/Datei-/Modell-Scope; **G1** Objekt-/FK- und Boundary-Integ
 | REQ-014 | MUSS | Switch-Open, NormalOpen, Terminal-Connected, Equipment-inService getrennt behandeln | Varianten mit offen/geschlossen/out-of-service ergeben erwartete Inseln; keine implizite Kurzschlussbrücke | T-07 |
 | REQ-015 | MUSS | TP gegen aus EQ/SSH hergeleitete Topologie prüfen | Abweichung wird objektbezogen gemeldet; Override nur über explizite, versionierte Policy | T-08 |
 | REQ-016 | MUSS | Elektrische Inseln vollständig und deterministisch ableiten | Aktive AC-Knoten haben genau eine Insel; isolierte Knoten identifiziert; HVDC verbindet nicht AC-synchron | T-09 |
-| REQ-017 | MUSS | VoltageLevel/Substation/Country-Zuordnung erhalten | Für alle freigegebenen AC-Busse gültiges Land (ISO 3166-1 alpha-2); Herkunft und Abweichungen belegt | T-10 |
+| REQ-017 | MUSS | VoltageLevel/Substation/Country-Zuordnung erhalten | Für alle freigegebenen AC-Busse eindeutiger Country-Registry-Code (ISO 3166-1 alpha-2 oder explizit genehmigte Erweiterung); Herkunft belegt | T-10 |
 | REQ-018 | MUSS | Geopositionen plus CRS und Zuordnungstyp modellieren | Positionswerte nur mit deklariertem CRS; fehlend/mehrdeutig explizit; keine stillschweigende Koordinatenannahme | T-11 |
 | REQ-019 | SOLL | Geometrie von Leitungszügen und mehreren PositionPoints erhalten | — | T-11 |
 | REQ-020 | SOLL | Optionale Substation-Zentroiden nur als abgeleitete Approximation | — | T-11 |
@@ -148,6 +148,7 @@ Gates: **G0** Profil-/Datei-/Modell-Scope; **G1** Objekt-/FK- und Boundary-Integ
 - **[C1]** ENTSO-E, [CGMES Library; v2.4 und v3.0, IEC-Bezüge und Dokumente](https://www.entsoe.eu/data/cim/cim-for-grid-models-exchange/).
 - **[C2]** IEC, [TS 61970-600-2:2021, CGMES exchange profiles specification](https://webstore.iec.ch/en/publication/63867); und IEC TS 61970-600-1:2021 (*structure and rules*), siehe C1.
 - **[C3]** ENTSO-E, [CGMES 2.4.15 (2014), Profilübersicht](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/140807_ENTSOE_CGMES_v2.4.15.pdf), sowie [Implementation Guide](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/160315_ImplementationGuide_CGMES_2_4_15.pdf).
+- **[C6]** ENTSO-E, [Boundary and Reference Data Exchange Specification v1.0, §1](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/Boundary_and_reference_data_exchange_specification_v1.0.pdf): CGMES 3.0 ohne TPBD, EQBD im Übergang, Core-EQ bevorzugt.
 - **[C4]** ENTSO-E, [Questions and answers on CIM/CGMES data exchange v1.0.1](https://eepublicdownloads.entsoe.eu/clean-documents/CIM_documents/Grid_Model_CIM/QandA_on_CIM_CGMES_based_data_exchange_implementation_v1-0-1.pdf) (historische Versionseinordnung).
 - **[P1]** PyPSA, [Components und Attributverträge](https://docs.pypsa.org/latest/user-guide/design/), [Power Flow](https://docs.pypsa.org/latest/user-guide/power-flow/).
 - **[S1]** [SiennaSchemas – Single Source of Truth / unit-annotated schemas](https://github.com/Sienna-Platform/SiennaSchemas/blob/main/docs/PIPELINE.md).
