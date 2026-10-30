@@ -143,7 +143,7 @@ Gates: **G0** Profil-/Datei-/Modell-Scope; **G1** Objekt-/FK- und Boundary-Integ
 
 ## 5. Quellen und Vorrang
 
-**Projektprimärquelle:** [README](../../../../README.md), [REPOSITORY_AUDIT](../../../REPOSITORY_AUDIT.md), [Band II](../IOSN_2026_Band_II_PyPSA_Implementierung.md), jeweils Basiscommit; außerdem `src/tyndp_reduce/pypsa_adapter.py` (gleicher Commit).
+**Projektprimärquelle:** [README](../../../README.md), [REPOSITORY_AUDIT](../../REPOSITORY_AUDIT.md), [Band II](../IOSN_2026_Band_II_PyPSA_Implementierung.md), jeweils Basiscommit; außerdem `src/tyndp_reduce/pypsa_adapter.py` (gleicher Commit).
 
 - **[C1]** ENTSO-E, [CGMES Library; v2.4 und v3.0, IEC-Bezüge und Dokumente](https://www.entsoe.eu/data/cim/cim-for-grid-models-exchange/).
 - **[C2]** IEC, [TS 61970-600-2:2021, CGMES exchange profiles specification](https://webstore.iec.ch/en/publication/63867); und IEC TS 61970-600-1:2021 (*structure and rules*), siehe C1.
