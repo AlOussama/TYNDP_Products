@@ -1,0 +1,168 @@
+# IoSN Module 1 — logical interfaces specification
+# DOCUMENTATION ONLY: not a directly runnable Snakemake config.
+contract_id: IOSN-M1-MA1-LOGICAL-1.0.0
+status: STATIC_DESIGN__PHYSICAL_INPUTS_NOT_YET_WITNESSED
+date: 2026-11-01
+module_boundaries:
+  m0: DetailedNetworkReference_v1
+  m1: source_profiles_to_existing_pypsa_component_ids
+  m2: separate_downstream_grid_aggregation
+  forbidden_in_m1:
+    - cgmes_import
+    - create_or_aggregate_buses
+    - create_or_aggregate_generators
+    - change_existing_asset_p_nom_or_bus
+    - network_clustering
+    - weather_year_selection_or_temporal_reduction
+authoritative_source_refs:
+  m0_contract_commit: 0275f48231a0794bea324b9cab34700bb0de8f5b
+  pypsa_core_commit: 23650353eb1d059acfec28f4915ad3e068c085bf
+  pypsa_eur_commit: 1526bb820e25a9faa61f32b00bfc77dd05db6b2e
+  open_tyndp_tyndp2026_commit: 71a3a9a15b77114cd79458bceabc98e1a64dd58a
+m0_input_contract:
+  schema: DetailedNetworkReference_v1
+  must_contain:
+    - network_revision_id
+    - source_set_hash
+    - mapping_policy_hash
+    - pypsa_network
+    - m0_sidecar
+    - identity_mapping
+    - component_support_matrix
+    - provenance
+  static_components_to_fingerprint:
+    - buses
+    - lines
+    - transformers
+    - links
+    - shunt_impedances
+    - generators
+    - loads
+    - storage_units
+    - stores
+weather_manifest:
+  # Exactly five supplied by the upstream process; IDs NOT invented here.
+  selected_weather_ids: null
+  required_count: 5
+  selection_status: EXTERNALLY_FINALIZED
+  planning_horizons: null
+  required_per_source_file:
+    - source_dataset_id
+    - source_dataset_version
+    - corrected_dataset_revision
+    - source_uri_or_archive_reference
+    - source_sha256
+    - license
+    - planning_horizon
+    - weather_id
+    - climate_model_or_year_if_available
+    - spatial_level
+    - native_region_id
+    - variable_semantics
+    - unit
+    - timezone_and_time_origin
+    - time_interval_bounds
+  permitted_spatial_levels:
+    - ORIG
+    - PEON
+    - P2ON
+    - PEOF
+    - P2OF
+    - NUT2
+    - SZON
+    - TYNDP_NODE
+    - OTHER_EXPLICIT
+  missing_data_policy: FAIL_NO_AUTOMATIC_ZERO_OR_YEAR_FALLBACK
+spatial_contract:
+  source_id_key: [network_revision_id, existing_component_id]
+  preferred_methods_in_order:
+    - EXPLICIT_SOURCE_ID
+    - VERIFIED_PLANT_LOCATION_WITH_OFFICIAL_PECD_MASK
+    - VERIFIED_BUS_PROXY_WITH_SPATIAL_EVIDENCE
+    - CAPACITY_WEIGHTED_COMPOSITE_WITH_DOCUMENTED_MW_SHARES
+  forbidden_defaults:
+    - nearest_bus_without_evidence
+    - nearest_pecd_centroid_without_evidence
+    - use_synthetic_three_winding_star_bus_as_asset_location
+    - use_offshore_landfall_as_offshore_turbine_location
+    - replace_missing_profiles_with_zero
+  renewable_profile_map_fields:
+    - network_revision_id
+    - planning_horizon
+    - asset_id
+    - existing_generator_id
+    - existing_bus_id
+    - source_profile_id
+    - technology_variant
+    - spatial_level
+    - spatial_assignment_method
+    - geo_quality
+    - mapping_weight
+    - source_evidence_ref
+  weight_invariant: sum_of_source_profile_weights_per_generator_equals_1
+  preserve_electrical_bus_id: true
+  preserve_asset_nominal_capacity: true
+  source_native_profile_resolution: NEVER_INFLATE
+renewable_profiles:
+  output_index: [planning_horizon, weather_id, utc_naive_timestamp, existing_generator_id]
+  attribute: generators_t.p_max_pu
+  semantics: AVAILABLE_CAPACITY_FACTOR_NOT_DISPATCH
+  wind_units: MW_per_MW
+  photovoltaic_source_units: MW_per_MWp
+  photovoltaic_base_check: REQUIRED_AC_DC_AND_CLIPPING_SEMANTICS
+  source_technology_examples:
+    - Wind_Onshore
+    - Wind_Offshore
+    - Solar_PV_Rooftop
+    - Solar_PV_Utility
+  value_policy: CHECK_SOURCE_SPECIFIC_DOMAIN_NO_SILENT_CLIPPING
+hydro_profiles:
+  input_index: [planning_horizon, weather_id, hydro_source_area, hydro_technology, source_interval]
+  hydro_types:
+    HRR: RUN_OF_RIVER
+    HRI: RESERVOIR
+    HPI: PONDAGE
+    HOL: OPEN_LOOP_PUMPED_HYDRO
+    HCL: CLOSED_LOOP_PUMPED_HYDRO_NOT_IMPLICIT_NATURAL_INFLOW
+  possible_target_components:
+    - Generator
+    - StorageUnit
+    - Store_Link_System_WITH_M0_APPROVED_PORT_INTERFACE
+  source_semantics: MUST_DISTINGUISH_GENERATION_ENERGY_FROM_INFLOW_ENERGY
+  allocation_basis: EVIDENCE_BASED_HYDROLOGICAL_OR_TSO_MAPPING
+  temporal_upsampling: DOCUMENTED_ENERGY_CONSERVING_SOURCE_INTERVAL
+  output_index: [planning_horizon, weather_id, utc_naive_timestamp, existing_hydro_asset_id]
+  output_units: MW
+  required_energy_equality: "sum(inflow_mw*delta_hours) == assigned_source_inflow_mwh"
+  missing_data_policy: BLOCK_NOT_ZERO
+time_contract:
+  timezone_source: EXPLICIT
+  pypsa_snapshot_timezone: UTC_NAIVE_WITH_UTC_MANIFEST
+  required_resolution: SOURCE_HOURLY_FOR_WIND_PV
+  prohibit_time_reduction: true
+  leap_year_handling: EXPLICIT_AND_REPRODUCIBLE
+  demand_weather_id_must_match_renewables: true
+output_contract:
+  network_unit: ONE_COMPLETE_PYPSA_NETWORK_PER_HORIZON_AND_WEATHER_ID
+  naming_pattern: detailed_reference_{planning_horizon}_{weather_id}.nc
+  required_auxiliary_artefacts:
+    - source_manifest
+    - profile_catalog
+    - asset_profile_map
+    - hydro_allocation_map
+    - static_fingerprint_before_after
+    - qa_evidence
+  allowed_dynamic_attributes_by_default:
+    - generators_t.p_max_pu
+    - storage_units_t.inflow
+    - loads_t.p_set
+  other_dynamic_attributes: REQUIRE_EXPLICIT_APPROVAL
+  static_invariance: STRICT
+gates:
+  G1_A_UPSTREAM_REUSE_STATIC: PASS
+  G1_B_ARCHITECTURE_CONTRACT_DESIGN: PASS
+  G1_C_M0_REAL_PACKAGE: NOT_ASSESSED
+  G1_D_PECD_5_REAL_DATASETS: NOT_ASSESSED
+  G1_E_HYDRO_REAL_INPUT_AND_MAP: NOT_ASSESSED
+  G1_F_RUNTIME_COMPATIBILITY: NOT_EXECUTED
+  full_data_contract_freeze: BLOCKED_UNTIL_G1_C_D_E
