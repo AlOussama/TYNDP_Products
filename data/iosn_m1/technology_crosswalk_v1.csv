@@ -1,0 +1,11 @@
+m0_carrier,technology_variant,pecd_carrier,upstream_ref
+onwind,Wind_Onshore,Wind_Onshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+onwind-dres,Wind_Onshore,Wind_Onshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+onwind-sres,Wind_Onshore,Wind_Onshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+offwind-r,Wind_Offshore,Wind_Offshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+offwind-oh,Wind_Offshore,Wind_Offshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+offwind,Wind_Offshore,Wind_Offshore,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+solar,Solar PV Utility,Solar PV Utility,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+solar,Solar PV Rooftop,Solar PV Rooftop,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+solar-pv-utility,Solar PV Utility,Solar PV Utility,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
+solar-pv-rooftop,Solar PV Rooftop,Solar PV Rooftop,open-tyndp:tyndp-2026:data/tyndp_technology_map.csv
