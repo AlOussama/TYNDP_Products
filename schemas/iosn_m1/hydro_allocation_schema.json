@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IOSN MA3 Hydro Mapping Contract",
+  "contract_id": "IOSN-M1-MA3/1.0.0",
+  "csv": "hydro_region_to_existing_asset_map.csv",
+  "primary_key": [
+    "planning_horizon",
+    "network_revision_id",
+    "hydro_area_id",
+    "hydro_tech",
+    "asset_id"
+  ],
+  "required_columns": [
+    "planning_horizon",
+    "network_revision_id",
+    "hydro_area_id",
+    "hydro_tech",
+    "asset_id",
+    "share",
+    "mapping_basis",
+    "evidence_ref",
+    "conversion_factor",
+    "conversion_evidence_ref",
+    "port_generator_id",
+    "port_approval_ref",
+    "allowlist_approved"
+  ],
+  "hydro_tech": {
+    "HRR": "RUN_OF_RIVER",
+    "HRI": "RESERVOIR",
+    "HPI": "PONDAGE",
+    "HOL": "OPEN_LOOP_PHS",
+    "HCL": "CLOSED_LOOP_PHS_NO_NATURAL_INFLOW"
+  },
+  "allowed_mapping_basis": [
+    "HYDROLOGICAL_BASIN",
+    "TSO_APPROVED_SHARE"
+  ],
+  "share_policy": "Strictly positive; sum by (hydro_area_id,hydro_tech) == 1; native MWh allocated before model-energy conversion.",
+  "conversion": "factor in (0,1]; exact 1 for already modeled energy; hydraulic energy requires independent evidence",
+  "store_link": "target is existing Store, port is pre-existing Generator on same store bus; generators_t.p_set requires additional M0-approved allowlist; output staged, not automatically composed",
+  "generator": "HRR only; Generator.p_max_pu is available-energy power divided by immutable p_nom, never dispatch",
+  "missing_policy": "FAIL_NOT_ZERO"
+}

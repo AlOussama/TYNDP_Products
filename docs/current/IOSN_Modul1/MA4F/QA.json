@@ -1,0 +1,77 @@
+{
+  "contract": "IOSN-M1-MA4F-QA/1.0.0",
+  "date": "2026-11-01",
+  "repository": "AlOussama/TYNDP_Products",
+  "branch": "impl/iosn-m1-ma4f-fixture-integration-20261101",
+  "tested_code_commit": "cd71f36ddf07fb3ecc1cb4be5701a2586b9950c8",
+  "actions_run_id": 41315496732,
+  "actions_run_conclusion": "success",
+  "actions_job_id": 124874539484,
+  "evidence_artifact_id": 13087730084,
+  "status": "M1_MA4F_FIXTURE_INTEGRATION_QUALIFIED",
+  "evidence_class": "SYNTHETIC_FIXTURE",
+  "real_data_qualified": false,
+  "m2_release": false,
+  "pytest": {
+    "passed": 92,
+    "failed": 0,
+    "warnings": 52,
+    "duration_seconds": 9.83
+  },
+  "pypsa": {
+    "version": "1.4.0",
+    "full_static_component_tables_checked": 16,
+    "static_invariance": true,
+    "netcdf_roundtrip_scenarios": 5,
+    "source_load_profiles_preserved": true,
+    "default_elision": "LOSSLESS_IF_ENTIRE_SERIES_AND_STATIC_VALUE_EQUAL_PYPSA_DEFAULT"
+  },
+  "snakemake": {
+    "version": "9.13.3",
+    "dry_run": "PASS",
+    "complete_run": "PASS",
+    "steps_completed": 16,
+    "steps_total": 16,
+    "cores": 2
+  },
+  "fixture": {
+    "horizons": [
+      "2030"
+    ],
+    "weather_ids": [
+      "FIXTURE_WS_1",
+      "FIXTURE_WS_2",
+      "FIXTURE_WS_3",
+      "FIXTURE_WS_4",
+      "FIXTURE_WS_5"
+    ],
+    "snapshot_count": 2,
+    "dynamic_targets_per_scenario": 8,
+    "synthetic_network_only": true,
+    "output_netcdf_sha256": {
+      "FIXTURE_WS_1": "928f6ec13a468454e0dbb1d7d5d5b50d1d9681d38759692b589c115edbd4f390",
+      "FIXTURE_WS_2": "d332bf70622aa08b3cb4861c7d3465642740486d09cd3449468aaab2f0d356f0",
+      "FIXTURE_WS_3": "eacbc7d16d894d9ef7572baae9e88a857dcae1366eaa6b421ef596f923b8993f",
+      "FIXTURE_WS_4": "0687f99f367aecbdb6c26b2039099f38d5e7dd1dca1263b92bdeaf12f34be3f7",
+      "FIXTURE_WS_5": "49a6c70744b66075802aa39a8bdb45ca64b156e9d4e8b9c47a365e76b17a45e3"
+    }
+  },
+  "source_gate": {
+    "m0_dnr_real": "NOT_PROVIDED",
+    "real_pecd": "NOT_PROVIDED",
+    "real_hydro": "NOT_PROVIDED",
+    "real_five_weather_ids": "NOT_PROVIDED",
+    "real_dft": "NOT_PROVIDED",
+    "independent_review": "NOT_PERFORMED"
+  },
+  "runtime": {
+    "python": "3.11.17",
+    "pypsa": "1.4.0",
+    "pandas": "3.1.0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "xarray": "2025.10.1",
+    "snakemake": "9.13.3",
+    "pytest": "9.0.2"
+  }
+}

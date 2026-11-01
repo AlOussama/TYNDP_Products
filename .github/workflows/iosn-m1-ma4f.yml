@@ -1,0 +1,107 @@
+name: IOSN M1 MA4F synthetic integration
+on:
+  push:
+    branches:
+      - impl/iosn-m1-ma4f-fixture-integration-20261101
+  pull_request:
+    paths:
+      - scripts/iosn_m1/**
+      - rules/iosn_m1_*.smk
+      - Snakefile.iosn_m1_ma4f
+      - config/iosn_m1/**
+      - tests/iosn_m1/**
+      - .github/workflows/iosn-m1-ma4f.yml
+  workflow_dispatch:
+jobs:
+  synthetic-five-source-composition:
+    name: PyPSA / Snakemake five synthetic scenarios
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: ".:tests/iosn_m1"
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install immutable direct BOM
+        run: |
+          python -m pip install -r config/iosn_m1/MA4F_REQUIREMENTS.txt
+          python -m pip install --no-deps -e ".[test]"
+          python -m pip check
+          python -m pip freeze > ma4f-pip-freeze.txt
+          sha256sum config/iosn_m1/MA4F_REQUIREMENTS.txt > ma4f-bom-sha256.txt
+          python - <<'PY'
+          import importlib.metadata as i
+          import json, platform, hashlib, pathlib
+          names = ("pypsa", "numpy", "pandas", "scipy", "xarray",
+                   "shapely", "pyproj", "snakemake", "pytest", "PyYAML")
+          print(json.dumps({"python": platform.python_version(),
+               "platform": platform.platform(),
+               "versions": {n: i.version(n) for n in names},
+               "bom_sha256": hashlib.sha256(
+                  pathlib.Path("config/iosn_m1/MA4F_REQUIREMENTS.txt").read_bytes()).hexdigest()
+               }, indent=2))
+          PY
+      - name: Run full suite including both producers and MA4F negative tests
+        run: python -m pytest -q --disable-warnings --junitxml=ma4f-pytest.xml
+      - name: Materialize unambiguously synthetic M0 and five source sets
+        run: |
+          python tests/iosn_m1/fixture_ma4f.py --out /tmp/ma4f_fixture_e2e
+          test -f /tmp/ma4f_fixture_e2e/m0_synthetic_dnr.nc
+      - name: Snakemake combined DAG dry run
+        run: |
+          snakemake -s Snakefile.iosn_m1_ma4f \
+            --configfile /tmp/ma4f_fixture_e2e/snakemake_fixture_config.yaml \
+            --cores 2 --dry-run --printshellcmds \
+            > ma4f-snakemake-dry-run.log 2>&1 || { cat ma4f-snakemake-dry-run.log; exit 1; }
+          cat ma4f-snakemake-dry-run.log
+      - name: Execute complete five-scenario Snakemake composition
+        run: |
+          snakemake -s Snakefile.iosn_m1_ma4f \
+            --configfile /tmp/ma4f_fixture_e2e/snakemake_fixture_config.yaml \
+            --cores 2 --printshellcmds \
+            > ma4f-snakemake-execution.log 2>&1 || { cat ma4f-snakemake-execution.log; exit 1; }
+          cat ma4f-snakemake-execution.log
+      - name: Verify five PyPSA NetCDF artifacts and all M0 static fingerprints
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, pypsa
+          from scripts.iosn_m1.compose import static_fingerprints
+          root=Path("results/iosn_m1/detailed/2030")
+          reference=pypsa.Network("/tmp/ma4f_fixture_e2e/m0_synthetic_dnr.nc")
+          orig=static_fingerprints(reference)
+          reports=[]
+          for w in [f"FIXTURE_WS_{i}" for i in range(1,6)]:
+            path=root/w/f"detailed_reference_2030_{w}.nc"
+            qa=root/w/"qa.json"
+            assert path.is_file() and qa.is_file(), w
+            d=json.loads(qa.read_text())
+            assert d["status"]=="M1_MA4F_FIXTURE_INTEGRATION_QUALIFIED"
+            assert d["real_data_qualified"] is False and d["m2_release"] is False
+            assert d["m0_static_fingerprints_before"]==orig
+            assert d["m0_static_fingerprints_after"]==orig
+            assert static_fingerprints(pypsa.Network(path))==orig
+            reports.append({"id":w, "network_sha256":d["output_netcdf_sha256"],
+                            "targets":d["dynamic_targets"],
+                            "static_tables":d["m0_static_component_count"]})
+          print(json.dumps({"fixture_count":len(reports), "files":reports,
+                            "real_data_qualified":False, "m2_release":False},indent=2))
+          PY
+      - name: Preserve logs and evidence including failing jobs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iosn-ma4f-fixture-evidence
+          if-no-files-found: ignore
+          path: |
+            ma4f-pip-freeze.txt
+            ma4f-bom-sha256.txt
+            ma4f-pytest.xml
+            ma4f-snakemake-dry-run.log
+            ma4f-snakemake-execution.log
+            results/iosn_m1/detailed/**/qa.json

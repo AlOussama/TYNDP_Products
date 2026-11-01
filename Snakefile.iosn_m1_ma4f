@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: MIT
+# Synthetic-only integration entrypoint, not TYNDP real input or an M2 release.
+import json
+from pathlib import Path
+
+M1_CONF = config["iosn_m1_compose"]
+M1_MASTER = json.loads(Path(M1_CONF["master_manifest"]).read_text(encoding="utf-8"))
+if M1_MASTER.get("evidence_class") != "FIXTURE":
+    raise ValueError("MA4F Snakefile is FIXTURE-only, cannot execute real-data campaigns")
+M1_IDS = M1_MASTER["selected_weather_ids"]
+M1_HORIZONS = M1_MASTER["planning_horizons"]
+if len(M1_IDS) != 5 or len(set(M1_IDS)) != 5 or not M1_HORIZONS:
+    raise ValueError("Exactly five external weather IDs and nonempty horizons required")
+
+rule all:
+    input:
+        expand(M1_CONF["output_dir"] +
+               "/{horizon}/{weather_id}/detailed_reference_{horizon}_{weather_id}.nc",
+               horizon=M1_HORIZONS, weather_id=M1_IDS),
+        expand(M1_CONF["output_dir"] + "/{horizon}/{weather_id}/qa.json",
+               horizon=M1_HORIZONS, weather_id=M1_IDS),
+
+include: "rules/iosn_m1_res.smk"
+include: "rules/iosn_m1_hydro.smk"
+include: "rules/iosn_m1_compose.smk"

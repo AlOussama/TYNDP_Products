@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/iosn-m1/master-input/1.0.0",
+  "title": "IOSN-M1-MA4F-MASTER/1.0.0 (synthetic fixture subset)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "evidence_class",
+    "real_data_qualified",
+    "selected_weather_ids",
+    "planning_horizons",
+    "time_axis",
+    "m0_reference_id",
+    "input_sha256"
+  ],
+  "properties": {
+    "schema": {
+      "const": "IOSN-M1-MA4F-MASTER/1.0.0"
+    },
+    "evidence_class": {
+      "const": "FIXTURE"
+    },
+    "real_data_qualified": {
+      "const": false
+    },
+    "selected_weather_ids": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "planning_horizons": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "time_axis": {
+      "type": "object",
+      "required": [
+        "timezone",
+        "interpretation",
+        "snapshot_count",
+        "start_utc",
+        "end_utc_inclusive"
+      ],
+      "properties": {
+        "timezone": {
+          "const": "UTC"
+        },
+        "interpretation": {
+          "const": "UTC_NAIVE"
+        },
+        "snapshot_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_utc": {
+          "type": "string"
+        },
+        "end_utc_inclusive": {
+          "type": "string"
+        }
+      }
+    },
+    "m0_reference_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_sha256": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "m0_network",
+        "m0_sidecar",
+        "m0_reference_manifest",
+        "res_manifest",
+        "res_catalog",
+        "hydro_manifest",
+        "hydro_assets",
+        "hydro_allocations",
+        "bridge"
+      ],
+      "patternProperties": {
+        "^(m0_network|m0_sidecar|m0_reference_manifest|res_manifest|res_catalog|hydro_manifest|hydro_assets|hydro_allocations|bridge)$": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}
