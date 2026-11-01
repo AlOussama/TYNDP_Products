@@ -21,6 +21,7 @@
 | [96_M4_0_RUNRELEASE_POLICY_AND_GATES.md](96_M4_0_RUNRELEASE_POLICY_AND_GATES.md) | **M4-0 Ausführungsrichtlinie** | G0-Prüfbedingungen, kleine Security/RAM/CPU/ZIP/XML-Budgets, Runtime-/Lizenz-/Recovery-Stopregeln |
 | [97_M4_0_NEXT_MACRO_ASSIGNMENTS.md](97_M4_0_NEXT_MACRO_ASSIGNMENTS.md) | **Folgeaufträge / zwei Handoffs** | PoC-M1-Primärworker und unabhängiger T-06-Read-Only-Worker; spätere PoC-M2/M3-Trennung |
 | [98_M4_0_PREPARED_EXECUTION_CONTRACT.json](98_M4_0_PREPARED_EXECUTION_CONTRACT.json) | **maschinenlesbare Preflight-Evidenz** | Softwarekandidaten, Paket-/Quellanker, initiale Schutzbudgets und API-/RunRelease-Holds |
+| [99_S_GOV_M4_0_FINAL_EXECUTION_REPORT.md](99_S_GOV_M4_0_FINAL_EXECUTION_REPORT.md) | **M4-0-Abschluss und Handoff** | verifizierte statische Fakten, Python-first PowSyBl, offene Runtime-/Datenrechte-Gates und zwei vorbereitete Folgeaufträge |
 
 **Auslegungspriorität:** Der Original-REQ- und T-Katalog bleibt maßgeblich. **CAN/2.0.0 aus [85](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) hat bei den sieben identifizierten M3-P1-Konflikten Vorrang** gegenüber dem früheren 30/1.0.0-Tabellenregister und unpräzisierten M2-Passagen in 40/60/70. Für sonstige K-01…K-07-Konflikte gelten ADR [60](60_ARCHITECTURE_DECISION.md) und die Schnittstellen [40](40_SOFTWARE_ARCHITECTURE.md)/[70](70_IMPLEMENTATION_READINESS.md). Die historischen Arbeiterdokumente wurden nicht umgeschrieben.
 
