@@ -60,7 +60,7 @@ def static_fingerprints(network):
         data = {"columns": [str(c) for c in frame.columns],
                 "index": [str(c) for c in frame.index],
                 "dtypes": [str(t) for t in frame.dtypes],
-                "values": frame.to_json(orient="split", date_format="iso",
+                "values": pd.DataFrame(frame).to_json(orient="split", date_format="iso",
                                         date_unit="ns", double_precision=15)}
         hashes[name] = hashlib.sha256(
             json.dumps(data, sort_keys=True, allow_nan=False).encode("utf-8")).hexdigest()
@@ -203,12 +203,17 @@ def _validate_identity(sidecar, network):
     for bus, role in roles.items():
         guard(role in {"REAL", "SYNTHETIC_3W_STAR"}, "M0_UNSUPPORTED_BUS_ROLE")
         if role == "SYNTHETIC_3W_STAR":
-            guard(pd.isna(network.buses.at[bus, "x"]) and
-                  pd.isna(network.buses.at[bus, "y"]),
-                  "M0_SYNTHETIC_STAR_HAS_FABRICATED_GEOGRAPHY")
+            x, y = network.buses.at[bus, "x"], network.buses.at[bus, "y"]
+            # PyPSA 1.4 NetCDF import materializes missing geometry as 0,0
+            # defaults. These are SERIALIZATION PLACEHOLDERS, never geo evidence.
+            guard((pd.isna(x) and pd.isna(y)) or
+                  (float(x) == 0.0 and float(y) == 0.0),
+                  "M0_SYNTHETIC_STAR_HAS_NONPLACEHOLDER_GEOGRAPHY")
     star = sidecar["synthetic_three_winding"]
     guard(star.get("bus") in roles and roles[star["bus"]] == "SYNTHETIC_3W_STAR",
           "M0_3W_STAR_NOT_DECLARED")
+    guard(star.get("source_geo") is None and star.get("country_code") is None,
+          "M0_STAR_SIDECAR_FABRICATED_ORIGIN")
     guard(len(star.get("arms", [])) == 3 and
           set(star["arms"]) <= set(network.transformers.index),
           "M0_3W_ORIGINAL_ARMS_NOT_WITNESSED")

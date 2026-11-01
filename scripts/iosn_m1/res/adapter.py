@@ -104,7 +104,7 @@ def validate_m0(assets_path: Path, reference_manifest_path: Path) -> tuple[pd.Da
     df = df[df["res_profile_required"].eq("true")].copy()
     require(not df.empty, "M0_RES_TARGETS_EMPTY")
     df["p_nom_mw"] = [positive(v, "p_nom_mw") for v in df["p_nom_mw"]]
-    require(~df["bus_role"].eq("SYNTHETIC_3W_STAR").any(), "SYNTHETIC_GENERATOR_BUS")
+    require(not df["bus_role"].eq("SYNTHETIC_3W_STAR").any(), "SYNTHETIC_GENERATOR_BUS")
     return df, m0
 
 
