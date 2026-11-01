@@ -111,13 +111,15 @@
     "fixture_sha256_and_permission_witness": true,
     "enforced_security_policy": true,
     "staging_cas_fsync_recovery_verification": true,
-    "independent_t06_for_import_ready": true
+    "independent_t06_for_import_ready": true,
+    "python_metadata_and_manual_export_qualification": true
   },
   "work_orders": [
     {
       "role": "R-M0-POC1-IMPL-1",
       "branch": "implementation/iosn-m0-poc-m1-core-20261101",
-      "status": "PREPARED_NOT_STARTED"
+      "status": "PREPARED_NOT_STARTED",
+      "python_backend_first": true
     },
     {
       "role": "R-M0-T06-INDEPENDENT-1",
@@ -125,5 +127,36 @@
       "status": "PREPARED_NOT_STARTED"
     }
   ],
-  "overall": "M4_0_STATIC_PREFLIGHT_COMPLETE_WITH_NAMED_RUNRELEASE_HOLDS"
+  "overall": "M4_0_STATIC_PREFLIGHT_COMPLETE_WITH_NAMED_RUNRELEASE_HOLDS",
+  "python_api_evidence": {
+    "source_repository": "powsybl/pypowsybl",
+    "source_tag": "v1.16.1",
+    "network_python_blob": "b0901c4a50d96e4193e2e5bb8940c58fa50ed353",
+    "user_guide_blob": "f26f3ec1ce673fcf06720ed7694dde7936dd2d6a",
+    "metadata_test_blob": "test_network_extensions.py at v1.16.1",
+    "interface_methods": [
+      "pypowsybl.network.load",
+      "Network.update_from_file",
+      "Network.get_sub_networks",
+      "Network.get_sub_network",
+      "Network.save",
+      "pypowsybl.network.get_export_parameters",
+      "Network.get_extensions('cgmesMetadataModels')",
+      "Network.create_extensions('cgmesMetadataModels', dataframe)"
+    ],
+    "cgmes_metadata_fields": [
+      "id",
+      "cgmes_subset",
+      "description",
+      "version",
+      "modeling_authority_set",
+      "profiles",
+      "dependent_on",
+      "supersedes"
+    ],
+    "source_status": "PYTHON_API_SOURCE_VERIFIED_NO_RUNTIME",
+    "manual_igm_ssh_status": "PYTHON_SUBNETWORK_SAVE_AND_METADATA_API_PRESENT; MUTATION_EXISTING_IMPORT_METADATA_AND_VALID_CGM_DELIVERY_UNVERIFIED",
+    "required_approach": "PYTHON_FIRST_NO_CUSTOM_JAVA_SERVICE",
+    "fallback_decision": "ONLY_AFTER_EVIDENCED_MISSING_PYTHON_FEATURE_AND_OWNER_AUTHORIZATION"
+  }
 }
