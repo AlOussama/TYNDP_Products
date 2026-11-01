@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IOSN-M1-MA2-1.0.0: source, M0 and mapping table contracts",
+  "contract_id": "IOSN-M1-MA2-1.0.0",
+  "weather_manifest": {
+    "type": "object",
+    "required": ["selected_weather_ids", "planning_horizons", "evidence_class", "time_semantics", "full_native_year_required"],
+    "properties": {
+      "selected_weather_ids": {"type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+      "planning_horizons": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+      "evidence_class": {"enum": ["FIXTURE", "REAL_SOURCE_CANDIDATE"]},
+      "time_semantics": {"const": "HOURLY_UTC_NAIVE_OUTPUT"},
+      "full_native_year_required": {"type": "boolean"}
+    }
+  },
+  "m0_reference_manifest": {
+    "required": ["reference_type", "network_revision_id", "source_set_hash", "mapping_policy_hash", "asset_registry_sha256", "generator_count", "identity_ledger_ref", "sidecar_ref"],
+    "reference_type": "DetailedNetworkReference_v1"
+  },
+  "csv_tables": {
+    "m0_res_registry": ["network_revision_id", "asset_id", "existing_generator_id", "existing_bus_id", "carrier", "p_nom_mw", "bus_role", "geo_quality", "technology_variant", "res_profile_required"],
+    "source_catalog": ["planning_horizon", "weather_id", "source_profile_id", "technology_variant", "spatial_level", "region_id", "source_format", "file_path", "source_sha256", "source_dataset_id", "source_dataset_version", "corrected_dataset_revision", "license", "source_evidence_ref", "source_time_basis", "calendar_year", "weather_column", "source_unit", "geometry_ref", "spatial_source_crs"],
+    "asset_profile_map": ["network_revision_id", "planning_horizon", "asset_id", "existing_generator_id", "existing_bus_id", "source_profile_id", "technology_variant", "spatial_level", "spatial_assignment_method", "geo_quality", "mapping_weight", "segment_capacity", "capacity_basis", "source_evidence_ref"],
+    "technology_crosswalk": ["m0_carrier", "technology_variant", "pecd_carrier", "upstream_ref"]
+  },
+  "controlled_vocabulary": {
+    "technology_variant": ["Wind_Onshore", "Wind_Offshore", "Solar PV Utility", "Solar PV Rooftop"],
+    "spatial_level": ["ORIG", "PEON", "P2ON", "PEOF", "P2OF", "NUT2", "SZON", "TYNDP_NODE", "OTHER_EXPLICIT"],
+    "source_format": ["TYNDP_RAW10_DATE_HOUR", "TYNDP_DATE_HOUR", "ISO_CSV"],
+    "spatial_assignment_method": ["EXPLICIT_SOURCE_ID", "VERIFIED_PLANT_LOCATION_WITH_OFFICIAL_PECD_MASK", "VERIFIED_BUS_PROXY_WITH_SPATIAL_EVIDENCE", "CAPACITY_WEIGHTED_COMPOSITE_WITH_DOCUMENTED_MW_SHARES"],
+    "pv_clipping_policy": ["CLIP_AC_AT_P_NOM_WITH_APPROVED_EVIDENCE"]
+  }
+}

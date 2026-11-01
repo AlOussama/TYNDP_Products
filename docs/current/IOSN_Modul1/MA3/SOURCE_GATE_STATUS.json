@@ -1,0 +1,31 @@
+{
+  "macro": "M1-MA3",
+  "decision": "IMPLEMENTED_FIXTURE_ONLY__REAL_SOURCE_BLOCKED",
+  "date": "2026-11-01",
+  "source_gate": "M1_SOURCE_CONTRACT_BLOCKED",
+  "source_audit_commit": "f366f8162e1023ff959721d5fed14ad80dcba890",
+  "real_weather_ids_count_witnessed": 0,
+  "weather_ids_required": 5,
+  "real_hydro_bytes_count_witnessed": 0,
+  "real_m0_reference_packages_witnessed": 0,
+  "actual_hydro_basin_allocation_witnessed": false,
+  "real_native_interval_bounds_witnessed": false,
+  "approved_real_store_link_ports_witnessed": false,
+  "gates": {
+    "G1C_M0": "BLOCKED_NOT_PROVIDED",
+    "G1E_HYDRO": "BLOCKED_NOT_PROVIDED",
+    "FIVE_WEATHER_SOURCES": "BLOCKED_NOT_PROVIDED",
+    "STATIC_CODE": "IMPLEMENTED",
+    "FIXTURE_CI": "PASS_62_TESTS"
+  },
+  "real_data_pass": false,
+  "ci": {
+    "run_id": 41311811036,
+    "implementation_commit": "f4f721cb91b62bb880bcd0fbf61716205d7dc041",
+    "tests_passed": 62,
+    "conclusion": "success",
+    "classification": "SYNTHETIC_FIXTURE_AND_PROJECT_CORE_TESTS",
+    "run_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/41311811036",
+    "real_hydro_data_validation": false
+  }
+}

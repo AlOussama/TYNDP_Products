@@ -1,0 +1,8 @@
+# Standalone MA2 adapter and fixtures; Python >=3.11, isolated from core dependencies
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+xarray>=2024.1
+shapely>=2.0
+pyproj>=3.5
+pytest>=7

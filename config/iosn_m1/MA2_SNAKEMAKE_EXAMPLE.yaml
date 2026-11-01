@@ -1,0 +1,11 @@
+# Configuration template ONLY. Paths/weather IDs must be filled from the source witness.
+# Five externally selected IDs must be present in the JSON weather_manifest.
+iosn_m1_res:
+  weather_manifest: inputs/iosn_m1/weather_manifest.json
+  source_catalog: inputs/iosn_m1/source_catalog.csv
+  m0_res_registry: inputs/iosn_m1/m0_generator_registry.csv
+  m0_reference_manifest: inputs/iosn_m1/m0_reference_manifest.json
+  technology_crosswalk: data/iosn_m1/technology_crosswalk_v1.csv
+  asset_profile_map: inputs/iosn_m1/asset_profile_map.csv
+  geometry_registry: inputs/iosn_m1/official_pecd_masks.geojson
+  output_dir: resources/iosn_m1/res

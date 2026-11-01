@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IOSN MA3 source manifest contract",
+  "contract_id": "IOSN-M1-MA3/1.0.0",
+  "manifest_fields": [
+    "contract",
+    "source_mode",
+    "network_revision_id",
+    "source_set_hash",
+    "mapping_policy_hash",
+    "selected_weather_ids",
+    "sources",
+    "closed_loop_no_natural_inflow"
+  ],
+  "selected_weather_ids": {
+    "count": 5,
+    "source": "externally finalized; not inferable from Open-TYNDP's 3 scenario columns"
+  },
+  "source_required": [
+    "planning_horizon",
+    "weather_id",
+    "source_id",
+    "source_dataset_id",
+    "source_dataset_version",
+    "corrected_dataset_revision",
+    "source_uri",
+    "license",
+    "source_evidence_ref",
+    "hydro_area_id",
+    "hydro_tech",
+    "semantics",
+    "unit",
+    "resolution",
+    "timezone",
+    "path",
+    "sha256",
+    "temporal_distribution_policy",
+    "temporal_policy_evidence_ref"
+  ],
+  "source_interval_csv": {
+    "columns": [
+      "start",
+      "end",
+      "energy_mwh"
+    ],
+    "timestamp": "ISO-8601 with explicit offset matching IANA zone",
+    "interval": "[start,end); contiguous, strictly positive duration; DAY or WEEK, partial final intervals supported",
+    "energy_unit": "MWh per native interval; zero only if present in hashed real source"
+  },
+  "semantics": [
+    "STORAGE_ENERGY_EQUIVALENT_MWH",
+    "AVAILABLE_GENERATION_ENERGY_MWH",
+    "HYDRAULIC_ENERGY_MWH"
+  ],
+  "target_snapshot_csv": {
+    "columns": [
+      "timestamp",
+      "duration_hours"
+    ],
+    "utc": "explicit +00:00 offsets",
+    "step": "one hour; consecutive; no DST/local-time assumptions"
+  },
+  "closed_loop": "HCL has a declared no-natural-inflow policy with evidence, not fabricated zeros",
+  "real_witness": {
+    "ma1c_status": "M1_SOURCE_CONTRACT_WITNESSED",
+    "m0_status": "M0_REFERENCE_QUALIFIED",
+    "evidence_commit": "immutable SHA"
+  },
+  "prohibited": [
+    "fillna(0)",
+    "ffill() with 168/24-hour divisor",
+    "weather substitution",
+    "electric bus -> basin assignment",
+    "mutate any M0 component"
+  ],
+  "temporal_distribution": {
+    "allowed": [
+      "UNIFORM_WITHIN_NATIVE_INTERVAL"
+    ],
+    "meaning": "deterministic energy-conserving disaggregation only; not hourly hydro observation or generation",
+    "policy_evidence": "mandatory even for fixtures; independent approval required for real use"
+  },
+  "raw_tyndp_csv_normalization": {
+    "source_column": "explicit WS###, never choose first available",
+    "native_label": "WEEK or DAY",
+    "witnessed_bounds_columns": [
+      "period_key",
+      "start",
+      "end"
+    ],
+    "source_hash": "sha256 of bytes",
+    "bounds_hash": "sha256 of evidence",
+    "normalization": "scripts/iosn_m1/hydro/normalize_tyndp2026.py"
+  },
+  "pending_m0_contract_alignment": "Current MA1 logical network_revision_id bridge must be reconciled with M0 CAN/2.0.0 canonical_revision_id+projection_id before real integration"
+}
