@@ -16,7 +16,16 @@
     "G1E_HYDRO": "BLOCKED_NOT_PROVIDED",
     "FIVE_WEATHER_SOURCES": "BLOCKED_NOT_PROVIDED",
     "STATIC_CODE": "IMPLEMENTED",
-    "FIXTURE_CI": "AWAIT_FINAL_COMMIT"
+    "FIXTURE_CI": "PASS_62_TESTS"
   },
-  "real_data_pass": false
+  "real_data_pass": false,
+  "ci": {
+    "run_id": 41311811036,
+    "implementation_commit": "f4f721cb91b62bb880bcd0fbf61716205d7dc041",
+    "tests_passed": 62,
+    "conclusion": "success",
+    "classification": "SYNTHETIC_FIXTURE_AND_PROJECT_CORE_TESTS",
+    "run_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/41311811036",
+    "real_hydro_data_validation": false
+  }
 }
