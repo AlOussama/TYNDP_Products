@@ -1,3 +1,5 @@
+> **ARCHIVHINWEIS / SUPERSEDED (MACRO_PLAN_V1_HISTORY, 2026-11-01):** Die aktuelle Sollarchitektur und der aktuelle Makroplan für Modul 1 stehen in [IoSN-M1 V2](https://github.com/AlOussama/TYNDP_Products/blob/docs/iosn-m1-v2-native-pecd-and-macroplan-20261101/docs/current/IOSN_Modul1/40_NEXT_MACROS_AND_HANDOFFS_V2.md). Dieses Dokument bleibt zur historischen Rückverfolgbarkeit erhalten; frühere Evidenz-/Fixture-Entscheidungen werden nicht rückwirkend geändert. V2 berücksichtigt native PECD-SPV-ORIG-NetCDF, offizielle fractional-mask-NetCDF, automatisches Spatial Mapping auf bestehende Generator-IDs und die bereits bestandene MA4F-Integration sowie den MD1-Source-Blocker.
+
 # IoSN / TYNDP — M1 Spatial Resolution & Macro Execution Plan
 
 **Datum:** 01.11.2026  
