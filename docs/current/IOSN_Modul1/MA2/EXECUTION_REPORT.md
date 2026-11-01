@@ -34,7 +34,7 @@ Command (local Python 3.13 environment):
 PYTHONPATH=. pytest -q tests/iosn_m1/test_res_adapter.py
 ```
 
-**Result: 18 passed.** Verified five distinct weather-ID outputs, exact original IDs and two onshore generators using the same PEON series at different buses, offshore location-vs.-landfall guard, PV ORIG/region and DC→AC clipping, composite 40/60 MW shares, explicit source hashes, NetCDF roundtrip, no input M0 asset table or reference-manifest byte change. Negative tests: incomplete five sets, unselected WS fallback, corrupt/missing file, synthetic 3W bus, offshore bus proxy, ambiguous overlapping masks, missing PV evidence, invalid MW shares, missing native hour, local DST ambiguity/nonexistence, missing bus proxy provenance, wrong generator carrier. Also tested TYNDP raw10 parser and ISO UTC offset input.
+**Result: 20 passed.** Verified five distinct weather-ID outputs, exact original IDs and two onshore generators using the same PEON series at different buses, offshore location-vs.-landfall guard, PV ORIG/region and DC→AC clipping, composite 40/60 MW shares, explicit source hashes, NetCDF roundtrip, no input M0 asset table or reference-manifest byte change. Negative tests: incomplete five sets, unselected WS fallback, corrupt/missing file, synthetic 3W bus, offshore bus proxy, ambiguous overlapping masks, missing PV evidence, invalid MW shares, missing native hour, local DST ambiguity/nonexistence, missing bus proxy provenance, wrong generator carrier. Also tested TYNDP raw10 parser and ISO UTC offset input.
 
 Runtime module versions in local test environment: Python 3.13, pandas 2.2.3, xarray 2026.4.0, shapely 2.1.2, pyproj 3.7.2, pytest 9.0.2. **Snakemake was not installed, hence rules were statically prepared but not executed. PyPSA was not installed; neither network import/export nor composition was run.** No actual PECD source file or actual M0 sidecar was supplied to this execution; no real-data MW coverage claims.
 
@@ -43,7 +43,7 @@ Runtime module versions in local test environment: Python 3.13, pandas 2.2.3, xa
 | Gate | Status | Evidence/requirement |
 |---|---|---|
 | MA2-F0 contracts/static | PASS | Immutable MA1/M0 specs and Open-TYNDP reader/API study |
-| MA2-F1 input parsing, five fixtures | PASS / FIXTURE | 18 tests, native hour checks and source-hash guards |
+| MA2-F1 input parsing, five fixtures | PASS / FIXTURE | 20 tests, native hour checks and source-hash guards |
 | MA2-F2 original M0 IDs and source mapping | PASS / FIXTURE | all renewable fixture IDs covered, zero topology writes; real ID ledger unwitnessed |
 | MA2-F3 geo, offshore, PV, composite | PASS / FIXTURE | positive and negative geo/ratio/weight cases |
 | MA2-F4 source NetCDF roundtrip | PASS / FIXTURE | in-memory vs. reread `renewable_cf` exact numeric/index match |
@@ -62,3 +62,9 @@ Runtime module versions in local test environment: Python 3.13, pandas 2.2.3, xa
 4. Integration/runtime: Snakemake/PyPSA installed at approved pins, MA1C physical source witness, and independent end-to-end validation against original M0 network in MA4.
 
 **Decision:** `M1_RES_FIXTURE_QUALIFIED__REAL_DATA_GATE_BLOCKED`. This branch is suitable for isolated upstream review and subsequent real-data qualification but is not a declaration that M0 or the five weather datasets have been physically integrated.
+
+## 6. Concurrent MA1C actual-source witness, 2026-11-01
+
+The separate upstream physical-source audit was published on branch `research/iosn-m1-ma1c-source-witness-20261101` after implementation began. Its `CONTRACT_FREEZE_DECISION.md` declares `M1_SOURCE_CONTRACT_BLOCKED`. All five slots in `FIVE_WEATHER_ID_LEDGER.csv` remain `NOT_PROVIDED`, and the actual PECD bytes/masks and executed M0 DetailedNetworkReference package remain absent. This independently confirms the MA2 real-source block. The MA1C handoff further requires an M0 owner handshake on `network_revision_id` versus the possible newer `canonical_revision_id`/`projection_id` DNR/CAN-2.0.0 semantics; the MA2 implementation deliberately retains the frozen M1-MA1 YAML field until an approved versioned mapping is received.
+
+The 20th-test scope includes separate PEON/P2ON onshore and PEOF/P2OF offshore profile-code branches plus general IANA timezone verification. No five real weather IDs were inferred from official three-scenario TYNDP-2026 lists.
