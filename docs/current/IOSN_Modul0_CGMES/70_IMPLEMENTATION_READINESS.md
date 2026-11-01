@@ -1,0 +1,184 @@
+# M2 — 70 IMPLEMENTATION READINESS
+## Modul 0 CGMES/PyPSA: Capability-Matrix, vollständige REQ-Traceability, PoC-Makros und Releasegates
+
+**Stand:** 2026-11-01. **Status:** `M2_IMPLEMENTATION_CONTRACT_DESIGNED_NOT_EXECUTED`. Dieses Dokument beauftragt **keine** produktive Implementierung und stellt **keinen** numerischen oder CGMES-Konformitäts-PASS dar.
+**Fachliche Eingänge:** [10 Requirements](10_REQUIREMENTS.md), [20 Backend](20_BACKEND_ASSESSMENT.md), [30 Canonical](30_CANONICAL_DATA_CONTRACT.md), [40 Architecture](40_SOFTWARE_ARCHITECTURE.md), [50 Validation](50_VALIDATION_CONTRACT.md), [60 ADR](60_ARCHITECTURE_DECISION.md). Ursprüngliche R-M0-BACKEND und R-M0-CONTRACTS wurden unverändert aus den Arbeitercommits in S-GOV übernommen.
+
+## 1. Entscheidung zur Implementierungsbereitschaft
+
+**ARCHITEKTURBEREIT für einen unabhängigen statischen M3-Review**, nicht bereits technik- oder systemqualifiziert. Alle 39 MUSS-Anforderungen haben einen geplanten Modulowner und einen erwarteten späteren T-Test; die jeweils gewählten Capabilities dürfen bewusst an fehlender Backend-API, unvollständiger Datenlieferung oder inkompatibler elektrischer Projektion scheitern. `DESIGNED_NOT_EXECUTED` gilt für sämtliche T-01…T-24 und `QUAL-*`. Schema-/Graph-Kompatibilität mit PowSyBl, Reimport-/Export-Identity-Fidelity, AC-Ybus, echte Testdatenlizenzen und bestehende M1-Integration sind nicht nachgewiesen.
+
+**Minimaler erste Betriebsumfang:** Belegter einfacher Importpfad auf PowSyBl über das öffentliche Backend-Port-Interface → canonical object/terminals/topology + immutable original → elektrische positive-sequence View nach PyPSA, mit ausschließlicher **Import-/Projektion-Capability**. Exportfähigkeiten sind getrennt zu entwickeln und freizugeben; das Zieldesign muss sie jetzt berücksichtigen, aber ein erster Import-PoC wird nicht durch einen noch nicht gebauten Full-CGMES-Export blockiert.
+
+## 2. Arbeitspakete, Modulowner und Implementierungsschnitt
+
+| Implementierungspaket | Verantwortliche Module | Liefergegenstand / Schnittvertrag | Kritische Abhängigkeit | Aufwandklasse (relativ) |
+|---|---|---|---|---|
+| `P0 BACKEND-IN` | `backend`, `archive_provenance` | Pinned PyPowSyBl-Laufzeit, Original ZIP/XML+Manifest, Version-/Profile-Discovery, BackendSnapshot und gesicherter Quellenanker | CGMES-Version/Familienprofil, Header-/GL-/Identity-Zugänglichkeit | mittel bis hoch |
+| `P1 CANONICAL` | `canonical`, `archive_provenance` | normierte SQLite-Tabellen, Original-RDF-Identity-/Occurrence-Ledger, null/quality, transaktionale Revisionen | P0 Tabellen/API, K-03/K-04-Design | hoch |
+| `P2 ELECTRICAL` | `projection`, `pypsa_port` | Topologie, Units, Gen/Load, Lines, 2W/3W, Tap/PST, HVDC, Shunt/Limit-Loss, PyPSA DetailedNetworkReference v1 | Original SourceIDs, Backendedge-/Terminalpolicy, PyPSA Version | hoch |
+| `P3 EXPORT-UPDATE` | `export`, `archive_provenance`, `backend`, `validation` | Quell-/Allowlist-basierter ChangeSet, Backmapping, SSH-/SV-Profile, FullModel Dependencies, semantische Diff, atomare Delivery | gültiger Originalgraph, Backend-Write-API und Referenz-/Identity-Witness | hoch / hohes Risiko |
+| `P4 EXPORT-CREATE` | `export`, `backend`, `validation` | synthetische CIM-Objektkonstruktion, IDs, Profiles EQ/TP/SSH, spezielle SV-Regeln | zusätzliche Modellautoritäts-/Equipment-/Terminalattribute | sehr hoch; später |
+| `P5 QA-OPS` | `validation` + alle | Fixtures, Contract/Capability-Testharness, Lizenz-/Hash-Manifest, elektrische Referenzen, Speicher-/Load-Monitor | M2-REQ/T-Matrix, Version pins, Datenverfügbarkeit | mittel bis hoch |
+| `P6 M1-ADAPTER` | außerhalb M0, Folgeprojekt Modul 1 | komplexes DetailedNetworkReference mit PST/HVDC/Trafo/mehreren AC-Islands nutzen | eigener Owner-/Scopeentscheid nach P2 | nicht von M0 implizit geliefert |
+
+**PoC-Modulgrenze:** `P0`/`P1` werden bevorzugt im selben konsolidierten Implementierungsauftrag gestartet, nicht als isolierte Parser-Mikroaufträge. `P2` ergänzt die technische Gerätebreite; `P3` ist der priorisierte, aber separat freizugebende Exportpfad. `P4` kann unabhängig nach P2/Provenienzgrundlage geplant werden, ist nicht Voraussetzung für `P3`. `P6` bleibt im IoSN-Folgeprojekt.
+
+## 3. Fachliche Capability- und QA-Gates
+
+| Capability (extern sichtbarer Status) | Voraussetzungen | Qualifizierung / Tests | Kein zulässiger Ersatz |
+|---|---|---|---|
+| `CANONICAL_IMPORT_READY` | Version-/Profil-/Boundary-/Header-Gates, Quelle/Identität/FK-Integrität | `QUAL-FORMAT`, `QUAL-IDENTITY`, `QUAL-TOPO-GEO`; T-01…T-11 je relevant | Parser-OK ohne vollständige referenzierte Netzevidenz |
+| `PYPSA_ACPF_READY` | geeignete Stationär-AC-Geräte, Vorzeichen/Ybus/Slack/Islands, Loss | `QUAL-ELECTRICAL` + `QUAL-PYPSA`; T-12…T-20 und ggf. T-23 | Zeilenzahl gleich CGMES-Equipmentzahl |
+| `PYPSA_LPF_READY` | effective x_pu und PST-/Tap-/HVDC-affine Effekte, Isolierung/Balance qualifiziert | T-09, T-14, T-17, T-20 + LPF-Referenz | reine DC-Simplifikation durch Weglassen von PST/Links |
+| `REDUCTION_ADAPTER_READY` | aktueller M1-Adapter akzeptiert echte Komponenten und Input | `QUAL-M1-INTEGRATION`; T-20 + eigens autorisierter E2E-M1-Test | `PYPSA_ACPF_READY` oder `PYPSA_LPF_READY` |
+| `UPDATE_EXPORT_READY` | RawGraph, Quelle-/ID-Backmapping, allowlisted Delta und Header/Graph-Witness | `QUAL-UPDATE-EXPORT`; T-21, T-24 | Pfad `Network.save` existiert |
+| `CREATE_EXPORT_READY` | komplette explizite CIM-Neukonstruktionsattribute | `QUAL-CREATE-EXPORT`; T-22, T-24 | PyPSA-Tabellen ohne CIM-Semantik |
+| `SV_REFERENCE_QUALIFIED` | konsistente solved-EQ/TP/SSH/SV und qualifizierter AC-Referenzzustand | `QUAL-SV-REF`; T-23 | SV fehlt oder ist widersprüchlich |
+| `PERFORMANCE_QUALIFIED` | pinned CGM-Mehr-IGM-Dataset/Runtime/RAM/Timeout | `QUAL-OPS-PERF`; T-24 und Skalierungsfälle | kleines synthetisches 2-Bus-Netz |
+
+**Teststatusfelder:** pro (`backend name/version`, `CGMES family + actual URIs`, `dataset fixture hash`, `mapping policy hash`, `operating_state`, `target capability`) ein unabhängiger Status `PASS / CONDITIONAL_WITH_NAMED_GAPS / BLOCKED / NOT_ASSESSED`. `NOT_APPLICABLE_NO_SV` ist ein begründeter Nichttest, kein bestandener SV-Abgleich. Zusätzlich getrennte dokumentarische `ARCH-STATIC`-Abnahme in M3. Performance-/Datensicherheitsstatus darf nicht mit Standard-CGMES-Zertifizierung gleichgesetzt werden.
+
+## 4. Vollständige REQ-001…REQ-048-Traceability
+
+**Quellenklasse** aus `10_REQUIREMENTS.md` bleibt normativ. Spalte **Owner** benennt das vorwiegend zuständige Paket (weitere Module implizit beteiligt). **T** sind spätere Nachweise, nicht durch M2 ausgeführt. Alle MUSS, SOLL und OPTIONAL werden als zukünftige Scope-/Verifikationstabelle erhalten.
+
+| REQ | Klasse | Fachziel (kompakt) | Owner (Paket) | Verifikation |
+|---|---|---|---|---|
+| REQ-001 | MUSS | 2.4.15/3.0 profilgebunden | P0 | T-01 |
+| REQ-002 | MUSS | EQ/SSH, optional/differenziert TP/SV | P0 | T-01, T-02 |
+| REQ-003 | MUSS | Single-/Multi-IGM/CGM | P0, P1 | T-03 |
+| REQ-004 | MUSS | versionsgerechtes EQBD/TPBD/Boundary | P0 | T-03 |
+| REQ-005 | MUSS | Datei-/Modell-/RDF-/Profilmanifest | P0, P1 | T-01, T-04 |
+| REQ-006 | MUSS | Original-mRID und eigene IDs trennen | P1 | T-04 |
+| REQ-007 | MUSS | unbekannte Attribute nicht still verwerfen | P1, P3 | T-04, T-21 |
+| REQ-008 | MUSS | deterministischer Reimport/Update | P1, P3 | T-05 |
+| REQ-009 | MUSS | backendneutrales Canonical | P1 | T-06 |
+| REQ-010 | MUSS | Originalgraph für Export 1 erhalten | P0, P3 | T-21 |
+| REQ-011 | SOLL | GL/DL-Preservation | P0, P1 | T-11, T-21 |
+| REQ-012 | OPTIONAL | opake OP/SC/DY-Weitergabe | P0, P1 | T-21 |
+| REQ-013 | MUSS | Terminal/Connectivity/TopologicalNode-FKs | P1, P2 | T-07 |
+| REQ-014 | MUSS | Switch-/Terminal-/Equipment-Status separat | P1, P2 | T-07 |
+| REQ-015 | MUSS | TP gegen EQ/SSH-Topologie | P2 | T-08 |
+| REQ-016 | MUSS | korrekte AC-Inseln | P2 | T-09 |
+| REQ-017 | MUSS | Country-/Substation-/VoltageLevel | P1 | T-10 |
+| REQ-018 | MUSS | Geopositionen inkl. CRS-/Missing-Status | P1 | T-11 |
+| REQ-019 | SOLL | Line-Geometrie/PositionPoints | P1 | T-11 |
+| REQ-020 | SOLL | abgeleitete Substation-Zentroiden markieren | P1 | T-11 |
+| REQ-021 | MUSS | ACLine vs EquivalentBranch | P2 | T-12 |
+| REQ-022 | MUSS | 2W/3W-Transformatoren | P2 | T-13 |
+| REQ-023 | MUSS | Tap-/PST-Semantik und Control | P2 | T-14 |
+| REQ-024 | MUSS | Generator/Load/ExternalInjection | P2 | T-15 |
+| REQ-025 | MUSS | Shunt linear/nichtlinear | P2 | T-16 |
+| REQ-026 | MUSS | HVDC Converter-/DC-Ports | P1, P2 | T-17 |
+| REQ-027 | MUSS | Basis-/Einheitenumrechnung | P2 | T-12, T-13, T-18 |
+| REQ-028 | MUSS | Status vs. operationelle Limits | P1, P2 | T-19 |
+| REQ-029 | MUSS | Dauer-/Saison-/Richtungslimits | P1, P2 | T-19 |
+| REQ-030 | MUSS | Missing/Zero/Singularity/Conflict | P2, P5 | T-18 |
+| REQ-031 | MUSS | korrekte P/Q-/Branch-/HVDC-Vorzeichen | P2 | T-15, T-17 |
+| REQ-032 | SOLL | RegulatingControls/Capability Curves | P1, P2 | T-15 |
+| REQ-033 | OPTIONAL | erweiterte Generatortechnologie | P1 | T-15 |
+| REQ-034 | MUSS | versionierte YAML-Mapping-Policies | P2 | T-06 |
+| REQ-035 | MUSS | geprüfte Funktions-ID statt YAML-Formel | P2, P5 | T-12…T-18 |
+| REQ-036 | MUSS | SOURCE/DERIVED/DEFAULT/MISSING | P1, P5 | T-04, T-18 |
+| REQ-037 | MUSS | PyPSA detaillierte View | P2 | T-20 |
+| REQ-038 | MUSS | aktuelle M1-Adaptergrenzen belegen | P2, P6 | T-20 |
+| REQ-039 | MUSS | gefrorenes Originalnetz, getrennte Zeitreihen | P1, P2 | T-20 |
+| REQ-040 | MUSS | identitätstreuer UPDATE_IMPORTED | P3 | T-21 |
+| REQ-041 | MUSS | CREATE nur bei vollständigen CIM-Daten | P4 | T-22 |
+| REQ-042 | MUSS | eigener Loss Contract pro Exportmodus | P3, P4 | T-21, T-22 |
+| REQ-043 | MUSS | Import-/Export-Capabilities getrennt | P5 | T-21…T-24 |
+| REQ-044 | MUSS | atomare Exporte, reproduzierbares Audit | P3, P4, P5 | T-05, T-22 |
+| REQ-045 | MUSS | Validierung von Profil/Boundary/Elektrik/LF/RT | P5 | T-01…T-24 |
+| REQ-046 | SOLL | qualifizierte SV-AC-Referenz | P5 | T-23 |
+| REQ-047 | SOLL | Massen-/Partitionierungs-/Spaltenleistung | P1, P5 | T-24 |
+| REQ-048 | OPTIONAL | Data-Quality-Dashboard | P5 | T-24 |
+
+**MUSS-Abdeckung:** 39/39 erhalten explizite Architektur-/Implementierungsowner und geplante Testzuordnung. Alle REQ-X01…REQ-X08 bleiben **AUSSERHALB DES SCOPES** (keine positiven Implementierungsgates). Die Tabelle ist **Plan-Traceability**; kein Test ist damit ausgeführt. Bei der Implementierung muss später die REQ→Test→Fixture→Evidenz-Traceability pro Zeile maschinenlesbar ausgegeben werden.
+
+## 5. Alle T-01…T-24, Fixtures und Negativfälle
+
+Die Details und vorgeschlagenen numerischen internen Toleranzen in `50_VALIDATION_CONTRACT.md` bleiben maßgeblich. Hier werden Testpakete zugeordnet, sodass keine kleinen Subchats für Testfälle nötig sind.
+
+| Tests | Inhalt und relevante Fixture | Definierte Capability |
+|---|---|---|
+| T-01 / T-02 | `F04`: 2.4.15 und 3.0 Profiles/Headers, unsolved vs solved/SSH update | FORMAT / CANONICAL |
+| T-03 | `F04/F08`: Multi-IGM, Authority, versionierte Boundary, 3.0 ohne TPBD | FORMAT/IDENTITY |
+| T-04 | `F04`: MRID/RDF-Subject/cross-profile, opaque attrs, Identity-Kollision negativ | IDENTITY |
+| T-05 | `F04`: deterministischer Reimport, optimistischer Delta-Konflikt | IDENTITY/UPDATE |
+| T-06 | `F04`: zwei backendnormierte Snapshots + funktionsgesteuerte YAML v1 | CANONICAL PARITY, optional zweiter Adapter |
+| T-07 / T-08 | `F02`: ON/OFF, normalOpen, TP/SSH-Abweichung | TOPO |
+| T-09 | `F02/F05`: AC-Islands, HVDC, Slack/Balance | TOPO/ELECTRICAL |
+| T-10 / T-11 | `F04/F06`: country endpoints, synthetic-star NULL, CRS/GL-/Missing-Policy | GEO |
+| T-12 | `F01`: AC-Line PI, Ohm/Siemens, EquivalentBranch/Portumkehr | ELECTRICAL |
+| T-13 / T-14 | `F03`: 2W/3W, Ybus, RatedU, Ratio/PST und ±φ | ELECTRICAL |
+| T-15 / T-16 | `F01/F03`: P/Q-zeichen, Generator/PV/PQ/Slack, Shunts/ZIP | ELECTRICAL |
+| T-17 | `F05`: HVDC forward/reverse loss, two AC islands, MTDC unsupported | ELECTRICAL |
+| T-18 | `F01/F03`: Units/Base/Missing/Zero/NaN/singular | ELECTRICAL |
+| T-19 | `F06`: Grenzen nach Dauer, Terminal, Richtung, Saison | ELECTRICAL |
+| T-20 | `F01/F03/F05`: Detailed PyPSA, line-only positiv, komplexe M1-Adapter-REJECTION negativ | PYPSA / M1 |
+| T-21 | `F07`: originalgraphbasierter unchanged/delta reimport; Unknown Attr/Boundary | UPDATE EXPORT |
+| T-22 | `F07`: synthetischer CREATE mit vollständiger/unvollständiger Authority-/CIM-Spezifikation | CREATE EXPORT |
+| T-23 | `F01/F08`: eligible solved SV/PF, KCL, P/Q/V/Angle, gezielte Inkonsistenz | SV REF |
+| T-24 | `F07/F08`: Quality-/Loss-Metadaten, Regression, Versionspins, skalierte Benchmark-Reports | OPS/QA |
+
+**Verbindliche Fixturepolicy:** `F01` einfacher stationärer AC-Test, `F02` Switch-/TP-Topologie, `F03` 2W/3W/Tap/PST, `F04` IGM/CGM/Boundary/Identität, `F05` AC-Inseln mit HVDC, `F06` Limits/GL/CRS, `F07` Export-Profilpakete, `F08` lizenzierter echter CGMES-CGM/IGM-Fall. Im PoC müssen beide CGMES-Versionen getrennt mit Version/Profil-URI/Hash und Datasetlizenz qualifiziert werden; Release-/Profilabdeckung darf nicht aus einem Test einer einzigen Familie extrapoliert werden. Negative Fixturefälle (fehlerhafte Referenz, mRID-Kollision, unbekannter Tap, unvollständige Konstruktionspflichten) gehören zum Mussumfang der jeweiligen qualifizierten Capability. RealGrid-Größe oder die im SOPTIM-README behaupteten Fremdtests sind **keine hier ausgeführte Evidenz**.
+
+**Initiale numerische Schwellen** NUM-01…NUM-09 aus `50` sind Vorschläge, deren Einheiten-/Konditions-/Rundungs-Guards und reale Referenzqualität im PoC belegt werden müssen. Kein universeller AC-SV-Abnahmefehler aus einer einzigen Faustregel. `source_untouched_triples_changed_count=0` betrifft definierte, nicht veränderte semantische Quellmodelle bzw. unveränderte pass-through graph scopes, nicht eine pauschale byteidentische Ausgabe; XML-Reihenfolge und Präfixnamen sind kein semantischer Unterschied.
+
+## 6. Vier gebündelte Implementierungs-/Qualifikationsmakros nach späterer Owner-Freigabe
+
+### PoC-M1 — Import/Canonical/Kernmodell
+
+**Auftrag in einem Makro:** P0 + P1 + Kern-P2 + P5. Backendversionen/Core/PyPSA pinnen, geeignete 2.4.15 und 3.0 EQ/SSH(+TP, plus erforderliche Boundary) synthetische/lizenzierte Referenzfälle verwenden, immutable Original, Source Graph/ID-Ledger, Canonical/SQLite, Geobasis/Status, Line/Generator/Load/2W sowie einfache PyPSA-View. Die Interface-Verträge aller künftigen Module bleiben implementierbar, werden aber nicht künstlich als vollständige Prototypen angelegt.
+
+**Akzeptanz:** T-01…T-12, T-15, T-18, T-20 nach Kernfixture und capability-spezifischer Liste; 2.4/3.0-Version- und Boundary-Checks; dokumentierte Ablehnung statt stiller Sonderkomponentendrops. Erreichbare erste Capability: `CANONICAL_IMPORT_READY` und nach Elektrikchecks ein **begrenztes** `PYPSA_ACPF_READY` für geprüfte Geräteliste. Kein Export-PASS.
+
+### PoC-M2 — Sondergeräte, Multi-IGM/Boundary und Elektrik
+
+**Auftrag in einem Makro:** Vollständige P2-Gerätequalifikation: 3W-Stern-Y, Ratio-/Phase-Tap, PST-Offsets, Shunts, Generator Control, externe Netze, HVDC-Port/Loss-/Fahrtrichtungsmodelle, mehrdimensionale Limits, Geo/CRS, echte Multi-IGM-Assembly, elektrische Qualifikation von PyPSA-ACPF und LPF. Keine Integration der Zeitreihen oder Netzreduktion als verdeckte Zusatzaufgabe.
+
+**Akzeptanz:** T-03, T-07…T-20 und T-23, falls Referenz-SV tatsächlich geeignet. Genau ausgewiesene EXACT/APPROX/UNSUPPORTED pro Gerät; T-17 muss Reverse-Efficiency-Fehler ablehnen. Fehlende M1-Adapter-Fähigkeit bleibt `REDUCTION_ADAPTER_READY=NOT_ASSESSED/BLOCKED`, nie implizit grün.
+
+### PoC-M3 — Graphbasierter Update-Export
+
+**Auftrag in einem Makro:** P3; per Backend/CGMES-Version belegte `supported_write_fields`, Originalgraph-Lebenszyklus, eindeutiges mapping back zu Source IDs, SSH-/SV-Profilgenerierung samt Modelheader/Dependencies, Graph-Diff, atomare Freigabe, No-Delete-by-Omission, Cross-IGM-/Boundary- und unbekannte-CIM-Attribut-Gates. Explicit separate Stufe: SSH-only möglich; SV-only oder kombiniert erst mit einem qualifizierten berechneten Zustand.
+
+**Akzeptanz:** T-05, T-21 und T-24 für beide Versionen/qualifizierte Profile, inklusive negativer Nicht-Invertierbarkeit. `UPDATE_EXPORT_READY` **nur** falls der konkrete PowSyBl-Pfad Originalidentitäten-/Graph-Witness tatsächlich liefert; sonst `BLOCKED` mit ausgewiesener Alternative/Downscope, kein stiller eigener XML-Patcher.
+
+### PoC-M4 — Create-Export, Performance und Folgeadapter
+
+**Auftrag in einem Makro und nur separat freizugeben:** P4 + erweiterte P5-QA und ggf. Owner-getrennter M1-Adapter. Der generische Synthetic-Export aus vollständiger PyPSA-/Authority-/Equipment-Konstruktion wird eigenständig qualifiziert; Performance- und echte europäische Multi-IGM-Testsets nur mit zulässigen Datennutzungsrechten. Eine Änderung des aktuellen M1-Reduktionsadapters ist ein **eigener**, ausdrücklich autorisierter Folgeauftrag und darf nicht durch M0-Create-Export ausgelöst werden.
+
+**Akzeptanz:** T-22/T-24, vollständige EQ-/TP-/SSH-Profile mit kontrollierten mRIDs, ggf. SV nur nach tatsächlichem AC-PF, unabhängiger Reimport. `CREATE_EXPORT_READY` ≠ nachgewiesene ursprüngliche TSO-IGM-Äquivalenz; Performance und `REDUCTION_ADAPTER_READY` separate Gates.
+
+## 7. M3-Review-Gate, Freigabelogik und Entscheidungsbefugnis
+
+**M3 – ein einziger unabhängiger statischer Reviewer** prüft vollständig `00/10/20/30/40/50/60/70`, echte GitHub-Blobs/Commit und keine erfundene Evidenz. Er prüft Architektur/API-Konsistenz, sämtliche K-01…K-07, REQ-001…REQ-048, alle Pflicht-Traceabilitys, alle 24 T-Cases, CGMES-3.0/2.4.15-Profile, IDs, SourceGraph/Export, M0/M1-Grenze und Dokumentwidersprüche. Ohne Code-/Solver-/Parser-Ausführung, ohne Korrektur produktiver Dateien. Ergebnis `80_INDEPENDENT_ARCHITECTURE_REVIEW.md` auf eigenem Branch (M3-Handoff wird S-GOV nach verifiziertem M2-Commit ausgegeben).
+
+**M3 kann** `PASS` / `CONDITIONAL_WITH_NAMED_GAPS` / `REPAIRS_REQUIRED` beurteilen; bei P0/P1 wird maximal ein konsolidierter Korrekturdurchgang durch S-GOV empfohlen. Ein statischer PASS bedeutet `ARCHITECTURE_FROZEN_FOR_IMPLEMENTATION_PLANNING`, **nicht** `CANONICAL_IMPORT_READY` oder `UPDATE_EXPORT_READY`. Die spätere ausdrückliche Ownerfreigabe ist vor PoC-M1 bis PoC-M4 einzuholen; keine Asynchron-/Auto-Ausführung der Umsetzungsaufträge.
+
+## 8. Versions-/BOM- und Reproduzierbarkeitsregeln
+
+Vor dem ersten M4-PoC erfassen und pinnen: tatsächliche `PyPowSyBl`-Releaseversion, kompatibles PowSyBl-/Core/CGMES-Modul, verfügbare Import-/Exportformate/Parameter, Python- und Java-/Native-Runtime-Version, PyPSA Version (bestehender Projektbereich `pypsa>=1.4,<2` **nicht als installierter Befund**), SQLite-/Pandas-/Unit-/CRS-/XML-Sicherheitsabhängigkeiten, Schema- und Mappingvertrag, Datenfixture-Rechte/Hashes/Profil-URIs/Authority. VeraGrid-Version wird nur bei aktiviertem Fallback-PoC gepinnt. Paket-Lizenzen (MPL-2.0 / Apache-2.0 / PyPSA MIT u. a.) und Verbreitungsbedingungen getrennt verifizieren; keine Redistribution realer CGMES-IGMs ohne Nutzungsfreigabe.
+
+**Negative technische Ausführungsannahmen:** Keine automatischen API-Konvertierungen für unbekannte CGMES-Sonderklassen; keine Vollständigkeit durch gemappte Pfade allein; kein Formatwechsel ohne Canonical-Paritätscheck; keine unsichtbare Erstellung von Slack/Limit/Country/GL; keine volle lossless round-trip Behauptung; kein serielles Vollnetz in einem nativen GUI-abhängigen Arbeitsprozess, wenn Backend-CLI/API genügt.
+
+## 9. M2-Abschluss-Check
+
+| Kriterium | Entwurfsstatus |
+|---|---|
+| Vier Fachberichte und S-GOV-Evidenz berücksichtigt | `DOCUMENTED` |
+| K-01…K-07 explizit entschieden | `DOCUMENTED_IN_60` |
+| Architekturschichten/APIs/Port/Routing/Sequenzen definiert | `DOCUMENTED_IN_40` |
+| 39 MUSS mit Modulowner + T abgebildet | `DOCUMENTED_IN_70` |
+| T-01…T-24 mit Fixture-/Capability-/Negativrollen | `DESIGNED_NOT_EXECUTED` |
+| Primär/Fallback/technische Grenzen | `DOCUMENTED_IN_60` |
+| UPDATE_IMPORTED vs CREATE_FROM_PYPSA | `SEPARATE_CONTRACTS` |
+| Physische PoC-Persistenz, Canonical/Source ID, Länder | `DESIGN_ADOPTED_PENDING_REVIEW` |
+| Modul-1-Adapter Grenze | `SPECIFIED_UNQUALIFIED` |
+| Runtime-/CGMES-/PyPSA-/Export-Konformität | `NOT_ASSESSED` |
+
+**M2-Disposition:** `M2_ARCHITECTURE_DESIGNED_READY_FOR_INDEPENDENT_STATIC_REVIEW`, *sofern* alle drei neuen Dokumente vollständig und unverändert am finalen Commit lesbar sind und keine P0-Stellen im statischen Crosscheck verbleiben. Dies ist ein Governance-Dokument-Status, **kein ausgeführter technischer Gate-PASS**.
+
+**Fundament:** [Requirements](10_REQUIREMENTS.md), [Backend](20_BACKEND_ASSESSMENT.md), [Canonical](30_CANONICAL_DATA_CONTRACT.md), [Validation](50_VALIDATION_CONTRACT.md), [Architecture](40_SOFTWARE_ARCHITECTURE.md), [ADR](60_ARCHITECTURE_DECISION.md).
