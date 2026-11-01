@@ -1,3 +1,5 @@
+> **ARCHIVHINWEIS / SUPERSEDED (ARCH_V1_HISTORY, 2026-11-01):** Die aktuelle Sollarchitektur und der aktuelle Makroplan für Modul 1 stehen in [IoSN-M1 V2](https://github.com/AlOussama/TYNDP_Products/blob/docs/iosn-m1-v2-native-pecd-and-macroplan-20261101/docs/current/IOSN_Modul1/00_CANONICAL_ARCHITECTURE_V2.md). Dieses Dokument bleibt zur historischen Rückverfolgbarkeit erhalten; frühere Evidenz-/Fixture-Entscheidungen werden nicht rückwirkend geändert. V2 berücksichtigt native PECD-SPV-ORIG-NetCDF, offizielle fractional-mask-NetCDF, automatisches Spatial Mapping auf bestehende Generator-IDs und die bereits bestandene MA4F-Integration sowie den MD1-Source-Blocker.
+
 # IoSN / TYNDP — M1 Softwarearchitektur: PECD- und Hydro-Zeitreihen für das detaillierte PyPSA-Referenznetz
 
 **Datum:** 30.10.2026  
