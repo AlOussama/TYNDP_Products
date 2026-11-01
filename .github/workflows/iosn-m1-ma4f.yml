@@ -29,8 +29,8 @@ jobs:
           python-version: "3.11"
       - name: Install immutable direct BOM
         run: |
-          python -m pip install -e ".[test]"
           python -m pip install -r config/iosn_m1/MA4F_REQUIREMENTS.txt
+          python -m pip install --no-deps -e ".[test]"
           python -m pip check
           python -m pip freeze > ma4f-pip-freeze.txt
           sha256sum config/iosn_m1/MA4F_REQUIREMENTS.txt > ma4f-bom-sha256.txt
