@@ -112,9 +112,19 @@ def test_five_weather_compositions_and_all_static_component_invariance(integrate
         composed = pypsa.Network(str(p["output_network"]))
         assert static_fingerprints(composed) == original
         assert composed.loads_t.p_set.equals(base.loads_t.p_set)
-        assert set(composed.generators_t.p_max_pu) == {
+        expected_generators = {
             "G-CGMES-ON1", "G-CGMES-ON2", "G-CGMES-OFF",
             "G-CGMES-PVU", "G-CGMES-PVR", "G-CGMES-ROR"}
+        assert set(composed.generators_t.p_max_pu) <= expected_generators
+        for identifier in expected_generators:
+            if identifier in composed.generators_t.p_max_pu:
+                assert len(composed.generators_t.p_max_pu[identifier]) == 2
+            else:
+                # PyPSA intentionally elides time-series which exactly equal
+                # the physical default; their meaning survives via static.
+                assert any(e["target_id"] == identifier
+                           for e in qa["pypsa_default_elision_ledger"])
+                assert composed.generators.at[identifier, "p_max_pu"] == 1.0
         assert set(composed.storage_units_t.inflow) == {
             "existing-su-101", "existing-su-102"}
         assert np.allclose(composed.storage_units_t.inflow["existing-su-101"], 1.2)

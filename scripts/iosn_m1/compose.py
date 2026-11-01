@@ -338,16 +338,38 @@ def _roundtrip(network, original_fingerprint, original_weights,
               "PYPSA_NETCDF_STATIC_COMPONENT_ROUNDTRIP_MISMATCH")
         guard(copied.loads_t.p_set.equals(before_load),
               "PYPSA_NETCDF_LOAD_PROFILE_ROUNDTRIP_MISMATCH")
+        default_elisions = []
         for comp, attr, target, values, _ in target_values:
-            out = copied.components[comp].dynamic[attr]
-            guard(target in out.columns and out.index.equals(copied.snapshots),
-                  "PYPSA_NETCDF_DYNAMIC_TARGET_MISSING: " + comp + "." + attr +
-                  "[" + target + "] columns=" + repr(list(out.columns)) +
-                  " index_equals=" + str(out.index.equals(copied.snapshots)))
-            np.testing.assert_allclose(out[target].to_numpy(dtype=float), values,
-                                       rtol=0, atol=1e-12)
+            component = copied.components[comp]
+            out = component.dynamic[attr]
+            if target in out.columns:
+                guard(out.index.equals(copied.snapshots),
+                      "PYPSA_NETCDF_DYNAMIC_INDEX_MISMATCH: " + comp + "." + attr)
+                np.testing.assert_allclose(out[target].to_numpy(dtype=float), values,
+                                           rtol=0, atol=1e-12)
+                continue
+            # PyPSA v1.4.0 _export_to_exporter intentionally omits time-series
+            # columns whose every value equals the component default. A missing
+            # column may therefore be lossless *only* for this one strict case;
+            # static attributes must still exactly preserve the implied value.
+            default = component["defaults"].at[attr, "default"]
+            static = component.static
+            static_value = static.at[target, attr] if attr in static.columns else default
+            guard(pd.notna(default) and pd.notna(static_value) and
+                  float(default) == float(static_value) and
+                  np.array_equal(np.asarray(values, dtype=float),
+                                 np.full(len(values), float(default))),
+                  "PYPSA_NETCDF_NONDEFAULT_DYNAMIC_TARGET_MISSING: " +
+                  comp + "." + attr + "[" + target + "]")
+            default_elisions.append({
+                "component": comp, "attribute": attr, "target_id": target,
+                "implied_value": float(default),
+                "reason": "PYPSA_1_4_ELIDES_ALL_DEFAULT_TIMESERIES",
+                "semantics_verified_on_import": True,
+            })
         guard(not outfile.exists(), "REFUSE_EXISTING_OUTPUT_NETCDF")
         os.replace(staged, outfile)
+        return default_elisions
     finally:
         staged.unlink(missing_ok=True)
 
@@ -384,8 +406,9 @@ def compose(*, m0_network, m0_sidecar, m0_reference_manifest,
     guard(network.loads_t.p_set.equals(loads_before), "M0_EXISTING_LOADS_OVERWRITTEN")
     validate_untouched_dynamics(dynamic_before, network, written)
     guard(static_fingerprints(network) == static_before, "M0_STATIC_CHANGED_AFTER_QA")
-    _roundtrip(network, static_before, weights, targets, Path(output_network),
-               loads_before)
+    default_elisions = _roundtrip(
+        network, static_before, weights, targets, Path(output_network),
+        loads_before)
     return {
         "status": "M1_MA4F_FIXTURE_INTEGRATION_QUALIFIED",
         "evidence_class": "SYNTHETIC_FIXTURE",
@@ -400,6 +423,8 @@ def compose(*, m0_network, m0_sidecar, m0_reference_manifest,
         "m0_static_fingerprints_after": static_fingerprints(network),
         "static_invariance": "PASS_ALL_COMPONENT_TABLES",
         "loads_t_p_set_preserved": True,
+        "pypsa_default_elision_ledger": default_elisions,
+        "roundtrip_semantics": "EXACT_NONDEFAULT_AND_VERIFIED_IMPLICIT_STATIC_DEFAULTS",
         "snapshot_count": len(grid), "dynamic_targets": len(targets),
         "target_ownership": ledger, "staged_store_link_written": 0,
         "output_netcdf_sha256": sha256(output_network),
