@@ -159,3 +159,18 @@ def test_unknown_native_energy_or_nan_cannot_be_filled_with_zero(tmp_path):
     c = fixture_case(tmp_path)
     c["manifest"]["sources"][0]["unit"] = "MW"
     invalid(c, "must be MWh")
+
+
+def test_explicit_temporal_policy_and_evidence_are_mandatory(tmp_path):
+    c = fixture_case(tmp_path)
+    c["manifest"]["sources"][0]["temporal_distribution_policy"] = ""
+    invalid(c, "temporal policy")
+    c = fixture_case(tmp_path)
+    c["manifest"]["sources"][0]["temporal_policy_evidence_ref"] = ""
+    invalid(c, "temporal policy evidence")
+
+
+def test_historical_generation_product_cannot_masquerade_as_natural_inflow(tmp_path):
+    c = fixture_case(tmp_path)
+    c["manifest"]["sources"][0]["hydro_tech"] = "HRG"
+    invalid(c, "cannot be assigned natural inflow")
