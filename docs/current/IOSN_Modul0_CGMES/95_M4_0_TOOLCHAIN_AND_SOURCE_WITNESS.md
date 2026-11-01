@@ -110,4 +110,6 @@ Die fünf bereits festgelegten Wetterjahre sind nicht Teil dieses Makros. Cluste
 4. **T-06:** unabhängige VeraGrid-BackendSnapshot-Erzeugung/Canonical-Parität noch nicht ausgeführt; REQ-009 bleibt NOT_ASSESSED.
 5. **F-08/PERFORMANCE/EXPORT:** kein qualifizierter echter großer Datensatz, kein Runtime-/Graph-Update-/Recovery-/ACPF-PASS.
 
+**Maschinenlesbarer gemeinsamer Preflight-Contract:** [98_M4_0_PREPARED_EXECUTION_CONTRACT.json](98_M4_0_PREPARED_EXECUTION_CONTRACT.json) enthält ausgewählte Artefakt-Hashes, eine belegte Teilmenge der Originalressourcen, Initialbudgets und die noch gesperrten RunRelease-Gates.
+
 **S-GOV-Verwendung:** Dieser Bericht begründet die Wahl einer konkret überprüfbaren **Kandidatenumgebung und Quellfixture-Liste**, **nicht** eine unbedingte M4-RunRelease-Freigabe. Der nächste Bericht 96 definiert verbindliche Ausführungs- und Abbruchgates.
