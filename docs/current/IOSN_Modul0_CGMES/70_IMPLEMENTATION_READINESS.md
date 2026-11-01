@@ -1,7 +1,7 @@
 # M2 — 70 IMPLEMENTATION READINESS
 ## Modul 0 CGMES/PyPSA: Capability-Matrix, vollständige REQ-Traceability, PoC-Makros und Releasegates
 
-**Stand:** 2026-11-01. **Historischer Status:** `M2_IMPLEMENTATION_CONTRACT_DESIGNED_NOT_EXECUTED`. **Normative M3-Korrektur:** [85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) (CAN/2.0.0, DNR/1.0.0, Publish/1.0.0); 80 bleibt ein unabhängiger unveränderter REPAIRS_REQUIRED-Bericht. Alle T-01…T-24 bleiben nicht ausgeführt. Dieses Dokument beauftragt **keine** produktive Implementierung und stellt **keinen** numerischen oder CGMES-Konformitäts-PASS dar.
+**Stand:** 2026-11-01. **Historischer Status:** `M2_IMPLEMENTATION_CONTRACT_DESIGNED_NOT_EXECUTED`. **Normative M3-Korrektur:** [85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) (CAN/2.0.0, DNR/1.0.0, Publish/1.0.0); **dokumentarischer S-GOV-Freeze** nach [90](90_S_GOV_M3_REPAIR_CLOSURE_AND_FREEZE.md), ausdrücklich ohne PoC-/Runtime-Freigabe; 80 bleibt ein unabhängiger unveränderter REPAIRS_REQUIRED-Bericht. Alle T-01…T-24 bleiben nicht ausgeführt. Dieses Dokument beauftragt **keine** produktive Implementierung und stellt **keinen** numerischen oder CGMES-Konformitäts-PASS dar.
 **Fachliche Eingänge:** [10 Requirements](10_REQUIREMENTS.md), [20 Backend](20_BACKEND_ASSESSMENT.md), [30 Canonical](30_CANONICAL_DATA_CONTRACT.md), [40 Architecture](40_SOFTWARE_ARCHITECTURE.md), [50 Validation](50_VALIDATION_CONTRACT.md), [60 ADR](60_ARCHITECTURE_DECISION.md). Ursprüngliche R-M0-BACKEND und R-M0-CONTRACTS wurden unverändert aus den Arbeitercommits in S-GOV übernommen.
 
 ## 1. Entscheidung zur Implementierungsbereitschaft
