@@ -43,56 +43,56 @@
 
 **Quellenklasse** aus `10_REQUIREMENTS.md` bleibt normativ. Spalte **Owner** benennt das vorwiegend zuständige Paket (weitere Module implizit beteiligt). **T** sind spätere Nachweise, nicht durch M2 ausgeführt. Alle MUSS, SOLL und OPTIONAL werden als zukünftige Scope-/Verifikationstabelle erhalten.
 
-| REQ | Klasse | Fachziel (kompakt) | Owner (Paket) | Verifikation |
-|---|---|---|---|---|
-| REQ-001 | MUSS | 2.4.15/3.0 profilgebunden | P0 | T-01 |
-| REQ-002 | MUSS | EQ/SSH, optional/differenziert TP/SV | P0 | T-01, T-02 |
-| REQ-003 | MUSS | Single-/Multi-IGM/CGM | P0, P1 | T-03 |
-| REQ-004 | MUSS | versionsgerechtes EQBD/TPBD/Boundary | P0 | T-03 |
-| REQ-005 | MUSS | Datei-/Modell-/RDF-/Profilmanifest | P0, P1 | T-01, T-04 |
-| REQ-006 | MUSS | Original-mRID und eigene IDs trennen | P1 | T-04 |
-| REQ-007 | MUSS | unbekannte Attribute nicht still verwerfen | P1, P3 | T-04, T-21 |
-| REQ-008 | MUSS | deterministischer Reimport/Update | P1, P3 | T-05 |
-| REQ-009 | MUSS | backendneutrales Canonical | P1 | T-06 |
-| REQ-010 | MUSS | Originalgraph für Export 1 erhalten | P0, P3 | T-21 |
-| REQ-011 | SOLL | GL/DL-Preservation | P0, P1 | T-11, T-21 |
-| REQ-012 | OPTIONAL | opake OP/SC/DY-Weitergabe | P0, P1 | T-21 |
-| REQ-013 | MUSS | Terminal/Connectivity/TopologicalNode-FKs | P1, P2 | T-07 |
-| REQ-014 | MUSS | Switch-/Terminal-/Equipment-Status separat | P1, P2 | T-07 |
-| REQ-015 | MUSS | TP gegen EQ/SSH-Topologie | P2 | T-08 |
-| REQ-016 | MUSS | korrekte AC-Inseln | P2 | T-09 |
-| REQ-017 | MUSS | Country-/Substation-/VoltageLevel | P1 | T-10 |
-| REQ-018 | MUSS | Geopositionen inkl. CRS-/Missing-Status | P1 | T-11 |
-| REQ-019 | SOLL | Line-Geometrie/PositionPoints | P1 | T-11 |
-| REQ-020 | SOLL | abgeleitete Substation-Zentroiden markieren | P1 | T-11 |
-| REQ-021 | MUSS | ACLine vs EquivalentBranch | P2 | T-12 |
-| REQ-022 | MUSS | 2W/3W-Transformatoren | P2 | T-13 |
-| REQ-023 | MUSS | Tap-/PST-Semantik und Control | P2 | T-14 |
-| REQ-024 | MUSS | Generator/Load/ExternalInjection | P2 | T-15 |
-| REQ-025 | MUSS | Shunt linear/nichtlinear | P2 | T-16 |
-| REQ-026 | MUSS | HVDC Converter-/DC-Ports | P1, P2 | T-17 |
-| REQ-027 | MUSS | Basis-/Einheitenumrechnung | P2 | T-12, T-13, T-18 |
-| REQ-028 | MUSS | Status vs. operationelle Limits | P1, P2 | T-19 |
-| REQ-029 | MUSS | Dauer-/Saison-/Richtungslimits | P1, P2 | T-19 |
-| REQ-030 | MUSS | Missing/Zero/Singularity/Conflict | P2, P5 | T-18 |
-| REQ-031 | MUSS | korrekte P/Q-/Branch-/HVDC-Vorzeichen | P2 | T-15, T-17 |
-| REQ-032 | SOLL | RegulatingControls/Capability Curves | P1, P2 | T-15 |
-| REQ-033 | OPTIONAL | erweiterte Generatortechnologie | P1 | T-15 |
-| REQ-034 | MUSS | versionierte YAML-Mapping-Policies | P2 | T-06 |
-| REQ-035 | MUSS | geprüfte Funktions-ID statt YAML-Formel | P2, P5 | T-12…T-18 |
-| REQ-036 | MUSS | SOURCE/DERIVED/DEFAULT/MISSING | P1, P5 | T-04, T-18 |
-| REQ-037 | MUSS | PyPSA detaillierte View | P2 | T-20 |
-| REQ-038 | MUSS | aktuelle M1-Adaptergrenzen belegen | P2, P6 | T-20 |
-| REQ-039 | MUSS | gefrorenes Originalnetz, getrennte Zeitreihen | P1, P2 | T-20 |
-| REQ-040 | MUSS | identitätstreuer UPDATE_IMPORTED | P3 | T-21 |
-| REQ-041 | MUSS | CREATE nur bei vollständigen CIM-Daten | P4 | T-22 |
-| REQ-042 | MUSS | eigener Loss Contract pro Exportmodus | P3, P4 | T-21, T-22 |
-| REQ-043 | MUSS | Import-/Export-Capabilities getrennt | P5 | T-21…T-24 |
-| REQ-044 | MUSS | atomare Exporte, reproduzierbares Audit | P3, P4, P5 | T-05, T-22 |
-| REQ-045 | MUSS | Validierung von Profil/Boundary/Elektrik/LF/RT | P5 | T-01…T-24 |
-| REQ-046 | SOLL | qualifizierte SV-AC-Referenz | P5 | T-23 |
-| REQ-047 | SOLL | Massen-/Partitionierungs-/Spaltenleistung | P1, P5 | T-24 |
-| REQ-048 | OPTIONAL | Data-Quality-Dashboard | P5 | T-24 |
+| REQ | Klasse | Fachziel (kompakt) | Owner (Paket) | Verifikation  Externe Voraussetzung / Witness | Architekturrisiko |
+|---|---|---|---|------|---|
+| REQ-001 | MUSS | 2.4.15/3.0 profilgebunden | P0 | T-01  PowSyBl-Versionpin; CGMES 2.4.15/3.0 URIs | HOCH: nicht erkannte Profilvariante |
+| REQ-002 | MUSS | EQ/SSH, optional/differenziert TP/SV | P0 | T-01, T-02  PowSyBl State-/TP-/SV-Import; Exchange-Policy | MITTEL: fehlendes TP / falscher solved-Status |
+| REQ-003 | MUSS | Single-/Multi-IGM/CGM | P0, P1 | T-03  PowSyBl CGM Subnetworks; echte Multi-IGM-Fixture | HOCH: inkorrekte Assembly |
+| REQ-004 | MUSS | versionsgerechtes EQBD/TPBD/Boundary | P0 | T-03  Versionierte ENTSO-E-Boundary-Regeln; IGM/CGM-Fixture | HOCH: inkorrekte 3.0-TPBD-Annahme |
+| REQ-005 | MUSS | Datei-/Modell-/RDF-/Profilmanifest | P0, P1 | T-01, T-04  Original-ZIP/XML; FullModel- und SHA256-Metadaten | HOCH: Backend-Metadaten fehlen |
+| REQ-006 | MUSS | Original-mRID und eigene IDs trennen | P1 | T-04  Original-mRID/RDF-Subject und IIDM-Alias-Witness | HOCH: profilübergreifende Identitätskollision |
+| REQ-007 | MUSS | unbekannte Attribute nicht still verwerfen | P1, P3 | T-04, T-21  Originalgraph vollständig gesichert; unbekannte RDF-Felder | HOCH: nicht exponierte Quellattribute |
+| REQ-008 | MUSS | deterministischer Reimport/Update | P1, P3 | T-05  Originalsnapshot und deterministische Config-Hashes | MITTEL: unstabile IDs bei Revisionen |
+| REQ-009 | MUSS | backendneutrales Canonical | P1 | T-06  PowSyBl- und Referenz-Snapshot; Canonical-Parität | HOCH: nicht repräsentierte Backend-Attribute |
+| REQ-010 | MUSS | Originalgraph für Export 1 erhalten | P0, P3 | T-21  Verlustfreies Originalgrapharchiv; Graph-Diff-Witness | HOCH: unbelegter verlustfreier Update |
+| REQ-011 | SOLL | GL/DL-Preservation | P0, P1 | T-11, T-21  GL-/DL-Originalprofile und Python-Geo-Zugriff | MITTEL: nicht verfügbare Profilattribute |
+| REQ-012 | OPTIONAL | opake OP/SC/DY-Weitergabe | P0, P1 | T-21  Optional gelieferte SC/OP/DY-Graphen | GERING: Pass-through nachzuweisen |
+| REQ-013 | MUSS | Terminal/Connectivity/TopologicalNode-FKs | P1, P2 | T-07  PowSyBl-Terminal- und Connectivity-API; EQ-/TP-Fixture | HOCH: unaufgelöste Terminals |
+| REQ-014 | MUSS | Switch-/Terminal-/Equipment-Status separat | P1, P2 | T-07  SSH-Service-/Switch-/Terminal-Zustandsdaten | HOCH: fehlerhafte elektrische Fusion |
+| REQ-015 | MUSS | TP gegen EQ/SSH-Topologie | P2 | T-08  Geliefertes TP plus EQ/SSH-Ableitungsreferenz | MITTEL: divergente TP-Topologie |
+| REQ-016 | MUSS | korrekte AC-Inseln | P2 | T-09  AC-Graph/Slack-Island-Fixtures mit HVDC | HOCH: künstliches AC-Island-Merging |
+| REQ-017 | MUSS | Country-/Substation-/VoltageLevel | P1 | T-10  Substation/VoltageLevel/Country-Authority-Ledger | HOCH: fehlende Länderreferenz |
+| REQ-018 | MUSS | Geopositionen inkl. CRS-/Missing-Status | P1 | T-11  GL-/CRS-Quellwerte oder erklärte Missing-Quelle | MITTEL: ungeprüfte Koordinatenbasis |
+| REQ-019 | SOLL | Line-Geometrie/PositionPoints | P1 | T-11  GL-Line-Routen / mehrfache PositionPoints | MITTEL: Geometrieabdeckung unvollständig |
+| REQ-020 | SOLL | abgeleitete Substation-Zentroiden markieren | P1 | T-11  CRS, Station-Geometrie und Ableitungs-Policy | MITTEL: Zentroiden fälschlich als SOURCE |
+| REQ-021 | MUSS | ACLine vs EquivalentBranch | P2 | T-12  ACLineSegment/EquivalentBranch-Daten; Y-Zweitor-Witness | MITTEL: unzutreffende PI-Parameter |
+| REQ-022 | MUSS | 2W/3W-Transformatoren | P2 | T-13  2W-/3W-Enddaten; Kron-Y-Referenzfälle | HOCH: Sternmodell elektrisch nicht äquivalent |
+| REQ-023 | MUSS | Tap-/PST-Semantik und Control | P2 | T-14  Ratio/Phase-Tap-Tabellen; PyPSA-Port-Witness | HOCH: Tap-/PST-Richtung falsch |
+| REQ-024 | MUSS | Generator/Load/ExternalInjection | P2 | T-15  CIM-Maschinen-/Load-/ExternalInjection-Attribute | MITTEL: P/Q-/Kontrollsemantik unvollständig |
+| REQ-025 | MUSS | Shunt linear/nichtlinear | P2 | T-16  Linear-/NonlinearShunt-Sections; elektrische Referenz | MITTEL: Stufennichtlinearität vereinfacht |
+| REQ-026 | MUSS | HVDC Converter-/DC-Ports | P1, P2 | T-17  CGMES-Konverter/DC-Port-Objekte und Terminalreferenzen | HOCH: HVDC-Topologie/Regelung approximiert |
+| REQ-027 | MUSS | Basis-/Einheitenumrechnung | P2 | T-12, T-13, T-18  CGMES-Units plus Gerätedatenblattbasen; PyPSA-Pin | HOCH: falsche pu-/Spannungsbasis |
+| REQ-028 | MUSS | Status vs. operationelle Limits | P1, P2 | T-19  SSH-Service-/LimitSet-/Terminal-Daten | MITTEL: Limit mit Status verwechselt |
+| REQ-029 | MUSS | Dauer-/Saison-/Richtungslimits | P1, P2 | T-19  OperationalLimitType, Dauer, Richtung und Saison | HOCH: nicht belastbare Grenzwert-Proxys |
+| REQ-030 | MUSS | Missing/Zero/Singularity/Conflict | P2, P5 | T-18  Null-/Missing- und singularer Gerätefall als Fixture | HOCH: implizite PyPSA-Defaults |
+| REQ-031 | MUSS | korrekte P/Q-/Branch-/HVDC-Vorzeichen | P2 | T-15, T-17  Vorzeichen-/Portkonvention plus KCL/HVDC-Witness | HOCH: falscher Nettofluss |
+| REQ-032 | SOLL | RegulatingControls/Capability Curves | P1, P2 | T-15  RegulatingControl/Q-Kurve soweit geliefert | MITTEL: fehlende vollständige Regelungsdaten |
+| REQ-033 | OPTIONAL | erweiterte Generatortechnologie | P1 | T-15  Kuratierter Technologievokabular-Vertrag | GERING: nichtnormierte Technologielabels |
+| REQ-034 | MUSS | versionierte YAML-Mapping-Policies | P2 | T-06  Validiertes YAML-Schema, Konfigurations-/Hash-Policy | MITTEL: nicht kompatible Policyversion |
+| REQ-035 | MUSS | geprüfte Funktions-ID statt YAML-Formel | P2, P5 | T-12…T-18  Geprüfte versionierte Rechenfunktionen / unabhängige Orakel | HOCH: ungültige Transformationsgleichung |
+| REQ-036 | MUSS | SOURCE/DERIVED/DEFAULT/MISSING | P1, P5 | T-04, T-18  Raw-Werte/Backend-Feldzugang, Wert- und Herkunftsledger | MITTEL: fehlende SOURCE-Belegkette |
+| REQ-037 | MUSS | PyPSA detaillierte View | P2 | T-20  Gepinnte PyPSA-API; geeignete Komponenten-Fixtures | HOCH: nicht darstellbare Sondergeräte |
+| REQ-038 | MUSS | aktuelle M1-Adaptergrenzen belegen | P2, P6 | T-20  Bestehender tyndp_reduce.pypsa_adapter; unabhängiger M1-Test | HOCH: Adapter verweigert 3W/PST/HVDC |
+| REQ-039 | MUSS | gefrorenes Originalnetz, getrennte Zeitreihen | P1, P2 | T-20  Unveränderliche Netzrevision und separate Zeitreihenkennung | MITTEL: unbeabsichtigte Detailnetzmutation |
+| REQ-040 | MUSS | identitätstreuer UPDATE_IMPORTED | P3 | T-21  Source-Graph, Allowlist, Backend-Update-/CGM-Export-API | HOCH: fehlende Inverse/Originalmetadaten |
+| REQ-041 | MUSS | CREATE nur bei vollständigen CIM-Daten | P4 | T-22  CGMES-Serializer + neuer Authority-/CIM-Konstruktionsvertrag | HOCH: unvollständiges synthetisches EQ/TP |
+| REQ-042 | MUSS | eigener Loss Contract pro Exportmodus | P3, P4 | T-21, T-22  Originalgraph & Target-Field-Matrix für beide Exportmodi | HOCH: nicht rekonstruierbare Informationen |
+| REQ-043 | MUSS | Import-/Export-Capabilities getrennt | P5 | T-21…T-24  Backend-/Profil-/Fixture-gebundene Quality-Witnesses | MITTEL: Capability-Übertragung ohne Beleg |
+| REQ-044 | MUSS | atomare Exporte, reproduzierbares Audit | P3, P4, P5 | T-05, T-22  Atomarer Filesystem-/DB-Commit; Staging-/Audit-Manifest | HOCH: Teil-Export nach Fehler |
+| REQ-045 | MUSS | Validierung von Profil/Boundary/Elektrik/LF/RT | P5 | T-01…T-24  T-01…T-24-Fixture-Suite und unabhängige elektrische Referenzen | HOCH: reale Backend-/Netztests fehlen |
+| REQ-046 | SOLL | qualifizierte SV-AC-Referenz | P5 | T-23  Gelöstes geeignetes EQ/SSH/TP/SV und Solver-Pin | MITTEL: inkompatibler SV-Betriebspunkt |
+| REQ-047 | SOLL | Massen-/Partitionierungs-/Spaltenleistung | P1, P5 | T-24  Lizensierter großer CGM; RAM-/Laufzeitinstrumentierung | MITTEL: Speicherbedarf unbekannt |
+| REQ-048 | OPTIONAL | Data-Quality-Dashboard | P5 | T-24  Versionierte QA-Metriken und Reporter | GERING: Dashboard optional |
 
 **MUSS-Abdeckung:** 39/39 erhalten explizite Architektur-/Implementierungsowner und geplante Testzuordnung. Alle REQ-X01…REQ-X08 bleiben **AUSSERHALB DES SCOPES** (keine positiven Implementierungsgates). Die Tabelle ist **Plan-Traceability**; kein Test ist damit ausgeführt. Bei der Implementierung muss später die REQ→Test→Fixture→Evidenz-Traceability pro Zeile maschinenlesbar ausgegeben werden.
 
