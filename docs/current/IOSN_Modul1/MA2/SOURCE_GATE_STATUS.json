@@ -1,0 +1,55 @@
+{
+  "contract_id": "IOSN-M1-MA2-1.0.0",
+  "as_of": "2026-11-01",
+  "producer_disposition": "M1_RES_FIXTURE_QUALIFIED__REAL_DATA_GATE_BLOCKED",
+  "real_data_qualified": false,
+  "fixture_tests_passed": 20,
+  "fixture_tests_failed": 0,
+  "source_witness_branch": "research/iosn-m1-ma1c-source-witness-20261101",
+  "ma1c_source_decision": "M1_SOURCE_CONTRACT_BLOCKED",
+  "five_weather_slots": [
+    {
+      "slot": 1,
+      "weather_id": "NOT_PROVIDED",
+      "source_status": "BLOCKED_NO_SOURCE_ID"
+    },
+    {
+      "slot": 2,
+      "weather_id": "NOT_PROVIDED",
+      "source_status": "BLOCKED_NO_SOURCE_ID"
+    },
+    {
+      "slot": 3,
+      "weather_id": "NOT_PROVIDED",
+      "source_status": "BLOCKED_NO_SOURCE_ID"
+    },
+    {
+      "slot": 4,
+      "weather_id": "NOT_PROVIDED",
+      "source_status": "BLOCKED_NO_SOURCE_ID"
+    },
+    {
+      "slot": 5,
+      "weather_id": "NOT_PROVIDED",
+      "source_status": "BLOCKED_NO_SOURCE_ID"
+    }
+  ],
+  "gates": {
+    "m0_real_reference": "BLOCKED_NOT_PROVIDED",
+    "pe_cd_v4_2_real_source_bytes": "BLOCKED_NOT_PROVIDED",
+    "pe_cd_official_geometry_masks": "BLOCKED_NOT_PROVIDED",
+    "offshore_asset_location_evidence": "BLOCKED_REAL_ASSETS_NOT_PROVIDED",
+    "pv_mwp_ac_conversion_evidence": "BLOCKED_REAL_ASSETS_NOT_PROVIDED",
+    "source_weather_five_ids": "BLOCKED_NOT_PROVIDED",
+    "fixture_compilation": "PASS_20_TESTS",
+    "fixture_netcdf_roundtrip": "PASS",
+    "snakemake_runtime": "NOT_EXECUTED",
+    "pypsa_network_composition": "NOT_EXECUTED_OUT_OF_SCOPE",
+    "independent_real_data_review": "NOT_EXECUTED"
+  },
+  "upstream_open_tyndp_commit": "71a3a9a15b77114cd79458bceabc98e1a64dd58a",
+  "m0_reference_contract_commit": "0275f48231a0794bea324b9cab34700bb0de8f5b",
+  "base_commit": "2c0b482f0cec8b3e0fbc2e59a814e7d6fc66a994",
+  "m0_schema_revision_handshake": "BLOCKED_PENDING_CANONICAL_REVISION_ID_PROJECTION_ID_OWNER_ALIGNMENT",
+  "prohibition": "No real source PASS or MA4/M2 release from fixture-only evidence."
+}
