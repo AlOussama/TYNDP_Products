@@ -70,6 +70,6 @@ def fixture_case(tmp_path: Path, *, tech="HRI", semantics="STORAGE_ENERGY_EQUIVA
         })
     return {
         "manifest": manifest, "allocations": pd.DataFrame(allocations),
-        "assets": pd.DataFrame(assets), "snapshots": read_snapshots(snap_path),
+        "assets_frame": pd.DataFrame(assets), "snapshots": read_snapshots(snap_path),
         "root": tmp_path, "planning_horizon": "2030", "weather_id": weather_ids[0],
     }
