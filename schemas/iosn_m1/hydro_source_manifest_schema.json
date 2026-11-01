@@ -33,7 +33,9 @@
     "resolution",
     "timezone",
     "path",
-    "sha256"
+    "sha256",
+    "temporal_distribution_policy",
+    "temporal_policy_evidence_ref"
   ],
   "source_interval_csv": {
     "columns": [
@@ -70,5 +72,25 @@
     "weather substitution",
     "electric bus -> basin assignment",
     "mutate any M0 component"
-  ]
+  ],
+  "temporal_distribution": {
+    "allowed": [
+      "UNIFORM_WITHIN_NATIVE_INTERVAL"
+    ],
+    "meaning": "deterministic energy-conserving disaggregation only; not hourly hydro observation or generation",
+    "policy_evidence": "mandatory even for fixtures; independent approval required for real use"
+  },
+  "raw_tyndp_csv_normalization": {
+    "source_column": "explicit WS###, never choose first available",
+    "native_label": "WEEK or DAY",
+    "witnessed_bounds_columns": [
+      "period_key",
+      "start",
+      "end"
+    ],
+    "source_hash": "sha256 of bytes",
+    "bounds_hash": "sha256 of evidence",
+    "normalization": "scripts/iosn_m1/hydro/normalize_tyndp2026.py"
+  },
+  "pending_m0_contract_alignment": "Current MA1 logical network_revision_id bridge must be reconciled with M0 CAN/2.0.0 canonical_revision_id+projection_id before real integration"
 }
