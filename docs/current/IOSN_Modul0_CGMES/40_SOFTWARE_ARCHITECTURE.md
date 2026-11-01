@@ -110,6 +110,101 @@ class FormatBackend(Protocol):
 
 **Staged Freigabe:** In M4 zuerst PowSyBl-Adapter. VeraGrid-Portvertrag ist M2-Design, kein Auftrag, zwei vollständige Implementierungen parallel zu schreiben. Optionale Ergänzung durch SOPTIM-Tests ist keine Backend-Abhängigkeit der Primärpipeline.
 
+### 3.1 Fachliche Daten- und Fehlerverträge aller internen Modulgrenzen (M2-Freeze)
+
+Die nachstehenden Signaturen sind **neu entworfene Modul-0-Ports**, keine API-Zusagen von PyPowSyBl, VeraGrid oder PyPSA. Implementierungen dürfen diese Ports intern als freie Funktionen, Dataclasses oder kleine Klassen ausführen; fachlich bindend sind Typen, Invarianten und Fehlersemantik, nicht die Python-Syntax.
+
+| Vertragstyp | Fachlich verpflichtender Inhalt |
+|---|---|
+| `DeliveryManifest` | `delivery_id`, Dateipfade/ZIP-Member, SHA-256, Größen, tatsächliche Profil-URIs, CGMES-Familie, Modellheader, MAS/Authority, `dependsOn`/`supersedes`, Boundary-Referenzen, Datennutzungsrechte |
+| `SourceFacts` | immutable Zeilen mit Original-RDF-Subject, optionalem mRID, Source-Class/Profil/Authority, Units, Terminal-/Relation-IDs, Rohlexem und eindeutiger Source-Occurrence |
+| `RevisionRef` | `network_revision_id`, `parent_revision_id?`, `source_set_hash`, `operating_state_id?`, `canonical_schema_version`, `mapping_policy_hash`, Backend/BOM-Fingerprint |
+| `ElectricalView` | Port- und Busrollen, AC-Islands, korrekte Komponentenparameter, Basen, Limits, pro Feld `EXACT/APPROX/UNSUPPORTED`, `QualityReport` und `LossLedger` |
+| `DetailedNetworkReferenceV1` | unveränderliche `RevisionRef`, qualifizierte PyPSA-Ansicht, originär/virtuell unterscheidbare Busse, gerichtete AC-Ports, AC-Island-IDs, Original-Equipment-Mappings, PST-/HVDC-Terminalzustände, alle Original-Limits, Sidecar-URI |
+| `ChangeSet` | Basisrevision/Base-Graph-Hash, Quellobjekt+RDF-Identität, Attributpfad, erwarteter alter Wert, neuer Wert, Einheit, Zielprofil, Änderungstyp, Actor/Authority, inverse Mapping-Witness |
+| `ExportDelivery` | temporär/atomar veröffentlichte Dateien mit SHA-256, Version/Profil/MAS, Modelheader-Relationen, neuer Graph-Diff-Witness, Loss-/QA-Manifest und Commit-Token |
+
+Alle Ports geben entweder `Result[T] = OK(T, EvidenceRefs)` oder `ERR(ProblemSet)` zurück. `ProblemSet` enthält `code`, `severity ∈ {FATAL,BLOCK,WARN,INFO}`, `source_object_ref?`, `attribute?`, `profile_uri?`, `expected?`, `observed?`, `policy_hash`, `remediation`, `capability_scope`. `WARN` darf nur nach dokumentierter Policy/Quittierung eine bedingte Capability erlauben; `BLOCK/FATAL` unterbindet den betroffenen Commit. **Kein fehlgeschlagener Teilvorgang darf als leeres, scheinbar valides DataFrame weiterlaufen.** Schema- und Versionsfehler sind eigene Problemcodes (`SCHEMA_MAJOR_MISMATCH`, `UNKNOWN_PROFILE`, `UNKNOWN_FUNCTION_ID`, `MISSING_SOURCE_REF`, `AMBIGUOUS_INVERSE`, `GRAPH_DIFF_VIOLATION`).
+
+#### Port A – Archiv, Quellprovenienz, Änderungsledger (`archive_provenance`)
+
+~~~python
+archive.stage_delivery(files: Sequence[InputFile], policy: DeliveryPolicy) -> Result[DeliveryManifest]
+archive.verify(manifest: DeliveryManifest) -> Result[SourceArchiveRef]
+provenance.bind_source_facts(revision: RevisionRef, facts: SourceFacts) -> Result[IdentityIndex]
+provenance.resolve(source_entity_key, revision: RevisionRef) -> Result[SourceObjectRef]
+changes.propose(base: RevisionRef, edits: Sequence[RequestedEdit]) -> Result[ChangeSet]
+changes.validate_inverse(delta: ChangeSet, policy: ExportPolicy) -> Result[ApprovedChangeSet]
+~~~
+
+- **Eingänge/Ausgänge:** Originalbytes nur per SHA-256 adressiert; keine Neuinterpretation von Roh-RDF durch einen selbstgebauten XML-Serializer. `IdentityIndex` verknüpft mRID, RDF-Subject, File/Profile-Occurrence, Authority, Backend-ID, Canonical-ID, View-ID. Datensätze ohne mRID haben `source_mrid=NULL` und eine gültige originale RDF-Identität.
+- **Fehler:** fehlende/zuvielgeladene Profile nach deklarierter Policy, unsichere ZIP-/XML-Lieferung, Kollisionen oder fehlende unverzichtbare Header → `FATAL/BLOCK`. Alias-/Namensgleichheit ist niemals automatische Objektidentität. Änderungen an unveröffentlichten Arbeiten verändern keine publizierte Quellrevision.
+- **Konfiguration und Versionierung:** `archive_policy_version`, CGMES-Exchange-Policy, Zugriffsrechte, `identity_policy_version`, `supported_write_fields`; Manifest unveränderlich. Blob-Archiv bleibt über alle Export-Transaktionen erhalten; Delta-Events append-only. Spätere Tests T-01, T-03–T-05 und T-21.
+
+#### Port B – Kanonische Repository-Transaktion (`canonical`)
+
+~~~python
+canonical.begin_stage(manifest: DeliveryManifest, backend: BackendSnapshot,
+                      schema_version: str, mapping_policy_hash: str) -> Result[StageRef]
+canonical.insert_facts(stage: StageRef, facts: SourceFacts) -> Result[InsertReport]
+canonical.check_integrity(stage: StageRef) -> Result[IntegrityReport]
+canonical.publish(stage: StageRef, quality: QualityReport) -> Result[RevisionRef]
+canonical.snapshot(revision: RevisionRef, state_id: str) -> Result[CanonicalNetwork]
+~~~
+
+- **Invarianten:** feste PK/FK über `30` mit K-03-/K-04-Präzisierung aus `60`; wiederholter identischer Inhalt erhält dieselben fachlichen IDs. Kein `last file wins`, keine implizite Delete-Semantik. Unvollständige Quellen können in einer **nicht freigegebenen** Staging-Revision diagnostiziert werden; `publish` erlaubt nur die jeweils benannte Capability, nicht pauschal „Netz fertig“.
+- **Fehler:** `SOURCE_ID_COLLISION`, `FK_UNRESOLVED`, `REVISION_HASH_CONFLICT`, `COUNTRY_MISSING_FOR_REQUESTED_VIEW`, `NONFINITE_ELECTRICAL_VALUE`; jeder Verstoß mit `QualityEvent`-Referenz. SQLite-FK-Checks plus fachliche Composite-Key-Checks und optimistische Baserevisionsprüfung.
+- **Konfiguration und Lebenszyklus:** `iosn-m0-can` Schema SemVer, `network_revision_id`, `operating_state_id`, Policy-/BOM-Hashes. SQLite-Transaktion mit Rollback; unveränderlicher öffentlicher Revisionspointer. T-04–T-06, T-18, T-24.
+
+#### Port C – Topologie und elektrische Projektion (`projection`)
+
+~~~python
+topology.resolve(revision: RevisionRef, state_id: str,
+                 policy: TopologyPolicy) -> Result[TopologyGraph]
+topology.compare_tp(graph: TopologyGraph, supplied_tp: SourceTP|None) -> Result[TPWitness]
+projection.project(revision: RevisionRef, graph: TopologyGraph,
+                   model_policy: ElectricalPolicy) -> Result[ElectricalView]
+projection.component_witness(view: ElectricalView) -> Result[AdmittanceAndBalanceWitness]
+~~~
+
+- **Abgrenzung:** `TopologyAdapter` realisiert aktuelle Switch-/Terminal-/Service-Zustände, Ports und AC-Inseln; HVDC verbindet keine AC-synchronen Inseln. `MappingEngine` löst nur versionierte Feldregeln und eine feste Registry mathematischer Funktionen auf. `ElectricalProjection` wendet deren explizite Port-/Basis-/Ybus-/HVDC-/Limit-Regeln an. Keine frei ausführbaren YAML-Ausdrücke.
+- **Fehler:** mehrdeutige TP-Zuordnung, inkonsistenter Anschluss, inkompatible BaseVoltage, unbekannter Tap-Schritt, singulärer Stern, unzulässige Link-Rückwärtsverluste → `BLOCK` der betroffenen elektrischen Capability, während Raw/Canonical erhalten bleiben können. Je Geräteinstanz Ergebnis `EXACT`, `APPROX` (mit Gültigkeitsbereich) oder `UNSUPPORTED`.
+- **Konfiguration, Version und Persistenz:** `topology_policy_id`, `function_id@version`, `electrical_model_id`, Basis-/Portkonvention, Toleranz- und Error-Policy; ausschließlich deterministisch rebuildbare Revisionsprodukte. T-07–T-19, T-23.
+
+#### Port D – PyPSA und Modul-1-Übergabe (`pypsa_port`)
+
+~~~python
+pypsa.to_network(view: ElectricalView, version_pin: str) -> Result[PyPSAPackage]
+pypsa.to_detailed_reference(pkg: PyPSAPackage,
+                            required_capabilities: set[str]) -> Result[DetailedNetworkReferenceV1]
+pypsa.propose_edits(pkg: PyPSAPackage, changes: ChangeRequest) -> Result[ChangeSet]
+~~~
+
+- **Inhalt:** `PyPSAPackage = {network, m0_sidecar, component_support_matrix, revision_ref, quality}`. `network` ist nur die freigegebene elektrische Ansicht; originales Terminal-/Boundary-/GL-/OperationalLimit-Register bleibt Sidecar. Wenn ein Update nicht eindeutig auf Source-Objekte und Quellattribute zurückgeführt werden kann, verweigert `propose_edits` die Änderung.
+- **Fehler und Capabilities:** `PYPSA_COMPONENT_UNSUPPORTED`, `UNREPRESENTABLE_CONTROL`, `REDUCTION_ADAPTER_UNSUPPORTED` und `MISSING_ORIGIN_MAPPING` blockieren **nur die beantragte** Anschlussfähigkeit. Die fremde `tyndp_reduce.pypsa_adapter`-API wird nicht eigenmächtig erweitert.
+- **Konfiguration, Version, Lebenszyklus:** gepinnte PyPSA-Major/Minor, View-Schema und Mapping-Hash; PyPSA Network im Revisionspaket als neu erzeugbare View, keine mutable Quelle. T-20 sowie T-09/T-14/T-17 für LPF-Sonderfälle.
+
+#### Port E – Validierung und Export (`validation`, `export`)
+
+~~~python
+validation.evaluate(subject: RevisionRef|ElectricalView|ExportDelivery,
+                    requested: set[str], policy: QAPolicy) -> Result[QualityReport]
+export.plan_update(source: RevisionRef, edits: ApprovedChangeSet,
+                   backend_capabilities: CapabilityReport) -> Result[ExportPlan]
+export.plan_create(blueprint: CGMESConstructionContract) -> Result[ExportPlan]
+export.stage(plan: ExportPlan, backend: FormatBackend) -> Result[StagedExport]
+export.verify_graph_diff(staged: StagedExport, originals: SourceArchiveRef,
+                         expected: ExpectedSemanticDelta) -> Result[GraphDiffWitness]
+export.publish(staged: StagedExport, witness: GraphDiffWitness,
+               quality: QualityReport) -> Result[ExportDelivery]
+~~~
+
+- **Keine implizite Methodenabbildung auf Upstream:** `stage` delegiert die tatsächlich belegbare Serialisierung an PowSyBl/VeraGrid. Die Python-`update_*`-Oberfläche ist nicht automatisch eine CGMES-feldgenaue Export-Write-Allowlist. `ExpectedSemanticDelta` unterscheidet unverändert referenzierte Original-EQ/TP/Boundary-Graphen, superseded SSH und neu erzeugte SV-Ressourcen.
+- **Fehler:** `AMBIGUOUS_INVERSE`, `UNSUPPORTED_WRITE_FIELD`, `MISSING_AUTHORITY`, `MISSING_HEADER_DEPENDENCY`, `GRAPH_DIFF_VIOLATION`, `NOT_SOLVED_FOR_NEW_SV`, `EXPORT_PROFILE_UNSUPPORTED`. Ein `Stage` ist niemals eine fertige Lieferung. Ergebnis ist nur nach sämtlichen Capability-Gates atomar öffentlich verfügbar.
+- **Konfiguration, Version, Lebenszyklus:** `validation_contract_version`, Test-/Toleranzprofil, `export_policy_id`, Original-Graph-Hash, Schema/Backend-Fingerprint, freigegebener State; isoliertes temp-Verzeichnis + immutable Exportmanifest. Qualifikationspflicht T-01–T-24 nach Scope, T-21/T-22 und T-24 für die jeweiligen Exporte.
+
+**Wartungsregel über alle Ports:** Je Eingaberevision und Ziel-Capability wird die vollständige Konfigurations-BOM gespeichert. Ergebnisse aus unterschiedlichen CGMES-Familien, Backendversionen oder Mappingregeln dürfen nicht dieselbe Aussage `PASS` teilen. Eine Änderung des öffentlichen Port-Vertrages mit anderer Feldsemantik benötigt Major-Version, additive optionale Felder eine Minor-Version; Tests einschließlich negativer Fixtures sind bei Änderungen der betroffenen Port-/Funktionsversion erneut erforderlich.
+
 ## 4. Canonical-v1-Datenobjekte, Identität und Revisionen
 
 Der ausführliche **logische** Datenvertrag aus `30_CANONICAL_DATA_CONTRACT.md` bleibt Grundlage. Dieses Dokument konkretisiert nur die widerspruchsrelevanten Regeln K-03/K-04 und die API-Grenze.
