@@ -77,25 +77,25 @@ def test_hydraulic_energy_needs_explicit_conversion_evidence(tmp_path):
 
 def test_ror_must_not_disguise_reservoir_inflow_as_availability(tmp_path):
     c = fixture_case(tmp_path, tech="HRR")
-    c["assets"].loc[0, "component_class"] = "Generator"
-    c["assets"].loc[0, "max_hours"] = ""
+    c["assets_frame"].loc[0, "component_class"] = "Generator"
+    c["assets_frame"].loc[0, "max_hours"] = ""
     invalid(c, "RoR Generator requires available generation energy")
 
 
 def test_ror_exceeding_generator_pnom_cannot_be_silently_clipped(tmp_path):
     c = fixture_case(tmp_path, tech="HRR", semantics="AVAILABLE_GENERATION_ENERGY_MWH")
-    c["assets"].loc[0, "component_class"] = "Generator"
-    c["assets"].loc[0, "max_hours"] = ""
-    c["assets"].loc[0, "p_nom_mw"] = "1"
+    c["assets_frame"].loc[0, "component_class"] = "Generator"
+    c["assets_frame"].loc[0, "max_hours"] = ""
+    c["assets_frame"].loc[0, "p_nom_mw"] = "1"
     invalid(c, "exceeds unchanged")
 
 
 def test_existing_storage_capacity_and_efficiency_checked(tmp_path):
     c = fixture_case(tmp_path)
-    c["assets"].loc[0, "max_hours"] = "0"
+    c["assets_frame"].loc[0, "max_hours"] = "0"
     invalid(c, "max_hours")
     c = fixture_case(tmp_path)
-    c["assets"].loc[0, "efficiency_dispatch"] = "1.1"
+    c["assets_frame"].loc[0, "efficiency_dispatch"] = "1.1"
     invalid(c, "efficiency")
 
 
@@ -103,14 +103,14 @@ def test_closed_loop_zero_is_never_invented(tmp_path):
     c = fixture_case(tmp_path, tech="HCL")
     invalid(c, "HCL cannot be assigned")
     c = fixture_case(tmp_path)
-    c["assets"].loc[0, "hydro_tech"] = "HCL"
+    c["assets_frame"].loc[0, "hydro_tech"] = "HCL"
     invalid(c, "Hydro technology or role mismatch")
 
 
 def test_store_link_requires_approved_existing_port(tmp_path):
     c = fixture_case(tmp_path)
-    c["assets"].loc[0, "component_class"] = "Store"
-    c["assets"].loc[0, "e_nom_mwh"] = "100"
+    c["assets_frame"].loc[0, "component_class"] = "Store"
+    c["assets_frame"].loc[0, "e_nom_mwh"] = "100"
     invalid(c, "Store/Link requires explicit")
 
 
