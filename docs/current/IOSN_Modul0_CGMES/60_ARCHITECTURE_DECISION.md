@@ -86,6 +86,23 @@ Damit wird die pauschale Länder-NOT-NULL-Spalte in `30` für **abgeleitete synt
 | HVDC | port-/verlustqualifizierter PTP-Link oder stationäre AC-Port-Injektion | Ein einfacher verlustbehafteter reversibler Link bildet Rückwärtsverluste regelmäßig falsch; MTDC nicht generisch freigegeben |
 | Limits | qualifizierter Study-Proxy in PyPSA + original mehrdimensionaler Limit-Contract | Duration/Direction/Season/N-1 nicht zu einem unbelegten `s_nom` reduzieren |
 
+**K-07 — Verbindliche objektbezogene Capability-Matrix.** Die Stufen sind *bedingte Zielklassifikationen* des Entwurfs, **keine aktuell bestandenen Qualifikationen**. Jede tatsächlich gewählte Stufe wird pro Gerät/Feld/Port, Netzwerkrevision, CGMES-/PyPSA-Version und Projektionsfunktion durch die Tests T-07…T-20 belegt; `EXACT` bezieht sich nur auf eine benannte elektrische oder informationssemantische Eigenschaft, nicht pauschal auf CIM↔PyPSA-Identität.
+
+| Gegenstand | `EXACT` nur falls | `APPROX` zulässiger, dokumentierter Downscope | `UNSUPPORTED` / harte Sperre |
+|---|---|---|---|
+| ACLineSegment / PI | Orientierung, OHM/S, Shunt-Aufteilung und Zweitor-Y übereinstimmen | nur explizit geprüfter Ersatz- oder reduzierter Modellzweck | singuläre aktive Impedanz, unklare Ports/Basen |
+| EquivalentBranch | ursprüngliche Ersatz-Identität im Canonical/Sidecar und passende elektrische Zweitorwirkung | als `Line` elektrisch reproduzierbar, aber nicht als physische Leitung umetikettiert | unbekannte Steuer-/Quellwirkung oder unklare Endports |
+| 2W-Transformer | EndNumber, ratedU/ratedS, Modell T/PI, Tap-Seite, Ratio/Phase und Zweitor-Y nachgewiesen | Regelungsprioritäten, ferne Sollwerte oder Step-Kennlinien nur als dokumentierte Arbeitspunktannäherung | unbekannte Tap-Tabelle/-Seite oder inkompatible Admittanz |
+| 3W-Transformer | 3W-Original mit drei Ports/Ends erhalten und Kron-reduziertes Dreiport-Y inklusive Shunts/Taps äquivalent | drei 2W-Sternäste sind strukturell nur PyPSA-Sicht; historische 3W-CIM-Struktur im Sidecar | singuläre Sternzweige, fehlendes Endmapping, nicht darstellbare Taps |
+| PST / Phase-Tap | physikalischer Shift, Vorzeichen und affine Flusswirkung je Port qualifiziert | fixierter Shift ohne vollständige Remote-/Automatikregelung | unqualifizierte variable PST-Regelung, falsche Richtung oder unbekannter Shift |
+| Generator/Load/ExternalInjection | stationäre P/Q-Kernwerte, Service, Bus und Quellzeichen eindeutig sind | ZIP/PV/Slack-/Q-Curve-/Remote-Control-Einschränkungen ausdrücklich sichtbar | nicht rückführbare Quelle, widersprüchlicher Betriebszustand |
+| Shunt | konstante wirksame G/B bei geprüftem Schaltzustand und Vorzeichen | nichtlineare Stufenregelung nur am dokumentierten Operating Point | fehlende Stufendaten mit erforderlicher variabler Wirkung |
+| HVDC PTP | AC-/DC-Quellports, P- und Verlustbilanz bei bestimmtem Flussregime geprüft sind | fester gerichteter Link, verlustfrei reversibler Link oder explizite AC-Port-Ersatzinjektion mit begrenztem Zweck | ungeprüft verlustbehaftet *reversibler* Einzel-Link, MTDC als simpler PTP-Link, fehlende DC-/Konverterdaten |
+| Operative Limits | komplettes Original-`OperationalLimitSet` mit Dauer, Richtung, Terminal, Saison, Zustand im Canonical/Sidecar erhalten bleibt | ausgewähltes PyPSA-`s_nom` als gekennzeichneter Study-Proxy auf deklarierter Spannungsbasis | unzulässige A→MVA-Umrechnung, implizite Notfall-/N-1-Grenze |
+| Country/GL/Boundary | reale Länder-/Authority-/Terminalreferenzen und originales GL/CRS erhalten | Buskoordinate aus belegtem Station-Zentroid, ausdrücklich `DERIVED`; 3W-Stern ohne reales Land | erfundene Geo-/Landesdaten, unauflösbare Cross-Model-Referenzen |
+
+**Übernahme in `LossLedger`:** `source_object_id`, `component_type`, `field_or_relation`, `projection_id`, `exaktheitsklasse`, `mathematical_witness_id?`, `approximation_domain?`, `physical_effect?`, `capability_scope`, `policy_hash` werden je Zeile geführt. Ist ein erforderlicher `EXACT`-Witness nicht vorhanden, bleibt die beantragte elektrische Capability `NOT_ASSESSED`/`BLOCKED`; nicht nur eine verbale EXACT-Behauptung.
+
 Ein unbekannter Parameter wird nicht auf PyPSA-Defaults (z. B. `r=0`, `tap_ratio=1`, `s_nom=∞`) als angebliches Quellattribut gesetzt. Jede Approximation ist feld-, objekt-, policy- und capability-bezogen im `loss_manifest` verzeichnet.
 
 ## 8. ADR-007 / K-05 — Capability-Gates statt konkurrierender G-Nummern
