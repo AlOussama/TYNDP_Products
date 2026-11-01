@@ -1,7 +1,7 @@
 # M2 — 40 SOFTWARE ARCHITECTURE
 ## Modul 0: CGMES ↔ kanonischer Netzvertrag ↔ detaillierte PyPSA-Ansicht
 
-**Historischer M2-Status:** `M2_ARCHITECTURE_DESIGNED_PENDING_INDEPENDENT_REVIEW` (2026-11-01). **M3-Reparatur:** Verbindlicher [85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) (CAN/2.0.0) mit typisiertem Original-/Bus-/Branch-/Projektions-/Publish-/DNR-v1-Vertrag; im Konfliktfall hat 85 Vorrang. **Keine Implementierung, keine ausgeführten Tests, keine ENTSO-E-Konformitätsbehauptung.**
+**S-GOV-Abschluss:** [90_S_GOV_M3_REPAIR_CLOSURE_AND_FREEZE.md](90_S_GOV_M3_REPAIR_CLOSURE_AND_FREEZE.md) verfügt einen ausschließlich dokumentarischen ARCHITECTURE_FROZEN_FOR_IMPLEMENTATION_PLANNING nach konsolidierter M3-P1-Reparatur; alle QUAL-* bleiben NOT_ASSESSED. **Historischer M2-Status:** `M2_ARCHITECTURE_DESIGNED_PENDING_INDEPENDENT_REVIEW` (2026-11-01). **M3-Reparatur:** Verbindlicher [85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) (CAN/2.0.0) mit typisiertem Original-/Bus-/Branch-/Projektions-/Publish-/DNR-v1-Vertrag; im Konfliktfall hat 85 Vorrang. **Keine Implementierung, keine ausgeführten Tests, keine ENTSO-E-Konformitätsbehauptung.**
 **Autorität:** `00_S_GOV_CONSOLIDATION_AND_MACRO_PLAN.md`; fachliche Inputs `10_REQUIREMENTS.md`, `20_BACKEND_ASSESSMENT.md`, `30_CANONICAL_DATA_CONTRACT.md` und `50_VALIDATION_CONTRACT.md` am Ausgangscommit `e595335d511af6f8c9c05c88276553363ed37045`. Architekturentscheidungen in `60_ARCHITECTURE_DECISION.md` sind für ausdrücklich behandelte Kollisionen präzisierend, die Arbeiterdokumente bleiben unverändert.
 
 ## 1. Ziele, Anforderungen und Nichtziele
