@@ -341,7 +341,9 @@ def _roundtrip(network, original_fingerprint, original_weights,
         for comp, attr, target, values, _ in target_values:
             out = copied.components[comp].dynamic[attr]
             guard(target in out.columns and out.index.equals(copied.snapshots),
-                  "PYPSA_NETCDF_DYNAMIC_TARGET_MISSING")
+                  "PYPSA_NETCDF_DYNAMIC_TARGET_MISSING: " + comp + "." + attr +
+                  "[" + target + "] columns=" + repr(list(out.columns)) +
+                  " index_equals=" + str(out.index.equals(copied.snapshots)))
             np.testing.assert_allclose(out[target].to_numpy(dtype=float), values,
                                        rtol=0, atol=1e-12)
         guard(not outfile.exists(), "REFUSE_EXISTING_OUTPUT_NETCDF")
