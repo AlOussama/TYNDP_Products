@@ -23,7 +23,7 @@ flowchart TD
  E --> F["PyPSA detailed Network + sidecar\nDetailedNetworkReference v1"]
  F --> G["Modul 1 / IoSN\nnur nach eigener Capability-Freigabe"]
  D --> H["ChangeSet / inverse-mapping gate"]
- F -. "nur explizit freigegebene edits" .-> H
+ F -.->|nur freigegebene Änderungen| H
  H --> I["ExportCoordinator\nUPDATE_IMPORTED / CREATE_FROM_PYPSA"]
  B --> I
  C <--> I
@@ -38,11 +38,11 @@ flowchart TD
 
 ~~~mermaid
 flowchart LR
- subgraph "Externe gepflegte Bibliotheken"
+ subgraph EXT["Externe gepflegte Bibliotheken"]
  P["PyPowSyBl / PowSyBl Core"] 
  V["VeraGrid (Alternative)"]
  end
- subgraph "M0: eigene sieben Verantwortungspakete"
+ subgraph OWN["M0: sieben Verantwortungspakete"]
  BA["backend"]
  AR["archive_provenance"]
  CS["canonical"]
@@ -52,7 +52,7 @@ flowchart LR
  QA["validation"]
  end
  P --> BA
- V -. "nur aktivierter Fallback" .-> BA
+ V -.->|nur aktivierter Fallback| BA
  BA --> AR
  BA --> CS
  AR --> CS
@@ -61,12 +61,11 @@ flowchart LR
  CS --> EX
  AR --> EX
  BA --> EX
- QA -. "gates" .-> BA
+ QA -.->|Gates| BA
  QA -.-> CS
  QA -.-> PR
  QA -.-> PP
  QA -.-> EX
- end
 ~~~
 
 **Fachliche Modul-API, nicht neue Framework-Klassen:** Die dreizehn Einzelverantwortungen aus dem M2-Auftrag werden in sieben Paketen umgesetzt, um doppelte Services zu vermeiden. Die Schnittstellen bleiben trotzdem gesondert dokumentiert.
