@@ -27,7 +27,7 @@ def test_two_original_storage_units_preserve_native_mwh_and_bus(tmp_path):
     assert result["qa"]["selected_weather_count"] == 5
     assert result["qa"]["source_status"] == "FIXTURE_ONLY"
     assert result["qa"]["network_mutation_count"] == 0
-    assert list(c["assets"].bus_id) == ["original-bus", "original-bus"]
+    assert list(c["assets_frame"].bus_id) == ["original-bus", "original-bus"]
     assert inflow.utc_naive_timestamp.dt.tz is None
     output = tmp_path / "out"
     write_outputs(result, output)
@@ -82,9 +82,9 @@ def test_pondage_and_open_loop_pumped_storage_are_not_closed_loop(tmp_path, tech
 
 def test_qualified_ror_generator_availability_is_not_dispatch(tmp_path):
     c = fixture_case(tmp_path, tech="HRR", semantics="AVAILABLE_GENERATION_ENERGY_MWH")
-    c["assets"].loc[0, "component_class"] = "Generator"
-    c["assets"].loc[0, "existing_component_id"] = "original-ror-generator"
-    c["assets"].loc[0, "max_hours"] = ""
+    c["assets_frame"].loc[0, "component_class"] = "Generator"
+    c["assets_frame"].loc[0, "existing_component_id"] = "original-ror-generator"
+    c["assets_frame"].loc[0, "max_hours"] = ""
     result = run(c)
     cf = result["ror_availability"]
     assert len(cf) == 48
@@ -95,11 +95,11 @@ def test_qualified_ror_generator_availability_is_not_dispatch(tmp_path):
 
 def test_closed_loop_without_natural_inflow_is_recorded_not_zero_filled(tmp_path):
     c = fixture_case(tmp_path)
-    extra = c["assets"].iloc[0].copy()
+    extra = c["assets_frame"].iloc[0].copy()
     extra["asset_id"] = "original-HCL"
     extra["hydro_tech"] = "HCL"
     extra["existing_component_id"] = "original-HCL-storage"
-    c["assets"] = pd.concat([c["assets"], extra.to_frame().T], ignore_index=True)
+    c["assets_frame"] = pd.concat([c["assets_frame"], extra.to_frame().T], ignore_index=True)
     c["manifest"]["closed_loop_no_natural_inflow"] = [{
         "asset_id": "original-HCL",
         "policy": "NO_NATURAL_INFLOW_BY_DESIGN",
@@ -114,15 +114,15 @@ def test_closed_loop_without_natural_inflow_is_recorded_not_zero_filled(tmp_path
 
 def test_preexisting_approved_store_link_inflow_port_staged_separately(tmp_path):
     c = fixture_case(tmp_path)
-    c["assets"].loc[0, "component_class"] = "Store"
-    c["assets"].loc[0, "existing_component_id"] = "original-store-23"
-    c["assets"].loc[0, "e_nom_mwh"] = "100"
-    port = c["assets"].iloc[0].copy()
+    c["assets_frame"].loc[0, "component_class"] = "Store"
+    c["assets_frame"].loc[0, "existing_component_id"] = "original-store-23"
+    c["assets_frame"].loc[0, "e_nom_mwh"] = "100"
+    port = c["assets_frame"].iloc[0].copy()
     port["asset_id"] = "internal-approved-port"
     port["component_class"] = "Generator"
     port["existing_component_id"] = "original-inflow-port"
     port["role"] = "INFLOW_PORT"
-    c["assets"] = pd.concat([c["assets"], port.to_frame().T], ignore_index=True)
+    c["assets_frame"] = pd.concat([c["assets_frame"], port.to_frame().T], ignore_index=True)
     c["allocations"].loc[0, "port_generator_id"] = "original-inflow-port"
     c["allocations"].loc[0, "port_approval_ref"] = "FIXTURE_APPROVED_M0_PORT"
     c["allocations"].loc[0, "allowlist_approved"] = "YES"
