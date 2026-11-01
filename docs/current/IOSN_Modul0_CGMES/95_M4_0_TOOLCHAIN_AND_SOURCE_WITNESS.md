@@ -56,10 +56,36 @@ Die Quellprüfung war *gezielt*, keine neue allgemeine Backendvergleichskampagne
 | CGMES-Input | Externer Core beschreibt RDF4J-/SPARQL-Import und NODE_BREAKER/BUS_BRANCH; nur Node/Breaker ohne TP bei bewiesener EQ/SSH-Ableitung | Buss/Branch benötigt geliefertes gültiges TP; Origin-Country-/Substation/Terminal-RDF-Beziehungen dürfen nicht allein aus möglicherweise gemergtem IIDM abgeleitet werden |
 | Source-/ID-Preservation | Original-CGMES-mRID, ID/Alias-Parameter und Metadaten-Optionen in Upstream dokumentiert; Java-Extension für Triplestore möglich | Vollständige Python-Exponierung aller RDF-Subjects, BlankNodes, FullModel, MAS/Authority, ungemappter Attribute und Change-Inversen ist `UNKNOWN`; eigener unveränderlicher Originalgraph zwingend |
 | CGM-Quick-Export | Upstream dokumentiert **immer** SSH pro IGM plus ein CGM-SV, Profile-Selektion ignoriert | `CGM_QUICK_SSH_SV` nur mit qualifiziert berechnetem SV; kein SSH-only per Profilfilter |
-| Manueller IGM-/Subnetwork-Export | Upstream-Dokumentation zeigt Java-Sample mit expliziten Subnetworks, Header-Extensions, DependsOn/Supersedes und SSH-Profilwahl | `MANUAL_IGM_SSH` erfordert tatsächlich zugänglichen Python-/Java-Pfad + Backend-/Header-/Reimport-Witness; bis dahin `BLOCK_EXPORT_UNPROVEN` |
+| Manueller IGM-/Subnetwork-Export | **PyPowSyBl-Python-API bei v1.16.1 direkt im Source nachgewiesen:** `Network.get_sub_networks()`, `Network.get_sub_network(id)`, `Network.save(format='CGMES', parameters=...)`, `get_export_parameters('CGMES')` sowie `get_extensions('cgmesMetadataModels')` und `create_extensions('cgmesMetadataModels', ...)` | `MANUAL_IGM_SSH` ist damit ausdrücklich **Python-first**. Metadatenmutation an bereits importierten Modellen, konkrete Python-Routen-/Exportoptionen, MAS/DependsOn/Supersedes und semantisch korrekter Reimport/Graph-Diff bleiben Runtime-QUAL und bis dahin `BLOCK_EXPORT_UNPROVEN` |
 | VeraGrid | CGMES-2.4.15- und 3.0-Parser/Objektmodell im statischen Quellvergleich belegt | Als **read-only** zweiter unabhängiger T-06-Normalisierungs-/Fixture-Snapshot eingeplant; volle VeraGrid-Production-/Exporter-Qualifikation nicht erforderlich |
 
 **Konkretes zusätzliches Risiko:** Der PowSyBl-Quick-Export konstruiert IGM-Dateinamen teilweise aus der *ersten IIDM-Substation und deren Country*. Dieses Verhalten ist **keine** Original-Source-MAS-/Country-Herkunft; für Exporte müssen Modelle/Authorities/Headers explizit verifiziert werden. Ein erfolgreiches `Network.save` ist kein `UPDATE_EXPORT_READY`.
+
+### 4.1 M4-0-API-Ergänzungswitness: offizielle Python-Steuerung der Java-/CGMES-Funktionen
+
+**Nutzerpräzisierung bestätigt und gezielt im Code nachgeprüft.** PyPowSyBl **ist** die öffentliche Python-API zu PowSyBl. Für die erste M0-Implementierung wird kein eigener Java-Service oder Java-Wrapper vorgesehen. Ein gebündelter Native-Build führt die Java-basierten Funktionen aus, während die Bedienung in Python erfolgt.
+
+**Statische Fakten an unverändertem Upstream-Tag `powsybl/pypowsybl@v1.16.1`:**
+
+| Tatsächliche Python-API | Verifizierter Ort | Implementierungsnutzen |
+|---|---|---|
+| `pp.network.load(...)`, `Network.update_from_file(...)` | `docs/user_guide/network.rst` und `pypowsybl/network/impl/network.py` | CGMES importieren, SSH-Zustände aktualisieren |
+| `Network.get_sub_networks()`, `Network.get_sub_network(sub_network_id)`, `Network.detach()` | `network.py` Zeilen 758–789; Nutzeranleitung §Network merging | CGM/IGM-Subnetworks **über Python** auflisten, auswählen und ggf. abtrennen |
+| `Network.save(file, format="CGMES", parameters=...)` | `network.py` Zeilen 295ff. | gezieltes CGMES-Serialisieren mit konkreter, später zu qualifizierender Exportparameterwahl |
+| `pp.network.get_import_parameters("CGMES")`, `pp.network.get_export_parameters("CGMES")` | `network/impl/util.py` und `tests/test_network.py` | Import-/Exportparameter bei tatsächlich installiertem Backend **dynamisch** ermitteln; keine erfundenen Konstanten |
+| `Network.get_extensions("cgmesMetadataModels")`, `Network.create_extensions("cgmesMetadataModels", df)` | `tests/test_network_extensions.py::test_cgmes_metadata_extension`, Java DataFrame-Provider und -Adder | Modellheader-/Profil-/Authority-/Dependencies-/Supersedes-Metadaten **über Python** lesen bzw. neue Extension-Datensätze anlegen |
+
+**CGMES-Metadatenfelder im Python-DataFrame-Adapter tatsächlich belegt:** `id`, `cgmes_subset`, `description`, `version`, `modeling_authority_set`, `profiles`, `dependent_on`, `supersedes`. Das Provider-Modul stellt das Lesen bereit; der Adder erzeugt Metadatenobjekte und zerlegt Profile/Dependencies/Supersedes. **Aber:** der nachgewiesene Test legt neue Modelle an und liest sie zurück; er beweist noch nicht, dass ein bereits importiertes CGM-Metadatenmodell über `update_extensions` korrekt veränderbar ist oder dass mehrfacher SSH-only-IGM-Export für die tatsächlich gewählten Inputprofile ohne Referenz-/Graphfehler gelingt. Der Provider verbietet das Löschen von CGMES-Metadatenmodellen. Deshalb bleibt die Backend-Schreibroute ein konkreter, **Python-first** Runtime-/Semantic-Witness, nicht ein Java-Pflichtprojekt.
+
+**Gezielte M4-/PoC3-Witness-Reihenfolge:** (1) `get_sub_networks`/get_sub_network; (2) `get_extensions('cgmesMetadataModels')` auf jeder IGM-Ansicht; (3) `get_export_parameters('CGMES')` und zielgebundene SSH-Parameter; (4) ob bereits vorhandene Header aus Originalgraph/Extension und verifizierten Exportparametern korrekt erhalten/überschrieben werden können; (5) `subnetwork.save(..., format='CGMES', parameters=...)` auf **isolierten Kopien**; (6) tatsächliche Outputprofile-/FullModel-/MAS-/DependentOn-/Supersedes-/RDF-/Reimport- und unveränderte-Tripel-Diffs. Falls diese Route scheitert, bleibt `MANUAL_IGM_SSH` BLOCKED — ohne selbstgebauten Java-/XML-Ersatz.
+
+**Verifizierbare unveränderliche Quellen:**
+- https://github.com/powsybl/pypowsybl/blob/v1.16.1/pypowsybl/network/impl/network.py
+- https://github.com/powsybl/pypowsybl/blob/v1.16.1/docs/user_guide/network.rst
+- https://github.com/powsybl/pypowsybl/blob/v1.16.1/tests/test_network_extensions.py
+- https://github.com/powsybl/pypowsybl/blob/v1.16.1/java/pypowsybl/src/main/java/com/powsybl/dataframe/network/extensions/CgmesMetadataModelDataframeProvider.java
+- https://github.com/powsybl/pypowsybl/blob/v1.16.1/java/pypowsybl/src/main/java/com/powsybl/dataframe/network/extensions/CgmesMetadataModelDataframeAdder.java
+
 
 ## 5. Tatsächlich vorhandene CGMES-Ressourcen — eingefrorene Upstream-Dateien
 
