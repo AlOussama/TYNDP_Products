@@ -1,7 +1,7 @@
 # M2 — 40 SOFTWARE ARCHITECTURE
 ## Modul 0: CGMES ↔ kanonischer Netzvertrag ↔ detaillierte PyPSA-Ansicht
 
-**Status:** `M2_ARCHITECTURE_DESIGNED_PENDING_INDEPENDENT_REVIEW` (2026-11-01). **Keine Implementierung, keine ausgeführten Tests, keine ENTSO-E-Konformitätsbehauptung.**
+**Historischer M2-Status:** `M2_ARCHITECTURE_DESIGNED_PENDING_INDEPENDENT_REVIEW` (2026-11-01). **M3-Reparatur:** Verbindlicher [85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md) (CAN/2.0.0) mit typisiertem Original-/Bus-/Branch-/Projektions-/Publish-/DNR-v1-Vertrag; im Konfliktfall hat 85 Vorrang. **Keine Implementierung, keine ausgeführten Tests, keine ENTSO-E-Konformitätsbehauptung.**
 **Autorität:** `00_S_GOV_CONSOLIDATION_AND_MACRO_PLAN.md`; fachliche Inputs `10_REQUIREMENTS.md`, `20_BACKEND_ASSESSMENT.md`, `30_CANONICAL_DATA_CONTRACT.md` und `50_VALIDATION_CONTRACT.md` am Ausgangscommit `e595335d511af6f8c9c05c88276553363ed37045`. Architekturentscheidungen in `60_ARCHITECTURE_DECISION.md` sind für ausdrücklich behandelte Kollisionen präzisierend, die Arbeiterdokumente bleiben unverändert.
 
 ## 1. Ziele, Anforderungen und Nichtziele
@@ -118,9 +118,9 @@ Die nachstehenden Signaturen sind **neu entworfene Modul-0-Ports**, keine API-Zu
 |---|---|
 | `DeliveryManifest` | `delivery_id`, Dateipfade/ZIP-Member, SHA-256, Größen, tatsächliche Profil-URIs, CGMES-Familie, Modellheader, MAS/Authority, `dependsOn`/`supersedes`, Boundary-Referenzen, Datennutzungsrechte |
 | `SourceFacts` | immutable Zeilen mit Original-RDF-Subject, optionalem mRID, Source-Class/Profil/Authority, Units, Terminal-/Relation-IDs, Rohlexem und eindeutiger Source-Occurrence |
-| `RevisionRef` | `network_revision_id`, `parent_revision_id?`, `source_set_hash`, `operating_state_id?`, `canonical_schema_version`, `mapping_policy_hash`, Backend/BOM-Fingerprint |
+| `RevisionRef` | Normativ getrennt: `source_model_set_id`, `source_revision_id`, `operating_state_id`, `canonical_revision_id`, `projection_id`; `network_revision_id` nur deprecated Alias von `canonical_revision_id`; Hash-/Parent-/Fingerprint-Regeln in 85 §3 |
 | `ElectricalView` | Port- und Busrollen, AC-Islands, korrekte Komponentenparameter, Basen, Limits, pro Feld `EXACT/APPROX/UNSUPPORTED`, `QualityReport` und `LossLedger` |
-| `DetailedNetworkReferenceV1` | unveränderliche `RevisionRef`, qualifizierte PyPSA-Ansicht, originär/virtuell unterscheidbare Busse, gerichtete AC-Ports, AC-Island-IDs, Original-Equipment-Mappings, PST-/HVDC-Terminalzustände, alle Original-Limits, Sidecar-URI |
+| `DetailedNetworkReferenceV1` | vollständig typisierter DNR/1.0.0-Contract nach 85 §8: Header/State/Canonical/Projection, Base- und Port-FKs, Buses/Original-/Starroles, AC-Branches, PST-/HVDC-Effekte, granulare Limits, SourceMap, Quality- und Capability-Sidecar, M1-Handshake |
 | `ChangeSet` | Basisrevision/Base-Graph-Hash, Quellobjekt+RDF-Identität, Attributpfad, erwarteter alter Wert, neuer Wert, Einheit, Zielprofil, Änderungstyp, Actor/Authority, inverse Mapping-Witness |
 | `ExportDelivery` | temporär/atomar veröffentlichte Dateien mit SHA-256, Version/Profil/MAS, Modelheader-Relationen, neuer Graph-Diff-Witness, Loss-/QA-Manifest und Commit-Token |
 
@@ -154,7 +154,7 @@ canonical.snapshot(revision: RevisionRef, state_id: str) -> Result[CanonicalNetw
 
 - **Invarianten:** feste PK/FK über `30` mit K-03-/K-04-Präzisierung aus `60`; wiederholter identischer Inhalt erhält dieselben fachlichen IDs. Kein `last file wins`, keine implizite Delete-Semantik. Unvollständige Quellen können in einer **nicht freigegebenen** Staging-Revision diagnostiziert werden; `publish` erlaubt nur die jeweils benannte Capability, nicht pauschal „Netz fertig“.
 - **Fehler:** `SOURCE_ID_COLLISION`, `FK_UNRESOLVED`, `REVISION_HASH_CONFLICT`, `COUNTRY_MISSING_FOR_REQUESTED_VIEW`, `NONFINITE_ELECTRICAL_VALUE`; jeder Verstoß mit `QualityEvent`-Referenz. SQLite-FK-Checks plus fachliche Composite-Key-Checks und optimistische Baserevisionsprüfung.
-- **Konfiguration und Lebenszyklus:** `iosn-m0-can` Schema SemVer, `network_revision_id`, `operating_state_id`, Policy-/BOM-Hashes. SQLite-Transaktion mit Rollback; unveränderlicher öffentlicher Revisionspointer. T-04–T-06, T-18, T-24.
+- **Konfiguration und Lebenszyklus:** `iosn-m0-can` Schema SemVer, `source_revision_id`, `operating_state_id`, `canonical_revision_id`, `projection_id`, Policy-/BOM-Hashes. SQLite-Pointer-CAS und durable Blob-/Manifest-Precommit gemäß 85 §7; ein bloßes DB-Rollback ist keine FS-Atomizitätsgarantie. T-04–T-06, T-18, T-24.
 
 #### Port C – Topologie und elektrische Projektion (`projection`)
 
@@ -219,13 +219,17 @@ Der ausführliche **logische** Datenvertrag aus `30_CANONICAL_DATA_CONTRACT.md` 
 
 **Normativer K-03-Präzisierungsvertrag** (überschreibt bei Widerspruch die informelle `source_key`-Definition aus `30`): Identität bezieht sich **nicht** auf ein einzelnes Profil. `source_entity_key` = (`identity_namespace`, `identity_kind`, `identity_value`). Zulässige `identity_kind`: `MRID`, `RDF_SUBJECT`; `identity_namespace` ist der eindeutig qualifizierte Modell-/Authority-/Exchange-Kontext des Objekts, nicht beliebig der EQ-/SSH-/TP-/SV-Name. Wo derselbe logisch identifizierte Gegenstand in mehreren Profilen oder Dateien wiederkehrt, entsteht **ein** `source_object` plus mehrere `source_occurrences`. Profil, Datei, Header und Graph werden auf Occurrence-/Relationsebene gespeichert. Ein mRID-loses CIM-/SV-Objekt erhält niemals ein behauptetes historisches mRID; es wird über sein vollständiges RDF-Subject/URI samt Quellenkontext identifiziert. Blank nodes erhalten eine graph- und kanonisierungsspezifische, nur im Input-Revisionsraum gültige Identität; über neue Serialisierungen ist keine globale Blank-Node-ID-Stabilität behauptet. Unklare oder kollidierende Authorities/IDs ⇒ `BLOCK`.
 
-**Determinismus:** `source_object_id` = stabiler projektinterner Hash/UUID über qualifizierten `source_entity_key` **und** eingehende Originalrevision, falls ein immutable occurrence-identifier benötigt wird. `asset_id` = logisch identifizierter Primärschlüssel innerhalb einer Netzfamilie. `view_id` = deterministic ID aus `network_revision_id`, originalem asset, Projektionsfunktion, Portrolle und Namespace; nicht als mRID exponieren. `network_revision_id` = versionierter Zustand aus Modellset-, Betriebszustands- und Mappingpolicies mit Hashes; identische Archive + identische Konfiguration ⇒ identische fachliche IDs, ungeachtet Zeitstempel eines erneuten Importlaufs. Neuer Quellstand oder geänderte Mappingpolitik ⇒ neue Revision; publizierte Revision wird niemals in-place geändert.
+**Determinismus (normativ 85 §§1/3):** `source_entity_id` ist quellentitätsstabil, `source_object_id` revisionsgebunden, `source_occurrence_id` profil-/datei-/graphgebunden; `source_mrid` ist nullable; blank-node-Identität gilt nur im qualifizierten Quellgraph-Scope. Die originale Vorfassung war an dieser Stelle zu unscharf. `source_object_id` = stabiler projektinterner Hash/UUID über qualifizierten `source_entity_key` **und** eingehende Originalrevision, falls ein immutable occurrence-identifier benötigt wird. `asset_id` = logisch identifizierter Primärschlüssel innerhalb einer Netzfamilie. `view_id` = deterministic ID aus `projection_id`, originalem asset, Projektionsfunktion, Portrolle und Namespace; nicht als mRID exponieren. `network_revision_id` = versionierter Zustand aus Modellset-, Betriebszustands- und Mappingpolicies mit Hashes; identische Archive + identische Konfiguration ⇒ identische fachliche IDs, ungeachtet Zeitstempel eines erneuten Importlaufs. Neuer Quellstand oder geänderte Mappingpolitik ⇒ neue Revision; publizierte Revision wird niemals in-place geändert.
 
 **Source-Graph-Treue:** `raw_attributes` allein garantiert kein semantisch vollständiges RDF; Originaldateien, ZIP-Mitglieder, Modelheader, Graphpartitionierung und nicht abgebildete RDF-Aussagen bleiben über immutable `raw_graph_ref`/Manifest verfügbar. Normative Export-1-Garantie bezieht sich auf **unveränderte semantische Objekte/Referenzen innerhalb eines definierten Modellsatzes**, nicht byteidentische XML-Formatierung und nicht nicht-veröffentlichbare, technisch verlorene Originalgraphinformation.
 
 **K-04 Country-Regel:** Ein **realer**, für Modul 1 akzeptierter originaler AC-Bus muss eine verifizierte Länder-FK besitzen; ein synthetischer interner 3W-Sternbus besitzt `bus_role=SYNTHETIC_3W_STAR`, `country_code=NULL`, `source_transformer_id` und `excluded_from_country_clustering=True`. Das ursprünglich in `30` als allgemein verpflichtend formulierte `buses.country_code` ist **konditional nach bus_role**. Synthetische Busse dürfen nicht mit einem künstlichen ISO-Ländercode in die reale Netzhierarchie geschrieben werden. Cross-border Line/PST/HVDC hat getrennte landesbezogene Endports, nicht ein erzwungenes 'Leitungsland'.
 
 **Null-/Unit-Regel:** `NULL != 0`, `missing != default`. Internes Bezugssystem für P/Q/S = MW/Mvar/MVA, U = kV (LL), Leitungs-Z = Ω, Shunt-Y = S, Winkel = deg mit expliziter Deklaration, Transformator-pu mit wirklicher Rating-/Voltage-Base; alle abgeleiteten Werte referenzieren `function_id`, Input-IDs und Policy-Version. Kein PyPSA-Default ist CGMES-Quelle.
+
+## 4.1 Normative M3-Korrekturen: Logisches Schema / Provenienz / Bus-Branch
+
+Die **eigentliche tabellarische Sollfassung** für ID-/RDF-only-Objekte, Profile-Occurrences, Blank Nodes, conditional Country-FKs, TopologyKind BUS_BRANCH/NODE_BREAKER, SourceHierarchy und unterschiedliche Source-/State-/Canonical-/View-Revisionsschlüssel steht in [85 §§1–3](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md). Dies korrigiert 30/1.0.0 verbindlich zu **IOSN-M0-CAN/2.0.0**; im alten Register nicht vorhandene oder widersprüchliche Felder dürfen nicht aus früheren Spaltentypen erraten werden. Ein reales Land wird ausschließlich über Originalterminal-/SourceHierarchy-Relationen belegt, nie über eine von PowSyBl möglicherweise zusammengelegte repräsentative IIDM-Station.
 
 ## 5. Projektion und elektrische Konsistenz
 
@@ -247,6 +251,10 @@ Der ausführliche **logische** Datenvertrag aus `30_CANONICAL_DATA_CONTRACT.md` 
 **Unit-Gate:** Für dreiphasige Basis mit Leiter-Leiter-`U_base` [kV], `S_base` [MVA] gilt `Z_base=U_base²/S_base` [Ω], `z_pu=Z_Ω/Z_base`, `Y_base=1/Z_base` [S]. Bei Transformatormodellen die konkrete Wicklungsbasis (nicht blind 100 MVA) anwenden. Leitungsschaltadmittanz (Gesamtwert `gch+j bch`) wird im symmetrischen PI-Modell hälftig auf beide Ports verteilt, sofern das Zielmodell genau diese Konvention besitzt; sonst mittels Zweitor-Y überprüfen. Tap als `t=τ exp(jφ)` ist eine mathematische Portkonvention, nicht ohne Test identisch mit backend-/PyPSA-Side-Semantik. Für einen positiven linearen PST-Flussbeitrag `P_0→1≈(θ0-θ1-φ)/x_eff` sind Porttausch und Winkelvorzeichen zu validieren. Bei HVDC darf `p0<0` in einem einzelnen verlustbehafteten Link nicht automatisch die physikalisch richtige Rückwärtsverlustfunktion erhalten.
 
 **Capability-Regel:** `EXACT` bezeichnet nur die im gewählten Anwendungsmodell nachgewiesene Information oder mathematische Größe, nicht historische CIM-Objektidentität. `APPROX` nennt Gültigkeitsbereich und numerische Wirkung; `UNSUPPORTED` blockiert die entsprechende View/Exportoperation. Der Canonical-/Raw-Import darf auch bei noch nicht abbildbarer PyPSA-Elektrik als eigenständige Capability bestehen bleiben.
+
+## 5.1 ProjectionQuality ohne Export
+
+Jede ElectricalView besitzt ein eigenes append-only, über `projection_id` referenziertes **projection_quality**-Register und dazugehörige Witnesses gemäß [85 §4](85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md). Das exportgebundene `loss_manifest(transaction_id,...)` bleibt davon strikt getrennt. `EXACT` ist ohne passenden tatsächlichen qualifizierten Witness keine Runtime-Freigabe; `APPROX` erfordert benannte Domäne/physikalische Wirkung, `UNSUPPORTED` blockiert die beantragte Capability. Der Sidecar transportiert dieses Register auch ohne Export.
 
 ## 6. Import-, Reimport- und Exportabläufe
 
@@ -273,7 +281,7 @@ sequenceDiagram
  P-->>U: DetailedNetworkReference v1 + sidecar if eligible
 ~~~
 
-**Profilpolicy K-01:** EQ/SSH sind Kern für einen unsolved stationären Input. TP wird übernommen/gegengeleitet, sofern vorhanden; bei Fehlen nur nach verifizierbarer, backendgestützter Ableitung aus EQ/SSH, andernfalls `BLOCK_TOPOLOGY`. SV darf bei unsolved fehlen; bei solved/SV-Referenzprüfung ist es erforderlich. 2.4.15-Boundary kann EQBD/TPBD benötigen. 3.0 erfordert kein künstliches TPBD; tatsächliche Core-EQ-/Boundary-Exchange-Policy je deklarierter Modellversion anwenden. GL optional; wenn geliefert, CRS/Position- und Herkunftsvalidierung. Keine globale Annahme, dass alle Profile bei jedem einzelnen Import vorhanden sein müssen. Bei Multi-IGM referenzielle Assembly und Authority-Zuordnung, keine geometrischen Cross-border-Merges.
+**Profilpolicy K-01 und TopologyKind (85 §2):** EQ/SSH bilden den unsolved Betriebszustandskern. NODE_BREAKER: TP wird bei Lieferung abgeglichen; bei fehlendem TP ist eine *bewiesene deterministische* Ableitung aus EQ/SSH-Connectivity-/Switchgraph zulässig. BUS_BRANCH: originale Terminal→TopologicalNode-Referenz benötigt **zwingend TP**; ohne TP `BLOCK_TOPOLOGY_MISSING_TP`, keine fiktiven ConnectivityNodes. SV darf bei unsolved fehlen; bei solved/SV-Referenzprüfung ist es erforderlich. 2.4.15-Boundary kann EQBD/TPBD benötigen. 3.0 erfordert kein künstliches TPBD; tatsächliche Core-EQ-/Boundary-Exchange-Policy je deklarierter Modellversion anwenden. GL optional; wenn geliefert, CRS/Position- und Herkunftsvalidierung. Keine globale Annahme, dass alle Profile bei jedem einzelnen Import vorhanden sein müssen. Bei Multi-IGM referenzielle Assembly und Authority-Zuordnung, keine geometrischen Cross-border-Merges.
 
 ### 6.2 Reimport und Zustandsaktualisierung
 
@@ -293,7 +301,7 @@ sequenceDiagram
  C-->>U: new revision_id + changed objects + capabilities
 ~~~
 
-Getrennte `source_set_hash`, `operating_state_id` und `network_revision_id`; keine impliziten Löschungen. Nur explizite supported Update-Familien und ‑Modelldependenzen zulassen. `update_from_file` der PyPowSyBl-Python-API ist kein Nachweis, dass jede EQ-/TP-/Boundary-Mutation als partieller Update-Import zulässig wäre. Konkurrierende Revisionen ⇒ optimistic hash conflict und BLOCK.
+Getrennte `source_model_set_id`, `source_revision_id`, `operating_state_id`, `canonical_revision_id` und `projection_id` nach 85 §3; keine impliziten Löschungen. Nur explizite supported Update-Familien und ‑Modelldependenzen zulassen. `update_from_file` der PyPowSyBl-Python-API ist kein Nachweis, dass jede EQ-/TP-/Boundary-Mutation als partieller Update-Import zulässig wäre. Konkurrierende Revisionen ⇒ optimistic hash conflict und BLOCK.
 
 ### 6.3 Update-Export `UPDATE_IMPORTED`
 
@@ -316,9 +324,9 @@ sequenceDiagram
  E-->>U: atomic delivery + loss/audit manifest only on PASS
 ~~~
 
-**Wichtig K-02:** PowSyBl Quick-CGM-Export kann mehrere IGM-SSH und ein CGM-SV (optional TP) schreiben; das garantiert **nicht** frei erfundene oder unveränderte originalfremde RDF-Tripel, GL oder EQBD/TPBD im Ausgabeprofil. **Exportstrategie v1:** Original-EQ/TP-/Boundary- und andere unverändert erhaltene Profile verbleiben im referenzierten, unveränderlichen Archive/Delivery-Set; für geänderte Zustandsattribute schreibt das Backend **nur die belegten unterstützten Profile** und korrekte `FullModel/DependsOn/Supersedes`-Beziehungen. Eine streng semantisch unchanged-graph-Policy wird an den original erhaltenen oder unverändert gereichten Objekten geprüft. Unbekannte XML-Header und Extension-Felder dürfen beim Neuschreiben nicht unbemerkt als gleichwertig ausgegeben werden. Wenn die erforderliche Python-Original-ID/Graph-Rückbindung nicht nachgewiesen werden kann, wird `UPDATE_EXPORT_READY` nicht vergeben; ein zusätzliches, nicht bereits beauftragtes universelles RDF-Patcher-Subsystem ist **keine** implizite M2-Entscheidung.
+**Wichtig K-02/M3-P1-04 (85 §5):** PowSyBl CGM-Quick-Export erzeugt stets SSH je IGM und gemeinsames CGM-SV; die angebotsseitige Profilauswahl wird ignoriert, SSH-only ist damit **nicht** möglich. `CGM_QUICK_SSH_SV` erfordert einen tatsächlich geprüften neuen gelösten SV-Snapshot; `MANUAL_IGM_SSH` (manueller IGM-/Subnetzexport) muss gesondert über Python/Metadata/Headers/ModelAuthority/DependsOn/Supersedes/Graph-Diff/Reimport qualifiziert werden, sonst BLOCK_EXPORT_UNPROVEN. Der Quick-Export kann mehrere IGM-SSH und ein CGM-SV (optional TP) schreiben; das garantiert **nicht** frei erfundene oder unveränderte originalfremde RDF-Tripel, GL oder EQBD/TPBD im Ausgabeprofil. **Exportstrategie v1:** Original-EQ/TP-/Boundary- und andere unverändert erhaltene Profile verbleiben im referenzierten, unveränderlichen Archive/Delivery-Set; für geänderte Zustandsattribute schreibt das Backend **nur die belegten unterstützten Profile** und korrekte `FullModel/DependsOn/Supersedes`-Beziehungen. Eine streng semantisch unchanged-graph-Policy wird an den original erhaltenen oder unverändert gereichten Objekten geprüft. Unbekannte XML-Header und Extension-Felder dürfen beim Neuschreiben nicht unbemerkt als gleichwertig ausgegeben werden. Wenn die erforderliche Python-Original-ID/Graph-Rückbindung nicht nachgewiesen werden kann, wird `UPDATE_EXPORT_READY` nicht vergeben; ein zusätzliches, nicht bereits beauftragtes universelles RDF-Patcher-Subsystem ist **keine** implizite M2-Entscheidung.
 
-**SV-Export:** Ein neues SV muss aus einem nachweislich geeigneten, konsistenten *berechneten* Betriebspunkt stammen; bloßes Setzen der SSH-P/Q-Werte oder Verwenden ungeprüfter Startwerte ist keine neue State-Variables-Lösung. Ohne solver-/snapshot-/version-/sign-konformen Nachweis keinen neuen `SV`-PASS behaupten. Für reinen SSH-Update-Export darf die Vertragsklasse dies getrennt von der Fähigkeit zum SV-Neuschreiben ausweisen.
+**SV-Export:** Ein neues SV muss aus einem nachweislich geeigneten, konsistenten *berechneten* Betriebspunkt stammen; bloßes Setzen der SSH-P/Q-Werte oder Verwenden ungeprüfter Startwerte ist keine neue State-Variables-Lösung. Ohne solver-/snapshot-/version-/sign-konformen Nachweis keinen neuen `SV`-PASS behaupten. Für reinen SSH-Update-Export darf die Vertragsklasse dies nur über die getrennt qualifizierte `MANUAL_IGM_SSH`-Route ausweisen; das bloße YAML-Zielprofil `SSH` schränkt QUICK_CGM nicht ein. Zusätzlich gilt die Mutationsklassifikation nach 85 §5.2 (STATE_NON_TOPOLOGY, STATE_TOPOLOGY_AFFECTING, STRUCTURAL_EQ_TP, SYNTHETIC_CREATE).
 
 ### 6.4 Create-Export `CREATE_FROM_PYPSA`
 
@@ -365,11 +373,11 @@ delivery:
   cgmes_family: "2.4.15"     # or "3.0"
   mode: "UNSOLVED_IMPORT"    # or "SOLVED_IMPORT"/"CGM_UPDATE"
   profiles: ["EQ", "SSH"]
-  if_tp_absent: "DERIVE_ONLY_IF_PROVEN"
+  if_tp_absent: "NODE_BREAKER_DERIVE_IF_PROVEN_BUS_BRANCH_REQUIRE_TP"
   if_sv_absent: "NO_REFERENCE_PASS"
   boundary_policy: "EXCHANGE_VERSION_AWARE"
 canonical:
-  schema: "iosn-m0-can/1.0.0"
+  schema: "iosn-m0-can/2.0.0"
   store: "sqlite-v1"
 projection:
   target: "PYPSA_DETAILED"
@@ -390,7 +398,10 @@ projection:
       synthetic_country_code: null
 export:
   mode: "UPDATE_IMPORTED"
-  allow_profiles: ["SSH"]     # SV separately if eligible
+  backend_export_route: "MANUAL_IGM_SSH"  # requires independent qualification
+  requested_profiles: ["SSH"]     # NOT a CGM-quick backend filter
+  reject_unqualified_route: true
+  mutation_class: "STATE_NON_TOPOLOGY"
   allowed_write_rule: "pinned-backend-qualified-allowlist/v1"
   require_source_graph: true
   require_semantic_graph_diff: true
@@ -407,13 +418,13 @@ quality:
 
 **Wichtig:** die SQLite-Verwendung und ein mögliches Parquet-Cacheformat sind neue Modul-0-Entscheidungen, keine Behauptung einer extern vorhandenen Datenbank. Speicherschemas müssen referenzielle Beziehungen/PKs, nullable Pflichtfeldregeln, Versionen und Opaque-Graph-Referenzen des logischen `30`-Vertrags validieren; unaufgelöste Quellkonflikte bleiben Blocker. Jede Dataset-/Variant-Datei und der Exportbericht werden gehasht. Modelle mit realen Netzrechten werden nicht ins öffentliche Repository eingecheckt.
 
-**Snapshot/Persistenz-Lebenszyklus:** Backup der unveränderten Rohdateien → importer/BackendSession → staging CanonicalRevision → QA → Commit/Manifest-Pointer atomar veröffentlichen. Eine im M2 benannte zukünftige ACPF-/LPF-/Reduction-View ist keine automatisch wiederherstellbare Original-Topologie. Cache-Dateien sind jederzeit aus Archive, Dataset- und Mappingversion reproduzierbar.
+**Normatives Commit-Protokoll (85 §7):** Staged Blobs → verifizierte und durabel geschriebene immutable Blobs → durables komplettes Manifest → SQLite-CAS-Transaktion mit *einzigem* öffentlich sichtbarem COMMITTED-Pointer, zuletzt; konkurrierende Writer, Crash vor/nach Commit, orphan-GC und idempotente Retries sind spezifiziert. Ein SQLite-Commit alleine garantiert **keine** atomare Publikation von Datei-/ZIP-Inhalten. **Historischer Überblick:** Backup der unveränderten Rohdateien → importer/BackendSession → staging CanonicalRevision → QA → Commit/Manifest-Pointer atomar veröffentlichen. Eine im M2 benannte zukünftige ACPF-/LPF-/Reduction-View ist keine automatisch wiederherstellbare Original-Topologie. Cache-Dateien sind jederzeit aus Archive, Dataset- und Mappingversion reproduzierbar.
 
 **Skalierungsrichtlinie:** Ein Referenz-CGM um mehrere Tausend Busse und Multi-IGM-Grenzen ist für spätere Benchmarks vorgesehen; Leistungszeit und RAM sind **noch unbekannt**. Bei M4 messen: Parse/Backend-RAM, PyPowSyBl-/Java-Native-Ressourcen, Canonical-Write und Join-Kosten, PyPSA-Projektion, Export-Staging, peak RAM; lange RDF-Graph-Zeitreihen und CFD dürfen nicht in der Kern-PyPSA-Tabelle dupliziert werden. Dateneingaben müssen Größe/Zip-Bomb-/Pfad-/XML-Entity-Limits und sichere temporäre Verzeichnisse beachten; XML-Parsing übernimmt die geprüfte externe Bibliothek, ihr Verhalten ist durch Fixture-/Fuzz-Gates zu prüfen.
 
 ## 9. Vertrag zum vorhandenen Modul 1
 
-**Pflichtartefakt:** `DetailedNetworkReference v1` enthält `network_revision_id`, `source_set_hash`, `mapping_policy_hash`, ggf. `operating_state_id`, aktive orientierte Bus-/Branch-Mengen, effective `x_pu` mit Grundlage, 3W-Source-Mapping, PST-Offset, HVDC-Terminalmodell/Flows, normal-/temporär-/direktionale Grenzwerte, Country/Boundary-IDs und `m0_sidecar`. Zeitreihen/Dispatch/Wetter/Busmaps sind keine M0-Daten. Reale grenzüberschreitende Zweige müssen in der Detailtopologie bleiben, auch wenn später Länder separat geclustert werden.
+**Pflichtartefakt:** Das **vollständig typisierte** DetailedNetworkReference/1.0.0 aus 85 §8 enthält zwingend `source_model_set_id`, `source_revision_id`, `operating_state_id`, `canonical_revision_id`, `projection_id`, `source_set_hash`, `mapping_policy_hash`, Unit-/Basis-/Port-/Quality-/Capability-/Sidecar-Manifest-FKs. Das folgende historische Kurzschema ist nur illustrativ: `DetailedNetworkReference v1` enthält `network_revision_id`, `source_set_hash`, `mapping_policy_hash`, ggf. `operating_state_id`, aktive orientierte Bus-/Branch-Mengen, effective `x_pu` mit Grundlage, 3W-Source-Mapping, PST-Offset, HVDC-Terminalmodell/Flows, normal-/temporär-/direktionale Grenzwerte, Country/Boundary-IDs und `m0_sidecar`. Zeitreihen/Dispatch/Wetter/Busmaps sind keine M0-Daten. Reale grenzüberschreitende Zweige müssen in der Detailtopologie bleiben, auch wenn später Länder separat geclustert werden.
 
 **Aktueller Codebefund:** Der bestehende `src/tyndp_reduce/pypsa_adapter.py` verwirft Transformatoren, Links, Storage und mehrdimensionale/mehrinselige Sonderfälle. Somit folgt aus `PYPSA_ACPF_READY` oder `PYPSA_LPF_READY` keinesfalls `REDUCTION_ADAPTER_READY`. Die Erweiterung des bestehenden Reduktionsadapters ist **späteres Modul-1-Implementierungsmakro**, nicht ein versteckter Teil des CGMES-Format-Backends.
 
