@@ -1,0 +1,11 @@
+# M1-MA4F isolated fixture host; exactly pinned direct dependencies (transitive freeze in CI).
+# CPython 3.11. No pypowsybl, no model 0 runtime qualification implied.
+pypsa==1.4.0
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+xarray==2025.10.1
+shapely==2.1.2
+pyproj==3.7.2
+snakemake==9.13.3
+pytest==9.0.2

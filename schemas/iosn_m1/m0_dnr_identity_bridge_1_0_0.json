@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IOSN-M1-DNR-BRIDGE/1.0.0",
+  "type": "object",
+  "required": [
+    "schema",
+    "m0_schema",
+    "source_revision_id",
+    "operating_state_id",
+    "canonical_revision_id",
+    "projection_id",
+    "reference_id",
+    "source_set_hash",
+    "mapping_policy_hash",
+    "legacy_network_revision_semantics",
+    "legacy_network_revision_id"
+  ],
+  "properties": {
+    "schema": {
+      "const": "IOSN-M1-DNR-BRIDGE/1.0.0"
+    },
+    "m0_schema": {
+      "const": "iosn-m0-detailed-network-reference/1.0.0"
+    },
+    "legacy_network_revision_semantics": {
+      "const": "EXACT_CANONICAL_REVISION_ID"
+    },
+    "source_revision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operating_state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_revision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "projection_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reference_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_set_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mapping_policy_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_network_revision_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "description": "Legacy Producer network_revision_id MUST equal canonical_revision_id; never projection_id or source_revision_id. Real DNR requires independent source/sidecar/quality qualification before MA4R."
+}

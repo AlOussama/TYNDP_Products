@@ -1,0 +1,22 @@
+{
+  "schema": "IOSN-M1-MA4F-TARGET-OWNERSHIP/1.0.0",
+  "policy": "FAIL_ON_EXISTING_VALUE_OR_DUPLICATE_TARGET",
+  "allowed_writes": {
+    "MA2_RES": [
+      "Generator.p_max_pu"
+    ],
+    "MA3_HYDRO": [
+      "Generator.p_max_pu",
+      "StorageUnit.inflow"
+    ]
+  },
+  "disjoint_generator_ownership": "The (Generator,p_max_pu,original_id) targets of RES and RoR MUST be disjoint",
+  "preserve_dynamic": [
+    "Load.p_set",
+    "all_other_preexisting_dynamic_tables"
+  ],
+  "preserve_static": "all PyPSA components (including 3W star arms, links, stores, shunts, transformers, generator/loading rating)",
+  "store_link_staging": "No automatic Generator.p_set writes; require separately verified M0 port + owner sign-off; MA4F rejects nonempty staging",
+  "dfT_status": "NO_VALIDATED_LOAD_INPUT_M0_EXISTING_loads_t.p_set_IMMUTABLE",
+  "real_data_gate": "BLOCKED_WITHOUT_M1_MD1_M0_PECD_HYDRO_WITNESS"
+}
