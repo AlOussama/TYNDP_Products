@@ -39,6 +39,8 @@ def fixture_case(tmp_path: Path, *, tech="HRI", semantics="STORAGE_ENERGY_EQUIVA
             "semantics": semantics, "unit": "MWh",
             "resolution": "WEEK" if (native_end - native_start).days > 1 else "DAY",
             "timezone": zone, "path": name, "sha256": sha,
+            "temporal_distribution_policy": "UNIFORM_WITHIN_NATIVE_INTERVAL",
+            "temporal_policy_evidence_ref": "FIXTURE_UNIFORM_POLICY",
         })
     manifest = {
         "contract": CONTRACT, "source_mode": "FIXTURE",
