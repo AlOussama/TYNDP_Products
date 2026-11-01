@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import numpy as np
 import pandas as pd
@@ -194,7 +195,10 @@ def read_profile(row: dict, catalog_path: Path, enforce_full_year: bool) -> pd.S
     skiprows = 10 if source_format == "TYNDP_RAW10_DATE_HOUR" else 0
     raw = pd.read_csv(f, dtype={"Date": str}, skiprows=skiprows)
     basis = text_value(row["source_time_basis"])
-    require(basis in {"UTC", "Europe/Berlin"}, "SOURCE_TIMEZONE_UNSUPPORTED", basis)
+    try:
+        ZoneInfo(basis)
+    except (ZoneInfoNotFoundError, ValueError) as exc:
+        raise ContractError(f"SOURCE_TIMEZONE_UNSUPPORTED: {basis}") from exc
     if source_format in {"TYNDP_DATE_HOUR", "TYNDP_RAW10_DATE_HOUR"}:
         require({"Date", "Hour", str(row["weather_column"])} <= set(raw.columns),
                 "PECD_DATE_HOUR_WS_MISSING", str(f))
@@ -228,9 +232,9 @@ def read_profile(row: dict, catalog_path: Path, enforce_full_year: bool) -> pd.S
             "TIME_GAP_OR_NONHOURLY", str(f))
     if enforce_full_year:
         year = int(row["calendar_year"])
-        start = pd.Timestamp(year=year, month=1, day=1)
-        expected = pd.date_range(start, pd.Timestamp(year=year + 1, month=1, day=1),
-                                 freq="h", inclusive="left")
+        start = pd.Timestamp(year=year, month=1, day=1, tz=basis).tz_convert("UTC").tz_localize(None)
+        stop = pd.Timestamp(year=year + 1, month=1, day=1, tz=basis).tz_convert("UTC").tz_localize(None)
+        expected = pd.date_range(start, stop, freq="h", inclusive="left")
         require(idx.equals(expected), "INCOMPLETE_NATIVE_YEAR", str(f))
     return pd.Series(values, index=idx, name=str(row["source_profile_id"]))
 
