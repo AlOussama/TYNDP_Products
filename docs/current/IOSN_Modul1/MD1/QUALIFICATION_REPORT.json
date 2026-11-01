@@ -1,0 +1,134 @@
+{
+  "schema": "iosn-m1-md1-source-qualification/1.0.0",
+  "as_of": "2026-11-01",
+  "contract_authority": {
+    "repository": "AlOussama/TYNDP_Products",
+    "sgov_commit": "03fa261850da8c940283668741bb7a17c46bd769",
+    "ma1c_commit": "f366f8162e1023ff959721d5fed14ad80dcba890",
+    "ma2_commit": "11700baa8df8cafc6bd71b96998f8b2bca647ca0",
+    "ma3_commit": "b3b9bf133d1b5c968323a31f8ac76090f1f2e182",
+    "m0_canonical_contract_commit": "b1e284996fa69f81651daf9150b829e6a42e4ce3",
+    "m0_preflight_commit": "ba55e4a12819a88605474606888ca23ee2108584",
+    "open_tyndp_commit": "71a3a9a15b77114cd79458bceabc98e1a64dd58a"
+  },
+  "authority_separation": {
+    "pe_cd": "independent_regional_meteorological_energy_profiles_no_CGMES_bus_or_generator_IDs",
+    "hydro": "independent_hydrological_source_area_and_native_energy_intervals_no_CGMES_bus_or_storage_IDs",
+    "m0": "independent_electrical_network_bus_generator_load_storage_connectivity_and_sidecar",
+    "m1_join": "only_later_versioned_mapping_of_source_regions_or_cells_to_existing_M0_assets_and_ports"
+  },
+  "required_external_weather_ids": 5,
+  "real_external_weather_ids_witnessed": 0,
+  "no_reselection_or_fallback": true,
+  "actual_input_coverage": {
+    "pe_cd_raw_files_sha256_verified": 0,
+    "hydro_raw_files_sha256_verified": 0,
+    "pecd_mask_netcdf_sha256_verified": 0,
+    "actual_m0_dnr_packages_sha256_verified": 0,
+    "actual_region_to_m0_generator_joins": 0,
+    "actual_hydro_basin_to_m0_asset_allocations": 0,
+    "actual_DFT_source_files_sha256_verified": 0
+  },
+  "evidence_scopes": {
+    "git_text_sources_verified": true,
+    "official_tyndp_portal_and_pecd_pug_verified": true,
+    "original_compressed_source_bytes_read": false,
+    "official_fractional_mask_bytes_read": false,
+    "project_archived_ZIP_members_read": false,
+    "real_CGMES_PyPSA_execution": false,
+    "producer_fixture_tests_reexecuted_in_md1": false
+  },
+  "gates": {
+    "S-PECD-CATALOG": {
+      "status": "PASS_STATIC_CATALOG_ONLY",
+      "independent_of_m0": true
+    },
+    "S-PECD-PHYSICAL": {
+      "status": "BLOCKED_NOT_WITNESSED",
+      "independent_of_m0": true,
+      "blockers": [
+        "BMD1-01",
+        "BMD1-02",
+        "BMD1-03",
+        "BMD1-05"
+      ]
+    },
+    "S-HYDRO-CATALOG": {
+      "status": "PASS_STATIC_CATALOG_ONLY",
+      "independent_of_m0": true
+    },
+    "S-HYDRO-PHYSICAL": {
+      "status": "BLOCKED_NOT_WITNESSED",
+      "independent_of_m0": true,
+      "blockers": [
+        "BMD1-01",
+        "BMD1-04",
+        "BMD1-05"
+      ]
+    },
+    "N-M0-CONTRACT": {
+      "status": "PASS_DESIGN_ONLY",
+      "independent_of_pecd": true
+    },
+    "N-M0-PHYSICAL": {
+      "status": "BLOCKED_NOT_PROVIDED",
+      "independent_of_pecd": true,
+      "blockers": [
+        "BMD1-06"
+      ]
+    },
+    "J-M1-SPATIAL_AND_HYDRO_JOIN": {
+      "status": "BLOCKED_PREREQUISITES",
+      "requires": [
+        "S-PECD-PHYSICAL",
+        "S-HYDRO-PHYSICAL",
+        "N-M0-PHYSICAL"
+      ],
+      "blockers": [
+        "BMD1-07",
+        "BMD1-09"
+      ]
+    },
+    "J-M1-CAN_DNR_BRIDGE": {
+      "status": "STATIC_MISMATCH_RUNTIME_BLOCKED",
+      "blockers": [
+        "BMD1-08"
+      ]
+    },
+    "S-DFT-PHYSICAL": {
+      "status": "NOT_ASSESSED_SCOPE_CONDITIONAL",
+      "blockers": [
+        "BMD1-10"
+      ]
+    },
+    "MA4R_REAL_SOURCE_RELEASE": {
+      "status": "NOT_RELEASED",
+      "requires": [
+        "MA4F_INDEPENDENT_FIXTURE_EXIT",
+        "S-PECD-PHYSICAL",
+        "S-HYDRO-PHYSICAL",
+        "N-M0-PHYSICAL",
+        "J-M1-SPATIAL_AND_HYDRO_JOIN",
+        "J-M1-CAN_DNR_BRIDGE"
+      ]
+    }
+  },
+  "overall_decision": "M1_SOURCE_CONTRACT_BLOCKED",
+  "real_data_pass": false,
+  "ma4r_real_input_released": false,
+  "immediately_usable_real_data_for_ma4r": [],
+  "available_non_real_inputs": [
+    "public_source_catalogs_and_documentation",
+    "MA2_fixture_only_code",
+    "MA3_fixture_only_code",
+    "M0_design_only_DNR_contract"
+  ],
+  "caveats": [
+    "Source archive ZIP application/zip is not readable as bytes in current web tool; container network/DNS unavailable.",
+    "No source-file SHA256 has been invented; Git blob SHA1 is distinct.",
+    "Official TYNDP data licensing statement is not a file-specific CDS/M0 provenance certificate.",
+    "The five external weather IDs are not the three filled regular TYNDP WS per horizon."
+  ],
+  "blocker_register": "BLOCKER_REGISTER.csv",
+  "next_owner_action": "one_consolidated_authorized_source_and_M0_package_to_independent_requalification_without_micro_iterations"
+}
