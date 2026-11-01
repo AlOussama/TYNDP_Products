@@ -360,3 +360,45 @@ def test_unknown_carrier_declared_res_is_blocked(tmp_path):
     args.m0_reference_manifest.write_text(json.dumps(m0))
     with pytest.raises(ContractError, match="UNKNOWN_M0_CARRIER"):
         execute(args)
+
+
+def test_two_native_onshore_and_offshore_spatial_product_classes(tmp_path):
+    args = make_fixture(tmp_path)
+    catalog = pd.read_csv(args.source_catalog, dtype="string", keep_default_na=False)
+    for original, new_id, new_level, new_region in [
+        ("ON-PEON-1", "ON-P2ON-1", "P2ON", "D2_PEON"),
+        ("OFF-PEOF-1", "OFF-P2OF-1", "P2OF", "NSEA_2")]:
+        extra = catalog[catalog["source_profile_id"].eq(original)].copy()
+        extra["source_profile_id"] = new_id
+        extra["spatial_level"] = new_level
+        extra["region_id"] = new_region
+        catalog = pd.concat([catalog, extra], ignore_index=True)
+    catalog.to_csv(args.source_catalog, index=False)
+    amap = pd.read_csv(args.assignment_map, dtype="string", keep_default_na=False)
+    on_mask = amap["existing_generator_id"].eq("G-CGMES-ON2")
+    off_mask = amap["existing_generator_id"].eq("G-CGMES-OFF")
+    amap.loc[on_mask, "source_profile_id"] = "ON-P2ON-1"
+    amap.loc[on_mask, "spatial_level"] = "P2ON"
+    amap.loc[off_mask, "source_profile_id"] = "OFF-P2OF-1"
+    amap.loc[off_mask, "spatial_level"] = "P2OF"
+    amap.to_csv(args.assignment_map, index=False)
+    qa = execute(args)
+    assert qa["source_profile_count"] == 6
+    with xr.open_dataset(args.output_cf) as ds:
+        assert ds.renewable_cf.sel(existing_generator_id="G-CGMES-ON2").values[0] == pytest.approx(.2)
+        assert ds.renewable_cf.sel(existing_generator_id="G-CGMES-OFF").values[0] == pytest.approx(.75)
+
+
+def test_timezone_iana_registry_and_invalid_name():
+    idx = _utc_index(pd.Series(["2026-01-01 00:00:00"]), "Europe/London")
+    assert idx[0] == pd.Timestamp("2026-01-01 00:00:00")
+    with pytest.raises(ContractError, match="SOURCE_TIMEZONE_UNSUPPORTED"):
+        # Source timezone verification is conducted by the loader, not by the UTC converter.
+        from scripts.iosn_m1.res.adapter import read_profile
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory) / "x.csv"
+            pd.DataFrame({"time": ["2026-01-01T00:00:00"], "cf": [0.5]}).to_csv(p, index=False)
+            row = {"file_path": "x.csv", "source_sha256": digest(p), "source_format": "ISO_CSV",
+                   "source_time_basis": "Not/ARealTimezone", "weather_column": "", "source_profile_id": "X"}
+            read_profile(row, Path(directory) / "catalog.csv", False)
