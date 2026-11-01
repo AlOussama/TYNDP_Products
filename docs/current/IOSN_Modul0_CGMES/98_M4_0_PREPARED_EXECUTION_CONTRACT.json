@@ -1,0 +1,129 @@
+{
+  "schema_version": "iosn-m0-m4-0-preflight/1.0.0",
+  "preparation_date": "2026-11-01",
+  "authority": {
+    "repository": "AlOussama/TYNDP_Products",
+    "architecture_freeze_sha": "b1e284996fa69f81651daf9150b829e6a42e4ce3",
+    "canonical_contract": "IOSN-M0-CAN/2.0.0",
+    "detailed_reference_contract": "DetailedNetworkReference/1.0.0",
+    "source_docs": [
+      "85_M2_M3_NORMATIVE_REPAIR_CONTRACT.md",
+      "90_S_GOV_M3_REPAIR_CLOSURE_AND_FREEZE.md",
+      "95_M4_0_TOOLCHAIN_AND_SOURCE_WITNESS.md",
+      "96_M4_0_RUNRELEASE_POLICY_AND_GATES.md",
+      "97_M4_0_NEXT_MACRO_ASSIGNMENTS.md"
+    ]
+  },
+  "evidence_classification": {
+    "source_static": "VERIFIED",
+    "release_metadata": "VERIFIED",
+    "runtime_installation": "NOT_EXECUTED",
+    "fixture_licensing": "UNVERIFIED",
+    "cgmes_import": "NOT_EXECUTED",
+    "independent_parity": "NOT_EXECUTED",
+    "public_software_release": "NOT_AUTHORIZED"
+  },
+  "candidate_platform": {
+    "python_major_minor": "3.11",
+    "os_arch": "Windows-x86_64",
+    "exact_patch": "HOST_PIN_REQUIRED"
+  },
+  "candidate_packages": [
+    {
+      "name": "pypsa",
+      "version": "1.4.0",
+      "distribution": "pypsa-1.4.0-py3-none-any.whl",
+      "sha256": "216d00376f82b3c8d6d19747bcc868bfaa634befcf34d1564ad0730984f448d1",
+      "source": "https://pypi.org/project/pypsa/1.4.0/",
+      "status": "RELEASE_VERIFIED_RUNTIME_UNVERIFIED"
+    },
+    {
+      "name": "pypowsybl",
+      "version": "1.16.1",
+      "distribution": "pypowsybl-1.16.1-cp311-cp311-win_amd64.whl",
+      "sha256": "9c280108aa34ac861442423d2a06dab991c5670eb36da36f59489eb37b3d49c6",
+      "source": "https://pypi.org/project/pypowsybl/1.16.1/",
+      "status": "RELEASE_VERIFIED_BUNDLED_CORE_UNKNOWN"
+    },
+    {
+      "name": "VeraGridEngine",
+      "version": "6.7.20",
+      "distribution": "veragridengine-6.7.20.tar.gz",
+      "sha256": "f24c18ad039820df4c629e2d23828ca8b34b9dcc291eb7ecf0c6f58e3df15069",
+      "source": "https://pypi.org/project/VeraGridEngine/6.7.20/",
+      "status": "RELEASE_VERIFIED_RUNTIME_UNVERIFIED",
+      "purpose": "READ_ONLY_INDEPENDENT_T06"
+    }
+  ],
+  "cgmes_source": {
+    "repository": "powsybl/powsybl-core",
+    "commit_sha": "f6749ad368fba8dd3776099c040fed07023a1ba3",
+    "resources_root": "cgmes/cgmes-conformity/src/main/resources/",
+    "cases": [
+      {
+        "family": "2.4.15",
+        "path": "conformity/cas-1.1.3-data-4.0.3/MicroGrid/BaseCase/CGMES_v2.4.15_MicroGridTestConfiguration_BC_BE_v2/MicroGridTestConfiguration_BC_BE_EQ_V2.xml",
+        "git_blob_sha1": "ce6ea01a997dd44f71c7e09efc8c44fc340bbbf7"
+      },
+      {
+        "family": "2.4.15",
+        "path": "conformity/cas-1.1.3-data-4.0.3/MicroGrid/BaseCase/CGMES_v2.4.15_MicroGridTestConfiguration_BD_v2/MicroGridTestConfiguration_EQ_BD.xml",
+        "git_blob_sha1": "629193c34f1467c053e8ca078a0f5f5bfb5f295e"
+      },
+      {
+        "family": "3.0",
+        "path": "conformity/cas-3-data-3.0.2/MicroGrid/BaseCase/MicroGrid-BE-MAS/20210325T1530Z_1D_BE_EQ_001.xml",
+        "git_blob_sha1": "39e8ca67679f4378cf389c8d552ceffe2260155a"
+      },
+      {
+        "family": "3.0",
+        "path": "conformity/cas-3-data-3.0.2/MicroGrid/BaseCase/MicroGrid-BaseCase-Merged/20210325T1530Z_1D_ASSEMBLED_TP_001.xml",
+        "git_blob_sha1": "0562197570b2be18139383c606f0efd54ba9dfe5"
+      }
+    ],
+    "download_sha256_status": "COMPUTE_FROM_ACTUAL_DOWNLOADED_BYTES",
+    "licenses_status": "RIGHTS_UNVERIFIED",
+    "full_fixture_assembly_status": "NOT_VERIFIED"
+  },
+  "small_fixture_policy": {
+    "policy_id": "M0-OPS-SMALL-V1.0.0",
+    "max_zip_mib": 256,
+    "max_uncompressed_mib": 1024,
+    "max_decompression_ratio": 25,
+    "max_zip_members": 2000,
+    "max_xml_member_mib": 128,
+    "max_path_depth": 16,
+    "max_cpu_threads": 4,
+    "max_concurrent_import_sessions": 1,
+    "max_rss_gib": 8,
+    "separate_jvm_heap_gib_if_applicable": 4,
+    "max_wallclock_seconds_per_fixture": 600,
+    "min_scratch_free_gib": 4,
+    "forbid_dtd_external_entities": true,
+    "forbid_symlinks_traversal": true,
+    "network_egress_during_xml_parse": "DENY",
+    "status": "POLICY_ADOPTED_NOT_ENFORCEMENT_TESTED",
+    "large_real_cgm_policy": "REQUIRES_SEPARATE_RUN_RELEASE"
+  },
+  "required_before_runtime": {
+    "owner_authorization": true,
+    "host_runtime_lock_and_native_fingerprint": true,
+    "fixture_sha256_and_permission_witness": true,
+    "enforced_security_policy": true,
+    "staging_cas_fsync_recovery_verification": true,
+    "independent_t06_for_import_ready": true
+  },
+  "work_orders": [
+    {
+      "role": "R-M0-POC1-IMPL-1",
+      "branch": "implementation/iosn-m0-poc-m1-core-20261101",
+      "status": "PREPARED_NOT_STARTED"
+    },
+    {
+      "role": "R-M0-T06-INDEPENDENT-1",
+      "branch": "validation/iosn-m0-t06-independent-20261101",
+      "status": "PREPARED_NOT_STARTED"
+    }
+  ],
+  "overall": "M4_0_STATIC_PREFLIGHT_COMPLETE_WITH_NAMED_RUNRELEASE_HOLDS"
+}
