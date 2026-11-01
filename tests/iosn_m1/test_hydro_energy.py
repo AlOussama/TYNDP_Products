@@ -89,7 +89,7 @@ def test_qualified_ror_generator_availability_is_not_dispatch(tmp_path):
     cf = result["ror_availability"]
     assert len(cf) == 48
     assert set(cf.target_attribute) == {"generators_t.p_max_pu"}
-    assert all(cf.value == pytest.approx(0.2))
+    assert (cf.value.sub(0.2).abs() < 1e-10).all()
     assert result["hydro_inflow"].empty
 
 
