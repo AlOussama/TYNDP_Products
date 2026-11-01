@@ -167,6 +167,9 @@ def validate_manifest(manifest: dict, root: Path, horizon: str) -> dict:
         require(source.get("unit") == "MWh", "Native source energy must be MWh")
         require(source.get("semantics") in SEMANTICS,
                 "Source must distinguish energy-equivalent, hydraulic and generation")
+        require(source.get("temporal_distribution_policy") == "UNIFORM_WITHIN_NATIVE_INTERVAL",
+                "Explicit uniform native-interval temporal policy required")
+        nonempty(source.get("temporal_policy_evidence_ref"), "temporal policy evidence")
         key = (weather, source["hydro_area_id"], tech)
         require(key not in catalog, "Duplicate source per weather/area/type: " + str(key))
         catalog[key] = (source, read_native_intervals(source, root))
@@ -356,6 +359,9 @@ def execute(manifest: dict, allocations: pd.DataFrame, assets_frame: pd.DataFram
                 "allocated_native_mwh": allocated_source, "snapshot_count": len(selected),
                 "snapshot_coverage_hours": duration,
                 "source_energy_residual_mwh": allocated_source - source_energy,
+                "temporal_distribution_policy": source["temporal_distribution_policy"],
+                "temporal_policy_evidence_ref": source["temporal_policy_evidence_ref"],
+                "hourly_values_are_observations": False,
             })
             for row, asset in shares:
                 share = float(row["share"])
@@ -435,9 +441,12 @@ def execute(manifest: dict, allocations: pd.DataFrame, assets_frame: pd.DataFram
         pnom = {a["asset_id"]: float(a["p_nom_mw"]) for a in assets.values()}
         ror["value"] = [v / pnom[a] for a, v in zip(ror.asset_id, ror.value)]
         require((ror.value <= 1 + EPS).all(), "RoR p_max_pu > 1")
-    for f in (su, sl, ror):
-        f.drop(columns=["time"], inplace=True)
-        f.sort_values(["utc_naive_timestamp", "existing_hydro_id"], inplace=True)
+    su, sl, ror = [
+        f.drop(columns=["time"]).sort_values(
+            ["utc_naive_timestamp", "existing_hydro_id"]
+        ).reset_index(drop=True)
+        for f in (su, sl, ror)
+    ]
     closed_rows = [{"asset_id": d["asset_id"], "policy": d["policy"],
                     "evidence_ref": d["evidence_ref"], "value": "NOT_APPLICABLE_NO_NATURAL_INFLOW"}
                    for d in declarations]
@@ -453,6 +462,9 @@ def execute(manifest: dict, allocations: pd.DataFrame, assets_frame: pd.DataFram
         "allocated_plant_intervals_checked": len(allocated_ledger),
         "existing_hydro_assets_covered": len(required_assets) + len(closed),
         "zero_fallback_count": 0, "network_mutation_count": 0,
+        "temporal_accuracy": "UNIFORM_ALLOCATED_ENERGY_NOT_OBSERVED_HOURLY",
+        "manifest_sha256": hashlib.sha256(
+            json.dumps(manifest, sort_keys=True).encode("utf-8")).hexdigest(),
         "pypsa_utc_timezone": "UTC_NAIVE", "non_default_store_link_ports_staged": len(sl) > 0,
     }
     return {
