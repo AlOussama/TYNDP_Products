@@ -107,6 +107,8 @@ Der PoC muss die Platzhalter **vor einer tatsächlichen RunRelease** ersetzen. K
 
 Für **F08** gilt bis zu konkreter Rechtefreigabe, Dataset-SHA-256, Varianten-/Authority-/Profileinventory und separatem großen Ressourcenbudget: `BLOCKED_FOR_REAL_CGM_EXECUTION`. Es wird keine stillschweigende Ersatzvalidierung durch die fünf Wetterjahre oder PECD vorgenommen.
 
+**Machine-readable Input für künftige Worker:** [98_M4_0_PREPARED_EXECUTION_CONTRACT.json](98_M4_0_PREPARED_EXECUTION_CONTRACT.json) (statisch vorbereitet, kein Runtime-Resultat). Der Worker darf die dortigen Kandidaten nicht ungeprüft als erfolgreiche Host-Pins ausgeben.
+
 ## 7. Abschlussdisposition M4-0
 
 | Auftragsteil | Status am 01.11.2026 |
