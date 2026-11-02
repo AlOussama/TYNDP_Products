@@ -45,9 +45,9 @@ Die Bewertung stützt sich auf die **tatsächlichen Quellcodedateien** von PyPSA
 | PECD-Regionalprofil→PyPSA-Eur-Profil-Datei | Open-TYNDP `build_renewable_profiles_pecd.py`, `profile(time,bus,bin=0,year)` [Q11] | Als bestehende Ausgabe-/Formatkonvention nutzbar; `bus` dort bezeichnet TYNDP-Node, **nicht** automatisch unsere Generator-ID. |
 | Native PECD-SPV-ORIG-NetCDF | PECD-Datensatz liefert griddierte SPV-CF, xarray kann NetCDF lesen [Q12], [Q13] | **Kleine PECD-spezifische Variable-/Koordinatenauswahl** ergänzen, *falls* native ORIG-SPV-Profile genutzt werden. |
 | PECD-Regionsmasken | Offizielle float-NetCDF-Masken `mask(region,latitude,longitude)` für `PEON/PEOF/P2ON/P2OF/SZON` [Q14] | Eingabemasken verwenden; **Flächenanteile nicht als Anlagen-MW-Gewichte interpretieren.** |
-| Daten an ein Netz anfügen | PyPSA-Zeitreihen/DataFrame-API [Q01–Q03] | Dünner `attach_existing_profiles`-Schritt mit Index- und Überschreibprüfung, **keine zusätzliche Modellierungsengine**. |
+| Daten an ein Netz anfügen | PyPSA-Zeitreihen/DataFrame-API [Q01], [Q02], [Q03] | Dünner `attach_existing_profiles`-Schritt mit Index- und Überschreibprüfung, **keine zusätzliche Modellierungsengine**. |
 
-**Kritische begriffliche Trennung:** Die in PyPSA-Core verfügbare **elektrische Clusterung** ist nicht der geografische Wetter-Profil-Join. Der generische geografische Join wird von **GeoPandas/Atlite** implementiert und in **PyPSA-Eur** fachlich verwendet. Unser M1 muss ihn nur auf einen **anderen Ziel-Namensraum** (PECD-Profile statt Netzbusse) anwenden. [Q04–Q07]
+**Kritische begriffliche Trennung:** Die in PyPSA-Core verfügbare **elektrische Clusterung** ist nicht der geografische Wetter-Profil-Join. Der generische geografische Join wird von **GeoPandas/Atlite** implementiert und in **PyPSA-Eur** fachlich verwendet. Unser M1 muss ihn nur auf einen **anderen Ziel-Namensraum** (PECD-Profile statt Netzbusse) anwenden. [Q04], [Q05], [Q06], [Q07]
 
 ---
 
@@ -156,9 +156,9 @@ Datenquelle → Zeitreihen normalisieren → räumlich/technologisch zuordnen
 
 `existing_generator_id → PECD_source_profile_id (+ technology_variant, evidence, optional weight)`.
 
-Die Geometriequelle kann ebenso von ERA5-, PECD- oder anderen Wetterprodukten stammen; Geometrieprädikate bleiben unverändert. Unterschiede entstehen in **Quellmetadaten, räumlicher Auflösung, Technologie und Einheit**, nicht in der grundlegenden GIS-Operation. Das Mapping wird **einmal pro Netz-/Anlagen-/Quellgeometriestand** erzeugt und für alle fünf Wetterdatensätze **wiederverwendet**, soweit die Regionsdefinition identisch bleibt. [Q04–Q07]
+Die Geometriequelle kann ebenso von ERA5-, PECD- oder anderen Wetterprodukten stammen; Geometrieprädikate bleiben unverändert. Unterschiede entstehen in **Quellmetadaten, räumlicher Auflösung, Technologie und Einheit**, nicht in der grundlegenden GIS-Operation. Das Mapping wird **einmal pro Netz-/Anlagen-/Quellgeometriestand** erzeugt und für alle fünf Wetterdatensätze **wiederverwendet**, soweit die Regionsdefinition identisch bleibt. [Q04], [Q05], [Q06], [Q07]
 
-**C – Dynamic Attribute Attachment:** Das ist **kein neues Subsystem**. Ein kleiner, überprüfbarer Python-Schritt formatiert `DataFrame(index=n.snapshots, columns=existing_generator_ids)`, prüft vorher vollständige Sourceabdeckung, Zielkomponenten, vorhandene Profile, `0≤p_max_pu≤1`, Einheiten und schreibt ausschließlich die freigegebenen Spalten des bestehenden PyPSA-Netzes. Keine `n.add()`-Aufrufe, kein Netzumbau. [Q01–Q03]
+**C – Dynamic Attribute Attachment:** Das ist **kein neues Subsystem**. Ein kleiner, überprüfbarer Python-Schritt formatiert `DataFrame(index=n.snapshots, columns=existing_generator_ids)`, prüft vorher vollständige Sourceabdeckung, Zielkomponenten, vorhandene Profile, `0≤p_max_pu≤1`, Einheiten und schreibt ausschließlich die freigegebenen Spalten des bestehenden PyPSA-Netzes. Keine `n.add()`-Aufrufe, kein Netzumbau. [Q01], [Q02], [Q03]
 
 ### 5.1 Minimale technische Dateistruktur (Vorschlag, **keine** Ist-Implementierung)
 
@@ -352,9 +352,9 @@ network_with_profiles = attach_availability_to_existing_ids(
 
 | ID | Entscheidung | Begründung / Prüfnachweis |
 |---|---|---|
-| **ADR-M1-01** | PyPSA-Core bleibt unverändert. | Dynamic Series und Netz-I/O existieren [Q01–Q03]. |
-| **ADR-M1-02** | Generisches Geomatching wird **wiederverwendet**, nicht neu erfunden. | GeoPandas + PyPSA-Eur `map_to_country_bus` als algorithmisches Vorbild [Q04–Q07]. |
-| **ADR-M1-03** | Open-TYNDP-`PECD`-Regional-Reader wiederverwenden, aber TYNDP-Knotenbindung von PECD-Quellidentitäten lösen. | PECD-Code filtert aktuell über `buses_tyndp` [Q09–Q11]. |
+| **ADR-M1-01** | PyPSA-Core bleibt unverändert. | Dynamic Series und Netz-I/O existieren [Q01], [Q02], [Q03]. |
+| **ADR-M1-02** | Generisches Geomatching wird **wiederverwendet**, nicht neu erfunden. | GeoPandas + PyPSA-Eur `map_to_country_bus` als algorithmisches Vorbild [Q04], [Q05], [Q06], [Q07]. |
+| **ADR-M1-03** | Open-TYNDP-`PECD`-Regional-Reader wiederverwenden, aber TYNDP-Knotenbindung von PECD-Quellidentitäten lösen. | PECD-Code filtert aktuell über `buses_tyndp` [Q09], [Q10], [Q11]. |
 | **ADR-M1-04** | ORIG-SPV-NetCDF nur bei echter Produktanforderung ergänzen; native Wind-CF bleiben regional. | PECD-PUG Tabellen 2.12/3.6 [Q12]. |
 | **ADR-M1-05** | Vorhandene Generatoren werden ausschließlich durch dynamische Attribute ergänzt. | Standard-PyPSA-Eur-Composer legt andernfalls Komponenten an [Q16], [Q17]. |
 | **ADR-M1-06** | Standortmetadaten dürfen separat geliefert werden; Netzimportformat ist für M1 irrelevant. | Elektrischer Anschlussbus ≠ zwingend Anlagenort; M1 ist datenformatagnostisch. |
