@@ -1,0 +1,31 @@
+name: M2-MA1 synthetic gate evidence
+on:
+  push:
+    branches:
+      - 'restructure/iosn-m2-ma1-*'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  m2-ma1-witness:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated M2 test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Execute M2-MA1 contract and negative fixtures
+        run: python -m pytest -q tests/test_m2_physical.py tests/test_m2_country.py
+      - name: Produce frozen, hashed synthetic gate witnesses
+        run: python -m tyndp_reduce.m2.fixture_witness --output m2_ma1_witness
+      - name: Archive machine-readable MA1 preflight and gate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: m2-ma1-synthetic-witness
+          path: m2_ma1_witness/
+          retention-days: 90
+          if-no-files-found: error
