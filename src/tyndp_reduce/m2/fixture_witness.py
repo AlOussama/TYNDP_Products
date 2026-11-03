@@ -81,7 +81,10 @@ def generate(output):
     physical=SparseACReference(grid)
     cache=physical.solve(dispatch,times)
     score=screen_annual_overload(grid,times,ratings,cache)
-    if {x["branch_id"]:x["overload_MWh"] for x in score["wyA"]} != {"bc":4.,"de":0.}:
+    expected_MWh = {x["branch_id"]: x["overload_MWh"] for x in score["wyA"]}
+    if set(expected_MWh) != {"bc", "de"} or not np.allclose(
+            [expected_MWh["bc"], expected_MWh["de"]], [4., 0.],
+            rtol=0., atol=1e-7):
         raise AssertionError("G04: annual overload MWh regression")
     protected=protect_congested_union(score)
     if protected != frozenset(("bc",)):
