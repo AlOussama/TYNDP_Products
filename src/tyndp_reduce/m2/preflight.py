@@ -30,6 +30,8 @@ def preflight_ledger(grid, times, dispatch, ratings, budget, full_geography=Fals
             raise ContractError("BLOCKED_DATA: 110-kV and AC tie completeness unverified")
         if full_geography and (times.fixture or len(times.weather_year_ids) != 5):
             raise ContractError("BLOCKED_DATA: full geography requires five fixed real weather years")
+        if not grid.fixture and times.fixture:
+            raise ContractError("BLOCKED_DATA: real reference cannot use synthetic time fixtures")
         validate_country_feasibility(grid, budget, full_geography)
         physical = SparseACReference(grid)
         ledger["model_size"] = {"buses": len(grid.buses), "ac_branches": len(grid.branches),

@@ -3,7 +3,10 @@
 No renewable/load alternative (method B), no annual averaging, no MVA=MW
 assumption. Normal ratings are indexed by exact snapshot and may vary hourly.
 """
+from dataclasses import asdict
 import numpy as np
+
+from .physical import _hash
 
 from .contracts import ContractError, NormalContingencyRatings, TimeSet
 
@@ -26,12 +29,12 @@ def _ratings_array(ratings, branches, times):
 def screen_annual_overload(grid, times: TimeSet,
                            ratings: NormalContingencyRatings, flow_cache):
     flow = flow_cache.payload()
-    if flow["grid_content_hash"] != __import__("tyndp_reduce.m2.physical", fromlist=["_hash"])._hash(
-            __import__("dataclasses").asdict(grid)):
+    if flow["grid_content_hash"] != _hash(asdict(grid)):
         raise ContractError("G01: flow cache from different grid")
-    if tuple(flow["time_keys"]) != tuple(x.key for x in times.points) or \
-       tuple(flow["weather_year_ids"]) != times.weather_year_ids:
-        raise ContractError("G01: flow cache time/year mismatch")
+    if (flow["timeset_content_hash"] != _hash(asdict(times)) or
+            tuple(flow["time_keys"]) != tuple(x.key for x in times.points) or
+            tuple(flow["weather_year_ids"]) != times.weather_year_ids):
+        raise ContractError("G01: flow cache time/year/duration mismatch")
     arr = np.asarray(flow["ac_flows_MW"], dtype=float)
     normal = _ratings_array(ratings, grid.branches, times)
     if arr.shape != normal.shape:

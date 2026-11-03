@@ -5,7 +5,7 @@ T: oriented AC/DC balances and unit checks.
 I: this module's deterministic representations and tolerances.
 """
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from math import isfinite
 
 
@@ -143,8 +143,12 @@ class TimeSet:
             raise ContractError("BLOCKED_DATA: duplicate/absent time IDs")
         if set(p.weather_year for p in self.points) != set(self.weather_year_ids):
             raise ContractError("BLOCKED_DATA: time/year contract incomplete")
-        if len({p.timestamp for p in self.points}) != len(self.points):
-            raise ContractError("BLOCKED_DATA: duplicate timestamps")
+        # Normalize offset-aware timestamps; two offset strings may be one hour.
+        utc_instants = {datetime.fromisoformat(p.timestamp).astimezone(timezone.utc)
+                        for p in self.points}
+        if len(utc_instants) != len(self.points):
+            raise ContractError("BLOCKED_DATA: duplicate absolute timestamps")
+
 
 
 @dataclass(frozen=True)

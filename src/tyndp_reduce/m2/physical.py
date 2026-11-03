@@ -54,9 +54,13 @@ class ReferenceFlowCache:
             stream.write(self.canonical_json + "\n")
 
     @classmethod
-    def from_file(cls, path):
+    def from_file(cls, path, expected_sha256=None):
         raw = Path(path).read_text(encoding="utf-8").strip()
-        return cls(raw, sha256(raw.encode("utf-8")).hexdigest())
+        digest = sha256(raw.encode("utf-8")).hexdigest()
+        if expected_sha256 is not None and digest != expected_sha256:
+            raise ContractError("BLOCKED_DATA: cached file differs from pinned reference hash")
+        return cls(raw, digest)
+
 
 
 class SparseACReference:

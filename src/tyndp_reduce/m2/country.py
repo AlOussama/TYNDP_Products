@@ -103,12 +103,14 @@ def validate_country_feasibility(grid: DetailedGridSnapshot,
 
 
 def assert_country_zones(grid, budget, busmap, protected=()):
+    if any(not isinstance(x, (int, np.integer)) or isinstance(x, (bool, np.bool_))
+           for x in busmap):
+        raise ContractError("G02: integer zone IDs required; no implicit rounding")
     z = tuple(int(x) for x in busmap)
     if len(z) != len(grid.buses) or set(z) != set(range(len(set(z)))):
         raise ContractError("G02: zone IDs must be contiguous and total")
-    if len(z) != sum(budget.by_label.values()):
-        # not every bus has its own zone; actual count checked below
-        pass
+    if len(set(z)) != sum(budget.by_label.values()):
+        raise ContractError("G02: exact total zone count violated")
     actual = {}
     for zone in sorted(set(z)):
         nodes = [i for i, v in enumerate(z) if v == zone]
@@ -135,25 +137,37 @@ def assert_country_zones(grid, budget, busmap, protected=()):
 
 def country_quota_busmap(grid: DetailedGridSnapshot, budget: CountryZoneBudget,
                          edge_importance, protected=(), full_geography=False):
-    """Greedy connected contractions, never across country or critical line.
+    """I-01: deterministic near-linear country-constrained Kruskal growth.
 
-    I-01: merge the pair with smallest summed cut-edge importance. Reject
-    infeasible graph constraints instead of manufacturing a cross-border merge.
+    Original *parallel pair* weights are summed and edges sorted once.
+    This is NOT ENTSO-E's unpublished optimisation or globally optimal cut
+    minimisation. Hard cannot-link pairs preserve protected critical branches
+    even when an alternate AC path exists. Borders stay in the AC graph.
     """
     validate_country_feasibility(grid, budget, full_geography)
-    m, n = len(grid.branches), len(grid.buses)
+    n, m = len(grid.buses), len(grid.branches)
     importance = np.asarray(edge_importance, dtype=float)
     if importance.shape != (m,) or not np.all(np.isfinite(importance)) or np.any(importance < 0):
         raise ContractError("BLOCKED_DATA: nonnegative finite edge-importance required")
-    names = {e.name for e in grid.branches}
+    names = {edge.name for edge in grid.branches}
     protected = frozenset(protected)
     if not protected <= names:
         raise ContractError("G03: protected IDs not in AC network")
+    countries = [bus.country for bus in grid.buses]
+    pos = {bus.name: i for i, bus in enumerate(grid.buses)}
     parent = list(range(n))
     members = [{i} for i in range(n)]
-    pos = {b.name: i for i, b in enumerate(grid.buses)}
-    endpoints = [(pos[e.bus0], pos[e.bus1]) for e in grid.branches]
-    countries = [b.country for b in grid.buses]
+    forbidden = [set() for _ in range(n)]
+    weights = {}
+    for i, edge in enumerate(grid.branches):
+        u, v = pos[edge.bus0], pos[edge.bus1]
+        if edge.name in protected:
+            forbidden[u].add(v)
+            forbidden[v].add(u)
+        if countries[u] == countries[v]:
+            a, b = sorted((u, v))
+            weights[(a,b)] = weights.get((a,b), 0.) + float(importance[i])
+    candidate_edges = sorted((score, a, b) for (a,b), score in weights.items())
 
     def find(i):
         while parent[i] != i:
@@ -162,37 +176,30 @@ def country_quota_busmap(grid: DetailedGridSnapshot, budget: CountryZoneBudget,
         return i
 
     for country, quota in budget.quotas:
-        nodes = [i for i in range(n) if countries[i] == country]
-        remaining = len(nodes)
-        while remaining > quota:
-            cuts = {}
-            for j, (u, v) in enumerate(endpoints):
-                if countries[u] != country or countries[v] != country:
-                    continue
-                a, b = sorted((find(u), find(v)))
-                if a != b:
-                    cuts.setdefault((a, b), []).append(j)
-            options = []
-            for (a, b), ids in cuts.items():
-                # A protected edge may not become internal even through a
-                # different path; inspect ALL protected endpoints after union.
-                united = members[a] | members[b]
-                swallow = any(e.name in protected and
-                              endpoints[j][0] in united and endpoints[j][1] in united
-                              for j, e in enumerate(grid.branches))
-                if not swallow:
-                    options.append((float(sum(importance[j] for j in ids)), a, b))
-            if not options:
-                raise ContractError("BLOCKED_DATA: quota cannot be met while preserving critical AC lines: " +
-                                    country)
-            _, a, b = min(options)
+        remaining = sum(c == country for c in countries)
+        for _score, u, v in candidate_edges:
+            if remaining == quota:
+                break
+            if countries[u] != country:
+                continue
+            a, b = find(u), find(v)
+            if a == b or not forbidden[a].isdisjoint(members[b]) or \
+               not forbidden[b].isdisjoint(members[a]):
+                continue
+            a, b = sorted((a, b))
             parent[b] = a
-            members[a] |= members[b]
-            members[b] = set()
+            members[a].update(members[b])
+            forbidden[a].update(forbidden[b])
+            members[b].clear()
+            forbidden[b].clear()
             remaining -= 1
+        if remaining != quota:
+            raise ContractError("BLOCKED_DATA: quota cannot be met while preserving critical AC lines: " +
+                                country)
+    rank = {label: i for i, (label, _) in enumerate(budget.quotas)}
     roots = sorted({find(i) for i in range(n)},
-                   key=lambda root: (list(budget.by_label).index(countries[root]), min(members[root])))
-    remap = {r: idx for idx, r in enumerate(roots)}
+                   key=lambda root: (rank[countries[root]], min(members[root])))
+    remap = {root: i for i, root in enumerate(roots)}
     busmap = tuple(remap[find(i)] for i in range(n))
     assert_country_zones(grid, budget, busmap, protected)
     return busmap
