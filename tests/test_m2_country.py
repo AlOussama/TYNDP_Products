@@ -214,3 +214,37 @@ def test_no_invented_weather_year_selection_and_five_year_real_contract():
         TimeSet(ev("four"),("a","b","c","d"),pts[:4],fixture=False)
     with pytest.raises(ContractError,match="duplicate timestamps"):
         replace(full,points=pts[:1]+(replace(pts[1],timestamp=pts[0].timestamp),)+pts[2:])
+
+
+def test_fractional_zone_ids_rejected_without_implicit_cast():
+    grid,_,_=island_case()
+    with pytest.raises(ContractError,match="integer zone IDs"):
+        assert_country_zones(grid,budget(),(0.0,0,1,2,2))
+
+
+def test_screen_rejects_changed_hour_duration_even_if_year_id_is_same():
+    grid,times,q=island_case()
+    cache=SparseACReference(grid).solve(q,times)
+    altered=replace(times,points=(replace(times.points[0],duration_h=3.),times.points[1]))
+    with pytest.raises(ContractError,match="time/year/duration mismatch"):
+        screen_annual_overload(grid,altered,ratings(),cache)
+
+
+def test_country_contraction_large_sparse_chain_is_deterministic():
+    n=1600
+    grid=DetailedGridSnapshot(
+        ev("country-scale"),100.,
+        tuple(Bus(str(i),"Germany",225) for i in range(n)),
+        tuple(ACBranch(f"e{i}",str(i),str(i+1),.2,225) for i in range(n-1)),
+        ties_110kv_complete=True,fixture=True)
+    b=CountryZoneBudget(ev("scale-quota"),(("Germany",80),))
+    z=country_quota_busmap(grid,b,np.linspace(0.,1.,n-1))
+    assert len(z)==n and len(set(z))==80
+    assert_country_zones(grid,b,z)
+
+
+def test_cannot_call_full_european_quota_on_synthetic_grid():
+    grid,_,_=island_case()
+    with pytest.raises(ContractError, match="country-label coverage"):
+        country_quota_busmap(grid,load_official_budget(),
+                             np.zeros(len(grid.branches)),full_geography=True)

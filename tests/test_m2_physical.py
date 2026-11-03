@@ -168,3 +168,23 @@ def test_sparse_solver_large_chain_without_dense_ptdf():
                            ("t0","t1"),tuple(map(tuple,p)))
     out=np.asarray(s.solve(q,yearset()).payload()["ac_flows_MW"])
     np.testing.assert_allclose(out,5.,atol=1e-9)
+
+
+def test_cache_read_requires_matching_frozen_digest(tmp_path):
+    grid,times,q=island_case()
+    cache=SparseACReference(grid).solve(q,times)
+    filename=tmp_path/"cache.json"
+    cache.write_once(filename)
+    assert ReferenceFlowCache.from_file(filename,expected_sha256=cache.sha256).payload() \
+        ["schema"] == "M2_ReferenceFlowCache_v1"
+    with pytest.raises(ContractError, match="pinned reference hash"):
+        ReferenceFlowCache.from_file(filename,expected_sha256="0"*64)
+
+
+def test_timezone_alias_points_to_same_utc_hour():
+    base=yearset()
+    duplicated=replace_point = TimePoint(
+        "t1", "2020-01-01T01:00:00+01:00", "wyB", "winter", 3.0)
+    with pytest.raises(ContractError,match="duplicate absolute timestamps"):
+        TimeSet(ev("alias"),base.weather_year_ids,
+                (base.points[0],duplicated),fixture=True)
