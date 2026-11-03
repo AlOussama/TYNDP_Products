@@ -212,7 +212,7 @@ def test_no_invented_weather_year_selection_and_five_year_real_contract():
     assert len(full.weather_year_ids)==5
     with pytest.raises(ContractError,match="five externally fixed years"):
         TimeSet(ev("four"),("a","b","c","d"),pts[:4],fixture=False)
-    with pytest.raises(ContractError,match="duplicate timestamps"):
+    with pytest.raises(ContractError,match="duplicate absolute timestamps"):
         replace(full,points=pts[:1]+(replace(pts[1],timestamp=pts[0].timestamp),)+pts[2:])
 
 
