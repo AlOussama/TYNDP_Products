@@ -44,3 +44,10 @@
 5. **Zwei ausführbare Folgeaufträge vorbereitet:** PoC-M1-Implementierung und unabhängige T-06-Quelle auf getrennten Branches, erst nach gesonderter Ownerfreigabe; PoC-M2/M3 später parallel nach Source-/Canonical-Basis. CREATE/F08/M1-E2E getrennt.
 
 **Wichtige Nichtgleichheiten:** Python-API im Upstream nachgewiesen ≠ erfolgreicher SSH-only-CGM-Roundtrip; M4-0 Quellen/Release verifiziert ≠ erfolgreiche Host-/Datensatzrechte-/Runtimeprüfung; Architektur dokumentiert ≠ CGMES-konform; PYPSA_ACPF_READY ≠ REDUCTION_ADAPTER_READY; UPDATE_IMPORTED ≠ CREATE_FROM_PYPSA; QUICK_CGM_SSH_SV ≠ SSH-only; CANONICAL_IMPORT_PROVISIONAL ≠ CANONICAL_IMPORT_READY; M2-Fachentscheidung ≠ ausgeführtes QUAL-PASS.
+
+
+## Aktualisierung 2026-11-03 — Ein koordinierter Gesamtmakroauftrag (M0-MA-01)
+
+**Neuer ausführbarer Orchestrierungsauftrag:** [101_M0_MA01_PARALLEL_ORCHESTRATED_IMPLEMENTATION_AND_REVIEW_2026_11_03.md](101_M0_MA01_PARALLEL_ORCHESTRATED_IMPLEMENTATION_AND_REVIEW_2026_11_03.md).
+
+Der User-facing-Ablauf M5A/M5B/M6/M7A/M7B/M8 aus Dokument 100 wird nun **durch einen einzigen ausdrücklich zu startenden Gesamtauftrag M0-MA-01 ersetzt**. Die Fachinhalte und Test-/RunRelease-Verträge von Dokument 97/100 bleiben als Referenz bestehen, ihre gesonderten Chat-Freigaben sind für den neuen Orchestrierungsmodus nicht erforderlich. Der Hauptworker darf separate lokale Worktrees/Subagenten/Chats parallel einsetzen; echte unabhängige T-06-Parität und ein von den Implementierern getrenntes E2E-Review bleiben Pflicht. Der ursprüngliche dokumentarische Architektur-Freeze (85/90) und G0-Gates (96) bleiben unverändert. Keine Modul-1-/PECD-Arbeit, keine Änderung an main, keine automatische Start-/READY-Freigabe durch die Erstellung des Handoffs.
