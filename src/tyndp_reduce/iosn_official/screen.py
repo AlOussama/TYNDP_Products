@@ -38,27 +38,45 @@ def screen_annual_overload(grid, flow_cache, time, ratings) -> AnnualScreen:
         raise ScreeningError("Screening requires operational, not neutral-calibration flows")
     if {b.identifier for b in branches} != set(ratings.normal_mw):
         raise ScreeningError("Missing/extra MW limits; no silent imputation")
-    eligible = [(i, b) for i, b in enumerate(branches)
-                if b.kind == "line" and b.voltage_kv in (225., 400.)]
+    eligible = []
+    for i, branch in enumerate(branches):
+        if branch.kind != "line":
+            continue
+        declared = getattr(branch, "screening_class_kv", None)
+        if declared is None:
+            if branch.voltage_kv in (225., 400.):
+                declared = branch.voltage_kv
+            elif 200. <= branch.voltage_kv <= 450.:
+                raise ScreeningError(
+                    f"Ambiguous nominal voltage class on {branch.identifier}: "
+                    "explicit screening_class_kv=225/400 (or 0 for exclusion) required"
+                )
+            else:
+                continue
+        if declared in (225., 400.):
+            eligible.append((i, branch, float(declared)))
+        elif declared != 0.:
+            raise ScreeningError("Invalid explicit screening voltage class")
     rows: list[dict] = []
     for y in time.weather_year_ids:
         mask = np.array([item == y for item in time.year_for_snapshot])
         if not np.any(mask):
             raise ScreeningError("Each external weather year must have snapshots")
-        for i, branch in eligible:
+        for i, branch, voltage_class in eligible:
             flow = flow_cache.flow_mw[i, mask]
             limit = ratings.normal_mw[branch.identifier][mask]
             durations = time.duration_hours[mask]
             overload = np.maximum(0.0, np.abs(flow) - limit)
             rows.append({
                 "year_id": y, "line_id": branch.identifier,
-                "voltage_kv": branch.voltage_kv,
+                "voltage_kv": voltage_class,
+                "nominal_voltage_kv": branch.voltage_kv,
                 "overload_MWh": float(np.sum(overload * durations)),
                 "overload_hours": float(np.sum(durations[overload > 0])),
                 "observation_hours": float(np.sum(durations)),
             })
     return AnnualScreen(tuple(time.weather_year_ids), tuple(rows),
-                        tuple(b.identifier for _, b in eligible))
+                        tuple(b.identifier for _, b, _ in eligible))
 
 
 def weighted_edge_costs(screen: AnnualScreen, grid,
