@@ -1,0 +1,530 @@
+{
+  "contract_id": "IOSN-WEATHER-MANIFEST-DEMO-0.1",
+  "execution_status": "EXECUTED",
+  "test_count": 11,
+  "pass_count": 4,
+  "reject_count": 7,
+  "all_expected_results_observed": true,
+  "cases": [
+    {
+      "case_id": "valid_2035_rows.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "PASS",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "valid_2035_map.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "PASS",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "valid_2040_rows.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "PASS",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "valid_2050_rows.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "PASS",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_wrong_weight_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "FAIL",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "FAIL",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_duplicate_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "FAIL",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "FAIL",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_missing_weather_map.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "FAIL",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "FAIL",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "FAIL",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_negative_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "FAIL",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "FAIL",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "FAIL",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "PASS",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_bad_year_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "FAIL",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_bad_source_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "PASS",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        },
+        {
+          "id": "R00_CANONICAL_SCHEMA",
+          "status": "PASS",
+          "detail": "Normalized representation has the expected canonical structure"
+        },
+        {
+          "id": "R01_YEAR",
+          "status": "PASS",
+          "detail": "Target horizon is 2035, 2040 or 2050 as published"
+        },
+        {
+          "id": "R02_IDS",
+          "status": "PASS",
+          "detail": "Exactly three unique year-specific published weather identifiers"
+        },
+        {
+          "id": "R03_EXACT_WEIGHTS",
+          "status": "PASS",
+          "detail": "Each identifier has the published weight within demonstrator tolerance"
+        },
+        {
+          "id": "R04_SUM",
+          "status": "PASS",
+          "detail": "Scenario weights sum to unity within the demonstrator tolerance"
+        },
+        {
+          "id": "R05_FINITE_NONNEGATIVE",
+          "status": "PASS",
+          "detail": "All scenario weights are finite and nonnegative"
+        },
+        {
+          "id": "R06_SOURCE",
+          "status": "FAIL",
+          "detail": "Methodology reference matches O26-3.7"
+        },
+        {
+          "id": "R07_PROVENANCE",
+          "status": "PASS",
+          "detail": "Traceable dataset and run identifiers supplied"
+        }
+      ]
+    },
+    {
+      "case_id": "invalid_missing_provenance_rows.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matches_expected": true,
+      "checks": [
+        {
+          "id": "R00_INPUT_SCHEMA",
+          "status": "FAIL",
+          "detail": "Input profile satisfies required fields, types and adapter rules"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Observed by executing /mnt/data/iosn_formal_specification_poc/poc/run_tests.py and python unittest in Python 3.13.5, jsonschema 4.26.0.",
+    "Summary regenerated from observed Python check statuses; re-run script to regenerate detailed runtime report with original validator messages.",
+    "Synthetic exporter inputs, not actual PyPSA/Antares/Sienna runs.",
+    "Only published selection manifest, not Annex 6.3 PCA/K-Means algorithm.",
+    "O26 is 2026-02-25 consultation version; numeric tolerance is demonstrator-only."
+  ]
+}

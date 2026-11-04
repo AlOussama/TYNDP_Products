@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Example upstream weather selection export shapes",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter_type",
+        "study_year",
+        "source_ref",
+        "run_id",
+        "dataset_id",
+        "records"
+      ],
+      "properties": {
+        "adapter_type": {
+          "const": "rows_v1"
+        },
+        "study_year": {
+          "type": "integer"
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "weather_id",
+              "weight"
+            ],
+            "properties": {
+              "weather_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "weight": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter_type",
+        "horizon",
+        "methodology",
+        "run",
+        "dataset",
+        "weight_map"
+      ],
+      "properties": {
+        "adapter_type": {
+          "const": "map_v1"
+        },
+        "horizon": {
+          "type": "integer"
+        },
+        "methodology": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weight_map": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "number"
+          },
+          "propertyNames": {
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
+}

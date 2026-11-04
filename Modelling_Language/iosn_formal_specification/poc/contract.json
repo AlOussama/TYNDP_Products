@@ -1,0 +1,70 @@
+{
+  "contract_id": "IOSN-WEATHER-MANIFEST-DEMO-0.1",
+  "normative_status": "DEMONSTRATOR_NOT_APPROVED",
+  "authority": {
+    "document": "ENTSO-E TYNDP 2026 Identification of System Needs Methodology",
+    "document_version": "Version for Public Consultation, 2026-02-25",
+    "source_ref": "O26-3.7",
+    "section": "3.7",
+    "approval_status": "PUBLIC_CONSULTATION_NOT_VERIFIED_FINAL"
+  },
+  "target_years": {
+    "2035": [
+      {
+        "id": "WS032",
+        "weight": 0.24
+      },
+      {
+        "id": "WS037",
+        "weight": 0.43
+      },
+      {
+        "id": "WS059",
+        "weight": 0.33
+      }
+    ],
+    "2040": [
+      {
+        "id": "WS065",
+        "weight": 0.2
+      },
+      {
+        "id": "WS071",
+        "weight": 0.4
+      },
+      {
+        "id": "WS077",
+        "weight": 0.4
+      }
+    ],
+    "2050": [
+      {
+        "id": "WS091",
+        "weight": 0.23
+      },
+      {
+        "id": "WS092",
+        "weight": 0.57
+      },
+      {
+        "id": "WS106",
+        "weight": 0.2
+      }
+    ]
+  },
+  "rule_ids": [
+    "R01_YEAR",
+    "R02_IDS",
+    "R03_EXACT_WEIGHTS",
+    "R04_SUM",
+    "R05_FINITE_NONNEGATIVE",
+    "R06_SOURCE",
+    "R07_PROVENANCE"
+  ],
+  "tolerance": 1e-12,
+  "tolerance_status": "X_DEMONSTRATOR_ONLY",
+  "selection_algorithm": {
+    "status": "NOT_IMPLEMENTED",
+    "source_section": "O26-Annex-6.3"
+  }
+}
