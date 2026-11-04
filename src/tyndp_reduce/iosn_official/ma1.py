@@ -156,8 +156,18 @@ def execute_ma1(
     if not np.allclose(projection.A_z @ fcut, pz, atol=1e-7):
         raise AssertionError("G05 zonal Kirchhoff invariant failed")
 
+    # Hash actual rating arrays as well as declared provenance: a stale upstream
+    # source hash must not make two different limit sets share a run identity.
+    rating_digest = sha256(b"MA1:normal-and-contingency-MW:v1")
+    for branch_id in sorted(ratings.normal_mw):
+        for label, table in (("normal", ratings.normal_mw),
+                             ("contingency", ratings.contingency_mw)):
+            rating_digest.update(label.encode("utf-8"))
+            rating_digest.update(branch_id.encode("utf-8"))
+            rating_digest.update(table[branch_id].tobytes())
     fingerprint = digest_object({
         "grid_sha256": ledger.grid_sha256,
+        "ratings_content_sha256": rating_digest.hexdigest(),
         "reference_input_sha256": reference.input_sha256,
         "rating_source_sha256": ratings.provenance.source_sha256,
         "quota_source_sha256": budget.source_sha256,

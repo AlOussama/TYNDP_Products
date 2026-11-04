@@ -62,6 +62,8 @@ def test_two_ac_islands_hvdc_transformer_orientation():
     assert actual.flow_mw.flags.writeable is False
     with pytest.raises(ValueError):
         actual.flow_mw[0, 0] = 100
+    with pytest.raises(ValueError):
+        actual.flow_mw.setflags(write=True)
     assert reference_flows(grid, dispatch, time).input_sha256 == actual.input_sha256
     assert preflight(grid, dispatch, time, ratings,
                      country_label_map={"DE": "Germany", "FR": "France"}).status == "PASS"
@@ -149,3 +151,14 @@ def test_ratings_units_and_year_contract_are_hard():
 def test_provenance_missing_hash_rejected():
     with pytest.raises(DataContractError):
         Provenance("x", "synthetic://x", "v1", "")
+
+
+def test_invalid_chronology_or_non_utc_snapshots_rejected():
+    grid, dispatch, time, _ = fixture()
+    with pytest.raises(DataContractError, match="chronological"):
+        replace(time, snapshot_ids=tuple(reversed(time.snapshot_ids)),
+                year_for_snapshot=tuple(reversed(time.year_for_snapshot)))
+    with pytest.raises(DataContractError, match="UTC-aware"):
+        replace(time, snapshot_ids=tuple(x.removesuffix("Z") for x in time.snapshot_ids))
+    with pytest.raises(DataContractError, match="ISO-8601"):
+        replace(time, snapshot_ids=("not-a-time",) + time.snapshot_ids[1:])

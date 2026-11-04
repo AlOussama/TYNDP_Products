@@ -143,3 +143,13 @@ def test_ma1_comparative_year_weights_are_explicit_not_silent():
     with pytest.raises(ScreeningError, match="weights"):
         execute_ma1(grid, dispatch, time, ratings, budget, mapping,
                     {"W0": 1.})
+
+
+def test_ma1_run_fingerprint_tracks_actual_rating_values():
+    grid, dispatch, time, ratings, budget, mapping, weights = complete_fixture()
+    baseline = execute_ma1(grid, dispatch, time, ratings, budget, mapping, weights)
+    modified = dict(ratings.normal_mw)
+    modified["d12"] = np.full(5, 7.)
+    changed = replace(ratings, normal_mw=modified)  # same declared source hash
+    recomputed = execute_ma1(grid, dispatch, time, changed, budget, mapping, weights)
+    assert baseline.input_manifest_sha256 != recomputed.input_manifest_sha256

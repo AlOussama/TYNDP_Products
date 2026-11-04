@@ -8,6 +8,7 @@ declared as active-power proxies, and DC phase shifts are in radians.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta
 from hashlib import sha256
 from types import MappingProxyType
 from typing import Mapping
@@ -25,11 +26,12 @@ class RejectedComponent(DataContractError):
 
 
 def immutable_array(value, shape=None):
-    out = np.array(value, dtype=float, copy=True)
+    out = np.array(value, dtype=float, copy=True, order="C")
     if (shape is not None and out.shape != shape) or not np.all(np.isfinite(out)):
         raise DataContractError(f"Nonfinite or incorrect array shape: {out.shape}, expected {shape}")
-    out.flags.writeable = False
-    return out
+    # A writeable=False NumPy owning array can be made writeable again. Bytes-
+    # backed storage is truly immutable, including attempts to reset its flag.
+    return np.frombuffer(out.tobytes(order="C"), dtype=np.float64).reshape(out.shape)
 
 
 def digest_object(value) -> str:
@@ -106,7 +108,7 @@ class DetailedGridSnapshot:
     incomplete_110kv_ties: bool = False
 
     def __post_init__(self):
-        if not self.bus_ids or len(set(self.bus_ids)) != len(self.bus_ids):
+        if not self.bus_ids or any(not x for x in self.bus_ids) or len(set(self.bus_ids)) != len(self.bus_ids):
             raise DataContractError("Bus IDs must be nonempty and unique")
         if len(self.raw_country_ids) != len(self.bus_ids) or any(not x for x in self.raw_country_ids):
             raise DataContractError("Country ID must exist for every bus")
@@ -150,6 +152,17 @@ class TimeSet:
         t = len(self.snapshot_ids)
         if t == 0 or len(set(self.snapshot_ids)) != t:
             raise DataContractError("Snapshots must be nonempty and unique")
+        timestamps = []
+        for name in self.snapshot_ids:
+            try:
+                parsed = datetime.fromisoformat(name.replace("Z", "+00:00"))
+            except (AttributeError, TypeError, ValueError) as exc:
+                raise DataContractError("Snapshots must be ISO-8601 UTC timestamps") from exc
+            if parsed.utcoffset() != timedelta(0):
+                raise DataContractError("Snapshots must be explicitly UTC-aware")
+            timestamps.append(parsed)
+        if any(a >= b for a, b in zip(timestamps, timestamps[1:])):
+            raise DataContractError("Snapshots must be strictly chronological in UTC")
         if len(self.weather_year_ids) != 5 or len(set(self.weather_year_ids)) != 5:
             raise DataContractError("Five distinct external weather year identifiers are required")
         if len(self.year_for_snapshot) != t or set(self.year_for_snapshot) != set(self.weather_year_ids):
