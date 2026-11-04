@@ -30,6 +30,6 @@
 "CL-029","§4.5.3","pp.38–39","O","Theoretical offshore connections and standard 525kV,2GW,VSC DC reference; cost table","SR-028","VC-16,VC-21","Cost vintages and technological exceptions"
 "CL-030","§4.6","pp.39–40","O","WACC, discount, life, CAPEX/OPEX, unit limits; life 25y for named candidate types","SR-030","VC-21","Broken internal reference and discount blocks"
 "CL-031","§5.1","pp.41–44","O","Plexos/Antares simplified 3-zone sanity checks: not full IoSN conformance","SR-020","VC-09","No equivalence proof"
-"CL-032","Annex 6.1","pp.44–56","O","Further zoning congestion and electrical reduction details","SR-008","VC-10","Executable reference algorithm missing"
-"CL-033","Annex 6.2","pp.56–57","O","Reference starting grid project details","SR-022","VC-15","Reference grid data link needed"
+"CL-032","Annex 6.1","pp.45–51","O","Further zoning congestion and electrical reduction details","SR-008","VC-10","Executable reference algorithm missing"
+"CL-033","Annex 6.2","pp.52–56","O","Reference starting grid project details","SR-022","VC-15","Reference grid data link needed"
 "CL-034","Annex 6.3","pp.57–62","O","Worked weather selection methodology and inputs","SR-005","VC-13","Independent algorithm certification not tested"

@@ -36,7 +36,7 @@ A method/requirements/data/output/testing specification is **sufficient only for
 |Question|Answer and evidence / limit|
 |---|---|
 |F1 Formal tool-neutral IoSN?|**Partially feasible, yes technically** for source-closed rules; complete normative source-accurate coverage **not yet demonstrated** (02, 11 R1).|
-|F2 SR/constraints/tests?|All P01–P12 processes produce proposed SR-001–021; applicable mathematical constraints and tests VC-01–14 separated (03,09).|
+|F2 SR/constraints/tests?|P01–P12 with seven source-evidenced refinements produce proposed SR-001–036; applicable mathematical constraints and tests VC-01–21 are separated (03,09).|
 |F3 Blueprint for multiple tools?|**As design**, if single registry, capability gates and independent model verification; not proven end-to-end (08,09).|
 |F4 PyPSA, Antares, Sienna?|Plausible mapping for portions, especially PyPSA and GEMS/Antares; feature parity and actual conformance **unverified**, Sienna profile TBD (08 UC-02, 11 R3).|
 |F5 Pre/model/post together?|One versioned DAG of method/data/model/output profiles and trace IDs, not a single universal equation or component library (02,04,07).|
@@ -48,3 +48,6 @@ A method/requirements/data/output/testing specification is **sufficient only for
 
 ## Architectural exit criteria
 A final `ACCEPTED` ADR requires all: source/version authority resolution; signed normative method decisions including MD-02/03/06; trace completeness to all applicable source obligations; formal semantics published; two **real** tool implementations with independent generated-model and result tests; source-change impact tests; cost/adoption comparison L1/L2/L3/L4; authorized independent review. Before then the decision remains `PROPOSED`.
+
+## Source completeness addendum (does not change provisional decision)
+The expanded §3.4/3.5/3.11/4.1–4.6 extraction in `source_clause_coverage.csv` strengthened the mandatory semantic core for baseline/reference grid, fixed offshore national RES targets, hydro/DSR, candidate NTC DC market-link abstraction and investment economics. **This narrows implementation freedom where the method really prescribes an abstraction.** The resulting controlled profile remains tool-neutral, because a link's domain semantics and testable constraints are not the same as a native class name. L4 remains a pilot direction, not an approved final decision. Full clause coverage and real tool conformance remain OPEN.

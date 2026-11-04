@@ -70,3 +70,11 @@
 
 ## Recommended next ticket after successful Gate 0
 **Ticket:** `IOSN-CONTRACT-002`: encode O26 §3.1.1 `x` non-anticipativity and weighted objective in a signed mathematical obligation profile; independent two-tool micro-fixtures; test case with deliberate scenario-dependent investments must be rejected. Requires approved solver/LP evidence and units. **Status:** NOT IMPLEMENTED.
+
+## Mandatory additions to Gate 3/4 based on detailed O26 clauses
+- **Starting grid fixture:** construct 2025 grid + eligible existing/planned project registry to get 2035 reference grid, comparing source project IDs and conditions (VC-15).
+- **Candidate abstraction fixture:** include physical AC project that must be represented as a controllable zonal **DC market link with NTC**; reject a generated mathematical model that incorrectly constrains this candidate with the existing meshed DC power-flow equations (VC-20).
+- **Hydro and DSR fixture:** distinguish five hydro classes and implicit/explicit DSR, with time-unit checks (VC-19).
+- **Offshore environmental/economic fixture:** apply method-authorized uniform sea-use factor, published 525-kV/2-GW VSC technology reference and source-vintage cost factors; require approval for the exact factor (VC-18/21).
+- **Reporting fixture:** storage flexibility expansion must be presented as **storage needs**, not misleadingly as battery-only needs; ONDP corridors include distance/cost lineage (VC-11/12).
+- **Economic-blocking issue:** O26 §4.6 contains a broken internal cross-reference for discount-block handling; do not certify complete objective/economics until an authoritative clarification is available.

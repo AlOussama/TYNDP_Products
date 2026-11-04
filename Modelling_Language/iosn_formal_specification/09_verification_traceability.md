@@ -67,3 +67,18 @@ All edges must be typed: `derives_from`, `formalizes`, `implemented_by`, `verifi
 
 ## Distinction between design and execution
 `poc/verification_report.json` records executed fixture checks only, not generated from an actual energy model. VC-05–VC-14 require their own independently run suites. A test definition is not a test generator, a generated test is not an executed test, and an executed test does not by itself prove untested model behavior.
+
+## Extended verification cases from additional O26 obligations
+
+|VC|Source + SR|Input/stimulus|Expected oracle and status|
+|---|---|---|---|
+|VC-15|O26 §3.4 / SR-022,029|2025 baseline + qualifying project set|2035 reference grid inclusion/exclusion backed by qualifying evidence and identities; **NOT EXECUTED**|
+|VC-16|O26 §3.5 / SR-023|national offshore RES targets and hybrid reference projects|fixed-target consistency and source vintage; **NOT EXECUTED**|
+|VC-17|O26 §3.9 / SR-031|candidate OPF variant after LF expansion|OPF candidate expansion capped by LF portfolio, run modes different; **NOT EXECUTED**|
+|VC-18|O26 §3.11 / SR-024|theoretical offshore candidate source length and routing coefficient|uniform increase factor within 10–15%, exact factor governed by signed method decision; **NOT EXECUTED**|
+|VC-19|O26 §§4.1,4.3–4.4 / SR-025,026,033,034|hydro five-type and DFT/DSR synthetic series|resource class, chronology, units and market participation semantics preserved; **NOT EXECUTED**|
+|VC-20|O26 §4.5.2 / SR-027,029,035|investment candidate with directional NTC and AC physical label|controllable DC *market-link* model abstraction, no accidental electrical-mesh reinterpretation; post-filter documented; **NOT EXECUTED**|
+|VC-21|O26 §§4.5.3,4.6 / SR-028,030|standard offshore candidate and cost vintage|VSC reference, investment lifetime and unit-consistent economic rules checked against approved costs; **NOT EXECUTED**|
+
+## New traceability dependency
+`O26-4.5.2 → MR-011 → SR-027 → LRC-20 → UC-02.NTC_candidate → real_adapter_generated_model → VC-20 → EV-20`. The two occurrences of the word `DC` (DC power flow in source §3.1.1 vs controllable DC market link for all transmission investment candidates in §4.5.2) are **different semantics** and must not be merged.

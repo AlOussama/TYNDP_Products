@@ -127,3 +127,33 @@ verification: [VC-11, VC-12]
 
 ## Boundary: what is not established by three examples
 No production weather selection; no fully generated 2035/2040/2050 LP; no actual grid reduction; no official KPI acceptance; no real PyPSA-vs-Antares end-to-end equivalence; no approved source version. These are explicit stop conditions for a final IoSN contract certification.
+
+## Method-specific extension: critical UC-02 and UC-03 constraints
+
+### UC-02 — source-mandated abstraction (O26 §4.5.2)
+The 2026 methodology explicitly says that **all transmission investment candidates (physical AC or DC)** are represented in its zonal planning model as **controllable DC market links whose maximum exchange corresponds to directional NTC impact**. This **does not** mean that every existing electrical branch is a controllable point-to-point DC market link; existing network/DC load-flow remains governed by O26 §3.1.1 and §3.8. The formal contract MUST distinguish:
+- `existing_grid_electrical_branch`: electrical meshed-network element/constraint;
+- `investment_candidate_market_link`: abstracted, controllable market exchange potential, directional NTC limits, CAPEX and candidate/stage eligibility;
+- `physical_project_technology`: metadata AC/HVDC/other, which is distinct from the optimization abstraction.
+
+**Example X (not source NTC numbers):**
+~~~yaml
+candidate_id: TEST-AC-PROJECT-001
+physical_technology: AC
+optimization_role: controllable_dc_market_link
+from_zone: ZONE_A
+to_zone: ZONE_B
+ntc_impact_mw:
+  forward: 250
+  reverse: 180
+source_section: O26-4.5.2
+verification: VC-20
+status: EXAMPLE_NOT_METHOD_DATA
+~~~
+A PyPSA implementation may use a `Link` or a custom controllable flow variable; a GEMS/Antares implementation may use its own directed exchange representation. **Neither implementation is certified** until the generated model satisfies directional limits and unconstrained/Kirchhoff distinction where required.
+
+### UC-03 — offshore and generic storage results
+[O26 §2.2] requires reporting onshore/offshore transmission and storage opportunities, including ONDP corridor costs and distances. [O26 §4.5.1] says storage battery assumptions are a **proxy** for flexible capacity, and reported outcomes should be storage needs, *not inherently battery needs*. [O26 §3.11] prescribes an offshore routing factor range with final numerical value pending final methodology. The output contract should distinguish `storage_need` and `battery_technology_candidate` and must attach corridor geometry/cost method provenance. **VC-18/21**, proposed not executed.
+
+### UC-01 — source-data qualifier
+[O26 §4.2] describes PECD v4.2 with historical and projected streams. This PoC does not ingest either real stream; fixture dataset IDs are synthetic provenance tokens, not assertions that raw PECD data were validated. A real preprocessing conformance profile must declare the actual PECD data release/hashes and set of weather/time coordinates.

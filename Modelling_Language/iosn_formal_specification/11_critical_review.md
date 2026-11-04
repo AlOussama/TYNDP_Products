@@ -71,3 +71,12 @@
 
 ## Source correction discipline
 The source classification O/D/X and issue IDs must accompany **every** published use case. No A+/B+ inheritance, no CBA use-case transfer and no generic robustness programme were introduced.
+
+## Supplemental review findings after detailed clause inventory
+
+- **R1-F06 — Critical source completeness correction:** initial P01–P12 high-level matrix underrepresented §3.4 starting grid, §3.5 offshore starting grid, §3.11 marine routing and §§4.3–4.5.3 hydro/DSR and market-link candidates. Corrected with `source_clause_coverage.csv` (34 rows), P01A/P01B/P04A/P08A/P08B/P09A/P11A, SR-022–036 and LRC-18–21. **Risk:** another missing clause could remain because this is still a desktop extraction. **Required evidence:** clause-level external audit against every page and owner signature; **status OPEN**.
+- **R2-F06 — High mathematical domain ambiguity:** source §4.5.2 mandates a **controllable DC market-link** representation for investment candidates regardless of AC/DC physical construction, while source §3.1.1 mandates DC load-flow/Kirchhoff for the existing network. **Risk:** equivalent model compilers can inappropriately impose mesh/angle constraints on new market-link candidates. **Correction:** semantic types `existing_grid_electrical_branch` vs `investment_candidate_market_link`, plus VC-20; **status OPEN**.
+- **R1-F07 — Medium final-value omissions clearly documented by source itself:** §3.11 says the exact sea-use factor will be set in the final document, while §4.5.1 says storage costs/details will be added to the final version. **Risk:** treating an illustrative value within the 10–15% band as already normative. **Correction:** method profile requires source version and explicit signed exact factor before a fully passing report; **status OPEN**.
+- **R4-F06 — High source economics issue:** the literal broken link in §4.6 for the discount-rate block prevents reliable automatic generation of a complete economic normalization oracle. **Correction:** block all claims of complete economic model conformance until the discount definition is resolved; **status OPEN**.
+
+The earlier conclusion that a small fixed-weather-manifest PoC is executable remains intact. The completeness claim is now **explicitly limited to a targeted 34-clause methodology inventory**, not a formally signed full enumeration of the 65-page source.

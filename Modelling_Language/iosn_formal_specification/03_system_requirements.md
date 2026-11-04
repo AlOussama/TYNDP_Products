@@ -522,7 +522,7 @@ These follow independent additional source extraction, not an assumed software a
 - **MR-011 [O26 §§4.5.1–4.5.3]:** Storage candidates are flexibility proxies; transmission candidate NTC impacts are represented with DC market-link abstractions; offshore standard reference technologies/cost assumptions are specified.
 - **MR-012 [O26 §4.6]:** Annualized costs derive from stated WACC, discounting, candidate lifetime, CAPEX/OPEX and build bounds.
 - **MR-013 [O26 §3.9]:** When supplemental OPF expansion is performed its candidate portfolio is capped by the LF portfolio.
-- **MR-014 [O26 §§2.2–2.3]:** System-needs and ONDP report outputs express needs/corridor opportunities and should not be treated as compulsory project solutions.
+- **MR-014 [O26 §§2.1–2.2]:** System-needs and ONDP report outputs express needs/corridor opportunities and should not be treated as compulsory project solutions.
 
 ### Additional System Requirements with all catalogue fields
 #### SR-022 — Baseline cross-border grid shall reference the 2035 starting network derived from the 2025 grid and the eligible projects explicitly identified by O26.
