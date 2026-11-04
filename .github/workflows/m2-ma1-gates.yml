@@ -1,0 +1,36 @@
+name: "M2 MA1 synthetic gate evidence"
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/tyndp_reduce/iosn_official/**"
+      - "tests/iosn_official/**"
+      - "docs/current/IOSN_Modul2_Netzaggregation/**"
+      - ".github/workflows/m2-ma1-gates.yml"
+jobs:
+  m2-ma1-synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Module-2 scientific core
+        run: python -m pip install -e ".[test]"
+      - name: Run focused MA1 G01-G05/G11 tests
+        run: python -m pytest -q tests/iosn_official
+      - name: Emit hashed reference/preflight gate evidence
+        env:
+          MA1_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence \
+            --output /tmp/m2-ma1-evidence \
+            --commit "$MA1_HEAD_SHA"
+      - name: Upload synthetic gate evidence files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m2-ma1-synthetic-gate-evidence
+          path: /tmp/m2-ma1-evidence/
+          if-no-files-found: error
+          retention-days: 90
