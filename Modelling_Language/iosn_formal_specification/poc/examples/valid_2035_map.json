@@ -1,0 +1,12 @@
+{
+  "adapter_type": "map_v1",
+  "horizon": 2035,
+  "methodology": "O26-3.7",
+  "run": "map-2035",
+  "dataset": "PECD-DEMO-TRACE-2035",
+  "weight_map": {
+    "WS059": 0.33,
+    "WS037": 0.43,
+    "WS032": 0.24
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executed IoSN demonstrator report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_id",
+    "execution_status",
+    "test_count",
+    "pass_count",
+    "reject_count",
+    "all_expected_results_observed",
+    "cases",
+    "limitations"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string"
+    },
+    "execution_status": {
+      "enum": [
+        "EXECUTED",
+        "NOT_EXECUTED"
+      ]
+    },
+    "test_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pass_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reject_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "all_expected_results_observed": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "expected",
+          "observed",
+          "matches_expected",
+          "checks"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "expected": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "observed": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "matches_expected": {
+            "type": "boolean"
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "status",
+                "detail"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "SKIP"
+                  ]
+                },
+                "detail": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

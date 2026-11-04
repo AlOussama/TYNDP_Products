@@ -1,0 +1,21 @@
+{
+  "adapter_type": "rows_v1",
+  "study_year": 2040,
+  "source_ref": "O26-3.7",
+  "run_id": "rows-2040",
+  "dataset_id": "PECD-DEMO-TRACE-2040",
+  "records": [
+    {
+      "weather_id": "WS065",
+      "weight": 0.2
+    },
+    {
+      "weather_id": "WS071",
+      "weight": 0.4
+    },
+    {
+      "weather_id": "WS077",
+      "weight": 0.4
+    }
+  ]
+}

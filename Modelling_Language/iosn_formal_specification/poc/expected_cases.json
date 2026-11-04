@@ -1,0 +1,13 @@
+{
+  "valid_2035_rows.json": "PASS",
+  "valid_2035_map.json": "PASS",
+  "valid_2040_rows.json": "PASS",
+  "valid_2050_rows.json": "PASS",
+  "invalid_wrong_weight_rows.json": "FAIL",
+  "invalid_duplicate_rows.json": "FAIL",
+  "invalid_missing_weather_map.json": "FAIL",
+  "invalid_negative_rows.json": "FAIL",
+  "invalid_bad_year_rows.json": "FAIL",
+  "invalid_bad_source_rows.json": "FAIL",
+  "invalid_missing_provenance_rows.json": "FAIL"
+}
