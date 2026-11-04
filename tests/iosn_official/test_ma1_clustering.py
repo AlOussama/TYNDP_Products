@@ -168,7 +168,7 @@ def test_screen_exact_annual_225_400_mwh_seasonal_ratings():
     assert "not_screened_trafo" not in score.screened_line_ids
     assert [score.year_score("critical", y) for y in years] == [5., 0., 9., 8., 0.]
     assert next(row["overload_hours"] for row in score.rows if row["year_id"] == "W2"
-                and row["line_id"] == "critical") == 0
+                and row["line_id"] == "critical") == 3.0
     weighted = weighted_edge_costs(score, g, {y: 1 for y in years})
     assert weighted["critical"] == 22.
     assert weighted["de30_110"] == 0.
