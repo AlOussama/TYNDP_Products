@@ -74,11 +74,12 @@ class MA1Result:
                       self.seed.zone_of_bus))
         write_csv(
             "annual_criticality.csv",
-            ("year_id", "line_id", "voltage_kv", "overload_MWh",
-             "overload_hours", "observation_hours"),
+            ("year_id", "line_id", "screening_voltage_class_kv",
+             "nominal_voltage_kv", "overload_MWh", "overload_hours",
+             "observation_hours"),
             ([row[k] for k in
-              ("year_id", "line_id", "voltage_kv", "overload_MWh",
-               "overload_hours", "observation_hours")]
+              ("year_id", "line_id", "voltage_kv", "nominal_voltage_kv",
+               "overload_MWh", "overload_hours", "observation_hours")]
              for row in self.screen.rows),
         )
         write_csv("zone_cuts.csv", ("zone0", "zone1"), self.projection.cut_pairs)

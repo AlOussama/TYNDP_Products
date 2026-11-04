@@ -23,6 +23,7 @@ class Branch:
     bus1: str
     voltage_kv: float
     kind: str = "line"
+    screening_class_kv: float | None = None
 
 
 def graph():
@@ -205,3 +206,40 @@ def test_protected_input_or_missing_scores_cannot_be_silently_fixed():
     with pytest.raises(CountryContractError, match="not an active"):
         quota_seed(g, labels, budget, merge_cost_by_branch=None,
                    protected_line_ids={"invented"})
+
+
+def test_nonstandard_380kv_requires_explicit_400kv_screening_class():
+    from dataclasses import replace
+    g, _, _ = graph()
+    new_branches = tuple(
+        replace(branch, voltage_kv=380.) if branch.identifier == "critical" else branch
+        for branch in g.active_branches
+    )
+    amended = SimpleNamespace(bus_ids=g.bus_ids, raw_country_ids=g.raw_country_ids,
+                              active_branches=new_branches, incomplete_110kv_ties=False)
+    ids = tuple(f"x{i}" for i in range(5))
+    years = tuple(f"Y{i}" for i in range(5))
+    time = SimpleNamespace(snapshot_ids=ids, year_for_snapshot=years,
+                           weather_year_ids=years,
+                           duration_hours=np.ones(5),
+                           season=("winter",) * 5)
+    flows = np.zeros((len(new_branches), 5))
+    flows[1] = [12., 12., 12., 12., 12.]
+    cache = SimpleNamespace(bus_ids=g.bus_ids, snapshot_ids=ids,
+                            branch_ids=tuple(b.identifier for b in new_branches),
+                            flow_mw=flows, neutral_calibration=False)
+    ratings = SimpleNamespace(
+        snapshot_ids=ids, normal_mw={b.identifier: np.full(5, 10.) for b in new_branches})
+    with pytest.raises(ScreeningError, match="explicit screening_class_kv"):
+        screen_annual_overload(amended, cache, time, ratings)
+    clarified = tuple(
+        replace(b, screening_class_kv=400.) if b.identifier == "critical" else b
+        for b in new_branches
+    )
+    amended.active_branches = clarified
+    screened = screen_annual_overload(amended, cache, time, ratings)
+    assert "critical" in screened.screened_line_ids
+    assert screened.year_score("critical", "Y0") == 2.
+    relevant = next(row for row in screened.rows if row["line_id"] == "critical")
+    assert relevant["voltage_kv"] == 400.
+    assert relevant["nominal_voltage_kv"] == 380.

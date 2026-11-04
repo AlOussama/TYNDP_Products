@@ -66,6 +66,7 @@ class ACBranch:
     kind: str = "line"                  # line, transformer, pst
     in_service: bool = True
     phase_shift_rad: float = 0.0         # fixed transformer phase, not PST schedule
+    screening_class_kv: float | None = None  # 225/400; 0=deliberate exclusion
 
     def __post_init__(self):
         if not self.identifier or not self.bus0 or not self.bus1 or self.bus0 == self.bus1:
@@ -76,6 +77,8 @@ class ACBranch:
             raise DataContractError(f"Positive x_pu required for {self.identifier}")
         if not math.isfinite(self.voltage_kv) or self.voltage_kv <= 0:
             raise DataContractError(f"Positive nominal kV required for {self.identifier}")
+        if self.screening_class_kv is not None and self.screening_class_kv not in (0., 225., 400.):
+            raise DataContractError("Invalid screening_class_kv: use 225/400, 0 or none")
         if not math.isfinite(self.phase_shift_rad):
             raise DataContractError("Nonfinite fixed phase shift")
         if self.kind == "pst" and self.phase_shift_rad != 0:
