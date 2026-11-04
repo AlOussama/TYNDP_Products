@@ -44,3 +44,15 @@ Stable identifiers; authority and normative source pointers; units/dimensions; q
 
 ## Acceptance of the language itself
 For any mandatory requirement, publish (i) a well-defined syntax, (ii) semantic interpretation rules including constraints/units, (iii) static and runtime validators with negative tests, (iv) a mapping from O26 section to test and evidence, and (v) a tool-independent conformance interpretation. Mark non-verifiable/partial elements rather than pretending universal automation.
+
+## Additional LRC requirements from newly extracted O26 clauses
+These requirements were added following explicit review of starting grid, offshore, marine environment, hydro/DSR and cost modeling; they are **not extrapolated from prior CBA architectures**.
+
+|LRC ID|Capability|Derived SR|Required expression|Test|Qualification|
+|---|---|---|---|---|---|
+|LRC-18|Detailed resource class profiles|SR-025, SR-026, SR-033, SR-034|Hydro inflow types, storage reservoir state, hourly DFT load, explicit/implicit DSR and PEMMDB resource limits|schema + representative physical tests|External source and units need pinning|
+|LRC-19|Economic and vintage-aware parameter semantics|SR-028, SR-030, SR-035|CAPEX/OPEX currency-year, WACC/discount rate, economic lifetime, staged annualization and small-expansion filtering|reference formula and dimensional tests|Broken discount reference; thresholds OPEN|
+|LRC-20|Baseline and directional capacity impact semantics|SR-022, SR-027, SR-029|Distinct baseline/option identity, bidding-zone node pairs, NTC forward/backward impact, controlled market-link abstraction|project registry cross-check + LP fixture|Physical AC/DC must not be confused with market DC-link|
+|LRC-21|Offshore policy and spatial cost constraints|SR-023, SR-024, SR-028, SR-036|Fixed offshore RES target, theoretical candidate technology reference, maritime routing factor, corridor distance and cost|bound checks, cost/unit tests, report provenance|10–15 percent range exact profile factor pending|
+
+These refine all six original language domains: **Input** hydro/DFT/PEMMDB and source/period identities; **preprocessing** reference-grid eligibility and environmental length factors; **model** directional NTC market-link abstraction; **processing** stage/optional portfolio caps; **postprocessing** generic storage needs/ONDP corridors; **verification** cost and network invariants. Schema alone is insufficient for LP-level proof.

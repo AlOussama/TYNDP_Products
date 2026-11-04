@@ -21,3 +21,6 @@ Selected evidence-backed distinctions:
 - LRC-15 change trace: native ReqIF exchange, SysML v2 requirements relations; governance evidence still outside notation.
 
 **To promote a cell from candidate assessment to verified capability:** provide standard version/tag, an IoSN fixture, exact schema or language expression, validator or importer command, acceptance results, limitations, and a test report. Missing such a fixture means no certification of the row.
+
+## Added LRC columns 18–21
+The revised CSV explicitly considers detailed hydro/demand resource class semantics, economic vintage and annualization, reference-grid + directional NTC candidate contracts, and offshore siting/economic policy. Codes `N/E/C/P/0` remain **unverified candidate capability classifications**, not actual tool acceptance. `N` for a network schema means it natively models network data, **not** that it natively models the ENTSO-E expansion method.

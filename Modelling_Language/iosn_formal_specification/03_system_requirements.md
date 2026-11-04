@@ -509,3 +509,300 @@ Proposed requirements MUST **not** become official conformance claims until: ver
 - If the methodology prescribes an **optimization formulation class** (two-stage LP, DC flow, non-anticipativity), the formal method profile must constrain that class even if the engine representations differ.
 - If an obligation prescribes an **explicit equation**, preserve its quantified indices, units, sign conventions and scenario probabilities; a prose approximation alone is insufficient.
 - Numeric tolerances in independent test harnesses are **X engineering choices**, until formally adopted.
+
+## Expanded source-first SyRS requirements (O26 §§3.4–3.5,3.11,4.1–4.6)
+
+These follow independent additional source extraction, not an assumed software architecture. `MR-007–014` are paraphrased source-level obligations; `SR-022–036` are proposed tool-neutral derivations. Full clause map: `source_clause_coverage.csv`.
+
+### Additional methodology obligations [O, paraphrased]
+- **MR-007 [O26 §3.4, Annex 6.2]:** The baseline at cross-border level is the documented 2035 starting grid derived from 2025 and eligible planned projects.
+- **MR-008 [O26 §3.5]:** Non-binding offshore RES targets are fixed source inputs and offshore hybrids are included in the starting grid as applicable.
+- **MR-009 [O26 §3.11]:** Theoretical offshore candidates use a uniform sea-use routing/cost increase factor in the indicated 10–15% band.
+- **MR-010 [O26 §§4.3–4.4]:** Hydropower input has five resource categories; hourly demand integrates DFT load and distinct DSR classes.
+- **MR-011 [O26 §§4.5.1–4.5.3]:** Storage candidates are flexibility proxies; transmission candidate NTC impacts are represented with DC market-link abstractions; offshore standard reference technologies/cost assumptions are specified.
+- **MR-012 [O26 §4.6]:** Annualized costs derive from stated WACC, discounting, candidate lifetime, CAPEX/OPEX and build bounds.
+- **MR-013 [O26 §3.9]:** When supplemental OPF expansion is performed its candidate portfolio is capped by the LF portfolio.
+- **MR-014 [O26 §§2.2–2.3]:** System-needs and ONDP report outputs express needs/corridor opportunities and should not be treated as compulsory project solutions.
+
+### Additional System Requirements with all catalogue fields
+#### SR-022 — Baseline cross-border grid shall reference the 2035 starting network derived from the 2025 grid and the eligible projects explicitly identified by O26.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-022|
+|Methodology Source|O26 §3.4, Annex 6.2; D|
+|Requirement Level|System|
+|Requirement Type|Data/Constraint|
+|Requirement Statement|Baseline cross-border grid shall reference the 2035 starting network derived from the 2025 grid and the eligible projects explicitly identified by O26.|
+|Rationale|Avoid misidentifying new investment opportunities.|
+|Inputs|2025 grid, reference project IDs/status|
+|Outputs|2035 baseline grid manifest|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|graph file format and import process|
+|Verification Method|inspection + reference integrity|
+|Acceptance Criteria|documented inclusion/exclusion for every eligible reference project|
+|Formalisation Feasibility|partial|
+|Open Issues|External 4th CBA guideline maturity criteria and source project data|
+
+#### SR-023 — Offshore starting-grid capacities and mandatory national offshore RES targets shall be provided as fixed exogenous data with source and target-horizon references.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-023|
+|Methodology Source|O26 §3.5; D|
+|Requirement Level|System|
+|Requirement Type|Data/Constraint|
+|Requirement Statement|Offshore starting-grid capacities and mandatory national offshore RES targets shall be provided as fixed exogenous data with source and target-horizon references.|
+|Rationale|Avoid endogenous modification of upstream offshore RES targets.|
+|Inputs|national offshore RES targets, offshore hybrid project list|
+|Outputs|offshore reference manifest|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|internal generator/object classes|
+|Verification Method|data/schema test|
+|Acceptance Criteria|targets match signed external source; hybrid baseline correctly assigned|
+|Formalisation Feasibility|partial|
+|Open Issues|National target data edition|
+
+#### SR-024 — Theoretical offshore candidate length and cost derivation shall represent the uniform sea-use rerouting adjustment within O26's 10–15 percent range; the effective factor shall be explicitly versioned.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-024|
+|Methodology Source|O26 §3.11; D|
+|Requirement Level|System|
+|Requirement Type|Method/Constraint|
+|Requirement Statement|Theoretical offshore candidate length and cost derivation shall represent the uniform sea-use rerouting adjustment within O26's 10–15 percent range; the effective factor shall be explicitly versioned.|
+|Rationale|Prevent arbitrary offshore route penalty variation.|
+|Inputs|candidate straight-line geometry, cost table, routing policy|
+|Outputs|adjusted corridor length/CAPEX|
+|Mandatory / Optional|mandatory where theoretical offshore candidates apply|
+|Implementation Freedom|geospatial implementation, provided factor respects signed rule|
+|Verification Method|calculation/reference test|
+|Acceptance Criteria|same signed factor applied to applicable sea basins, unit/cost checks|
+|Formalisation Feasibility|partial|
+|Open Issues|Exact numerical factor within published range OPEN|
+
+#### SR-025 — Hourly electricity demand inputs shall preserve DFT scenario and geography references including vehicle/heat-pump demand where supplied by method data.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-025|
+|Methodology Source|O26 §4.4; D|
+|Requirement Level|System|
+|Requirement Type|Data|
+|Requirement Statement|Hourly electricity demand inputs shall preserve DFT scenario and geography references including vehicle/heat-pump demand where supplied by method data.|
+|Rationale|Consistent demand across years and weather scenarios.|
+|Inputs|DFT data sets|
+|Outputs|hourly zone demand series|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|data storage and ETL|
+|Verification Method|type + alignment tests|
+|Acceptance Criteria|complete hourly profile and sector component provenance|
+|Formalisation Feasibility|partial|
+|Open Issues|DFT schema version|
+
+#### SR-026 — Hydropower input model shall distinguish run-of-river, pondage, reservoir, open-loop pumped, closed-loop pumped resources and their corresponding inflow/pumping/reservoir constraints.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-026|
+|Methodology Source|O26 §4.3; D|
+|Requirement Level|System|
+|Requirement Type|Model/Data|
+|Requirement Statement|Hydropower input model shall distinguish run-of-river, pondage, reservoir, open-loop pumped, closed-loop pumped resources and their corresponding inflow/pumping/reservoir constraints.|
+|Rationale|Prevent material loss of hydro flexibility assumptions.|
+|Inputs|hydro category, inflows, minimum/maximum power|
+|Outputs|resource/constraint manifests|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|tool-specific hydro components|
+|Verification Method|schema + physical fixture test|
+|Acceptance Criteria|category identities preserved and required inflow/storage relations enforced|
+|Formalisation Feasibility|partial|
+|Open Issues|Exact mathematical hydro constraint profile|
+
+#### SR-027 — Transmission investment candidates shall have directional NTC impacts and be represented using the source-prescribed controllable DC market-exchange link abstraction, independently of physical AC/DC technology.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-027|
+|Methodology Source|O26 §4.5.2; D|
+|Requirement Level|System|
+|Requirement Type|Model/Constraint|
+|Requirement Statement|Transmission investment candidates shall have directional NTC impacts and be represented using the source-prescribed controllable DC market-exchange link abstraction, independently of physical AC/DC technology.|
+|Rationale|Avoid confusing market NTC candidate with physical network line equation.|
+|Inputs|candidate directional capacities, A/B nodes|
+|Outputs|investment transfer constraints|
+|Mandatory / Optional|mandatory for described zonal expansion|
+|Implementation Freedom|native element may differ if semantics demonstrated equivalent|
+|Verification Method|LP inspection and transfer-limit test|
+|Acceptance Criteria|both market directions respected; no unintended Kirchhoff constraint on candidate market link|
+|Formalisation Feasibility|partial|
+|Open Issues|Direction/flow mapping convention|
+
+#### SR-028 — Theoretical offshore candidates shall use the source-defined standard DC/VSC technology envelope and appropriate cost assumptions, unless explicitly approved as a variant.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-028|
+|Methodology Source|O26 §4.5.3 Table 4; D|
+|Requirement Level|System|
+|Requirement Type|Model/Cost|
+|Requirement Statement|Theoretical offshore candidates shall use the source-defined standard DC/VSC technology envelope and appropriate cost assumptions, unless explicitly approved as a variant.|
+|Rationale|Avoid unsupported technology/cost defaults.|
+|Inputs|theoretical candidate distances and technology costs|
+|Outputs|standardized offshore candidate profiles|
+|Mandatory / Optional|mandatory when used|
+|Implementation Freedom|specific software/cost interpolation approach|
+|Verification Method|cost reference test|
+|Acceptance Criteria|standard 525-kV/2-GW VSC reference or documented approved exception and expected annual cost|
+|Formalisation Feasibility|partial|
+|Open Issues|Technology/time interpolation convention|
+
+#### SR-029 — The system shall distinguish reference-grid investments from eligible new expansion candidates and keep project ID, ownership, endpoints and bidirectional NTC impact linked to the source.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-029|
+|Methodology Source|O26 §§3.4,4.5.2; D|
+|Requirement Level|System|
+|Requirement Type|Data/Governance|
+|Requirement Statement|The system shall distinguish reference-grid investments from eligible new expansion candidates and keep project ID, ownership, endpoints and bidirectional NTC impact linked to the source.|
+|Rationale|Prevent double counting and misaligned investment candidates.|
+|Inputs|baseline project and candidate registry|
+|Outputs|disjoint baseline/candidate datasets|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|storage structure|
+|Verification Method|uniqueness and projection tests|
+|Acceptance Criteria|project identity and baseline/candidate status unambiguous|
+|Formalisation Feasibility|partial|
+|Open Issues|Project eligibility reference|
+
+#### SR-030 — The system shall preserve WACC, discounting, life, fixed/variable cost and build-limit semantics, including the 25-year economic life for applicable real/conceptual transmission candidates.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-030|
+|Methodology Source|O26 §4.6; D|
+|Requirement Level|System|
+|Requirement Type|Cost/Constraint|
+|Requirement Statement|The system shall preserve WACC, discounting, life, fixed/variable cost and build-limit semantics, including the 25-year economic life for applicable real/conceptual transmission candidates.|
+|Rationale|Comparable annualized costs.|
+|Inputs|WACC, discount rate, CAPEX/OPEX, vintage|
+|Outputs|cost objective inputs|
+|Mandatory / Optional|mandatory|
+|Implementation Freedom|cost module structure|
+|Verification Method|dimensional and reference economics test|
+|Acceptance Criteria|unit-consistent annualization under signed assumptions; life 25 years for applicable asset classes|
+|Formalisation Feasibility|partial|
+|Open Issues|Broken discount block reference|
+
+#### SR-031 — Where the optional OPF expansion variant is performed, its candidate portfolio shall not exceed the reference LF expansion portfolio and the two run types shall remain distinct.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-031|
+|Methodology Source|O26 §§3.6,3.9; D|
+|Requirement Level|System|
+|Requirement Type|Processing|
+|Requirement Statement|Where the optional OPF expansion variant is performed, its candidate portfolio shall not exceed the reference LF expansion portfolio and the two run types shall remain distinct.|
+|Rationale|Avoid artificial bypass of internal congestion.|
+|Inputs|LF portfolio and OPF study data|
+|Outputs|OPF portfolio and comparison evidence|
+|Mandatory / Optional|conditional, only when optional study is run|
+|Implementation Freedom|optimization and adapter design|
+|Verification Method|run-state and bound test|
+|Acceptance Criteria|portfolio cap enforced; run provenance distinct|
+|Formalisation Feasibility|partial|
+|Open Issues|H2 freeze sensitivity if chosen|
+
+#### SR-032 — The system shall model central storage candidate durations and capacity trajectories as flexibility classes, preserving the warning that battery proxies do not imply battery-specific infrastructure needs.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-032|
+|Methodology Source|O26 §§3.10,4.5.1; D|
+|Requirement Level|System|
+|Requirement Type|Model/Output|
+|Requirement Statement|The system shall model central storage candidate durations and capacity trajectories as flexibility classes, preserving the warning that battery proxies do not imply battery-specific infrastructure needs.|
+|Rationale|Avoid interpreting generic flexibility as one technology requirement.|
+|Inputs|storage candidate durations, caps and costs|
+|Outputs|storage expansion/need categories|
+|Mandatory / Optional|mandatory where storage candidates apply|
+|Implementation Freedom|storage primitive modelling|
+|Verification Method|schema + postprocessing review|
+|Acceptance Criteria|short/medium duration distinctions and horizon caps preserved; output labelled generic storage need|
+|Formalisation Feasibility|partial|
+|Open Issues|Final storage cost parameters pending|
+
+#### SR-033 — Demand-side response input semantics shall distinguish implicit price-sensitive behavior outside the market from explicit market-participating DSR, including relevant usage/hour limits.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-033|
+|Methodology Source|O26 §§4.1,4.4; D|
+|Requirement Level|System|
+|Requirement Type|Data/Model|
+|Requirement Statement|Demand-side response input semantics shall distinguish implicit price-sensitive behavior outside the market from explicit market-participating DSR, including relevant usage/hour limits.|
+|Rationale|Avoid model double-counting or invalid dispatch.|
+|Inputs|DFT/PEMMDB explicit and implicit DSR|
+|Outputs|flexibility model input|
+|Mandatory / Optional|mandatory for DSR use|
+|Implementation Freedom|native load or generation representation|
+|Verification Method|semantic tests|
+|Acceptance Criteria|class-specific model handling, units and limited available hours where specified|
+|Formalisation Feasibility|partial|
+|Open Issues|DSR parameter precision|
+
+#### SR-034 — The system shall preserve PEMMDB resource technology technical parameters (capacity, heat rate, forced outages, must-run and fixed exchanges) according to the source version.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-034|
+|Methodology Source|O26 §4.1; D|
+|Requirement Level|System|
+|Requirement Type|Data/Model|
+|Requirement Statement|The system shall preserve PEMMDB resource technology technical parameters (capacity, heat rate, forced outages, must-run and fixed exchanges) according to the source version.|
+|Rationale|Prevent ignoring technical input obligations.|
+|Inputs|PEMMDB metadata and detailed units|
+|Outputs|validated model inputs|
+|Mandatory / Optional|mandatory for included resource categories|
+|Implementation Freedom|resource class mapping|
+|Verification Method|input coverage + selective behavioral test|
+|Acceptance Criteria|no mandatory input silently ignored; capability loss leads to fail|
+|Formalisation Feasibility|partial|
+|Open Issues|Exact PE(M)MDB data version|
+
+#### SR-035 — The system shall apply the methodology-authorized filters for unrealistically small or partial candidate expansions and report exclusions with evidence.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-035|
+|Methodology Source|O26 §§3.1.1–3.1.2,3.10; D|
+|Requirement Level|System|
+|Requirement Type|Postprocessing|
+|Requirement Statement|The system shall apply the methodology-authorized filters for unrealistically small or partial candidate expansions and report exclusions with evidence.|
+|Rationale|Avoid arbitrary post-hoc investment suppression.|
+|Inputs|stage results and candidate limits|
+|Outputs|filtered portfolio and excluded records|
+|Mandatory / Optional|mandatory within filter-applicable process|
+|Implementation Freedom|ETL implementation|
+|Verification Method|reference threshold/lineage test|
+|Acceptance Criteria|same signed threshold and exclusion reason applied across tools|
+|Formalisation Feasibility|partial|
+|Open Issues|Numeric threshold/exception rules OPEN|
+
+#### SR-036 — The system shall distinguish infrastructure-needs findings from binding project decisions and provide reportable offshore corridor identity, relevant cost/distance and horizon information where ONDP outputs are required.
+|Attribute|Value|
+|---|---|
+|Requirement ID|SR-036|
+|Methodology Source|O26 §2, §§3.1.2,3.5; D|
+|Requirement Level|System|
+|Requirement Type|Output|
+|Requirement Statement|The system shall distinguish infrastructure-needs findings from binding project decisions and provide reportable offshore corridor identity, relevant cost/distance and horizon information where ONDP outputs are required.|
+|Rationale|Prevent misrepresentation of planning needs.|
+|Inputs|onshore/offshore simulation results|
+|Outputs|system needs/ONDP output|
+|Mandatory / Optional|mandatory by reporting scope|
+|Implementation Freedom|visualisation/rendering|
+|Verification Method|field and provenance review|
+|Acceptance Criteria|needs semantics unambiguous; corridor costs and distance trace to inputs|
+|Formalisation Feasibility|partial|
+|Open Issues|Full authoritative report schema still OPEN|
+
+### Extended trace rows
+- O26 §3.4 → MR-007 → SR-022/029 → LRC-20 → VC-15 (reference-grid fixture; NOT EXECUTED).
+- O26 §3.5 → MR-008 → SR-023 → LRC-21 → VC-16 (fixed offshore targets; NOT EXECUTED).
+- O26 §3.11 → MR-009 → SR-024 → LRC-21 → VC-18 (uniform 10–15% rerouting; NOT EXECUTED).
+- O26 §§4.3–4.4 → MR-010 → SR-025/026/033 → LRC-18 → VC-19 (hydro/DSR semantics; NOT EXECUTED).
+- O26 §4.5.2 → MR-011 → SR-027/029 → LRC-20 → VC-20 (directional NTC DC market-link abstraction; NOT EXECUTED).
+- O26 §§4.5.3,4.6 → MR-012 → SR-028/030 → LRC-19/21 → VC-21 (economics/offshore reference; NOT EXECUTED).
+- O26 §3.9 → MR-013 → SR-031 → LRC-12 → VC-17 (conditional OPF portfolio cap; NOT EXECUTED).
+- O26 §2 → MR-014 → SR-036 → LRC-09 → VC-11/12 (needs outputs; NOT EXECUTED).
+
+**Scope note:** Some method requirements are only partially formalizable pending the owner's numerical values or external source reference. These are not assigned arbitrary normative defaults.

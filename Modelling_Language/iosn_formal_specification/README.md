@@ -26,3 +26,6 @@ The repository branch is an exploratory document set, **not** a normative versio
 
 ## Notation
 `MR-*`: method obligation as paraphrased from source (confirmation pending); `SR-*`: tool-neutral derived System Requirement; `LRC-*`: language capability; `VC-*`: verification case; `EV-*`: evidence artifact. Status `O` = evidenced source; `D` = derived requirement; `X` = illustrative; `OPEN` = unconfirmed. Normative modality applies only to proposed contractual documents **after approval**.
+
+## Expanded source clause coverage (2026-11-04)
+`source_clause_coverage.csv` registers 34 section-/subsection-level evidence statements across O26 §§2–5 and Annexes 6.1–6.3, including starting grid, marine environment, hydropower, demand response and NTC abstraction. **It is a structured source-to-requirement inventory, not proof of exhaustively extracting every sentence or technical parameter.** Additional SyRS requirements SR-022–036 and language capabilities LRC-18–21 are appendices to the original catalogues.
