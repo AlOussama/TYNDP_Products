@@ -59,7 +59,7 @@
 |R5-F02|HIGH|Entwurfswort “robust” darf keine Minimax-/CVaR-Pflicht erzeugen.|Wettergewichtete Erwartung + gemeinsame Investitionen, keine generische Robustheitsanforderung.|
 |R5-F03|HIGH|DC-Lastfluss und kontrollierbarer DC-Marktlink bezeichnen unterschiedliche physikalische/marktliche Rollen.|L3 und SR-018/035 strikt getrennt.|
 |R5-F04|MEDIUM|Frühe Architektur-/PoC-Berichte bleiben im Repository, sind aber historisch.|Kennzeichnung in README/Legacy-Dokumenten; keine Codeänderung.|
-|R5-F05|HIGH|PASS eines Inputschemas darf nicht automatisch vollständigen IoSN-Vertragsstatus bedeuten.|Explizite Evidence-Layer und BLOCKED/NOT_EXECUTED.*
+|R5-F05|HIGH|PASS eines Inputschemas darf nicht automatisch vollständigen IoSN-Vertragsstatus bedeuten.|Explizite Evidence-Layer und BLOCKED/NOT_EXECUTED.|
 
 ## Review-Abnahme gegen MA-01-Gates
 

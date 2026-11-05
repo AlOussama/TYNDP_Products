@@ -23,6 +23,69 @@
 
 Weather-year choice/PCA/K-Means, extra generic robustness layers, CBA interoperability, adoption of SysML/GEMS/CESM/INES/custom DSL, new validators/PoCs, adapter development, mandated choice of PyPSA/Antares/Sienna. No parameter is authoritative merely because a previous proof-of-concept used it.
 
+## Minimal mathematische Methodik-Invarianten (schematisch, keine freigegebene Vollformulierung)
+
+Die folgenden Bedingungen sind eine **toolunabhängige fachliche Formalisierung** der in O26 §§3.1.1, 3.8–3.10 und 4.5.2 beschriebenen Klassen. Symbolnamen sind eine eigene **technische Ableitung (D)**; nur die genannten mathematischen Eigenschaften/Methodenklassen stammen aus O26. Die Gleichungen sind **kein vollständiges prüffähiges Referenz-LP**; insbesondere fehlen die fachlich noch nicht freigegebenen Detailrestriktionen, Kostenzeitblöcke, einzelnen Quellen-Vintages und KPI-Orakel.
+
+**A. Exogen ausgewählte Wetterfälle, Indizes und Normierung – MA01-SR-010/011, Quelle §3.7:**
+
+$
+y \in \{2035, 2040, 2050\},\quad s\in S_y^{\mathrm{input}},\quad
+w_{y,s}\geq 0,\quad\sum_{s\in S_y^{\mathrm{input}}}w_{y,s}=1.
+$
+
+Das Set \(S_y^{\mathrm{input}}\) und seine Gewichte werden **extern geliefert**. Die Normierungs-/Identitätskontrolle ist eine **Input-Prüfung**. Sie berechnet weder \(S_y\) noch die Gewichte und bewertet nicht die statistische Eignung der ausgewählten Jahre. Numerische Toleranzen sind nach MD-12 freizugeben.
+
+**B. Gemeinsame Investitionsentscheidung – MA01-SR-029, Quelle §3.1.1:**
+
+$
+x_{k,y,s}=x_{k,y,s'}\quad\forall k,\ y,\ s,s'\in S_y
+\qquad\text{oder äquivalent eine einzige Variable }x_{k,y}.
+$
+
+\(x\) wird nicht in jedem Wetterfall neu optimiert. Wetterabhängige **operative** Variablen wie \(p_{g,y,s,t}\) dürfen einen Szenario- und Zeitindex tragen. Die Eigenschaft muss im **generierten Modell** und nicht allein an zufällig identischen Lösungen gezeigt werden.
+
+**C. Erwartete Kosten, ENS und zulässige Kandidaten – MA01-SR-027/030, Quelle §3.1.1:**
+
+$
+\min\;\;C_y^{\mathrm{inv}}(x)\;+\;\sum_{s\in S_y}w_{y,s}\,
+\left[C_{y,s}^{\mathrm{op}}(p)+\mathrm{VoLL}_{y,s}\cdot \mathrm{ENS}_{y,s}\right].
+$
+
+$
+0\leq x_{k,y}\leq \overline{x}_{k,y}\qquad(k\text{ im methodisch zulässigen Kandidatenraum}).
+$
+
+Die Aggregationsnotation für Betriebskosten und ENS ist schematisch; **keine** angenommene Zeitschritt-/Diskontierungskonvention wird dadurch verbindlich. Bezüglich ökonomischer Blöcke und Kosten-Diskontierung: **MD-02 BLOCKED**. Das Wort 'robust' in O26 ist **kein** Mandat für eine frei erfundene Minimax-/CVaR-Restriktion.
+
+**D. Physikalische DC-Netzrestriktionen vs. Investitions-Marktlinks – MA01-SR-018/024/035, Quellen §§3.1.1,3.9,4.5.2:**
+
+Für die **vermaschte elektrische Bestands-/Äquivalenznetz-Abbildung** gelten die methodisch beschriebenen Knotenbilanzen sowie DC-Lastfluss-/Kirchhoff-Restriktionen, schematisch:
+
+$
+\sum_{g\in G(n)}p_{g,y,s,t}+\sum_{\ell\in \delta^-(n)}f_{\ell,y,s,t}
+-\sum_{\ell\in \delta^+(n)}f_{\ell,y,s,t}
++d_{n,y,s,t}^{\mathrm{other}}-D_{n,y,s,t}+u_{n,y,s,t}=0,
+$
+$
+f_{\ell,y,s,t}=b_{\ell}\bigl(\theta_{i(\ell),y,s,t}-\theta_{j(\ell),y,s,t}\bigr)
+\quad\text{für entsprechende physikalische AC-Äquivalenzzweige}.
+$
+
+Dabei ist \(d^{\mathrm{other}}\) nur ein Platzhalter für quellenzugelassene Kopplungen, Speicher etc. und **keine** zusätzliche Methodenpflicht. Nullfluss-/Phasenschieberkorrekturen und die exakte Vorzeichenkonvention müssen aus der freigegebenen Netzmethodik stammen. Im **primären LF-Ausbau** bleiben die vorgegebenen Maschenrestriktionen relevant, während die Interzonen-Übertragungskapazitätsgrenzen gemäß §3.9 nicht als endliche Limitierungen gesetzt werden.
+
+Dagegen werden **alle Übertragungs-Investitionskandidaten** (auch physische AC-Neubauprojekte) als **steuerbare DC-Marktlinks mit richtungsabhängiger NTC-Wirkung** abgebildet. Für sie darf die Toolumsetzung nicht ohne Quellenbeleg die vermaschten Winkel-/Kirchhoffbedingungen einer elektrischen AC-Bestandsleitung übernehmen. Die genaue Richtungs- und Kostenabbildung ist **MD-09 OPEN**.
+
+**E. Stufen- und Horizontzulässigkeit – MA01-SR-031–034, Quelle §3.10:**
+
+- LP-Stufe 1: nur methodisch als real zugelassene Onshore-/Offshore-Übertragungskandidaten.
+- LP-Stufe 2: methodisch verbleibende reale sowie konzeptionelle Onshore- und theoretische Offshore-Kandidaten; Stage-1-Zustände sind korrekt zu übernehmen. Exakte Teilinvestitionsübergänge **MD-07 OPEN**.
+- Endogener Speicherausbau nur für 2040/2050; im Jahr 2035 exogene Speicherwerte aus dem Szenario.
+- Jeder Quellmodus und jeder Stufenausgang benötigt einen getrennten Lauf-/Ergebnisbezug.
+
+**F. Grenzen dieser formalen Ableitung:** Ein grüner Schema-Check beweist keine korrekte LP-Generierung; eine einzelne gleichwertige optimale Lösung beweist keine eindeutige Kandidatenidentität; ohne MD-03/04/15/17 kann keine vollständige Netzreduktions-/Output-/Optimalitätskonformität bescheinigt werden. Modellbibliothek, Graphdarstellung, LP-Solver und Ergebnisexport bleiben freie Implementierungsdetails, soweit die vorgeschriebene Semantik erhalten bleibt.
+
+
 ## Requirement catalogue
 
 ### MA01-SR-001 — FUNC
