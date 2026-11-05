@@ -1,3 +1,7 @@
+> **MA-01 LEGACY / HISTORICAL ONLY — NOT AN ACTIVE REQUIREMENTS CATALOGUE (2026-11-05).** This research artifact predates MA-01. Sole active provisional source-derived system requirements: [iosn_requirements_catalogue.csv](iosn_requirements_catalogue.csv), with [source baseline](methodology_source_baseline.md), [process specification](iosn_process_specification.md), [scope change impact](scope_and_change_impact.md). Weather-year selection/PCA/K-Means/reproduction is **EXTERNAL / OUT OF SCOPE**, only already-selected weather inputs and consistency checks are in scope. Any old MR/SR/UC/VC/LRC/test/architecture recommendation is superseded and **not normative**. Der alte Use Case UC-01 Weather-year selection/preprocessing und alle PCA/K-Means-Zusätze sind ausdrücklich OUT OF SCOPE. Die gezeigten Beispiele bleiben historische Forschung, keine aktive Arbeitsfreigabe.
+
+---
+
 # 08 — Methodology → Contract → Verification: three use cases
 
 **Source:** [O26] ENTSO-E TYNDP 2026 IoSN methodology, *Version for Public Consultation*, 25 Feb 2026. Link and status in README. **Key:** O = documented official rule; D = derived technical obligation; X = illustrative domain-specific configuration, not source normative. Test/oracle values below are **X unless explicitly O**.

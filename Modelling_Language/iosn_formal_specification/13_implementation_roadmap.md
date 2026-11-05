@@ -1,3 +1,7 @@
+> **MA-01 LEGACY / HISTORICAL ONLY — NOT AN ACTIVE REQUIREMENTS CATALOGUE (2026-11-05).** This research artifact predates MA-01. Sole active provisional source-derived system requirements: [iosn_requirements_catalogue.csv](iosn_requirements_catalogue.csv), with [source baseline](methodology_source_baseline.md), [process specification](iosn_process_specification.md), [scope change impact](scope_and_change_impact.md). Weather-year selection/PCA/K-Means/reproduction is **EXTERNAL / OUT OF SCOPE**, only already-selected weather inputs and consistency checks are in scope. Any old MR/SR/UC/VC/LRC/test/architecture recommendation is superseded and **not normative**. Das alte Gate 2 zur vollständigen Wetterjahrauswahl bzw. PCA/K-Means ist RETIRED und darf nicht als IoSN-Folgeauftrag gelesen werden.
+
+---
+
 # 13 — Implementation roadmap and controlled development tasks
 
 **Principle:** Each stage ends in a falsifiable **gate**. No task changes existing IoSN implementation code or expands into CBA or generic robustness. This is a **proposed work order**, not a commitment of future delivery.

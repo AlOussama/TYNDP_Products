@@ -1,3 +1,7 @@
+> **MA-01 LEGACY / HISTORICAL ONLY — NOT AN ACTIVE REQUIREMENTS CATALOGUE (2026-11-05).** This research artifact predates MA-01. Sole active provisional source-derived system requirements: [iosn_requirements_catalogue.csv](iosn_requirements_catalogue.csv), with [source baseline](methodology_source_baseline.md), [process specification](iosn_process_specification.md), [scope change impact](scope_and_change_impact.md). Weather-year selection/PCA/K-Means/reproduction is **EXTERNAL / OUT OF SCOPE**, only already-selected weather inputs and consistency checks are in scope. Any old MR/SR/UC/VC/LRC/test/architecture recommendation is superseded and **not normative**. Retained as non-normative historical research; no architectural/tool decision is made here.
+
+---
+
 # 04 — Language Requirements Catalogue (LRC)
 
 **Method:** each LRC item below is **derived from the previously identified SR**, not from A+/B+ concepts. LRC items describe capabilities of a specification language or composition of languages. They are **not** claims that these capabilities are already implemented.

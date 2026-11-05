@@ -1,3 +1,7 @@
+> **MA-01 LEGACY / HISTORICAL ONLY — NOT AN ACTIVE REQUIREMENTS CATALOGUE (2026-11-05).** This research artifact predates MA-01. Sole active provisional source-derived system requirements: [iosn_requirements_catalogue.csv](iosn_requirements_catalogue.csv), with [source baseline](methodology_source_baseline.md), [process specification](iosn_process_specification.md), [scope change impact](scope_and_change_impact.md). Weather-year selection/PCA/K-Means/reproduction is **EXTERNAL / OUT OF SCOPE**, only already-selected weather inputs and consistency checks are in scope. Any old MR/SR/UC/VC/LRC/test/architecture recommendation is superseded and **not normative**. Frühere offene Fragen zum PCA/K-Means-Auswahlalgorithmus sind ausschließlich upstream; dies ist kein IoSN-Contract-Blocker und kein aktiver Testauftrag.
+
+---
+
 # 11 — Independent critical review: five separate rounds
 
 **Scope:** Independent design/source review, **not** independently commissioned external expert opinion. The earlier CBA review was read for background only; IoSN conclusions are driven by O26 and the derived SyRS. Source [O26] is a consultation document, not verified final. All unresolved issues remain explicit.
