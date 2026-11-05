@@ -79,3 +79,27 @@
 ## Schlussdisposition
 
 **PROVISIONAL / BLOCKED FOR NORMATIVE RELEASE.** Die Dokumentenbaseline ist für methodische Prüfung und Scope-Governance verwendbar. Ohne genehmigten Quellenstand, zusätzliche methodische Parameter/Orakel, betroffene Dataset-Versionsnachweise und echte Modellprüfungen kann keine vollständige IoSN-Systemkonformität bescheinigt werden.
+
+
+## Nachgeprüftes Repository-/Struktur-QA (2026-11-05)
+
+Die Dokumentstruktur wurde nach dem Commit auf dem MA-01-Branch erneut aus GitHub gelesen und mit einer unabhängigen tabellarischen Prüfung abgeglichen. Der Vergleich gegen den Ausgangsbranch research/iosn-formal-specification-2026-11-04 ergibt:
+
+|Prüfgröße|Beobachtung|Urteil|
+|---|---:|---|
+|Zehn spezifizierte MA-01-Deliverables vorhanden|10/10|PASS dokumentarisch|
+|Quellenbaseline MA01-MR, eindeutige IDs|50/50|PASS strukturell|
+|Aktive MA01-SR (21 Katalogspalten), eindeutige IDs|48/48|PASS strukturell|
+|Traceability-Einträge (12 Spalten), eindeutige MA01-MR|50/50|PASS strukturell|
+|L1-Fundstellen mit aktiven SR-Verweisen|48|PASS strukturell|
+|Ausdrücklich externe Wetterauswahl-Fundstellen ohne SR|2 (MA01-MR-012, MA01-MR-049)|PASS Scope|
+|Prozessmatrix-Schritte und Spalten|18 Schritte / 13 Spalten|PASS strukturell|
+|CSV-Spalten- und SR-Verweisfehler|0|PASS strukturell|
+|Historische Markdown-Berichte mit direktem Legacy-Banner|13/13|PASS Scope|
+|Historische CSV-Kataloge mit Status-Spalte HISTORICAL_NON_ACTIVE|3/3|PASS Scope|
+|Git-Diff auf MA-01-Arbeitsverzeichnis beschränkt|27/27 Dateien|PASS Scope|
+|Änderungen an bestehender Implementierung oder PoC-Code|0|PASS Scope|
+|Ausgeführte MA-01-Modell-, LP- oder KPI-Konformitätstests|0|**NOT_EXECUTED**|
+|Fachlich bestätigte finale IoSN-Methodikversion|keine|**BLOCKED MD-01**|
+
+**Grenze des QA:** Eine gültige CSV-Struktur und fehlerfreie Verweiskette beweisen weder vollständige, korrekte Extraktion aller PDF-Formulierungen noch die Güte eines Energiesystemmodells. Der unabhängige Fachreview und die autoritativen Methodikentscheidungen sind deshalb weiterhin als externe Freigabegates offen.
