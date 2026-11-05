@@ -1,3 +1,7 @@
+> **MA-01 LEGACY / HISTORICAL ONLY — NOT AN ACTIVE REQUIREMENTS CATALOGUE (2026-11-05).** This research artifact predates MA-01. Sole active provisional source-derived system requirements: [iosn_requirements_catalogue.csv](iosn_requirements_catalogue.csv), with [source baseline](methodology_source_baseline.md), [process specification](iosn_process_specification.md), [scope change impact](scope_and_change_impact.md). Weather-year selection/PCA/K-Means/reproduction is **EXTERNAL / OUT OF SCOPE**, only already-selected weather inputs and consistency checks are in scope. Any old MR/SR/UC/VC/LRC/test/architecture recommendation is superseded and **not normative**. Das frühere Requirement SR-005 zur Auswahlalgorithmus-Verifikation ist RETIRED / OUT OF SCOPE. Alle früheren SR-IDs sind abgelöst durch 48 MA01-SR-IDs im neuen CSV-Katalog; keine zwei aktiven SyRS.
+
+---
+
 # 03 — IoSN System Requirements Specification (SyRS)
 
 **Status:** Proposed engineering derivation, **not** approved ENTSO-E SyRS. Source [O26] [PDF](https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/tyndp-documents/TYNDP2026/TYNDP_2026_identification_of_system_needs_methodology_for_consultation.pdf). The **MR** statements are faithful *paraphrases* of O26 obligations, not copied quotations; **SR** statements are independently derived *system-level* requirements. All `SHALL` clauses are contractual candidates only after source approval. Conformance is unknown until testing.
