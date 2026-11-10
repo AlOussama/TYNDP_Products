@@ -127,7 +127,7 @@ Die zuständige G1-Gateinstanz sollte **kein GO erteilen**, solange G1-A–G die
 1. **P0 / ENTSO-E Methodology Owner:** verbindliche genehmigte IoSN-Methodikversion samt Originalbytes+SHA256, Release-/Adoptionsentscheidung, Annex-/Errata-Liste, Wirksamkeit für TYNDP 2026 (MD-01).
 2. **P0 / Data Governance & Upstream Owners:** Originaldateien des eingefrorenen IoSN-Runs mit Version, SHA256, Source→Model Mapping, exogener ausgewählter Wettermanifest-/PECD-Übergabe, Rechten und Zeitachsen.
 3. **P0 / Starting Grid + Network Owners:** Eligibility-Crosswalk 2035/CBA4, Projekt-ID/RDFID, detailliertes Netz, N-1/PTDF/LODF/RMSE-Orakel, Signoff.
-4. **P0 / Market/Economics/Storage/H2/Reporting Owners:** exakte Stage-Transition, Kandidat-NCT/NTC-Richtung, diskontierte jährliche/Blockkosten, Speicherparameter, H2 Freeze, Offshore-Routenwert, KPI/Output-Formeln und Testfixtures.
+4. **P0 / Market/Economics/Storage/H2/Reporting Owners:** exakte Stage-Transition, Kandidaten-NTC-Richtung, diskontierte jährliche/Blockkosten, Speicherparameter, H2 Freeze, Offshore-Routenwert, KPI/Output-Formeln und Testfixtures.
 5. **P0 / Verification and Independent Audit:** 28 echte Datenprüfungen ausführen, Modell- und KPI-Referenzfälle akzeptieren, 23 Findings schließen oder Owner-Ausnahmen dokumentieren, unabhängigen personellen Review durchführen.
 6. **P0 / Requirements Owner + Gate Approver:** 20 process-only Datenobjekte disponieren, 48 SR kontrolliert reconciliieren und separat eine unterschriebene G1-Entscheidung treffen.
 
