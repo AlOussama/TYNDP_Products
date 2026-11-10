@@ -4,7 +4,7 @@
 
 ## Umfang, Status und konkrete Befunde
 
-- **85 fachliche Eingabeobjekte** über **18/18 Prozesse P00–P17**. Ein Eingabeobjekt kann ein echter externer Payload, ein freizugebender Steuer-/Parameterdatensatz oder ein Output eines früheren IoSN-Schritts als Input für einen späteren Schritt sein. Dieses Typfeld verhindert, dass abgeleitete Resultate als externe Quellen ausgegeben werden.
+- **87 fachliche Eingabeobjekte** über **18/18 Prozesse P00–P17**. Ein Eingabeobjekt kann ein echter externer Payload, ein freizugebender Steuer-/Parameterdatensatz oder ein Output eines früheren IoSN-Schritts als Input für einen späteren Schritt sein. Dieses Typfeld verhindert, dass abgeleitete Resultate als externe Quellen ausgegeben werden.
 - **17 Source-/Owner-Kategorien** in `source_registry.csv`; Originaldatei-ID, Hash und tatsächlich eingefrorene IoSN-Revisionskennung sind für **keine** Kategorie positiv geprüft. Die offiziell sichtbaren 2026-Szenario-Downloadkategorien wurden als **Index nachgewiesen**, nicht als validierter IoSN-Payload.
 - Alle fachlichen Key-Grains, Einheiten, Zeit, räumlichen Auflösungen, Szenario-Achsen, Versions- und Qualitätsbedingungen sind **Anforderungen an künftige Datenlieferungen**, nicht eine Behauptung, dass diese Dateien existieren oder Datenprüfung bestanden hätten.
 - Methodische Aussagen zu 102 IoSN-Zonen, drei Wetterfällen je Studienjahr und Wetter-ID-Gewichten sowie 4% WACC sind Eigenschaften der **Konsultationsfassung O26**, keine unangetastet verbindlichen Bestandsdaten.
@@ -12,13 +12,13 @@
 
 ## Referenz des O26-Entwurfs für bereits ausgewählte Wetterfälle (nur Soll-Prüftabelle)
 
-|Studienjahr|Wetterfälle (ID:Gegenwahrscheinlichkeit)|
+|Studienjahr|Wetterfälle (ID:Gewicht)|
 |---|---|
 |2035|WS032:0.24; WS037:0.43; WS059:0.33|
 |2040|WS065:0.20; WS071:0.40; WS077:0.40|
 |2050|WS091:0.23; WS092:0.57; WS106:0.20|
 
-*O26 §3.7 S.19–20, Draft: Ein künftig freigegebenes Run-Manifest kann abweichen. Die Summentoleranz ist nicht festgesetzt. „Gegenwahrscheinlichkeit“ in der Überschrift bedeutet **Wetterfallgewicht / Wahrscheinlichkeit** und nicht Komplementärwahrscheinlichkeit.*
+*O26 §3.7 S.19–20, Draft: Ein künftig freigegebenes Run-Manifest kann abweichen. Die Summentoleranz ist nicht festgesetzt. Die Zahlen sind wetterfallspezifische **Wahrscheinlichkeitsgewichte**.*
 
 ## Datenstatus — präzise Interpretation
 
