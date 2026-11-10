@@ -1,0 +1,114 @@
+{
+  "id": "B01R-D-EVIDENCE-CHECKS-2026-11-10",
+  "review_origin": "SEPARATE_ADVERSARIAL_REVIEW_PERFORMED_BY_SAME_ASSISTANT_NOT_INDEPENDENT_PERSON",
+  "source_commit": "dfaf75c0a85e3ec4d9ba4a29b3864fb13d987883",
+  "check_count": 20,
+  "passed": 20,
+  "failed": 0,
+  "signoff": "NOT_OBTAINED",
+  "true_source_content_validation": false,
+  "model_execution": false,
+  "tests": [
+    {
+      "id": "D01",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "23 distinct original review findings"
+    },
+    {
+      "id": "D02",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "14 P0 + 9 P1"
+    },
+    {
+      "id": "D03",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "original 23 remain OPEN"
+    },
+    {
+      "id": "D04",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "21 MD/CL tracked"
+    },
+    {
+      "id": "D05",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "0 signed owner MD/CL decisions"
+    },
+    {
+      "id": "D06",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "87 unique classified data objects"
+    },
+    {
+      "id": "D07",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "0 original bytes/hashes represented as validated"
+    },
+    {
+      "id": "D08",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "0 IoSN dataset content tests promoted"
+    },
+    {
+      "id": "D09",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "11 publicly linked file candidates"
+    },
+    {
+      "id": "D10",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "all sources explicit unresolved freeze"
+    },
+    {
+      "id": "D11",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "28 original data checks blocked"
+    },
+    {
+      "id": "D12",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "93/93 link semantics remain not owner approved"
+    },
+    {
+      "id": "D13",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "48 SR source-blocked"
+    },
+    {
+      "id": "D14",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "48 requirement blocker records open"
+    },
+    {
+      "id": "D15",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "0 assumed confirmed source delta"
+    },
+    {
+      "id": "D16",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "16 technical project-metadata checks PASS only"
+    },
+    {
+      "id": "D17",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "20 L1-L4 consistency structure checks PASS only"
+    },
+    {
+      "id": "D18",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "method authority explicitly unconfirmed"
+    },
+    {
+      "id": "D19",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "no successor bytes/approval claimed"
+    },
+    {
+      "id": "D20",
+      "result": "PASS_STATIC_EVIDENCE",
+      "note": "23 revised findings plus header"
+    }
+  ],
+  "conclusion": "PASS_STATIC_EVIDENCE_ONLY_NOT_G1_GO"
+}
