@@ -1,0 +1,115 @@
+{
+  "check_run_id": "B01R-B-META-2026-11-10",
+  "kind": "PROJECT_CSV_METADATA_SCHEMA_AND_REFERENCE_ONLY",
+  "source_commit": "09cff8a8f9d82282d2e307f32ba8b139c3eb3824",
+  "source_blobs": {
+    "data": "e27922ea40932110795a5239157fbc6734e62b65",
+    "trace": "8d6c78667eff5742a347c70fc5ab92c597111ad5",
+    "checks": "f7bb89969c6a85b4b5a09a8e92a3ecf5b5441dde"
+  },
+  "validator": "V8 JavaScript inline CSV parser/checker B01R-META-v1.0",
+  "independent_source_bytes_checked": false,
+  "source_data_verification": false,
+  "executed_test_count": 16,
+  "passing_tests": 16,
+  "tests": [
+    {
+      "id": "M01",
+      "description": "87 data objects",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "87"
+    },
+    {
+      "id": "M02",
+      "description": "unique data IDs and slugs",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "87"
+    },
+    {
+      "id": "M03",
+      "description": "17 source groups",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "17"
+    },
+    {
+      "id": "M04",
+      "description": "all object sources resolve",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0"
+    },
+    {
+      "id": "M05",
+      "description": "all object process IDs present",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0"
+    },
+    {
+      "id": "M06",
+      "description": "every object includes identity/unit/time/space/scenario",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0 incomplete"
+    },
+    {
+      "id": "M07",
+      "description": "all proposed owner roles populated",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0"
+    },
+    {
+      "id": "M08",
+      "description": "87/87 original IoSN payloads unverified",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0"
+    },
+    {
+      "id": "M09",
+      "description": "87/87 source SHA-256 NOT_COMPUTED",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "87"
+    },
+    {
+      "id": "M10",
+      "description": "93 unique existing trace links",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "93"
+    },
+    {
+      "id": "M11",
+      "description": "every trace data object exists",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "0"
+    },
+    {
+      "id": "M12",
+      "description": "48 distinct SR linked",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "48"
+    },
+    {
+      "id": "M13",
+      "description": "28 validations enumerated uniquely",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "28"
+    },
+    {
+      "id": "M14",
+      "description": "28 checks have classification and prerequisite",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "28"
+    },
+    {
+      "id": "M15",
+      "description": "17/17 registered groups no verified IoSN release",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "17"
+    },
+    {
+      "id": "M16",
+      "description": "20 process-only objects correctly retained",
+      "result": "PASS_PROJECT_METADATA_ONLY",
+      "detail": "20"
+    }
+  ],
+  "source_data_validation_result": "0_of_28_executed",
+  "note": "Do not confuse project artifact metadata validation with real dataset content validation."
+}
