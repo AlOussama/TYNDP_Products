@@ -1,0 +1,136 @@
+{
+  "run_id": "B01R-C-L1L4-2026-11-10",
+  "kind": "L1_TO_L4_AND_DATA_REFERENCE_STRUCTURAL_CHECKS_ONLY",
+  "reference_commit": "3fd3b0e6ede30f863228d426389e880bdb09f1d0",
+  "checks": [
+    {
+      "id": "CL01",
+      "result": "PASS_STRUCTURAL",
+      "description": "50 unique L1 clauses",
+      "info": 50
+    },
+    {
+      "id": "CL02",
+      "result": "PASS_STRUCTURAL",
+      "description": "48 unique active L2 SR",
+      "info": 48
+    },
+    {
+      "id": "CL03",
+      "result": "PASS_STRUCTURAL",
+      "description": "Every L2 SR maps to L1 MR",
+      "info": []
+    },
+    {
+      "id": "CL04",
+      "result": "PASS_STRUCTURAL",
+      "description": "Exactly 2 upstream-only L1 with no L2",
+      "info": [
+        "MA01-MR-012",
+        "MA01-MR-049"
+      ]
+    },
+    {
+      "id": "CL05",
+      "result": "PASS_STRUCTURAL",
+      "description": "48 L1 linked to active L2",
+      "info": 48
+    },
+    {
+      "id": "CL06",
+      "result": "PASS_STRUCTURAL",
+      "description": "L1-to-L2 mirrors SR MR link",
+      "info": []
+    },
+    {
+      "id": "CL07",
+      "result": "PASS_STRUCTURAL",
+      "description": "Every SR has L3/L4 proposal",
+      "info": []
+    },
+    {
+      "id": "CL08",
+      "result": "PASS_STRUCTURAL",
+      "description": "MA01 L3 mirrored with SR",
+      "info": []
+    },
+    {
+      "id": "CL09",
+      "result": "PASS_STRUCTURAL",
+      "description": "MA01 L4 mirrored with SR",
+      "info": []
+    },
+    {
+      "id": "CL10",
+      "result": "PASS_STRUCTURAL",
+      "description": "Every L2 includes declared input/output",
+      "info": []
+    },
+    {
+      "id": "CL11",
+      "result": "PASS_STRUCTURAL",
+      "description": "Every L2 has provisional acceptance method/criterion",
+      "info": []
+    },
+    {
+      "id": "CL12",
+      "result": "PASS_STRUCTURAL",
+      "description": "All 48 MA02 impact rows present",
+      "info": []
+    },
+    {
+      "id": "CL13",
+      "result": "PASS_STRUCTURAL",
+      "description": "All 93 data→SR links resolve",
+      "info": []
+    },
+    {
+      "id": "CL14",
+      "result": "PASS_STRUCTURAL",
+      "description": "All active SR covered by ≥1 proposed data object",
+      "info": []
+    },
+    {
+      "id": "CL15",
+      "result": "PASS_STRUCTURAL",
+      "description": "Trace relation L1 MR equals SR assigned MR",
+      "info": []
+    },
+    {
+      "id": "CL16",
+      "result": "PASS_STRUCTURAL",
+      "description": "All 93 semantics/source data remain unapproved",
+      "info": 93
+    },
+    {
+      "id": "CL17",
+      "result": "PASS_STRUCTURAL",
+      "description": "All 87 data items unapproved",
+      "info": 87
+    },
+    {
+      "id": "CL18",
+      "result": "PASS_STRUCTURAL",
+      "description": "No real validation pass inferred",
+      "info": 28
+    },
+    {
+      "id": "CL19",
+      "result": "PASS_STRUCTURAL",
+      "description": "Original SRs unapproved and test statuses unchanged",
+      "info": 48
+    },
+    {
+      "id": "CL20",
+      "result": "PASS_STRUCTURAL",
+      "description": "21 open decisions not closed",
+      "info": 21
+    }
+  ],
+  "passes": 20,
+  "failures": 0,
+  "overall": "STRUCTURE_VALID_ONLY",
+  "owner_signoff_obtained": false,
+  "validated_mathematical_semantics": false,
+  "executed_real_input_content_tests": 0
+}
