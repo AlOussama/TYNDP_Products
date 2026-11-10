@@ -1,0 +1,178 @@
+{
+  "review_id": "BUNDLE01-C-STRUCT-2026-11-10",
+  "reviewer_process": "SEPARATE_RULE_BASED_ADVERSARIAL_PASS_BY_SAME_ASSISTANT",
+  "independent_human_signoff": "NOT_OBTAINED",
+  "scope": "Repository artifact, cross-reference, status integrity only; NOT data content and NOT methodology approval",
+  "reference_branch": "research/iosn-bundle01-c-readiness-review-2026-11-10",
+  "reference_commit_expected": "ae66ab0ab12b5d2167765eb0b0bc72b469ed72fe",
+  "verdict": "PASS_STRUCTURE_ONLY",
+  "n_checks": 25,
+  "n_failed": 0,
+  "metrics": {
+    "process_steps": 18,
+    "data_objects": 87,
+    "sources": 17,
+    "methodology_refs": 50,
+    "active_SRs": 48,
+    "trace_links": 93,
+    "proposed_validation_checks": 28,
+    "owner_decisions_open": 21,
+    "weather_selection_source_only": 2,
+    "executed_data_validation_tests": 0,
+    "approved_requirements": 0
+  },
+  "checks": [
+    {
+      "check_id": "Q01",
+      "result": "PASS_STRUCTURE",
+      "description": "87 unique object IDs",
+      "detail": "87"
+    },
+    {
+      "check_id": "Q02",
+      "result": "PASS_STRUCTURE",
+      "description": "Unique slugs, no ambiguous object names",
+      "detail": "87"
+    },
+    {
+      "check_id": "Q03",
+      "result": "PASS_STRUCTURE",
+      "description": "Source registry 17 distinct source groups",
+      "detail": "17"
+    },
+    {
+      "check_id": "Q04",
+      "result": "PASS_STRUCTURE",
+      "description": "P00–P17 exactly once",
+      "detail": "P00;P01;P02;P03;P04;P05;P06;P07;P08;P09;P10;P11;P12;P13;P14;P15;P16;P17"
+    },
+    {
+      "check_id": "Q05",
+      "result": "PASS_STRUCTURE",
+      "description": "Process inventory ID list count equals declared count",
+      "detail": "All 18 rows checked"
+    },
+    {
+      "check_id": "Q06",
+      "result": "PASS_STRUCTURE",
+      "description": "Every object appears in its owning process list",
+      "detail": "0 mismatches"
+    },
+    {
+      "check_id": "Q07",
+      "result": "PASS_STRUCTURE",
+      "description": "No unregistered external/derived provenance group",
+      "detail": "0"
+    },
+    {
+      "check_id": "Q08",
+      "result": "PASS_STRUCTURE",
+      "description": "Exactly 48 active MA01-SR",
+      "detail": "48"
+    },
+    {
+      "check_id": "Q09",
+      "result": "PASS_STRUCTURE",
+      "description": "Exactly 50 baseline MA01-MR",
+      "detail": "50"
+    },
+    {
+      "check_id": "Q10",
+      "result": "PASS_STRUCTURE",
+      "description": "93 distinct source-to-data-to-SR associations",
+      "detail": "93"
+    },
+    {
+      "check_id": "Q11",
+      "result": "PASS_STRUCTURE",
+      "description": "All trace references resolve to SR+MR+D",
+      "detail": "0 broken links"
+    },
+    {
+      "check_id": "Q12",
+      "result": "PASS_STRUCTURE",
+      "description": "Each of 48 SR has >= 1 data relation",
+      "detail": "48"
+    },
+    {
+      "check_id": "Q13",
+      "result": "PASS_STRUCTURE",
+      "description": "Trace MR corresponds to exact MA01 requirement MR",
+      "detail": "0 conflicts"
+    },
+    {
+      "check_id": "Q14",
+      "result": "PASS_STRUCTURE",
+      "description": "All 50 MR in methodology-data ledger",
+      "detail": "50"
+    },
+    {
+      "check_id": "Q15",
+      "result": "PASS_STRUCTURE",
+      "description": "Annex 6.3 selections remain two upstream-only refs, no active SR",
+      "detail": "[\"MA01-MR-012\",\"MA01-MR-049\"]"
+    },
+    {
+      "check_id": "Q16",
+      "result": "PASS_STRUCTURE",
+      "description": "Only 48 MR bind active SR; no invented selection contract",
+      "detail": "48"
+    },
+    {
+      "check_id": "Q17",
+      "result": "PASS_STRUCTURE",
+      "description": "Six explicit P06 reduced-network output groups",
+      "detail": "no_load_correction;mesh_constraints;hvdc_impact_equiv;seasonal_n1_limits;equiv_impedances;pst_impact_equiv"
+    },
+    {
+      "check_id": "Q18",
+      "result": "PASS_STRUCTURE",
+      "description": "No object misrepresented as payload-validated or hashed",
+      "detail": "87/87 no verified exact payload"
+    },
+    {
+      "check_id": "Q19",
+      "result": "PASS_STRUCTURE",
+      "description": "28 checks not falsely reported as executed",
+      "detail": "0 claimed test PASS"
+    },
+    {
+      "check_id": "Q20",
+      "result": "PASS_STRUCTURE",
+      "description": "20 MD + MA02-CL-001 all open",
+      "detail": "21"
+    },
+    {
+      "check_id": "Q21",
+      "result": "PASS_STRUCTURE",
+      "description": "MA01 48 SR all unapproved and unexecuted",
+      "detail": "0 exceptions"
+    },
+    {
+      "check_id": "Q22",
+      "result": "PASS_STRUCTURE",
+      "description": "All 93 links explicitly provisional",
+      "detail": "93"
+    },
+    {
+      "check_id": "Q23",
+      "result": "PASS_STRUCTURE",
+      "description": "Source/IoSN frozen dataset never falsely approved",
+      "detail": "17"
+    },
+    {
+      "check_id": "Q24",
+      "result": "PASS_STRUCTURE",
+      "description": "Process structure not conflated with verified data",
+      "detail": "18"
+    },
+    {
+      "check_id": "Q25",
+      "result": "PASS_STRUCTURE",
+      "description": "Link IDs and slugs always refer to same data row",
+      "detail": "93"
+    }
+  ],
+  "gate_G1": "BLOCKED",
+  "authority": "AUTHORITY_UNCONFIRMED"
+}
