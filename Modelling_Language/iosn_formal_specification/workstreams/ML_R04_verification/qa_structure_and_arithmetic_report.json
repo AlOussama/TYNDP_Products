@@ -1,0 +1,53 @@
+{
+  "review_profile": "ML-R04-0.1",
+  "review_date": "2026-11-11",
+  "base_commit": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b",
+  "checked_head_before_review": "6331636f8005e69df145475abff6367e6b533cab",
+  "review_type": "AI_ADVERSARIAL_DESK_REVIEW_NOT_INDEPENDENT_HUMAN",
+  "signed_by_independent_person": null,
+  "traceability": {
+    "source_MA01_SR": 48,
+    "matrix_rows": 48,
+    "unique_test_ids": 48,
+    "L4_links_present": 48,
+    "unknown_case_references": 0,
+    "missing_source_blocker_rows": 0,
+    "all_tool_tests_status": "NOT_EXECUTED",
+    "research_tier_counts": {
+      "A": 33,
+      "B": 12,
+      "C": 3
+    },
+    "result": "PASS_STRUCTURAL"
+  },
+  "synthetic": {
+    "declared_cases": 10,
+    "manually_recomputed_with_Python_Fraction": 10,
+    "arithmetic_checks_passed": 10,
+    "software_solver_tests_performed": 0,
+    "result": "PASS_SYNTHETIC_ARITHMETIC_ONLY"
+  },
+  "evidence_schema": {
+    "draft": "2020-12",
+    "structural_example_checks": "PASS",
+    "negative_mutants_rejected": 4,
+    "independent_full_meta_schema_validation": "NOT_EXECUTED"
+  },
+  "scope": {
+    "changed_files_before_review": 24,
+    "all_under_ML_R04": true
+  },
+  "conformance": {
+    "data": "BLOCKED",
+    "semantic": "NOT_EXECUTED",
+    "mathematical": "NOT_EXECUTED",
+    "numerical": "NOT_EXECUTED",
+    "results": "NOT_EXECUTED",
+    "evidence_quality": "BLOCKED",
+    "independent_signoff": "NOT_OBTAINED",
+    "full_claim": "NOT_ASSESSED"
+  },
+  "gate_g1": "BLOCKED",
+  "qualified_owner_approval": "NOT_OBTAINED",
+  "source_release": "AUTHORITY_UNCONFIRMED"
+}

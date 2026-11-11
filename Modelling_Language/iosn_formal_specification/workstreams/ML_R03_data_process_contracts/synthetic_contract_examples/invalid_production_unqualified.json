@@ -1,0 +1,197 @@
+{
+  "schema_version": "MLR03-SYN-0.1",
+  "mode": "PRODUCTION",
+  "purpose": "TECHNICAL_STRUCTURE_TEST_NO_REAL_IOSN_RELEASE",
+  "study_years": [
+    2035,
+    2040,
+    2050
+  ],
+  "definitions": [
+    "B01-D009",
+    "MLR03-I-P03-aligned_timeseries"
+  ],
+  "transformation_spec_ids": [
+    "MLR03-T03-02"
+  ],
+  "weather_cases": [
+    {
+      "study_year": 2035,
+      "case_id": "CY1",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2035-CY1"
+    },
+    {
+      "study_year": 2035,
+      "case_id": "CY2",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2035-CY2"
+    },
+    {
+      "study_year": 2035,
+      "case_id": "CY3",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2035-CY3"
+    },
+    {
+      "study_year": 2035,
+      "case_id": "CY4",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2035-CY4"
+    },
+    {
+      "study_year": 2035,
+      "case_id": "CY5",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2035-CY5"
+    },
+    {
+      "study_year": 2040,
+      "case_id": "CY1",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2040-CY1"
+    },
+    {
+      "study_year": 2040,
+      "case_id": "CY2",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2040-CY2"
+    },
+    {
+      "study_year": 2040,
+      "case_id": "CY3",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2040-CY3"
+    },
+    {
+      "study_year": 2040,
+      "case_id": "CY4",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2040-CY4"
+    },
+    {
+      "study_year": 2040,
+      "case_id": "CY5",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2040-CY5"
+    },
+    {
+      "study_year": 2050,
+      "case_id": "CY1",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2050-CY1"
+    },
+    {
+      "study_year": 2050,
+      "case_id": "CY2",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2050-CY2"
+    },
+    {
+      "study_year": 2050,
+      "case_id": "CY3",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2050-CY3"
+    },
+    {
+      "study_year": 2050,
+      "case_id": "CY4",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2050-CY4"
+    },
+    {
+      "study_year": 2050,
+      "case_id": "CY5",
+      "weight": 0.2,
+      "profile_ref": "SYN-PROFILE-2050-CY5"
+    }
+  ],
+  "releases": [
+    {
+      "release_id": "SYN-REL-001",
+      "source_id": "SYNTHETIC_SOURCE",
+      "qualification_status": "SYNTHETIC_NO_ORIGINAL_BYTES",
+      "original_sha256": null
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "SYN-RUN-2035",
+      "study_year": 2035,
+      "branch_type": "SYNTHETIC_TRANSFORM",
+      "release_gate": "RELEASE_BLOCKED"
+    }
+  ],
+  "data_instances": [
+    {
+      "instance_id": "SYN-IN-001",
+      "object_id": "B01-D009",
+      "role": "SOURCE_INPUT",
+      "release_id": "SYN-REL-001",
+      "run_id": null,
+      "study_year": 2035,
+      "case_id": "CY1",
+      "zone_id": "SYN-ZONE-A",
+      "carrier": "electricity",
+      "series_key": "load_original",
+      "unit": "MW",
+      "dimension": "power",
+      "start_utc": "2035-01-01T00:00:00Z",
+      "end_utc": "2035-01-01T01:00:00Z",
+      "value": 120,
+      "provenance": {
+        "source_instance_ids": [],
+        "transformation_id": null
+      }
+    },
+    {
+      "instance_id": "SYN-OUT-001",
+      "object_id": "MLR03-I-P03-aligned_timeseries",
+      "role": "INTERNAL_DERIVED",
+      "release_id": null,
+      "run_id": "SYN-RUN-2035",
+      "study_year": 2035,
+      "case_id": "CY1",
+      "zone_id": "SYN-ZONE-A",
+      "carrier": "electricity",
+      "series_key": "load_aligned",
+      "unit": "MW",
+      "dimension": "power",
+      "start_utc": "2035-01-01T00:00:00Z",
+      "end_utc": "2035-01-01T01:00:00Z",
+      "value": 120,
+      "provenance": {
+        "source_instance_ids": [
+          "SYN-IN-001"
+        ],
+        "transformation_id": "SYN-ETL-001"
+      }
+    }
+  ],
+  "transformations": [
+    {
+      "transformation_id": "SYN-ETL-001",
+      "spec_ref": "MLR03-T03-02",
+      "run_id": "SYN-RUN-2035",
+      "input_instance_ids": [
+        "SYN-IN-001"
+      ],
+      "output_instance_ids": [
+        "SYN-OUT-001"
+      ],
+      "test_only": true
+    }
+  ],
+  "raw_outputs": [
+    {
+      "result_id": "SYN-RAW-001",
+      "run_id": "SYN-RUN-2035",
+      "quantity_type": "unserved_power",
+      "unit": "MW",
+      "value": 0,
+      "status": "SYNTHETIC_RAW_NOT_A_KPI"
+    }
+  ],
+  "publishable": true,
+  "gate_status": "RELEASE_AUTHORIZED"
+}
