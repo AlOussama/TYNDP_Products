@@ -271,3 +271,75 @@ def test_both_fail_closed_on_island_imbalance():
     with pytest.raises(ContractError,match="island injection imbalance"):
         SparseACReference(bg).solve(replace(bd,nodal_injections_MW=bmatrix(rows)),btime())
     print("INDEPENDENT_NEGATIVE_ISLAND_IMBALANCE: A and B reject")
+
+
+def test_same_physics_different_valid_greedy_busroutes_and_targets():
+    """Independent loopy K4: A dynamic boundary sum vs B static Kruskal."""
+    buses=("v0","v1","v2","v3")
+    edge_data=(
+        ("e01","v0","v1",.1,1.),
+        ("e12","v1","v2",.2,2.),
+        ("e02","v0","v2",.3,3.),
+        ("e23","v2","v3",.4,4.),
+        ("e03","v0","v3",.5,5.),
+        ("e13","v1","v3",.6,6.),
+    )
+    ag=AGrid(buses,("DE",)*4,
+             tuple(ABranch(name,u,v,x,225) for name,u,v,x,w in edge_data),
+             (),100.,ae("k4"))
+    bg=BGrid(be("k4"),100.,
+             tuple(Bus(v,"Germany",225) for v in buses),
+             tuple(BBranch(name,u,v,x,225) for name,u,v,x,w in edge_data),
+             ties_110kv_complete=True,fixture=True)
+    weights={name:w for name,u,v,x,w in edge_data}
+    za=a_seed(ag,("Germany",)*4,ABudget.synthetic({"Germany":2}),
+              merge_cost_by_branch=weights)
+    bb=BBudget(be("qk4"),(("Germany",2),))
+    zb=b_seed(bg,bb,np.array([w for _,_,_,_,w in edge_data]))
+    assert za.zone_of_bus[0]==za.zone_of_bus[1]
+    assert za.zone_of_bus[2]==za.zone_of_bus[3]
+    assert za.zone_of_bus[0]!=za.zone_of_bus[2]
+    assert zb[0]==zb[1]==zb[2] and zb[3]!=zb[0]
+    p=np.tile(np.array([10.,0.,-5.,-5.])[:,None],(1,T))
+    ac=a_flows(ag,ADispatch(buses,STAMP,p,{},{},ae("k4d")),atime())
+    physical=SparseACReference(bg)
+    bc=physical.solve(BDispatch(be("k4d"),buses,KEYS,bmatrix(p)),btime())
+    np.testing.assert_allclose(ac.flow_mw,bf(bc),atol=1e-10,rtol=0.)
+    pa=a_projection(ag,za.zone_of_bus)
+    pb=b_projection(physical,bb,zb)
+    _,fa=pa.aggregate(ac)
+    _,fb=pb.verify(physical,bc)
+    np.testing.assert_allclose(abs(fa[0,0]),10.,atol=1e-10)
+    np.testing.assert_allclose(abs(fb[0,0]),5.,atol=1e-10)
+    print("ALGORITHM_DIFFERENCE_K4: same detailed flows; A cut 10 MW, B cut 5 MW")
+
+
+def test_sparse_chain_replay_and_cache_size_diagnostic():
+    """Representative sparse chain; diagnostic only, NOT a Europe-scale claim."""
+    import time
+    n=500
+    names=tuple("v"+str(i) for i in range(n))
+    ab=tuple(ABranch("l"+str(i),names[i],names[i+1],.2,225)
+             for i in range(n-1))
+    bb=tuple(BBranch("l"+str(i),names[i],names[i+1],.2,225)
+             for i in range(n-1))
+    ag=AGrid(names,("DE",)*n,ab,(),100.,ae("scale500"))
+    bg=BGrid(be("scale500"),100.,
+             tuple(Bus(v,"Germany",225) for v in names),bb,
+             ties_110kv_complete=True,fixture=True)
+    p=np.zeros((n,T))
+    p[0]=10.
+    p[-1]=-10.
+    t0=time.perf_counter()
+    ar=a_flows(ag,ADispatch(names,STAMP,p,{},{},ae("sd")),atime())
+    a_ms=1000*(time.perf_counter()-t0)
+    t0=time.perf_counter()
+    bc=SparseACReference(bg).solve(BDispatch(be("sd"),names,KEYS,bmatrix(p)),
+                                  btime())
+    b_ms=1000*(time.perf_counter()-t0)
+    np.testing.assert_allclose(ar.flow_mw,bf(bc),rtol=0.,atol=1e-8)
+    np.testing.assert_allclose(ar.flow_mw,10.,rtol=0.,atol=1e-8)
+    a_array_bytes=ar.flow_mw.nbytes+ar.nodal_net_mw.nbytes
+    b_json_bytes=len(bc.canonical_json.encode("utf-8"))
+    print("SPARSE_CHAIN_N500: A_ms={:.3f}, B_ms={:.3f}, A_flow_plus_inj_bytes={}, B_json_bytes={}".format(
+        a_ms,b_ms,a_array_bytes,b_json_bytes))
