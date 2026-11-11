@@ -53,6 +53,19 @@ def screen_annual_overload(grid, flow_cache, time, ratings) -> AnnualScreen:
                 )
             else:
                 continue
+        if declared == 0. and 200. <= branch.voltage_kv <= 450.:
+            # MA1-RP1: an unaudited opt-out may not mask 225/400-kV
+            # overload energy. A future source-qualified exception requires
+            # a separately approved and versioned exclusion contract.
+            raise ScreeningError(
+                f"Unaudited screening exclusion for {branch.identifier}; "
+                "nominal 225/400-kV scope cannot be bypassed with class 0"
+            )
+        if branch.voltage_kv in (225., 400.) and declared not in (225., 400.):
+            raise ScreeningError("Nominal 225/400-kV line must be screened")
+        if (branch.voltage_kv in (225., 400.)
+                and declared != branch.voltage_kv):
+            raise ScreeningError("Declared screening class contradicts nominal voltage")
         if declared in (225., 400.):
             eligible.append((i, branch, float(declared)))
         elif declared != 0.:

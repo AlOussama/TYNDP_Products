@@ -26,6 +26,12 @@ PUBLISHED_QUOTAS = {
     "United Kingdom": 1,
 }
 
+# Pinned original PDF printed Table-3 pagination (not only the allowed pages).
+PUBLISHED_SOURCE_PAGE = {
+    name: (27 if name in {"Switzerland", "Turkey", "United Kingdom"} else 26)
+    for name in PUBLISHED_QUOTAS
+}
+
 
 class CountryContractError(ValueError):
     pass
@@ -36,6 +42,7 @@ class CountryZoneBudget:
     quotas: Mapping[str, int]
     official: bool
     source_sha256: str
+    source_pages: Mapping[str, int] | None = None
 
     def __post_init__(self):
         q = dict(self.quotas)
@@ -47,6 +54,11 @@ class CountryZoneBudget:
             raise CountryContractError("Official budget must exactly match all 37 published country quotas")
         if len(self.source_sha256) != 64:
             raise CountryContractError("Budget source SHA-256 required")
+        if self.source_pages is not None:
+            declared_pages = dict(self.source_pages)
+            if not self.official or declared_pages != PUBLISHED_SOURCE_PAGE:
+                raise CountryContractError("Invalid original source page attribution")
+            object.__setattr__(self, "source_pages", MappingProxyType(declared_pages))
         object.__setattr__(self, "quotas", MappingProxyType(q))
 
     @classmethod
@@ -66,16 +78,19 @@ def load_official_country_budget(csv_path: str | Path | None = None) -> CountryZ
     if reader.fieldnames != ["country_label_as_published", "n_zones", "source_page"]:
         raise CountryContractError("Unexpected official CSV schema")
     entries: dict[str, int] = {}
+    pages: dict[str, int] = {}
     for row in reader:
         name = row["country_label_as_published"]
-        if name in entries or not name or row["source_page"] not in ("26", "27"):
-            raise CountryContractError("Duplicate/invalid country label or source page")
+        if (name in entries or name not in PUBLISHED_SOURCE_PAGE
+                or row["source_page"] != str(PUBLISHED_SOURCE_PAGE[name])):
+            raise CountryContractError("Duplicate/invalid country label or original source page")
         try:
             value = int(row["n_zones"])
         except (TypeError, ValueError) as exc:
             raise CountryContractError("Noninteger country zone quota") from exc
         entries[name] = value
-    result = CountryZoneBudget(entries, True, sha256(raw).hexdigest())
+        pages[name] = int(row["source_page"])
+    result = CountryZoneBudget(entries, True, sha256(raw).hexdigest(), pages)
     assert len(result.quotas) == 37 and sum(result.quotas.values()) == 102
     assert "Northern Ireland" in result.quotas and "United Kingdom" in result.quotas
     return result
@@ -180,3 +195,59 @@ def validate_busmap(grid, zone_of_bus: tuple[str, ...],
     if actual != dict(budget.quotas):
         raise CountryContractError(f"Incorrect country quotas {actual} != {dict(budget.quotas)}")
     return actual
+
+
+@dataclass(frozen=True)
+class AliasNormalizationWitness:
+    """M2-only opt-in normalization; original raw IDs are recorded separately."""
+    normalized_raw_ids: tuple[str, ...]
+    explicit_country_map: Mapping[str, str]
+    original_raw_ids: tuple[str, ...]
+    alias_manifest_sha256: str
+    status: str = "SOURCE_DECLARED_BYTES_NOT_INDEPENDENTLY_ATTESTED"
+
+
+def canonicalize_country_aliases(raw_country_ids, alias_records, budget):
+    """Explicit source-traced many-to-one raw aliases before building M2 grid.
+
+    Each record must bind a raw ID to an official label and declared source.
+    No auto-classifier; NI and UK are pinned distinct. Caller must build a NEW
+    DetailedGridSnapshot with these IDs and provenance of the transformation.
+    Does not modify M0/CGMES, M1/PECD, or a caller-owned grid object.
+    """
+    from .contracts import digest_object
+    original = tuple(raw_country_ids)
+    if (not original or any(type(x) is not str or not x.strip() for x in original)
+            or set(alias_records) != set(original)):
+        raise CountryContractError("Exactly one source-backed alias record per raw country ID")
+    pinned = {
+        "NI": "Northern Ireland", "NIR": "Northern Ireland",
+        "Northern Ireland": "Northern Ireland",
+        "UK": "United Kingdom", "GB": "United Kingdom",
+        "GBR": "United Kingdom", "United Kingdom": "United Kingdom",
+    }
+    resolved = {}
+    source_data = {}
+    for raw in sorted(set(original)):
+        record = alias_records[raw]
+        if not isinstance(record, Mapping):
+            raise CountryContractError("Alias record requires explicit source metadata")
+        label = record.get("country_label")
+        uri = record.get("source_uri")
+        sha = record.get("source_sha256")
+        if label not in budget.quotas:
+            raise CountryContractError("Unknown official country label")
+        if raw in pinned and label != pinned[raw]:
+            raise CountryContractError("Northern Ireland/United Kingdom alias merging forbidden")
+        if (type(uri) is not str or not uri.strip() or type(sha) is not str
+                or len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha)):
+            raise CountryContractError("Alias requires source URI and lowercase SHA-256")
+        resolved[raw] = label
+        source_data[raw] = {"country_label": label, "source_uri": uri,
+                            "source_sha256": sha}
+    normalized = tuple(resolved[r] for r in original)
+    identity = {label: label for label in sorted(set(normalized))}
+    return AliasNormalizationWitness(
+        normalized, MappingProxyType(identity), original,
+        digest_object({"original_raw_ids": original, "sources": source_data}),
+    )

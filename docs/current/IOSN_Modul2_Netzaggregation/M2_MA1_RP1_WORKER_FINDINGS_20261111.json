@@ -1,0 +1,141 @@
+{
+  "schema_version": "m2-ma1-rp1-worker-findings-v1",
+  "date": "2026-11-11",
+  "base_commit": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+  "review_sources": {
+    "phy_commit": "c004e5330df2a018e567c8ef955ef2fc9d71e0ea",
+    "clu_commit": "7d7d07d7af5966ddc26d0be1100a69013763d2e8",
+    "reviews_not_modified": true
+  },
+  "worker_commits": {
+    "W_PHY": {
+      "sha": "4f235dc90b1e5ad9119a811ff1d96ff97c9d29b7",
+      "branch": "work/iosn-m2-ma1-rp1-phy-20261111",
+      "ci_run_ids": [
+        43112239447,
+        43112240030
+      ],
+      "focused_passed": 54,
+      "package_passed": 80
+    },
+    "W_CLU": {
+      "sha": "763f90039cf4ac3b49e8e0f68c1b8b8f890c2689",
+      "branch": "work/iosn-m2-ma1-rp1-clu-20261111",
+      "ci_run_ids": [
+        43112243743,
+        43112243718
+      ],
+      "focused_passed": 34,
+      "package_passed": 60
+    }
+  },
+  "integration": {
+    "branch": "feature/iosn-m2-ma1-rp1-integration-20261111",
+    "base_parent": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+    "sha": "RESOLVE_USING_GITHUB_REF_AND_SHA_BOUND_CI",
+    "test_workflow": ".github/workflows/m2-ma1-rp1-verify.yml",
+    "test_scope": [
+      "original 26 MA1 tests",
+      "new W-PHY regressions",
+      "new W-CLU bounded exhaustive 729*4 oracle",
+      "W-INT 10 bus KCL and affine KVL",
+      "W-INT 1001 bus sparse",
+      "full package",
+      "15 evidence artifacts"
+    ],
+    "independent_gate": "PENDING_R_PHY_R_CLU_RE_REVIEW"
+  },
+  "findings": [
+    {
+      "finding": "PHY-R01",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-PHY",
+      "test": "test_mutable_grid_inputs_cannot_change_topology_or_sha"
+    },
+    {
+      "finding": "PHY-R02",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-PHY",
+      "test": "test_hvdc_lossless_nonbool_rejected"
+    },
+    {
+      "finding": "PHY-R03",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-PHY",
+      "test": "test_topology_and_source_nonbool_flags_rejected"
+    },
+    {
+      "finding": "PHY-R04",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-PHY",
+      "test": "test_unsafe_tolerance_rejected"
+    },
+    {
+      "finding": "R-CLU-001",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-CLU",
+      "test": "test_729_graphs_1804_feasible_no_false_infeasible",
+      "search_limits": {
+        "max_nodes": 16,
+        "max_states": 100000,
+        "exhausted_status": "HEURISTIC_STUCK",
+        "proved_status": "PROVEN_INFEASIBLE"
+      }
+    },
+    {
+      "finding": "R-CLU-002",
+      "severity": "P1",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-CLU",
+      "test": "test_400kv_cannot_silently_hide_90mwh_per_year",
+      "policy": "deny all unaudited class=0 in nominal eligible 200-450kV range; source-backed exclusion requires separate owner gate"
+    },
+    {
+      "finding": "R-CLU-003",
+      "severity": "P2",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-CLU",
+      "test": "test_p2_protected_generator_has_identical_manifest_identity"
+    },
+    {
+      "finding": "R-CLU-004",
+      "severity": "P2",
+      "status": "FIXED_BY_WORKER_TEST",
+      "worker": "W-CLU",
+      "test": "test_uk_source_page_forgery_rejected"
+    },
+    {
+      "finding": "R-CLU-005",
+      "severity": "P2",
+      "status": "M2_RESOLVER_IMPLEMENTED_SOURCE_ATTESTATION_PENDING",
+      "worker": "W-CLU",
+      "test": "test_m2_opt_in_alias_canonicalization_keeps_ni_and_uk_disjoint",
+      "notes": "source SHA in metadata declared, not original byte attest; opt-in, no M0/M1 changes"
+    }
+  ],
+  "gates": {
+    "G01": "WORKER_TEST_PASS_RR_PENDING",
+    "G02": "WORKER_TEST_PASS_RR_PENDING",
+    "G03": "WORKER_TEST_PASS_RR_PENDING",
+    "G04": "WORKER_TEST_PASS_RR_PENDING",
+    "G05": "WORKER_TEST_PASS_RR_PENDING",
+    "G11": "PARTIAL_LOSSLESS_DC_ONLY",
+    "G12": "BLOCKED_DATA",
+    "MA2": "NOT_AUTHORIZED",
+    "MA3": "NOT_AUTHORIZED",
+    "REAL_QUALIFIED": false,
+    "MERGE": false
+  },
+  "limitations": [
+    "Full 37/102 Europe input BLOCKED_DATA",
+    "no independent device-level PyPSA/TSO witness",
+    "official O26 adoption unconfirmed",
+    "no independent RR1 outcome",
+    "source byte provenance not attested"
+  ]
+}

@@ -23,7 +23,7 @@ from .country import CountryZoneBudget, resolve_country_ids
 from .preflight import preflight, PreflightLedger
 from .physical import reference_flows
 from .screen import screen_annual_overload, weighted_edge_costs, AnnualScreen
-from .seed import quota_seed, SeedResult
+from .seed import quota_seed, SeedResult, canonical_protected_ids
 from .operators import build_oriented_projection, OrientedProjection
 
 
@@ -37,6 +37,9 @@ class MA1Result:
     resolved_country_of_bus: tuple[str, ...]
     input_manifest_sha256: str
     gate_statuses: dict[str, str]
+    ratings_content_sha256: str
+    country_source_pages: dict[str, int]
+    quota_source_sha256: str
 
     def export(self, output_directory: str | Path, *, code_commit: str) -> dict:
         """Atomically named, non-overwritten evidence directory for MA2.
@@ -113,6 +116,13 @@ class MA1Result:
             "code_commit": code_commit,
             "input_manifest_sha256": self.input_manifest_sha256,
             "reference_input_sha256": self.reference.input_sha256,
+            "ratings_content_sha256": self.ratings_content_sha256,
+            "protected_line_ids": list(self.seed.protected_line_ids),
+            "budget_source_sha256": self.quota_source_sha256,
+            "budget_source_page_by_country": self.country_source_pages,
+            "budget_page_evidence": ("PINNED_OFFICIAL_TABLE3_PDF_PAGES_26_27"
+                                     if self.country_source_pages else
+                                     "NOT_APPLICABLE_SYNTHETIC"),
             "output_sha256": hashes,
             "real_network_qualified": False,
             "independent_reviewer_release": False,
@@ -136,6 +146,7 @@ def execute_ma1(
     *,
     protected_line_ids=(),
 ) -> MA1Result:
+    protected_line_ids = canonical_protected_ids(protected_line_ids)
     ledger = preflight(
         grid, dispatch, time, ratings,
         country_label_map=explicit_country_map,
@@ -189,4 +200,5 @@ def execute_ma1(
         "real_input_and_independent_review": "BLOCKED_DATA_AND_REVIEW",
     }
     return MA1Result(ledger, reference, annual, seed, projection, labels,
-                     fingerprint, gates)
+                     fingerprint, gates, rating_digest.hexdigest(),
+                     dict(budget.source_pages or {}), budget.source_sha256)
