@@ -56,7 +56,7 @@ No externally sourced, fully mapped 37-country European detailed grid; no five-y
 
 The independent exhaustive oracle enumerates all canonical set partitions of four labelled vertices. Its admissibility predicate uses only: exactly k nonempty groups; group connectivity in the undirected active AC graph; protected endpoints in different groups. It does not reuse quota_seed, country.py's validator or W-CLU's merge logic to decide feasibility.
 
-All **3^6 = 729** edge-state configurations are covered for four possible vertex pairs? More precisely: four vertices have **six** possible undirected edges; each edge is absent, ordinary, or protected, hence 729 configurations. The review tests all quotas k = 1,2,3,4. **1,804** graph/quota instances have at least one feasible partition. The frozen greedy seed succeeds on **1,794**, rejects **10** despite a valid partition, and produces **zero** invalid partitions among successful instances. This is a complete, bounded enumeration of this finite test family, not a claim about larger grids.
+For four vertices there are exactly **six** possible undirected edges. Each edge is absent, ordinary, or protected, yielding **3^6 = 729** exhaustive edge-state configurations. The review tests all quotas k = 1,2,3,4. **1,804** graph/quota instances have at least one feasible partition. The frozen greedy seed succeeds on **1,794**, rejects **10** despite a valid partition, and produces **zero** invalid partitions among successful instances. This is a complete, bounded enumeration of this finite test family, not a claim about larger grids.
 
 Minimal independent reproduction:
 - Bus IDs: v0, v1, v2, v3; one synthetic country X; quota X = 2.
