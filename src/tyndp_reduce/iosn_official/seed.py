@@ -16,6 +16,97 @@ from .country import (
 )
 
 
+
+
+class QuotaFeasibilityError(CountryContractError):
+    """Separate a proven small-graph obstruction from exhausted heuristics."""
+    def __init__(self, status: str, country: str, visited: int):
+        self.status, self.country, self.visited = status, country, visited
+        super().__init__(
+            f"Cannot meet exact quotas: {status}; country={country}, "
+            f"feasibility_states={visited}"
+        )
+
+
+def canonical_protected_ids(values) -> tuple[str, ...]:
+    """One-shot iterable ownership, strict IDs, canonical order and deduplication."""
+    if isinstance(values, (str, bytes)):
+        raise CountryContractError("Protected line IDs must be an iterable of distinct strings")
+    try:
+        owned = tuple(values)
+    except TypeError as exc:
+        raise CountryContractError("Protected line IDs must be iterable") from exc
+    if any(type(x) is not str or not x.strip() for x in owned):
+        raise CountryContractError("Protected line IDs must be nonempty strings")
+    if len(owned) != len(set(owned)):
+        raise CountryContractError("Duplicate protected line IDs")
+    return tuple(sorted(owned))
+
+
+def _bounded_country_partition(grid, labels, country, quota, costs, protected,
+                               *, max_nodes=16, max_states=100000):
+    """Deterministic complete merge-state DFS only within stated resource bounds.
+
+    Unlike a greedy dead end, exhausted DFS on <=max_nodes vertices and
+    <=max_states distinct partitions proves infeasibility for THIS finite case.
+    Otherwise HEURISTIC_STUCK means no global infeasibility claim.
+    """
+    indices = tuple(i for i, label in enumerate(labels) if label == country)
+    if len(indices) > max_nodes:
+        raise QuotaFeasibilityError("HEURISTIC_STUCK", country, 0)
+    pos = {bus: i for i, bus in enumerate(grid.bus_ids)}
+    edges = tuple(
+        (pos[e.bus0], pos[e.bus1], costs[e.identifier],
+         e.identifier in protected)
+        for e in grid.active_branches
+        if labels[pos[e.bus0]] == country and labels[pos[e.bus1]] == country
+    )
+    seen = set()
+    visited = 0
+
+    def visit(groups):
+        nonlocal visited
+        key = tuple(tuple(sorted(g)) for g in sorted(groups, key=min))
+        if key in seen:
+            return None
+        if visited >= max_states:
+            raise QuotaFeasibilityError("HEURISTIC_STUCK", country, visited)
+        visited += 1
+        seen.add(key)
+        if len(groups) == quota:
+            return groups, ()
+        options = []
+        for a in range(len(groups)):
+            for b in range(a + 1, len(groups)):
+                left, right = groups[a], groups[b]
+                crossing = [(value, lock) for i, j, value, lock in edges
+                            if (i in left and j in right) or (j in left and i in right)]
+                if crossing and not any(lock for _, lock in crossing):
+                    options.append((sum(v for v, _ in crossing),
+                                    min(left), min(right), a, b))
+        for cost, start, end, a, b in sorted(options):
+            merged = groups[a] | groups[b]
+            reduced = tuple(g for j, g in enumerate(groups) if j not in (a, b))
+            next_groups = tuple(sorted((*reduced, merged), key=min))
+            answer = visit(next_groups)
+            if answer is not None:
+                final, steps = answer
+                log = {
+                    "country": country,
+                    "root_bus": grid.bus_ids[min(start, end)],
+                    "absorbed_bus": grid.bus_ids[max(start, end)],
+                    "lost_cut_score": float(cost),
+                    "country_zone_count_after": len(next_groups),
+                    "feasibility_method": "BOUNDED_EXACT_FALLBACK",
+                }
+                return final, (log,) + steps
+        return None
+
+    answer = visit(tuple(frozenset((i,)) for i in indices))
+    if answer is None:
+        raise QuotaFeasibilityError("PROVEN_INFEASIBLE", country, visited)
+    return answer, visited
+
 @dataclass(frozen=True)
 class SeedResult:
     zone_of_bus: tuple[str, ...]
@@ -42,7 +133,7 @@ def quota_seed(
     validate_country_feasibility(grid, resolved_labels, budget)
     branches = grid.active_branches
     edge_ids = {x.identifier for x in branches}
-    protected = frozenset(protected_line_ids)
+    protected = frozenset(canonical_protected_ids(protected_line_ids))
     if not protected.issubset(edge_ids):
         raise CountryContractError("Protected line is not an active AC line")
     if merge_cost_by_branch is None:
@@ -98,10 +189,29 @@ def quota_seed(
             selected = (cost, label, i, j)
             break
         if selected is None:
-            raise CountryContractError(
-                "Cannot meet exact quotas with connected country-pure AC clusters "
-                "and protected critical cuts"
-            )
+            # A greedy local dead end is NOT proof that a feasible country
+            # partition does not exist. Rebuild unfinished countries from
+            # singleton buses using bounded exact state-space enumeration.
+            for blocked_country in sorted(budget.quotas):
+                if counts[blocked_country] <= budget.quotas[blocked_country]:
+                    continue
+                (groups, steps), explored = _bounded_country_partition(
+                    grid, resolved_labels, blocked_country,
+                    budget.quotas[blocked_country], costs, protected,
+                )
+                # Undo any incorrect earlier greedy merges in this country.
+                nodes = [i for i, c in enumerate(resolved_labels)
+                         if c == blocked_country]
+                for node in nodes:
+                    parent[node] = node
+                for group in groups:
+                    leader = min(group)
+                    for node in group:
+                        parent[node] = leader
+                counts[blocked_country] = len(groups)
+                merges = [m for m in merges if m["country"] != blocked_country]
+                merges.extend(steps)
+            break
         cost, label, i, j = selected
         # Canonical root is min original index to make seeds reproducible.
         a, b = min(i, j), max(i, j)

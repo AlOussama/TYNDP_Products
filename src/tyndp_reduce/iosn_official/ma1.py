@@ -23,7 +23,7 @@ from .country import CountryZoneBudget, resolve_country_ids
 from .preflight import preflight, PreflightLedger
 from .physical import reference_flows
 from .screen import screen_annual_overload, weighted_edge_costs, AnnualScreen
-from .seed import quota_seed, SeedResult
+from .seed import quota_seed, SeedResult, canonical_protected_ids
 from .operators import build_oriented_projection, OrientedProjection
 
 
@@ -136,6 +136,7 @@ def execute_ma1(
     *,
     protected_line_ids=(),
 ) -> MA1Result:
+    protected_line_ids = canonical_protected_ids(protected_line_ids)
     ledger = preflight(
         grid, dispatch, time, ratings,
         country_label_map=explicit_country_map,
