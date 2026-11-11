@@ -1,0 +1,127 @@
+{
+  "version": "MLR03-SYN-0.1",
+  "evaluation": "IN_MEMORY_V8_VALIDATOR_ASSERTIONS",
+  "not_executed_in_repo_ci": true,
+  "not_original_data_qualification": true,
+  "fixture_source": "SYNTHETIC_ONLY",
+  "positive_case": {
+    "valid": true
+  },
+  "negative_cases": [
+    {
+      "case": "invalid_weight_mismatch",
+      "expected": "INVALID",
+      "errors": [
+        "SYNTHETIC_WEIGHT_SUM_2040",
+        "WEIGHT_SHARED_CY3"
+      ]
+    },
+    {
+      "case": "invalid_missing_weather_case",
+      "expected": "INVALID",
+      "errors": [
+        "WEATHER_CASES_2050",
+        "SYNTHETIC_WEIGHT_SUM_2050",
+        "WEATHER_RECORD_COUNT",
+        "WEIGHT_SHARED_CY5"
+      ]
+    },
+    {
+      "case": "invalid_non_utc_offset",
+      "expected": "INVALID",
+      "errors": [
+        "TIME_NOT_UTC_Z"
+      ]
+    },
+    {
+      "case": "invalid_overlap",
+      "expected": "INVALID",
+      "errors": [
+        "TIME_INTERVAL_OVERLAP"
+      ]
+    },
+    {
+      "case": "invalid_missing_source_release",
+      "expected": "INVALID",
+      "errors": [
+        "SOURCE_RELEASE_FK"
+      ]
+    },
+    {
+      "case": "invalid_unit_dimension",
+      "expected": "INVALID",
+      "errors": [
+        "UNIT_DIMENSION"
+      ]
+    },
+    {
+      "case": "invalid_missing_provenance",
+      "expected": "INVALID",
+      "errors": [
+        "PROVENANCE_MISSING",
+        "DERIVED_TRANSFORM_FK",
+        "DERIVED_SOURCE_INSTANCE_FK",
+        "OUTPUT_LINEAGE_INCONSISTENT"
+      ]
+    },
+    {
+      "case": "invalid_production_unqualified",
+      "expected": "INVALID",
+      "errors": [
+        "REAL_SOURCE_NOT_QUALIFIED",
+        "PRODUCTION_SOURCE_APPROVAL"
+      ]
+    },
+    {
+      "case": "invalid_data_definition",
+      "expected": "INVALID",
+      "errors": [
+        "DATA_DEFINITION_FK"
+      ]
+    },
+    {
+      "case": "invalid_duplicate_instance_id",
+      "expected": "INVALID",
+      "errors": [
+        "INSTANCE_ID_DUPLICATE",
+        "SELF_LINEAGE",
+        "TRANSFORMATION_INSTANCE_FK",
+        "OUTPUT_LINEAGE_INCONSISTENT"
+      ]
+    },
+    {
+      "case": "invalid_missing_derived_run",
+      "expected": "INVALID",
+      "errors": [
+        "DERIVED_RUN_FK"
+      ]
+    },
+    {
+      "case": "invalid_transform_reference",
+      "expected": "INVALID",
+      "errors": [
+        "TRANSFORMATION_SPEC_FK"
+      ]
+    },
+    {
+      "case": "invalid_missing_numeric_weight",
+      "expected": "INVALID",
+      "errors": [
+        "WEATHER_WEIGHT_NUMERIC",
+        "SYNTHETIC_WEIGHT_SUM_2050",
+        "WEIGHT_SHARED_CY2"
+      ]
+    },
+    {
+      "case": "invalid_synthetic_release_claim",
+      "expected": "INVALID",
+      "errors": [
+        "SYNTHETIC_RELEASE_FORBIDDEN"
+      ]
+    }
+  ],
+  "tests": 15,
+  "passed": 15,
+  "failed": 0,
+  "review_note": "All failures expected. Real source/hash/methodology tests not run."
+}
