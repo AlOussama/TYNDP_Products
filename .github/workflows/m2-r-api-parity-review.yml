@@ -1,0 +1,31 @@
+name: R-M2-API independent parity (review only)
+on:
+  push:
+    branches: ["review/iosn-m2-r-api-20261111"]
+  workflow_dispatch:
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - name: Independent same-fixture parity and incompatibility tests
+        run: python -m pytest -vv -s tests/review/test_r_m2_api_parity.py
+      - name: A and B original MA1 regression suites on review-only combined tree
+        run: python -m pytest -q tests/iosn_official tests/test_m2_country.py tests/test_m2_physical.py tests/test_m2_witness.py
+      - name: A and B independent synthetic witnesses
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence --output /tmp/r-api-a --commit "$GITHUB_SHA"
+          python -m tyndp_reduce.m2.fixture_witness --output /tmp/r-api-b
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r-m2-api-a-b-synthetic-fixtures
+          path: |
+            /tmp/r-api-a/
+            /tmp/r-api-b/
+          if-no-files-found: warn
+          retention-days: 30
