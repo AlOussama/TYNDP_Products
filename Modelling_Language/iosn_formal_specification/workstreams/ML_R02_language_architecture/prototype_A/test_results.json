@@ -1,0 +1,147 @@
+{
+  "test_runner": "pure ECMAScript V8 evaluation; same functions committed for Node >=18",
+  "expected_matches": 14,
+  "total": 14,
+  "math_conformity": "NOT_DEMONSTRATED",
+  "tests": [
+    {
+      "test": "BASE_VALID_STRUCTURE_ONLY",
+      "expected": "PASS_SYNTHETIC_STRUCTURAL",
+      "observed": "PASS_SYNTHETIC_STRUCTURAL",
+      "correct": true,
+      "errors": [],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC01_IDS",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "weather_scope"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC01_WEIGHTS",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "weather_binding"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC02_NONANT_INDEX",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "nonanticipative_signature"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC02_NONANT_VALUE",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "nonanticipative_fixture"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC03_DC_LAW",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "dc_law"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC03_MARKET_LINK_KIRCHHOFF",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "market_link_law"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC04_REDUCTION_PROVENANCE",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "reduction_provenance"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC05_OPTIONAL_NO_CAP",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "conditional_opf"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC06_OUTPUT_MISLABEL",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "output_semantics"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC07_BROKEN_TRACE",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "broken_trace:RC02"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_MISSING_DATA",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "dataset_clock_provenance"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_SEMANTIC_CONFLICT",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "asset_semantic_conflict",
+        "dc_law"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "VERSION_MAJOR_BREAK",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "profile_version:math"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "language": "IoSN-TinyMeta",
+  "version": "0.1.0",
+  "status": "RESEARCH_ONLY_NOT_AN_EXTERNAL_STANDARD",
+  "baseline_commit": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b",
+  "requirements": [
+    "MA01-SR-001",
+    "MA01-SR-002",
+    "MA01-SR-003",
+    "MA01-SR-004",
+    "MA01-SR-005",
+    "MA01-SR-006",
+    "MA01-SR-007",
+    "MA01-SR-008",
+    "MA01-SR-009",
+    "MA01-SR-010",
+    "MA01-SR-011",
+    "MA01-SR-013",
+    "MA01-SR-014",
+    "MA01-SR-015",
+    "MA01-SR-016",
+    "MA01-SR-017",
+    "MA01-SR-018",
+    "MA01-SR-019",
+    "MA01-SR-020",
+    "MA01-SR-021",
+    "MA01-SR-022",
+    "MA01-SR-023",
+    "MA01-SR-024",
+    "MA01-SR-025",
+    "MA01-SR-026",
+    "MA01-SR-027",
+    "MA01-SR-028",
+    "MA01-SR-029",
+    "MA01-SR-030",
+    "MA01-SR-031",
+    "MA01-SR-032",
+    "MA01-SR-033",
+    "MA01-SR-034",
+    "MA01-SR-035",
+    "MA01-SR-036",
+    "MA01-SR-037",
+    "MA01-SR-038",
+    "MA01-SR-039",
+    "MA01-SR-040",
+    "MA01-SR-041",
+    "MA01-SR-042",
+    "MA01-SR-043",
+    "MA01-SR-044",
+    "MA01-SR-045",
+    "MA01-SR-046",
+    "MA01-SR-047",
+    "MA01-SR-048",
+    "MA01-SR-050"
+  ],
+  "nodes": [
+    {
+      "id": "study",
+      "kind": "Study",
+      "years": [
+        2035,
+        2040,
+        2050
+      ]
+    },
+    {
+      "id": "weather",
+      "kind": "WeatherSet",
+      "ids": [
+        "CY1",
+        "CY2",
+        "CY3",
+        "CY4",
+        "CY5"
+      ],
+      "symbols": {
+        "CY1": "w_CY1",
+        "CY2": "w_CY2",
+        "CY3": "w_CY3",
+        "CY4": "w_CY4",
+        "CY5": "w_CY5"
+      },
+      "scope": "shared_across_years",
+      "research_override": "D2_CONFLICTS_WITH_O26_THREE"
+    },
+    {
+      "id": "load",
+      "kind": "Dataset",
+      "source_ref": "toy:generated-in-ML-R02",
+      "class": "SYNTHETIC",
+      "unit": "MW",
+      "timezone": "UTC",
+      "interval": {
+        "start": "2035-01-01T00:00:00Z",
+        "end": "2035-01-01T01:00:00Z"
+      }
+    },
+    {
+      "id": "L1",
+      "kind": "PhysicalBranch",
+      "law": "DC_KIRCHHOFF",
+      "b_mw_per_rad": 5
+    },
+    {
+      "id": "C1",
+      "kind": "MarketLink",
+      "law": "CONTROLLABLE_NTC_LINK",
+      "forward_mw": 100,
+      "reverse_mw": 100
+    },
+    {
+      "id": "x",
+      "kind": "Decision",
+      "indices": [
+        "year",
+        "candidate"
+      ],
+      "shared_across": "weather",
+      "lower": 0,
+      "upper": 100,
+      "unit": "MW",
+      "candidate": "C1"
+    },
+    {
+      "id": "T-P06",
+      "kind": "Transformation",
+      "method": "symbolic-equivalent-grid",
+      "method_version": "illustrative",
+      "source_ref": "toy:detailed-grid",
+      "target_ref": "toy:reduced-grid",
+      "busmap_ref": "toy:busmap",
+      "provenance_ref": "toy:grid",
+      "output_classes": [
+        "equivalent_impedance",
+        "zero_flow_correction",
+        "interzonal_capacity",
+        "ntc_summer_forward",
+        "ntc_summer_reverse",
+        "ntc_winter_forward_and_reverse"
+      ],
+      "quality_oracle": "TBD_OWNER"
+    },
+    {
+      "id": "P15",
+      "kind": "ConditionalStage",
+      "optional": true,
+      "enabled": false,
+      "cap_ref": null
+    },
+    {
+      "id": "N1",
+      "kind": "Output",
+      "semantic_type": "SYSTEM_NEED",
+      "year": 2035,
+      "candidate": "C1",
+      "unit": "MW",
+      "formula_ref": "TBD_OWNER"
+    },
+    {
+      "id": "VC-010",
+      "kind": "Verification",
+      "requirement": "MA01-SR-010",
+      "case_id": "RC01",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-029",
+      "kind": "Verification",
+      "requirement": "MA01-SR-029",
+      "case_id": "RC02",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-018",
+      "kind": "Verification",
+      "requirement": "MA01-SR-018",
+      "case_id": "RC03A",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-035",
+      "kind": "Verification",
+      "requirement": "MA01-SR-035",
+      "case_id": "RC03B",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-017",
+      "kind": "Verification",
+      "requirement": "MA01-SR-017",
+      "case_id": "RC04",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-026",
+      "kind": "Verification",
+      "requirement": "MA01-SR-026",
+      "case_id": "RC05",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-001",
+      "kind": "Verification",
+      "requirement": "MA01-SR-001",
+      "case_id": "RC06",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-047",
+      "kind": "Verification",
+      "requirement": "MA01-SR-047",
+      "case_id": "RC07",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "id": "VC-011",
+      "kind": "Verification",
+      "requirement": "MA01-SR-011",
+      "case_id": "RC08",
+      "evidence_type": "SYNTHETIC_STRUCTURE_ONLY"
+    }
+  ],
+  "edges": [
+    {
+      "source": "x",
+      "relation": "invests",
+      "target": "C1"
+    },
+    {
+      "source": "N1",
+      "relation": "reports_on",
+      "target": "C1"
+    },
+    {
+      "source": "MA01-SR-010",
+      "relation": "verified_by",
+      "target": "VC-010"
+    },
+    {
+      "source": "MA01-SR-029",
+      "relation": "verified_by",
+      "target": "VC-029"
+    },
+    {
+      "source": "MA01-SR-018",
+      "relation": "verified_by",
+      "target": "VC-018"
+    },
+    {
+      "source": "MA01-SR-035",
+      "relation": "verified_by",
+      "target": "VC-035"
+    },
+    {
+      "source": "MA01-SR-017",
+      "relation": "verified_by",
+      "target": "VC-017"
+    },
+    {
+      "source": "MA01-SR-026",
+      "relation": "verified_by",
+      "target": "VC-026"
+    },
+    {
+      "source": "MA01-SR-001",
+      "relation": "verified_by",
+      "target": "VC-001"
+    },
+    {
+      "source": "MA01-SR-047",
+      "relation": "verified_by",
+      "target": "VC-047"
+    },
+    {
+      "source": "MA01-SR-011",
+      "relation": "verified_by",
+      "target": "VC-011"
+    }
+  ],
+  "fixture": {
+    "test_data": "SYNTHETIC_NOT_OFFICIAL",
+    "weight_binding": {
+      "CY1": 0.1,
+      "CY2": 0.2,
+      "CY3": 0.3,
+      "CY4": 0.2,
+      "CY5": 0.2
+    },
+    "decision_by_weather": {
+      "CY1": 40,
+      "CY2": 40,
+      "CY3": 40,
+      "CY4": 40,
+      "CY5": 40
+    },
+    "branch_flow": {
+      "theta_from": 0.2,
+      "theta_to": 0,
+      "flow_mw": 1
+    },
+    "market_flow_mw": 0.6
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prototype A illustrative registry structural subset",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "contract_version",
+    "status",
+    "baseline_commit",
+    "requirements_catalogue",
+    "traceability",
+    "profile_versions"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "const": "0.1.0"
+    },
+    "status": {
+      "const": "RESEARCH_ONLY_NOT_APPROVED"
+    },
+    "baseline_commit": {
+      "const": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b"
+    },
+    "requirements_catalogue": {
+      "type": "object",
+      "required": [
+        "ids",
+        "active_count"
+      ],
+      "properties": {
+        "ids": {
+          "type": "array",
+          "minItems": 48,
+          "maxItems": 48,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^MA01-SR-[0-9]{3}$"
+          }
+        },
+        "active_count": {
+          "const": 48
+        }
+      }
+    },
+    "traceability": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "requirement",
+          "test"
+        ]
+      }
+    },
+    "profile_versions": {
+      "type": "object",
+      "required": [
+        "input",
+        "process",
+        "math",
+        "output",
+        "verification"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

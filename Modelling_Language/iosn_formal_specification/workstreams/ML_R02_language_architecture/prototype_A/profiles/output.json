@@ -1,0 +1,17 @@
+{
+  "profile_id": "output",
+  "version": "0.1.0",
+  "need": {
+    "id": "N1",
+    "type": "SYSTEM_NEED",
+    "year": 2035,
+    "candidate": "C1",
+    "unit": "MW"
+  },
+  "kpi": {
+    "name": "additional_transfer_need",
+    "formula_ref": "TBD_OWNER",
+    "aggregation_ref": "TBD_OWNER",
+    "status": "UNRESOLVED"
+  }
+}

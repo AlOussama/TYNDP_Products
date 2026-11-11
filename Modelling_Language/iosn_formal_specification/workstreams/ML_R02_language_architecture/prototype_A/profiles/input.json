@@ -1,0 +1,97 @@
+{
+  "profile_id": "input",
+  "version": "0.1.0",
+  "years": [
+    2035,
+    2040,
+    2050
+  ],
+  "weather_ids": [
+    "CY1",
+    "CY2",
+    "CY3",
+    "CY4",
+    "CY5"
+  ],
+  "weight_symbols": {
+    "CY1": "w_CY1",
+    "CY2": "w_CY2",
+    "CY3": "w_CY3",
+    "CY4": "w_CY4",
+    "CY5": "w_CY5"
+  },
+  "weather_by_year": [
+    {
+      "year": 2035,
+      "ids": [
+        "CY1",
+        "CY2",
+        "CY3",
+        "CY4",
+        "CY5"
+      ],
+      "weight_symbols": {
+        "CY1": "w_CY1",
+        "CY2": "w_CY2",
+        "CY3": "w_CY3",
+        "CY4": "w_CY4",
+        "CY5": "w_CY5"
+      }
+    },
+    {
+      "year": 2040,
+      "ids": [
+        "CY1",
+        "CY2",
+        "CY3",
+        "CY4",
+        "CY5"
+      ],
+      "weight_symbols": {
+        "CY1": "w_CY1",
+        "CY2": "w_CY2",
+        "CY3": "w_CY3",
+        "CY4": "w_CY4",
+        "CY5": "w_CY5"
+      }
+    },
+    {
+      "year": 2050,
+      "ids": [
+        "CY1",
+        "CY2",
+        "CY3",
+        "CY4",
+        "CY5"
+      ],
+      "weight_symbols": {
+        "CY1": "w_CY1",
+        "CY2": "w_CY2",
+        "CY3": "w_CY3",
+        "CY4": "w_CY4",
+        "CY5": "w_CY5"
+      }
+    }
+  ],
+  "dataset": {
+    "id": "toy:load",
+    "source_ref": "toy:generated-in-ML-R02",
+    "class": "SYNTHETIC",
+    "unit": "MW",
+    "timezone": "UTC",
+    "interval": {
+      "start": "2035-01-01T00:00:00Z",
+      "end": "2035-01-01T01:00:00Z"
+    }
+  },
+  "asset_roles": [
+    {
+      "id": "L1",
+      "role": "physical_branch"
+    },
+    {
+      "id": "C1",
+      "role": "candidate_link"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "contract_id": "urn:iosn:research:ml-r02:modular",
+  "contract_version": "0.1.0",
+  "status": "RESEARCH_ONLY_NOT_APPROVED",
+  "baseline_commit": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b",
+  "methodology_source": {
+    "id": "O26",
+    "version": "2026-02-25_CONSULTATION",
+    "authority": "UNCONFIRMED"
+  },
+  "research_override": {
+    "reference": "D2",
+    "weather_ids": [
+      "CY1",
+      "CY2",
+      "CY3",
+      "CY4",
+      "CY5"
+    ],
+    "methodology_conflict": "O26 specifies three; D2 five; not resolved"
+  },
+  "requirements_catalogue": {
+    "relative_path": "../../iosn_requirements_catalogue.csv",
+    "ids": [
+      "MA01-SR-001",
+      "MA01-SR-002",
+      "MA01-SR-003",
+      "MA01-SR-004",
+      "MA01-SR-005",
+      "MA01-SR-006",
+      "MA01-SR-007",
+      "MA01-SR-008",
+      "MA01-SR-009",
+      "MA01-SR-010",
+      "MA01-SR-011",
+      "MA01-SR-013",
+      "MA01-SR-014",
+      "MA01-SR-015",
+      "MA01-SR-016",
+      "MA01-SR-017",
+      "MA01-SR-018",
+      "MA01-SR-019",
+      "MA01-SR-020",
+      "MA01-SR-021",
+      "MA01-SR-022",
+      "MA01-SR-023",
+      "MA01-SR-024",
+      "MA01-SR-025",
+      "MA01-SR-026",
+      "MA01-SR-027",
+      "MA01-SR-028",
+      "MA01-SR-029",
+      "MA01-SR-030",
+      "MA01-SR-031",
+      "MA01-SR-032",
+      "MA01-SR-033",
+      "MA01-SR-034",
+      "MA01-SR-035",
+      "MA01-SR-036",
+      "MA01-SR-037",
+      "MA01-SR-038",
+      "MA01-SR-039",
+      "MA01-SR-040",
+      "MA01-SR-041",
+      "MA01-SR-042",
+      "MA01-SR-043",
+      "MA01-SR-044",
+      "MA01-SR-045",
+      "MA01-SR-046",
+      "MA01-SR-047",
+      "MA01-SR-048",
+      "MA01-SR-050"
+    ],
+    "active_count": 48
+  },
+  "traceability": [
+    {
+      "case_id": "RC01",
+      "requirement": "MA01-SR-010",
+      "test": "VC-010"
+    },
+    {
+      "case_id": "RC02",
+      "requirement": "MA01-SR-029",
+      "test": "VC-029"
+    },
+    {
+      "case_id": "RC03A",
+      "requirement": "MA01-SR-018",
+      "test": "VC-018"
+    },
+    {
+      "case_id": "RC03B",
+      "requirement": "MA01-SR-035",
+      "test": "VC-035"
+    },
+    {
+      "case_id": "RC04",
+      "requirement": "MA01-SR-017",
+      "test": "VC-017"
+    },
+    {
+      "case_id": "RC05",
+      "requirement": "MA01-SR-026",
+      "test": "VC-026"
+    },
+    {
+      "case_id": "RC06",
+      "requirement": "MA01-SR-001",
+      "test": "VC-001"
+    },
+    {
+      "case_id": "RC07",
+      "requirement": "MA01-SR-047",
+      "test": "VC-047"
+    },
+    {
+      "case_id": "RC08",
+      "requirement": "MA01-SR-011",
+      "test": "VC-011"
+    }
+  ],
+  "profile_versions": {
+    "input": "0.1.0",
+    "process": "0.1.0",
+    "math": "0.1.0",
+    "output": "0.1.0",
+    "verification": "0.1.0"
+  },
+  "semantic_registry": {
+    "physical_branch": "DC_KIRCHHOFF",
+    "candidate_link": "CONTROLLABLE_NTC_LINK",
+    "output": "SYSTEM_NEED",
+    "clock": "UTC",
+    "power_unit": "MW"
+  }
+}
