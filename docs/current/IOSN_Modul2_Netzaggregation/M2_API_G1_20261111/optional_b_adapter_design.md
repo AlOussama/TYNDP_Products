@@ -9,7 +9,7 @@
 
 Zukünftige, **optionale** Schnittstelle, z. B. `tyndp_reduce.m2_adapters.b_to_iosn_v1.validate_convert(...) -> CanonicalAInput + AdapterAudit` (genauer Namespace erst bei genehmigter Implementierung). Eingabe: ausschließlich exakt auf B SHA `88374dd38792146ca55fa3fe2d4b35dac842c0b9` bezogene, bytegehashte strukturierte B-Objekte plus vorgeschriebene Source-/Class-/Country-Provenienz. Ausgabe: validierte A-Objekte und separat versioniertes Audit (B-Hash, A-Hash, tatsächlicher Transformationsplan, Geräte-/ID-Mapping, Warnungen und Zurückweisungen).
 
-**Nicht** Aufgabe des Adapters: A `execute_ma1` verändern, A `MA1Result`/15 Exporte mit B-JSON ersetzen, B-Kruskal-Seed ohne erneuten A-Check übernehmen, realen lossy HVDC als verlustlos umdeuten, implizit re-dispatchen, fehlende Gerätedaten synthetisieren, UTM/Zeiten automatisch korrigieren, einen MA2/Real-Gate-Status setzen.
+**Nicht** Aufgabe des Adapters: A `execute_ma1` verändern, A `MA1Result`/15 Exporte mit B-JSON ersetzen, B-Kruskal-Seed ohne erneuten A-Check übernehmen, realen lossy HVDC als verlustlos umdeuten, implizit re-dispatchen, fehlende Gerätedaten synthetisieren, UTC/Zeiten automatisch korrigieren, einen MA2/Real-Gate-Status setzen.
 
 ## 2. Deterministische Feldkonvertierung – nur vollständig darstellbare Fälle
 
@@ -63,7 +63,7 @@ Zukünftige, **optionale** Schnittstelle, z. B. `tyndp_reduce.m2_adapters.b_to_i
 
 ## 4. Test-/Re-Review-Matrix (vor optionalem Produktionsimport)
 
-**Positive Replay Fixtures:** 3-Bus-PST-Mesh gegen independent Dense/Loop Oracle; zwei echte AC-Inseln mit lossless HVDC; 3 gekoppelten Ländern und exakten Synthetic-Koten; signierte Rückwärts-HVDC; exakt klassifizierte 380→400 und 220→225; monotone fünf UTC-Jahre; 500-Bus sparse chain mit identischer Bus-/Branch-/Time-Reindexierung; B alternative valide K4-Zonen als **different valid seed**. Als Referenz nur die [11 unabhängigen R-API-Tests](https://github.com/AlOussama/TYNDP_Products/actions/runs/43078255397) verwenden; Adaptertests sind **noch nicht geschrieben**.
+**Positive Replay Fixtures:** 3-Bus-PST-Mesh gegen independent Dense/Loop Oracle; zwei echte AC-Inseln mit lossless HVDC; 3 gekoppelten Ländern und exakten Synthetic-Quoten; signierte Rückwärts-HVDC; exakt klassifizierte 380→400 und 220→225; monotone fünf UTC-Jahre; 500-Bus sparse chain mit identischer Bus-/Branch-/Time-Reindexierung; B alternative valide K4-Zonen als **different valid seed**. Als Referenz nur die [11 unabhängigen R-API-Tests](https://github.com/AlOussama/TYNDP_Products/actions/runs/43078255397) verwenden; Adaptertests sind **noch nicht geschrieben**.
 
 **Negative Replay:** `p0+p1≠0`, positiver Energiedefekt/Gain, non-unit tap, nonzero/unknown fixed transformer phase, missing PST, 380 kV without qualified class, 400 class=0 without signed exclusion, unsorted/duplicate/offset UTC, B fewer than five years, missing emergency MW ratings, unequal bus/time order, unbalanced AC islands, NI/UK folding, illegal many→one mapping, absent 110-kV tie evidence, altered input SHA, altered export manifest, illegal B-zone direct MA2 import, false AC/observed equality requirement. **All** such inputs must reject deterministically with documented code.
 
