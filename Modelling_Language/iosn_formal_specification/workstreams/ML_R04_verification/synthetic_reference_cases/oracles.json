@@ -1,0 +1,448 @@
+{
+  "schema_version": "0.1.0",
+  "status": "SYNTHETIC_ONLY",
+  "production_tolerances": "TBD",
+  "real_weather_weights": "TBD",
+  "methodology_source_authority": "UNCONFIRMED",
+  "notes": "All numbers illustrative; no approval, certification or tool test",
+  "cases": [
+    {
+      "id": "C01",
+      "slug": "five_weather_shared_investment",
+      "title": "Fünf gewichtete Wetterfälle – eine Investition",
+      "sr": [
+        "MA01-SR-010",
+        "MA01-SR-027",
+        "MA01-SR-029",
+        "MA01-SR-030"
+      ],
+      "model": "Ein Zieljahr (illustrativ 2035), Wetterfälle CY1 bis CY5 mit genau einer gemeinsamen First-Stage-Kapazität x. In jedem Fall existiert eine Second-Stage-ENS-Leistung u_c. LP: min 3 x + ∑_c w_c·10 u_c·1h; s.t. 0≤x≤2 MW, u_c≥d_c−x, u_c≥0. Investitionspreis 3 EUR/MW (für die *eine* Testperiode); ENS-Preis 10 EUR/MWh. Keine realen wirtschaftlichen Parameter.",
+      "parameters": {
+        "year": 2035,
+        "weather_ids": [
+          "CY1",
+          "CY2",
+          "CY3",
+          "CY4",
+          "CY5"
+        ],
+        "weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "demands_mw": [
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        "duration_h": 1,
+        "capex_eur_per_mw": 3,
+        "voll_eur_per_mwh": 10,
+        "invest_max_mw": 2
+      },
+      "derivation": "Die Zielfunktion ist stückweise linear. Links von x=1 sinkt sie mit Steigung −7; zwischen 1 und 2 mit −3; am zulässigen rechten Rand x=2 ist das Minimum erreicht. ENS=(0,0,0,0,2) MW; erwartete ENS = 0,4 MWh; CAPEX = 6 EUR; erwarteter ENS-Wert = 4 EUR; Zielfunktion = 10 EUR.",
+      "expected": {
+        "common_x_mw": 2,
+        "ens_mw": [
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "weighted_ens_mwh": 0.4,
+        "capex_eur": 6,
+        "weighted_ens_cost_eur": 4,
+        "objective_eur": 10
+      },
+      "negative": "Ersetze x durch fünf unabhängige x_c. Dann sinkt der Erwartungswert auf 8,8 EUR (C02): beobachtbare Verletzung der Nichtantizipativität. Gewichte 0,2 sind ausschließlich illustrative Testparameter; echte gleiche Gewichte bleiben numerisch TBD.",
+      "evidence": "Investment-Index, Wettermanifeste, erzeugte Koeffizienten/Beschränkungen, pro-CY-ENS und unabhängige Zielfunktionsrekonstruktion.",
+      "limits": "Je Zieljahr unabhängig; denselben Fixtureaufbau später getrennt für 2040 und 2050 anwenden. Keine Cross-Year-Coupling-Annahme."
+    },
+    {
+      "id": "C02",
+      "slug": "broken_nonanticipativity",
+      "title": "Absichtlich fehlende Nichtantizipativität",
+      "sr": [
+        "MA01-SR-027",
+        "MA01-SR-029"
+      ],
+      "model": "Gleiche Eingangsdaten wie C01, aber fehlerhafte First-Stage-Variablen x_CY1,...,x_CY5 ohne Gleichheitskopplung. Zu jedem Fall wird ein eigener CAPEX-Block mit w_c gewichtet; mathematisch anderes Problem, nicht bloß andere algebraische Darstellung.",
+      "parameters": {
+        "based_on": "C01",
+        "fault": "independent_first_stage_by_weather",
+        "candidate_x_by_cy_mw": [
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      "derivation": "Einzelfalloptima x_c=min(d_c,2) liefern je Szenario Kosten (3,3,6,6,26) EUR; deren arithmetisches Mittel = 44/5 = 8,8 EUR, während das gültige C01-Modell 10 EUR ergibt. Die besseren Kosten sind ein Verstoß, kein Qualitätsgewinn.",
+      "expected": {
+        "faulty_objective_eur": 8.8,
+        "valid_objective_eur": 10,
+        "investment_values_mw": [
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "test_status": "FAIL"
+      },
+      "negative": "Auch fünf zyklisch gleich benannte Variablen ohne Equality-Constraints sind falsch; ein zusätzlicher Mittelwertvergleich alleine reicht nicht als Beweis. Der Test muss Zeugen für fehlende gemeinsame Bindung aus dem Modellgenerator liefern.",
+      "evidence": "Erzeugte Investitionsspalten, Non-Anticipativity-Constraints oder ein gemeinsamer Variablenindex, unabhängiger Zielfunktionsvergleich.",
+      "limits": "Bei rein numerisch zufällig gleichen x_c ist die strukturelle Nichtantizipativitätsprüfung weiterhin obligatorisch."
+    },
+    {
+      "id": "C03",
+      "slug": "time_resolution_units",
+      "title": "Zeitauflösung, UTC, MW-/MWh-Bilanz",
+      "sr": [
+        "MA01-SR-007",
+        "MA01-SR-011",
+        "MA01-SR-028",
+        "MA01-SR-034",
+        "MA01-SR-042"
+      ],
+      "model": "Ein einstündiger UTC-Zeitraum wird durch zwei halbstündige Intervalle repräsentiert: 2026-01-01T00:00Z und 00:30Z. Leistung (2,0) MW; Δt=(0,5;0,5) h. Äquivalente Stundenauflösung: (1 MW) für 1 h. Keine DST-Ambiguität in UTC. Kosten 50 EUR/MWh als Testpreis.",
+      "parameters": {
+        "timestamps_utc": [
+          "2026-01-01T00:00:00Z",
+          "2026-01-01T00:30:00Z"
+        ],
+        "half_hour_power_mw": [
+          2,
+          0
+        ],
+        "half_hour_duration_h": [
+          0.5,
+          0.5
+        ],
+        "hourly_power_mw": 1,
+        "hourly_duration_h": 1,
+        "cost_eur_per_mwh": 50
+      },
+      "derivation": "E = ∑ P_t·Δt_t = 2·0,5 + 0·0,5 = 1 MWh. Bei 1-h-Aggregation E=1·1=1 MWh. Kosten=1·50=50 EUR. Das bloße Addieren von (2+0) MW liefert keine MWh und ist als KPI ungültig.",
+      "expected": {
+        "energy_mwh": 1,
+        "cost_eur": 50,
+        "bad_naive_sum_of_mw": 2
+      },
+      "negative": "Führe bei Resampling fälschlich ein ungewichtetes MW-Summenaggregat ein; das erzeugt numerisch 2 statt 1 MWh. Ein Zeitschrittduplikat oder lokaler DST-String ohne disambiguierte UTC-Zeitachse muss V1 blockieren.",
+      "evidence": "UTC-Instants, explizite Δt-Dimension, Prüfprotokoll vor/nach Aggregation, Einheitentransformation und Energie-Residual.",
+      "limits": "Die operative Kalender- und DST/Leap-Policy ist MD-12 und bleibt TBD; das Testbeispiel fixiert nur einen konfliktfreien Mini-Zeitraum."
+    },
+    {
+      "id": "C04",
+      "slug": "dc_flow_versus_market_link",
+      "title": "Vermaschtes DC-Flussgesetz gegenüber steuerbarem Marktlink",
+      "sr": [
+        "MA01-SR-018",
+        "MA01-SR-024",
+        "MA01-SR-035",
+        "MA01-SR-036"
+      ],
+      "model": "Drei Knoten A,B,C bilden ein Dreieck. Für physische AC-Bestandszweige mit DC-Näherung sei b_AB=b_AC=b_CB=1 MW pro Winkel-Einheit; orientierte Kanten A→B, A→C, C→B. Injektion (A,B,C)=(+90,−90,0) MW. Referenz θ_A=60, θ_C=30, θ_B=0. Gegenvariante: A→B ist statt physischem Zweig ein steuerbarer Marktlink; die beiden übrigen Zweige bleiben physisch.",
+      "parameters": {
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "orientation": [
+          "A>B",
+          "A>C",
+          "C>B"
+        ],
+        "injection_mw": {
+          "A": 90,
+          "B": -90,
+          "C": 0
+        },
+        "susceptance_mw_per_angle": 1,
+        "angles": {
+          "A": 60,
+          "B": 0,
+          "C": 30
+        },
+        "physical_flows_mw": {
+          "AB": 60,
+          "AC": 30,
+          "CB": 30
+        },
+        "controllable_link_variant_mw": {
+          "AB": 90,
+          "AC": 0,
+          "CB": 0
+        }
+      },
+      "derivation": "Physischer DC-Fluss: f_AB=θ_A−θ_B=60; f_AC=θ_A−θ_C=30; f_CB=θ_C−θ_B=30 MW. Nodalbilanzen erfüllt, zugleich f_AB=f_AC+f_CB als KVL-Konsistenz. Als controllable Link kann f_AB=90 MW und f_AC=f_CB=0 gelten, ohne die AC-KVL-Gleichung für den Link zu erzwingen.",
+      "expected": {
+        "dc_physical_AB_mw": 60,
+        "dc_physical_AC_mw": 30,
+        "dc_physical_CB_mw": 30,
+        "link_variant_AB_mw": 90,
+        "physical_link_flow_difference_mw": 30
+      },
+      "negative": "Für den physischen Zweig A–B einen freien 90-MW-Link verwenden: nodale Bilanz zwar PASS, KVL FAIL. Umgekehrt einen regelbaren Kandidatenlink fälschlich an Kirchhoff-Winkel koppeln: verletzt zulässige Kandidatenfreiheit.",
+      "evidence": "Zweigtypen, Inzidenzmatrix, Suszeptanzen, Branch-/Link-Variablen, KCL/KVL-Zeilen oder gleichwertige PTDF/Zyklusnachweise.",
+      "limits": "Alle Koeffizienten rein illustrativ; ohne akzeptierten echten Detailnetzfall wird keine IoSN-Netzreduktion zertifiziert."
+    },
+    {
+      "id": "C05",
+      "slug": "network_aggregation_conservation",
+      "title": "Netzaggregation – notwendige Erhaltung des Cut-Flusses",
+      "sr": [
+        "MA01-SR-014",
+        "MA01-SR-016",
+        "MA01-SR-017",
+        "MA01-SR-019",
+        "MA01-SR-022",
+        "MA01-SR-023"
+      ],
+      "model": "Detailnetz A1,A2,B. A1 und A2 werden zu Cluster X zusammengefasst; B bildet Y. Injektionen A1=+30, A2=+20, B=−50 MW. Orientierte Detailflüsse A1→A2=−10, A1→B=40, A2→B=10 MW. Test ist eine notwendige Cut-/KCL-Konservation, kein hinreichendes elektrisches Netzäquivalenzorakel.",
+      "parameters": {
+        "nodes": [
+          "A1",
+          "A2",
+          "B"
+        ],
+        "clusters": {
+          "A1": "X",
+          "A2": "X",
+          "B": "Y"
+        },
+        "injection_mw": {
+          "A1": 30,
+          "A2": 20,
+          "B": -50
+        },
+        "flows_mw": {
+          "A1_A2": -10,
+          "A1_B": 40,
+          "A2_B": 10
+        },
+        "duration_h": 1
+      },
+      "derivation": "A1: −10+40=30 MW; A2: +10+10=20 MW; B: −40−10=−50 MW. Aggregiert P_X=30+20=50 MW, P_Y=−50 MW, Cut X→Y=40+10=50 MW. Beide lokalen und aggregierten KCL-Residuen sind exakt null.",
+      "expected": {
+        "cluster_x_mw": 50,
+        "cluster_y_mw": -50,
+        "cut_x_y_mw": 50,
+        "energy_through_cut_mwh": 50
+      },
+      "negative": "Eine fehlerhafte Mapping-Tabelle lässt A2→B (10 MW) weg: ausgegebener Cut=40 MW, KCL-Residuum X = 10 MW ⇒ FAIL. Die gleiche Cut-Menge belegt nicht automatisch korrekte Impedanz, PTDF, N−1 oder RMSE.",
+      "evidence": "Detailnetz-Knoten-/Branch-Ledger; Clusterpartition/Graphkonnektivität; signierte Cut-Flüsse; KCL-Residuen; getrennte Qualitätsnachweise.",
+      "limits": "MD-03/13/15: Kein freigegebener IoSN-Grenzwert und kein qualifizierter Detailnetz-Oracle. Netzreduktionskonformität bleibt BLOCKED."
+    },
+    {
+      "id": "C06",
+      "slug": "equivalent_lp_formulations",
+      "title": "Äquivalente algebraische LP-Formulierungen",
+      "sr": [
+        "MA01-SR-018",
+        "MA01-SR-027",
+        "MA01-SR-043",
+        "MA01-SR-044",
+        "MA01-SR-047"
+      ],
+      "model": "Formulierung A: min 2x+3y unter x+y≥4, x≥0,y≥0. Formulierung B: min 2x+3y unter 2x+2y−2s=8 und x,y,s≥0. B enthält eine zusätzliche nichtnegative Slackvariable und eine skalierte Zeile.",
+      "parameters": {
+        "rhs": 4,
+        "objective_coefficient_x": 2,
+        "objective_coefficient_y": 3,
+        "row_scale": 2
+      },
+      "derivation": "Für jede (x,y) in A gibt es genau ein s=x+y−4≥0 in B. Jede zulässige Lösung in B projiziert auf eine zulässige (x,y) in A. Die Zielfunktion in Originalvariablen bleibt gleich. Optimale Lösung: x=4,y=0,s=0, Wert 8. Somit ist die Projektion der gesamten zulässigen Menge und nicht nur der beste Zielfunktionswert äquivalent.",
+      "expected": {
+        "opt_x": 4,
+        "opt_y": 0,
+        "opt_slack": 0,
+        "optimal_objective": 8,
+        "projection_equivalent": true
+      },
+      "negative": "Entferne in B die Restriktion s≥0. Dann sind x=y=0,s=−4 zulässig und Zielfunktionswert 0 statt 8: aus zufälliger numerischer Übereinstimmung einzelner Lösungen kann keine mathematische Äquivalenz abgeleitet werden.",
+      "evidence": "Symbolischer Variablen-/Constraint-Crosswalk, Eliminationsbeweis, Parameterauszug, numerische Referenzwerte und Negativmutation.",
+      "limits": "Vollständige A↔B-Projektion hier bewiesen; im produktiven Modell erfordert D4 nur risikobedingt zusätzliche strukturelle oder symbolische Beweise."
+    },
+    {
+      "id": "C07",
+      "slug": "multiple_optimal_portfolios",
+      "title": "Mehrfach optimale Investitionsportfolios",
+      "sr": [
+        "MA01-SR-001",
+        "MA01-SR-025",
+        "MA01-SR-046",
+        "MA01-SR-047"
+      ],
+      "model": "Zwei kapazitätsgleichwertige Investitionen x und y mit 0≤x≤1,0≤y≤1 und x+y=1 MW. Zielfunktion min x+y in künstlichen Test-Geldeinheiten. Die gesamte optimale Fläche ist die Streckenmenge {(x,y)|x+y=1,x,y≥0}.",
+      "parameters": {
+        "total_required_mw": 1,
+        "cap_each_mw": 1,
+        "cost_x_per_mw": 1,
+        "cost_y_per_mw": 1,
+        "portfolios_mw": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ]
+      },
+      "derivation": "Alle drei Portfolios (1,0), (0,1), (0,5;0,5) erfüllen die identischen Restriktionen und haben denselben Zielfunktionswert 1. Die Summe der Investitionskapazität ist invariant 1 MW; komponentenweise Vektoren sind nicht invariant.",
+      "expected": {
+        "all_objectives": 1,
+        "invariant_total_mw": 1,
+        "distinct_vectors": 3
+      },
+      "negative": "Ein Cross-Tool-Comparator, der den Vergleich aufgrund (1,0) ≠ (0,1) auf FAIL setzt, meldet einen falschen negativen Befund. Portfolios mit anderem Gesamtniveau oder unzulässigen Limits dürfen dagegen nicht als gleichwertig gelten.",
+      "evidence": "Beide Tool-Primallösungen, Kapazitäts- und KCL-Prüfung, Zielfunktions-/Optimalitätszertifikat, Invariant- und solution-set-envelope-Bericht.",
+      "limits": "Bei portfoliobezogenen, nicht-invarianten KPIs müssen Werte als Intervall/Menge oder solverabhängige Realisierung kenntlich gemacht werden."
+    },
+    {
+      "id": "C08",
+      "slug": "broken_kpi_aggregation",
+      "title": "KPI-Zeit- und Wetteraggregation – positive/negative Fälle",
+      "sr": [
+        "MA01-SR-001",
+        "MA01-SR-025",
+        "MA01-SR-027",
+        "MA01-SR-045",
+        "MA01-SR-046"
+      ],
+      "model": "Fünf illustrative CY mit w=0,2; zwei Intervalldauern Δt=(0,5;1,5) h. ENS-Leistung in MW je CY: (2,0); (0,2); (1,1); (0,0); (2,2). ENS-KPI ist ∑_CY w_CY·∑_t ENS_MW·Δt_h. VoLL im Test = 100 EUR/MWh.",
+      "parameters": {
+        "weather_ids": [
+          "CY1",
+          "CY2",
+          "CY3",
+          "CY4",
+          "CY5"
+        ],
+        "weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "durations_h": [
+          0.5,
+          1.5
+        ],
+        "ens_mw_by_weather": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "voll_eur_per_mwh": 100
+      },
+      "derivation": "ENS je CY = (1,3,2,0,4) MWh. Erwartete ENS=(1+3+2+0+4)/5=2 MWh; entsprechende ENS-Kosten=200 EUR. Ungewichtete Summe 10 MWh wäre kein Erwartungswert; Summe bloßer MW-Werte 10 hat falsche Dimension.",
+      "expected": {
+        "ens_mwh_by_weather": [
+          1,
+          3,
+          2,
+          0,
+          4
+        ],
+        "weighted_ens_mwh": 2,
+        "weighted_ens_cost_eur": 200,
+        "unweighted_ens_mwh": 10
+      },
+      "negative": "Ungewichtete Energie = 10 MWh fälschlich als erwartete ENS ausgeben ⇒ FAIL. Roh-MW addieren ⇒ Einheiten-FAIL. Ein Filter ohne genehmigten Schwellenwert (MD-04) darf keinen vollständigen produktiven KPI-PASS auslösen.",
+      "evidence": "Roh-ENS nach Wetter/UTC/Δt, verwendete Gewichte, Outputformel-Version und unabhängige KPI-Rechnung.",
+      "limits": "Nur dimensions- und aggregationsbezogenes Testorakel. Finale Systembedarfs-/ONDP-Definitionen und reale Schwellen bleiben MD-04/TBD."
+    },
+    {
+      "id": "C09",
+      "slug": "unsupported_mandatory_capability",
+      "title": "Fehlende verpflichtende Toolfunktion",
+      "sr": [
+        "MA01-SR-006",
+        "MA01-SR-008",
+        "MA01-SR-029",
+        "MA01-SR-033"
+      ],
+      "model": "Tool X kann zwar Inputschemata parsen, bietet aber keine Implementierung für die erforderliche gemeinsame First-Stage-Investitionsentscheidung über Wetterfälle (MA01-SR-029). Das Capability-Manifest sagt supported=false, der Test wird daher nicht ausgeführt. Eine fiktive Solver-Meldung OPTIMAL ist irrelevant.",
+      "parameters": {
+        "tool": "Tool-X-synthetic",
+        "mandatory_requirement": "MA01-SR-029",
+        "supported": false,
+        "executed": false
+      },
+      "derivation": "Für eine verpflichtende Eigenschaft ist capability=false ein tatsächlich nachgewiesenes Fehlen der Funktion: test_result=UNSUPPORTED; requirement_status=UNSUPPORTED; full_conformance=NOT_GRANTED. Nicht mit NOT_APPLICABLE verwechseln.",
+      "expected": {
+        "test_status": "UNSUPPORTED",
+        "overall_conformance_pass": false
+      },
+      "negative": "Eine fehlende Pflichtfunktion als SKIPPED/PASS oder NOT_APPLICABLE behandeln ⇒ fail-closed-Verletzung. Ist die Funktion verfügbar, aber mangels Ressource nicht ausgeführt: NOT_EXECUTED; fehlen akzeptierte Owner-Parameter: BLOCKED.",
+      "evidence": "Capability-Manifest mit Toolversion und Feature-ID, Attempt-/Skip-Log, erforderlicher Vertragszweig und Fehlermeldung.",
+      "limits": "Keine realen Toolbehauptungen. Daten- und Modellkonformität anderer Funktionen können separat nachgewiesen sein, ersetzen aber diesen Nachweis nicht."
+    },
+    {
+      "id": "C10",
+      "slug": "optional_opf_conditional",
+      "title": "Optionale OPF-Variante und bedingte Pflichtprüfungen",
+      "sr": [
+        "MA01-SR-003",
+        "MA01-SR-024",
+        "MA01-SR-025",
+        "MA01-SR-026",
+        "MA01-SR-031",
+        "MA01-SR-032"
+      ],
+      "model": "LF-Baseline ist verpflichtend, OPF-Expansion ausdrücklich optional. Illustratives LF-Portfolio: Kandidat K besitzt 3 MW Ausbau. Falls OPF branch=false: C10-OPF-Constraints tatsächlich nicht instanziiert. Falls branch=true: die OPF-Investition y_K muss 0≤y_K≤3 MW einhalten.",
+      "parameters": {
+        "candidate": "K",
+        "lf_cap_mw": 3,
+        "opf_variant_off": false,
+        "opf_variant_on": true,
+        "opf_passing_investment_mw": 2,
+        "opf_failing_investment_mw": 4
+      },
+      "derivation": "Flag OFF und nachweislich kein OPF-Lauf ⇒ nur bedingter Test MA01-SR-026 NOT_APPLICABLE; LF-/Dispatch-Mandatorien weiterhin gesondert prüfen. Flag ON und y=2 ⇒ Constraint-Synthesetest PASS. Flag ON und y=4 ⇒ FAIL; Flag ON ohne OPF-Fähigkeit ⇒ UNSUPPORTED.",
+      "expected": {
+        "off_test_status": "NOT_APPLICABLE",
+        "on_pass_test_status": "PASS",
+        "on_fail_test_status": "FAIL",
+        "on_unsupported_test_status": "UNSUPPORTED"
+      },
+      "negative": "OPF-Lauf bei branch=true heimlich unterlassen und als NOT_APPLICABLE berichten ⇒ falsch. Ebenso y=4 bei LF-Maximum 3 ⇒ FAIL. Die LF-Portfolio-Größe wird nicht durch die OPF-Lösung nachträglich umgeschrieben.",
+      "evidence": "Flag und variant selection, LF-run ID, LF-Kandidateninventar, OPF-Bounds, generierte Restriktionen, Solver-/Run-Status.",
+      "limits": "Die konkreten methodischen LF-/OPF-Übergangsdetails bleiben MD-07/08; dieses Beispiel testet nur das konditionale Steuerungsprinzip."
+    }
+  ]
+}
