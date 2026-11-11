@@ -194,6 +194,7 @@ def test_05_country_purity_ni_uk_and_crossborder_ties():
         Edge("ni_uk", "ni1", "uk0"),
         Edge("uk_ni", "uk1", "ni0"),
         Edge("uk_fr", "uk1", "fr0"),
+        Edge("ni_fr", "ni0", "fr1"),
     )
     g = grid(names, edges, ("NI", "NI", "UK", "UK", "FR", "FR"))
     budget = CountryZoneBudget.synthetic({
@@ -204,7 +205,7 @@ def test_05_country_purity_ni_uk_and_crossborder_ties():
                       merge_cost_by_branch={e.identifier: 0. for e in edges})
     assert len(set(seed.zone_of_bus)) == 3
     assert set(seed.retained_cross_country_branch_ids) == {
-        "ni_uk", "uk_ni", "uk_fr"}
+        "ni_uk", "uk_ni", "uk_fr", "ni_fr"}
     with pytest.raises(CountryContractError, match="many-to-one"):
         resolve_country_ids(g, {
             "NI": "United Kingdom", "UK": "United Kingdom", "FR": "France"}, budget)
