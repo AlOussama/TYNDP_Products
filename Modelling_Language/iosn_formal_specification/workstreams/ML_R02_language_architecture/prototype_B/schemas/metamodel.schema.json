@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prototype B illustrative integrated typed AST subset",
+  "type": "object",
+  "required": [
+    "language",
+    "version",
+    "status",
+    "baseline_commit",
+    "requirements",
+    "nodes",
+    "edges",
+    "fixture"
+  ],
+  "properties": {
+    "language": {
+      "const": "IoSN-TinyMeta"
+    },
+    "version": {
+      "const": "0.1.0"
+    },
+    "status": {
+      "type": "string",
+      "pattern": "^RESEARCH_ONLY"
+    },
+    "baseline_commit": {
+      "const": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b"
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 48,
+      "maxItems": 48,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "Study",
+              "WeatherSet",
+              "Dataset",
+              "PhysicalBranch",
+              "MarketLink",
+              "Decision",
+              "Transformation",
+              "ConditionalStage",
+              "Output",
+              "Verification",
+              "ProcessGraph"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "relation",
+          "target"
+        ]
+      }
+    },
+    "fixture": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

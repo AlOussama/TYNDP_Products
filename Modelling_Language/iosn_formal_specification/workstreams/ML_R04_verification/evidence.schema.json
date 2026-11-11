@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/iosn/ml-r04/evidence.schema.json",
+  "title": "ML-R04 Non-normative Tool Conformance Evidence Transport Draft",
+  "description": "Draft for research only. Schema-valid is not conformance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "source_commit",
+    "contract_ref",
+    "source_authority",
+    "tool",
+    "solver",
+    "data_manifest",
+    "features",
+    "tests",
+    "mathematical_evidence",
+    "numerical_evidence",
+    "output_evidence",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "scope": {
+      "enum": [
+        "SYNTHETIC_FIXTURE",
+        "PRODUCTIVE_RUN",
+        "DESIGN_ONLY"
+      ]
+    },
+    "source_commit": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 40
+    },
+    "contract_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_authority": {
+      "enum": [
+        "AUTHORITY_UNCONFIRMED",
+        "APPROVED",
+        "BLOCKED"
+      ]
+    },
+    "target_year": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "enum": [
+        2035,
+        2040,
+        2050,
+        null
+      ]
+    },
+    "weather_case_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "attempted_at_utc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "model_build",
+        "model_sha256",
+        "adapter_version"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model_build": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model_sha256": {
+          "$ref": "#/$defs/sha_or_null"
+        },
+        "adapter_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "solver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "termination_status",
+        "primal_status",
+        "dual_status",
+        "configuration_sha256"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "termination_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primal_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dual_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "configuration_sha256": {
+          "$ref": "#/$defs/sha_or_null"
+        }
+      }
+    },
+    "data_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "object_id",
+          "source_version",
+          "raw_sha256",
+          "unit",
+          "time_basis"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string"
+          },
+          "source_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "raw_sha256": {
+            "$ref": "#/$defs/sha_or_null"
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "time_basis": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature_id",
+          "supported",
+          "explanation"
+        ],
+        "properties": {
+          "feature_id": {
+            "type": "string"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "explanation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "test_id",
+          "requirement_id",
+          "status",
+          "applicable",
+          "evidence_sha256",
+          "oracle_ref",
+          "tolerance_profile_ref",
+          "attempted_at_utc",
+          "cause_code"
+        ],
+        "properties": {
+          "test_id": {
+            "type": "string",
+            "pattern": "^R04-T-SR-[0-9]{3}$"
+          },
+          "requirement_id": {
+            "type": "string",
+            "pattern": "^MA01-SR-[0-9]{3}$"
+          },
+          "status": {
+            "$ref": "#/$defs/test_status"
+          },
+          "applicable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "evidence_sha256": {
+            "$ref": "#/$defs/sha_or_null"
+          },
+          "oracle_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tolerance_profile_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attempted_at_utc": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "cause_code": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "antecedent_proof_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "mathematical_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "semantic_constraint_id",
+          "requirement_ids",
+          "export_ref",
+          "row_count",
+          "units",
+          "index_domain"
+        ],
+        "properties": {
+          "semantic_constraint_id": {
+            "type": "string"
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "export_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "row_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "units": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "index_domain": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "coefficient_hash": {
+            "$ref": "#/$defs/sha_or_null"
+          }
+        }
+      }
+    },
+    "numerical_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primal_objective",
+        "dual_bound",
+        "max_primal_residual",
+        "max_dual_residual",
+        "gap",
+        "residual_profile_ref",
+        "raw_solution_sha256"
+      ],
+      "properties": {
+        "primal_objective": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "dual_bound": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max_primal_residual": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max_dual_residual": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "gap": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "residual_profile_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_solution_sha256": {
+          "$ref": "#/$defs/sha_or_null"
+        }
+      }
+    },
+    "output_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "output_id",
+          "raw_sha256",
+          "unit",
+          "independent_formula_ref"
+        ],
+        "properties": {
+          "output_id": {
+            "type": "string"
+          },
+          "raw_sha256": {
+            "$ref": "#/$defs/sha_or_null"
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "independent_formula_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "independent_reviewer",
+        "reviewed_at_utc",
+        "signed_approval_ref",
+        "overall_claim"
+      ],
+      "properties": {
+        "independent_reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewed_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "signed_approval_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overall_claim": {
+          "enum": [
+            "NOT_ASSESSED",
+            "PARTIAL_ONLY",
+            "CANDIDATE_FOR_REVIEW",
+            "APPROVED_BY_OWNER"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "test_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "UNSUPPORTED",
+        "NOT_EXECUTED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "sha_or_null": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}
