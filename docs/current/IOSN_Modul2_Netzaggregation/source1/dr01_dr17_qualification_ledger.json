@@ -1,0 +1,173 @@
+{
+  "document_id": "M2-D-SOURCE1-DR01-17",
+  "gate": "BLOCKED_DATA",
+  "generated": "2026-11-11",
+  "taxonomy": "BLOCKED is not failure of an executed physical test; it marks missing authoritative original input. LOCAL_QUOTA_PASS is deliberately not a full DR-03 pass.",
+  "dr_checks": [
+    {
+      "id": "DR-10",
+      "description": "Dispatch asset-to-live-node joins",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-11",
+      "description": "Per-island nodal MW balance incl. HVDC",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-12",
+      "description": "DC mesh/KCL + independently sourced real branch flows",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-13",
+      "description": "225/400-kV screening and complete annual MWh",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-14",
+      "description": "Separately balanced HVDC=0/PST-neutral reference",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-15",
+      "description": "N-1 outage/monitor completeness and islanding",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-16",
+      "description": "Signed scope-specific TSO exceptions",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-17",
+      "description": "Frozen source/outputs/solver/parser & independent replay",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": "Local quota and synthetic graph algorithm unit tests only, no real replay",
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-01",
+      "description": "Original bytes SHA-256 and release/access",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": "Repo-committed quota CSV original-byte SHA-256 and git blob SHA-1 verified; no TSO grid bytes",
+      "missing_inputs": [
+        "TSO grid",
+        "synchronous dispatch",
+        "security file original bytes"
+      ]
+    },
+    {
+      "id": "DR-02",
+      "description": "Unique source IDs and terminal foreign keys",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-03",
+      "description": "Exact country source-map and 37/102 quota",
+      "status": "PARTIAL_QUOTA_SUBCHECK_ONLY",
+      "limited_verification": "37 names, quota sum 102, NI and UK separate; source-to-bus mapping absent",
+      "missing_inputs": [
+        "Actual full-grid country to bus ID mapping"
+      ]
+    },
+    {
+      "id": "DR-04",
+      "description": "AC incidence/islands and 110-kV tie coverage",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-05",
+      "description": "Transformer/PST/HVDC/3w equipment coverage",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-06",
+      "description": "MVA/kV/ohm/pu and tap/phase units",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-07",
+      "description": "Time-varying normal/emergency limits",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-08",
+      "description": "UTC snapshots/DST/duration join",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": null,
+      "missing_inputs": [
+        "Original real frozen grid/dispatch/security inputs and applicable metadata"
+      ]
+    },
+    {
+      "id": "DR-09",
+      "description": "Five fixed externally selected weather IDs",
+      "status": "BLOCKED_NOT_RUN_MISSING_SOURCE_INPUT",
+      "limited_verification": "Five upstream slots documented; five actual IDs absent",
+      "missing_inputs": [
+        "5 actual owner-fixed IDs",
+        "per-year UTC snapshots"
+      ]
+    }
+  ],
+  "scope_declarations": {
+    "D1_witness": "BLOCKED_UNTIL_EXACT_ZENODO_BYTES_AND_GRAPH_PASS",
+    "MA1": "BLOCKED",
+    "MA2": "BLOCKED",
+    "MA3": "BLOCKED",
+    "D4": "BLOCKED_UNTIL_INDEPENDENT_REVIEW"
+  },
+  "fully_passed_dr_count": 0,
+  "limited_source_table_subchecks_passed": 2
+}

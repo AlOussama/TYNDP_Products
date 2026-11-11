@@ -1,0 +1,149 @@
+{
+  "document_id": "M2-D-SOURCE1-20261111",
+  "version": "1.0",
+  "generated_date_utc": "2026-11-11",
+  "repo": "AlOussama/TYNDP_Products",
+  "handoff_commit": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+  "review_commit": "6a8262f128ae3dd7e108afe2ade09028ea4f651f",
+  "classification": "NON_CONFIDENTIAL_METADATA_ONLY",
+  "real_qualified": false,
+  "not_provided_is_not_nonexistent": true,
+  "verified_repository_artifact": {
+    "id": "M2_COUNTRY_BUDGET",
+    "kind": "PROJECT_COPY_OF_METHOD_QUOTA_NOT_ORIGINAL_TSO_GRID",
+    "path": "docs/current/IOSN_2026_OFFICIAL_COUNTRY_ZONE_BUDGET.csv",
+    "ref": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+    "git_blob_sha1": "e147ba7143ecc21647055d9413f0973338a25b0f",
+    "original_committed_bytes_sha256": "8ebd0bc239cd62760944a68deb53a0af710e56d5ea3c379d7526b4255fc4c391",
+    "bytes": 560,
+    "country_rows": 37,
+    "quota_sum": 102,
+    "northern_ireland_uk_distinct": true,
+    "sha256_verified_against_blob_sha1": true,
+    "upstream_entsoe_original_bytes_verified": false
+  },
+  "D0": {
+    "status": "BLOCKED_SOURCE_OWNER_GRANT_REQUIRED",
+    "source_kind": "OFFICIAL_TSO_IOSN_GRID",
+    "release_id": null,
+    "original_sha256": null,
+    "source_byte_count": null,
+    "source_vintage": null,
+    "source_licence": null,
+    "authorized_access_grant": null,
+    "required": [
+      "2025 AC/DC grid",
+      "2035 IoSN start-grid change ledger",
+      "country bus mapping",
+      "device IDs, tap/3w/PST/HVDC semantics",
+      "110kV ties",
+      "source voltage and base",
+      "normal and emergency ratings",
+      "source-owner access and license"
+    ],
+    "public_access_request_portal": "https://stum.entsoe.eu/",
+    "request_not_submitted_to_entsoe": true
+  },
+  "D1": {
+    "status": "PUBLIC_CATALOGUE_VERIFIED_ORIGINAL_BYTES_UNAVAILABLE",
+    "source_kind": "OSM_BASED_REAL_WORLD_TOPOLOGY_RECONSTRUCTION",
+    "record_id": "14144752",
+    "release": "0.6",
+    "publication_date": "2024-11-13",
+    "source": "https://zenodo.org/records/14144752",
+    "license": "ODbL-1.0",
+    "license_remarks": "Attribution and share-alike obligations; do not treat data as TSO-authored; PyPSA-Eur software MIT does not override data licence.",
+    "expected_files": [
+      {
+        "name": "buses.csv",
+        "source_url": "https://zenodo.org/records/14144752/files/buses.csv?download=1",
+        "published_md5": "6b6059dca66ce5851bef4be06460bc23",
+        "md5_computed": null,
+        "original_sha256": null,
+        "bytes": null,
+        "original_bytes_verified": false
+      },
+      {
+        "name": "lines.csv",
+        "source_url": "https://zenodo.org/records/14144752/files/lines.csv?download=1",
+        "published_md5": "aa4ad8a608323358db2e866430f33458",
+        "md5_computed": null,
+        "original_sha256": null,
+        "bytes": null,
+        "original_bytes_verified": false
+      },
+      {
+        "name": "links.csv",
+        "source_url": "https://zenodo.org/records/14144752/files/links.csv?download=1",
+        "published_md5": "19a92e63b8788c931b227ea796f9abff",
+        "md5_computed": null,
+        "original_sha256": null,
+        "bytes": null,
+        "original_bytes_verified": false
+      },
+      {
+        "name": "transformers.csv",
+        "source_url": "https://zenodo.org/records/14144752/files/transformers.csv?download=1",
+        "published_md5": "b48673b9152e16324ef155ae7a9b0365",
+        "md5_computed": null,
+        "original_sha256": null,
+        "bytes": null,
+        "original_bytes_verified": false
+      },
+      {
+        "name": "converters.csv",
+        "source_url": "https://zenodo.org/records/14144752/files/converters.csv?download=1",
+        "published_md5": "89cdb6dc392bc272a4bf14ba4eb1255d",
+        "md5_computed": null,
+        "original_sha256": null,
+        "bytes": null,
+        "original_bytes_verified": false
+      }
+    ],
+    "acquisition_attempt": {
+      "direct_network_fetch": "FAILED_ENVIRONMENT_DNS_RESOLUTION",
+      "web_catalogue": "VERIFIED",
+      "web_full_source_bytes": "NOT_ACQUIRED",
+      "security_scope": "TOPOLOGY_ONLY"
+    },
+    "partial_real_topology_witness": false
+  },
+  "D2": {
+    "status": "BLOCKED_NO_SYNCHRONOUS_DISPATCH_OR_FIVE_IDS",
+    "known_upstream_slot_count": 5,
+    "known_weather_ids": [
+      "NOT_PROVIDED",
+      "NOT_PROVIDED",
+      "NOT_PROVIDED",
+      "NOT_PROVIDED",
+      "NOT_PROVIDED"
+    ],
+    "upstream_slot_file": "docs/current/IOSN_Modul1/MD1/FIVE_WEATHER_IDS.csv",
+    "upstream_slot_ref": "5c68198984b6f2f430a49ff3e23d17c0b27320e1",
+    "operational_nodal_dispatch_original_sha256": null,
+    "neutral_calibration_original_sha256": null,
+    "original_flow_oracle_sha256": null,
+    "calendar_utc": null,
+    "season_assignments": null,
+    "selection_performed": false
+  },
+  "D3": {
+    "status": "BLOCKED_NO_TSO_SECURITY_SOURCE",
+    "contingency_file_sha256": null,
+    "branch_limits_file_sha256": null,
+    "tso_exceptions_file_sha256": null,
+    "normal_emergency_seasonal_ratings": false,
+    "four_direction_season_bins": false,
+    "source_owner_approval": false
+  },
+  "D4": {
+    "status": "PREPARED_NOT_STARTED_UNTIL_FROZEN_INPUT_BYTES",
+    "independent_replay_performed": false
+  },
+  "stop_rules": [
+    "No fabricated source hash/asset/dispatch/flow/rating.",
+    "No proxy -> official TSO real qualification.",
+    "No green real MA1/MA2/MA3 gate from quotas, catalogues or synthetic checks.",
+    "Restricted original payloads remain outside public repository."
+  ]
+}

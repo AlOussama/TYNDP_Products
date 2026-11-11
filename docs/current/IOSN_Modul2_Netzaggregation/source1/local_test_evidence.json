@@ -1,0 +1,53 @@
+{
+  "id": "M2-D-SOURCE1-LOCAL-TESTS-20261111",
+  "executed_utc_date": "2026-11-11",
+  "runtime": "Python 3.13.5",
+  "script": "source1_verifier.py (local artifact, not committed in this revision)",
+  "script_sha256": "6d77c6a790dee9ba7fe85bb87d99c0f666e97ba8d52dbb39299859dea6e29ea1",
+  "checks": [
+    {
+      "name": "pinned_quota_git_blob",
+      "result": "PASS",
+      "git_blob_sha1": "e147ba7143ecc21647055d9413f0973338a25b0f"
+    },
+    {
+      "name": "pinned_quota_sha256",
+      "result": "PASS",
+      "original_repository_bytes_sha256": "8ebd0bc239cd62760944a68deb53a0af710e56d5ea3c379d7526b4255fc4c391"
+    },
+    {
+      "name": "country_quota",
+      "result": "PASS",
+      "rows": 37,
+      "sum": 102,
+      "ni_uk_distinct": true
+    },
+    {
+      "name": "synthetic_three_bus_two_country_cycle_algorithm",
+      "result": "PASS_SYNTHETIC_ONLY",
+      "not_real_data": true
+    },
+    {
+      "name": "py_compile",
+      "result": "PASS"
+    },
+    {
+      "name": "zenodo_original_csv_bytes",
+      "result": "BLOCKED_NOT_DOWNLOADED",
+      "reason": "DNS unavailable from local execution environment"
+    },
+    {
+      "name": "real_two_country_AC_mesh",
+      "result": "BLOCKED_NOT_RUN",
+      "reason": "No complete original source tables acquired"
+    },
+    {
+      "name": "real_operational_dispatch_and_security",
+      "result": "BLOCKED_NOT_RUN",
+      "reason": "Original owner-provided data absent"
+    }
+  ],
+  "independent_reviewer_replay": false,
+  "real_network_gate": "BLOCKED_DATA",
+  "no_fabricated_real_values": true
+}
