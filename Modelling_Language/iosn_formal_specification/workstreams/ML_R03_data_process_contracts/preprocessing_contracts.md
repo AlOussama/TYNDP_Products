@@ -1,5 +1,5 @@
 # ML-R03 — Preprocessing & Transformation Contracts (P00–P17)
-**Status:** NON_NORMATIVE_DRAFT · **Matrix:** `process_transformation_matrix.csv` mit **36** separaten Transformations- und Workflow-Verträgen; **alle 18** P00–P17 abgedeckt.
+**Status:** NON_NORMATIVE_DRAFT · **Matrix:** `process_transformation_matrix.csv` mit **38** separaten Transformations- und Workflow-Verträgen; **alle 18** P00–P17 abgedeckt.
 
 ## 1. Contract-Signatur
 Jeder `MLR03-Txx-yy` besitzt: `process_id`; Input-/Outputobjekte und deren semantische Typen; `required_if`; Vorbedingungen; Prozess-/Transformationssemantik; zu erhaltende technische/fachliche Eigenschaften; erlaubte Implementierungsfreiheit; kontrollierte Fehlercodes; Provenienz; Prüfverfahren; Owner-Entscheidungen. Die **Vollform je Operation** steht zeilenweise in der Matrix. `B01-Dxxx` sind Ausgangsinventar-IDs; `MLR03-I-...` sind **neu vorgeschlagene Zwischen-/Handover-Objekte**, ausdrücklich keine weiteren verifizierten MA03-Dateninventarpositionen.
@@ -23,9 +23,9 @@ Ein `input_object_id` eines Schritts kann ein Upstream-Payload, eine Konfigurati
 | **P11** | `T11-01/02` | Stage 1 und restliche Kandidaten | deklarierte Carry-over-Regeln, kein doppeltes CAPEX/Portfolio |
 | **P12** | `T12-01/02` | Stufe 2, Speicherpfade, Caps | nur 2040/2050; Bedarf nicht als einzelnes Investitionsprojekt ausgeben |
 | **P13** | `T13-01/02` | Dispatch mit/ohne LF-Portfolio | vergleichbare Paare, signierter Differenzbezug und gleiche System-/Kostenbasis |
-| **P14** | `T14-01/02` | Prä-Expansion Elektrolyseprofil | stundenweises H2-Freeze nach gebundener Baseline, Sensitivität getrennt |
+| **P14** | `T14-00/01/02` | Prä-Expansion Elektrolyseprofil | stundenweises H2-Freeze nach gebundener Baseline, Sensitivität getrennt |
 | **P15** | `T15-01/02` | explizit entschiedene optionale OPF-Variante | Kapazitätsobergrenzen aus LF-Portfolio; OPF ersetzt LF nicht |
-| **P16** | `T16-01/02/03` | Rohentscheidungen, P13/14/15 und Kosten | normalisierte Rohoutputs, needs/ONDP-Kennzahlen nur mit freigegebenen Definitionen |
+| **P16** | `T16-00/01/02/03` | Rohentscheidungen, P13/14/15 und Kosten | normalisierte Rohoutputs, needs/ONDP-Kennzahlen nur mit freigegebenen Definitionen |
 | **P17** | `T17-01` | Testorakel, Signaturen, Herkunft und Ergebnisse | getrennte Evidenzklassen und offen sichtbarer Blockerstatus |
 
 ## 3. Detaillierte exemplarische Verträge

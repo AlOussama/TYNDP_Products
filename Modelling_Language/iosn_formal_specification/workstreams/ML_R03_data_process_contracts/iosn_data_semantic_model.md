@@ -32,7 +32,7 @@ Die folgende semantische Typschicht ist unabhängig von YAML, JSON, UML, SysML u
 | `DataInstance` | instance_id; object_definition_ref; source/prod_ref; axes; unit; value_form; status | 1 Definition; 0..n Herkunftskanten |
 | `AxisBinding` | study_year; scenario; CY_id; time_interval; spatial_id; carrier; direction | Dimensionen nur dort verpflichtend, wo fachlich anwendbar |
 | `IdentityCrosswalk` | source_namespace/id; target_namespace/id; mapping_rule/version; effective_scope; weighting | n:m mit expliziten Faktoren und Ausnahmezustand |
-| `TransformationSpec` | transform_id; inputs; outputs; preconditions; invariants; error_policy; verif_oracle | P00–P17; 36 vorgeschlagene Einträge im Matrixkatalog |
+| `TransformationSpec` | transform_id; inputs; outputs; preconditions; invariants; error_policy; verif_oracle | P00–P17; 38 vorgeschlagene Einträge im Matrixkatalog |
 | `TransformationExecution` | execution_id; transform_spec_ref; run_id; input_instance_refs; output_instance_refs; parameters; event_time | 1 Spec; n tatsächliche Ausführungen; gerichteter DAG |
 | `IoSNRun` | run_id; profile_ref; data_freeze_ref; study_year; variant; CY_set; model_config; execution_state | 1 Studienjahr pro Optimierungsproblem, CY-Szenarien als innere Fälle |
 | `ModelInputBundle` | bundle_id; run_id; sets; parameters; network_semantics; candidate_set; provenance | 1 oder n fachliche Batches je Run/Stage |
