@@ -1,0 +1,35 @@
+name: "R-M2-MA1-CLU independent frozen review"
+on:
+  push:
+    branches:
+      - review/iosn-m2-ma1-r-clu-20261111
+    paths:
+      - "tests/iosn_official/test_r_clu_independent_frozen.py"
+      - ".github/workflows/r-m2-ma1-clu-review.yml"
+jobs:
+  independent-r-clu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package in isolated clean checkout
+        run: python -m pip install -e ".[test]"
+      - name: Execute independent R-CLU witnesses and repository regression
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/r-clu-evidence
+          python -m pytest -v -rA tests/iosn_official \
+            --junitxml=/tmp/r-clu-evidence/junit-r-clu.xml \
+            2>&1 | tee /tmp/r-clu-evidence/pytest-r-clu.txt
+          git rev-parse HEAD > /tmp/r-clu-evidence/tested-commit.txt
+      - name: Upload independent evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r-clu-independent-20261111
+          path: /tmp/r-clu-evidence/
+          if-no-files-found: error
+          retention-days: 90
