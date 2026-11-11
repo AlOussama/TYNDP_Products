@@ -1,0 +1,42 @@
+name: "R-M2-MA1-PHY independent review evidence"
+on:
+  push:
+    branches:
+      - review/iosn-m2-ma1-r-phy-independent-20261111
+jobs:
+  r-phy-scientific:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned MA1 branch scientific dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Independent multi-island oracle and all MA1 regression tests
+        shell: bash
+        run: |
+          mkdir -p /tmp/r-phy-evidence
+          set -o pipefail
+          python -m pytest -q -rx tests/iosn_official --junitxml=/tmp/r-phy-evidence/independent-and-ma1-junit.xml 2>&1 | tee /tmp/r-phy-evidence/independent-and-ma1-pytest.log
+      - name: Full existing package regression
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q -rx --junitxml=/tmp/r-phy-evidence/full-suite-junit.xml 2>&1 | tee /tmp/r-phy-evidence/full-suite-pytest.log
+      - name: Reproduce frozen synthetic fixture from actual running commit
+        shell: bash
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence --output /tmp/r-phy-evidence/fixture-output --commit "$GITHUB_SHA" | tee /tmp/r-phy-evidence/fixture-summary.json
+          find /tmp/r-phy-evidence/fixture-output -type f -print0 | sort -z | xargs -0 sha256sum > /tmp/r-phy-evidence/fixture-recomputed-sha256.txt
+          git rev-parse HEAD > /tmp/r-phy-evidence/checked-out-commit.txt
+      - name: Upload independent scientific review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-m2-ma1-phy-independent-20261111
+          path: /tmp/r-phy-evidence/
+          if-no-files-found: error
+          retention-days: 90
