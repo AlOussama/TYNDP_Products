@@ -1,0 +1,199 @@
+{
+  "schema_version": "r-clu-independent-review-v1",
+  "date": "2026-11-11",
+  "source_commit": "0254d867a34b66ec7b56c90225605d29ea328916",
+  "review_branch": "review/iosn-m2-ma1-r-clu-20261111",
+  "report_path": "docs/current/IOSN_Modul2_Netzaggregation/87_R_M2_MA1_CLU_INDEPENDENT_REVIEW_20261111.md",
+  "test_path": "tests/iosn_official/test_r_clu_independent_frozen.py",
+  "method_source_url": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/tyndp-documents/TYNDP2026/TYNDP_2026_identification_of_system_needs_methodology_for_consultation.pdf",
+  "official_table3": {
+    "source_printed_pages": [
+      26,
+      27
+    ],
+    "country_labels": 37,
+    "zone_sum": 102,
+    "northern_ireland": 1,
+    "united_kingdom": 1,
+    "independent_status": "PASS"
+  },
+  "decision": "REPAIRS_REQUIRED",
+  "counts": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 3
+  },
+  "real_102_zone_qualification": "BLOCKED_DATA",
+  "no_merge": true,
+  "modified_production_code": false,
+  "test_evidence": {
+    "workflow_run_id": 43078445311,
+    "workflow_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43078445311",
+    "tested_head_sha": "caaab411de053b2d937322d710fd39243bd708ef",
+    "conclusion": "success",
+    "total_passed": 36,
+    "independent_new_tests": 10,
+    "previous_ma1_tests": 26,
+    "artifact_id": 13882189951,
+    "artifact_name": "r-clu-independent-20261111",
+    "interpretation": "Two P1 and two additional P2 issues are intentionally asserted as reproduced defects; green CI does not mean repaired."
+  },
+  "exhaustive_oracle": {
+    "vertices": 4,
+    "undirected_possible_edges": 6,
+    "edge_states": [
+      "absent",
+      "ordinary",
+      "protected"
+    ],
+    "graph_variants": 729,
+    "country_quota_values": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "feasible_cases": 1804,
+    "greedy_solved": 1794,
+    "greedy_false_blocked": 10,
+    "greedy_invalid_accepted": 0,
+    "scope_note": "Bounded complete enumeration of labelled four-node edge-state graphs, not real-network or globally optimal certification."
+  },
+  "findings": [
+    {
+      "id": "R-CLU-001",
+      "severity": "P1",
+      "status": "CONFIRMED_OPEN",
+      "title": "Greedy false infeasibility with protected cuts",
+      "source": "src/tyndp_reduce/iosn_official/seed.py:61-135",
+      "test_ids": [
+        "test_02",
+        "test_03"
+      ],
+      "expected": "Feasible partition {v0},{v1,v2,v3} for quota X=2",
+      "observed": "CountryContractError Cannot meet exact quotas after greedy merge v0-v3",
+      "reproduction": {
+        "buses": [
+          "v0",
+          "v1",
+          "v2",
+          "v3"
+        ],
+        "quota": {
+          "X": 2
+        },
+        "edges": [
+          [
+            "e01",
+            "v0",
+            "v1",
+            7,
+            true
+          ],
+          [
+            "e02",
+            "v0",
+            "v2",
+            4,
+            true
+          ],
+          [
+            "e03",
+            "v0",
+            "v3",
+            0,
+            false
+          ],
+          [
+            "e13",
+            "v1",
+            "v3",
+            7,
+            false
+          ],
+          [
+            "e23",
+            "v2",
+            "v3",
+            0,
+            false
+          ]
+        ]
+      },
+      "repair_gate": "Deterministic safe alternative search plus distinguish HEURISTIC_STUCK from proven infeasible; zero false blocks in bounded exact oracle."
+    },
+    {
+      "id": "R-CLU-002",
+      "severity": "P1",
+      "status": "CONFIRMED_OPEN",
+      "title": "Nominal 400-kV line can bypass compulsory screening with class 0",
+      "source": "src/tyndp_reduce/iosn_official/screen.py:41-79",
+      "test_ids": [
+        "test_08"
+      ],
+      "expected": "Annual 90 MWh for a 400-kV line flowing 100 MW with 10-MW limit and 1-hour yearly observation",
+      "observed": "Line omitted from eligible list, zero output rows",
+      "reproduction": {
+        "nominal_kv": 400,
+        "screening_class_kv": 0,
+        "flow_mw": 100,
+        "limit_mw": 10,
+        "duration_h_per_year": 1,
+        "years": 5
+      },
+      "repair_gate": "Force screening of genuine nominal-225/400 lines unless audited source-backed exception; preserve explicit 220/380 class mapping."
+    },
+    {
+      "id": "R-CLU-003",
+      "severity": "P2",
+      "status": "CONFIRMED_OPEN",
+      "title": "Protected-line generator consumption corrupts run fingerprint equality",
+      "source": "src/tyndp_reduce/iosn_official/ma1.py:128-180",
+      "test_ids": [
+        "test_09"
+      ],
+      "expected": "Same protected d12 and same busmap yields identical input_manifest_sha256",
+      "observed": "tuple and generator yield different hashes",
+      "repair_gate": "Canonical immutable protected IDs once at entry."
+    },
+    {
+      "id": "R-CLU-004",
+      "severity": "P2",
+      "status": "CONFIRMED_OPEN",
+      "title": "CSV source_page tampering for United Kingdom is accepted",
+      "source": "src/tyndp_reduce/iosn_official/country.py:58-80",
+      "test_ids": [
+        "test_10"
+      ],
+      "expected": "Reject UK page 26 if original page 27 is claimed",
+      "observed": "CountryZoneBudget accepted with identical quotas",
+      "repair_gate": "Pin exact page per official label or remove unverified page attribution."
+    },
+    {
+      "id": "R-CLU-005",
+      "severity": "P2",
+      "status": "METHOD_CONTRACT_OPEN_DATA",
+      "title": "Raw-country aliases cannot map many-to-one before independent provenance-preserving canonicalization",
+      "source": "src/tyndp_reduce/iosn_official/country.py:84-96",
+      "test_ids": [
+        "test_05"
+      ],
+      "expected": "NI and UK distinct while legitimate multiple raw IDs for same official territory can be resolved upstream",
+      "observed": "Many-to-one raw aliases rejected by design",
+      "repair_gate": "Explicit upstream alias normalization with NI/UK non-collapsing guarantee; no M0 or M1 change."
+    }
+  ],
+  "evidence_synthetic": {
+    "country_purity": "PASS_FOR_EMITTED_BUSMAPS",
+    "quota_exact": "PASS_FOR_EMITTED_BUSMAPS",
+    "ac_connectivity": "PASS_FOR_EMITTED_BUSMAPS",
+    "ac_coupling_crossborder": "PASS",
+    "oriented_Az_Gamma_eq_P_Ad": "PASS",
+    "thermal_mwh_with_durations": "PASS_WITH_P1_SCREENING_EXCEPTION",
+    "two_ac_islands_and_110gap": "PASS_FOR_FLAGGED_GAPS",
+    "global_algorithm_optimality": "NOT_CLAIMED",
+    "ma2_rmse_and_equivalent": "NOT_IN_SCOPE",
+    "ma3_n1_capacity": "NOT_IN_SCOPE"
+  },
+  "required_followup": "Repair in distinct worker branch; independent re-review at exact repair SHA; retain BLOCKED_DATA on 102-zone real case; no PR #13 merge."
+}
