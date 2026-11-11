@@ -39,6 +39,16 @@ def digest_object(value) -> str:
                              separators=(",", ":"), allow_nan=False).encode("utf-8")).hexdigest()
 
 
+def freeze_tuple(value, label: str, element_type: type) -> tuple:
+    """Own validated immutable tuple fields, never retain a caller-owned list."""
+    if not isinstance(value, (tuple, list)):
+        raise DataContractError(f"{label} must be a tuple or list")
+    owned = tuple(value)
+    if any(type(item) is not element_type for item in owned):
+        raise DataContractError(f"{label} contains an invalid element type")
+    return owned
+
+
 @dataclass(frozen=True)
 class Provenance:
     dataset_id: str
@@ -48,6 +58,10 @@ class Provenance:
     synthetic: bool = False
 
     def __post_init__(self):
+        if type(self.synthetic) is not bool:
+            raise DataContractError("Provenance.synthetic must be a Python bool")
+        if not isinstance(self.source_sha256, str):
+            raise DataContractError("Source SHA-256 must be a string")
         if any(not isinstance(x, str) or not x.strip()
                for x in (self.dataset_id, self.source_uri, self.version)):
             raise DataContractError("Missing dataset provenance")
@@ -69,6 +83,8 @@ class ACBranch:
     screening_class_kv: float | None = None  # 225/400; 0=deliberate exclusion
 
     def __post_init__(self):
+        if type(self.in_service) is not bool:
+            raise DataContractError("ACBranch.in_service must be a Python bool")
         if not self.identifier or not self.bus0 or not self.bus1 or self.bus0 == self.bus1:
             raise DataContractError("Invalid AC branch identity/terminals")
         if self.kind not in {"line", "transformer", "pst"}:
@@ -93,6 +109,8 @@ class HVDCTerminals:
     lossless: bool = True
 
     def __post_init__(self):
+        if type(self.lossless) is not bool:
+            raise DataContractError("HVDCTerminals.lossless must be a Python bool")
         if not self.identifier or not self.bus0 or not self.bus1 or self.bus0 == self.bus1:
             raise DataContractError("Invalid HVDC terminal identities")
         if not self.lossless:
@@ -111,6 +129,16 @@ class DetailedGridSnapshot:
     incomplete_110kv_ties: bool = False
 
     def __post_init__(self):
+        for name, item_type in (
+            ("bus_ids", str), ("raw_country_ids", str),
+            ("ac_branches", ACBranch), ("hvdc", HVDCTerminals),
+            ("unsupported_components", str),
+        ):
+            object.__setattr__(self, name, freeze_tuple(getattr(self, name), name, item_type))
+        if type(self.incomplete_110kv_ties) is not bool:
+            raise DataContractError("incomplete_110kv_ties must be a Python bool")
+        if not isinstance(self.provenance, Provenance):
+            raise DataContractError("Detailed grid requires validated provenance")
         if not self.bus_ids or any(not x for x in self.bus_ids) or len(set(self.bus_ids)) != len(self.bus_ids):
             raise DataContractError("Bus IDs must be nonempty and unique")
         if len(self.raw_country_ids) != len(self.bus_ids) or any(not x for x in self.raw_country_ids):
@@ -152,6 +180,8 @@ class TimeSet:
     timezone: str = "UTC"
 
     def __post_init__(self):
+        for name in ("snapshot_ids", "year_for_snapshot", "weather_year_ids", "season"):
+            object.__setattr__(self, name, freeze_tuple(getattr(self, name), name, str))
         t = len(self.snapshot_ids)
         if t == 0 or len(set(self.snapshot_ids)) != t:
             raise DataContractError("Snapshots must be nonempty and unique")
@@ -190,6 +220,8 @@ class ReferenceDispatchSet:
     provenance: Provenance
 
     def __post_init__(self):
+        for name in ("bus_ids", "snapshot_ids"):
+            object.__setattr__(self, name, freeze_tuple(getattr(self, name), name, str))
         if not self.bus_ids or not self.snapshot_ids:
             raise DataContractError("Dispatch requires bus IDs and snapshots")
         object.__setattr__(self, "injections_mw",
@@ -212,6 +244,8 @@ class NormalContingencyRatings:
     unit: str = "MW"
 
     def __post_init__(self):
+        object.__setattr__(self, "snapshot_ids",
+                           freeze_tuple(self.snapshot_ids, "snapshot_ids", str))
         if self.unit != "MW":
             raise DataContractError("Ratings in MVA or A require an upstream declared MW conversion")
         if not self.snapshot_ids:
@@ -236,6 +270,14 @@ class ReferenceFlowCache:
     neutral_calibration: bool
 
     def __post_init__(self):
+        for name, element_type in (
+            ("branch_ids", str), ("bus_ids", str), ("snapshot_ids", str),
+            ("island_of_bus", int),
+        ):
+            object.__setattr__(self, name,
+                               freeze_tuple(getattr(self, name), name, element_type))
+        if type(self.neutral_calibration) is not bool:
+            raise DataContractError("neutral_calibration must be a Python bool")
         object.__setattr__(self, "flow_mw",
                            immutable_array(self.flow_mw, (len(self.branch_ids), len(self.snapshot_ids))))
         object.__setattr__(self, "nodal_net_mw",

@@ -8,6 +8,8 @@ does not make two synchronous AC components into a single AC island.
 """
 from __future__ import annotations
 from hashlib import sha256
+import math
+from numbers import Real
 import numpy as np
 from scipy.sparse import coo_matrix, diags
 from scipy.sparse.csgraph import connected_components
@@ -54,6 +56,15 @@ def reference_flows(
     PST neutral mode suppresses only PST phase schedule; HVDC is held at 0 MW.
     Never implicitly redispatch/balance a deficient AC island.
     """
+    # I-RP1: numerical MW policy, NOT an ENTSO-E prescribed threshold.
+    # User tolerance may tighten but never relax the hard 1e-6-MW ceiling.
+    if (isinstance(atol_mw, bool) or not isinstance(atol_mw, Real)
+            or not math.isfinite(float(atol_mw))
+            or not 0.0 < float(atol_mw) <= 1e-6):
+        raise DataContractError("atol_mw must be finite and in (0, 1e-6] MW")
+    if type(neutral_calibration) is not bool:
+        raise DataContractError("neutral_calibration must be a Python bool")
+    acceptance_mw = min(float(atol_mw), 1e-6)
     if grid.unsupported_components:
         raise RejectedComponent("REJECTED_COMPONENT: " + ", ".join(grid.unsupported_components))
     if grid.incomplete_110kv_ties:
@@ -92,7 +103,7 @@ def reference_flows(
     for island in range(n_islands):
         members = np.flatnonzero(island_ids == island)
         imbalance = np.sum(injections[members], axis=0)
-        if not np.all(np.abs(imbalance) <= atol_mw):
+        if not np.all(np.abs(imbalance) <= acceptance_mw):
             raise DataContractError(
                 f"BLOCKED_DATA: AC island {island} unbalanced after HVDC actions; "
                 f"max MW={float(np.max(np.abs(imbalance))):.9g}"
@@ -108,7 +119,7 @@ def reference_flows(
 
     flows = b[:, None] * (incidence.T @ theta - phase)
     kcl_residual = incidence @ flows - injections
-    if kcl_residual.size and np.max(np.abs(kcl_residual)) > atol_mw:
+    if kcl_residual.size and np.max(np.abs(kcl_residual)) > acceptance_mw:
         raise DataContractError("Physical reference solve failed AC-island Kirchhoff test")
     if not np.all(np.isfinite(flows)):
         raise DataContractError("Nonfinite solved reference flow")
