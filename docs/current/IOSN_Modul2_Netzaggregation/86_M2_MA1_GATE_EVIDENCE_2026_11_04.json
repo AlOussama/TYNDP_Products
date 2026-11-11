@@ -1,0 +1,66 @@
+{
+  "document_id": "M2-MA1-GATE-20261104",
+  "source_commit": "2d0b830375c71f3e727d303cdd2ca037da1c67f4",
+  "code_freeze_commit": "0254d867a34b66ec7b56c90225605d29ea328916",
+  "branch": "feature/iosn-m2-ma1-integration-20261104",
+  "pull_request": "https://github.com/AlOussama/TYNDP_Products/pull/13",
+  "verification_level": "SYNTHETIC_TESTS_PASS_NOT_INDEPENDENTLY_QUALIFIED",
+  "tests": {
+    "core_run_id": 41792893139,
+    "core_passed": 52,
+    "core_conclusion": "success",
+    "ma1_run_id": 41792893144,
+    "ma1_passed": 26,
+    "ma1_conclusion": "success"
+  },
+  "evidence_artifact": {
+    "url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/41792893144/artifacts/13303539283",
+    "files": 15,
+    "hashed_outputs": 14,
+    "input_manifest_sha256": "a378e22fde234cdf9275bcb5685f1034c1e41eeb442b81a8cfe06ed988882661",
+    "synthetic": true,
+    "ac_islands": 2,
+    "ac_buses": 7,
+    "ac_branches": 8,
+    "hvdc_corridors": 1,
+    "country_quota_counts": {
+      "Germany": 2,
+      "France": 1,
+      "Northern Ireland": 1
+    },
+    "year_ids": [
+      "MOCK-Y1",
+      "MOCK-Y2",
+      "MOCK-Y3",
+      "MOCK-Y4",
+      "MOCK-Y5"
+    ]
+  },
+  "gates": {
+    "G01": "PASS_SYNTHETIC_INPUT_CONTRACT",
+    "G02": "PASS_OFFICIAL_CSV_SCHEMA_AND_SYNTHETIC_QUOTAS",
+    "G03": "PASS_SYNTHETIC_AC_AND_COUNTRY_CONSTRAINTS",
+    "G04": "PASS_SYNTHETIC_MWH_SCREENING",
+    "G05": "PASS_SYNTHETIC_EXACT_PROJECTION",
+    "G11": "PARTIAL_LOSSLESS_DC_DEVICE_SEMANTICS",
+    "G06": "NOT_IN_MA1",
+    "G07": "NOT_IN_MA1",
+    "G08": "NOT_IN_MA1",
+    "G09": "NOT_IN_MA1",
+    "G10": "NOT_IN_MA1",
+    "G12": "BLOCKED_REAL_DATA"
+  },
+  "reviews": {
+    "R_PHY": "INDEPENDENT_NOT_PERFORMED",
+    "R_CLU": "INDEPENDENT_NOT_PERFORMED",
+    "repair_tests": "PASSED_GITHUB_ACTIONS"
+  },
+  "approved_for_main_merge": false,
+  "real_qualified": false,
+  "independent_review_complete": false,
+  "other_known_branch": {
+    "name": "restructure/iosn-m2-ma1-integration-20261103",
+    "sha": "88374dd38792146ca55fa3fe2d4b35dac842c0b9",
+    "relationship": "ALTERNATIVE_API_UNMERGED"
+  }
+}

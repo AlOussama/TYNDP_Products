@@ -1,0 +1,82 @@
+name: "M2 MA1 RP1 integrated exact SHA evidence"
+on:
+  push:
+    branches:
+      - "feature/iosn-m2-ma1-rp1-integration-20261111"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/tyndp_reduce/iosn_official/**"
+      - "tests/iosn_official/**"
+      - ".github/workflows/m2-ma1-rp1-verify.yml"
+permissions:
+  contents: read
+jobs:
+  rp1-integrated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install complete scientific test package
+        run: python -m pip install -e ".[test]"
+      - name: Focused MA1 including 729 / 1804 exhaustive oracle
+        run: |
+          mkdir -p /tmp/rp1-reports
+          python -m pytest -q -rx tests/iosn_official --junitxml=/tmp/rp1-reports/focused.xml
+      - name: Entire package regression with no unresolved XPASS
+        run: python -m pytest -q -rx --junitxml=/tmp/rp1-reports/all.xml
+      - name: Export pinned synthetic fifteen-file evidence
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence \
+            --output /tmp/rp1-evidence --commit "$(git rev-parse HEAD)"
+      - name: Machine manifest with CI head and artifact content hashes
+        if: always()
+        env:
+          RP1_WORKER_PHY: "4f235dc90b1e5ad9119a811ff1d96ff97c9d29b7"
+          RP1_WORKER_CLU: "763f90039cf4ac3b49e8e0f68c1b8b8f890c2689"
+        run: |
+          mkdir -p /tmp/rp1-reports
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, xml.etree.ElementTree as ET
+          output = pathlib.Path("/tmp/rp1-reports")
+          folder = pathlib.Path("/tmp/rp1-evidence")
+          rows = {}
+          for path in sorted(folder.glob("**/*")) if folder.exists() else []:
+              if path.is_file():
+                  rows[str(path.relative_to(folder))] = hashlib.sha256(path.read_bytes()).hexdigest()
+          tests = {}
+          for name in ("focused", "all"):
+              p = output / (name + ".xml")
+              if p.exists():
+                  root = ET.parse(p).getroot()
+                  suite = root if root.tag == "testsuite" else root.find("testsuite")
+                  tests[name] = {k: int(suite.get(k, "0")) for k in ("tests","errors","failures","skipped")}
+          data = {
+              "schema": "M2-MA1-RP1-CI-v1",
+              "checkout_sha": subprocess.check_output(["git","rev-parse","HEAD"], text=True).strip(),
+              "github_event_sha": os.environ.get("GITHUB_SHA"),
+              "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+              "worker_phy_sha": os.environ.get("RP1_WORKER_PHY"),
+              "worker_clu_sha": os.environ.get("RP1_WORKER_CLU"),
+              "tests": tests, "synthetic_fixture_file_sha256": rows,
+              "independent_reviewer_release": False,
+              "real_network_qualified": False,
+              "ma2_runtime_authorized": False,
+          }
+          (output / "ci_evidence_manifest.json").write_text(
+              json.dumps(data,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(data,sort_keys=True))
+          PY
+      - name: Retain JUnit, fixture, hashes and SHA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m2-ma1-rp1-sha-bound-evidence
+          path: |
+            /tmp/rp1-reports/**
+            /tmp/rp1-evidence/**
+          if-no-files-found: warn
+          retention-days: 90
