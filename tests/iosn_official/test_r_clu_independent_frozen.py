@@ -306,3 +306,31 @@ def test_08_400kv_zero_class_can_silently_omit_normative_line_reproducer():
     result = screen_annual_overload(g, cache, time, ratings)
     assert result.screened_line_ids == ()
     assert result.rows == ()
+
+
+def test_09_generator_protected_ids_changes_input_hash_reproducer():
+    # Same protection and same output, but one-shot iterators are consumed by
+    # quota_seed before execute_ma1 constructs its own manifest fingerprint.
+    from tyndp_reduce.iosn_official.fixture_evidence import build_synthetic_fixture
+    from tyndp_reduce.iosn_official.ma1 import execute_ma1
+
+    args = build_synthetic_fixture()
+    with_tuple = execute_ma1(*args, protected_line_ids=("d12",))
+    with_generator = execute_ma1(*args, protected_line_ids=(x for x in ("d12",)))
+    assert with_tuple.seed.zone_of_bus == with_generator.seed.zone_of_bus
+    assert with_tuple.seed.protected_line_ids == with_generator.seed.protected_line_ids
+    # BUG REPRODUCER: logically identical input yields different fingerprint.
+    assert with_tuple.input_manifest_sha256 != with_generator.input_manifest_sha256
+
+
+def test_10_source_page_for_uk_is_not_checked_against_original_pdf_reproducer(tmp_path):
+    from tyndp_reduce.iosn_official.country import load_official_country_budget
+
+    original = (Path(__file__).resolve().parents[2] / "docs" / "current"
+                / "IOSN_2026_OFFICIAL_COUNTRY_ZONE_BUDGET.csv").read_text()
+    assert "United Kingdom,1,27" in original
+    modified = original.replace("United Kingdom,1,27", "United Kingdom,1,26")
+    path = tmp_path / "falsified_source_page.csv"
+    path.write_text(modified, encoding="utf-8")
+    # BUG REPRODUCER: original source page 27 can be falsified as page 26.
+    assert dict(load_official_country_budget(path).quotas) == TABLE3
