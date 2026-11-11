@@ -18,6 +18,6 @@
 | SHACL | [W3C 2017 Recommendation](https://www.w3.org/TR/shacl/) | Validierung von RDF-Daten gegen Shapes | Graph |
 | BPMN | [OMG](https://www.omg.org/spec/BPMN/2.0.2) | Prozesskontrolle, keine LP-Constraintsemantik | Process |
 | Pyomo | [Docs](https://pyomo.readthedocs.io/) | solverunabhängige algebraische Modellierung im Python-Runtime | Experiment |
-| Prototype A/B | Unter `prototype_A`/`prototype_B` in diesem Workstream | 14/14 **erwartete synthetische Klassifikationen je Ansatz**; keine Normkonformität | S / toy only |
+| Prototype A/B | Unter `prototype_A`/`prototype_B` in diesem Workstream | 22/22 **erwartete synthetische Klassifikationen je Ansatz**; keine Normkonformität | S / toy only |
 
 **Quellhierarchie:** aktuell bestätigte Methodikfassung zuerst; ältere Fassungen nur bei nachgewiesener Ergänzungsrelevanz und explizitem Versionsvorbehalt. Eine spätere offiziell genehmigte Quelle kann die O26-Forschungsbasis ändern, ohne die aktuelle Studie rückwirkend normativ zu legitimieren. Ein G-PST self-reported data sheet ist keine unabhängige Standardprüfung.

@@ -1,0 +1,68 @@
+{
+  "review_kind": "ROLE_SEPARATED_ADVERSARIAL_NOT_INDEPENDENT_PERSON",
+  "reviewed_commit": "edf8267046bcf7233316991ecf174b26fd2621f6",
+  "checks": [
+    {
+      "check": "baseline_ids_48",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "crosswalk_48",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "matrix_15_by_12",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "A_stages_P00_P17",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "B_stages_P00_P17",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "weight_ids_A_B",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "weight_years_A_B",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "symbolic_unfixed_A_B",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "same_22_mutation_cases",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "all_mutation_assertions_correct",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "fail_closed_21_per_arch",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "no_math_conformity_claim",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "path_fix",
+      "result": "PASS_STRUCTURAL"
+    },
+    {
+      "check": "draft_only_deferred",
+      "result": "PASS_STRUCTURAL"
+    }
+  ],
+  "tests_per_prototype": 22,
+  "synthetic_pass_per_prototype": 1,
+  "negative_fail_closed_per_prototype": 21,
+  "all_checks_pass": true,
+  "method_conformity": "NOT_DEMONSTRATED",
+  "G1": "BLOCKED"
+}

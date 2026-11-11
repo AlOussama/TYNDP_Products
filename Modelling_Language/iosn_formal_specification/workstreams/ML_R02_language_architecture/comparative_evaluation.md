@@ -38,3 +38,6 @@ Versionsänderung allein wird in A wegen Profilpin und in B wegen Modellvertrags
 
 ## Wissenschaftliche Grenzen
 Es gibt keinen Reproduzierbarkeitsnachweis für die **vollständigen 48 mathematischen SR**, keine tatsächlichen LinkML-/SysML-/mathspec-/GEMS-Parserläufe, keine Netzreduktion, keinen Optimierer, keine Quellhash-Qualifikation und keinen unabhängig geprüften Soll-/Ist-Vergleich. Beide Validatoren sind kleine projektspezifische Prüfer; gleiche 14 Resultate zeigen weder Funktionsgleichheit noch Sprachäquivalenz. Weitere Benchmarks müssen externe Golden Models, Property-based Mutationen, Round-trip-Differenzen, Laufzeitmessungen und getrennte Expertenreviews einschließen.
+
+## Zusätzlicher Adversarial-Testzyklus
+Nach dem Erstlauf wurden die Prüfungen um fehlende numerische DC-/NTC-Operanden, veränderte Zeit-/Wetterjahrscope-IDs, nicht referenzierte aktive SR-IDs, fehlende Originaldaten-Hashes, eine P00–P17-Prozesslücke und unbekannte Entitätstypen erweitert. Dies erhöhte den Prüfumfang von 14 auf **22 Fälle pro Prototyp** (1 synthetisch gültig, 21 gezielt ungültig). Die ersten IEEE-NaN- und Referenzpfadfehler wurden korrigiert; die negative Ergebnisklassifikation ist nun 22/22 je Ansatz. Die mathematische Vollverifikation bleibt offen.
