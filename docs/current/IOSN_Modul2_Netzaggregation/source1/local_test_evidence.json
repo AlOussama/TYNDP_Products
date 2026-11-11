@@ -2,7 +2,7 @@
   "id": "M2-D-SOURCE1-LOCAL-TESTS-20261111",
   "executed_utc_date": "2026-11-11",
   "runtime": "Python 3.13.5",
-  "script": "source1_verifier.py (local artifact, not committed in this revision)",
+  "script": "docs/current/IOSN_Modul2_Netzaggregation/source1/source1_verifier.py (committed, tested identical bytes; Git blob 156ba782d4d2b5f276a3ac488ff2a2370bcfcb02)",
   "script_sha256": "6d77c6a790dee9ba7fe85bb87d99c0f666e97ba8d52dbb39299859dea6e29ea1",
   "checks": [
     {
