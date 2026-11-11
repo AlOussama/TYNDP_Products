@@ -6,11 +6,14 @@ const dir=dirname(fileURLToPath(import.meta.url));
 
 function validateB(m) {
  const e=[],E=s=>e.push(s),nodes=m.nodes||[],N=id=>nodes.find(n=>n.id===id)||{},f=m.fixture||{},cy=["CY1","CY2","CY3","CY4","CY5"];
- if(m.version!=="0.1.0"||!String(m.status).startsWith("RESEARCH_ONLY")||m.requirements?.length!==48||new Set(m.requirements||[]).size!==48)E("model_baseline_version");
+ const expectedIds=Array.from({length:50},(_,i)=>i+1).filter(i=>i!==12&&i!==49).map(i=>"MA01-SR-"+String(i).padStart(3,"0"));
+ if(m.version!=="0.1.0"||!String(m.status).startsWith("RESEARCH_ONLY")||JSON.stringify(m.requirements)!==JSON.stringify(expectedIds))E("model_baseline_version");
  if(new Set(nodes.map(n=>n.id)).size!==nodes.length)E("unique_entities");
+ const allowedKinds=new Set(["Study","WeatherSet","Dataset","PhysicalBranch","MarketLink","Decision","Transformation","ConditionalStage","Output","Verification","ProcessGraph"]);
+ if(nodes.some(n=>!allowedKinds.has(n.kind)))E("unknown_entity_kind");
  if(JSON.stringify(N("study").years)!=="[2035,2040,2050]")E("years");
  const ws=N("weather");
- if(ws.kind!=="WeatherSet"||JSON.stringify(ws.ids)!==JSON.stringify(cy)||ws.scope!=="shared_across_years"||cy.some(c=>ws.symbols?.[c]!==`w_${c}`))E("weather_scope");
+ if(ws.kind!=="WeatherSet"||JSON.stringify(ws.ids)!==JSON.stringify(cy)||ws.scope!=="shared_across_years"||cy.some(c=>ws.symbols?.[c]!==`w_${c}`)||ws.by_year?.length!==3||ws.by_year.some((x,i)=>x.year!==[2035,2040,2050][i]||JSON.stringify(x.ids)!==JSON.stringify(cy)||cy.some(c=>x.symbols?.[c]!==`w_${c}`)))E("weather_scope");
  const w=f.weight_binding||{};
  if(Object.keys(w).sort().join()!==cy.slice().sort().join()||cy.some(c=>!Number.isFinite(w[c])||w[c]<0)||Math.abs(cy.reduce((v,c)=>v+Number(w[c]||0),0)-1)>1e-9)E("weather_binding");
  const d=N("load"),t=d.interval||{};
@@ -21,12 +24,13 @@ function validateB(m) {
  if(cy.some(c=>!Number.isFinite(by[c])||Math.abs(by[c]-by.CY1)>1e-9||by[c]<v.lower||by[c]>v.upper))E("nonanticipative_fixture");
  const line=N("L1"),dc=f.branch_flow||{};
  if(line.kind!=="PhysicalBranch"||line.law!=="DC_KIRCHHOFF")E("dc_law");
- if(!Number.isFinite(dc.flow_mw)||Math.abs(dc.flow_mw-line.b_mw_per_rad*(dc.theta_from-dc.theta_to))>1e-9)E("dc_microtest");
+ if(![dc.flow_mw,dc.theta_from,dc.theta_to,line.b_mw_per_rad].every(Number.isFinite)||Math.abs(dc.flow_mw-line.b_mw_per_rad*(dc.theta_from-dc.theta_to))>1e-9)E("dc_microtest");
  const link=N("C1");
  if(link.kind!=="MarketLink"||link.law!=="CONTROLLABLE_NTC_LINK")E("market_link_law");
- if(!Number.isFinite(f.market_flow_mw)||f.market_flow_mw>link.forward_mw||f.market_flow_mw< -link.reverse_mw)E("market_link_bounds");
+ if(![f.market_flow_mw,link.forward_mw,link.reverse_mw].every(Number.isFinite)||link.forward_mw<0||link.reverse_mw<0||f.market_flow_mw>link.forward_mw||f.market_flow_mw< -link.reverse_mw)E("market_link_bounds");
  const tr=N("T-P06");
  if(tr.kind!=="Transformation"||!tr.source_ref||!tr.busmap_ref||!tr.provenance_ref||tr.output_classes?.length!==6||!tr.quality_oracle)E("reduction_provenance");
+ if(N("process").kind!=="ProcessGraph"||JSON.stringify(N("process").steps)!==JSON.stringify(Array.from({length:18},(_,i)=>"P"+String(i).padStart(2,"0"))))E("process_steps");
  if(N("P15").kind!=="ConditionalStage"||N("P15").optional!==true||(N("P15").enabled&&!N("P15").cap_ref))E("conditional_opf");
  if(N("N1").kind!=="Output"||N("N1").semantic_type!=="SYSTEM_NEED"||!N("N1").formula_ref)E("output_semantics");
  const traces=(m.edges||[]).filter(x=>x.relation==="verified_by");
@@ -50,6 +54,14 @@ function changesB(base) {
  mk("RC07_BROKEN_TRACE",x=>get(x,"VC-029").requirement="MA01-SR-001"),
  mk("RC08_MISSING_DATA",x=>delete get(x,"load").source_ref),
  mk("RC08_SEMANTIC_CONFLICT",x=>get(x,"L1").kind="MarketLink"),
+ mk("RC01_YEAR_SCOPE",x=>get(x,"weather").by_year[2].year=2041),
+ mk("RC08_MISSING_DC_THETA",x=>delete x.fixture.branch_flow.theta_from),
+ mk("RC08_MISSING_B",x=>delete get(x,"L1").b_mw_per_rad),
+ mk("RC08_MISSING_LINK_LIMIT",x=>delete get(x,"C1").forward_mw),
+ mk("RC08_UNKNOWN_SR",x=>x.requirements[0]="MA01-SR-999"),
+ mk("RC08_ACTUAL_HASH_MISSING",x=>get(x,"load").class="ACTUAL"),
+ mk("RC08_PROCESS_GAP",x=>get(x,"process").steps[5]="P04"),
+ mk("RC08_UNKNOWN_ROLE_KIND",x=>get(x,"L1").kind="UnknownDevice"),
  mk("VERSION_MAJOR_BREAK",x=>x.version="1.0.1")];
 }
 function suite(cases,fn){return cases.map(t=>{const v=fn(t.x);return {test:t.name,expected:t.expected,observed:v.structural_status,correct:t.expected===v.structural_status,errors:v.errors,math_conformity:v.math_conformity};});}

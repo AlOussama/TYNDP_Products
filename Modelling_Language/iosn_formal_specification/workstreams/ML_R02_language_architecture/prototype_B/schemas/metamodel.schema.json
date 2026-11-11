@@ -59,7 +59,8 @@
               "Transformation",
               "ConditionalStage",
               "Output",
-              "Verification"
+              "Verification",
+              "ProcessGraph"
             ]
           }
         },

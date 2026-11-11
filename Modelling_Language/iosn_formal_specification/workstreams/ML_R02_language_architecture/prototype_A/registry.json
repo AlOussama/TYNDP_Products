@@ -20,7 +20,7 @@
     "methodology_conflict": "O26 specifies three; D2 five; not resolved"
   },
   "requirements_catalogue": {
-    "relative_path": "../../iosn_requirements_catalogue.csv",
+    "relative_path": "../../../iosn_requirements_catalogue.csv",
     "ids": [
       "MA01-SR-001",
       "MA01-SR-002",

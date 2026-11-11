@@ -17,7 +17,7 @@ Der Dateiname `test_results.json` pro Prototyp enthält alle beobachteten Result
 | Version | A Profilv0.1.0; B ASTv0.1.0 | nicht akzeptierte Versionsmutation | FAIL_CLOSED |
 
 ## Wiederholbare Testauswertung
-Die Testfunktionen wurden in einer isolierten ECMAScript-V8-Umgebung ausgeführt. Die **identischen Funktionsdefinitionen** sind im Repository als `node run_tests.mjs` pro Ansatz enthalten; ihre direkte Ausführung mit Node >=18 ist dokumentiert, wurde in diesem Durchlauf aber **nicht separat als Node-Prozess bestätigt**. Die Tests liefern je **14/14 erwartungskonforme Klassifikationen** (1 gültige synthetische Struktur + 13 negative Varianten). Eine erwartungskonforme Negativklassifikation ist kein mathematischer Toolnachweis. Der als gültig akzeptierte Mikrofall führt ausdrücklich `math_conformity=NOT_DEMONSTRATED`.
+Die Testfunktionen wurden in einer isolierten ECMAScript-V8-Umgebung ausgeführt. Die **identischen Funktionsdefinitionen** sind im Repository als `node run_tests.mjs` pro Ansatz enthalten; ihre direkte Ausführung mit Node >=18 ist dokumentiert, wurde in diesem Durchlauf aber **nicht separat als Node-Prozess bestätigt**. Die Tests liefern je **22/22 erwartungskonforme Klassifikationen** (1 gültige synthetische Struktur + 21 negative Varianten). Eine erwartungskonforme Negativklassifikation ist kein mathematischer Toolnachweis. Der als gültig akzeptierte Mikrofall führt ausdrücklich `math_conformity=NOT_DEMONSTRATED`.
 
 | Vergleichspunkt | A: Registry + Profile | B: Typed AST |
 |---|---|---|

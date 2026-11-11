@@ -8,7 +8,7 @@
 4. `contract_architecture_alternatives.md` — alternative Architekturen und Systemverträge.
 5. `prototype_A/` — fünf separate Profile und zentrale Registry.
 6. `prototype_B/` — integriertes typisiertes Metamodell.
-7. `comparative_evaluation.md` — 14+14 synthetische Testresultate, gleiche Mutationen, Limits.
+7. `comparative_evaluation.md` — 22+22 synthetische Testresultate, gleiche Mutationen, Limits.
 8. `architecture_decision_proposal.md` — nur bedingter Forschungsbeschlussvorschlag, **keine ADR**.
 9. `independent_architecture_review.md` — eigenständiger Adversarial-Review-Pass nach Erstellung.
 Zusätzlich `requirements_language_crosswalk.csv`, `research_sources.md` zur Auditierbarkeit.

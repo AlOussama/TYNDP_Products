@@ -64,6 +64,30 @@
       ]
     },
     {
+      "id": "process",
+      "kind": "ProcessGraph",
+      "steps": [
+        "P00",
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17"
+      ]
+    },
+    {
       "id": "weather",
       "kind": "WeatherSet",
       "ids": [
@@ -81,7 +105,60 @@
         "CY5": "w_CY5"
       },
       "scope": "shared_across_years",
-      "research_override": "D2_CONFLICTS_WITH_O26_THREE"
+      "research_override": "D2_CONFLICTS_WITH_O26_THREE",
+      "by_year": [
+        {
+          "year": 2035,
+          "ids": [
+            "CY1",
+            "CY2",
+            "CY3",
+            "CY4",
+            "CY5"
+          ],
+          "symbols": {
+            "CY1": "w_CY1",
+            "CY2": "w_CY2",
+            "CY3": "w_CY3",
+            "CY4": "w_CY4",
+            "CY5": "w_CY5"
+          }
+        },
+        {
+          "year": 2040,
+          "ids": [
+            "CY1",
+            "CY2",
+            "CY3",
+            "CY4",
+            "CY5"
+          ],
+          "symbols": {
+            "CY1": "w_CY1",
+            "CY2": "w_CY2",
+            "CY3": "w_CY3",
+            "CY4": "w_CY4",
+            "CY5": "w_CY5"
+          }
+        },
+        {
+          "year": 2050,
+          "ids": [
+            "CY1",
+            "CY2",
+            "CY3",
+            "CY4",
+            "CY5"
+          ],
+          "symbols": {
+            "CY1": "w_CY1",
+            "CY2": "w_CY2",
+            "CY3": "w_CY3",
+            "CY4": "w_CY4",
+            "CY5": "w_CY5"
+          }
+        }
+      ]
     },
     {
       "id": "load",

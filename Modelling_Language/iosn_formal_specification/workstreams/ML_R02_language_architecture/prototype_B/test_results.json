@@ -1,7 +1,7 @@
 {
-  "test_runner": "pure ECMAScript V8 evaluation; same functions committed for Node >=18",
-  "expected_matches": 14,
-  "total": 14,
+  "test_runner": "isolated V8 execution of exact committed validator functions; Node runner provided but not independently run",
+  "total": 22,
+  "expected_matches": 22,
   "math_conformity": "NOT_DEMONSTRATED",
   "tests": [
     {
@@ -128,6 +128,88 @@
       "observed": "FAIL_CLOSED",
       "correct": true,
       "errors": [
+        "dc_law"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC01_YEAR_SCOPE",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "weather_scope"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_MISSING_DC_THETA",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "dc_microtest"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_MISSING_B",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "dc_microtest"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_MISSING_LINK_LIMIT",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "market_link_bounds"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_UNKNOWN_SR",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "model_baseline_version",
+        "broken_trace"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_ACTUAL_HASH_MISSING",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "actual_hash_required"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_PROCESS_GAP",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "process_steps"
+      ],
+      "math_conformity": "NOT_DEMONSTRATED"
+    },
+    {
+      "test": "RC08_UNKNOWN_ROLE_KIND",
+      "expected": "FAIL_CLOSED",
+      "observed": "FAIL_CLOSED",
+      "correct": true,
+      "errors": [
+        "unknown_entity_kind",
         "dc_law"
       ],
       "math_conformity": "NOT_DEMONSTRATED"
