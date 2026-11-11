@@ -68,7 +68,7 @@ For LF primary expansion (SR-024) retain mandated mesh equations while applying 
 **Necessary, not sufficient**:
 1. Every detailed node maps to exactly one accepted cluster; each cluster connected in the required underlying graph (SR-016).
 2. Aggregate injection P_cluster = ∑ native-node injections for conserved carriers/times and cut flow = algebraic sum of crossing physical flows (C05).
-3. Branch rating, directional seasonal capacity, impendances, reference/no-load flow offsets, HVDC and PST impacts, mesh relations and six output categories are explicitly traceable (SR-017–022).
+3. Branch rating, directional seasonal capacity, impedances, reference/no-load flow offsets, HVDC and PST impacts, mesh relations and six output categories are explicitly traceable (SR-017–022).
 4. Independent detailed/reduced tests report flow RMSE, N−1/LODF-capacity behavior and the numerical acceptance rule **only once an owner oracle is approved**. Equality of aggregate injections alone is not electrical equivalence.
 
 C05 deliberately cannot validate actual impedances, N−1 topology, PTDF, contingency behavior or network-reduction quality. No source or tolerance shall be fabricated.
