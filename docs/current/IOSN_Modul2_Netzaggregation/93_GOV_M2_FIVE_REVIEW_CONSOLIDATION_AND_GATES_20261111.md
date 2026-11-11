@@ -3,18 +3,18 @@
 **Projekt:** AlOussama/TYNDP_Products  
 **Stand:** 11.11.2026  
 **Modus:** Read-only-Faktenkonsolidierung, dokumentarischer Handoff. Keine Release-/Merge-/MA2-Runtime-Freigabe durch diesen Bericht.  
-**Verifizierter Prüfgegenstand:** Draft PR #13, Implementierungs-HEAD \`70e92ba9e62a320e58227ce9c2f03fad266f44bf\`, Code-Freeze \`0254d867a34b66ec7b56c90225605d29ea328916\`.  
+**Verifizierter Prüfgegenstand:** Draft PR #13, Implementierungs-HEAD `70e92ba9e62a320e58227ce9c2f03fad266f44bf`, Code-Freeze `0254d867a34b66ec7b56c90225605d29ea328916`.  
 **Unveränderliche Modulgrenze:** Ausschließlich M2 Netzaggregation/-reduktion. M0/CGMES, M1/PECD und externe Auswahl der fünf Wetterjahre bleiben unberührt.
 
 ## 1. Fünf getrennte, veröffentlichte Rückläufe
 
 | Auftrag | Verifiziertes Evidence-HEAD | Ergebnis | Konsequenz |
 |---|---|---|---|
-| R-M2-MA1-PHY | \`c004e5330df2a018e567c8ef955ef2fc9d71e0ea\` | **REPAIRS_REQUIRED**, 0 P0, **4 P1** | W-PHY repariert; unabhängiger R-PHY replayt neuen SHA |
-| R-M2-MA1-CLU | \`7d7d07d7af5966ddc26d0be1100a69013763d2e8\` | **REPAIRS_REQUIRED**, 0 P0, **2 P1 + 3 P2** | W-CLU repariert; R-CLU replayt neuen SHA |
-| R-M2-API | \`075c50903b7d51ec19befb4a4b8db1322ae33b2a\` | **RECOMMEND_A_CANONICAL_WITH_LIMITED_ADAPTER**, Owner-Entscheidung offen | Option C als **Empfehlung**, nicht angenommener Freeze |
-| M2-D-REAL | \`6a8262f128ae3dd7e108afe2ade09028ea4f651f\` | **BLOCKED_DATA** | Source Acquisition D0–D3 parallel, D4 unabhängig nach Manifest |
-| R-M2-METH | \`754a79e11370dca2c25f1102d83ced5beb251522\` | **AUTHORITY_UNCONFIRMED**, keine positiv nachgewiesene neue M2-Norm | O26-Konsultationsbaseline weiter **nur wissenschaftlich**, kein official PASS |
+| R-M2-MA1-PHY | `c004e5330df2a018e567c8ef955ef2fc9d71e0ea` | **REPAIRS_REQUIRED**, 0 P0, **4 P1** | W-PHY repariert; unabhängiger R-PHY replayt neuen SHA |
+| R-M2-MA1-CLU | `7d7d07d7af5966ddc26d0be1100a69013763d2e8` | **REPAIRS_REQUIRED**, 0 P0, **2 P1 + 3 P2** | W-CLU repariert; R-CLU replayt neuen SHA |
+| R-M2-API | `075c50903b7d51ec19befb4a4b8db1322ae33b2a` | **RECOMMEND_A_CANONICAL_WITH_LIMITED_ADAPTER**, Owner-Entscheidung offen | Option C als **Empfehlung**, nicht angenommener Freeze |
+| M2-D-REAL | `6a8262f128ae3dd7e108afe2ade09028ea4f651f` | **BLOCKED_DATA** | Source Acquisition D0–D3 parallel, D4 unabhängig nach Manifest |
+| R-M2-METH | `754a79e11370dca2c25f1102d83ced5beb251522` | **AUTHORITY_UNCONFIRMED**, keine positiv nachgewiesene neue M2-Norm | O26-Konsultationsbaseline weiter **nur wissenschaftlich**, kein official PASS |
 
 **Quellen / exakte Reports:**
 
@@ -31,11 +31,11 @@
 | ID | Befund | Wissenschaftlich-technisches Risiko | Worker |
 |---|---|---|---|
 | PHY-R01 | Frozen Dataclasses behalten caller-owned mutable Listen | TOCTOU/Fingerprint-/Topologie-Mutation | W-PHY |
-| PHY-R02 | \`lossless="False"\` ist truthy und wird als verlustlos angenommen | unerlaubte HVDC-Modellsemantik | W-PHY |
-| PHY-R03 | \`in_service="False"\` wird als eingeschaltete Leitung behandelt | falsche AC-Konnektivität | W-PHY |
-| PHY-R04 | \`atol_mw=inf\` und gefährlich große endliche Toleranz umgehen KCL/Islandbilanz | physikalisch ungültige Referenz akzeptiert | W-PHY |
+| PHY-R02 | `lossless="False"` ist truthy und wird als verlustlos angenommen | unerlaubte HVDC-Modellsemantik | W-PHY |
+| PHY-R03 | `in_service="False"` wird als eingeschaltete Leitung behandelt | falsche AC-Konnektivität | W-PHY |
+| PHY-R04 | `atol_mw=inf` und gefährlich große endliche Toleranz umgehen KCL/Islandbilanz | physikalisch ungültige Referenz akzeptiert | W-PHY |
 | R-CLU-001 | Greedy Protected-Cut-Bildung deklariert realisierbare Fälle als unmöglich: 10/1804 feasible Fälle bei erschöpfender vier-Knoten-Enumeration | falsche Infeasibility statt alternative Merges | W-CLU |
-| R-CLU-002 | echte nominale 400-kV-Leitung mit \`screening_class_kv=0\` wird still nicht bewertet | Verschweigen von Überlastungen | W-CLU |
+| R-CLU-002 | echte nominale 400-kV-Leitung mit `screening_class_kv=0` wird still nicht bewertet | Verschweigen von Überlastungen | W-CLU |
 
 **Weitere R-CLU P2:** R-CLU-003 konsumierbarer Generator verfälscht Protected-Line-Hash; R-CLU-004 UK-Seitenquellenänderung wird akzeptiert; R-CLU-005 viele Raw-Aliase pro Gebiet benötigen dokumentierte quellenerhaltende Upstream-Normalisierung, **ohne** NI/UK-Verschmelzung und ohne Änderung an M0/M1.
 
