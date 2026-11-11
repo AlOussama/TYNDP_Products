@@ -1,0 +1,141 @@
+{
+  "review_id": "R-M2-MA1-PHY-20261111",
+  "review_date": "2026-11-11",
+  "repo": "AlOussama/TYNDP_Products",
+  "code_freeze": "0254d867a34b66ec7b56c90225605d29ea328916",
+  "documented_head": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+  "review_test_commit": "c0dd75de1285296da420fd0eb77d29f60efd7d92",
+  "review_branch": "review/iosn-m2-ma1-r-phy-independent-20261111",
+  "decision": "REPAIRS_REQUIRED",
+  "p0_open": 0,
+  "p1_open": 4,
+  "independent_ci": {
+    "run_id": 43077807614,
+    "job_id": 130722144343,
+    "artifact_id": 13881368283,
+    "dedicated_passed": 31,
+    "dedicated_xfailed": 4,
+    "all_passed": 57,
+    "all_xfailed": 4
+  },
+  "numerical_witness": {
+    "buses": 10,
+    "ac_branches": 12,
+    "ac_islands": 3,
+    "cycles": 5,
+    "hvdc_links": 2,
+    "pst_branches": 2,
+    "snapshots": 5,
+    "max_abs_kcl_residual_mw": 1.4210854715202004e-14,
+    "max_abs_island_balance_mw": 5.329070518200751e-15,
+    "max_abs_oracle_discrepancy_mw": 2.7107205369247822e-12,
+    "max_abs_cycle_kvl_residual_rad": 6.071532165918825e-18,
+    "reference_input_sha256": "db0bd9b7f70a69fa5f575173fd3acfba51a61fe18a61efb372c3d192f9f4d381"
+  },
+  "reproduce": "python -m pytest -q -rx tests/iosn_official/test_r_phy_independent_20261111.py",
+  "findings": [
+    {
+      "id": "PHY-R01",
+      "severity": "P1",
+      "status": "OPEN",
+      "category": "IMMUTABILITY_TOCTOU",
+      "file": "src/tyndp_reduce/iosn_official/contracts.py",
+      "lines": [
+        103,
+        141
+      ],
+      "test": "test_known_repro_mutable_grid_branch_list_must_not_mutate_after_validation",
+      "expectation": "caller owned mutable lists either rejected or copied to immutable tuple",
+      "observed": "grid.fingerprint changes after external list append without revalidation",
+      "owner": "W-PHY"
+    },
+    {
+      "id": "PHY-R02",
+      "severity": "P1",
+      "status": "OPEN",
+      "category": "HVDC_FAIL_CLOSED_TYPES",
+      "file": "src/tyndp_reduce/iosn_official/contracts.py",
+      "lines": [
+        89,
+        99
+      ],
+      "test": "test_known_repro_lossless_string_flag_must_fail_closed",
+      "expectation": "reject non-boolean lossless",
+      "observed": "lossless='False' accepted as truthy and treated as lossless",
+      "owner": "W-PHY"
+    },
+    {
+      "id": "PHY-R03",
+      "severity": "P1",
+      "status": "OPEN",
+      "category": "TOPOLOGY_SERVICE_STATUS_TYPES",
+      "file": "src/tyndp_reduce/iosn_official/contracts.py",
+      "lines": [
+        60,
+        85
+      ],
+      "test": "test_known_repro_branch_service_status_string_must_fail_closed",
+      "expectation": "reject non-boolean in_service",
+      "observed": "in_service='False' accepted and branch counted active",
+      "owner": "W-PHY"
+    },
+    {
+      "id": "PHY-R04",
+      "severity": "P1",
+      "status": "OPEN",
+      "category": "UNSAFE_NUMERIC_TOLERANCE",
+      "file": "src/tyndp_reduce/iosn_official/physical.py",
+      "lines": [
+        92,
+        113
+      ],
+      "test": "test_known_repro_infinite_tolerance_must_not_bypass_island_kcl",
+      "expectation": "reject nonfinite/out-of-range tolerance and 1-MW unbalanced 2-bus island",
+      "observed": "atol_mw=inf bypasses both island-balance and residual gates and returns a cache",
+      "owner": "W-PHY"
+    }
+  ],
+  "evidence_limitations": [
+    {
+      "id": "PHY-P2-SOURCE",
+      "severity": "P2",
+      "status": "OPEN_DATA",
+      "description": "source SHA fields are declarations and have no original-byte attestation"
+    },
+    {
+      "id": "PHY-P2-COMMIT",
+      "severity": "P2",
+      "status": "OPEN_PROVENANCE",
+      "description": "evidence exporter code_commit is caller-provided; independent workflow binds and separately records actual checkout"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B-DATA-01",
+      "severity": "P1",
+      "scope": "REAL_ADMISSION",
+      "status": "BLOCKED_DATA",
+      "description": "37-label 102-zone Europe network and real 5-year dispatch/rating source bytes not supplied"
+    },
+    {
+      "id": "B-DEVICE-02",
+      "severity": "P1",
+      "scope": "REAL_ADMISSION",
+      "status": "BLOCKED_INTEGRATION",
+      "description": "PyPSA/TSO original tap, PST, HVDC loss and control semantics not solver-qualified"
+    },
+    {
+      "id": "B-GOV-03",
+      "severity": "P1",
+      "scope": "FULL_MA1_ADMISSION",
+      "status": "BLOCKED_REVIEW",
+      "description": "R-CLU independent gate separate and not evaluated here"
+    }
+  ],
+  "real_network_qualified": false,
+  "independent_reviewer_release": false,
+  "merge_authorized": false,
+  "ma2_runtime_authorized": false,
+  "re_review_required": true,
+  "worker_repairs_completed": false
+}
