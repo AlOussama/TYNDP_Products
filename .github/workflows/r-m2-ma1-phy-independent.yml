@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - review/iosn-m2-ma1-r-phy-independent-20261111
+    paths:
+      - "tests/iosn_official/**"
+      - ".github/workflows/r-m2-ma1-phy-independent.yml"
 jobs:
   r-phy-scientific:
     runs-on: ubuntu-latest
@@ -26,6 +29,10 @@ jobs:
         run: |
           set -o pipefail
           python -m pytest -q -rx --junitxml=/tmp/r-phy-evidence/full-suite-junit.xml 2>&1 | tee /tmp/r-phy-evidence/full-suite-pytest.log
+      - name: Independent numerical residual report (cycle KVL and KCL)
+        shell: bash
+        run: |
+          python tests/iosn_official/r_phy_numerical_metrics_20261111.py /tmp/r-phy-evidence/numerical_metrics.json
       - name: Reproduce frozen synthetic fixture from actual running commit
         shell: bash
         run: |
