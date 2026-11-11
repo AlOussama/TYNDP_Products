@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "DESIGN_ONLY",
+  "source_commit": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b",
+  "contract_ref": "MA01-DRAFT-ML-R04",
+  "source_authority": "AUTHORITY_UNCONFIRMED",
+  "target_year": null,
+  "weather_case_ids": [],
+  "run_id": null,
+  "attempted_at_utc": null,
+  "tool": {
+    "name": null,
+    "version": null,
+    "model_build": null,
+    "model_sha256": null,
+    "adapter_version": null
+  },
+  "solver": {
+    "name": null,
+    "version": null,
+    "termination_status": null,
+    "primal_status": null,
+    "dual_status": null,
+    "configuration_sha256": null
+  },
+  "data_manifest": [],
+  "features": [
+    {
+      "feature_id": "COMMON_FIRST_STAGE_INVESTMENT",
+      "supported": false,
+      "explanation": "Illustrative placeholder only; no real tool evaluated"
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "R04-T-SR-029",
+      "requirement_id": "MA01-SR-029",
+      "status": "NOT_EXECUTED",
+      "applicable": null,
+      "evidence_sha256": null,
+      "oracle_ref": null,
+      "tolerance_profile_ref": null,
+      "attempted_at_utc": null,
+      "cause_code": "NO_TOOL_IMPLEMENTATION_IN_RESEARCH",
+      "antecedent_proof_ref": null
+    }
+  ],
+  "mathematical_evidence": [],
+  "numerical_evidence": {
+    "primal_objective": null,
+    "dual_bound": null,
+    "max_primal_residual": null,
+    "max_dual_residual": null,
+    "gap": null,
+    "residual_profile_ref": null,
+    "raw_solution_sha256": null
+  },
+  "output_evidence": [],
+  "review": {
+    "independent_reviewer": null,
+    "reviewed_at_utc": null,
+    "signed_approval_ref": null,
+    "overall_claim": "NOT_ASSESSED"
+  }
+}
