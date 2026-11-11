@@ -1,0 +1,32 @@
+{
+  "profile_id": "math",
+  "version": "0.1.0",
+  "decision": {
+    "id": "x",
+    "indices": [
+      "year",
+      "candidate"
+    ],
+    "shared_across": "weather",
+    "lower": 0,
+    "upper": 100,
+    "unit": "MW"
+  },
+  "physical_branch": {
+    "id": "L1",
+    "law": "DC_KIRCHHOFF",
+    "b_mw_per_rad": 5
+  },
+  "candidate_link": {
+    "id": "C1",
+    "law": "CONTROLLABLE_NTC_LINK",
+    "forward_mw": 100,
+    "reverse_mw": 100
+  },
+  "obligations": [
+    "nonanticipativity",
+    "dc_mesh",
+    "controllable_ntc",
+    "system_balance_owner_pending"
+  ]
+}

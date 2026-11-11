@@ -1,0 +1,23 @@
+{
+  "test_data": "SYNTHETIC_NOT_OFFICIAL",
+  "weight_binding": {
+    "CY1": 0.1,
+    "CY2": 0.2,
+    "CY3": 0.3,
+    "CY4": 0.2,
+    "CY5": 0.2
+  },
+  "decision_by_weather": {
+    "CY1": 40,
+    "CY2": 40,
+    "CY3": 40,
+    "CY4": 40,
+    "CY5": 40
+  },
+  "branch_flow": {
+    "theta_from": 0.2,
+    "theta_to": 0,
+    "flow_mw": 1
+  },
+  "market_flow_mw": 0.6
+}
