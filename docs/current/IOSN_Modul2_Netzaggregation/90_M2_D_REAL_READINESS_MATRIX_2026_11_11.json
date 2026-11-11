@@ -1,0 +1,257 @@
+{
+  "document_id": "M2-D-REAL-READINESS-20261111",
+  "date": "2026-11-11",
+  "repository": "AlOussama/TYNDP_Products",
+  "pinned_commit": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+  "audit_mode": "remote_git_trees_and_public_documentation_only",
+  "decision": "BLOCKED_DATA",
+  "real_qualified": false,
+  "real_grid_payload_inspected": false,
+  "original_real_source_sha256_verified": false,
+  "possible_local_untracked_or_restricted_data": "NOT_AUDITED",
+  "independent_real_replay": "NOT_PERFORMED",
+  "qualifications": {
+    "metadata": "PARTIAL_VERIFIED",
+    "synthetic_test_evidence": "REPORTED_PASS",
+    "real_topology": "BLOCKED",
+    "real_operational_dispatch": "BLOCKED",
+    "real_neutral_calibration": "BLOCKED",
+    "real_n_minus_1": "BLOCKED"
+  },
+  "evidence_inventory": [
+    {
+      "id": "I01",
+      "type": "official_zone_budget",
+      "status": "REPO_FILE_VERIFIED_SCHEMA_ONLY",
+      "path": "docs/current/IOSN_2026_OFFICIAL_COUNTRY_ZONE_BUDGET.csv",
+      "countries": 37,
+      "zones": 102,
+      "original_bytes_sha256": "NOT_COMPUTED_IN_THIS_REVIEW"
+    },
+    {
+      "id": "I02",
+      "type": "synthetic_ma1_fixture",
+      "status": "SYNTHETIC_ONLY",
+      "path": "docs/current/IOSN_Modul2_Netzaggregation/86_M2_MA1_GATE_EVIDENCE_2026_11_04.json",
+      "synthetic": true,
+      "year_ids": [
+        "MOCK-Y1",
+        "MOCK-Y2",
+        "MOCK-Y3",
+        "MOCK-Y4",
+        "MOCK-Y5"
+      ]
+    },
+    {
+      "id": "I03",
+      "type": "real_grid",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "TSO_GRID_OR_UPSTREAM_M0"
+    },
+    {
+      "id": "I04",
+      "type": "real_country_map",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "GRID_OWNER"
+    },
+    {
+      "id": "I05",
+      "type": "operational_nodal_dispatch",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "MARKET_DISPATCH_OWNER"
+    },
+    {
+      "id": "I06",
+      "type": "independent_reference_branch_flows",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "GRID_AND_DISPATCH_OWNER"
+    },
+    {
+      "id": "I07",
+      "type": "neutral_calibration_dispatch",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "GRID_AND_DISPATCH_OWNER"
+    },
+    {
+      "id": "I08",
+      "type": "five_fixed_weather_identifiers",
+      "status": "UPSTREAM_SLOT_DOCUMENTED_IDS_NOT_PROVIDED",
+      "path": "docs/current/IOSN_Modul1/MD1/FIVE_WEATHER_IDS.csv",
+      "branch": "research/iosn-m1-md1-real-source-m0-witness-20261101",
+      "source_owner": "EXTERNAL_WEATHER_OWNER"
+    },
+    {
+      "id": "I09",
+      "type": "time_varying_normal_and_emergency_ratings",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "TSO_LIMIT_OWNER"
+    },
+    {
+      "id": "I10",
+      "type": "n_minus_1_contingencies",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "TSO_SECURITY_OWNER"
+    },
+    {
+      "id": "I11",
+      "type": "tso_exceptions",
+      "status": "NOT_PROVIDED",
+      "path": null,
+      "source_owner": "TSO_SECURITY_OWNER"
+    },
+    {
+      "id": "I12",
+      "type": "entsoe_2026_scenarios_node_and_line",
+      "status": "CATALOGUE_ONLY_NOT_GRID25",
+      "url": "https://2026.entsos-tyndp-scenarios.eu/download/",
+      "original_bytes_sha256": "NOT_COMPUTED"
+    },
+    {
+      "id": "I13",
+      "type": "pypsa_eur_osm_real_topology",
+      "status": "CANDIDATE_OPEN_MODEL_NOT_ADMITTED",
+      "url": "https://zenodo.org/records/14144752",
+      "original_bytes_sha256": "NOT_COMPUTED"
+    }
+  ],
+  "contract_readiness": [
+    {
+      "name": "DetailedGridSnapshot",
+      "interface": "IMPLEMENTED",
+      "metadata": "DOCUMENTED",
+      "real_input": "BLOCKED_NOT_PROVIDED",
+      "blockers": [
+        "grid_revision",
+        "real_bus_branch_equipment",
+        "country_map",
+        "qualified_voltage_and_reactance",
+        "component_support"
+      ]
+    },
+    {
+      "name": "ReferenceDispatchSet",
+      "interface": "IMPLEMENTED",
+      "metadata": "DOCUMENTED",
+      "real_input": "BLOCKED_NOT_PROVIDED",
+      "blockers": [
+        "nodal_operational_MW",
+        "HVDC_PST_schedule",
+        "neutral_MW",
+        "independent_reference_flows"
+      ]
+    },
+    {
+      "name": "TimeSet",
+      "interface": "IMPLEMENTED",
+      "metadata": "DOCUMENTED",
+      "real_input": "BLOCKED_MISSING_FIVE_IDS_AND_HOURS",
+      "blockers": [
+        "year_id_values",
+        "time_axis",
+        "season",
+        "durations",
+        "year_source_hashes"
+      ]
+    },
+    {
+      "name": "CountryZoneBudget",
+      "interface": "IMPLEMENTED",
+      "metadata": "QUOTAS_READY_37_102",
+      "real_input": "BLOCKED_BUS_MAPPING",
+      "blockers": [
+        "mapping_reversible",
+        "all_real_country_labels",
+        "AC_feasibility"
+      ]
+    },
+    {
+      "name": "NormalContingencyRatings",
+      "interface": "IMPLEMENTED",
+      "metadata": "DOCUMENTED",
+      "real_input": "BLOCKED_NOT_PROVIDED",
+      "blockers": [
+        "normal_MW_per_branch_hour",
+        "emergency_MW_per_branch_hour",
+        "rating_source_units"
+      ]
+    },
+    {
+      "name": "SecurityData",
+      "interface": "PROPOSED_FOR_MA3_NOT_PINNED_IMPLEMENTATION",
+      "metadata": "REQUIREMENTS_ONLY",
+      "real_input": "BLOCKED_NOT_PROVIDED",
+      "blockers": [
+        "contingency_list",
+        "monitored_elements",
+        "N1_LODF_case_validity",
+        "season_direction",
+        "TSO_exception_ledger"
+      ]
+    }
+  ],
+  "stage_gates": [
+    {
+      "gate": "G01",
+      "status": "PASS_SYNTHETIC_ONLY_REAL_BLOCKED"
+    },
+    {
+      "gate": "G02",
+      "status": "OFFICIAL_QUOTA_CSV_SCHEMA_ONLY_REAL_MAPPING_BLOCKED"
+    },
+    {
+      "gate": "G03",
+      "status": "PASS_SYNTHETIC_ONLY_REAL_BLOCKED"
+    },
+    {
+      "gate": "G04",
+      "status": "PASS_SYNTHETIC_ONLY_REAL_BLOCKED"
+    },
+    {
+      "gate": "G05",
+      "status": "PASS_SYNTHETIC_ONLY_REAL_BLOCKED"
+    },
+    {
+      "gate": "G06-G08",
+      "status": "NOT_QUALIFIED_REAL_CALIBRATION_BLOCKED"
+    },
+    {
+      "gate": "G09-G10",
+      "status": "NOT_QUALIFIED_REAL_SECURITY_BLOCKED"
+    },
+    {
+      "gate": "G11",
+      "status": "PARTIAL_LOSSLESS_DC_SYNTHETIC_REAL_BLOCKED"
+    },
+    {
+      "gate": "G12",
+      "status": "BLOCKED_REAL_DATA_AND_INDEPENDENT_REVIEW"
+    }
+  ],
+  "minimum_real_witness": {
+    "candidate": "PyPSA-Eur OSM v0.6 fixed two-country AC-meshed subset",
+    "status": "NOT_ACQUIRED",
+    "source_kind": "OPEN_RECONSTRUCTED_TOPOLOGY",
+    "scope": "COMPONENT_OR_TOPOLOGY_VALIDATION_ONLY",
+    "official_entsoe_2026_qualified": false
+  },
+  "source_methods": {
+    "entsoe_methodology_version": "2026-02-25 consultation",
+    "entsoe_representative_scenarios_per_target_year": 3,
+    "project_fixed_weather_year_slots": 5,
+    "weather_selection_in_scope": false
+  },
+  "no_change": [
+    "M0_CGMES",
+    "M1_PECD",
+    "weather_year_selection",
+    "main_branch",
+    "code"
+  ]
+}

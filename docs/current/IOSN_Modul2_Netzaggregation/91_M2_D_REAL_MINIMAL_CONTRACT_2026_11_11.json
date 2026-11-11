@@ -1,0 +1,218 @@
+{
+  "document_id": "M2-D-REAL-MINIMAL-CONTRACT-20261111",
+  "version": "draft-v1",
+  "status": "SPECIFICATION_ONLY_NO_REAL_RECORDS",
+  "units": {
+    "active_power": "MW",
+    "energy": "MWh",
+    "reactance": "pu",
+    "voltage": "kV",
+    "pst_phase": "rad",
+    "duration": "h",
+    "time": "ISO8601_UTC"
+  },
+  "required_top_level": [
+    "dataset_release",
+    "grid",
+    "country_mapping",
+    "budget",
+    "time",
+    "operational_dispatch",
+    "neutral_dispatch",
+    "normal_emergency_ratings",
+    "security",
+    "validation_manifest"
+  ],
+  "dataset_release": {
+    "required": [
+      "dataset_id",
+      "producer",
+      "source_uri_or_access_reference",
+      "source_vintage",
+      "release_id",
+      "access_license",
+      "original_file_list_sha256",
+      "source_revision_id",
+      "acquisition_timestamp_utc",
+      "synthetic_false"
+    ]
+  },
+  "grid": {
+    "contract": "DetailedGridSnapshot",
+    "required": [
+      "base_mva",
+      "bus_ids",
+      "raw_country_ids",
+      "ac_branches",
+      "hvdc",
+      "unsupported_components",
+      "incomplete_110kv_ties",
+      "provenance"
+    ],
+    "ac_branch_required": [
+      "identifier",
+      "bus0",
+      "bus1",
+      "x_pu",
+      "voltage_kv",
+      "kind",
+      "in_service",
+      "phase_shift_rad",
+      "screening_class_kv"
+    ],
+    "hvdc_required": [
+      "identifier",
+      "bus0",
+      "bus1",
+      "lossless"
+    ],
+    "source_sidecar_required": [
+      "original_device_id",
+      "source_revision_id",
+      "equipment_kind",
+      "voltage_base_kv",
+      "parameter_unit_original",
+      "parameter_quality_exact_approx_unsupported",
+      "tap_and_loss_policy",
+      "status_time",
+      "tsoreview"
+    ]
+  },
+  "country_mapping": {
+    "required": [
+      "raw_country_id",
+      "published_country_label",
+      "mapping_source",
+      "source_revision_id"
+    ],
+    "official_quota_counts": 37,
+    "official_quota_sum": 102,
+    "distinct_labels": [
+      "Northern Ireland",
+      "United Kingdom"
+    ],
+    "full_scope_bijection": true
+  },
+  "budget": {
+    "contract": "CountryZoneBudget",
+    "source_path": "docs/current/IOSN_2026_OFFICIAL_COUNTRY_ZONE_BUDGET.csv",
+    "official": true,
+    "sha256_original_bytes_required": true
+  },
+  "time": {
+    "contract": "TimeSet",
+    "weather_id_count": 5,
+    "externally_selected": true,
+    "prohibit_selection": true,
+    "required": [
+      "snapshot_ids",
+      "year_for_snapshot",
+      "weather_year_ids",
+      "duration_hours",
+      "season",
+      "timezone",
+      "provenance"
+    ],
+    "timezone": "UTC",
+    "season_enum": [
+      "summer",
+      "winter"
+    ],
+    "full_annual_MWh_requires_complete_original_calendar": true
+  },
+  "operational_dispatch": {
+    "contract": "ReferenceDispatchSet",
+    "required": [
+      "bus_ids",
+      "snapshot_ids",
+      "injections_mw",
+      "hvdc_transfer_mw",
+      "pst_phase_rad",
+      "provenance"
+    ],
+    "shape": "bus_count x time_count",
+    "include_hvdc_as_explicit_terminal_actions_only": true,
+    "original_flow_oracle_required": true
+  },
+  "neutral_dispatch": {
+    "contract": "ReferenceDispatchSet",
+    "required": [
+      "bus_ids",
+      "snapshot_ids",
+      "injections_mw",
+      "hvdc_transfer_mw",
+      "pst_phase_rad",
+      "provenance",
+      "physical_balance_witness"
+    ],
+    "hvdc_transfer_mw": "zero",
+    "pst_phase_rad": "neutral",
+    "separate_physically_balanced_injections": true,
+    "not_reuse_unbalanced_operational_dispatch": true
+  },
+  "normal_emergency_ratings": {
+    "contract": "NormalContingencyRatings",
+    "required": [
+      "snapshot_ids",
+      "normal_mw",
+      "contingency_mw",
+      "source_original_unit",
+      "conversion_method",
+      "provenance"
+    ],
+    "per_active_ac_branch_full_coverage": true,
+    "contingency_mw_does_not_imply_outage_list": true
+  },
+  "security": {
+    "contract": "SecurityData_PROPOSED_MA3",
+    "required": [
+      "topology_revision",
+      "outage_case_ids",
+      "outaged_component_ids",
+      "monitored_component_ids",
+      "normal_and_emergency_limits",
+      "season_definition",
+      "direction_convention",
+      "islanding_and_invalid_LODF_policy",
+      "tso_exception_ledger",
+      "reference_dispatch_links",
+      "source_provenance"
+    ],
+    "four_capacity_bins": [
+      "summer_forward",
+      "summer_reverse",
+      "winter_forward",
+      "winter_reverse"
+    ],
+    "outage_case_provenance_mandatory": true
+  },
+  "validation_manifest": {
+    "required": [
+      "file_sha256",
+      "parser_version",
+      "code_sha",
+      "source_revision",
+      "time_index_hash",
+      "asset_index_hash",
+      "equipment_capabilities",
+      "test_run_id",
+      "tolerance_policy",
+      "independent_reviewer_id",
+      "reviewer_replay_sha",
+      "real_qualified_explicit_boolean"
+    ],
+    "gate_level_states": [
+      "BLOCKED",
+      "FAIL",
+      "PASS_LIMITED_REAL",
+      "PASS_FULL_REAL"
+    ],
+    "fail_closed": true
+  },
+  "acceptance": {
+    "source_data_hashes_verified": false,
+    "complete_real_source_files_received": false,
+    "real_qualified": false,
+    "current_decision": "BLOCKED_DATA"
+  }
+}
