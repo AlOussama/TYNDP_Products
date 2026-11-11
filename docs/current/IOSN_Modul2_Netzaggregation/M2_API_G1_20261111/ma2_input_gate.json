@@ -1,0 +1,331 @@
+{
+  "document_id": "M2-API-G1-20261111",
+  "document_purpose": "MA1 canonical API/MA2 contract owner gate; document-only, non-executable",
+  "date_utc": "2026-11-11",
+  "repository": "AlOussama/TYNDP_Products",
+  "status": "RECOMMEND_C_OWNER_PENDING",
+  "contract_status": "PROPOSED_NOT_FROZEN",
+  "schema_id": "M2.MA2Input.v1-DRAFT-20261111",
+  "api_schema_id": "M2.API.v1-DRAFT-20261111",
+  "immutable_source_refs": {
+    "owner_handoff_commit": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+    "G1_handoff_path": "docs/current/IOSN_Modul2_Netzaggregation/95_M2_API_G1_OWNER_CONTRACT_GATE_20261111.md",
+    "A": {
+      "ref": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+      "package": "tyndp_reduce.iosn_official",
+      "pr": 13,
+      "code_freeze": "0254d867a34b66ec7b56c90225605d29ea328916"
+    },
+    "B": {
+      "ref": "88374dd38792146ca55fa3fe2d4b35dac842c0b9",
+      "package": "tyndp_reduce.m2",
+      "unmerged": true
+    },
+    "R_API": {
+      "ref": "075c50903b7d51ec19befb4a4b8db1322ae33b2a",
+      "review_report_path": "docs/current/IOSN_Modul2_Netzaggregation/R_M2_API_INDEPENDENT_ARCHITECTURE_REVIEW_2026_11_11.md",
+      "run_id": 43078255397,
+      "run_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43078255397",
+      "tested_sha": "418b8ba8b71afdd5808ada87fcb6fb981a3cc5e2"
+    },
+    "R_PHY": {
+      "ref": "c004e5330df2a018e567c8ef955ef2fc9d71e0ea",
+      "run_id": 43077807614,
+      "run_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43077807614"
+    },
+    "R_CLU": {
+      "ref": "7d7d07d7af5966ddc26d0be1100a69013763d2e8",
+      "run_id": 43078445311,
+      "run_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43078445311"
+    },
+    "governance_ref": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+    "method_status": "O26_2026_02_25_CONSULTATION_AUTHORITY_UNCONFIRMED"
+  },
+  "independent_evidence_at_frozen_review": {
+    "R_API": {
+      "independent_parity_passed": 11,
+      "independent_parity_total": 11,
+      "original_regressions_passed": 58,
+      "original_regressions_total": 58,
+      "semantic_parity_certified": false,
+      "real_data_qualified": false
+    },
+    "R_PHY": {
+      "decision": "REPAIRS_REQUIRED",
+      "p0": 0,
+      "p1_open": 4,
+      "all_tests_passed": 57,
+      "strict_expected_failures": 4
+    },
+    "R_CLU": {
+      "decision": "REPAIRS_REQUIRED",
+      "p0": 0,
+      "p1_open": 2,
+      "p2_open": 3,
+      "tests_passed_including_defect_reproduction": 36,
+      "greedy_false_blocked": 10,
+      "exhaustively_feasible_four_node_cases": 1804
+    },
+    "real_grid_source_bytes_attested": false,
+    "real_europe_37_102_qualified": false
+  },
+  "owner_decisions": {
+    "status": "PENDING",
+    "decision_quote_url": null,
+    "decision_timestamp_utc": null,
+    "register": [
+      {
+        "id": "OD-M2-API-01",
+        "recommendation": "C_A_CANONICAL_OPTIONAL_B_TO_A",
+        "owner_value": null
+      },
+      {
+        "id": "OD-M2-API-02",
+        "recommendation": "STRICT_LOSSLESS",
+        "owner_value": null
+      },
+      {
+        "id": "OD-M2-API-03",
+        "recommendation": "SEPARATE_MODEL_DISCREPANCY_QA",
+        "owner_value": null
+      },
+      {
+        "id": "OD-M2-API-04",
+        "recommendation": "AUDITED_CLASS_AND_PROTECTION",
+        "owner_value": null
+      },
+      {
+        "id": "OD-M2-API-05",
+        "recommendation": "DOC_GATE_ONLY_NO_MERGE",
+        "owner_value": null
+      }
+    ]
+  },
+  "canonical_api": {
+    "recommendation": "tyndp_reduce.iosn_official",
+    "binding_status": "RECOMMENDED_NOT_OWNER_ACCEPTED",
+    "execute_ma1_signature": "execute_ma1(grid,dispatch,time,ratings,budget,explicit_country_map,explicit_year_weights,*,protected_line_ids=()) -> MA1Result",
+    "B_usage": "OPTIONAL_ONE_WAY_B_TO_A_AFTER_SEPARATE_OWNER_AND_ADAPTER_REVIEW",
+    "B_must_not_be_required_for_MA2": true,
+    "B_lossy_or_nontap_adapter_allowed": false,
+    "declared_device_subset": "LOSSLESS_AC_DC_WITH_EXPLICIT_PST_AND_SUPPORTED_FIXED_TRANSFORMER_PHASE",
+    "source_libraries_modified_by_G1": false
+  },
+  "ma1_export_contract": {
+    "format": "A_15_ARTIFACT_V1",
+    "payload_sha256_count": 14,
+    "total_file_count": 15,
+    "exact_files": [
+      "preflight_ledger.json",
+      "gate_ledger.json",
+      "merge_ledger.json",
+      "counterflow_ledger.json",
+      "reference_flow_manifest.json",
+      "country_quotas.csv",
+      "busmap.csv",
+      "annual_criticality.csv",
+      "zone_cuts.csv",
+      "global_reference_flows.npz",
+      "operator_P.npz",
+      "operator_Gamma.npz",
+      "operator_A_z.npz",
+      "operator_A_d.npz",
+      "manifest.json"
+    ],
+    "required_checks": [
+      "exact 15-file set; no partial directory",
+      "recompute 14 byte SHA-256 listed in manifest.output_sha256",
+      "recompute manifest.json SHA-256 independently",
+      "cross-check code_commit with pinned actual checkout SHA",
+      "cross-check grid, branch and time identities and ordered N,L,T",
+      "parse NPZ non-pickle and sparse operators and verify A_z*Gamma=P*A_d",
+      "verify orientation, operational neutral_calibration=false and A_d*flow=net_p",
+      "reject incomplete or modified output directory"
+    ],
+    "existing_A_atomic_run_publication": false,
+    "future_staged_atomic_export_optional_refactor": true,
+    "complete_sha_verified_intake_mandatory": true
+  },
+  "MA2_input_required": [
+    "immutable MA1 output manifest and code/source byte hashes",
+    "typed DetailedGridSnapshot plus active/inactive topology/device capabilities",
+    "typed TimeSet with five externally fixed ordered UTC weather-year snapshots",
+    "operational ReferenceDispatchSet and frozen ReferenceFlowCache (LxT,NxT)",
+    "normal and contingency MW ratings each active AC branch",
+    "CountryZoneBudget and provenance preserving country mapping (37/102 only real Europe; NI/UK distinct)",
+    "explicit audited screening-class policy and five-year criticality",
+    "explicit protected critical line union IDs, threshold, source policy hash",
+    "MA1Result and independent G05 validated P,Gamma,A_z,A_d projection",
+    "separate neutral ReferenceDispatchSet and AC island balanced neutral ReferenceFlowCache",
+    "frozen train selection holdout blocks over original snapshots and split hash",
+    "fixed monitor groups with comparable global quality objective and monitor-policy SHA",
+    "numeric solver and gauge tolerance bounds / I decision hash",
+    "sparse global memory IO budget with streaming and size attestation",
+    "candidate rebuild/quality/balance and error ledger policy"
+  ],
+  "MA2_preconditions": {
+    "contract_enums_complete": false,
+    "source_merkle_fingerprints_frozen": false,
+    "protection_threshold_owner_I_decision_pending": true,
+    "audited_screening_exclusion_ledger_pending": true,
+    "neutral_dispatch_witness_pending": true,
+    "immutable_fixed_monitor_policy_pending": true,
+    "sparse_resource_budget_pending": true,
+    "independent_R_PHY_repair_replay_pending": true,
+    "independent_R_CLU_repair_replay_pending": true,
+    "R_API_dispositions_pending_owner_gate": true
+  },
+  "findings": {
+    "api_contract_p1": {
+      "count": 9,
+      "ids": [
+        "R-API-P1-01",
+        "R-API-P1-02",
+        "R-API-P1-03",
+        "R-API-P1-04",
+        "R-API-P1-05",
+        "R-API-P1-06",
+        "R-API-P1-07",
+        "R-API-P1-08",
+        "R-API-P1-09"
+      ],
+      "category": "INTERFACE_SEMANTIC_RISK_NOT_EQUIVALENT_TO_A_CODE_DEFECT",
+      "disposition": "DESIGN_MAPPED_IN_api_compatibility_matrix.csv",
+      "status_at_review": "REPRODUCED_OR_STATIC_OPEN_FOR_GATE"
+    },
+    "api_contract_p2": {
+      "count": 7,
+      "ids": [
+        "R-API-P2-01",
+        "R-API-P2-02",
+        "R-API-P2-03",
+        "R-API-P2-04",
+        "R-API-P2-05",
+        "R-API-P2-06",
+        "R-API-P2-07"
+      ],
+      "category": "COMPATIBILITY_ADAPTER_QUALIFICATION_AND_DESIGN",
+      "disposition": "REQUIRED_VS_OPTIONAL_IN_MATRIX"
+    },
+    "physical_independent_p1": {
+      "count": 4,
+      "ids": [
+        "PHY-R01",
+        "PHY-R02",
+        "PHY-R03",
+        "PHY-R04"
+      ],
+      "status_at_review": "REPAIR_AND_INDEPENDENT_R_PHY_REVIEW_REQUIRED"
+    },
+    "clustering_independent_p1": {
+      "count": 2,
+      "ids": [
+        "R-CLU-001",
+        "R-CLU-002"
+      ],
+      "status_at_review": "REPAIR_AND_INDEPENDENT_R_CLU_REVIEW_REQUIRED"
+    },
+    "clustering_independent_p2": {
+      "count": 3,
+      "ids": [
+        "R-CLU-003",
+        "R-CLU-004",
+        "R-CLU-005"
+      ],
+      "status_at_review": "DISPOSITION_REQUIRED"
+    }
+  },
+  "gate_decisions": {
+    "G01_G05_original_A": {
+      "evidence": "PASS_SYNTHETIC_CODE_TESTS",
+      "admission_status": "REPAIRS_REQUIRED_INDEPENDENT_REVIEW",
+      "release_authorized": false
+    },
+    "G05_next_candidate": {
+      "required": [
+        "exact quota and protected AC cuts",
+        "P and Gamma from original grid",
+        "A_z Gamma=P A_d",
+        "A_z Gamma f=P p",
+        "one immutable reference",
+        "candidate SHA"
+      ],
+      "status": "NOT_EXECUTED_FOR_MA2"
+    },
+    "G06": {
+      "required": [
+        "global x>0, gauge, rank/identifiability",
+        "A_z c0=0",
+        "C^T diag(x)(f_eq-c0)=0 in simulator",
+        "sparse/Dense independent oracle"
+      ],
+      "status": "NOT_IMPLEMENTED_NOT_RUN"
+    },
+    "G07": {
+      "required": [
+        "coupled country candidate generation",
+        "full global refit after each",
+        "Train-only fit, Selection-only acceptance/rollback",
+        "fixed seeds and ledger"
+      ],
+      "status": "NOT_IMPLEMENTED_NOT_RUN"
+    },
+    "G08": {
+      "required": [
+        "fixed topology-independent monitor groups and comparable metrics",
+        "frozen selection and sealed holdout",
+        "country and border fairness"
+      ],
+      "status": "NOT_IMPLEMENTED_NOT_RUN"
+    },
+    "R_NUM": {
+      "status": "INDEPENDENT_REVIEW_NOT_STARTED"
+    },
+    "REAL_G12": {
+      "status": "BLOCKED_DATA_AND_METHOD_AUTHORITY"
+    }
+  },
+  "required_admission_predicates": [
+    "explicit project-owner decisions recorded with verbatim quote and immutable URL",
+    "owner-approved canonical API and lossless/observed/screen/protection contract versions",
+    "both R-PHY and R-CLU independently PASS against SAME exact integrated repair SHA",
+    "no remaining PHY or CLU P0/P1 and P2 disposition documented",
+    "R-API-P1-01..09 mapped to required MA2 guards and tested/reviewed at applicable layer",
+    "G01–G05 reproducible on pinned accepted A code and same 15-file run",
+    "separate source-qualified neutral dispatch and frozen operational reference",
+    "canonical screening protected-union policies, source SHA, country quota, time and numeric resource fingerprints",
+    "G05/G06/G07/G08 requirements fixed before any MA2 runtime acceptance"
+  ],
+  "release": {
+    "owner_accepted": false,
+    "ma1_synthetic_qualified": false,
+    "MA2_implementation_authorized": false,
+    "MA2_runtime_authorized": false,
+    "MA3_runtime_authorized": false,
+    "real_qualified": false,
+    "main_modified": false,
+    "merge_authorized": false,
+    "B_adapter_implemented": false,
+    "allowed_now": [
+      "documentation and owner template",
+      "independent review coordination",
+      "isolated nonproduction fixture design"
+    ],
+    "excluded": [
+      "M0_CGMES",
+      "M1_PECD",
+      "WEATHER_YEAR_SELECTION",
+      "UNAPPROVED_API_MIGRATION",
+      "AUTO_MERGE",
+      "MA2_PRODUCTIVE_IMPLEMENTATION"
+    ]
+  },
+  "artifacts": [
+    "api_owner_options_and_recommendation.md",
+    "owner_decision_template.md",
+    "api_v1_contract.md",
+    "api_compatibility_matrix.csv",
+    "optional_b_adapter_design.md",
+    "ma2_input_gate.json"
+  ]
+}
