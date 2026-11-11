@@ -37,3 +37,9 @@ See [machine ledger](source1/dr01_dr17_qualification_ledger.json). **All full-in
 - Source metadata and test evidence are nonconfidential. Do not commit restricted TSO original bytes, personal identification of portal applicant, NDA terms, access tokens or credentials.
 - Original IoSN source unavailable in inspected Git trees is **NOT_PROVIDED in audited scope**, not a claim it does not exist on owner/private storage.
 - Status progression is **BLOCKED_DATA -> limited topology pilot only after D1 originals -> further independent gates only after D0+D2+D3**.
+
+## GitHub work packages and executable local verifier
+
+- [D0 grid owner/source request](https://github.com/AlOussama/TYNDP_Products/issues/35), [D1 open OSM retrieval](https://github.com/AlOussama/TYNDP_Products/issues/36), [D2 dispatch/weather/neutral](https://github.com/AlOussama/TYNDP_Products/issues/37), [D3 security/exceptions](https://github.com/AlOussama/TYNDP_Products/issues/38) were opened as independent source tracks, all initially blocked as documented.
+- [D4 independent R-DATA issue](https://github.com/AlOussama/TYNDP_Products/issues/39) prepared, review execution deferred until frozen original data are available.
+- [Executed local verifier source](source1/source1_verifier.py) is committed with Git blob SHA-1 `156ba782d4d2b5f276a3ac488ff2a2370bcfcb02`, matching the locally Python-3.13.5-tested source bytes (SHA-256 `6d77c6a790dee9ba7fe85bb87d99c0f666e97ba8d52dbb39299859dea6e29ea1`). No Zenodo original input SHA-256 was computed.
