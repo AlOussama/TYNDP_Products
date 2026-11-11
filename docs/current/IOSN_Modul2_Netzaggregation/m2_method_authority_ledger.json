@@ -1,0 +1,379 @@
+{
+  "schema": "m2_method_authority_ledger/v1.0",
+  "assessed_date": "2026-11-11",
+  "project": "AlOussama/TYNDP_Products",
+  "scope": "M2 methodology authority and owner-decision preparation only",
+  "release_state": "DOCUMENTATION_DRAFT_NO_MERGE",
+  "method_authority_status": "ENTSOE_AUTHORITY_UNCONFIRMED",
+  "owner_decision_status": "ALL_M2_METHOD_G1_DECISIONS_PENDING",
+  "prohibition": [
+    "NO_OFFICIAL_METHOD_APPROVAL_ASSERTION",
+    "NO_OWNER_DECISION_INFERENCE",
+    "NO_IMPLEMENTATION",
+    "NO_MA2_RUNTIME_GO",
+    "NO_REAL_GRID_QUALIFICATION",
+    "NO_MERGE",
+    "NO_M0_M1_WEATHER_SELECTION_CHANGE"
+  ],
+  "evidence_hierarchy": [
+    {
+      "tier": "E1",
+      "kind": "ENTSOE_PUBLISHED_CONSULTATION_DRAFT",
+      "id": "O26",
+      "title": "TYNDP 2026 Identification of System Needs Methodology — Version for Public Consultation",
+      "printed_date": "2026-02-25",
+      "url": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/tyndp-documents/TYNDP2026/TYNDP_2026_identification_of_system_needs_methodology_for_consultation.pdf",
+      "relevant_sections": [
+        "3.8",
+        "3.9",
+        "Annex 6.1",
+        "Table 3"
+      ],
+      "source_status": "CONSULTATION_DRAFT_CONFIRMED",
+      "adopted_effective": false,
+      "original_pdf_sha256": null,
+      "original_bytes_status": "NOT_VERIFIED",
+      "hash_null_reason": "Raw original PDF bytes not obtained by pinned reviews; text/rendered pages and Git blob SHA are not original-document SHA-256"
+    },
+    {
+      "tier": "E2",
+      "kind": "ENTSOE_ADOPTED_EFFECTIVE_SUCCESSOR",
+      "id": "VERSION_B",
+      "url": null,
+      "approved_document_id": null,
+      "approval_record": null,
+      "approved_by": null,
+      "approval_date": null,
+      "effective_date": null,
+      "annex_scope": null,
+      "errata": null,
+      "original_pdf_sha256": null,
+      "source_status": "NOT_VERIFIED_NOT_PROVEN_ABSENT",
+      "approved_effective_status": "NOT_DEMONSTRATED",
+      "needed": [
+        "original document bytes",
+        "SHA-256",
+        "authorized approval act or formal adoption of O26",
+        "effective date",
+        "scope and annex/errata inventory",
+        "signed authority chain"
+      ]
+    },
+    {
+      "tier": "E3",
+      "kind": "PROJECT_SCIENTIFIC_RECONSTRUCTION",
+      "id": "NR-01..NR-18",
+      "status": "SCIENTIFIC_WORKING_BASELINE_NOT_NORMATIVE",
+      "source_commit": "3dc719a35f57bd9516bef8486bf262b75509d6b1",
+      "url": "https://github.com/AlOussama/TYNDP_Products/blob/3dc719a35f57bd9516bef8486bf262b75509d6b1/docs/current/IOSN_2026_OFFICIAL_NETWORK_REDUCTION_CODE_MAPPING_20261026.md",
+      "scope": "Traceable interpretation of O26 and explicitly project-specific algorithmic choices"
+    },
+    {
+      "tier": "E4",
+      "kind": "PROJECT_REVIEW_AND_GOVERNANCE",
+      "id": "R-METH_AND_BUNDLE01R",
+      "status": "DOCUMENTED_DRAFT_BLOCKED",
+      "r_meth_commit": "754a79e11370dca2c25f1102d83ced5beb251522",
+      "r_meth_report": "https://github.com/AlOussama/TYNDP_Products/blob/754a79e11370dca2c25f1102d83ced5beb251522/docs/current/IOSN_Modul2_Netzaggregation/88_M2_INDEPENDENT_METHODOLOGY_AUTHORITY_DELTA_REVIEW_2026_11_11.md",
+      "cross_project_prs": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "independent_organizational_signoff": "NOT_OBTAINED"
+    },
+    {
+      "tier": "E5",
+      "kind": "PROJECT_OWNER_DECISION",
+      "id": "OD-M2-METHOD-G1",
+      "status": "NOT_OBTAINED",
+      "owner_identity_verified": false,
+      "decision_record_url": null,
+      "signature_artifact": null,
+      "scope_note": "A project owner can approve project-specific research scope, never substitute for ENTSO-E external approval"
+    }
+  ],
+  "governance_context": {
+    "entsoe_consultation_open": "2026-02-26",
+    "entsoe_consultation_closed": "2026-04-03",
+    "entsoe_sdc_minutes_113": "https://eepublicdownloads.entsoe.eu/clean-documents/sdc-documents/meeting-documents/2026/260203-04-SDC_Minutes_vFinal_for_publication.pdf",
+    "sdc_item": "15.3",
+    "sdc_status": "WRITTEN_APPROVAL_PLANNED_NOT_VERIFIED_AS_EXECUTED",
+    "note": "Meeting agenda item 15.2 about project portfolio is not adoption of the IoSN methodology"
+  },
+  "pinned_reviews": [
+    {
+      "id": "R-METH",
+      "sha": "754a79e11370dca2c25f1102d83ced5beb251522",
+      "pr": 30,
+      "state": "OPEN_DRAFT_UNMERGED",
+      "result": "AUTHORITY_UNCONFIRMED",
+      "nr_count": 18
+    },
+    {
+      "id": "BUNDLE01R-A",
+      "sha": "09cff8a8f9d82282d2e307f32ba8b139c3eb3824",
+      "pr": 22,
+      "state": "OPEN_DRAFT_UNMERGED",
+      "result": "21_OF_21_MD_CL_OPEN"
+    },
+    {
+      "id": "BUNDLE01R-B",
+      "sha": "3fd3b0e6ede30f863228d426389e880bdb09f1d0",
+      "pr": 23,
+      "state": "OPEN_DRAFT_UNMERGED",
+      "result": "87_OBJECTS_NO_ORIGINAL_STUDY_FILE_HASHES;ZERO_OF_28_REAL_VALIDATIONS"
+    },
+    {
+      "id": "BUNDLE01R-C",
+      "sha": "dfaf75c0a85e3ec4d9ba4a29b3864fb13d987883",
+      "pr": 24,
+      "state": "OPEN_DRAFT_UNMERGED",
+      "result": "48_PROVISIONAL_SR_SEMANTICS_BLOCKED"
+    },
+    {
+      "id": "BUNDLE01R-D",
+      "sha": "5c13d4d63f18d30c308997cd7a01f2977fcc6b7b",
+      "pr": 25,
+      "state": "OPEN_DRAFT_UNMERGED",
+      "result": "G1_A_TO_H_BLOCKED_OR_DRAFT_ONLY"
+    },
+    {
+      "id": "S-GOV-M2",
+      "sha": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+      "pr": null,
+      "state": "GOVERNANCE_BRANCH_SOURCE",
+      "result": "M2_FIVE_REVIEW_GATES_CONSOLIDATED"
+    },
+    {
+      "id": "R-API",
+      "sha": "075c50903b7d51ec19befb4a4b8db1322ae33b2a",
+      "pr": null,
+      "state": "REVIEW_ONLY",
+      "result": "RECOMMEND_A_CANONICAL_WITH_LIMITED_B_TO_A_ADAPTER"
+    },
+    {
+      "id": "D-REAL",
+      "sha": "6a8262f128ae3dd7e108afe2ade09028ea4f651f",
+      "pr": null,
+      "state": "REVIEW_ONLY",
+      "result": "BLOCKED_DATA"
+    }
+  ],
+  "cross_project_evidence": {
+    "owner_md_cl": {
+      "total": 21,
+      "approved": 0,
+      "status": "ALL_OPEN"
+    },
+    "data_objects": {
+      "total": 87,
+      "qualified_consumed_original_files": 0,
+      "status": "SOURCE_BYTES_AND_HASHES_UNVERIFIED"
+    },
+    "real_data_validations": {
+      "specified": 28,
+      "executed": 0
+    },
+    "structural_checks_not_real_evidence": {
+      "project_metadata_checks_executed": 16,
+      "requirements_structure_checks_executed": 20
+    },
+    "provisional_ma01_sr": {
+      "total": 48,
+      "official_successor_validity_confirmed": 0
+    },
+    "blocking_findings": {
+      "total": 23,
+      "p0": 14,
+      "p1": 9,
+      "status": "ALL_OPEN_AS_OF_PR25"
+    },
+    "authoritative_version_comparison": {
+      "source_a": "O26_DRAFT",
+      "source_b": "NOT_VERIFIED",
+      "status": "NOT_ASSESSABLE",
+      "verified_successor_clause_changes": [],
+      "assertion_of_no_actual_changes": false,
+      "nr_delta_csv": "m2_nr01_nr18_delta.csv",
+      "csv_has_only_header": true,
+      "source_crosswalk": "88_M2_METH_REQUIREMENT_DELTA_2026_11_11.csv in pinned R-METH branch"
+    }
+  },
+  "decisions": [
+    {
+      "id": "OD-M2-METH-01",
+      "external_refs": [
+        "MD-01"
+      ],
+      "state": "PENDING",
+      "recommended_option": "B",
+      "gate": "GA-A",
+      "governance_class": "SOURCE_AUTHORITY_AND_RESEARCH_SCOPE"
+    },
+    {
+      "id": "OD-M2-CLUSTER-02",
+      "external_refs": [
+        "MD-13"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-C",
+      "governance_class": "PROJECT_CLUSTERS_UNTIL_SOURCE_ORACLE"
+    },
+    {
+      "id": "OD-M2-EQV-03",
+      "external_refs": [
+        "MD-03"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-E",
+      "governance_class": "PROJECT_NUMERICAL_FORMALIZATION"
+    },
+    {
+      "id": "OD-M2-RMSE-04",
+      "external_refs": [
+        "MD-03",
+        "MD-13"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-R",
+      "governance_class": "PROJECT_METRIC_NOT_OFFICIAL_THRESHOLD"
+    },
+    {
+      "id": "OD-M2-N1-05",
+      "external_refs": [
+        "MD-03"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-N",
+      "governance_class": "REAL_SECURITY_BLOCKED"
+    },
+    {
+      "id": "OD-M2-DATA-06",
+      "external_refs": [
+        "MD-11",
+        "MD-12",
+        "MD-18"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-D",
+      "governance_class": "DATA_SOURCE_FROZEN_RELEASE_PENDING"
+    },
+    {
+      "id": "OD-M2-DEVICE-07",
+      "external_refs": [
+        "MD-03",
+        "MD-11"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-V",
+      "governance_class": "DEVICE_TOLERANCE_AND_CAPABILITY_PENDING"
+    },
+    {
+      "id": "OD-M2-LF-08",
+      "external_refs": [
+        "MD-08"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-L",
+      "governance_class": "DOWNSTREAM_MODE_CONTRACT_PENDING"
+    },
+    {
+      "id": "OD-M2-API-09",
+      "external_refs": [
+        "OD-M2-API"
+      ],
+      "state": "PENDING",
+      "recommended_option": "C",
+      "gate": "GA-P",
+      "governance_class": "ARCHITECTURE_OWNER_GATE"
+    },
+    {
+      "id": "OD-M2-I-10",
+      "external_refs": [
+        "PROJECT-I"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-I",
+      "governance_class": "SCIENTIFIC_PROJECT_PROFILE"
+    },
+    {
+      "id": "OD-M2-SCOPE-11",
+      "external_refs": [
+        "OD-M2-SCOPE"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-S",
+      "governance_class": "SCOPED_SYNTHETIC_PREPARATION_ONLY"
+    },
+    {
+      "id": "OD-M2-MERGE-12",
+      "external_refs": [
+        "OD-M2-MERGE"
+      ],
+      "state": "PENDING",
+      "recommended_option": "A",
+      "gate": "GA-M",
+      "governance_class": "NO_MERGE_NOW"
+    }
+  ],
+  "synthetic_development": {
+    "status": "SCOPED_SYNTHETIC_METHOD_BASELINE_PROPOSED",
+    "externally_approved_method": false,
+    "owner_authorized_for_productive_runtime": false,
+    "permitted_without_new_external_method_release": [
+      "Read-only research and traceability",
+      "Specification and test-oracle design",
+      "Isolated synthetic fixture preparation",
+      "Documentation-only interface planning",
+      "Separate source acquisition and provenance inventory"
+    ],
+    "conditional_on_separate_project_gates": [
+      "MA1 defect repair and independent re-review",
+      "Any productive MA2 source-code implementation",
+      "API adapter implementation",
+      "MA3 source-code and capacity implementation"
+    ],
+    "forbidden_as_claims": [
+      "ENTSO-E adopted method",
+      "Official IoSN-conformant MA1/2/3",
+      "Real grid pass",
+      "N-1 qualified capacities",
+      "Numerical RMSE ENTSO-E PASS",
+      "Automatic PR merge"
+    ],
+    "reference_profile": {
+      "country_label_count": 37,
+      "zone_budget": 102,
+      "country_label_distinction": "Northern Ireland and United Kingdom distinct",
+      "network_physics": "one coupled pan-European AC network; national boundary only restricts clustering",
+      "screening": "225/400 kV O26 with explicit nominal voltage mapping",
+      "weather_years": "5 fixed upstream-selected project inputs, NOT an adopted ENTSO-E weather count",
+      "o26_weather_profile": "3 representative cases per target year stated in draft §3.7; not reselected in M2"
+    }
+  },
+  "gate_summary": {
+    "G1-A": "BLOCKED_AUTHORITY",
+    "G1-B": "BLOCKED_OWNER_DECISIONS",
+    "G1-C": "BLOCKED_INPUT_SOURCES",
+    "G1-D": "BLOCKED_REAL_DATA_VALIDATIONS",
+    "G1-E": "BLOCKED_REQUIREMENTS_SEMANTICS",
+    "G1-F": "BLOCKED_FINDINGS_AND_ORACLES",
+    "G1-G": "BLOCKED_INDEPENDENCE_AND_SIGNOFF",
+    "G1-H": "CONTROLLED_DRAFT_ONLY",
+    "M2-MA1-SYNTHETIC": "REPAIRS_REQUIRED",
+    "M2-MA2-RUNTIME": "NOT_AUTHORIZED",
+    "M2-MA3-REAL_CAPACITY": "NOT_AUTHORIZED",
+    "M2-MERGE": "NO_MERGE_NOW_RECOMMENDED_NO_OWNER_APPROVAL"
+  }
+}
