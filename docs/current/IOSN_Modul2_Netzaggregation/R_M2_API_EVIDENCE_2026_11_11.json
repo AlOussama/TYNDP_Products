@@ -1,0 +1,72 @@
+{
+  "document_id": "R-M2-API-INDEPENDENT-20261111",
+  "report_path": "docs/current/IOSN_Modul2_Netzaggregation/R_M2_API_INDEPENDENT_ARCHITECTURE_REVIEW_2026_11_11.md",
+  "review_branch": "review/iosn-m2-r-api-20261111",
+  "review_report_commit": "715c6f0418b13e88736a171462acab78d00236a9",
+  "pinned_sources": {
+    "A": {
+      "branch": "feature/iosn-m2-ma1-integration-20261104",
+      "sha": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+      "namespace": "tyndp_reduce.iosn_official"
+    },
+    "B": {
+      "branch": "restructure/iosn-m2-ma1-integration-20261103",
+      "sha": "88374dd38792146ca55fa3fe2d4b35dac842c0b9",
+      "namespace": "tyndp_reduce.m2"
+    }
+  },
+  "source_integrity": {
+    "A_original_file_blob_sha_matches": "14/14",
+    "B_copied_file_blob_sha_matches": "11/11",
+    "original_source_branches_modified": false
+  },
+  "independent_ci": {
+    "run_id": 43078255397,
+    "url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43078255397",
+    "sha": "418b8ba8b71afdd5808ada87fcb6fb981a3cc5e2",
+    "conclusion": "success",
+    "independent_tests_passed": 11,
+    "independent_tests_total": 11,
+    "original_regressions_passed": 58,
+    "original_regressions_total": 58,
+    "fixture_A": "PASS_SYNTHETIC",
+    "fixture_B": "PASS_SYNTHETIC"
+  },
+  "numeric_replays": {
+    "triangle_pst_dense_max_abs_error_MW": 0,
+    "hydc_island_flows_mw": [
+      20,
+      10,
+      15
+    ],
+    "three_country_cuts_abs_mw": [
+      5,
+      10
+    ],
+    "K4_A_cut_abs_MW": 10,
+    "K4_B_cut_abs_MW": 5,
+    "sparse_chain_nodes": 500,
+    "sparse_chain_parity_atol_MW": 1e-8
+  },
+  "incompatibilities": [
+    "380_kV_screening",
+    "nonchronological_timeset",
+    "nonfixture_observed_AC_witness_gate",
+    "HVDC_signed_losses",
+    "fixed_transformer_phase",
+    "different_valid_greedy_clusterings"
+  ],
+  "recommendation": "A_CANONICAL_WITH_OPTIONAL_VERSIONED_B_TO_A_ADAPTER",
+  "owner_approved": false,
+  "MA2_implementation_authorized": false,
+  "independent_real_network_qualified": false,
+  "merge_authorized": false,
+  "scope_exclusions": [
+    "M0_CGMES",
+    "M1_PECD",
+    "weather_year_selection",
+    "main_merge",
+    "MA2_runtime",
+    "MA3_runtime"
+  ]
+}
