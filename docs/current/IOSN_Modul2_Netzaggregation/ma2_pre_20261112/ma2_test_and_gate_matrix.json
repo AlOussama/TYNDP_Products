@@ -1,0 +1,413 @@
+{
+  "schema": "M2.MA2.PRE.TEST_MATRIX.v0.1",
+  "created_utc": "2026-11-12",
+  "scope": "DOCUMENT_ONLY",
+  "frozen_task_sha": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+  "source_codes": {
+    "ma1": "0254d867a34b66ec7b56c90225605d29ea328916",
+    "ma1_docs": "70e92ba9e62a320e58227ce9c2f03fad266f44bf",
+    "r_phy": "c004e5330df2a018e567c8ef955ef2fc9d71e0ea",
+    "r_clu": "7d7d07d7af5966ddc26d0be1100a69013763d2e8",
+    "r_api": "075c50903b7d51ec19befb4a4b8db1322ae33b2a",
+    "d_real": "6a8262f128ae3dd7e108afe2ade09028ea4f651f",
+    "r_meth": "754a79e11370dca2c25f1102d83ced5beb251522"
+  },
+  "synthetic_numeric_tolerance_proposal": {
+    "kcl_mw": 1e-8,
+    "affine_kvl_rad": 1e-10,
+    "sparse_dense_mw": 1e-8,
+    "notes": "PROPOSED project-I for analytic fixtures only; real tolerances OWNER_PENDING; tolerance cannot bypass island balance"
+  },
+  "future_test_commands_not_executed": [
+    "python -m pytest -q tests/iosn_official/test_ma2_equivalent_oracles.py",
+    "python -m pytest -q tests/iosn_official/test_ma2_coupled_iteration.py",
+    "python -m pytest -q tests/iosn_official/test_ma2_split_monitor_gate.py",
+    "python -m pytest -q tests/iosn_official tests/review/test_r_m2_api_parity.py"
+  ],
+  "required_future_evidence": [
+    "exact code SHA and immutable fixture source-byte SHA",
+    "CI and JUnit artifacts containing all test IDs",
+    "full global-refit call ledger and numerically independent dense-cycle witness",
+    "one-time sealed holdout replay",
+    "independent R-NUM author/review SHA",
+    "MA1 re-review R-PHY and R-CLU on same integrated repaired SHA",
+    "Owner canonical API decision"
+  ],
+  "gate_predicates": {
+    "G05": "Every candidate exact quota, country purity, AC connectedness, protected cuts, complete source projection A_z Gamma=P A_d; all prefit failures zero fit calls.",
+    "G06": "Every required meshed island: x>0 with gauge/rank, A_z c0=0, KCL, correct affine/source-dependent KVL in actual solver, convergence and dense oracle; otherwise no pass.",
+    "G07": "Every feasible candidate entire-European x/c0 refit on TRAIN; same frozen 5-year source and three partitions; immutable ledger, deterministic rollback/plateau.",
+    "G08": "Identical fixed monitors and SELECTION hours/weights, strict J improvement, mandatory coverage, fairness, HOLDOUT sealed until independent replay.",
+    "R_NUM": "Independent reproduction and repair re-review; not replaceable by own CI green.",
+    "REAL": "Original source bytes and independent real data qualification required; no REAL_QUALIFIED from synthetic cases."
+  },
+  "cases": [
+    {
+      "test_id": "EQ-01",
+      "gate": "G06",
+      "fixture": "triangle_zero_c0",
+      "oracle": "A f=p; f=[5,-1,-1]; x*f=0; theta=[0,-.05,-.03]",
+      "expected": "PHYSICAL_REPLAY_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-02",
+      "gate": "G06",
+      "fixture": "triangle_structural_c0",
+      "oracle": "x ratios 1:2:3; c0=[2,2,2]; rank=3; T1 total homogeneous KVL=12; affine=0",
+      "expected": "PHYSICAL_REPLAY_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-03",
+      "gate": "G06",
+      "fixture": "square_two_cycles",
+      "oracle": "f=[19/3,19/3,-4/3,-4/3,7/3]; c0=[3,3,2,2,-1]; both affine loops=0",
+      "expected": "PHYSICAL_REPLAY_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-04",
+      "gate": "G06",
+      "fixture": "three_bus_tree",
+      "oracle": "p=[8,0,-8] => f=[8,8] for x=[1,3] and [5,7]; no x identification",
+      "expected": "UNIDENTIFIABLE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-05",
+      "gate": "G06",
+      "fixture": "two_mesh_islands",
+      "oracle": "A flows [5,-1,-1]; B flows [8,-2,-2]; two independent scale gauges",
+      "expected": "PHYSICAL_REPLAY_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-06",
+      "gate": "G06",
+      "fixture": "hvdc_operational_two_islands",
+      "oracle": "terminal +5 exports a2 and imports b1; f=[15,10]; each island balanced",
+      "expected": "SOURCE_PHYSICS_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-07",
+      "gate": "G06",
+      "fixture": "hvdc_neutral_bad_reuse",
+      "oracle": "neutral=0 on operational base injections gives island sums +5,-5",
+      "expected": "ISLAND_IMBALANCE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-08",
+      "gate": "G06",
+      "fixture": "hvdc_neutral_separate",
+      "oracle": "new balanced q0=[12,-12,8,-8], transfer=0 => f0=[12,8]",
+      "expected": "SOURCE_PHYSICS_PASS_TREE_X_UNIDENTIFIABLE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-09",
+      "gate": "G06",
+      "fixture": "pst_operational",
+      "oracle": "phi=[.06,0,0], p=0, c0=[2,2,2] => f=[1,1,1], generalized rad-loop=0",
+      "expected": "SOURCE_PHYSICS_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-10",
+      "gate": "G06",
+      "fixture": "pst_missing_source",
+      "oracle": "operational nonzero phase but missing validated reduced provider",
+      "expected": "DEVICE_SOURCE_UNQUALIFIED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-11",
+      "gate": "G06",
+      "fixture": "rank_p_collinear",
+      "oracle": "triangle train patterns p and 2p; relative x data-Jacobian rank deficient even with regularizer",
+      "expected": "UNIDENTIFIABLE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-12",
+      "gate": "G06",
+      "fixture": "free_scale",
+      "oracle": "x and 7x yield same DC flows; verify one fixed per-island log-gauge",
+      "expected": "GAUGE_REQUIRED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-13",
+      "gate": "G06",
+      "fixture": "dense_cycle_vs_sparse_angle",
+      "oracle": "small graphs dense full-row-rank KCL+cycles vs independent sparse Laplacian max abs diff <=1e-8 MW",
+      "expected": "PHYSICAL_REPLAY_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-14",
+      "gate": "G06",
+      "fixture": "c0_postprocess_only",
+      "oracle": "matching flow without c0 carried in actual affine solver/replay and KVL witness",
+      "expected": "G06_FAIL",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-15",
+      "gate": "G06",
+      "fixture": "nonfinite_tolerance_singular",
+      "oracle": "atol inf/NaN/huge, x invalid, singular Laplacian or optimizer exception",
+      "expected": "FAIL_CLOSED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "EQ-16",
+      "gate": "G06",
+      "fixture": "known_fixed_transformer_phase",
+      "oracle": "fixed phi nonzero in neutral mode is represented explicitly or rejected, never ignored",
+      "expected": "SOURCE_MODEL_REQUIRED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-01",
+      "gate": "G07/G08",
+      "fixture": "coupled_AB_swap",
+      "oracle": "country monitor target [2,4,6], incumbent [6,8,10], AB [3,5,7]: J 4->1 MW",
+      "expected": "ACCEPT",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-02",
+      "gate": "G07/G08",
+      "fixture": "coupled_ABC_rollback",
+      "oracle": "after AB incumbent J=1, ABC mock [5,7,9] J=3 => preserve all incumbent bytes",
+      "expected": "REJECT_NO_IMPROVEMENT",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-03",
+      "gate": "G05",
+      "fixture": "protected_diagonal_swallowed",
+      "oracle": "country-square protected branch 1-3 becomes intrazonal; full fit call count=0",
+      "expected": "REJECT_PROTECTION",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-04",
+      "gate": "G05",
+      "fixture": "mixed_country_transfer",
+      "oracle": "one original bus changed to foreign country zone; fit call count=0",
+      "expected": "REJECT_COUNTRY",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-05",
+      "gate": "G05",
+      "fixture": "quota_connectedness",
+      "oracle": "empty or disconnected zone; k_c mismatch or AC-island crossing; fit call count=0",
+      "expected": "REJECT_QUOTA_OR_CONNECTIVITY",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-06",
+      "gate": "G07",
+      "fixture": "full_global_refit",
+      "oracle": "valid 2/3-country change: new P/Gamma/Az/zonepairs; fit for ALL original reduced AC islands",
+      "expected": "FULL_REFIT_CALLED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-07",
+      "gate": "G05",
+      "fixture": "projection_per_candidate",
+      "oracle": "check A_z Gamma = P A_d, p_z=P p, targets=Gamma f on BOTH frozen modes",
+      "expected": "PROJECTION_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-08",
+      "gate": "G07",
+      "fixture": "source_time_sha_constant",
+      "oracle": "input, original operational+neutral reference, split source SHA identical every trial",
+      "expected": "FREEZE_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-09",
+      "gate": "G07/G08",
+      "fixture": "holdout_sealed",
+      "oracle": "any holdout read during fit, selection, plateau, monitored evaluation or tuning",
+      "expected": "HOLDOUT_LEAK_FAIL",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-10",
+      "gate": "G08",
+      "fixture": "variable_link_count",
+      "oracle": "changed candidate E; raw link RMSE incomparable; fixed country-pair catalogue remains comparable",
+      "expected": "RAW_NOT_COMPARABLE_FIXED_VALID",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-11",
+      "gate": "G08",
+      "fixture": "mandatory_monitor_missing",
+      "oracle": "cannot represent original branch monitor from aggregate link; do not impute or drop denominator",
+      "expected": "REJECT_UNCOMPARABLE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-12",
+      "gate": "G08",
+      "fixture": "fairness_guard",
+      "oracle": "lower global J but violated predefined country fairness cap",
+      "expected": "REJECT_FAIRNESS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-13",
+      "gate": "G07",
+      "fixture": "plateau",
+      "oracle": "P consecutive completed search rounds with no strict improvement",
+      "expected": "PLATEAU",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-14",
+      "gate": "G07",
+      "fixture": "evaluation_budget",
+      "oracle": "deterministic max eval or CPU/WALLTIME budget reached",
+      "expected": "BUDGET_STOP_NOT_CONVERGED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-15",
+      "gate": "G07",
+      "fixture": "candidate_solver_failure",
+      "oracle": "post-incumbent candidate nonconvergence, invalid x, bad c0 => bitwise incumbent unchanged",
+      "expected": "REFIT_FAILED_ROLLBACK",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-16",
+      "gate": "G08",
+      "fixture": "counterflow_parallel",
+      "oracle": "two lines +32 and -30: net=+2; canceled=60; no branch N-1 claim",
+      "expected": "COUNTERFLOW_FLAG",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-17",
+      "gate": "G07",
+      "fixture": "duplicate_partition",
+      "oracle": "same canonical busmap under different zone IDs; fit skipped and ledger still recorded",
+      "expected": "REJECT_DUPLICATE",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-18",
+      "gate": "G07",
+      "fixture": "two_three_country_generator",
+      "oracle": "coupled AC-country graph and deterministic 2/3-country bundles, HVDC-only not adjacency",
+      "expected": "GENERATOR_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-19",
+      "gate": "G07",
+      "fixture": "selection_identical",
+      "oracle": "changing selected indices/weight, snapshot hours or monitor orientation during trial",
+      "expected": "INVALID_SPLIT",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-20",
+      "gate": "G07",
+      "fixture": "source_array_mutation",
+      "oracle": "mutable caller list changes validated grid fingerprint post construction",
+      "expected": "INVALID_SOURCE_UNTIL_MA1_REPAIR",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-21",
+      "gate": "G05",
+      "fixture": "protected_critical_voltage",
+      "oracle": "400kV declared class=0 without approved exclusion must not disappear",
+      "expected": "BLOCKED_PROTECTION_POLICY",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-22",
+      "gate": "G05",
+      "fixture": "feasible_greedy_counterexample",
+      "oracle": "four buses, protected e01/e02, feasible {v0},{v1,v2,v3}; no false impossible",
+      "expected": "NO_FALSE_INFEASIBILITY",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "IT-23",
+      "gate": "G08",
+      "fixture": "country_corridor_kcl",
+      "oracle": "all mock border vectors yield country injection [-4,+2,+2], orientation invariant",
+      "expected": "MONITOR_ORIENTATION_PASS",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "DATA-01",
+      "gate": "G12",
+      "fixture": "source_original_bytes",
+      "oracle": "real source SHA declared but no original bytes/source-owner/access provenance",
+      "expected": "BLOCKED_DATA",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "DATA-02",
+      "gate": "G06/G12",
+      "fixture": "neutral_dispatch_provenance",
+      "oracle": "no separate source/byte-identifiable balanced neutral dispatch",
+      "expected": "BLOCKED_DATA",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "DATA-03",
+      "gate": "G12",
+      "fixture": "real_37_102",
+      "oracle": "real full grid/5 time series/ratings/TSO oracles missing",
+      "expected": "BLOCKED_DATA",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "API-01",
+      "gate": "OWNER_GATE",
+      "fixture": "canonical_api_choice",
+      "oracle": "A vs B vs recommended C not explicitly decided by Owner",
+      "expected": "OWNER_PENDING",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "RR1-01",
+      "gate": "MA1_GATE",
+      "fixture": "open_phy_clu_findings",
+      "oracle": "4 R-PHY P1 + 2 R-CLU P1 require integrated repair SHA + two independent re-reviews",
+      "expected": "REPAIRS_REQUIRED",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    },
+    {
+      "test_id": "RN-01",
+      "gate": "R-NUM",
+      "fixture": "independent_replay",
+      "oracle": "separate reviewer reruns frozen QA tests, residuals, provenance and repairs",
+      "expected": "INDEPENDENT_REVIEW_PENDING",
+      "design_status": "DESIGNED_NOT_EXECUTED"
+    }
+  ],
+  "release_flags": {
+    "ma2_implemented": false,
+    "ma2_runtime_authorized": false,
+    "real_qualified": false,
+    "owner_canonical_api_selected": false,
+    "independent_rnum_review_complete": false
+  }
+}
