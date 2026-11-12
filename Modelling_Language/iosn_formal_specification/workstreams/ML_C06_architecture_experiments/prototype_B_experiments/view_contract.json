@@ -1,0 +1,14 @@
+{
+  "architecture": "B",
+  "scope": "RESEARCH_CONCEPTUAL_PROTOTYPE",
+  "revision": "0.1.0",
+  "source": "C02 528 nodes and 1323 edges; C04 B01-B15",
+  "capabilities": [
+    "typed_id_roundtrip",
+    "domain_state_checks",
+    "frozen_synthetic_oracle_mutations"
+  ],
+  "native_standard_parser": "NOT_TESTED",
+  "native_energy_tool": "NOT_TESTED",
+  "G1": "BLOCKED"
+}
