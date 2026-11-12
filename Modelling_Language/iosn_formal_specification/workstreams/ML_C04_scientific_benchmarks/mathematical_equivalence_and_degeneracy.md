@@ -18,7 +18,7 @@ Additional scope axes: source authority, Y/CY/time, orientation/reference conven
 |---|---|---|
 |E-FEAS|E-OPT|A,B both F=[0,1], but J_A=x and J_B=−x; same feasible set, optimum x=0 vs x=1 and 0 vs −1 objective value|
 |E-OPT|E-FEAS|A: F=[0,1], B: F=[0,2], both J=x; same optimum 0 at x=0, but B admits x=1.5|
-|E-OBS for one scalar on one input|E-FEAS or E-OPT|A: F=[0,1], J=x; B: F=[0,2], J=x. Reporting just min objective 0 matches but feasible sets differ. To also separate E-OBS from E-OPT, use A: F=[0,1], J=x; B: F=[0,1], J=2x and observe only selected x*=0; objectives at optimum both 0, optimal set matches (so E-OPT holds here); instead B: F=[0,1], J=1−x, observe a constant KPI k≡1 → E-OBS holds although optimum sets differ|
+|E-OBS for one scalar on one input|E-FEAS or E-OPT|A: F=[0,1], J=x; B: F=[0,2], J=x. Reporting just min objective 0 matches but feasible sets differ. With A: F=[0,1], J=x and B: F=[0,1], J=1−x, the reported constant KPI k≡1 matches (E-OBS for that KPI), while optimal solutions x=0 vs x=1 differ (not E-OPT)|
 |E-OPT|observed same per-run portfolio/KPI|A=B={x,y≥0, x+y=1}, J=x+y. Solver A selects (1,0); Solver B selects (0,1); observed x differs|
 |E-FEAS plus equal objective on every mapped feasible point|E-OPT failure **not possible** if the mapping preserves optimum attainment and hidden-variable costs|This is a sufficient condition for E-OPT, not an independent assumption|
 |E-OPT plus identical set-valued output map over **all** optima|set-valued E-OBS failure **not possible**, provided same KPI definition and complete optimal-set map|Per-run deterministic E-OBS still depends on tie-break/selection|
