@@ -1,0 +1,219 @@
+{
+  "schema_version": "m2-ma1-rr1-clu-independent-v1",
+  "date": "2026-11-12",
+  "repository": "AlOussama/TYNDP_Products",
+  "immutable_repair_sha": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+  "review_branch": "review/iosn-m2-ma1-rr1-clu-20261112",
+  "independent_tested_review_sha": "00e50ecca685b5379171f5f3ac1bb304a812c9c0",
+  "review_test": "tests/iosn_official/test_rr1_clu_independent_20261112.py",
+  "ci": {
+    "run_id": 43165924354,
+    "job_id": 131007649350,
+    "status": "SUCCESS",
+    "python": "3.11.18",
+    "pytest": "9.2.0",
+    "test_counts": {
+      "independent": {
+        "tests": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "module2": {
+        "tests": 73,
+        "passed": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "full": {
+        "tests": 99,
+        "passed": 99,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "artifact_id": 13919364098,
+    "artifact_name": "m2-ma1-rr1-clu-independent-20261112",
+    "artifact_digest": "sha256:e54a1cc66f41d0bc16cea64645bf6b19dde0988e8a528a39d560128869fbb622",
+    "synthetic_export_files": 15,
+    "source_diff_from_repair_sha": "NONE",
+    "merge_base_ancestor": true
+  },
+  "graph_oracle": {
+    "n": 4,
+    "possible_edges": 6,
+    "edge_states": 3,
+    "graphs": 729,
+    "canonical_set_partitions": 15,
+    "quota_values": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "feasible_by_quota": {
+      "1": 38,
+      "2": 373,
+      "3": 665,
+      "4": 729
+    },
+    "feasible_full_domain": 1805,
+    "feasible_nonempty_graph_domain": 1804,
+    "empty_graph_k4_excluded_by_worker": true,
+    "empty_graph_k4_replayed": true,
+    "false_rejected_feasible": 0,
+    "false_proven_infeasible": 0,
+    "false_accepted_infeasible": 0,
+    "accepted_feasible": 1805,
+    "elapsed_seconds": 0.201
+  },
+  "new_counterexamples": [
+    {
+      "id": "RR1-CLU-5NODE",
+      "n": 5,
+      "expected": "FEASIBLE",
+      "observed": "BOUNDED_EXACT_FALLBACK_VALID"
+    },
+    {
+      "id": "RR1-CLU-6NODE-3COUNTRY",
+      "n": 14,
+      "country_labels": [
+        "X",
+        "Y",
+        "Z"
+      ],
+      "quotas": {
+        "X": 3,
+        "Y": 2,
+        "Z": 2
+      },
+      "ac_islands": 2,
+      "expected": "VALID_COUNTRY_PURE_CONNECTED_WITH_PROTECTED_CUTS",
+      "observed": "PASS",
+      "cross_country_ties": 4,
+      "parallel_flow_mw": [
+        32,
+        -30
+      ],
+      "net_mw": 2,
+      "cancelled_absolute_mw": 60,
+      "dense_sparse_oriented_identity": "PASS"
+    },
+    {
+      "id": "RR1-CLU-INFEASIBLE",
+      "n": 3,
+      "expected": "PROVEN_INFEASIBLE",
+      "observed": "PROVEN_INFEASIBLE"
+    },
+    {
+      "id": "RR1-CLU-17NODE",
+      "n": 17,
+      "expected": "HEURISTIC_STUCK_NOT_PROVEN",
+      "observed": "HEURISTIC_STUCK",
+      "feasible_witness": "{b0} and connected {b1..b16}",
+      "max_exact_nodes": 16,
+      "visited_exact_states": 0
+    }
+  ],
+  "screening": {
+    "nominal_400_class0": "EXPLICIT_REJECT",
+    "nominal_225_class0": "EXPLICIT_REJECT",
+    "annual_400_overload_mwh_by_year": [
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "annual_225_overload_mwh_by_year": [
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "nominal_220_unclassified": "REJECT",
+    "nominal_220_class225": "PASS_DECLARATION_ONLY",
+    "nominal_380_unclassified": "REJECT",
+    "nominal_380_class400": "PASS_DECLARATION_ONLY",
+    "real_line_level_source_evidence": "PENDING_EXTERNAL",
+    "transformer_400": "EXCLUDED_BY_KIND",
+    "line_110": "EXCLUDED_BY_VOLTAGE"
+  },
+  "source_contract": {
+    "original_method": "25 FEB 2026 PUBLIC CONSULTATION",
+    "table3_printed_pages": [
+      26,
+      27
+    ],
+    "entries": 37,
+    "quota_sum": 102,
+    "uk_page": 27,
+    "ni_page": 26,
+    "uk_ni_separate": true,
+    "csv_sha256_verified": true,
+    "alias_source_metadata_sha_digest": "PASS",
+    "original_source_bytes_independently_verified": false
+  },
+  "findings": [
+    {
+      "id": "R-CLU-001",
+      "prior_severity": "P1",
+      "status": "CLOSED_SYNTHETIC_SCOPE",
+      "replay": "PASS"
+    },
+    {
+      "id": "R-CLU-002",
+      "prior_severity": "P1",
+      "status": "CLOSED_SYNTHETIC_SCOPE",
+      "replay": "PASS"
+    },
+    {
+      "id": "R-CLU-003",
+      "prior_severity": "P2",
+      "status": "CLOSED_SYNTHETIC_SCOPE",
+      "replay": "PASS"
+    },
+    {
+      "id": "R-CLU-004",
+      "prior_severity": "P2",
+      "status": "CLOSED_SYNTHETIC_SCOPE",
+      "replay": "PASS"
+    },
+    {
+      "id": "R-CLU-005",
+      "prior_severity": "P2",
+      "status": "PARTIAL_EXTERNAL_SOURCE_BYTES_PENDING",
+      "replay": "PASS_DECLARED_METADATA_ONLY"
+    },
+    {
+      "id": "RR1-NOTE-001",
+      "severity": "P2",
+      "status": "KNOWN_RESOURCE_BOUNDED_COMPLETENESS",
+      "replay": "CONSTRUCTIVE_FEASIBLE_17_VERTEX_HEURISTIC_STUCK"
+    },
+    {
+      "id": "RR1-NOTE-002",
+      "severity": "SCOPE_NOTE",
+      "status": "NONEMPTY_GRAPH_1804_VS_FULL_1805",
+      "replay": "VERIFIED"
+    }
+  ],
+  "gate": {
+    "independent_clu_subgate": "ACCEPT_SYNTHETIC",
+    "overall_ma1": "PENDING_R_PHY_RE_AND_OWNER",
+    "open_P0": 0,
+    "open_P1": 0,
+    "g02_g05": "PASS_SYNTHETIC",
+    "g11": "PARTIAL_LOSSLESS_DC_ONLY",
+    "real_qualified": false,
+    "authority": "CONSULTATION_ONLY_NOT_ADOPTED",
+    "m0_m1_weather_modified": false,
+    "ma2_authorized": false,
+    "ma3_authorized": false,
+    "merge_authorized": false
+  }
+}
