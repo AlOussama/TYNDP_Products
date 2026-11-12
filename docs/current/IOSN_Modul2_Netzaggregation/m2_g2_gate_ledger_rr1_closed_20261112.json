@@ -1,0 +1,202 @@
+{
+  "schema": "M2.G2.RR1_SYNTHETIC_SCIENCE_GATE.v2",
+  "date_utc": "2026-11-12",
+  "status": "SCOPED_SCIENTIFIC_RR1_PASS__OWNER_PENDING__NO_RUNTIME_RELEASE",
+  "repository": "AlOussama/TYNDP_Products",
+  "prior_initial_gate_ledger": "m2_g2_gate_ledger_20261112.json",
+  "prior_initial_gate_state": "G2_PREPARED_NO_RELEASE_RR1_PENDING_AS_OF_INITIAL_PUBLICATION",
+  "immutable_source": {
+    "consolidation_commit": "37ee7734049d4cbe3480bb263ca68615d9140809",
+    "macro_A_RP1": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+    "macro_B_API": "ed42d051a7234f7f062d94d06291f66e56657bbc",
+    "macro_C_D_SOURCE": "05dd0db3fc15fd6e091b8dd96d854adcedf8302c",
+    "macro_D_METHOD": "c980bbd341b1051257bcf31b0a904dd7937f7241",
+    "macro_E_MA2_PRE": "b73bb3c595bff515aeca052f02fc83f72289b5f0",
+    "conditional_ma2_macro": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0"
+  },
+  "independent_rr1": {
+    "same_implementation_sha": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+    "github_comparison_production_src_unchanged": true,
+    "source_tree_sha": "e9202091d4ac79b5bd8fbe83646d3ba11f1367b3",
+    "phy": {
+      "decision": "ACCEPT_SYNTHETIC_PHY_LOSSLESS_DC_SCOPE",
+      "review_report_commit": "7a7de151fcf7e4bd2cda0530c2438dcfc95b5df1",
+      "tested_review_sha": "fa097c23a71510ad1feb0ed327b76b4ed95955ca",
+      "report_url": "https://github.com/AlOussama/TYNDP_Products/blob/7a7de151fcf7e4bd2cda0530c2438dcfc95b5df1/docs/current/IOSN_Modul2_Netzaggregation/M2_MA1_RR1_PHY_INDEPENDENT_REPORT_20261112.md",
+      "ledger_url": "https://github.com/AlOussama/TYNDP_Products/blob/7a7de151fcf7e4bd2cda0530c2438dcfc95b5df1/docs/current/IOSN_Modul2_Netzaggregation/M2_MA1_RR1_PHY_INDEPENDENT_FINDINGS_20261112.json",
+      "ci": {
+        "run_id": 43165364424,
+        "job_id": 131005866264,
+        "artifact_id": 13919657133,
+        "conclusion": "success",
+        "independent_passed": 40,
+        "ma1_passed": 106,
+        "full_passed": 132,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "p0_open": 0,
+      "p1_open": 0,
+      "closed_finding_ids": [
+        "PHY-R01",
+        "PHY-R02",
+        "PHY-R03",
+        "PHY-R04"
+      ],
+      "p2_remaining": [
+        "PHY-P2-SOURCE_EXTERNAL_BYTES_PENDING",
+        "PHY-P2-COMMIT_CI_ATTESTATION_NOT_EXPORTER_API_FIXED"
+      ],
+      "max_kcl_mw": 8.881784197001252e-15,
+      "max_affine_kvl_rad": 8.673617379884035e-18,
+      "max_sparse_dense_mw": 3.3640645824561943e-11,
+      "sparse_stress_bus_count": 1001,
+      "fixture_files": 15,
+      "verified_output_hashes": 14,
+      "output_hash_mismatch_count": 0,
+      "atol_mw_project_implementation_cap": 0.000001
+    },
+    "clu": {
+      "decision": "ACCEPT_SYNTHETIC_CLU_SCOPE",
+      "review_report_commit": "bb7cabeb25f092e4ab68732e17903e7be1413c55",
+      "tested_review_sha": "00e50ecca685b5379171f5f3ac1bb304a812c9c0",
+      "report_url": "https://github.com/AlOussama/TYNDP_Products/blob/bb7cabeb25f092e4ab68732e17903e7be1413c55/docs/current/IOSN_Modul2_Netzaggregation/rr1_clu_20261112/independent_review.md",
+      "ledger_url": "https://github.com/AlOussama/TYNDP_Products/blob/bb7cabeb25f092e4ab68732e17903e7be1413c55/docs/current/IOSN_Modul2_Netzaggregation/rr1_clu_20261112/findings_and_gate.json",
+      "ci": {
+        "run_id": 43165924354,
+        "job_id": 131007649350,
+        "artifact_id": 13919364098,
+        "conclusion": "success",
+        "independent_passed": 7,
+        "ma1_passed": 73,
+        "full_passed": 99,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "p0_open": 0,
+      "p1_open": 0,
+      "closed_finding_ids": [
+        "R-CLU-001",
+        "R-CLU-002",
+        "R-CLU-003",
+        "R-CLU-004"
+      ],
+      "p2_remaining": [
+        "R-CLU-005_EXTERNAL_SOURCE_BYTES_PENDING",
+        "RR1-NOTE-001_BOUNDED_SEARCH_COMPLETENESS"
+      ],
+      "four_node_labeled_edge_state_graphs": 729,
+      "feasible_graph_quota_full": 1805,
+      "feasible_graph_quota_nonempty_original_worker": 1804,
+      "empty_graph_k4_extra_witness_passed": true,
+      "false_infeasible": 0,
+      "false_rejected_feasible": 0,
+      "false_accepted_infeasible": 0,
+      "nominal_400kv_overload_energy_mwh_per_year": 90,
+      "class0_true_400kv_policy": "REJECT",
+      "class0_true_225kv_policy": "REJECT",
+      "asset_220_380_translation": "SOURCE_ATTESTATION_REQUIRED",
+      "synthetic_alias_normalization": "OPT_IN_METADATA_ONLY",
+      "exact_search_max_nodes": 16,
+      "exact_search_max_states": 100000,
+      "feasible_17node": "HEURISTIC_STUCK_NOT_PROVEN_INFEASIBLE"
+    },
+    "source_diff_file_types": "REVIEWER_TEST_AND_WORKFLOW_ONLY_AT_TEST_COMMIT; REPORT_FINDINGS_DOCS_AFTER",
+    "reviewer_work_product_independence": "DISTINCT_TESTS_WORKFLOWS_COMMITS_AND_CI",
+    "independent_distinct_human_identity_externally_authenticated": false,
+    "reviewer_person_attestation_owner_control": "PENDING_IF_OWNER_REQUIRES_PERSON_LEVEL_INDEPENDENCE",
+    "exact_same_repair_confirmed": true,
+    "both_scoped_accepted": true,
+    "combined_open_p0": 0,
+    "combined_open_p1": 0
+  },
+  "release_gates": {
+    "MA1_RR1_SCIENTIFIC": "PASS_SCOPED_LOSSLESS_DC_SYNTHETIC",
+    "MA1_SCIENTIFIC_SYNTHETIC_QUALIFIED": true,
+    "MA1_OWNER_RELEASE": false,
+    "G01_G02_G03_G04_G05": "PASS_SYNTHETIC_SCOPE",
+    "G11": "PARTIAL_LOSSLESS_DC_ONLY",
+    "R_API_P1_01_09": "OWNER_DISPOSITION_AND_CONTRACT_GUARDS_PENDING",
+    "MA2_INPUT_CONTRACT": "M2.MA2Input.v1_DRAFT_NOT_FROZEN",
+    "MA2_G06_G07_G08": "NOT_IMPLEMENTED",
+    "MA2_45_DESIGNED_CASES": {
+      "designed": 45,
+      "executed": 0
+    },
+    "MA2_R_NUM": "NOT_RUN",
+    "MA2_CODE_AUTHORIZED": false,
+    "MA3_AUTHORIZED": false,
+    "REAL_G12": "BLOCKED_DATA",
+    "REAL_QUALIFIED": false,
+    "ENTSOE_METHOD_AUTHORITY": "UNCONFIRMED_ADOPTED_EFFECTIVE",
+    "MAIN_MERGE_AUTHORIZED": false
+  },
+  "project_owner": {
+    "owner_signoff_status": "PENDING",
+    "signed_decision_url": null,
+    "signed_decision_commit": null,
+    "signed_decision_timestamp": null,
+    "adopted_api": null,
+    "proposed_api": "C__IOSN_OFFICIAL_SINGLE_CANONICAL__OPTIONAL_B_TO_A_ADAPTER",
+    "proposed_hvdc": "STRICT_LOSSLESS",
+    "proposed_observed_flow": "SEPARATE_MODEL_DISCREPANCY_QA",
+    "proposed_screen": "AUDITED_CLASS_AND_PROTECTION",
+    "proposed_method": "O26_PUBLIC_CONSULTATION_AS_PROVISIONAL_SCIENTIFIC_WORKING_BASELINE",
+    "project_I_profile": "NOT_FROZEN",
+    "selected_I_values": null,
+    "separate_explicit_scoped_ma2_code_act": null,
+    "no_merge_proposal": true
+  },
+  "data": {
+    "official_country_budget_table": {
+      "country_labels": 37,
+      "zones": 102,
+      "table_only": true,
+      "original_detailed_grid_qualified": false
+    },
+    "D0": "BLOCKED",
+    "D1": "BLOCKED_SOURCE_BYTES",
+    "D2": "BLOCKED",
+    "D3": "BLOCKED",
+    "D4": "NOT_ADMITTED",
+    "fixed_external_project_weather_year_ids_present": false,
+    "independently_balanced_real_neutral_present": false,
+    "original_source_bytes_attested": false,
+    "weather_year_selection_changed": false
+  },
+  "authority": {
+    "project_scientific_working_baseline": "2026-02-25_ENTSOE_PUBLIC_CONSULTATION_PROPOSED",
+    "owner_adoption": "PENDING",
+    "ENTSOE_external_adopted_effective": "UNCONFIRMED",
+    "officially_conforming": false
+  },
+  "next_now": [
+    "M2_G2_OWNER_C_DECISION_AND_I_FREEZE",
+    "M2_D_SOURCE_OWNER_REAL_BYTES",
+    "M2_MA2_PRE_R_DOCUMENT_ONLY",
+    "M2_API_V1_GUARDS_R_DOCUMENT_ONLY"
+  ],
+  "next_only_after_explicit_owner_code_act": [
+    "M2_MA2_W_EQ",
+    "M2_MA2_W_ITER",
+    "M2_MA2_W_INT",
+    "INDEPENDENT_R_NUM_AFTER_IMPLEMENTATION"
+  ],
+  "prohibited": [
+    "NO_OWNER_AUTO_APPROVAL",
+    "NO_MAIN_MERGE",
+    "NO_MA2_CODE_EXECUTION",
+    "NO_REAL_NETWORK_RELEASE",
+    "NO_MA3_GO",
+    "NO_M0_CHANGE",
+    "NO_M1_CHANGE",
+    "NO_WEATHER_YEAR_SELECTION_CHANGE"
+  ],
+  "published_documents": [
+    "108_M2_G2_RR1_CLOSURE_AND_MA1_SYNTHETIC_SCIENCE_GATE_20261112.md",
+    "109_M2_G2_OWNER_DECISION_REGISTER_POST_RR1_20261112.md",
+    "110_M2_G2_NEXT_ADMISSIBLE_MACROS_POST_RR1_20261112.md"
+  ]
+}
