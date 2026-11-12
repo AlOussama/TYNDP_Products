@@ -37,3 +37,9 @@ Ermittle für jede neue Clause-/Data-/Math-Revision die transitiv betroffenen SR
 Werden bei einer Änderung SourceScope/O26-D2-Konflikt, gemeinsame CY-Entscheidung, UTC Δt, physikalische Netzrolle, Stufenübergabe, P15-Guard, Raw/KPI oder EvidenceStatus beeinflusst, ist **semantische Neubewertung** erforderlich. D3/D4-Oracle und echte native Implementierungsevidenz können erst nach MD-/Datenfreigaben erbracht werden.
 
 **G1 bleibt BLOCKED.**
+
+## 5. Tatsächlich ausgeführter zusätzlicher Änderungs-/Negativtest (2026-11-12)
+
+Unter `run_change_experiments.mjs` und `semantic_change_test_results.csv` sind **8 gezielt mutierte Contract-Änderungstypen × 3 Architekturadapter = 24 erwartungskonforme negative Klassifikationen** protokolliert. Ausgeführt wurden die entsprechenden JavaScript-Prüffunktionen direkt in der Code-Mode-V8-Umgebung; ein separater Node-CLI-Lauf wurde **nicht** belegt. Für jede positive Ausgangsrepräsentation wurden zuerst dieselben Regeln auf einen gültigen Baseline-Graph angewandt (kein Baseline-Fehler); dann wurde je eine Quellautorität, Datenstatus, Operatorfamilie, Δt-Pflicht, Quellkante, Profil-/Metamodell-/View-Revision, Exportstatus oder process-only Datenobjekt absichtlich beschädigt. Die resultierenden Ursachen-ID sind in der CSV enthalten.
+
+Diese **negativen** Tests demonstrieren nur lokale Fail-Closed-Erkennung und Provenienz-/Version-Signaturen, **keinen** vollständigen kontrollierten Migrationslauf, keine freigegebene Versionsrichtlinie und keine tatsächlich durchgeführte Standard-View-Konversion. Insbesondere ist eine lokal abgewiesene Version `1.0.0` keine allgemeine SemVer-Regel für künftige Produktprofile. Datenreleases, reale TransformationExecutions, LP-Koeffizienten-Diffs und die im Abschnitt 4 geforderte unabhängige Review bleiben `NOT_TESTED/BLOCKED`.
