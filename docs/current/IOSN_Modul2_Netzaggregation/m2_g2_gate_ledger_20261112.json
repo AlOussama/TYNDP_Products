@@ -1,0 +1,218 @@
+{
+  "schema": "M2.G2.RELEASE_GATE.v1",
+  "date_utc": "2026-11-12",
+  "classification": "UNSIGNED_DOCUMENTARY_EVIDENCE_PREPARATION",
+  "repository": "AlOussama/TYNDP_Products",
+  "input_consolidation_sha": "37ee7734049d4cbe3480bb263ca68615d9140809",
+  "scope": "M2_SYNTHETIC_ONLY_REVIEW_PREPARATION",
+  "macros": {
+    "A_MA1_RP1": {
+      "commit": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+      "verified_commit_exists": true,
+      "state": "FIXED_BY_WORKER_TEST",
+      "code_reviewed_independently": false,
+      "push_ci_run_id": 43113044448,
+      "push_ci_url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/43113044448",
+      "worker_focused_pass": 66,
+      "worker_full_pass": 92,
+      "worker_failure_count": 0,
+      "synthetic_export_files": 15,
+      "repo_pr": 41
+    },
+    "B_API_G1": {
+      "commit": "ed42d051a7234f7f062d94d06291f66e56657bbc",
+      "verified_commit_exists": true,
+      "proposal": "C",
+      "owner_choice": null,
+      "status": "RECOMMEND_C_OWNER_PENDING"
+    },
+    "C_D_SOURCE1": {
+      "commit": "05dd0db3fc15fd6e091b8dd96d854adcedf8302c",
+      "verified_commit_exists": true,
+      "official_country_labels": 37,
+      "official_zones": 102,
+      "table_sha256": "8ebd0bc239cd62760944a68deb53a0af710e56d5ea3c379d7526b4255fc4c391",
+      "D0": "BLOCKED",
+      "D1": "BLOCKED_SOURCE_BYTES",
+      "D2": "BLOCKED",
+      "D3": "BLOCKED",
+      "D4": "NOT_READY",
+      "real_qualified": false
+    },
+    "D_METHOD_G1": {
+      "commit": "c980bbd341b1051257bcf31b0a904dd7937f7241",
+      "verified_commit_exists": true,
+      "project_owner_decisions": "PENDING",
+      "entsoe_authority": "AUTHORITY_UNCONFIRMED"
+    },
+    "E_MA2_PRE": {
+      "commit": "b73bb3c595bff515aeca052f02fc83f72289b5f0",
+      "verified_commit_exists": true,
+      "design_case_count": 45,
+      "executed_ma2_case_count": 0,
+      "r_num": "NOT_RUN",
+      "status": "MA2_PREP_READY_FOR_GATE_DESIGN_ONLY"
+    }
+  },
+  "ma1": {
+    "repair_implementation_sha": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+    "original_independent_reviews": {
+      "phy_commit": "c004e5330df2a018e567c8ef955ef2fc9d71e0ea",
+      "clu_commit": "7d7d07d7af5966ddc26d0be1100a69013763d2e8"
+    },
+    "worker_repair_physical": [
+      "PHY-R01",
+      "PHY-R02",
+      "PHY-R03",
+      "PHY-R04"
+    ],
+    "worker_repair_clustering": [
+      "R-CLU-001",
+      "R-CLU-002",
+      "R-CLU-003",
+      "R-CLU-004",
+      "R-CLU-005"
+    ],
+    "rr1_phy": {
+      "decision": "PENDING",
+      "independent_reviewer": null,
+      "review_report_commit": null,
+      "tested_implementation_sha": null,
+      "independent_ci_run_url": null,
+      "open_p0": null,
+      "open_p1": null,
+      "p2_disposition": null
+    },
+    "rr1_clu": {
+      "decision": "PENDING",
+      "independent_reviewer": null,
+      "review_report_commit": null,
+      "tested_implementation_sha": null,
+      "independent_ci_run_url": null,
+      "open_p0": null,
+      "open_p1": null,
+      "p2_disposition": null
+    },
+    "rr1_same_implementation_verified": false,
+    "rr1_zero_open_p0_p1_verified": false,
+    "worker_graph_enumeration": {
+      "edge_state_graphs": 729,
+      "feasible_graph_quota_cases": 1804,
+      "false_infeasible": 0,
+      "evidence_class": "WORKER_NOT_REVIEWER"
+    },
+    "rr1_gate": "PENDING_TWO_INDEPENDENT_ACCEPTANCES",
+    "ma1_synthetic_qualified": false,
+    "g01_to_g05": "WORKER_SYNTHETIC_PASS_REVIEW_NOT_ACCEPTED",
+    "g11": "PARTIAL_LOSSLESS_DC_ONLY"
+  },
+  "owner": {
+    "status": "PENDING",
+    "person_or_delegate": null,
+    "approved_timestamp_utc": null,
+    "signed_approval_url": null,
+    "options": [
+      {
+        "id": "OD-M2-API-01",
+        "proposed": "C_A_CANONICAL_OPTIONAL_B_TO_A",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-API-02",
+        "proposed": "STRICT_LOSSLESS",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-API-03",
+        "proposed": "SEPARATE_MODEL_DISCREPANCY_QA",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-API-04",
+        "proposed": "AUDITED_CLASS_AND_PROTECTION",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-API-05",
+        "proposed": "DOC_GATE_ONLY_NO_MERGE",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-METH-01",
+        "proposed": "O26_PROVISIONAL_SCIENTIFIC_BASELINE",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-SCOPE-11",
+        "proposed": "DOCUMENT_FIXTURE_AND_SOURCE_ACTIONS_NOW",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-MA2-PRE",
+        "proposed": "ACCEPT_DOCUMENT_AND_FIXTURE_DESIGN_ONLY",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-MA2-CODE",
+        "proposed": "DEFER_UNTIL_RR1_AND_OWNER_API_I_FREEZE",
+        "selected": null
+      },
+      {
+        "id": "OD-M2-MERGE-12",
+        "proposed": "NO_MERGE_NOW",
+        "selected": null
+      }
+    ],
+    "i_parameter_freeze": "PENDING",
+    "canonical_api_selected": null,
+    "ma2_implementation_authorized": false,
+    "merge_authorized": false
+  },
+  "methodology": {
+    "provisional_research_source": "ENTSOE_IoSN_2026_02_25_CONSULTATION_DRAFT",
+    "project_adoption": "OWNER_PENDING",
+    "external_adopted_effective_authority": "AUTHORITY_UNCONFIRMED",
+    "external_approval_document_sha": null,
+    "official_normative_conformity": false,
+    "project_weather_years_exact_external_ids_available": false,
+    "project_weather_year_count": "5_EXTERNAL_PROJECT_INPUT_SLOTS_NOT_ENTSOE_NORM"
+  },
+  "future_ma2": {
+    "conditional_handoff_commit": "27dfd810b39e17e6b616a2b0aeb813eb8948d8a0",
+    "design_commit": "b73bb3c595bff515aeca052f02fc83f72289b5f0",
+    "input_contract": "M2.MA2Input.v1_DRAFT",
+    "g06": "NOT_IMPLEMENTED",
+    "g07": "NOT_IMPLEMENTED",
+    "g08": "NOT_IMPLEMENTED",
+    "r_num": "NOT_RUN",
+    "code_gate": "BLOCKED_RR1_OWNER_AND_I_FREEZE",
+    "code_go_formula": "MA1_SYNTHETIC_QUALIFIED && OWNER_API_AND_I_FREEZE && EXPLICIT_SIGNED_SCOPED_MA2_CODE_GO",
+    "independent_final_holdout_opened": false,
+    "real_qualified": false,
+    "g12": "BLOCKED_DATA",
+    "ma3_authorized": false
+  },
+  "safety_exclusions": [
+    "NO_OWNER_APPROVAL_INFERRED",
+    "NO_MAIN_MERGE",
+    "NO_MA2_CODE_EXECUTION",
+    "NO_REAL_GRID_RELEASE",
+    "NO_ENTSOE_AUTHORITY_CLAIM",
+    "NO_M0_CGMES_CHANGE",
+    "NO_M1_PECD_CHANGE",
+    "NO_WEATHER_YEAR_SELECTION_CHANGE"
+  ],
+  "next_allowed": [
+    "RR1_R_PHY",
+    "RR1_R_CLU",
+    "PROJECT_OWNER_DECISION_REQUEST",
+    "D_SOURCE_OWNER_REAL_BYTES",
+    "OPTIONAL_MA2_PRE_DESIGN_REVIEW"
+  ],
+  "next_blocked": [
+    "MA2_IMPLEMENTATION",
+    "R_NUM_RUNTIME",
+    "MA3_REAL",
+    "MAIN_MERGE"
+  ]
+}
