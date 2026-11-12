@@ -1,0 +1,118 @@
+name: "M2 MA1 RR1 independent R-CLU repair replay"
+on:
+  push:
+    branches:
+      - "review/iosn-m2-ma1-rr1-clu-20261112"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rr1-clu-independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SOURCE_REPAIR_SHA: "fb201ef5f120f64696dea9aa99f77ece77546f9a"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enforce immutable integration source and exact ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "$SOURCE_REPAIR_SHA^{commit}"
+          git merge-base --is-ancestor "$SOURCE_REPAIR_SHA" HEAD
+          git diff --exit-code "$SOURCE_REPAIR_SHA" HEAD -- src/tyndp_reduce/iosn_official
+          git diff --name-only "$SOURCE_REPAIR_SHA" HEAD
+          printf 'INTEGRATION_CODE_SHA=%s\nREVIEW_SHA=%s\n' "$SOURCE_REPAIR_SHA" "$(git rev-parse HEAD)"
+      - name: Install scientific dependencies and record environment
+        run: |
+          python -m pip install -e ".[test]"
+          mkdir -p /tmp/rr1-clu-reports
+          python --version | tee /tmp/rr1-clu-reports/python-version.txt
+          python -m pytest --version | tee /tmp/rr1-clu-reports/pytest-version.txt
+          python -m pip freeze > /tmp/rr1-clu-reports/pip-freeze.txt
+      - name: Independent graph enumeration and novel adversarial tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -s -q \
+            tests/iosn_official/test_rr1_clu_independent_20261112.py \
+            --junitxml=/tmp/rr1-clu-reports/independent.xml \
+            2>&1 | tee /tmp/rr1-clu-reports/independent.log
+      - name: Complete official MA1 regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -q tests/iosn_official \
+            --junitxml=/tmp/rr1-clu-reports/ma1.xml \
+            2>&1 | tee /tmp/rr1-clu-reports/ma1.log
+      - name: Full Python package regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -q --junitxml=/tmp/rr1-clu-reports/all.xml \
+            2>&1 | tee /tmp/rr1-clu-reports/all.log
+      - name: Independently re-export fifteen-file synthetic SHA witness
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence \
+            --output /tmp/rr1-clu-evidence --commit "$(git rev-parse HEAD)"
+      - name: Write evidence manifest and JUnit counts
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/rr1-clu-reports
+          python - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          import json, os, platform, subprocess
+          from xml.etree import ElementTree as ET
+          root=Path("/tmp/rr1-clu-reports")
+          fixture=Path("/tmp/rr1-clu-evidence")
+          summary={}
+          for name in ("independent","ma1","all"):
+              f=root/(name+".xml")
+              if f.exists():
+                  xml=ET.parse(f).getroot()
+                  suite=xml if xml.tag=="testsuite" else xml.find("testsuite")
+                  summary[name]={k:int(suite.attrib.get(k,0))
+                                 for k in ("tests","failures","errors","skipped")}
+          hashes={}
+          if fixture.exists():
+              for f in sorted(fixture.rglob("*")):
+                  if f.is_file():
+                      hashes[str(f.relative_to(fixture))]=sha256(f.read_bytes()).hexdigest()
+          evidence={
+              "schema":"m2-ma1-rr1-clu-independent-v1",
+              "repair_code_sha":os.environ["SOURCE_REPAIR_SHA"],
+              "review_checkout_sha":subprocess.check_output(
+                  ["git","rev-parse","HEAD"],text=True).strip(),
+              "github_event_sha":os.environ.get("GITHUB_SHA"),
+              "github_run_id":os.environ.get("GITHUB_RUN_ID"),
+              "python":platform.python_version(),
+              "junit":summary,
+              "synthetic_export_sha256":hashes,
+              "original_worker_tests_unchanged":True,
+              "modified_production_code":False,
+              "real_qualified":False,
+              "independent_phy_release":False,
+              "ma2_runtime_authorized":False,
+              "merge_authorized":False,
+          }
+          (root/"ci_evidence_manifest.json").write_text(
+              json.dumps(evidence,sort_keys=True,indent=2)+"\n")
+          print(json.dumps(evidence,sort_keys=True))
+          PY
+      - name: Retain independent JUnit/log, package regressions and output SHA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m2-ma1-rr1-clu-independent-20261112
+          path: |
+            /tmp/rr1-clu-reports/**
+            /tmp/rr1-clu-evidence/**
+          if-no-files-found: warn
+          retention-days: 90
