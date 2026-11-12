@@ -1,0 +1,58 @@
+{
+  "research_id": "ML-C06",
+  "date": "2026-11-12",
+  "execution_environment": "isolated Code Mode V8 JS functions",
+  "baseline_commit": "9162def25d22c37b1fbc38f7d80fe929425cc8d2",
+  "source_prs": {
+    "ML_C02": {
+      "pr": 42,
+      "head": "136b35e9dc2206b38c95b1e9a68b7d9598a5f86c",
+      "frozen_blob": "d10e19103aa44bcaac6df692ee3b7dbb64fd77c3"
+    },
+    "ML_C04": {
+      "pr": 45,
+      "head": "256541e763147dcb118a3a9d24ca2f52035c672e",
+      "frozen_blob": "3ce73355e7c5ad228cbe29db045223ca1adea571"
+    }
+  },
+  "first_run": {
+    "matched": 132,
+    "total": 135,
+    "source_defect": "B09 checker used wrong original water-energy field name",
+    "claim": "CHECKER_DEFECT_NOT_SOURCE_MODEL"
+  },
+  "corrected_run": {
+    "matched": 135,
+    "total": 135,
+    "architectures": [
+      "A",
+      "B",
+      "C"
+    ],
+    "cases_each": 45,
+    "graph_nodes": 528,
+    "graph_edges": 1323,
+    "benchmark_families": 15,
+    "recorded_csv": "architecture_benchmark_results.csv"
+  },
+  "change_run": {
+    "matched": 24,
+    "total": 24,
+    "architectures": [
+      "A",
+      "B",
+      "C"
+    ],
+    "change_families": 8,
+    "recorded_csv": "semantic_change_test_results.csv"
+  },
+  "separately_executed_node_process": false,
+  "external_standards_parsers": "NOT_TESTED",
+  "model_generator": "NOT_TESTED",
+  "native_solver": "NOT_TESTED",
+  "production_data_source_validation": "NOT_TESTED",
+  "approved_oracle": "BLOCKED_OWNER",
+  "external_independent_review": "NOT_OBTAINED",
+  "architecture_choice": "DEFERRED",
+  "gate_G1": "BLOCKED"
+}

@@ -56,3 +56,7 @@ Die 132 Einträge in `standards_and_extension_gap_matrix.csv` sind eine **Dokume
 ## 5. Bewertungsurteil
 
 **Keine belastbare Rangfolge** aus lokalen Gleichstandszahlen. A begünstigt unabhängige Profilpflege, B verringert Fragmentierung auf Kosten gemeinsamer Evolutionszyklen, C fördert Wiederverwendung unter der Bedingung eines eindeutigen Identitätsledgers und nachgewiesener verlustfreier View-Mappings. Alle drei erhalten vorläufig den Status `RESEARCH_FEASIBLE_WITH_CRITICAL_GAPS`; Entscheidung nur konditional (siehe `conditional_architecture_recommendation.md`), G1 BLOCKED.
+
+## 6. Zusätzlicher beobachteter Änderungsregressionslauf
+
+Die eigenständig protokollierten 8 Änderungsmutationen (Quellautorität, Datenprofilstatus, inkompatibler Operator, Zeitpflichtfeld, fehlerhafte Quellkante, inkompatible Profil-/Metamodell-/View-Revision, verlustbehaftete View und process-only-Objekt) ergaben **24/24** korrekt erkannte Fehler über drei Varianten. Positive Ausgangszustände wurden jeweils vorher mit derselben lokalen Änderungsregel geprüft. CSV: `semantic_change_test_results.csv`, wiederholbarer Runner: `run_change_experiments.mjs`. Es wurde keine vollständige Migrationsreparatur implementiert, keine native Standard-View serialisiert und kein Parser oder zwei unabhängige Energie-Modellgeneratoren ausgeführt; diese Prüftiefen bleiben `NOT_TESTED`.
