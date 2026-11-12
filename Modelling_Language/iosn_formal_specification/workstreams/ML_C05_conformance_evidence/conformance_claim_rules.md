@@ -39,7 +39,7 @@ A single C-NUMERIC-INSTANCE may specify PRIMAL_FEASIBLE without claiming OPTIMAL
 candidate_claim(C):
   enumerate applicable obligation universe U(C), validated optional exclusions X(C)
   require full trace E01..E08 as relevant, and all per-assertion statuses visible
-  reject/w ithhold if unexecuted, failed, unsupported or blocked mandatory assertion
+  reject/withhold if unexecuted, failed, unsupported or blocked mandatory assertion
   reject if required oracle, data authority, reviewer independence or tolerance unresolved
   if every property proven:
       issue only the named scope-limited proposition with proof/review provenance
@@ -90,7 +90,7 @@ Valid scoped checks are:
 
 ## 5. Result and KPI claim rules
 
-- **Raw versus derived:** E06 stores original unfiltred decisions, E07 records named formula, version, accepted owner/oracle, exact raw parent and independent evaluation.
+- **Raw versus derived:** E06 stores original unfiltered decisions, E07 records named formula, version, accepted owner/oracle, exact raw parent and independent evaluation.
 - **Weighted outputs:** energy expectation must use real declared w(c) and Δt. Never assume uniform CY weights or a one-hour step absent source evidence.
 - **Metric undefined:** formula/status FORMULA_TBD is separate from a test's BLOCKED outcome; return a null/undefined value and preserved raw lineage, not a manufactured zero.
 - **Filtering and system need:** small-investment threshold, ONDP/offshore, candidate route cost and approved project status must be separately sourced; a system-need opportunity cannot be relabelled as construction approval.
