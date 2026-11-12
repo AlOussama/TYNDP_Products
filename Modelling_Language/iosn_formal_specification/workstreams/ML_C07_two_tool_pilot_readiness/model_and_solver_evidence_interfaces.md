@@ -44,6 +44,8 @@ TestAttempt → evidence(E01..E08) → independent verification    MetricEvaluat
 
 For two arms, the frozen semantic contract and approved/common input may be identical, but generated models, generator source, execution identities, native row/column labels, solvers and independent proof chains are intentionally distinct.
 
+**Verification depth is independent of the evidence surface:** test_depth:D0 (structure), D1 (semantics), D2 (analytical/synthetic), D3 (actual generated obligations) and **D4 (triggered deep feasible/optimal projection proof)** must be recorded alongside the V1–V6 layer. A triggered D4 equivalence check requires an inspectable native-to-common mapping and proof/counterexample object, not merely an E04 export's presence.
+
 ## 3. E02/E03 — source, preprocessing and time interface
 
 Minimum E02 mapping fields: study_year (2035/2040/2050 as separate studies), external_CY_ID (CY1–CY5), source weather-selection release ID or UNKNOWN, case-indexed weight and its *authority*, UTC interval start/end and duration_hours, zone/bus/corridor/candidate source ID, network/carrier, dimensioned value, original provenance, quality/exception state. The D2 profile requires case-specific weights equal *across* study years, not equal across CY. All productive values are open; synthetic fixtures must state that their own numbers are illustrative.
