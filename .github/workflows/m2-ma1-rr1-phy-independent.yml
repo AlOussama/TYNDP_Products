@@ -1,0 +1,129 @@
+name: "RR1-R-PHY independent pinned repair re-review"
+
+on:
+  push:
+    branches:
+      - "review/iosn-m2-ma1-rr1-phy-20261112"
+    paths:
+      - "tests/iosn_official/test_rr1_phy_re_20261112.py"
+      - ".github/workflows/m2-ma1-rr1-phy-independent.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rr1-phy-independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PINNED_REPAIR_SHA: "fb201ef5f120f64696dea9aa99f77ece77546f9a"
+    steps:
+      - name: Independent review checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pin exact immutable production code relative to repaired SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/rr1-phy
+          test "$(git rev-parse "$PINNED_REPAIR_SHA^{commit}")" = "$PINNED_REPAIR_SHA"
+          git merge-base --is-ancestor "$PINNED_REPAIR_SHA" HEAD
+          git diff --exit-code "$PINNED_REPAIR_SHA" HEAD -- src/tyndp_reduce/iosn_official pyproject.toml
+          git rev-parse HEAD | tee /tmp/rr1-phy/review_checkout_sha.txt
+          git rev-parse "$PINNED_REPAIR_SHA:src/tyndp_reduce/iosn_official" | tee /tmp/rr1-phy/pinned_source_tree_sha.txt
+          git rev-parse "HEAD:src/tyndp_reduce/iosn_official" | tee /tmp/rr1-phy/actual_source_tree_sha.txt
+          cmp /tmp/rr1-phy/pinned_source_tree_sha.txt /tmp/rr1-phy/actual_source_tree_sha.txt
+      - name: Python 3.11 scientific environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install tested scientific package
+        run: |
+          python -m pip install -e ".[test]"
+          python -V > /tmp/rr1-phy/python_version.txt
+          python -m pip freeze > /tmp/rr1-phy/pip_freeze.txt
+      - name: Independent original failure reproductions and new attacks (ordinary PASS)
+        run: |
+          set -o pipefail
+          python -m pytest -q -rx -s tests/iosn_official/test_rr1_phy_re_20261112.py --junitxml=/tmp/rr1-phy/independent.xml 2>&1 | tee /tmp/rr1-phy/independent.log
+      - name: All MA1 focused regression
+        run: |
+          set -o pipefail
+          python -m pytest -q -rx tests/iosn_official --junitxml=/tmp/rr1-phy/focused.xml 2>&1 | tee /tmp/rr1-phy/focused.log
+      - name: Full package regression
+        run: |
+          set -o pipefail
+          python -m pytest -q -rx --junitxml=/tmp/rr1-phy/full.xml 2>&1 | tee /tmp/rr1-phy/full.log
+      - name: Independent dense cycle-space numerical metrics
+        run: |
+          python tests/iosn_official/test_rr1_phy_re_20261112.py /tmp/rr1-phy/physical_metrics.json
+      - name: SHA-bound complete 15-file synthetic output
+        run: |
+          python -m tyndp_reduce.iosn_official.fixture_evidence --output /tmp/rr1-phy/synthetic --commit "$PINNED_REPAIR_SHA"
+      - name: Independent attestation of files and JUnit, no self-approval
+        if: always()
+        env:
+          RR1_OUT: /tmp/rr1-phy
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          import xml.etree.ElementTree as ET
+          folder=pathlib.Path(os.environ["RR1_OUT"])
+          blob=folder/"synthetic"/"manifest.json"
+          output_files={}
+          claim=None
+          if blob.exists():
+              claim=json.loads(blob.read_text())
+              for name,wanted in claim["output_sha256"].items():
+                  p=folder/"synthetic"/name
+                  observed=hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else "MISSING"
+                  output_files[name]={"claimed":wanted,"independent_sha256":observed,"match":observed==wanted}
+              if (len(output_files)!=14 or not all(x["match"] for x in output_files.values())
+                  or claim["code_commit"]!=os.environ["PINNED_REPAIR_SHA"]
+                  or claim["real_network_qualified"] is not False
+                  or claim["independent_reviewer_release"] is not False):
+                  raise SystemExit("Unverified fixture hashes/claims")
+          test_suites={}
+          for key in ("independent","focused","full"):
+              path=folder/(key+".xml")
+              if path.exists():
+                  root=ET.parse(path).getroot()
+                  suite=root if root.tag=="testsuite" else root.find("testsuite")
+                  test_suites[key]={k:int(suite.get(k,"0")) for k in ("tests","errors","failures","skipped")}
+          def file_sha(name):
+              path=folder/name
+              return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+          result={
+              "schema":"RR1-R-PHY-INDEPENDENT-EVIDENCE-v1",
+              "repair_sha":os.environ["PINNED_REPAIR_SHA"],
+              "review_head_sha":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
+              "github_event_sha":os.environ.get("GITHUB_SHA"),
+              "github_run_id":os.environ.get("GITHUB_RUN_ID"),
+              "repair_source_tree_sha":subprocess.check_output(
+                  ["git","rev-parse",os.environ["PINNED_REPAIR_SHA"]+":src/tyndp_reduce/iosn_official"],text=True).strip(),
+              "review_source_tree_sha":subprocess.check_output(
+                  ["git","rev-parse","HEAD:src/tyndp_reduce/iosn_official"],text=True).strip(),
+              "junit":test_suites,
+              "junit_sha256":{x:file_sha(x+".xml") for x in ("independent","focused","full")},
+              "physical_metrics_sha256":file_sha("physical_metrics.json"),
+              "manifest_sha256":file_sha("synthetic/manifest.json"),
+              "synthetic_hash_checks":output_files,
+              "synthetic_count":len(output_files)+(1 if claim else 0),
+              "real_network_qualified":False,
+              "ma2_runtime_authorized":False,
+              "worker_self_approval":False,
+              "owner_release":False,
+          }
+          (folder/"rr1_ci_attestation.json").write_text(json.dumps(result,sort_keys=True,indent=2)+"\n")
+          print(json.dumps(result,sort_keys=True))
+          PY
+      - name: Retain JUnit, source identity, independent metrics, fixture and SHA attestations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rr1-phy-independent-sha-bound-evidence
+          path: /tmp/rr1-phy/**
+          if-no-files-found: warn
+          retention-days: 90
