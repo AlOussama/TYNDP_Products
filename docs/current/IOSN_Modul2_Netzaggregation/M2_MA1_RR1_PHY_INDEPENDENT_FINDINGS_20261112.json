@@ -1,0 +1,164 @@
+{
+  "schema_version": "m2-ma1-rr1-phy-independent-findings-v1",
+  "review_id": "M2-MA1-RR1-PHY-20261112",
+  "reviewer_role": "independent code/test review, not W-PHY nor W-INT; no separate human identity claimed",
+  "decision": "ACCEPT_SYNTHETIC",
+  "decision_scope": "SYNTHETIC_LOSSLESS_DC_PHY_ONLY_NOT_OWNER_RELEASE",
+  "repository": "AlOussama/TYNDP_Products",
+  "exact_repair_commit": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+  "original_phy_review_commit": "c004e5330df2a018e567c8ef955ef2fc9d71e0ea",
+  "original_review_test_commit": "c0dd75de1285296da420fd0eb77d29f60efd7d92",
+  "original_review_mutated": false,
+  "original_findings_json": "R_M2_MA1_PHY_FINDINGS_20261111.json (original review commit)",
+  "integration_report": "101_M2_MA1_RP1_INTEGRATION_AND_RR1_HANDOFF_20261111.md (repair commit)",
+  "reviewer_branch": "review/iosn-m2-ma1-rr1-phy-20261112",
+  "independent_test_commit": "fa097c23a71510ad1feb0ed327b76b4ed95955ca",
+  "pinned_source_tree_sha": "e9202091d4ac79b5bd8fbe83646d3ba11f1367b3",
+  "verified_source_tree_identical": true,
+  "source_diff_files": [
+    "tests/iosn_official/test_rr1_phy_re_20261112.py",
+    ".github/workflows/m2-ma1-rr1-phy-independent.yml"
+  ],
+  "independent_ci": {
+    "workflow": ".github/workflows/m2-ma1-rr1-phy-independent.yml",
+    "run_id": 43165364424,
+    "job_id": 131005866264,
+    "artifact_id": 13919657133,
+    "artifact_zip_sha256": "fc6ef9ac072c0c9cda7be38993a1cba9203ee02eb9a534a789124b2829f756ed",
+    "event": "push",
+    "conclusion": "success",
+    "checkout_sha": "fa097c23a71510ad1feb0ed327b76b4ed95955ca",
+    "repair_tree_verified_against": "fb201ef5f120f64696dea9aa99f77ece77546f9a",
+    "python": "3.11.18",
+    "pytest": "9.2.0",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "junit": {
+      "independent": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "all_ma1": {
+        "tests": 106,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "full_package": {
+        "tests": 132,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "physical_metrics": {
+    "fixture": "new independent 10-bus / 12-AC / 3-island / 5-cycle / 2-HVDC / 2-PST / 5-snapshot",
+    "max_kcl_abs_mw": 8.881784197001252e-15,
+    "max_affine_kvl_abs_rad": 8.673617379884035e-18,
+    "max_sparse_dense_flow_abs_mw": 3.3640645824561943e-11,
+    "max_island_balance_abs_mw": 5.329070518200751e-15,
+    "reference_input_sha256": "43f23103be31edd9bd5d38199daa579eb5958f24869a1e871eb8a73b21621cb4",
+    "sparse_stress_bus_count": 1001,
+    "sparse_stress_status": "PASS_NONUNIFORM_DISPATCH_ANALYTIC_CHAIN"
+  },
+  "synthetic_fixture": {
+    "file_count": 15,
+    "output_files_hashed": 14,
+    "files_verified": 14,
+    "output_hash_mismatches": 0,
+    "manifest_sha256": "876f91423e2bb2493f6121d681a5443794cc7a4c47a7cbcc37321fe42df92621",
+    "input_manifest_sha256": "a378e22fde234cdf9275bcb5685f1034c1e41eeb442b81a8cfe06ed988882661",
+    "source_provenance_external_byte_attestation": false,
+    "real_network_qualified": false,
+    "independent_reviewer_release": false
+  },
+  "numerical_policy": {
+    "status": "PASS_SYNTHETIC",
+    "tolerance_contract": "0 < atol_mw <= 1e-6, finite, nonboolean Real",
+    "absolute_cap_mw": 0.000001,
+    "absolute_cap_w": 1,
+    "note": "Implementation (I) hard cap, not official ENTSO-E tolerance. No hidden MW slack. Wider network-scaled acceptance requires its own specification."
+  },
+  "findings": [
+    {
+      "id": "PHY-R01",
+      "severity": "P1",
+      "old_status": "OPEN",
+      "new_status": "CLOSED_INDEPENDENTLY_VERIFIED",
+      "tests": [
+        "test_phy_r01_original_caller_mutation_is_not_topology_or_fingerprint_mutation",
+        "test_phy_r01_time_dispatch_ratings_and_cache_caller_lists_owned",
+        "test_phy_r01_numeric_array_input_cannot_mutate_after_validation"
+      ],
+      "claim": "caller-owned mutable inputs cannot modify validated snapshots or reference fingerprints",
+      "reproduced_as_ordinary_pass": true
+    },
+    {
+      "id": "PHY-R02",
+      "severity": "P1",
+      "old_status": "OPEN",
+      "new_status": "CLOSED_INDEPENDENTLY_VERIFIED",
+      "tests": [
+        "test_phy_r02_original_lossless_string_false_rejected",
+        "test_phy_r02_adversarial_nonboolean_lossless_flags_fail_closed",
+        "test_phy_r02_actual_false_is_explicitly_unsupported_loss_model"
+      ],
+      "reproduced_as_ordinary_pass": true
+    },
+    {
+      "id": "PHY-R03",
+      "severity": "P1",
+      "old_status": "OPEN",
+      "new_status": "CLOSED_INDEPENDENTLY_VERIFIED",
+      "tests": [
+        "test_phy_r03_original_in_service_string_false_rejected",
+        "test_phy_r03_related_flags_require_actual_bool",
+        "test_phy_r03_real_false_excludes_AC_line_without_island_conflation"
+      ],
+      "reproduced_as_ordinary_pass": true
+    },
+    {
+      "id": "PHY-R04",
+      "severity": "P1",
+      "old_status": "OPEN",
+      "new_status": "CLOSED_INDEPENDENTLY_VERIFIED",
+      "tests": [
+        "test_phy_r04_bad_tolerance_never_accepted",
+        "test_phy_r04_original_plus20_minus19_hard_rejection_even_at_ceiling",
+        "test_phy_r04_valid_positive_bounded_tolerances_still_solve"
+      ],
+      "reproduced_as_ordinary_pass": true
+    },
+    {
+      "id": "PHY-P2-SOURCE",
+      "severity": "P2",
+      "new_status": "OPEN_DATA_SCOPE",
+      "claim": "Source SHA declarations without original source-byte attestation, not real-data qualified"
+    },
+    {
+      "id": "PHY-P2-COMMIT",
+      "severity": "P2",
+      "new_status": "MITIGATED_BY_CI_NOT_API_FIXED",
+      "claim": "export code_commit remains caller-provided; independent workflow explicitly validates pinned Git source tree and checkout"
+    }
+  ],
+  "residual_gates": {
+    "G01": "PASS_SYNTHETIC_CONTRACT; REAL_SOURCE_NOT_ATTESTED",
+    "G03": "PASS_SYNTHETIC_3_AC_ISLANDS_HVDC_DOES_NOT_MERGE",
+    "G05": "PASS_SYNTHETIC_KCL_KVL_AND_PROJECTION",
+    "G11": "PARTIAL_LOSSLESS_DC_ONLY; NO_LOSSY_HVDC_OR_NATIVE_PYPSA_PARITY",
+    "G02_G04": "WORKER_REGRESSION_ONLY; SEPARATE_R_CLU_REVIEW_PENDING",
+    "real_37_country_102_zone": "BLOCKED_DATA",
+    "official_methodology": "AUTHORITY_UNCONFIRMED",
+    "ma2_runtime": "NOT_AUTHORIZED",
+    "merge": "NOT_AUTHORIZED"
+  },
+  "open_p0": 0,
+  "open_p1_in_scoped_physical_review": 0,
+  "owner_decision_required": true,
+  "release_from_this_review": false,
+  "issue": 14
+}
