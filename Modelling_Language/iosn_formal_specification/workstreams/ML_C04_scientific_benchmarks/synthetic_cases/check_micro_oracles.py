@@ -80,7 +80,7 @@ def run(case):
         check(all(x<=d["remaining_rating_mw"] for x in post[1:]),"N-1 rating synthetic")
         check(len(d["required_output_classes"])==6 and len(d["capacity_dimensions"])==4,"output inventory")
         disconnected_zone_x_on_path = {"A1","B"}
-        adjacent_on_path = {frozenset(("A1","A2")),frozenset(("A2","B"))}
+        adjacent_on_path = {frozenset(edge.split(">")) for edge in d["connectivity_graph_arcs"]}
         check(not any(e <= disconnected_zone_x_on_path for e in adjacent_on_path),"disconnected cluster mutant")
         return post, not near(base[1],post[1]) and not near(f[1],cut)
     if key == "B06":

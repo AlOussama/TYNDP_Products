@@ -10,7 +10,7 @@
 |B02|E=Σ_c w_c Σ_t u_c Δt_t; J=7+100E|E=5.1 MWh; penalty=510 EUR; J=517 EUR|uniform CY:4.8 MWh, J=487; CAPEX repeated|no genuine economic periodisation|
 |B03|E=2×.5+4×1.5|7 MWh|unweighted MW sum=6; 1h each=6|UTC source calendar unresolved|
 |B04|b=1; f_AB=θA−θB, f_AC=θA−θC, f_CB=θC−θB|f=(60,30,30) MW|physical f=(90,0,0) KCL only, KVL violation=90 MW|no offsets/PST/HVDC|
-|B05|triangle PTDF=(2/3,1/3,1/3), outage AB yields LODF=.5 each|before=(60,30,30), after=(0,90,90); cut=50 MW|LODF=0 predicts 30 instead of 90; missing 10 MW cut|only necessary network sanity checks|
+|B05|triangle PTDF=(2/3,1/3,1/3), outage AB yields LODF=1.0 each|before=(60,30,30), after=(0,90,90); cut=50 MW|LODF=0 predicts 30 instead of 90; missing 10 MW cut|only necessary network sanity checks|
 |B06|stage1 min(2x1+10u1) need1, then fixed x1 and min(x2+10u2) need2|x1=1,x2=1, final cost3 EUR|joint x1=0,x2=2 cost2; duplicate charge cost5|**hypothetical** fixed carry-over only|
 |B07|e1=e0+η_ch p_ch Δt_ch; e2=e1−p_dis Δt_dis/η_dis|2→2.8→1.8 MWh; s=0.5→0.7→0.45|omit Δt: e2=1.6 MWh|boundary conditions unapproved|
 |B08|E_H2=η_EL p_EL Δt, E_used=p_H2E Δt/η_H2E|3.5=1.75+1.75 MWh_H2; frozen energy=12 MWh_e|[6,6] MW vs frozen [3,7] MW with same 12 MWh|no approved H2 baseline|
@@ -28,7 +28,7 @@ For d=(0,1,2,3,4), w=(.10,.20,.30,.15,.25), the slopes of F away from kink point
 Across study years the synthetic profile is e.g. (w_2035, w_2040, w_2050)=(w,w,w) with w *nonconstant over c*. Perturb only 2040 by (+.01,−.01,0,0,0): sum stays one but D2 year-identity fails. Neither w=.2 nor any particular vector follows from D2.
 
 ### Derivation B04–B05 — KCL does not imply KVL; LODF not arbitrary
-Triangle edges A→B, A→C, C→B and b=1. p_A=+90,p_B=−90,p_C=0. With θ_B=0, nodal KCL implies θ_A=60, θ_C=30; f_AB=60, f_AC=f_CB=30. Independent free transport links can carry (90,0,0) with identical KCL, but it violates physical KVL f_AB−f_AC−f_CB=0 by 90 MW. For an outage AB, the remaining path A→C→B carries 90 MW per edge. Thus LODF_AC,AB=LODF_CB,AB=(90−30)/60=1/2 (on THIS triangle); values are computed from the network, not configurable defaults. Islanding, offsets and real contingency sets require their own rules.
+Triangle edges A→B, A→C, C→B and b=1. p_A=+90,p_B=−90,p_C=0. With θ_B=0, nodal KCL implies θ_A=60, θ_C=30; f_AB=60, f_AC=f_CB=30. Independent free transport links can carry (90,0,0) with identical KCL, but it violates physical KVL f_AB−f_AC−f_CB=0 by 90 MW. For an outage AB, the remaining path A→C→B carries 90 MW per edge. Thus LODF_AC,AB=LODF_CB,AB=(90−30)/60=1 (on THIS triangle); values are computed from the network, not configurable defaults. Islanding, offsets and real contingency sets require their own rules.
 
 ### Derivation B06 — different transition mappings are not equivalent by assumption
 Stage1 feasible x1∈[0,2], u1≥max(0,1−x1), cost 2x1+10u1 ⇒ x1=1. Stage2 **assuming F means fixed committed x1**: x2∈[0,2], u2≥max(0,2−1−x2), incremental cost x2+10u2 ⇒ x2=1. Total x1 cost 2 plus new x2 cost 1 = 3. A joint reoptimisation instead permits (x1,x2)=(0,2) and cost 2; this is a counterexample to silently merging stages, **not** a claim that fixed carry-over is the approved methodology. If Stage2 charges x1 again: 2+3=5 and the cost ledger is wrong. Need MD-07/02 before accepting one interpretation.

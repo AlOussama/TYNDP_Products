@@ -191,8 +191,8 @@
           0.3333333333333333,
           0.3333333333333333
         ],
-        "lodf_AC_AB": 0.5,
-        "lodf_CB_AB": 0.5,
+        "lodf_AC_AB": 1,
+        "lodf_CB_AB": 1,
         "remaining_rating_mw": 100,
         "required_output_classes": [
           "no_load_flow",
@@ -207,6 +207,10 @@
           "summer_minus",
           "winter_plus",
           "winter_minus"
+        ],
+        "connectivity_graph_arcs": [
+          "A1>A2",
+          "A2>B"
         ]
       },
       "oracle": {
