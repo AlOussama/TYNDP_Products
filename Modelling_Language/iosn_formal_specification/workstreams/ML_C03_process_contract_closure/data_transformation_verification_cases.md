@@ -27,7 +27,7 @@
 | MLC03-S-06 | Einzigartige R03-T IDs auf P00–P17, 38 Einträge | 38/38, alle 18 P | Software-ETL oder Solverausführung |
 | MLC03-S-07 | `T_i.outputs ∩ T_j.inputs` ergibt 47 eindeutige Kanten; Toposort erreicht 38 Knoten | 47/47, keine Zyklen | Methodisch vollständige Lifecycle-Abhängigkeiten |
 | MLC03-S-08 | Neue Matrix enthält 93+20+35+38+18 = **204** getrennt klassifizierte Records | 204 | Formale/physikalische semantische Konformität |
-| MLC03-S-09 | Ausnahme-Register enthält 87 Objektrecords + 13 explizite Prozessausnahmen | 100 | Schließung/Owner-Entscheidung der Ausnahmen |
+| MLC03-S-09 | Ausnahme-Register enthält 87 Objektrecords + 21 explizite Prozess- und Cross-Layer-Ausnahmen | 108 | Schließung/Owner-Entscheidung der Ausnahmen |
 
 **Reproduktionsskizze:** RFC4180-CSV parsen; Primärschlüssel/ID-Mengen vergleichen; pro B01-D Zeile `len(direct_SR_ids) == len(original_B01_T_ids)`; `∀t.inputRef, t.outputRef` vorhandenes B01-D-Objekt oder deklariertes `MLR03-I-...`; für jede Producer-/Consumer-Kombination eine Kante; Kahn-Toposort und Anzahl erreichter T-Knoten; P=00..17/Original-SR-IDs erneut prüfen. Dies sind statische Tabellen-/Graphprüfungen, nicht die R04 native Ausführung.
 
