@@ -1,0 +1,79 @@
+{
+  "O26": "DRAFT",
+  "methodology_status": "AUTHORITY_UNCONFIRMED",
+  "G1": "BLOCKED",
+  "years": [
+    2035,
+    2040,
+    2050
+  ],
+  "cy": [
+    "CY1",
+    "CY2",
+    "CY3",
+    "CY4",
+    "CY5"
+  ],
+  "weights": {
+    "2035": [
+      "w(CY1)",
+      "w(CY2)",
+      "w(CY3)",
+      "w(CY4)",
+      "w(CY5)"
+    ],
+    "2040": [
+      "w(CY1)",
+      "w(CY2)",
+      "w(CY3)",
+      "w(CY4)",
+      "w(CY5)"
+    ],
+    "2050": [
+      "w(CY1)",
+      "w(CY2)",
+      "w(CY3)",
+      "w(CY4)",
+      "w(CY5)"
+    ]
+  },
+  "actual_weights": "OWNER_TBD",
+  "weather_specific_investment": false,
+  "investment_coupled": true,
+  "capex_count": 1,
+  "time": {
+    "boundary": "UTC_HALF_OPEN",
+    "duration_h": 0.5,
+    "unit": "h"
+  },
+  "network": {
+    "branch": "PHYSICAL_BRANCH",
+    "candidate": "CONTROLLABLE_MARKET_LINK"
+  },
+  "reduction": [
+    "no_load_flow",
+    "mesh_relation",
+    "hvdc_effect",
+    "capacity",
+    "equivalent_impedance",
+    "pst_effect"
+  ],
+  "directional_ratings": [
+    "summer_plus",
+    "summer_minus",
+    "winter_plus",
+    "winter_minus"
+  ],
+  "p12": [
+    2040,
+    2050
+  ],
+  "p15": "FALSE_WITNESSED",
+  "native_tests": "NOT_EXECUTED",
+  "actual_evidence": 0,
+  "kpi": "UNDEFINED_OWNER_TBD",
+  "raw_output_separate": true,
+  "h2_basis": "OWNER_TBD",
+  "operator_revision": "0.1.0",
+  "operator_kind": "AFFINE_LINEAR"
+}

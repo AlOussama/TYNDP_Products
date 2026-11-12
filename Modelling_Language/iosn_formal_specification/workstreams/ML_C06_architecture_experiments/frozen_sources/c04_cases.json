@@ -1,0 +1,496 @@
+{
+  "meta": {
+    "suite": "ML-C04",
+    "version": "0.1",
+    "basis_commit": "9162def25d22c37b1fbc38f7d80fe929425cc8d2",
+    "status": "SYNTHETIC_ILLUSTRATIVE_NOT_AN_IOSN_ORACLE",
+    "note": "All numbers are invented for falsification; no actual CY weights, parameters, KPI rules, tolerance or released methodology."
+  },
+  "cases": [
+    {
+      "id": "B01",
+      "title": "Nonuniform CY weights and shared investment",
+      "inputs": {
+        "cy": [
+          "CY1",
+          "CY2",
+          "CY3",
+          "CY4",
+          "CY5"
+        ],
+        "years": [
+          2035,
+          2040,
+          2050
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.3,
+          0.15,
+          0.25
+        ],
+        "demand_mw": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "capex_eur_per_mw": 3,
+        "voll_eur_per_mwh": 10,
+        "dt_h": 1,
+        "max_x_mw": 4
+      },
+      "oracle": {
+        "common_x_mw": 3,
+        "objective_eur": 11.5,
+        "weighted_ens_mwh": 0.25,
+        "unlinked_objective_eur": 6.75,
+        "uniform_objective_eur_at_3mw": 11
+      }
+    },
+    {
+      "id": "B02",
+      "title": "Weighted ENS and once-only capex",
+      "inputs": {
+        "weights": [
+          0.1,
+          0.2,
+          0.3,
+          0.15,
+          0.25
+        ],
+        "ens_mw_per_cy": [
+          1,
+          0,
+          2,
+          4,
+          5
+        ],
+        "durations_h": [
+          0.5,
+          1.5
+        ],
+        "voll_eur_per_mwh": 100,
+        "capex_eur": 7
+      },
+      "oracle": {
+        "expected_ens_mwh": 5.1,
+        "ens_penalty_eur": 510,
+        "objective_eur": 517,
+        "uniform_ens_mwh": 4.8
+      }
+    },
+    {
+      "id": "B03",
+      "title": "UTC interval and MW-to-MWh",
+      "inputs": {
+        "start_utc": [
+          "2026-03-29T00:00:00+00:00",
+          "2026-03-29T00:30:00+00:00"
+        ],
+        "end_utc": [
+          "2026-03-29T00:30:00+00:00",
+          "2026-03-29T02:00:00+00:00"
+        ],
+        "power_mw": [
+          2,
+          4
+        ]
+      },
+      "oracle": {
+        "duration_h": [
+          0.5,
+          1.5
+        ],
+        "energy_mwh": 7,
+        "naive_power_sum": 6
+      }
+    },
+    {
+      "id": "B04",
+      "title": "Triangle KVL and controllable link",
+      "inputs": {
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "arcs": [
+          "A>B",
+          "A>C",
+          "C>B"
+        ],
+        "injections_mw": [
+          90,
+          -90,
+          0
+        ],
+        "angles": [
+          60,
+          0,
+          30
+        ],
+        "susceptance": [
+          1,
+          1,
+          1
+        ],
+        "market_link_mutation_mw": [
+          90,
+          0,
+          0
+        ]
+      },
+      "oracle": {
+        "physical_flows_mw": [
+          60,
+          30,
+          30
+        ],
+        "market_link_flows_mw": [
+          90,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "B05",
+      "title": "Connected clusters, PTDF and N-1",
+      "inputs": {
+        "detail_nodes": [
+          "A1",
+          "A2",
+          "B"
+        ],
+        "detail_arcs": [
+          "A1>A2",
+          "A1>B",
+          "A2>B"
+        ],
+        "detail_injection_mw": [
+          30,
+          20,
+          -50
+        ],
+        "detail_flows_mw": [
+          -10,
+          40,
+          10
+        ],
+        "clusters": [
+          "X",
+          "X",
+          "Y"
+        ],
+        "triangle_injection_mw": 90,
+        "ptdf_AB_AC_CB": [
+          0.6666666666666666,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "lodf_AC_AB": 1,
+        "lodf_CB_AB": 1,
+        "remaining_rating_mw": 100,
+        "required_output_classes": [
+          "no_load_flow",
+          "mesh_relation",
+          "hvdc_effect",
+          "capacity",
+          "equivalent_impedance",
+          "pst_effect"
+        ],
+        "capacity_dimensions": [
+          "summer_plus",
+          "summer_minus",
+          "winter_plus",
+          "winter_minus"
+        ],
+        "connectivity_graph_arcs": [
+          "A1>A2",
+          "A2>B"
+        ]
+      },
+      "oracle": {
+        "cluster_cut_mw": 50,
+        "triangle_base_flows_mw": [
+          60,
+          30,
+          30
+        ],
+        "post_AB_outage_flows_mw": [
+          0,
+          90,
+          90
+        ]
+      }
+    },
+    {
+      "id": "B06",
+      "title": "Stage transfer with fixed illustrative carryover",
+      "inputs": {
+        "stage1_real_x_max_mw": 2,
+        "stage1_need_mw": 1,
+        "stage2_need_mw": 2,
+        "conceptual_x_max_mw": 2,
+        "cost_real_eur_per_mw": 2,
+        "cost_conceptual_eur_per_mw": 1,
+        "unserved_penalty_eur_per_mwh": 10
+      },
+      "oracle": {
+        "stage1_real_mw": 1,
+        "stage2_conceptual_mw": 1,
+        "final_cost_eur": 3,
+        "joint_relaxation_cost_eur": 2,
+        "double_paid_cost_eur": 5
+      }
+    },
+    {
+      "id": "B07",
+      "title": "Storage balance and fixed-E SoC",
+      "inputs": {
+        "e0_mwh": 2,
+        "max_energy_mwh": 4,
+        "charge_mw": 2,
+        "discharge_mw": 1,
+        "dt_charge_h": 0.5,
+        "dt_discharge_h": 0.5,
+        "eta_ch": 0.8,
+        "eta_dis": 0.5
+      },
+      "oracle": {
+        "e_after_charge_mwh": 2.8,
+        "e_after_discharge_mwh": 1.8,
+        "soc": [
+          0.5,
+          0.7,
+          0.45
+        ],
+        "omit_dt_terminal_mwh": 1.6
+      }
+    },
+    {
+      "id": "B08",
+      "title": "Electricity-H2 conversion and hourly freeze",
+      "inputs": {
+        "electrolysis_mw_e": 10,
+        "step_h": 0.5,
+        "eta_e_to_h": 0.7,
+        "h2_to_e_mw_e": 1.4,
+        "eta_h_to_e": 0.4,
+        "h2_demand_mwh_h": 1.75,
+        "frozen_profile_mw": [
+          3,
+          7
+        ],
+        "frozen_durations_h": [
+          0.5,
+          1.5
+        ],
+        "mutated_profile_mw": [
+          6,
+          6
+        ]
+      },
+      "oracle": {
+        "h2_produced_mwh_h": 3.5,
+        "h2_for_power_mwh_h": 1.75,
+        "frozen_electricity_mwh": 12
+      }
+    },
+    {
+      "id": "B09",
+      "title": "Hydro mass/energy conservation and DSR disjointness",
+      "inputs": {
+        "hydro_classes": [
+          "run_of_river",
+          "pondage",
+          "reservoir",
+          "open_loop_pumped",
+          "closed_loop_pumped"
+        ],
+        "reservoir_e0_mwh_water_eq": 4,
+        "inflow_mw_water_eq": 1,
+        "turbine_mw_water_eq": 1,
+        "step_h": 2,
+        "original_load_mw": [
+          6,
+          4
+        ],
+        "implicit_load_mw": [
+          4,
+          6
+        ],
+        "explicit_delta_mw": [
+          -1,
+          1
+        ],
+        "dsr_implicit_asset_id": "DSR-asset-A",
+        "dsr_explicit_asset_id": "DSR-asset-B"
+      },
+      "oracle": {
+        "reservoir_e1_mwh_water_eq": 4,
+        "final_load_mw": [
+          3,
+          7
+        ],
+        "demand_energy_mwh": 10
+      }
+    },
+    {
+      "id": "B10",
+      "title": "LF physics and conditional OPF caps",
+      "inputs": {
+        "two_bus_injection_mw": 5,
+        "susceptance": 1,
+        "thermal_rating_mw": 3,
+        "lf_candidate_cap_mw": 2,
+        "opf_candidate_mw": 1,
+        "mutant_opf_candidate_mw": 3
+      },
+      "oracle": {
+        "lf_physical_flow_mw": 5,
+        "lf_is_thermal_overloaded": true,
+        "opf_cap_ok": true,
+        "opf_mutant_cap_ok": false
+      }
+    },
+    {
+      "id": "B11",
+      "title": "Projection equivalence and implications",
+      "inputs": {
+        "rhs": 4,
+        "row_scale": 2,
+        "objective_coefficients": [
+          2,
+          3
+        ],
+        "sample_feasible_xy": [
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      "oracle": {
+        "optimal_xy": [
+          4,
+          0
+        ],
+        "optimal_value": 8
+      }
+    },
+    {
+      "id": "B12",
+      "title": "Degenerate investment face",
+      "inputs": {
+        "portfolios_mw": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        "candidate_bounds_mw": [
+          1,
+          1
+        ],
+        "unit_cost": [
+          1,
+          1
+        ],
+        "required_total_mw": 1
+      },
+      "oracle": {
+        "optimal_value": 1,
+        "invariant_capacity_mw": 1,
+        "distinct_portfolios": 3
+      }
+    },
+    {
+      "id": "B13",
+      "title": "Postprocessing and undefined KPI handling",
+      "inputs": {
+        "ens_mw_by_cy": [
+          1,
+          0,
+          2,
+          4,
+          5
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.3,
+          0.15,
+          0.25
+        ],
+        "durations_h": [
+          0.5,
+          1.5
+        ],
+        "voll_eur_per_mwh": 100,
+        "approved_kpi_formula_id": null,
+        "approved_threshold_mw": null
+      },
+      "oracle": {
+        "raw_expected_ens_mwh": 5.1,
+        "raw_expected_ens_cost_eur": 510,
+        "raw_unweighted_ens_mwh": 24,
+        "kpi_claim": "BLOCKED"
+      }
+    },
+    {
+      "id": "B14",
+      "title": "Unsupported mandatory capability and OPF applicability",
+      "inputs": {
+        "mandatory_feature": "controllable_dc_market_link",
+        "supported_features": [
+          "linear_dc_physical_branch",
+          "storage_energy_balance"
+        ],
+        "optional_opf_requested": false
+      },
+      "oracle": {
+        "missing_mandatory_status": "UNSUPPORTED",
+        "optional_off_status": "NOT_APPLICABLE",
+        "overall_conformance": "BLOCKED"
+      }
+    },
+    {
+      "id": "B15",
+      "title": "Offshore fixed target and illustrative route factor",
+      "inputs": {
+        "offshore_target_mw_fixed": 100,
+        "geometry_km": 100,
+        "synthetic_route_factor": 0.12,
+        "source_draft_factor_range": [
+          0.1,
+          0.15
+        ],
+        "official_factor_approved": false
+      },
+      "oracle": {
+        "illustrative_route_km": 112,
+        "real_route_oracle_status": "BLOCKED"
+      }
+    }
+  ]
+}

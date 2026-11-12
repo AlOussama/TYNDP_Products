@@ -1,0 +1,28 @@
+{
+  "project": "ML-C06",
+  "research_only": true,
+  "authority": "UNCONFIRMED",
+  "G1": "BLOCKED",
+  "baseline": {
+    "pr": 32,
+    "sha": "9162def25d22c37b1fbc38f7d80fe929425cc8d2",
+    "branch": "research/iosn-ml-r00-consolidated-framework-2026-11-11"
+  },
+  "sources": {
+    "C02": {
+      "pr": 42,
+      "head": "136b35e9dc2206b38c95b1e9a68b7d9598a5f86c",
+      "trace_graph_blob": "d10e19103aa44bcaac6df692ee3b7dbb64fd77c3"
+    },
+    "C04": {
+      "pr": 45,
+      "head": "256541e763147dcb118a3a9d24ca2f52035c672e",
+      "case_blob": "3ce73355e7c5ad228cbe29db045223ca1adea571"
+    },
+    "R02": {
+      "pr": 27,
+      "head": "16d58381bfc6d7ded9f0eb5004699ce718f037f7"
+    }
+  },
+  "source_handling": "Immutable, byte-identical Git blobs under the ML-C06 directory; source PRs not modified."
+}
