@@ -1,0 +1,61 @@
+# ML-C02 — Contract entities, value types and cardinalities
+
+**Status:** nonnormative logical design; no API, serialization format, schema language or database decomposition selected.
+
+## 1. Universal type discipline
+
+Logical **Ref** = (namespace, stable_id, semantic_revision); **Scope** = (methodology_profile, study_year?, scenario?, weather_case?, time_axis?, spatial_ref?, carrier_ref?, stage?, model_variant?, run_id?) with optional coordinates meaningful only for that type. **Provenance** = (source_reference, source_kind, declared_by, content_revision, evidence_state, effective_scope). **Quantity** = (numeric_or_symbolic_value, dimension, unit, aggregation_kind, source_basis, missing_reason). **Predicate** = (expression semantics, declared free variables, three-valued result TRUE/FALSE/UNKNOWN, witness). **Revision** is immutable and separate from approval. Non-required axes have explicit “not applicable”; unknown required axes have **TBD**, never an invented default.
+
+Suggested role enum sets are **research vocabulary**, subject to later owner review: obligation REQUIRED / CONDITIONAL / OPTIONAL; source status DRAFT / HISTORIC / AUTHORITY_UNCONFIRMED / OWNER_APPROVED; asset role PHYSICAL_BRANCH / CONTROLLABLE_MARKET_LINK / GENERATOR / LOAD / STORAGE / CONVERTER / H2_INFRASTRUCTURE / HYDRO / DSR; metric state DEFINED / UNDEFINED_OWNER_TBD. These can be value-types or subclasses in a future implementation.
+
+## 2. Entity catalogue
+
+**Cardinality** refers to the typed semantic relation, not row/table counts. Every entity has Ref, provenance and semantic revision unless explicitly noted. Axes: Y=study year; C=external weather case; T=UTC time; Z=space; K=carrier; S=stage. “TBD” denotes owner-dependent open semantics.
+
+| Entity | Identity + essential typed attributes | Referential cardinality / axes | Forbidden states and open parameters |
+|---|---|---|---|
+| **MethodologyProfile** | profile_id; source_versions; research_overlay D1–D6; source_rank; authority_status; revision | profile 1→1..n SourceClause; 1→0..n StudyCase; scope all | Draft may not imply approved; newer authoritative source and conflict disposition TBD MD-01 |
+| **SourceClause** | document/version/locator; exact claim_ref; clause_type; source_kind; authority; effective_scope | each claim 1→1 profile/source version; 0..n Requirement DERIVED_FROM; axes by clause | Do not rewrite O26's three-CY claim as D2 five-CY official text; adoption TBD |
+| **Requirement** | MA01-SR-NNN; unchanged provisional text_ref; obligation_kind; severity_ref; applicability_ref; revision | exactly 48 active IDs; 1→≥1 SourceClause; 1→0..n P/M/LR/data; 1→≥1 VerificationCase | SR-012 and SR-049 are not active; no second L2 baseline; acceptance authority open |
+| **Applicability** | predicate_id; free_axis_domains; required_inputs; evaluation_state; witness_ref | 1 Requirement→1 applicability policy; 0..n Scope evaluations per run | UNKNOWN != FALSE; only provably false conditional enables N/A; scope details TBD |
+| **StudyCase** | case_id; year; run_intent; variant; profile_ref; source_freeze_ref; mode | 1 profile; 1 Y∈{2035,2040,2050}; 5 CY references per research profile; 0..n runs | No implicit 2030 or inter-year investment coupling; variant eligibility MD-20 |
+| **WeatherCase** | CY1–CY5 external ID; source_weather_ref; symbolic_weight_ref; selected_upstream | exactly 5 per Y in D2 profile; operations C×T; investment index excludes C | Weight values TBD; same c-weight across Y, not forced equal across cases; external mapping MD-18/19 |
+| **TimeAxis** | time_axis_id; intervals [start_utc,end_utc); Δt; calendar_ref; source_timezone/conversion | bound to Y,C and series; each interval duration >0; T | No overlaps or unhandled gaps for required coverage; leap/DST/sampling MD-12 |
+| **Scenario** | scenario_id; scenario_kind; upstream_vintage; variant_basis; effective_scope | 0..n per StudyCase; may reference C but is not synonymous with CY | No cross-year/scenario identity inferred from name; scenario authorization TBD |
+| **SpatialEntity** | spatial_id; role BUS/ZONE/MARKET_ZONE/CORRIDOR/COUNTRY; topology/geometry revision | Z; 0..n mappings via IdentityCrosswalk; asset endpoints reference typed entities | A bus cannot automatically equal a market zone; zone count O26-specific; mapping MD-03/13 |
+| **EnergyCarrier** | carrier_id; physical_dimension; basis (e.g. H2 LHV/HHV); conversion semantics | 1..n assets/quantities per carrier; K | Electrical MWh != H2 mass or energy without conversion; H2 basis MD-10 |
+| **Asset** | asset_id; asset_role; physical_technology; endpoints; state EXOGENOUS/ENDOGENOUS; capabilities | 1..n SpatialEntity/Carrier refs where relevant; may vary Y/C/T/S | Physical branch cannot be represented only as controllable market link; new candidate link is not necessarily AC KVL branch; detail MD-09 |
+| **DataObject** | stable B01-D001…D087 definition; object_class; role; grain; expected units/axes; mandatory_if | exactly 87 definitions; 0..n DataInstance; 1..n P link; 0..n SR direct | 20 process-only need not gain SR edges; original attributes and allocations proposed/unapproved |
+| **DataInstance** | instance_id; object_def_ref; release/execution producer; version; hash/status; axis_binding | exactly 1 definition; ≥1 provenance path; 0..n consumers; Y/C/T/Z/K as defined | No unqualified payload called frozen; no instance without a legitimate producer or source |
+| **SourceRelease** | source_system; release_id; published/frozen dates; qualification, checksum provenance | 1→0..n SourceArtifact/instances; 0..n data packages | Does not mean methodology approval; real hash only from real bytes; MD-11 |
+| **SourceArtifact** | file/ref identity; release_ref; extraction_rule; content SHA-256 or explicit missing state | exactly 1 SourceRelease if external; 0..n extracted instances | Filename not identity; undocumented bytes/hash not “VERIFIED” |
+| **ProcessStep** | P00–P17; precondition; phase; execution_mode; produced/consumed roles; source refs | exactly 18 process definitions; 0..n transformations; ordered via DEPENDS_ON, no imposed software workflow | P12 limited 2040/2050; P15 conditional; P00/P17 governance; order semantics not a scheduler |
+| **Transformation** | MLR03-Txx-yy; input/output typing; precondition; preservation law; failure mode; version | 38 proposed specs; 1 P; ≥1 input and ≥1 output-type reference; execution 0..n | Missing producer/cycle/unknown metric conversion cannot be hidden; owner algorithm/tolerances TBD |
+| **TransformationExecution** | event_id; spec_ref; input/output-instance IDs; params; run_id; timestamps; lineage | exactly 1 spec; ≥1 input/output instance when executed; a DAG | Research spec is not proof of an actual execution; originals unqualified |
+| **MathematicalObligation** | M01–M18; source_type O/D/S/E/I; domain; invariant; permitted-equivalence conditions | exactly 18 families; ≥1 source SR/ref; 0..n decision/constraint families | Illustrative equation != authorised oracle; M01 shared decision across CY |
+| **DecisionVariable** | semantic_var_id; domain/bounds; index set; unit; control stage; timing information | belongs to ≥1 obligation / stage; axes Y/C/T/Z/K/S selectively | Investment x per Y/stage not freely independent per C; dispatch may vary C/T |
+| **ConstraintFamily** | family_id; predicate/operator; index domain; RHS/LHS dimensions; mode/guard; witness surface | ≥1 obligation; 0..n variables; 0..n native tool equivalents | Unchecked numerical Big-M, missing DC mesh, or unconstrained state transitions prohibited |
+| **ObjectiveTerm** | term_id; cost category; sign; weighting operator; currency/price-year/time convention | ≥1 cost relation per applicable problem; Y/C/T/S selectively | Investment counted once; double Δt or CY factor invalid; detailed MD-02 TBD |
+| **ModelInput** | model_input_id; StudyCase; frozen DataInstance refs; network/candidate/economic profiles; tool mapping | ≥1 StudyCase; ≥1 relevant instance; stage/model mode references | Cannot silently synthesize missing owner data; external-to-native adapter proof required |
+| **ModelOutput** | result_id; input/model/run revision; solver status; raw record category; unit; dimensions | exactly 1 execution/run when real; 0..n DerivedMetric; Y/C/T/Z/K/S as applicable | Raw solver status != independent optimality or approved need |
+| **DerivedMetric** | metric_id; declared formula/version; input refs; aggregation axes; result unit; publish category | ≥1 raw/output lineage; 0..n needs; Y/C/T/Z/K as applicable | Formula missing → UNDEFINED, not default estimate; system need != approved project MD-04/17 |
+| **VerificationCase** | VN and R04-T-ID; falsifiable assertion; applicability; fixture_kind; V-level; depth; priority | ≥1 Requirement; exactly 1..n Oracle targets; 0..n Evidence; scope/variant | 48 planned native cases ≠ executed; statuses exactly six, risk tiers only proposed |
+| **Oracle** | oracle_id; comparison semantics; metric/projection; bounds/tolerance refs; approval state | ≥1 VerificationCase may request oracle; zero *accepted* oracles allowed in research | OWNER_TBD cannot be used as accepted numeric threshold; network/KPI reference absent |
+| **Evidence** | evidence_id; execution_type; artifact_hash; run/fixture; claim; produced_at; review independence | 1..n cases/assertions; 1 actual producer/run; revisioned and immutable | No HAS_EVIDENCE edge to synthetic or missing “evidence” for productive run |
+| **GovernanceDecision** | project_decision:D1…D6 or MD/CL; owner_role; decision_state; effective_scope; proof_ref | 0..n affected entities; 0..n blockers; effective version | ML-C02 cannot close owner MD/CL, numeric CY weights or G1 |
+| **ReviewStatus** | status_ref; subject/scope; status_dimension; verdict; reviewer_ref; decision_evidence | exactly 1 subject scope + dimension; 0..n historical revisions | Do not conflate source qualification, six test outcomes, mathematical proof, approval or gate |
+
+Additional **logical value/association roles**, not independently required tables: AxisBinding (binds typed axes to an instance); IdentityCrosswalk (n:m with version/factors); StageTransition (P10→P11→P12, owner-defined transfer); EquivalenceClaim (projection + domain assumptions + proof/evidence); CapabilityManifest (per independent tool/feature support); EvidenceRequest (expected artifact, not actual Evidence); SourceAssertion (clause claim and differing overlay). All are expressible as attributes/relationships or separate classes without changing semantic obligations.
+
+## 3. Guarded multiplicities and forbidden shortcuts
+
+1. Requirement needs **one** canonical SR identity and **at least one** traceable source claim; many claims can conflict without erasing either. The question of *which* claim has normative force is reserved.
+2. Each R03 process-only DataObject has **≥1** declared P reference; its direct SR degree may be **zero**. No obligation to create an L2 SR for every pre/postprocessing datum.
+3. A native test is NOT_EXECUTED until a scoped run and evidence exist. NOT_APPLICABLE requires a false, witnessed **conditional** guard.
+4. A high-level “Asset” supertype is valid only with non-interchangeable branch/link and other relevant capability roles. Topological branch and controllable candidate are separate even when the candidate's intended physical technology is AC.
+5. All physical quantities require compatible dimensions and explicit aggregation/temporal interpretation; currency requires value and price basis, not just EUR.
+6. A later normative baseline may change multiplicities, but such a change must be versioned and reviewed, not retroactively imposed on this research snapshot.
+
+## 4. Outstanding fields
+
+MD-01 effective methodology; MD-02 cost/discount; MD-03/13 network reduction and clustering; MD-04/17 KPI/results; MD-05 offshore route; MD-06 storage; MD-07 stage transfer; MD-08 LF/OPF scope; MD-09 candidate NTC mapping; MD-10 H2 basis/dispatch; MD-11 original data; MD-12 time/calendar/tolerance; MD-14 starting grid; MD-15 numerical evidence; MD-16 hydro/DSR; MD-18/19 weather source transfer; MD-20 variants/eligibility; MA02-CL-001 and associated documented findings. Any missing value is a typed **OwnerTBD**, not a null interpreted as zero.
