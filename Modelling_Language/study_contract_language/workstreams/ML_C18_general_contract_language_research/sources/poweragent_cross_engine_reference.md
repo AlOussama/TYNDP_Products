@@ -1,0 +1,39 @@
+# ML-C18 – Additional Power-Agent / PowerSkills Reuse Evidence (research source register)
+
+**Scope:** Supplement to the 15 required ML-C18 deliverables, added after library-level source discovery to avoid prematurely treating "Power QA Question Answers" as an identified repository. Versioned primary source check 2026-11-20. Secondary research starting point: in the user's ChatGPT Library, `PowerAgent_Wissensbasis_Architekturreview_2026-11-17.md` (dated 2026-11-17, read-only source synthesis of PowerSkills, PowerMCP, PowerWF, PowerAgentBench, PowerFM). This is a useful **secondary reference index**, *not* original methodology authority or proof of runtime execution. We independently checked primary GitHub branch SHA and specific files.
+
+## Primary sources and relevance
+| Source | Exact source SHA | Path | ML-C18 relevance | Actual source-backed claim / limitation |
+|---|---|---|---|---|
+| PowerSkills | `636102954ff9522e7b161cbb2e3863746afa78cc` | [powerskills-tool/skills/pypsa/SKILL.md](https://github.com/Power-Agent/PowerSkills/blob/636102954ff9522e7b161cbb2e3863746afa78cc/powerskills-tool/skills/pypsa/SKILL.md) | K11,K16; SLR07,SLR10 | Engineering test sequencing, no scientific validity from skill instructions |
+| PowerMCP | `3510a884694a563cd22234522347f9e4a5ed82eb` | [README.md](https://github.com/Power-Agent/PowerMCP/blob/3510a884694a563cd22234522347f9e4a5ed82eb/README.md) | K11,K14; SLR06,SLR11,SLR28 | PowerIO Gen2 typed IR pio-ir v2, identities, scenarios/time, diagnostics and conversion fidelity; actual adapter behavior needs native verification |
+| PowerMCP | `3510a884694a563cd22234522347f9e4a5ed82eb` | [PyPSA/README.md](https://github.com/Power-Agent/PowerMCP/blob/3510a884694a563cd22234522347f9e4a5ed82eb/PyPSA/README.md) | K14,K16; SLR30,SLR34 | Separates implemented load, power flow, optimize and contingency from FUTURE calculate_ptdf and future sector coupling. PowerIO matrix PTDF capability is not the same as future PyPSA MCP calculate_ptdf. |
+| PowerWF | `a3c437146e7263a45db940edc5e4c66a4cd170cf` | [cross_engine_validation/README.md](https://github.com/Power-Agent/PowerWF/blob/a3c437146e7263a45db940edc5e4c66a4cd170cf/cross_engine_validation/README.md) | K04,K07,K14; SLR27,SLR29,SLR31,SLR32,SLR34 | Canonical StudySpec to two injected adapters, deterministic comparator and explicit compared/incompatible_study/engine_failure/comparison_failure outcomes; compared does not mean tolerance pass. Existing tests are fake adapters, not two real engines. |
+| PowerAgentBench | `77fe638482af94dd20ce28bfa4301658660d283d` | [benchmarks/steady/level_3/README.md](https://github.com/Power-Agent/PowerAgentBench/blob/77fe638482af94dd20ce28bfa4301658660d283d/benchmarks/steady/level_3/README.md) | K07,K09,K16; SLR10,SLR31,SLR34 | RestoreBench frozen scenario data, stand-alone solver-grounded evaluator, versioned result schema, witness and physical failure checks; agent benchmark, not study language validator |
+| PowerFM | `4c6e9b3dd1e035d7abf8c526b2947380b6667fa3` | [README.md](https://github.com/Power-Agent/PowerFM/blob/4c6e9b3dd1e035d7abf8c526b2947380b6667fa3/README.md) | K10,K16; SLR10 | Model/data catalog; does not identify a verified Power QA Question Answers knowledge base |
+
+## PowerWF – transferable study run and comparator semantics
+`StudySpec` in the Cross-Engine Transient workflow carries study_id, case_id, time step, stop time, disturbance and event times. The same canonical study definition is sent to two distinct injected simulator adapters. Per the pinned README, comparison returns separately `compared`, `incompatible_study`, `engine_failure` and `comparison_failure` outcomes. `compared` simply denotes a comparator report, *not* tolerance success or correctness. The validation adapter handles alignment, units, channel semantics and errors, with raw results retained. Tests use deterministic fake MCP adapters and demonstrate orchestration/failure semantics, **not** live cross-engine scientific validity.
+
+**ML-C18 transfer**: `CommonStudyInput`, immutable copied study input, explicit per-engine outcome/independent raw results, comparator receipt and typed failure state. The transient `StudySpec` is a concrete technical workflow contract for a particular class of studies, **not** by itself a full general Energy-System Study Contract. Needed extensions: year/scenario/cost/variant/StudyPurpose, type-safe Component Guarantees, permitted structural variations, KPI projections and independent conformance evidence.
+
+## PowerMCP / PowerIO – physical data mapping, not study-language semantics
+The versioned PowerMCP README documents PowerIO Generation 2 `schema="pio-ir"; version=2` as a typed exchange format for grid cases, stable buses/branches identity, `scenario_id`, `time_index`, matrices including PTDF, errors, provenance/diagnostics and conversion fidelity. A PyPSA MCP `calculate_ptdf` tool appears in `Future functionalities` in its PyPSA README, **not** as an existing implemented tool, although PowerIO's separate matrix calculator can calculate PTDF.
+
+**ML-C18 transfer**: `DataDefinition`, `TopologyRef`, `DataInstanceRef`, conversion diagnostic, source/fidelity and model-output provenance. Do not equate successful PowerIO roundtrip with scientific AC/DC network or system study semantics; lossless preservation of unit/sign/base/topology/time and network model invariants requires independent negative tests. An MCP tool interface is not itself a general Study Contract Language.
+
+## PowerAgentBench – independent scoring and evidence protocol
+RestoreBench documents frozen scenarios, verified witness maneuvers, stand-alone solver-grounded scoring, explicit infeasible/invalid action handling and versioned results and datasets. The scorer is independent of the model/agent that creates a maneuver sequence, with specific physical constraints in the benchmark acceptance. **ML-C18 transfer**: challenge cases with hidden oracle, reproducible manifests, strict separation of model output from oracle, negative mutations, model-output-metric consistency and versioned report statuses. It does **not** supply a ready-made language for generic IoSN/H2/CBA requirements or proof of R3/R4 structural uncertainty.
+
+## PowerSkills – workflow verification and source hierarchy
+The exact PowerSkills PyPSA `SKILL.md` proposes load/inspect → base feasibility → operational optimization → expansion. Operations planning and interconnection impact playbooks distinguish data quality, numerical problems, DC screening and AC/physical violations. These support the design of `VerificationRequest` and `ProcessStep` but remain *engineering guidance*, not binding Owner method rules.
+
+## Power QA Question Answers – source identity still unresolved
+Despite public GitHub search and Library search, no unambiguous source titled `Power QA Question Answers` with URI/owner/revision has been identified. `PowerFM` mentions a *PowerGridQA* resource/dataset, which must not be silently equated with a specific `Power QA` question/answer knowledge base. Status `NOT_IDENTIFIED`; referent, accessibility, version and provenance must be established before its content is used as source facts.
+
+## Evidence rubric / limitations
+- `D_DOC`: pinned README/skill; `I_SOURCE`: source file existence or documented implementation (PowerIO, PowerWF) but no execution in this ML-C18 session.
+- `T_EXISTING`: documented PowerWF fake-adapter and RestoreBench tests; not independently run here.
+- `T_EXECUTED`: **none** for Power-Agent code in this ML-C18 session.
+- All Power-Agent mechanisms are optional candidates for *execution/evidence architecture*, not normative contract grammar and not forced implementation dependencies for GEMS/mathspec/PyPSA/Sienna.
+- Original scientific/Owner methodology, certified source and independent physical verification take precedence over secondary Library or skills.
