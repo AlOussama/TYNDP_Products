@@ -76,6 +76,15 @@ python /mnt/data/ml_c18_synthetic_microchecks.py
 
 **Blind-Handoff:** Kein unabhängiger Model-Author, keine kontrollierte Authoring-Time-Study, kein native Proof-of-Representation und kein externally independent Audit. Für K17 überall `NOT_EVALUATED/E0`, für K02–K09 keine E4/E5.
 
+## 6a Nachträgliche Library-/Power-Agent-Primärquellenprüfung
+Nach Erfassung der ersten Quellen wurde eine **Library-Datei** `PowerAgent_Wissensbasis_Architekturreview_2026-11-17.md` (Research Review vom 17.11.2026) zugänglich und als **sekundärer technischer Reuse-Index** gelesen. Primärquellen auf GitHub wurden dazu eigens gegengeprüft:
+- Power-Agent/PowerMCP main `3510a884694a563cd22234522347f9e4a5ed82eb`: README, PyPSA/README; PowerIO IR Gen2 `pio-ir`, typed data/fidelity, PTDF-Fähigkeit auf PowerIO-Ebene ≠ noch geplantes generisches PyPSA-MCP-`calculate_ptdf`.
+- Power-Agent/PowerWF main `a3c437146e7263a45db940edc5e4c66a4cd170cf`: `cross_engine_validation/README.md` mit `StudySpec`, two-engine data isolation, comparator outcome semantics; Tests dokumentiert mit Fake-MCP-Adaptern, keine Live-Runtime in ML-C18.
+- Power-Agent/PowerAgentBench main `77fe638482af94dd20ce28bfa4301658660d283d`: `benchmarks/steady/level_3/README.md` beschreibt unabhängig reproduzierbare RestoreBench-Scorer- und Dataset-Versionierung, kein generischer Study Contract.
+- Power-Agent/PowerFM main `4c6e9b3dd1e035d7abf8c526b2947380b6667fa3`: Quellinventar, kein verifizierter eindeutiger Beleg für separat angefragte `Power QA Question Answers`-Wissensbasis.
+
+Die 09-Reuse-Matrix wurde um diese drei **pinned** Reusezeilen ergänzt und ein separater Quellnachweis `sources/poweragent_cross_engine_reference.md` angelegt. Alle Sourceprüfungen sind **D_DOC / I_SOURCE**; `POWER_AGENT_RUNS_EXECUTED = 0`, **QA-Quellenidentität bleibt unresolved**. Zuvor genannter Hinweis, dass keine *Projektdateien* gefunden wurden, ist mit der später erfolgreich gefundenen **Library-Datei** zu unterscheiden. Diese Ergänzung ändert die 27 numerischen Microchecks, K01–K17-Auswertung und E0–E5-Transparenz nicht.
+
 ## 7 Fehler-/Evidenzstatus und Urteil
 | Prüfebene | ML-C18-Ergebnis | Zulässige Aussage |
 |---|---|---|
