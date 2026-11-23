@@ -1,0 +1,7 @@
+# ML-C22/09 – Independent-style critical falsification (AI-internal only)
+ML-C22 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+CSNF base 2f0297b754e3a96a2523a34d3af98782b26181f3; mathspec 5f1464c334c1012cdee2947d4d55b4d1d6bef40a; GEMS c463e30b610443c1f59b20074bb7acffa2844cce. OMG SysML 2.0, KerML 1.0, Systems Modeling API 1.0; pilot 2026-09.1 is IMPLEMENTATION, not normative. G1 BLOCKED.
+
+(1) SysML syntax snippets may not compile and default multiplicity rules vary with pilot version: empirical parser evidence absent. (2) An annotation field called `Owner` might be silently dropped by exporter or stripped in XMI; roundtrip tests mandatory. (3) GEMS port-type fields are scalar mathematical connection fields, not a native proof of Carrier/Direction/SI dimensions. (4) mathspec canonicalization operates on a mathematical Spec AST, not authority-aware CSNF. (5) Profiles that import the whole SysML metamodel can shift hidden complexity into type resolution and authoring; account for it. (6) E3/E4/E5 assertions in examples are hypothetical, never automatic from syntax. (7) Model Freedom can be accidentally lost when treating every internal constraint or variable as a mandatory Part/Port. (8) Approval and methodological authority are out of scope for new defaults.
+
+Critical outstanding evidence: native N-S01–04, typed mappings RC01–10, source/audit roundtrip for two source IDs, outside human authoring and semantic interpretation. These are falsification gaps, not findings of non-support. No personell independent sign-off was performed.

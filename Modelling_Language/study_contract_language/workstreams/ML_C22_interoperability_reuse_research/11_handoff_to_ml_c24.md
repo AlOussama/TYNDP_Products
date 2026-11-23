@@ -1,0 +1,5 @@
+# ML-C22/11 – Versioned adapter interface for B1/C24
+ML-C22 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+CSNF base 2f0297b754e3a96a2523a34d3af98782b26181f3; mathspec 5f1464c334c1012cdee2947d4d55b4d1d6bef40a; GEMS c463e30b610443c1f59b20074bb7acffa2844cce. OMG SysML 2.0, KerML 1.0, Systems Modeling API 1.0; pilot 2026-09.1 is IMPLEMENTATION, not normative. G1 BLOCKED.
+
+Proposed mapping descriptor `CSNF-MAPPING-0.1`: source_kind/version, target_kind/version, role mapping C1–C9, type predicate checks, cardinality+scope, trace IDs, audit-ledger mapping, declared expected losses and fallback BLOCKED. Consumer checks `typedSemanticProjection` and `auditProjection` before accepting export/reimport. `06_csnf_cross_language_mappings.csv` defines source-level map hypotheses; `data/mapping_registry.json` is a machine-readable draft. The B1 handshake with C20/C21 has NOT been executed. C24 should only compare B/H0 with A/C after N-S01–04 (where tool available) and comparable C23 frozen cases; no architecture release in this workstream.
