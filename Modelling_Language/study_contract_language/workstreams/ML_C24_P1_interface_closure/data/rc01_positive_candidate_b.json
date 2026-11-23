@@ -1,0 +1,191 @@
+{
+  "frame": {
+    "id": "RC01:study",
+    "schema": "C20-research-0.1",
+    "ruleset": "CSNF-R0",
+    "registry": "energy-r0",
+    "question": "Battery external bounds and energy trace",
+    "time": {
+      "id": "RC01:time",
+      "duration": "0.5",
+      "duration_unit": "h"
+    }
+  },
+  "referents": [
+    {
+      "id": "RC01:grid",
+      "kind": "external_port",
+      "type": "electricity.active_power",
+      "direction": "BIDIRECTIONAL",
+      "quantity": {
+        "carrier": "electricity",
+        "kind": "active_power",
+        "unit": "MW",
+        "value": "0",
+        "sign": "INJECTION"
+      }
+    }
+  ],
+  "relations": [],
+  "predicates": [
+    {
+      "id": "RC01:Pbounds",
+      "expr": {
+        "op": "forall",
+        "var": "t",
+        "domain": {
+          "kind": "time",
+          "ref": "RC01:time"
+        },
+        "body": {
+          "op": "and",
+          "args": [
+            {
+              "op": "compare",
+              "cmp": "ge",
+              "lhs": {
+                "op": "measure",
+                "ref": "RC01:grid"
+              },
+              "rhs": {
+                "op": "literal",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "active_power",
+                  "unit": "MW",
+                  "value": "-3",
+                  "sign": "INJECTION"
+                }
+              }
+            },
+            {
+              "op": "compare",
+              "cmp": "le",
+              "lhs": {
+                "op": "measure",
+                "ref": "RC01:grid"
+              },
+              "rhs": {
+                "op": "literal",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "active_power",
+                  "unit": "MW",
+                  "value": "4",
+                  "sign": "INJECTION"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "RC01:Pledger",
+      "expr": {
+        "op": "compare",
+        "cmp": "eq",
+        "lhs": {
+          "op": "integrate",
+          "expr": {
+            "op": "measure",
+            "ref": "RC01:grid"
+          },
+          "duration_ref": "RC01:time"
+        },
+        "rhs": {
+          "op": "literal",
+          "quantity": {
+            "carrier": "electricity",
+            "kind": "energy",
+            "unit": "MWh",
+            "value": "-1",
+            "sign": "INJECTION"
+          }
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "id": "RC01:A",
+      "modality": "REQUIRED",
+      "semantic_role": "SAFETY_GUARANTEE",
+      "predicate_ref": "RC01:Pbounds",
+      "scope": "RC01:time",
+      "guard": true,
+      "authority_refs": [
+        "RC01:SRC"
+      ],
+      "decision_state": "OWNER_TBD"
+    },
+    {
+      "id": "RC01:B",
+      "modality": "CONDITIONAL",
+      "semantic_role": "SERVICE_GUARANTEE",
+      "predicate_ref": "RC01:Pledger",
+      "scope": "RC01:time",
+      "guard": {
+        "atom": "battery:connected"
+      },
+      "authority_refs": [
+        "RC01:SRC"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [
+    {
+      "id": "RC01:O",
+      "subject": "RC01:grid",
+      "projection": {
+        "op": "integrate",
+        "expr": {
+          "op": "measure",
+          "ref": "RC01:grid"
+        },
+        "duration_ref": "RC01:time"
+      },
+      "quantity": {
+        "carrier": "electricity",
+        "kind": "energy",
+        "unit": "MWh",
+        "value": "0",
+        "sign": "INJECTION"
+      },
+      "aggregation": "energy_integration"
+    }
+  ],
+  "variations": [
+    {
+      "id": "RC01:V",
+      "subject": "RC01:grid",
+      "alternatives": [
+        "SOC-state",
+        "energy-state"
+      ],
+      "disclosure": true,
+      "source_refs": [
+        "RC01:SRC"
+      ]
+    }
+  ],
+  "evidences": [
+    {
+      "id": "RC01:E",
+      "role": "REQUEST",
+      "subject_ref": "RC01:A",
+      "status": "NOT_EXECUTED",
+      "oracle": "ML-C23/research-r0.1"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "RC01:SRC",
+      "role": "SOURCE",
+      "immutable_ref": "ML-C19/11:RC01",
+      "revision": "r0.1",
+      "decision_state": "OWNER_TBD"
+    }
+  ]
+}

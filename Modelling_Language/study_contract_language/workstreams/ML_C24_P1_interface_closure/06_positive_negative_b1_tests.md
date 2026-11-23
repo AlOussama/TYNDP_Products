@@ -1,0 +1,3 @@
+# B1 restricted regression tests
+
+V8 isolated execution: **15/15 passed** for the exact `runContract` and `testContract` functions committed as JS source. Includes positive typed RC01 interface, OWNER_TBD blocking, JSON decode, ordering, guard preservation, unknown-operator rejection, dimension mismatch, version mismatch, evidence promotion, source loss and separate audit change. This is **not** an execution of the pinned C21 Python validator nor a complete ML-C23 case suite. The original C21 negative fixture is preserved for Python replay and is intentionally rejected by the typed bridge (no quantitative port and prose projector).
