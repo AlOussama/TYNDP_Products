@@ -1,0 +1,178 @@
+{
+  "oracle_version": "ML-C23/research-r0.1",
+  "cases": [
+    {
+      "id": "MUT-01",
+      "rc": "RC01",
+      "mutation": "2 MWh inferred or missing terminal owner rule",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-02",
+      "rc": "RC02",
+      "mutation": "aggregate MWh right but EV2 misses departure",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-03",
+      "rc": "RC03",
+      "mutation": "MW compared to kg/h or missing heating value",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-04",
+      "rc": "RC04",
+      "mutation": "kg treated as MWh or HHV/LHV substituted",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-05",
+      "rc": "RC05",
+      "mutation": "circulating flow satisfies KCL but violates KVL",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-06",
+      "rc": "RC06",
+      "mutation": "0.3 module accepted as physically buildable",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-07",
+      "rc": "RC07",
+      "mutation": "future weather revelation changes first-stage choice",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-08",
+      "rc": "RC08",
+      "mutation": "omits time weight or double-counts CAPEX",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-09",
+      "rc": "RC09",
+      "mutation": "counterfactual demand altered without approved scope",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-10",
+      "rc": "RC10",
+      "mutation": "unsupported E4 assertion from equal objective or concealed extra assumption",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-11",
+      "rc": "RC01",
+      "mutation": "normativity",
+      "expected": [
+        "E1_DIFFERENT"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-12",
+      "rc": "RC10",
+      "mutation": "source_loss",
+      "expected": [
+        "AUDIT_LOSS"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-13",
+      "rc": "RC10",
+      "mutation": "evidence_promotion",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-14",
+      "rc": "RC01",
+      "mutation": "ambiguous_alias",
+      "expected": [
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-15",
+      "rc": "RC07",
+      "mutation": "guard_dropping",
+      "expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-16",
+      "rc": "RC03",
+      "mutation": "carrier_dimension",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-17",
+      "rc": "RC01",
+      "mutation": "time_duration",
+      "expected": [
+        "BLOCKED"
+      ],
+      "executed": false
+    },
+    {
+      "id": "MUT-18",
+      "rc": "RC05",
+      "mutation": "KCL_E4_false_positive",
+      "expected": [
+        "E4_NOT_PROVED"
+      ],
+      "executed": false
+    }
+  ]
+}

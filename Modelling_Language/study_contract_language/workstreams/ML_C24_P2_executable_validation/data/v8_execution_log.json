@@ -1,0 +1,446 @@
+{
+  "run_id": "P2-V8-20261123-r0.2",
+  "environment": "isolated V8 JS",
+  "b0": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+  "oracle_version": "ML-C23/research-r0.1",
+  "results": {
+    "positives": [
+      {
+        "id": "RC01",
+        "pass": true,
+        "report": {
+          "case_id": "RC01",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "BLOCKED_OWNER_TBD",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC02",
+        "pass": true,
+        "report": {
+          "case_id": "RC02",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC03",
+        "pass": true,
+        "report": {
+          "case_id": "RC03",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC04",
+        "pass": true,
+        "report": {
+          "case_id": "RC04",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC05",
+        "pass": true,
+        "report": {
+          "case_id": "RC05",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC06",
+        "pass": true,
+        "report": {
+          "case_id": "RC06",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC07",
+        "pass": true,
+        "report": {
+          "case_id": "RC07",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC08",
+        "pass": true,
+        "report": {
+          "case_id": "RC08",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC09",
+        "pass": true,
+        "report": {
+          "case_id": "RC09",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "BLOCKED_OWNER_TBD",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      },
+      {
+        "id": "RC10",
+        "pass": true,
+        "report": {
+          "case_id": "RC10",
+          "technical_valid": true,
+          "diagnostics": [],
+          "owner_status": "PROPOSED_NOT_APPROVED",
+          "e1": "NOT_EVALUATED",
+          "e2": "NOT_PROVED",
+          "e3": "NOT_EXECUTED",
+          "e4": "NOT_PROVED",
+          "e5": "CONDITIONAL_ONLY"
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "id": "MUT-01",
+        "rc": "RC01",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "E1_DIFFERENT",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "EXTERNAL_GRID_LEDGER",
+            "category": "E1_DIFFERENT"
+          }
+        ]
+      },
+      {
+        "id": "MUT-02",
+        "rc": "RC02",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "INDIVIDUAL_DEADLINE_MISSED",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-03",
+        "rc": "RC03",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "HV_BASIS_MISSING",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-04",
+        "rc": "RC04",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "H2_MASS_ENERGY_UNAPPROVED",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-05",
+        "rc": "RC05",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "KVL",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-06",
+        "rc": "RC06",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "MODULARITY",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-07",
+        "rc": "RC07",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "INFORMATION_LEAKAGE",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-08",
+        "rc": "RC08",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "E1_DIFFERENT",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "KPI_BASIS",
+            "category": "E1_DIFFERENT"
+          }
+        ]
+      },
+      {
+        "id": "MUT-09",
+        "rc": "RC09",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "COUNTERFACTUAL_DRIFT",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-10",
+        "rc": "RC10",
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "E4_FROM_IDENTICAL_OBJECTIVE",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-11",
+        "rc": "RC01",
+        "expected": [
+          "E1_DIFFERENT"
+        ],
+        "observed": "E1_DIFFERENT",
+        "pass": true,
+        "diagnostics": []
+      },
+      {
+        "id": "MUT-12",
+        "rc": "RC10",
+        "expected": [
+          "AUDIT_LOSS"
+        ],
+        "observed": "AUDIT_LOSS",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "SOURCE_LOSS",
+            "category": "AUDIT_LOSS"
+          }
+        ]
+      },
+      {
+        "id": "MUT-13",
+        "rc": "RC10",
+        "expected": [
+          "FAIL_STATIC"
+        ],
+        "observed": "FAIL_STATIC",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "UNSUPPORTED_PASS",
+            "category": "FAIL_STATIC"
+          }
+        ]
+      },
+      {
+        "id": "MUT-14",
+        "rc": "RC01",
+        "expected": [
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "AMBIGUOUS_ALIAS",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-15",
+        "rc": "RC07",
+        "expected": [
+          "BLOCKED",
+          "E1_DIFFERENT"
+        ],
+        "observed": "E1_DIFFERENT",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "GUARD_LOSS",
+            "category": "E1_DIFFERENT"
+          }
+        ]
+      },
+      {
+        "id": "MUT-16",
+        "rc": "RC03",
+        "expected": [
+          "FAIL_STATIC"
+        ],
+        "observed": "FAIL_STATIC",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "CARRIER_DIMENSION",
+            "category": "FAIL_STATIC"
+          }
+        ]
+      },
+      {
+        "id": "MUT-17",
+        "rc": "RC01",
+        "expected": [
+          "BLOCKED"
+        ],
+        "observed": "BLOCKED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "TIME_DURATION_MISSING",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      {
+        "id": "MUT-18",
+        "rc": "RC05",
+        "expected": [
+          "E4_NOT_PROVED"
+        ],
+        "observed": "E4_NOT_PROVED",
+        "pass": true,
+        "diagnostics": [
+          {
+            "code": "KVL",
+            "category": "BLOCKED"
+          },
+          {
+            "code": "E4_FROM_KCL_NOT_PROVED",
+            "category": "E4_NOT_PROVED"
+          }
+        ]
+      }
+    ],
+    "passed": 28,
+    "total": 28
+  },
+  "gate": "B2_PARTIAL",
+  "c21_python_executed": false
+}

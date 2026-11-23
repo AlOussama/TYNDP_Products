@@ -1,0 +1,628 @@
+[
+  {
+    "mutation_id": "MUT-01",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC01",
+      "source": "ML-C19/11:RC01",
+      "authority_state": "OWNER_TBD",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "p_mw": -2,
+        "h": 0.5,
+        "grid_mwh": 2,
+        "unit": "MWh"
+      },
+      "mutation_id": "MUT-01"
+    }
+  },
+  {
+    "mutation_id": "MUT-02",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC02",
+      "source": "ML-C19/11:RC02",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "ev": [
+          {
+            "id": "v1",
+            "due": 1,
+            "delivered": 2
+          },
+          {
+            "id": "v2",
+            "due": 2,
+            "delivered": 1
+          }
+        ],
+        "total": 3
+      },
+      "mutation_id": "MUT-02"
+    }
+  },
+  {
+    "mutation_id": "MUT-03",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC03",
+      "source": "ML-C19/11:RC03",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "input_mw": 2,
+        "h": 1,
+        "h2_kg": 40,
+        "hv_mwh_per_kg": 0.03333,
+        "eff_cap": 0.8,
+        "electric_unit": "MW",
+        "hydrogen_unit": "kg"
+      },
+      "mutation_id": "MUT-03"
+    }
+  },
+  {
+    "mutation_id": "MUT-04",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC04",
+      "source": "ML-C19/11:RC04",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "initial_kg": 100,
+        "inflow_kgh": 20,
+        "outflow_kgh": 5,
+        "leak_kg": 2,
+        "h": 1,
+        "final_kg": 113,
+        "unit": "MWh"
+      },
+      "mutation_id": "MUT-04"
+    }
+  },
+  {
+    "mutation_id": "MUT-05",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC05",
+      "source": "ML-C19/11:RC05",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "branch": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "x": [
+          1,
+          1,
+          1
+        ],
+        "f": [
+          2,
+          2,
+          -1
+        ],
+        "inject": [
+          3,
+          0,
+          -3
+        ],
+        "duties": [
+          "KCL",
+          "KVL"
+        ],
+        "e4_claim": false
+      },
+      "mutation_id": "MUT-05"
+    }
+  },
+  {
+    "mutation_id": "MUT-06",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC06",
+      "source": "ML-C19/11:RC06",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "allowed": [
+          0,
+          1
+        ],
+        "built": 0.3,
+        "lead_time_valid": true
+      },
+      "mutation_id": "MUT-06"
+    }
+  },
+  {
+    "mutation_id": "MUT-07",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC07",
+      "source": "ML-C19/11:RC07",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "first_stage": {
+          "warm": 5,
+          "cold": 7
+        },
+        "guard": "before_revelation",
+        "information_set": "stage1"
+      },
+      "mutation_id": "MUT-07"
+    }
+  },
+  {
+    "mutation_id": "MUT-08",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC08",
+      "source": "ML-C19/11:RC08",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "capex_eur": 100,
+        "p_mw": 3,
+        "h": 2,
+        "marginal_eur_mwh": 2,
+        "probability": 1,
+        "discount": 1,
+        "total_eur": 106,
+        "price_year": 2025,
+        "basis": "real"
+      },
+      "mutation_id": "MUT-08"
+    }
+  },
+  {
+    "mutation_id": "MUT-09",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC09",
+      "source": "ML-C19/11:RC09",
+      "authority_state": "OWNER_TBD",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "baseline": "same_exogenous",
+        "project": "altered_exogenous",
+        "baseline_eur": 100,
+        "project_eur": 90,
+        "delta_eur": -10,
+        "price_basis": "EUR-real-2025",
+        "owner": "OWNER_TBD"
+      },
+      "mutation_id": "MUT-09"
+    }
+  },
+  {
+    "mutation_id": "MUT-10",
+    "expected": [
+      "E1_DIFFERENT",
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC10",
+      "source": "ML-C19/11:RC10",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "models": [
+          {
+            "variant": "SOC",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          },
+          {
+            "variant": "energy",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          }
+        ],
+        "basis": "EUR-real-2025",
+        "e4_claim": true
+      },
+      "mutation_id": "MUT-10"
+    }
+  },
+  {
+    "mutation_id": "MUT-11",
+    "expected": [
+      "E1_DIFFERENT"
+    ],
+    "specimen": {
+      "case_id": "RC01",
+      "source": "ML-C19/11:RC01",
+      "authority_state": "OWNER_TBD",
+      "contract": {
+        "modality": "PERMITTED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "p_mw": -2,
+        "h": 0.5,
+        "grid_mwh": 1,
+        "unit": "MWh"
+      },
+      "mutation_id": "MUT-11"
+    }
+  },
+  {
+    "mutation_id": "MUT-12",
+    "expected": [
+      "AUDIT_LOSS"
+    ],
+    "specimen": {
+      "case_id": "RC10",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "models": [
+          {
+            "variant": "SOC",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          },
+          {
+            "variant": "energy",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          }
+        ],
+        "basis": "EUR-real-2025",
+        "e4_claim": false
+      },
+      "mutation_id": "MUT-12"
+    }
+  },
+  {
+    "mutation_id": "MUT-13",
+    "expected": [
+      "FAIL_STATIC"
+    ],
+    "specimen": {
+      "case_id": "RC10",
+      "source": "ML-C19/11:RC10",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "PASS",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "models": [
+          {
+            "variant": "SOC",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          },
+          {
+            "variant": "energy",
+            "status": "NOT_EXECUTED",
+            "kpi": 100
+          }
+        ],
+        "basis": "EUR-real-2025",
+        "e4_claim": false
+      },
+      "mutation_id": "MUT-13"
+    }
+  },
+  {
+    "mutation_id": "MUT-14",
+    "expected": [
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC01",
+      "source": "ML-C19/11:RC01",
+      "authority_state": "OWNER_TBD",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [
+        {
+          "key": "grid",
+          "id": "a"
+        },
+        {
+          "key": "grid",
+          "id": "b"
+        }
+      ],
+      "data": {
+        "p_mw": -2,
+        "h": 0.5,
+        "grid_mwh": 1,
+        "unit": "MWh"
+      },
+      "mutation_id": "MUT-14"
+    }
+  },
+  {
+    "mutation_id": "MUT-15",
+    "expected": [
+      "BLOCKED",
+      "E1_DIFFERENT"
+    ],
+    "specimen": {
+      "case_id": "RC07",
+      "source": "ML-C19/11:RC07",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "first_stage": {
+          "warm": 5,
+          "cold": 5
+        },
+        "information_set": "stage1"
+      },
+      "mutation_id": "MUT-15"
+    }
+  },
+  {
+    "mutation_id": "MUT-16",
+    "expected": [
+      "FAIL_STATIC"
+    ],
+    "specimen": {
+      "case_id": "RC03",
+      "source": "ML-C19/11:RC03",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "input_mw": 2,
+        "h": 1,
+        "h2_kg": 40,
+        "hv_mwh_per_kg": 0.03333,
+        "basis": "LHV",
+        "eff_cap": 0.8,
+        "electric_unit": "MW",
+        "hydrogen_unit": "MW"
+      },
+      "mutation_id": "MUT-16"
+    }
+  },
+  {
+    "mutation_id": "MUT-17",
+    "expected": [
+      "BLOCKED"
+    ],
+    "specimen": {
+      "case_id": "RC01",
+      "source": "ML-C19/11:RC01",
+      "authority_state": "OWNER_TBD",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "p_mw": -2,
+        "grid_mwh": 1,
+        "unit": "MWh"
+      },
+      "mutation_id": "MUT-17"
+    }
+  },
+  {
+    "mutation_id": "MUT-18",
+    "expected": [
+      "E4_NOT_PROVED"
+    ],
+    "specimen": {
+      "case_id": "RC05",
+      "source": "ML-C19/11:RC05",
+      "authority_state": "PROPOSED",
+      "contract": {
+        "modality": "REQUIRED",
+        "guard": "study_applicable"
+      },
+      "evidence": {
+        "status": "NOT_EXECUTED",
+        "role": "REQUEST"
+      },
+      "alias": [],
+      "data": {
+        "branch": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "x": [
+          1,
+          1,
+          1
+        ],
+        "f": [
+          2,
+          2,
+          -1
+        ],
+        "inject": [
+          3,
+          0,
+          -3
+        ],
+        "duties": [
+          "KCL",
+          "KVL"
+        ],
+        "e4_claim": true
+      },
+      "mutation_id": "MUT-18"
+    }
+  }
+]
