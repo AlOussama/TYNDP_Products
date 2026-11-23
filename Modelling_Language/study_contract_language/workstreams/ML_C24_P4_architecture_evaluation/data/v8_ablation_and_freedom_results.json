@@ -1,0 +1,87 @@
+{
+  "run_id": "P4-V8-20261123-r0.1",
+  "experiment_environment": "isolated JS V8",
+  "ablation": {
+    "dropTests": [
+      {
+        "role": "C1",
+        "dropped": "frame",
+        "detected": true
+      },
+      {
+        "role": "C2",
+        "dropped": "referents",
+        "detected": true
+      },
+      {
+        "role": "C3",
+        "dropped": "relations",
+        "detected": true
+      },
+      {
+        "role": "C4",
+        "dropped": "predicates",
+        "detected": true
+      },
+      {
+        "role": "C5",
+        "dropped": "assertions",
+        "detected": true
+      },
+      {
+        "role": "C6",
+        "dropped": "observables",
+        "detected": true
+      },
+      {
+        "role": "C7",
+        "dropped": "variations",
+        "detected": true
+      },
+      {
+        "role": "C8",
+        "dropped": "evidences",
+        "detected": true
+      },
+      {
+        "role": "C9",
+        "dropped": "authorities",
+        "detected": true
+      }
+    ],
+    "losslessRelocation": true,
+    "cost": {
+      "original_bytes": 2695,
+      "reified_bytes": 2731,
+      "core_collection_slots_before": 9,
+      "core_collection_slots_after": 7,
+      "extra_discriminators": [
+        "__csnf_reified:C8",
+        "__csnf_reified:C9"
+      ],
+      "validator_footprint": "NOT_MEASURED"
+    }
+  },
+  "freedom": {
+    "RC01_battery_SOC_vs_energy": {
+      "pass": true,
+      "scope": "one idealized one-hour trace"
+    },
+    "RC02_EV_individual_vs_aggregate": {
+      "pass": true,
+      "scope": "finite departure witness"
+    },
+    "RC05_angle_vs_cycle": {
+      "pass": true,
+      "scope": "single 3-node equal-x DC triangle"
+    },
+    "RC03_electrolyser_const_vs_partload": {
+      "pass": true,
+      "scope": "two admissible but non-identical output samples"
+    },
+    "RC07_investment_shared_vs_scenario_indexed": {
+      "pass": true,
+      "scope": "two-scenario first-stage value"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# Architecture candidates, fixed controls
+
+A = standalone minimal CSNF semantics/registry. B = CSNF embedded in KerML/SysML profile. C = federated native representations aligned by shared semantic+audit projections. H0 = existing SysML/KerML with minimal profile sufficient. Identical measures: typed expressiveness, information and audit losses, guard/authority semantics, operator and typechecker complexity, authoring cost, solver/implementation freedom. Actual executable evidence available is confined to P1 partial Candidate B JSON bridge, not an A/B/C/H0 benchmark; therefore all four architecture-level metric cells stay NOT_EVALUATED.
