@@ -1,0 +1,3 @@
+# Predicate and observable semantics boundary
+
+Bool3 is explicitly typed but no 3-valued solver/evaluator is provided. AND/OR/NOT are validated structurally; forall/exists preserve their original nesting and domain reference. Comparisons require same carrier, kind, sign and basis; accepted source units belong to a known dimension family. `integrate` maps MW-based power to MWh-based energy with explicitly referenced duration; numeric time-slice physics remains a later evidence request. Observable projection type is checked independently from declared quantity. Full time/scenario information-set and vehicle service behaviour are not implemented. Unknown expressions return errors, never untyped text.

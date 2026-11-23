@@ -1,0 +1,83 @@
+{
+  "run_id": "P1-V8-20261123-r0.1",
+  "environment": "JS V8 isolated Code Mode; engine version unknown",
+  "test_results": [
+    {
+      "id": "positive_typed_RCI_bridge_blocked_owner",
+      "pass": true
+    },
+    {
+      "id": "owner_no_promotion",
+      "pass": true
+    },
+    {
+      "id": "original_ast_projection_preserved",
+      "pass": true
+    },
+    {
+      "id": "candidate_b_json_decoder",
+      "pass": true
+    },
+    {
+      "id": "determinism",
+      "pass": true
+    },
+    {
+      "id": "role_order_commutation",
+      "pass": true
+    },
+    {
+      "id": "guard_no_silent_drop",
+      "pass": true
+    },
+    {
+      "id": "reject_unknown_operator",
+      "pass": true
+    },
+    {
+      "id": "reject_dimension_mismatch",
+      "pass": true
+    },
+    {
+      "id": "reject_missing_observable_projection",
+      "pass": true
+    },
+    {
+      "id": "reject_undocumented_registry",
+      "pass": true
+    },
+    {
+      "id": "reject_evidence_promotion",
+      "pass": true
+    },
+    {
+      "id": "reject_source_loss",
+      "pass": true
+    },
+    {
+      "id": "audit_detects_source_change",
+      "pass": true
+    },
+    {
+      "id": "evidence_is_not_execution",
+      "pass": true
+    }
+  ],
+  "baseline_status": "BLOCKED",
+  "baseline_diagnostics": [
+    {
+      "code": "OWNER_UNRESOLVED",
+      "path": "$.assertions[0].decision_state",
+      "severity": "BLOCKED",
+      "detail": ""
+    },
+    {
+      "code": "OWNER_UNRESOLVED",
+      "path": "$.assertions[1].decision_state",
+      "severity": "BLOCKED",
+      "detail": ""
+    }
+  ],
+  "gate": "B1_PARTIAL",
+  "pinned_c21_executed": false
+}

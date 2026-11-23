@@ -1,0 +1,4 @@
+claim,requirement,source_pin,test_or_implementation,procedure,run_id,result,evidence_strength,limitation,next_step
+Typed Candidate B RC01 interface,C1-C9,ML-C20@b81edeb/ML-C21@cad6d30,tools/candidate_b_bridge.js,JS V8 isolated run,P1-V8-20261123-r0.1,BLOCKED_OWNER_TBD,EXECUTED_SYNTHETIC,No original Python validator execution,Run pinned C21 validator
+Quantified logical AST,ML-C19/R00-R13,ML-C19@2f0297b,restricted operator typecheck,JS V8 isolated run,P1-V8-20261123-r0.1,PASS_STATIC_FRAGMENT,EXECUTED_SYNTHETIC,No universal semantics or conformance,Finite oracle and formal proof
+Registry migration,C20/C21,PR57/PR59,explicit frozen mapping,inspection,P1-V8-20261123-r0.1,PARTIAL,IMPLEMENTED,No semantic registry identity proof,Review operator registry
