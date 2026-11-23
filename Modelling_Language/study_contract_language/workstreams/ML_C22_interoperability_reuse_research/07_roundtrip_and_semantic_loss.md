@@ -8,12 +8,12 @@ CSNF base 2f0297b754e3a96a2523a34d3af98782b26181f3; mathspec 5f1464c334c1012cdee
 ## Deep positive/negative mapping oracles
 | RC | Positive mapping | Required retention | Negative mapping to reject |
 |---|---|---|---|
-| RC01 | port usage / requirement+assumed and required; energy basis tagged | battery port + external ledger | no hidden SOC variable requirement |
-| RC03 | distinct PortUsages / carrier-quantity types and conversion precondition | electricity consumption and H2 production | no implicit MW-to-kg/h mapping |
-| RC05 | port, connection, requirements to both KCL and KVL | physical graph + KCL AND KVL | physical branch role not just adjacency |
-| RC07 | nested scenario features plus typed time-indexed constraint | scenario InfoSet and nonanticipativity | do not treat SysML event order as info-time automatically |
-| RC08 | analysis/view + custom metadata for price year, weights, selection | KPI cost price-basis+aggregation | observable schema not solver objective |
-| RC10 | model usages linked to common requirements, distinct verification records | shared contract independent models, evidence and variation | shared external obligations, not identical SysML part decomposition |
+| RC01 | port usage / requirement+assumed and required; energy basis tagged | battery port + external ledger | nonapproved terminal default; performance-specific internal part requirement |
+| RC03 | distinct PortUsages / carrier-quantity types and conversion precondition | electricity consumption and H2 production | mass-energy dimension erased, no LHV/HHV source |
+| RC05 | port, connection, requirements to both KCL and KVL | physical graph + KCL AND KVL | KCL-only interpreted as both KCL+KVL |
+| RC07 | nested scenario features plus typed time-indexed constraint | scenario InfoSet and nonanticipativity | first-stage leakage |
+| RC08 | analysis/view + custom metadata for price year, weights, selection | KPI cost price-basis+aggregation | same number but inconsistent discount/weights |
+| RC10 | model usages linked to common requirements, distinct verification records | shared contract independent models, evidence and variation | different source/evidence identities merged |
 
 Other RC coverage: RC02 vehicle individual deadline and service capability; RC04 H2 mass/energy inventory basis; RC06 module integrality and commissioned stage; RC09 CBA baseline/counterfactual, price basis and unresolved N2E authority. These four cases require full C1–C9 mapping coverage but do not imply executed native roundtrip tests.
 
