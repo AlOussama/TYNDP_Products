@@ -1,0 +1,3 @@
+# Native cross-language test plan, no false native results
+
+Sources: C22 pinned `828c87eb100646da6fcce5f8751af5f3f42c7600`, GEMS `c463e30b610443c1f59b20074bb7acffa2844cce`, mathspec `5f1464c334c1012cdee2947d4d55b4d1d6bef40a`, OMG SysML 2.0 / KerML 1.0 / Systems Modeling API 1.0. For each engine: (1) pin binary+library; (2) native parse/type validation for RC01/03/05/07/08/10; (3) explicit source and profile provenance mapping; (4) native export/reimport; (5) separate semantic/audit loss and negative cases. P1 B1_PARTIAL, so joint CSNF roundtrips not eligible yet. No compliance can be inferred from the preflight availability probe.
