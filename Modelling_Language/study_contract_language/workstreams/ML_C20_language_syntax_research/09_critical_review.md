@@ -1,0 +1,7 @@
+# ML-C20/09 – Critical review (AI-internal; no human independent sign-off)
+ML-C20 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+B0 CSNF commit: 2f0297b754e3a96a2523a34d3af98782b26181f3; ML-C18 SLR01–42 / K01–17; ML-C19 C1–C9, R00–R13, E1–E5. H0 SysML/KerML is evaluated independently in C22. G1 BLOCKED.
+
+Critical risk A: EBNF `Value` is underspecified for signed decimal quantities, quantifier binding, time scopes, URN escaping and source spans; use of string-backed profiles can hide actual type safety. Risk B: simplified JSON Schema validates only container shapes, not required port/quantity/authority discriminators; never call it complete type validation. Risk C: examples use placeholder `contractPredicate`; not executable and cannot satisfy actual RC01–10 end-state. Risk D: treating OWNER_TBD as acceptable syntax is correct but cannot justify normative validity. Risk E: complex capability contracts can require typed temporal logic/quantifier handling outside limited AST. Risk F: absent N2E authority in CBA blocks positive methodological verdict.
+
+To resolve: implement stricter typed operator registry + grammar+schema in a versioned B1 interface, add 10 fully instantiated cases without placeholders, run mutation tests against C21 validator, run independent human authoring from C23, compare native SysML/H0 from C22. These are explicit open research gaps, not silently waived acceptance criteria.

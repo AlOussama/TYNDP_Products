@@ -1,0 +1,88 @@
+{
+  "version": "C20-0.1",
+  "baseline": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+  "execution": "NOT_EXECUTED",
+  "semantics": "CONCEPTUAL_INTENT_ONLY",
+  "cases": [
+    {
+      "id": "RC01",
+      "title": "battery external grid injection",
+      "contract": "port battery.grid carrier electricity kind active_power unit MW sign INJECTION; guarantee bounds -3..4 MW; ledger delta MWh; source SRC_B; owner OWNER_TBD",
+      "variants": "battery.grid connectedTo BUS_A; external ledger 2MW*0.5h=1MWh",
+      "negative_mutation": "2 MW*0.5h=2MWh",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC02",
+      "title": "individual EV departure guarantee",
+      "contract": "port fleet.grid carrier electricity kind active_power unit MW sign CONSUMPTION; guarantee forall vehicles departure_energy; source SRC_EV",
+      "variants": "fleet service quantifier forall vehicle exists feasible dispatch",
+      "negative_mutation": "aggregate MWh okay but vehicle deadline missed",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC03",
+      "title": "electrolyser electricity/H2 interfaces",
+      "contract": "port el.grid carrier electricity kind active_power unit MW sign CONSUMPTION; port el.h2 carrier hydrogen kind mass_flow unit kg/h; source SRC_EL",
+      "variants": "two typed ports and approved heating_value_basis",
+      "negative_mutation": "kg/h compared to MW directly",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC04",
+      "title": "H2 storage mass conservation",
+      "contract": "port h2store.mass carrier hydrogen kind mass_flow unit kg/h; guarantee conservation of kg inventory; source SRC_HS",
+      "variants": "mass ledger under explicit leakage basis",
+      "negative_mutation": "1 kg silently treated as 1 MWh",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC05",
+      "title": "DC electric KCL and KVL",
+      "contract": "referent branch role physical_branch; guarantee KCL_AND_KVL under DC assumptions; source SRC_GRID",
+      "variants": "angle or PTDF implementation allowed with required KVL trace",
+      "negative_mutation": "only KCL required",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC06",
+      "title": "expansion admissibility",
+      "contract": "guarantee discrete modules when source requires; disclose continuum approximation; source SRC_INV",
+      "variants": "module count integer 0 or 1 on approved profile",
+      "negative_mutation": "0.3 module built as physical asset",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC07",
+      "title": "stage information-set condition",
+      "contract": "guarantee stage1 decision equal across unrevealed scenarios; source SRC_SCEN",
+      "variants": "scenario-indexed or single-shared x pre-revelation",
+      "negative_mutation": "stage-1 depends on future scenario",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC08",
+      "title": "cost KPI basis and weights",
+      "contract": "observe total_system_cost kind currency unit EUR basis real_2025 discount explicit; source SRC_KPI",
+      "variants": "solver objective or postprocess ledger same contract KPI",
+      "negative_mutation": "omit temporal weight or double-count CAPEX",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC09",
+      "title": "CBA counterfactual / unknown method owner",
+      "contract": "frame baseline BASE and project P with shared exogenous snapshot; owner OWNER_TBD; source SRC_CBA",
+      "variants": "integrated CBA or external postprocess, no N2E authority claim",
+      "negative_mutation": "counterfactual data drift or owner approval invented",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    },
+    {
+      "id": "RC10",
+      "title": "multi-model variation + evidence",
+      "contract": "compare two model implementations by shared KPI + sources + variation, evidence NOT_EXECUTED; source SRC_MULTI",
+      "variants": "two independent model internals with same obligations and disclosed variation",
+      "negative_mutation": "declare E4 from identical cost; evidence NOT_EXECUTED->PASS",
+      "status": "PROFILE_AND_PARSER_UNDER_SPECIFIED"
+    }
+  ]
+}
