@@ -103,32 +103,32 @@
     {
       "id": "RC01",
       "status": "DESIGN",
-      "negative": "no hidden SOC variable requirement"
+      "negative": "nonapproved terminal default; performance-specific internal part requirement"
     },
     {
       "id": "RC03",
       "status": "DESIGN",
-      "negative": "no implicit MW-to-kg/h mapping"
+      "negative": "mass-energy dimension erased, no LHV/HHV source"
     },
     {
       "id": "RC05",
       "status": "DESIGN",
-      "negative": "physical branch role not just adjacency"
+      "negative": "KCL-only interpreted as both KCL+KVL"
     },
     {
       "id": "RC07",
       "status": "DESIGN",
-      "negative": "do not treat SysML event order as info-time automatically"
+      "negative": "first-stage leakage"
     },
     {
       "id": "RC08",
       "status": "DESIGN",
-      "negative": "observable schema not solver objective"
+      "negative": "same number but inconsistent discount/weights"
     },
     {
       "id": "RC10",
       "status": "DESIGN",
-      "negative": "shared external obligations, not identical SysML part decomposition"
+      "negative": "different source/evidence identities merged"
     }
   ]
 }
