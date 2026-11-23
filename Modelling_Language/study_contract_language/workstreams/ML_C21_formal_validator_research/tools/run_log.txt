@@ -1,0 +1,36 @@
+test_ambiguous_id (test_csnf_validator.TestValidator.test_ambiguous_id) ... ok
+test_audit_diff_same_body (test_csnf_validator.TestValidator.test_audit_diff_same_body) ... ok
+test_boolean_associativity (test_csnf_validator.TestValidator.test_boolean_associativity) ... ok
+test_boolean_commutativity (test_csnf_validator.TestValidator.test_boolean_commutativity) ... ok
+test_deterministic (test_csnf_validator.TestValidator.test_deterministic) ... ok
+test_evidence_fake_pass (test_csnf_validator.TestValidator.test_evidence_fake_pass) ... ok
+test_evidence_result_diff (test_csnf_validator.TestValidator.test_evidence_result_diff) ... ok
+test_first_stage_information_leak (test_csnf_validator.TestValidator.test_first_stage_information_leak) ... ok
+test_h2_mass_to_energy_block (test_csnf_validator.TestValidator.test_h2_mass_to_energy_block) ... ok
+test_idempotent (test_csnf_validator.TestValidator.test_idempotent) ... ok
+test_injection_consumption_distinct (test_csnf_validator.TestValidator.test_injection_consumption_distinct) ... ok
+test_kW_to_MW (test_csnf_validator.TestValidator.test_kW_to_MW) ... ok
+test_kcl_kvl_distinct (test_csnf_validator.TestValidator.test_kcl_kvl_distinct) ... ok
+test_min_to_h (test_csnf_validator.TestValidator.test_min_to_h) ... ok
+test_missing_guard (test_csnf_validator.TestValidator.test_missing_guard) ... ok
+test_missing_source (test_csnf_validator.TestValidator.test_missing_source) ... ok
+test_missing_time_duration (test_csnf_validator.TestValidator.test_missing_time_duration) ... ok
+test_no_e2_e4_automatic_proof (test_csnf_validator.TestValidator.test_no_e2_e4_automatic_proof) ... ok
+test_no_forced_soc (test_csnf_validator.TestValidator.test_no_forced_soc) ... ok
+test_no_implicit_evidence_promotion (test_csnf_validator.TestValidator.test_no_implicit_evidence_promotion) ... ok
+test_no_mandated_math_formulation (test_csnf_validator.TestValidator.test_no_mandated_math_formulation) ... ok
+test_no_price_basis_default (test_csnf_validator.TestValidator.test_no_price_basis_default) ... ok
+test_not_executed_preserved (test_csnf_validator.TestValidator.test_not_executed_preserved) ... ok
+test_owner_tbd_preserved (test_csnf_validator.TestValidator.test_owner_tbd_preserved) ... ok
+test_prevent_unapproved_imports (test_csnf_validator.TestValidator.test_prevent_unapproved_imports) ... ok
+test_reject_unknown_status (test_csnf_validator.TestValidator.test_reject_unknown_status) ... ok
+test_required_permitted_distinct (test_csnf_validator.TestValidator.test_required_permitted_distinct) ... ok
+test_two_sources_preserved (test_csnf_validator.TestValidator.test_two_sources_preserved) ... ok
+test_unknown_reference (test_csnf_validator.TestValidator.test_unknown_reference) ... ok
+test_valid (test_csnf_validator.TestValidator.test_valid) ... ok
+test_wrong_carrier_connection (test_csnf_validator.TestValidator.test_wrong_carrier_connection) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.007s
+
+OK
