@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from csnf_validator import validate, normalize, CSNFError
 
-p = Path(__file__).resolve().parent / 'data' / 'b1_c20_candidate_b_rc01.json'
+p = Path(__file__).resolve().parent.parent / 'data' / 'b1_c20_candidate_b_rc01.json'
 c = json.loads(p.read_text(encoding='utf8'))
 issues = validate(c)
 codes = [i['code'] for i in issues]
