@@ -1,0 +1,8 @@
+Local synthetic execution, Python 3.13.5, 2026-11-23
+Command: python -m unittest -v test_csnf_validator.py
+---------------------------------------------------------------------
+Ran 31 tests in 0.007s
+
+OK
+0 failures, 0 errors
+NOT A native tool test; NOT A E2/E3/E4 mathematical or study conformance proof.

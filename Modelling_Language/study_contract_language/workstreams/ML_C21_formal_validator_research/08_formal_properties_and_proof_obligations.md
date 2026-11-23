@@ -1,0 +1,7 @@
+# ML-C21/08 – Formal properties and proof debt
+ML-C21 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+B0 ML-C19 2f0297b754e3a96a2523a34d3af98782b26181f3; Python 3.13.5 stdlib-only local synthetic fragment. No C20 syntax parser, solver, GEMS/mathspec native tests or SysML pilot. G1 BLOCKED.
+
+Executed on *one synthetic fixture family*: N(N(C))==N(C), collection permutation canonical output stable, Bool AND flatten/sort for pure guards, exact Decimal unit transformations under defined factors, evidence and authority retention, intentional E1 different/blocked on selected mutations. These are empirical regression observations, not a universal property test, termination theorem, or soundness proof.
+
+Proof obligations: R00–R13 local interpretation preservation under exact type/units/authority/guard preconditions; R03/04 associativity for Kleene Bool3 including Unknown; R06 transitive unit registry coherence and currency basis; R07 timezone/DST/interval semantics; R08 orientation equivalence with signed quantities; R09 source multiset and decision-status retention; R10 overriding conflict detection; R11 authority-backed defaults; R12 KPI aggregation/discount formal identity; R13 evidence/status non-promotion. Critical pairs (unit scaling vs comparison, port reversal vs sign, guard flatten vs Unknown, dedup vs source) NOT_PROVED. Any additional rule requires new versions and adversarial fixtures before claiming E1 support.

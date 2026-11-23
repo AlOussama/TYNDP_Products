@@ -1,0 +1,7 @@
+# ML-C21/09 – Local actual execution report (synthetic fragment)
+ML-C21 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+B0 ML-C19 2f0297b754e3a96a2523a34d3af98782b26181f3; Python 3.13.5 stdlib-only local synthetic fragment. No C20 syntax parser, solver, GEMS/mathspec native tests or SysML pilot. G1 BLOCKED.
+
+**Executed:** 2026-11-23, local Python 3.13.5, stdlib-only. Command `cd tools && python -m unittest -v test_csnf_validator.py`. Result: **31 tests run, 31 PASS, 0 FAIL, 0 ERROR**; duration 0.007 seconds (locally observed, nonrepresentative). Files executed locally: `csnf_validator.py` SHA256 `b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1`; `test_csnf_validator.py` SHA256 `b3970de6697fd0893dfc834a1b1a87b52f2a37bcf88c368cefe9a26d36bcd597`. Transcript `tools/run_log.txt` (local output summarized) and source code are included for independent rerun.
+
+**Not executed:** mathspec/GEMS/SysML native parser or interpreter; C20 surface syntax/AST adapters, full RC01–10 formal positive+negative suite, external model proof/E2/E4, proof of R00–R13 soundness and global confluence, independent human audit. The 31 synthetic tests exercise a **narrow implemented subset**, not 31 scientific conformance cases. No NFR18 full pass or B2 gate claim. Known false-negative risks: scenario information semantics only finite snapshots; no quantifier engine, no spatial/time series, no global feasibility, no complex profile registry.

@@ -1,0 +1,7 @@
+# ML-C21/10 – Critical review (AI-internal, not personell independent)
+ML-C21 research-r0.1 | 2026-11-23 | NON-NORMATIVE / RESEARCH ONLY
+B0 ML-C19 2f0297b754e3a96a2523a34d3af98782b26181f3; Python 3.13.5 stdlib-only local synthetic fragment. No C20 syntax parser, solver, GEMS/mathspec native tests or SysML pilot. G1 BLOCKED.
+
+CRITICAL: (i) `semantic_projection` collapses authority IDs to a set of decision states; if identical-status sources differ in actual authority priority, the E1 obligation verdict could be too coarse. Always carry `audit_equal=false` and block any unqualified E2 claim. (ii) static finite stage1 decisions detect a simple leakage witness but do not guarantee the information-set quantifier contract. (iii) source-span resolution absent without parser; errors have AST paths only. HIGH: (iv) type registry is intentionally sparse, not sufficient for H2 energy or KPI; (v) R08/R10/R11 incomplete; (vi) visual loss of permitted order may affect VariationPolicy. (vii) arbitrary unknown metadata fields are not rejected exhaustively; (viii) only 31 example-derived tests, no true property-based fuzzing.
+
+Must remedy before B2: strict role schemas, approved alias and profile registries, H2 conversion semantics, complete test vectors/negative mutations per RC, independent roundtrip audits, randomized adversarial testing and soundness proof obligations. No native execution or owner sign-off.
