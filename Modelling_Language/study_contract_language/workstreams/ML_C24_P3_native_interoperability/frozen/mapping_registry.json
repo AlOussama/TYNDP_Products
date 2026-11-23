@@ -1,0 +1,134 @@
+{
+  "version": "CSNF-MAPPING-0.1",
+  "base": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+  "links": {
+    "mathspec": "https://github.com/energy-models/mathspec/blob/5f1464c334c1012cdee2947d4d55b4d1d6bef40a/src/mathspec/_canonical.py",
+    "gems": "https://github.com/AntaresSimulatorTeam/GEMS/blob/c463e30b610443c1f59b20074bb7acffa2844cce/doc/user-guide/input-files/library.md",
+    "gemsSystem": "https://github.com/AntaresSimulatorTeam/GEMS/blob/c463e30b610443c1f59b20074bb7acffa2844cce/doc/user-guide/input-files/system.md",
+    "sysml": "https://www.omg.org/spec/SysML/2.0",
+    "kerml": "https://www.omg.org/spec/KerML/1.0",
+    "api": "https://www.omg.org/spec/SystemsModelingAPI/1.0",
+    "pilot": "https://github.com/Systems-Modeling/SysML-v2-Pilot-Implementation/releases/tag/2026-09.1"
+  },
+  "status": "CONCEPTUAL_MAPPING",
+  "native_execution": "NOT_EXECUTED",
+  "roles": [
+    {
+      "role": "C1",
+      "name": "C1 Frame",
+      "sysml": "package / model usage + metadata profile",
+      "gems": "system root, scenario/time params partial",
+      "mathspec": "spec metadata/domain; sub-spec partial",
+      "gap": "study boundary/counterfactual, governance",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C2",
+      "name": "C2 Referent",
+      "sysml": "Part/PortDefinition and Usage; Type/Feature",
+      "gems": "library model vs system instance, port type + field",
+      "mathspec": "named symbols/dimensions/variables",
+      "gap": "carrier, sign, stable external role",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C3",
+      "name": "C3 Relation",
+      "sysml": "KerML relationships/membership, SysML connections",
+      "gems": "system.connections component1/component2/port1/port2",
+      "mathspec": "referenced symbol links and dimension references",
+      "gap": "physical vs market links, typed provenance",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C4",
+      "name": "C4 Predicate",
+      "sysml": "ConstraintDefinition/Usage and expressions",
+      "gems": "library binding-constraints mathematical implementation",
+      "mathspec": "expression/condition AST + canonical printer",
+      "gap": "Contract-predicate semantics, Bool3 and service quantifiers",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C5",
+      "name": "C5 Assertion",
+      "sysml": "RequirementDefinition/Usage assumed/required constraints",
+      "gems": "no universal outer A/G guarantee documented",
+      "mathspec": "given/assumptions not external A/G contract",
+      "gap": "normativity, guard, scope and Owner state",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C6",
+      "name": "C6 Observable",
+      "sysml": "Analysis/View + typed feature projection",
+      "gems": "output/views and model expressions partial",
+      "mathspec": "objectives/expressions/derived expressions",
+      "gap": "KPI basis, aggregation/discount/selection",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C7",
+      "name": "C7 Variation",
+      "sysml": "metadata and requirements with controlled domain profile",
+      "gems": "model substitution possible, no universal variation policy",
+      "mathspec": "alternative mathematical Specs",
+      "gap": "allowed non-equivalence and proof/disclosure",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C8",
+      "name": "C8 Evidence",
+      "sysml": "VerificationCase and verification links",
+      "gems": "output provenance partial, no formal verification contract evidenced",
+      "mathspec": "spec/tests in surrounding application",
+      "gap": "REQUEST vs RESULT, run/status, NOT_EXECUTED",
+      "proof": "OPEN"
+    },
+    {
+      "role": "C9",
+      "name": "C9 Authority",
+      "sysml": "metadata, textual doc, typed profile referent",
+      "gems": "library version and external provenance sidecar",
+      "mathspec": "spec version and provenance sidecar",
+      "gap": "immutable source/Owner/decision identity",
+      "proof": "OPEN"
+    }
+  ],
+  "roundtrip": {
+    "semantic": "NOT_EXECUTED",
+    "audit": "NOT_EXECUTED"
+  },
+  "cases": [
+    {
+      "id": "RC01",
+      "status": "DESIGN",
+      "negative": "nonapproved terminal default; performance-specific internal part requirement"
+    },
+    {
+      "id": "RC03",
+      "status": "DESIGN",
+      "negative": "mass-energy dimension erased, no LHV/HHV source"
+    },
+    {
+      "id": "RC05",
+      "status": "DESIGN",
+      "negative": "KCL-only interpreted as both KCL+KVL"
+    },
+    {
+      "id": "RC07",
+      "status": "DESIGN",
+      "negative": "first-stage leakage"
+    },
+    {
+      "id": "RC08",
+      "status": "DESIGN",
+      "negative": "same number but inconsistent discount/weights"
+    },
+    {
+      "id": "RC10",
+      "status": "DESIGN",
+      "negative": "different source/evidence identities merged"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "P3-ENV-20261123-r0.1",
+  "python_version": "3.13.5",
+  "mathspec_package_available": false,
+  "gems_executable_path": null,
+  "java_executable_path": "/usr/bin/java",
+  "sysml_pilot_parser_executable_path": null,
+  "native_tests_executed": false,
+  "environment_probe_executed": true,
+  "status": "NATIVE_NOT_EXECUTED",
+  "interpretation": "A Java installation is not a SysML pilot parser. An absent package does not disprove native reuse."
+}

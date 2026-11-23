@@ -1,0 +1,24 @@
+{
+  "run_id": "P3-MAP-20261123-r0.1",
+  "positive": {
+    "status": "PASS_CONCEPTUAL_REGISTRY_ONLY",
+    "failures": [],
+    "roles": 9,
+    "language_columns": 3,
+    "semantic_loss": "NOT_MEASURED",
+    "audit_loss": "NOT_MEASURED",
+    "native_executed": false
+  },
+  "negative_C9_ablation": {
+    "status": "FAIL_METADATA",
+    "failures": [
+      "ROLE_COUNT_NOT_NINE",
+      "MISSING_C9"
+    ],
+    "roles": 8,
+    "language_columns": 3,
+    "semantic_loss": "NOT_MEASURED",
+    "audit_loss": "NOT_MEASURED",
+    "native_executed": false
+  }
+}

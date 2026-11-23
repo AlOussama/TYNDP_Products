@@ -1,0 +1,4 @@
+claim,source_pin,procedure,run_id,result,evidence_strength,limitation,next_step
+ML-C22 mapping metadata retains C1-C9,ML-C22@828c87e,V8 static registry checks,P3-MAP-20261123-r0.1,PASS_CONCEPTUAL_REGISTRY_ONLY,EXECUTED_SYNTHETIC,No native mapping,Native tool export/import
+P3 execution environment availability,ML-C22@828c87e,python3 preflight,P3-ENV-20261123-r0.1,NATIVE_NOT_EXECUTED,EXECUTED_SYNTHETIC,No mathspec GEMS or SysML pilot,Provide native environments
+SysML H0,OMG SysML2.0 KerML1.0 API1.0,none,,UNRESOLVED,NOT_EXECUTED,No native profile costs,Run controlled profile experiment

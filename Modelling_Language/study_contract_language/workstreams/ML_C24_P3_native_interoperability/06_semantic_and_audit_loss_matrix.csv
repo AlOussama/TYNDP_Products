@@ -1,0 +1,28 @@
+role,meaning,language,proposed_mapping,known_gap,measured_semantic_loss,measured_audit_loss,native_test_status,evidence_strength
+C1,Frame,sysml,"package / model usage + metadata profile","study boundary/counterfactual, governance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C1,Frame,gems,"system root, scenario/time params partial","study boundary/counterfactual, governance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C1,Frame,mathspec,"spec metadata/domain; sub-spec partial","study boundary/counterfactual, governance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C2,Referent,sysml,"Part/PortDefinition and Usage; Type/Feature","carrier, sign, stable external role",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C2,Referent,gems,"library model vs system instance, port type + field","carrier, sign, stable external role",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C2,Referent,mathspec,"named symbols/dimensions/variables","carrier, sign, stable external role",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C3,Relation,sysml,"KerML relationships/membership, SysML connections","physical vs market links, typed provenance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C3,Relation,gems,"system.connections component1/component2/port1/port2","physical vs market links, typed provenance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C3,Relation,mathspec,"referenced symbol links and dimension references","physical vs market links, typed provenance",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C4,Predicate,sysml,"ConstraintDefinition/Usage and expressions","Contract-predicate semantics, Bool3 and service quantifiers",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C4,Predicate,gems,"library binding-constraints mathematical implementation","Contract-predicate semantics, Bool3 and service quantifiers",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C4,Predicate,mathspec,"expression/condition AST + canonical printer","Contract-predicate semantics, Bool3 and service quantifiers",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C5,Assertion,sysml,"RequirementDefinition/Usage assumed/required constraints","normativity, guard, scope and Owner state",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C5,Assertion,gems,"no universal outer A/G guarantee documented","normativity, guard, scope and Owner state",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C5,Assertion,mathspec,"given/assumptions not external A/G contract","normativity, guard, scope and Owner state",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C6,Observable,sysml,"Analysis/View + typed feature projection","KPI basis, aggregation/discount/selection",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C6,Observable,gems,"output/views and model expressions partial","KPI basis, aggregation/discount/selection",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C6,Observable,mathspec,"objectives/expressions/derived expressions","KPI basis, aggregation/discount/selection",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C7,Variation,sysml,"metadata and requirements with controlled domain profile","allowed non-equivalence and proof/disclosure",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C7,Variation,gems,"model substitution possible, no universal variation policy","allowed non-equivalence and proof/disclosure",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C7,Variation,mathspec,"alternative mathematical Specs","allowed non-equivalence and proof/disclosure",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C8,Evidence,sysml,"VerificationCase and verification links","REQUEST vs RESULT, run/status, NOT_EXECUTED",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C8,Evidence,gems,"output provenance partial, no formal verification contract evidenced","REQUEST vs RESULT, run/status, NOT_EXECUTED",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C8,Evidence,mathspec,"spec/tests in surrounding application","REQUEST vs RESULT, run/status, NOT_EXECUTED",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C9,Authority,sysml,"metadata, textual doc, typed profile referent","immutable source/Owner/decision identity",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C9,Authority,gems,"library version and external provenance sidecar","immutable source/Owner/decision identity",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
+C9,Authority,mathspec,"spec version and provenance sidecar","immutable source/Owner/decision identity",NOT_MEASURED,NOT_MEASURED,NOT_EXECUTED,CONCEPTUAL
