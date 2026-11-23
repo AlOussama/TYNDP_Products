@@ -1,0 +1,5 @@
+claim,requirement,source_pin,procedure,run_id,result,evidence_strength,limitation,next_step
+Role deletion C1-C9,C1-C9,C19@2f0297b/P1@506be16,V8 structural ablation,P4-V8-20261123-r0.1,9_OF_9,EXECUTED_SYNTHETIC,Trivial deletion not minimum classes,Complexity controls
+Reified C8 and C9 example,C8-C9,P1@506be16,V8 pack/unpack,P4-V8-20261123-r0.1,ROUNDTRIP_ONE_SAMPLE,EXECUTED_SYNTHETIC,Does not prove general semantic equivalence,Property tests
+Finite model freedom,RC01/02/03/05/07,C23@d3d5362,V8 finite witnesses,P4-V8-20261123-r0.1,5_OF_5,EXECUTED_SYNTHETIC,No solver or E4 general proof,Two implementations
+Human authoring K17,K17,C23@d3d5362,no participants,,NOT_EXECUTED,NOT_EXECUTED,No empirical usability evidence,Recruit participants
