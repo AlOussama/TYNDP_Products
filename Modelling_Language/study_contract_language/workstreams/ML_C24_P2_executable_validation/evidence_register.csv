@@ -1,0 +1,4 @@
+claim,requirement,source_pin,procedure,run_id,result,evidence_strength,limitation,next_step
+Finite RC01-RC10 micro-oracles,RC01-RC10,ML-C23@d3d5362,V8 execution,P2-V8-20261123-r0.2,10_PASS,EXECUTED_SYNTHETIC,No typed CSNF or solver,Full integrated language fixtures
+Frozen mutation categories,MUT01-MUT18,ML-C23@d3d5362,V8 execution,P2-V8-20261123-r0.2,18_MATCH,EXECUTED_SYNTHETIC,Finite independent specimens only,Integrate into syntax AST
+Full B2 architecture evidence,NFR01-NFR18/K01-K17,ML-C23@d3d5362,none,,NOT_EVALUATED,NOT_EXECUTED,B1 unmet,Next phase
