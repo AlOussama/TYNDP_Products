@@ -23,7 +23,7 @@ Prior project CBA source (source checked at B0, not executed): `Modelling_Langua
 
 ## Independent external method context – authority levels
 - EU [Regulation (EU) 2022/869, Annex V](https://eur-lex.europa.eu/eli/reg/2022/869/oj/deu): regulatory source; mandates harmonised, transparent and cross-sector-relevant CBA and benefit/cost differentiation. It is **not** a CBA language or direct permission to invent all thresholds.
-- [ENTSO-E 4th CBA Guideline](https://tyndp.entsoe.eu/explore/resources/guideline-for-cost-benefit-analysis-4.0): documented sectoral CBA-method source; selected indicators and interpretation must be pinned per study.
+- [ENTSO-E 4th CBA Guideline](https://tyndp.entsoe.eu/resources/guideline-for-cost-benefit-analysis-4.0): documented sectoral CBA-method source; selected indicators and interpretation must be pinned per study.
 - [TYNDP 2026 Implementation Guidelines consultation](https://consultations.entsoe.eu/tyndp/tyndp-2026-cba-imp-public-consultation/): consultation text, not by itself proof that the final cycle-specific version was approved; status needs a separate current-document and methodology-owner check before normative use.
 - [ACER CBA overview](https://www.acer.europa.eu/electricity/infrastructure/network-development/cost-benefit-analysis): independent regulator context, not an approval substitute.
 

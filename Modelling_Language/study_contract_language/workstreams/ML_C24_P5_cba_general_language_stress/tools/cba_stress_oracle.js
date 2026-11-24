@@ -21,7 +21,7 @@ function makeFixture() {
   authority:{owner_state:"OWNER_TBD",approval_evidence:null,source_refs:["SRC:TENE","SRC:ENTSOE-CBA4","SRC:ENTSOE-IMP2026-DRAFT","SRC:EXAMPLE"],provenance_revision:"research-r0.1"},
   source_ledger:[
    {id:"SRC:TENE",uri:"https://eur-lex.europa.eu/eli/reg/2022/869/oj",status:"REGULATORY_REFERENCE"},
-   {id:"SRC:ENTSOE-CBA4",uri:"https://tyndp.entsoe.eu/explore/resources/guideline-for-cost-benefit-analysis-4.0",status:"DOCUMENTED_REFERENCE"},
+   {id:"SRC:ENTSOE-CBA4",uri:"https://tyndp.entsoe.eu/resources/guideline-for-cost-benefit-analysis-4.0",status:"DOCUMENTED_REFERENCE"},
    {id:"SRC:ENTSOE-IMP2026-DRAFT",uri:"https://consultations.entsoe.eu/tyndp/tyndp-2026-cba-imp-public-consultation/",status:"CONSULTATION_REFERENCE_NOT_APPROVED"},
    {id:"SRC:EXAMPLE",uri:"synthetic:research-fixture",status:"ILLUSTRATIVE_ONLY"}
   ],
