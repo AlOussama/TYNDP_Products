@@ -1,0 +1,179 @@
+{
+  "status": "CONCEPTUAL_STUDY_CONTRACT_SKETCH_NOT_EXECUTABLE",
+  "frame": {
+    "id": "STUDY:CBA-DEMO",
+    "schema": "CBA-RESEARCH-P5-0.1",
+    "ruleset": "PROPOSED_NOT_INSTALLED",
+    "registry": "GENERIC_CORE_WITH_CBA_PROFILE_TO_BE_EVALUATED",
+    "study_kind": "CostBenefitAnalysis",
+    "question": "Project P against reference R with declared scenario and model variation",
+    "scope": "two_synthetic_areas"
+  },
+  "referents": [
+    {
+      "id": "CBA:R",
+      "kind": "counterfactual_case",
+      "role": "reference"
+    },
+    {
+      "id": "CBA:P",
+      "kind": "counterfactual_case",
+      "role": "project"
+    },
+    {
+      "id": "CBA:PROJECT",
+      "kind": "infrastructure_project",
+      "role": "transmission"
+    },
+    {
+      "id": "CBA:SCENARIOS",
+      "kind": "scenario_collection",
+      "role": "shared_exogenous_snapshot"
+    },
+    {
+      "id": "CBA:MODEL_A",
+      "kind": "implementation",
+      "role": "independent_model"
+    },
+    {
+      "id": "CBA:MODEL_B",
+      "kind": "implementation",
+      "role": "independent_model"
+    }
+  ],
+  "relations": [
+    {
+      "id": "CBA:REL_PAIR",
+      "kind": "counterfactual_pair",
+      "from": "CBA:R",
+      "to": "CBA:P",
+      "scope": "same_model_same_scenario",
+      "source_refs": [
+        "CBA:AUTH_METHOD"
+      ]
+    },
+    {
+      "id": "CBA:REL_PROJECT",
+      "kind": "project_intervention",
+      "from": "CBA:P",
+      "to": "CBA:PROJECT",
+      "source_refs": [
+        "CBA:AUTH_METHOD"
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "id": "CBA:P_SOURCE",
+      "expr": {
+        "op": "sameExogenousSnapshot",
+        "args": [
+          "CBA:R",
+          "CBA:P",
+          "CBA:SCENARIOS"
+        ]
+      },
+      "status": "PROPOSED_OPERATOR_NOT_IN_P1"
+    },
+    {
+      "id": "CBA:P_PAIR",
+      "expr": {
+        "op": "pairedDelta",
+        "quantity": "currency_per_year",
+        "reference": "CBA:R",
+        "project": "CBA:P",
+        "scope": "per_model_per_scenario"
+      },
+      "status": "PROPOSED_OPERATOR_NOT_IN_P1"
+    },
+    {
+      "id": "CBA:P_WEIGHTS",
+      "expr": {
+        "op": "weightedAggregate",
+        "axis": "scenario",
+        "weight_role": "probability",
+        "subject": "CBA:P_PAIR"
+      },
+      "status": "PROPOSED_OPERATOR_NOT_IN_P1"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "CBA:ASS_PAIR",
+      "modality": "REQUIRED",
+      "semantic_role": "DATA_ASSUMPTION",
+      "predicate_ref": "CBA:P_SOURCE",
+      "scope": "SYNTHETIC_STUDY",
+      "guard": true,
+      "authority_refs": [
+        "CBA:AUTH_METHOD"
+      ],
+      "decision_state": "OWNER_TBD"
+    },
+    {
+      "id": "CBA:ASS_COMPARE",
+      "modality": "REQUIRED",
+      "semantic_role": "SAFETY_GUARANTEE",
+      "predicate_ref": "CBA:P_PAIR",
+      "scope": "EACH_MODEL_EACH_SCENARIO",
+      "guard": true,
+      "authority_refs": [
+        "CBA:AUTH_METHOD"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [
+    {
+      "id": "CBA:OBS_COST",
+      "subject": "CBA:PROJECT",
+      "projection": {
+        "op": "pairedDelta",
+        "predicate_ref": "CBA:P_PAIR"
+      },
+      "kind": "RESEARCH_COST_PROXY_NOT_SEW",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost_rate",
+        "unit": "EUR/year",
+        "price_year": 2025
+      },
+      "aggregation": "scenario_probability",
+      "evidence_status": "NOT_EXECUTED"
+    }
+  ],
+  "variations": [
+    {
+      "id": "CBA:VAR",
+      "subject": "CBA:PROJECT",
+      "alternatives": [
+        "angle",
+        "aggregate_flow"
+      ],
+      "disclosure": true,
+      "source_refs": [
+        "CBA:AUTH_METHOD"
+      ],
+      "proof_duty": "EXTERNAL_CONFORMANCE_UNPROVED"
+    }
+  ],
+  "evidences": [
+    {
+      "id": "CBA:EVID",
+      "role": "REQUEST",
+      "subject_ref": "CBA:ASS_COMPARE",
+      "status": "NOT_EXECUTED",
+      "oracle": "CBA-P5-synthetic-micro-v0.1"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "CBA:AUTH_METHOD",
+      "role": "OWNER",
+      "immutable_ref": "synthetic:research-method",
+      "decision_state": "OWNER_TBD",
+      "revision": "0.1"
+    }
+  ],
+  "notes": "C1-C9 role coverage research sketch only; pairedDelta/sameExogenousSnapshot/weightedAggregate unimplemented; do not treat this as parseable C20 Candidate B"
+}

@@ -1,0 +1,320 @@
+{
+  "run_id": "P5-CBA-SYNTHETIC-V8-20261124-r0.1",
+  "baseline": {
+    "status": "STATIC_FRAGMENT_VALID_WITH_BLOCKERS",
+    "diagnostics": [],
+    "blockers": [
+      {
+        "code": "OWNER_UNRESOLVED",
+        "path": "$.authority.owner_state"
+      },
+      {
+        "code": "MODEL_EVIDENCE_NOT_EXECUTED",
+        "path": "$.evidence"
+      },
+      {
+        "code": "SENSITIVITY_NOT_EXECUTED",
+        "path": "$.sensitivities"
+      },
+      {
+        "code": "CBA_METHOD_NOT_OWNER_APPROVED",
+        "path": "$.study.method_profile"
+      }
+    ],
+    "synthetic_numeric_results": {
+      "M-A": {
+        "illustrative_annual_cost_saving_eur": 120,
+        "illustrative_npv_proxy_eur": 96.60819150217753,
+        "decision_sign": 1
+      },
+      "M-B": {
+        "illustrative_annual_cost_saving_eur": 104,
+        "illustrative_npv_proxy_eur": -26.939567364779577,
+        "decision_sign": -1
+      }
+    },
+    "e1": "NOT_EVALUATED_AS_CSNF",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED_REAL_MODELS",
+    "e4": "NOT_PROVED",
+    "e5": "NOT_ASSESSED_WITH_FULL_CONFORMANCE"
+  },
+  "positive": [
+    {
+      "id": "P01_BASE_STRUCTURAL",
+      "ok": true
+    },
+    {
+      "id": "P02_SYNTHETIC_NPV_SIGNS",
+      "ok": true
+    },
+    {
+      "id": "P03_NO_FALSE_MODEL_EVIDENCE",
+      "ok": true
+    },
+    {
+      "id": "P04_SAMPLE_ORDER_PERMUTATION",
+      "ok": true
+    },
+    {
+      "id": "P05_MODEL_DIVERSITY_NOT_MODEL_FAIL",
+      "ok": true
+    },
+    {
+      "id": "P06_UNKNOWN_MONETISATION_PRESERVED",
+      "ok": true
+    }
+  ],
+  "negative": [
+    {
+      "id": "M01",
+      "expected_diagnostic": "PAIR_INCOMPLETE",
+      "actual_diagnostics": [
+        "DUPLICATE_PAIR_MEMBER",
+        "PAIR_INCOMPLETE"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M02",
+      "expected_diagnostic": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "actual_diagnostics": [
+        "EXOGENOUS_SNAPSHOT_DRIFT"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M03",
+      "expected_diagnostic": "SCENARIO_WEIGHT_INVALID",
+      "actual_diagnostics": [
+        "SCENARIO_WEIGHT_INVALID",
+        "SCENARIO_WEIGHT_SUM"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M04",
+      "expected_diagnostic": "SCENARIO_WEIGHT_SUM",
+      "actual_diagnostics": [
+        "SCENARIO_WEIGHT_SUM"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M05",
+      "expected_diagnostic": "OUTPUT_BASIS_MISMATCH",
+      "actual_diagnostics": [
+        "OUTPUT_BASIS_MISMATCH"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M06",
+      "expected_diagnostic": "OUTPUT_BASIS_MISMATCH",
+      "actual_diagnostics": [
+        "OUTPUT_BASIS_MISMATCH"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M07",
+      "expected_diagnostic": "BENEFIT_SIGN_CONVENTION",
+      "actual_diagnostics": [
+        "BENEFIT_SIGN_CONVENTION"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M08",
+      "expected_diagnostic": "COST_PROXY_MISLABELED_AS_SEW",
+      "actual_diagnostics": [
+        "COST_PROXY_MISLABELED_AS_SEW"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M09",
+      "expected_diagnostic": "UNSUPPORTED_OWNER_APPROVAL",
+      "actual_diagnostics": [
+        "UNSUPPORTED_OWNER_APPROVAL"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M10",
+      "expected_diagnostic": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "actual_diagnostics": [
+        "EVIDENCE_PROMOTION_UNSUPPORTED"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M11",
+      "expected_diagnostic": "SOURCE_LEDGER_LOSS",
+      "actual_diagnostics": [
+        "SOURCE_LEDGER_LOSS"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M12",
+      "expected_diagnostic": "MODEL_VARIATION_NOT_DISCLOSED",
+      "actual_diagnostics": [
+        "MODEL_VARIATION_NOT_DISCLOSED"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M13",
+      "expected_diagnostic": "PROJECT_SCOPE_DRIFT",
+      "actual_diagnostics": [
+        "PROJECT_SCOPE_DRIFT"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M14",
+      "expected_diagnostic": "PROJECT_DELTA_MISASSIGNED",
+      "actual_diagnostics": [
+        "PROJECT_DELTA_MISASSIGNED"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M15",
+      "expected_diagnostic": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "actual_diagnostics": [
+        "CROSS_MODEL_PAIRING_FORBIDDEN"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M16",
+      "expected_diagnostic": "TIME_SUPPORT_INVALID",
+      "actual_diagnostics": [
+        "TIME_SUPPORT_INVALID"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M17",
+      "expected_diagnostic": "UNKNOWN_COERCED_TO_NUMBER",
+      "actual_diagnostics": [
+        "UNKNOWN_COERCED_TO_NUMBER"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M18",
+      "expected_diagnostic": "CARRIER_UNIT_TYPE_MISMATCH",
+      "actual_diagnostics": [
+        "CARRIER_UNIT_TYPE_MISMATCH"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M19",
+      "expected_diagnostic": "PROJECT_DELTA_MISASSIGNED",
+      "actual_diagnostics": [
+        "PROJECT_DELTA_MISASSIGNED"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M20",
+      "expected_diagnostic": "DISCOUNT_POLICY_INVALID",
+      "actual_diagnostics": [
+        "DISCOUNT_POLICY_INVALID"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M21",
+      "expected_diagnostic": "INDEPENDENCE_IDENTITY_COLLISION",
+      "actual_diagnostics": [
+        "INDEPENDENCE_IDENTITY_COLLISION"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M22",
+      "expected_diagnostic": "DISCOUNT_CURRENCY_BASIS",
+      "actual_diagnostics": [
+        "DISCOUNT_CURRENCY_BASIS"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M23",
+      "expected_diagnostic": "WEIGHT_ROLE_CONFLATION",
+      "actual_diagnostics": [
+        "WEIGHT_ROLE_CONFLATION"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M24",
+      "expected_diagnostic": "OBSERVABLE_SELECTION_UNDEFINED",
+      "actual_diagnostics": [
+        "OBSERVABLE_SELECTION_UNDEFINED"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M25",
+      "expected_diagnostic": "UNKNOWN_SAMPLE_REFERENCE",
+      "actual_diagnostics": [
+        "UNKNOWN_SAMPLE_REFERENCE",
+        "PAIR_INCOMPLETE"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M26",
+      "expected_diagnostic": "CONSULTATION_SOURCE_PROMOTION",
+      "actual_diagnostics": [
+        "CONSULTATION_SOURCE_PROMOTION"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M27",
+      "expected_diagnostic": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "actual_diagnostics": [
+        "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M28",
+      "expected_diagnostic": "KPI_DOUBLE_COUNTING_POLICY",
+      "actual_diagnostics": [
+        "KPI_DOUBLE_COUNTING_POLICY"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M29",
+      "expected_diagnostic": "STAGE1_INFORMATION_LEAKAGE",
+      "actual_diagnostics": [
+        "STAGE1_INFORMATION_LEAKAGE"
+      ],
+      "passed": true
+    },
+    {
+      "id": "M30",
+      "expected_diagnostic": "E4_UNSUPPORTED",
+      "actual_diagnostics": [
+        "E4_UNSUPPORTED"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": 36,
+  "total": 36,
+  "notes": [
+    "Independent synthetic CBA research oracle only; not C20/C21 parser or CSNF validation",
+    "OWNER_TBD and NOT_EXECUTED remain blockers",
+    "NPV is illustrative operating-cost-proxy sensitivity, not approved CBA-B1/SEW or decision"
+  ]
+}
