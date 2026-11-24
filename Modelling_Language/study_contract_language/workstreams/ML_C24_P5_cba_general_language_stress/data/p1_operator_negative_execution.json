@@ -1,0 +1,55 @@
+{
+  "run_id": "P5-P1-NEGATIVE-CBA-OPERATORS-V8-20261124-r0.1",
+  "p1_source_sha": "506be1607e1e8a6eb50db2f1317961d5bbaffcce",
+  "p1_blob_sha": "34f280487ec03e9de7c097b6351d9e147211af30",
+  "baseline_p1_status": "BLOCKED",
+  "negative_tests": [
+    {
+      "id": "P5_X01_COUNTERFACTUAL_SAME_EXOGENOUS",
+      "status": "FAIL_STATIC",
+      "codes": [
+        "UNKNOWN_PREDICATE_OPERATOR",
+        "PREDICATE_NOT_BOOL3",
+        "OWNER_UNRESOLVED",
+        "OWNER_UNRESOLVED"
+      ],
+      "pass": true
+    },
+    {
+      "id": "P5_X02_PAIRED_DELTA",
+      "status": "FAIL_STATIC",
+      "codes": [
+        "UNKNOWN_PREDICATE_OPERATOR",
+        "PREDICATE_NOT_BOOL3",
+        "OWNER_UNRESOLVED",
+        "OWNER_UNRESOLVED"
+      ],
+      "pass": true
+    },
+    {
+      "id": "P5_X03_WEIGHTED_AGGREGATION",
+      "status": "FAIL_STATIC",
+      "codes": [
+        "UNKNOWN_PREDICATE_OPERATOR",
+        "PREDICATE_NOT_BOOL3",
+        "OWNER_UNRESOLVED",
+        "OWNER_UNRESOLVED"
+      ],
+      "pass": true
+    },
+    {
+      "id": "P5_X04_DISCOUNTED_OBSERVABLE",
+      "status": "FAIL_STATIC",
+      "codes": [
+        "OWNER_UNRESOLVED",
+        "OWNER_UNRESOLVED",
+        "UNKNOWN_PREDICATE_OPERATOR",
+        "OBSERVABLE_PROJECTION_TYPE"
+      ],
+      "pass": true
+    }
+  ],
+  "passed": 4,
+  "total": 4,
+  "warning": "Mutations injected into an otherwise supported RC01 typed fixture. Negative evidence only, not full CBA syntax acceptance, proof of operator necessity, or C21 Python execution."
+}
