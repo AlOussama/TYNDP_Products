@@ -1,0 +1,122 @@
+{
+  "frame": {
+    "id": "CBA:study",
+    "schema": "C20-research-0.1",
+    "ruleset": "CSNF-R0",
+    "registry": "energy-r0",
+    "question": "Synthetic paired cost outputs",
+    "time": {
+      "id": "CBA:time",
+      "duration": "1",
+      "duration_unit": "h"
+    }
+  },
+  "referents": [
+    {
+      "id": "CBA:reference",
+      "kind": "entity",
+      "type": "currency.cost",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "100",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      }
+    },
+    {
+      "id": "CBA:project",
+      "kind": "entity",
+      "type": "currency.cost",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "80",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "CBA:pair",
+      "kind": "counterfactual_of",
+      "from": "CBA:project",
+      "to": "CBA:reference",
+      "authority_refs": [
+        "CBA:SRC"
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "id": "CBA:P",
+      "expr": {
+        "op": "compare",
+        "cmp": "le",
+        "lhs": {
+          "op": "measure",
+          "ref": "CBA:project"
+        },
+        "rhs": {
+          "op": "measure",
+          "ref": "CBA:reference"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "id": "CBA:A",
+      "modality": "REQUIRED",
+      "semantic_role": "SERVICE_GUARANTEE",
+      "predicate_ref": "CBA:P",
+      "scope": "CBA:time",
+      "guard": true,
+      "authority_refs": [
+        "CBA:SRC"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [
+    {
+      "id": "CBA:O",
+      "subject": "CBA:project",
+      "projection": {
+        "op": "measure",
+        "ref": "CBA:project"
+      },
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "80",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "aggregation": "identity"
+    }
+  ],
+  "variations": [],
+  "evidences": [
+    {
+      "id": "CBA:E",
+      "role": "REQUEST",
+      "subject_ref": "CBA:A",
+      "status": "NOT_EXECUTED",
+      "oracle": "N1-fragment-v1"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "CBA:SRC",
+      "role": "SOURCE",
+      "immutable_ref": "synthetic:method-fragment:v1",
+      "revision": "1",
+      "decision_state": "OWNER_TBD"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "urn:research:synthetic-source",
+  "version": "1",
+  "status": "SYNTHETIC_RESEARCH",
+  "description": "Illustrative paired value ledger and two timing conventions, not ENTSO-E rules."
+}

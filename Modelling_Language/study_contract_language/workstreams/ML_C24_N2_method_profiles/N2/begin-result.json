@@ -1,0 +1,198 @@
+{
+  "result": {
+    "delta": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "20"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "30"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "10"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "20"
+        }
+      ]
+    },
+    "discounted": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "20"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "300/11"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "10"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "200/11"
+        }
+      ]
+    },
+    "summary": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [],
+      "rows": [
+        {
+          "key": [],
+          "value": "415/11"
+        }
+      ]
+    }
+  },
+  "audit": {
+    "method_id": "urn:method:timing-begin",
+    "method_version": "1",
+    "study_id": "urn:study:paired",
+    "study_version": "begin-1",
+    "method_sha256": "e085def6b32eb5764abd2bd1aa63f52e7553503ebad401216437f6082ac56c39",
+    "study_sha256": "5e9a20337ca3a6a1968b9a9308fdba8eaa50f7e990259d54c4cb66010e93edca",
+    "source_sha256": "c4a16046521f4b9d50f9bd5c007851e82d535020ad4f84389c18c9d3f834be7d",
+    "data_sha256": "72f1647fc7124aa191c12d370bd107db8a76106ca9db60d29d517e25202aa39b",
+    "contract_sha256": "2052e1d110946eca30a5313368064be2e72ebba47c309a77af5b9c6c5686b562",
+    "operator_version": "operators-r1",
+    "parameters": {
+      "rate": "1/10"
+    },
+    "result": {
+      "delta": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "scenario",
+          "period"
+        ],
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "20"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "30"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "10"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "20"
+          }
+        ]
+      },
+      "discounted": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "scenario",
+          "period"
+        ],
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "20"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "300/11"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "10"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "200/11"
+          }
+        ]
+      },
+      "summary": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [],
+        "rows": [
+          {
+            "key": [],
+            "value": "415/11"
+          }
+        ]
+      }
+    },
+    "status": "OWNER_TBD",
+    "engine_sha256": "3e1842f817830a7fd15db0f3ead72339f51a5f5fed28389fae836ba5c9416959"
+  },
+  "audit_digest": "049cb6e28098d1aed9d5f51d4ee3c1288ecbd0cf682538b79832b0791315e072"
+}

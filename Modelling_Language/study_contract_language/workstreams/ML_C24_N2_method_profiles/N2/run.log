@@ -1,0 +1,25 @@
+Python 3.13.5
+test_00_swap (__main__.Tests.test_00_swap) ... ok
+test_01_unknown_op (__main__.Tests.test_01_unknown_op) ... ok
+test_02_units (__main__.Tests.test_02_units) ... ok
+test_03_basis (__main__.Tests.test_03_basis) ... ok
+test_04_weights_missing (__main__.Tests.test_04_weights_missing) ... ok
+test_05_weights_sum (__main__.Tests.test_05_weights_sum) ... ok
+test_06_wrong_weight_role (__main__.Tests.test_06_wrong_weight_role) ... ok
+test_07_exogenous (__main__.Tests.test_07_exogenous) ... ok
+test_08_same_case (__main__.Tests.test_08_same_case) ... ok
+test_09_double_row (__main__.Tests.test_09_double_row) ... ok
+test_10_operator_version (__main__.Tests.test_10_operator_version) ... ok
+test_11_reference (__main__.Tests.test_11_reference) ... ok
+test_12_authority (__main__.Tests.test_12_authority) ... ok
+test_13_study_status (__main__.Tests.test_13_study_status) ... ok
+test_14_parameter_domain (__main__.Tests.test_14_parameter_domain) ... ok
+test_15_hash (__main__.Tests.test_15_hash) ... ok
+test_16_cycle (__main__.Tests.test_16_cycle) ... ok
+test_17_rule_type (__main__.Tests.test_17_rule_type) ... ok
+test_18_double_formula_limit (__main__.Tests.test_18_double_formula_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.013s
+
+OK

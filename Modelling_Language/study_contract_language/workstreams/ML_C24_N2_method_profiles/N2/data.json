@@ -1,0 +1,173 @@
+{
+  "axes": {
+    "scenario": {
+      "role": "scenario",
+      "ids": [
+        "s1",
+        "s2"
+      ]
+    },
+    "period": {
+      "role": "time",
+      "ids": [
+        "t0",
+        "t1"
+      ]
+    }
+  },
+  "series": {
+    "base": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "role": "value",
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "100"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "100"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "100"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "100"
+        }
+      ]
+    },
+    "alternative": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "role": "value",
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "80"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "70"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "90"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "80"
+        }
+      ]
+    },
+    "probability": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "scenario"
+      ],
+      "role": "probability",
+      "rows": [
+        {
+          "key": [
+            "s1"
+          ],
+          "value": "1/2"
+        },
+        {
+          "key": [
+            "s2"
+          ],
+          "value": "1/2"
+        }
+      ]
+    },
+    "duration_weight": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "period"
+      ],
+      "role": "time_weight",
+      "rows": [
+        {
+          "key": [
+            "t0"
+          ],
+          "value": "1"
+        },
+        {
+          "key": [
+            "t1"
+          ],
+          "value": "1"
+        }
+      ]
+    },
+    "elapsed": {
+      "unit": "year",
+      "basis": "",
+      "axes": [
+        "period"
+      ],
+      "role": "elapsed_years",
+      "rows": [
+        {
+          "key": [
+            "t0"
+          ],
+          "value": "0"
+        },
+        {
+          "key": [
+            "t1"
+          ],
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "id": "pair-1",
+      "reference": "base",
+      "alternative": "alternative",
+      "reference_snapshot": "synthetic:shared-exogenous:v1",
+      "alternative_snapshot": "synthetic:shared-exogenous:v1"
+    }
+  ]
+}
