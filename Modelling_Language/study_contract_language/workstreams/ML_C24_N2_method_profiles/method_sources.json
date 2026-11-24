@@ -1,0 +1,19 @@
+{
+  "retrieval_date": "2026-11-24",
+  "reference": {
+    "title": "4th ENTSO-E Guideline for cost-benefit analysis of grid development projects",
+    "version": "4.2",
+    "publication": "April 2024",
+    "status": "Final version approved by European Commission (cover and section 1)",
+    "uri": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/news/2024/entso-e_4th_CBA_Guideline_240409.pdf",
+    "sha256": null,
+    "checksum_status": "BLOCKED_DOWNLOAD; web PDF metadata and cover inspected; binary retrieval failed"
+  },
+  "cycle_reference": {
+    "uri": "https://consultations.entsoe.eu/tyndp/tyndp-2026-cba-imp-public-consultation/",
+    "status": "Consultation closed 2026-02-06; final publication/approval not verified, not used as authority"
+  },
+  "regulatory_reference": "https://eur-lex.europa.eu/eli/reg/2022/869/oj",
+  "synthetic_source_sha256": "c4a16046521f4b9d50f9bd5c007851e82d535020ad4f84389c18c9d3f834be7d",
+  "owner_approval": "OWNER_TBD"
+}

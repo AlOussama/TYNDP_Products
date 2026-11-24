@@ -1,0 +1,18 @@
+{
+  "id": "urn:study:paired",
+  "version": "end-1",
+  "schema": "profile-r1",
+  "method_ref": {
+    "path": "method-end.json",
+    "sha256": "14871ab48ad6a2e40efdad1b3616913437bb157693ec08d9a23323e1295fb782"
+  },
+  "parameters": {
+    "rate": "1/10"
+  },
+  "data_ref": {
+    "path": "data.json",
+    "sha256": "72f1647fc7124aa191c12d370bd107db8a76106ca9db60d29d517e25202aa39b"
+  },
+  "contract_ref": "2052e1d110946eca30a5313368064be2e72ebba47c309a77af5b9c6c5686b562",
+  "status": "OWNER_TBD"
+}

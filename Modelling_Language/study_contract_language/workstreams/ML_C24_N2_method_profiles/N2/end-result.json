@@ -1,0 +1,198 @@
+{
+  "result": {
+    "delta": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "20"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "30"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "10"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "20"
+        }
+      ]
+    },
+    "discounted": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "rows": [
+        {
+          "key": [
+            "s1",
+            "t0"
+          ],
+          "value": "200/11"
+        },
+        {
+          "key": [
+            "s1",
+            "t1"
+          ],
+          "value": "3000/121"
+        },
+        {
+          "key": [
+            "s2",
+            "t0"
+          ],
+          "value": "100/11"
+        },
+        {
+          "key": [
+            "s2",
+            "t1"
+          ],
+          "value": "2000/121"
+        }
+      ]
+    },
+    "summary": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [],
+      "rows": [
+        {
+          "key": [],
+          "value": "4150/121"
+        }
+      ]
+    }
+  },
+  "audit": {
+    "method_id": "urn:method:timing-end",
+    "method_version": "1",
+    "study_id": "urn:study:paired",
+    "study_version": "end-1",
+    "method_sha256": "14871ab48ad6a2e40efdad1b3616913437bb157693ec08d9a23323e1295fb782",
+    "study_sha256": "564041f26551f6fdc801aa51b40ca010b0af90c5839ffc23c765d78e7d57f68a",
+    "source_sha256": "c4a16046521f4b9d50f9bd5c007851e82d535020ad4f84389c18c9d3f834be7d",
+    "data_sha256": "72f1647fc7124aa191c12d370bd107db8a76106ca9db60d29d517e25202aa39b",
+    "contract_sha256": "2052e1d110946eca30a5313368064be2e72ebba47c309a77af5b9c6c5686b562",
+    "operator_version": "operators-r1",
+    "parameters": {
+      "rate": "1/10"
+    },
+    "result": {
+      "delta": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "scenario",
+          "period"
+        ],
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "20"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "30"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "10"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "20"
+          }
+        ]
+      },
+      "discounted": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "scenario",
+          "period"
+        ],
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "200/11"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "3000/121"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "100/11"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "2000/121"
+          }
+        ]
+      },
+      "summary": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [],
+        "rows": [
+          {
+            "key": [],
+            "value": "4150/121"
+          }
+        ]
+      }
+    },
+    "status": "OWNER_TBD",
+    "engine_sha256": "3e1842f817830a7fd15db0f3ead72339f51a5f5fed28389fae836ba5c9416959"
+  },
+  "audit_digest": "ed56fd6dcf95a8cb6201cbae78668c7fd4e6ebdf36aa7a4b861ef2107d8addd9"
+}

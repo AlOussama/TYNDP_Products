@@ -1,0 +1,141 @@
+{
+  "id": "urn:method:timing-begin",
+  "version": "1",
+  "schema": "profile-r1",
+  "operator_version": "operators-r1",
+  "source": {
+    "path": "method-source.json",
+    "sha256": "c4a16046521f4b9d50f9bd5c007851e82d535020ad4f84389c18c9d3f834be7d"
+  },
+  "approval": "RESEARCH_ASSUMPTION",
+  "assumptions": [
+    "Finite paired case data; begin-period timing; no official CBA conformity"
+  ],
+  "parameters": {
+    "rate": {
+      "unit": "1",
+      "min": "0",
+      "max": "1"
+    }
+  },
+  "inputs": {
+    "base": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "role": "value"
+    },
+    "alternative": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ],
+      "role": "value"
+    },
+    "probability": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "scenario"
+      ],
+      "role": "probability"
+    },
+    "duration_weight": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "period"
+      ],
+      "role": "time_weight"
+    },
+    "elapsed": {
+      "unit": "year",
+      "basis": "",
+      "axes": [
+        "period"
+      ],
+      "role": "elapsed_years"
+    }
+  },
+  "rules": {
+    "delta": {
+      "expr": {
+        "op": "sub",
+        "lhs": {
+          "op": "select_case",
+          "pair": "pair-1",
+          "side": "reference"
+        },
+        "rhs": {
+          "op": "select_case",
+          "pair": "pair-1",
+          "side": "alternative"
+        }
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ]
+    },
+    "discounted": {
+      "expr": {
+        "op": "div",
+        "lhs": {
+          "op": "rule",
+          "id": "delta"
+        },
+        "rhs": {
+          "op": "pow",
+          "lhs": {
+            "op": "add",
+            "lhs": {
+              "op": "literal",
+              "value": "1",
+              "unit": "1"
+            },
+            "rhs": {
+              "op": "param",
+              "id": "rate"
+            }
+          },
+          "rhs": {
+            "op": "input",
+            "id": "elapsed"
+          }
+        }
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "scenario",
+        "period"
+      ]
+    },
+    "summary": {
+      "expr": {
+        "op": "weighted_sum",
+        "expr": {
+          "op": "weighted_sum",
+          "expr": {
+            "op": "rule",
+            "id": "discounted"
+          },
+          "axis": "period",
+          "weight": "duration_weight"
+        },
+        "axis": "scenario",
+        "weight": "probability"
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": []
+    }
+  }
+}

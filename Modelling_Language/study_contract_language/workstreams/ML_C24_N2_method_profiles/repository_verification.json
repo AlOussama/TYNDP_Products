@@ -1,0 +1,30 @@
+{
+  "N4": {
+    "pr": 66,
+    "sha": "fa93f3a995b97da23a3113753b7144e9872c0be3",
+    "local_blob_checks": 1,
+    "matched": 1,
+    "scoped_paths": true
+  },
+  "N5": {
+    "pr": 67,
+    "sha": "81f3b0100653a48abb4b2a273916839afbd969f7",
+    "local_or_frozen_blob_checks": 2,
+    "matched": 2,
+    "scoped_paths": true
+  },
+  "N1": {
+    "pr": 68,
+    "sha": "fc601cd5727f69473623748744e24c06335704c0",
+    "local_blob_checks": 5,
+    "matched": 5,
+    "scoped_paths": true
+  },
+  "N2": {
+    "pr": 69,
+    "experiment_sha": "d0b47ecb4254ef785b932d312ee2fb26d227d175",
+    "local_blob_checks": 12,
+    "matched": 12,
+    "note": "Final documentation commit contains this experiment SHA; self SHA reported by PR metadata."
+  }
+}

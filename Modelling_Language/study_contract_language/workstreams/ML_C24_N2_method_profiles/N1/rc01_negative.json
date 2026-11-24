@@ -1,0 +1,16 @@
+{
+  "frame": {
+    "id": "RC01:frame", "schema": "C20-research-0.1", "ruleset": "CSNF-R0",
+    "registry": "energy-r0", "question": "battery external grid injection"
+  },
+  "referents": [{"id": "RC01:port", "kind": "external_port"}],
+  "relations": [],
+  "predicates": [{"id": "RC01:P1", "expr": {"op": "contractPredicate", "args": ["RC01:external"]}}],
+  "assertions": [{"id": "RC01:A1", "modality": "REQUIRED", "semantic_role": "SAFETY_GUARANTEE",
+    "predicate_ref": "RC01:P1", "scope": "RC01:scope", "guard": true,
+    "authority_refs": ["RC01:SRC"], "decision": "OWNER_TBD"}],
+  "observables": [{"id": "RC01:O1", "subject": "RC01:port", "semantics": "port battery.grid carrier electricity kind active_power unit MW sign INJECTION; guarantee bounds -3..4 MW; ledger delta MWh; source SRC_B; owner OWNER_TBD"}],
+  "variations": [],
+  "evidences": [{"id": "RC01:V1", "role": "REQUEST", "subject_ref": "RC01:A1", "status": "NOT_EXECUTED"}],
+  "authorities": [{"id": "RC01:SRC", "role": "SOURCE", "immutable_ref": "ML-C19/11:RC01", "decision_state": "OWNER_TBD"}]
+}

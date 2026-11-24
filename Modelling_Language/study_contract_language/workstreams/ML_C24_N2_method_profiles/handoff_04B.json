@@ -1,0 +1,68 @@
+{
+  "governance": "NON_NORMATIVE_RESEARCH",
+  "source_pins": {
+    "B0": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+    "C20": "b81edeb7551aa786e0d309ccd5bc2271d244e450",
+    "C21": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+    "C22": "828c87eb100646da6fcce5f8751af5f3f42c7600",
+    "C23": "d3d5362231d81a00fd6a19501bc7187f4ad12da5",
+    "P1": "506be1607e1e8a6eb50db2f1317961d5bbaffcce",
+    "P2": "01f4eb798aff5391a51aff2365e6841850907464",
+    "P3": "0e85be6d9d2a84dffd7bb2685e6548671be3ef17",
+    "P4": "4b61addb0e87205e6670e253bd65cb0428e08681",
+    "P5": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "PR65": "63e36207351a23f2290c25ffd865a166e03e1bc8",
+    "N1": "fc601cd5727f69473623748744e24c06335704c0",
+    "N4": "fa93f3a995b97da23a3113753b7144e9872c0be3",
+    "N5": "81f3b0100653a48abb4b2a273916839afbd969f7",
+    "mathspec": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "GEMS": "c463e30b610443c1f59b20074bb7acffa2844cce"
+  },
+  "gates": {
+    "B0": "MET",
+    "B1": "PARTIAL",
+    "isolated_method_swap": "MET_FINITE_SCOPE",
+    "integrated_method_swap": "PARTIAL",
+    "B2": "PARTIAL",
+    "B3": "NOT_READY",
+    "G1": "BLOCKED"
+  },
+  "tests": {
+    "N1": {
+      "executed": 20,
+      "passed": 20,
+      "scope": "restricted static and adversarial"
+    },
+    "N2": {
+      "executed": 19,
+      "passed": 19,
+      "scope": "isolated typed method swap, including reproduced capability defect"
+    },
+    "N4": {
+      "native": "NOT_EXECUTED",
+      "preflight": "EXECUTED"
+    },
+    "N5": {
+      "executed": 7,
+      "passed": 7,
+      "scope": "standalone finite or sampled oracles RC01–07"
+    }
+  },
+  "blockers": [
+    "Explicit time binder and guard resolution, complete C20 syntax/typed registry",
+    "Profile AST actual CSNF lowering and observable/data binding",
+    "Authority and evidence trust/signature verification",
+    "General ledger/contribution semantics and price-year/currency rules",
+    "Official guideline binary checksum",
+    "Full original RC01-10 and 18 C23 / 30 P5 mutations through language",
+    "Native runtime unavailable and H0 unresolved",
+    "Independent human review/real model pilot not executed"
+  ],
+  "handoff_04B": {
+    "status": "PREPARATORY_ONLY",
+    "start_integrated_N3": "BLOCKED_PENDING_B1_MET",
+    "N6": "DESIGN_ONLY_UNTIL_COMPARABLE_BUILDS",
+    "integrated_ML_C24": "DO_NOT_START",
+    "reentry": "close N1 unresolved binding and authority/audit issues; integrate N2 profile AST and verify immutable source; full preregistered regression and separate evidence levels; no upgrade from oracle counts"
+  }
+}

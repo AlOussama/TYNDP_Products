@@ -1,0 +1,7 @@
+id,status,scope
+N2-00,EXECUTED,isolated two-profile switch same code and inputs
+N2-01-17,EXECUTED,negative mutation controls
+N2-18,EXECUTED,semantic double-count defect reproduced
+N2-INTEGRATED,NOT_EXECUTED,method AST through full syntax and C21
+N2-REFERENCE,PARTIAL,official source version verified PDF hash unavailable
+N2-REVIEW,DESIGN_ONLY,AI-internal critical review
