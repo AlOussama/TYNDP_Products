@@ -1,0 +1,11 @@
+id,scope,status,expected_observed
+N1-00,original blob pins,EXECUTED,PASS
+N1-01,RC01 both A/B,EXECUTED,BLOCKED as expected
+N1-02,CBA fragment both A/B,EXECUTED,BLOCKED as expected
+N1-03,original negative,EXECUTED,REJECTED
+N1-04-15,negative mutation controls,EXECUTED,PASS
+N1-16,audit identity,EXECUTED,PASS
+N1-17,exact conversions,EXECUTED,PASS
+N1-18,price basis,EXECUTED,REJECTED
+N1-19,original C21 unknown-operator defect,EXECUTED,DEFECT_REPRODUCED
+N1-FULL,complete syntax semantics and proof,NOT_EXECUTED,PARTIAL
