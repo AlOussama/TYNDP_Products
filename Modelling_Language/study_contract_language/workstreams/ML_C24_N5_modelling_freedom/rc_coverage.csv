@@ -1,0 +1,11 @@
+id,original_case,local_evidence,language_chain,remaining
+RC01,Battery,EXECUTED_FINITE,N1_PARTIAL,universal service and full ledger
+RC02,EV,EXECUTED_FINITE,NOT_EXECUTED,individual witnesses and quantifiers
+RC03,Electrolysis,EXECUTED_SAMPLES,NOT_EXECUTED,full envelope and basis
+RC04,H2 storage,EXECUTED_TRACE,NOT_EXECUTED,approved conversion and complete ledger
+RC05,Grid,EXECUTED_FINITE,NOT_EXECUTED,arbitrary reactances topology
+RC06,Expansion,EXECUTED_FINITE,NOT_EXECUTED,lead times and capex
+RC07,Information,EXECUTED_FINITE,NOT_EXECUTED,full information tree
+RC08,KPI,SEE_N2_PARTIAL,NOT_EXECUTED,full golden case
+RC09,CBA,SEE_N1_N2_PARTIAL,PARTIAL,full paired scope and methods
+RC10,Multi-model,NOT_EXECUTED,NOT_EXECUTED,independent evidence and model comparison
