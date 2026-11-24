@@ -1,0 +1,13 @@
+{
+  "slr_total": 42,
+  "slr_classification": {
+    "DIRECT_CBA_STRESS": 21,
+    "PARTIAL_CBA_STRESS": 9,
+    "REQUIRES_SEPARATE_NON_CBA_CONTROLS": 12
+  },
+  "nfr_total": 18,
+  "k_total": 17,
+  "feature_gaps": 28,
+  "independent_p5_tests": 36,
+  "full_contract_language_cba_runs": 0
+}
