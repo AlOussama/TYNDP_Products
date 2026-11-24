@@ -1,0 +1,6 @@
+id,status,scope
+N5-ORACLES,EXECUTED,7 finite tests
+N5-GOLDEN,RETAINED,10 original RC identities
+N5-FULL-CHAIN,NOT_EXECUTED,full RC01-10
+N5-E4E5,NOT_PROVED,general or real-model equivalence
+N5-REVIEW,DESIGN_ONLY,AI-internal critical review
