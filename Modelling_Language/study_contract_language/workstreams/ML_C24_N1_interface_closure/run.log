@@ -1,0 +1,26 @@
+Python 3.13.5 validator CSNF-C21-0.1
+test_00_pin (__main__.Tests.test_00_pin) ... ok
+test_01_rc01 (__main__.Tests.test_01_rc01) ... ok
+test_02_cba (__main__.Tests.test_02_cba) ... ok
+test_03_original_negative (__main__.Tests.test_03_original_negative) ... ok
+test_04_duplicates_b (__main__.Tests.test_04_duplicates_b) ... ok
+test_05_duplicates_a (__main__.Tests.test_05_duplicates_a) ... ok
+test_06_version (__main__.Tests.test_06_version) ... ok
+test_07_unit (__main__.Tests.test_07_unit) ... ok
+test_08_dimension (__main__.Tests.test_08_dimension) ... ok
+test_09_scope (__main__.Tests.test_09_scope) ... ok
+test_10_unknown_operator (__main__.Tests.test_10_unknown_operator) ... ok
+test_11_authority_promotion (__main__.Tests.test_11_authority_promotion) ... ok
+test_12_evidence_promotion (__main__.Tests.test_12_evidence_promotion) ... ok
+test_13_lexical (__main__.Tests.test_13_lexical) ... ok
+test_14_bool_guard (__main__.Tests.test_14_bool_guard) ... ok
+test_15_missing_value (__main__.Tests.test_15_missing_value) ... ok
+test_16_audit_identity (__main__.Tests.test_16_audit_identity) ... ok
+test_17_exact_conversion (__main__.Tests.test_17_exact_conversion) ... ok
+test_18_price_basis (__main__.Tests.test_18_price_basis) ... ok
+test_19_unresolved_c21 (__main__.Tests.test_19_unresolved_c21) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.020s
+
+OK

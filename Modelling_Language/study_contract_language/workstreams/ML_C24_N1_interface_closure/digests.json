@@ -1,0 +1,23 @@
+{
+  "RC01": {
+    "status": "BLOCKED",
+    "semantic_digest": "6a2667b603cffd648ccf766915a0894e2a1834ed160096f918cc4571899600a8",
+    "audit_digest": "60bacfca89f0076344c7c8d63f9d6c40ac3a855736ceb243e641125276dcae4b",
+    "source_A": "94bd6a42e43d775dd3bd36539a75950c3c87dd51112a01b8c7db054aaf1a10db",
+    "source_B": "591840e86b08424b8d38e14f215d4e8b835322d0cda688f3c5f9cd0997862381",
+    "unresolved": [
+      "P1_IMPLICIT_TIME_BINDING",
+      "P1_UNRESOLVED_GUARD_ATOM"
+    ]
+  },
+  "CBA": {
+    "status": "BLOCKED",
+    "semantic_digest": "5bb6e5be7f0f1026f9a491913036660e31e27b2c9a0e5d33162c73f3077f0c21",
+    "audit_digest": "881ecd98b0b0720d9e6f2ea7e8610c16786c9430c35cfecd8223ec6a63882abf",
+    "source_A": "1265993e33e5f534d4e12739f2760acdc51a57aaed09f0ab70c50152297f1aa3",
+    "source_B": "451c970f3a779d0870542152af0d835c5f00bff566932042f830b8cca73813d0",
+    "unresolved": [
+      "COUNTERFACTUAL_CONTEXT_NOT_BOUND"
+    ]
+  }
+}
