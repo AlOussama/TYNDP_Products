@@ -1,0 +1,7 @@
+id,status,scope
+N4-PREFLIGHT,EXECUTED,local environment only
+N4-MATHSPEC,NOT_EXECUTED,source inspected
+N4-GEMS,NOT_EXECUTED,source inspected
+N4-SYSML,NOT_EXECUTED,H0 unresolved
+N4-ROUNDTRIP,NOT_EXECUTED,semantic and audit losses unknown
+N4-REVIEW,DESIGN_ONLY,AI-internal
