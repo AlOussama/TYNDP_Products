@@ -1,0 +1,84 @@
+{
+  "id": "RC05",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC05",
+    "name": "Elektrisches Netz",
+    "contract": "lossless DC assumption; KCL AND KVL; branches/buses distinct, oriented flows",
+    "variants": "angles/DC Ohm versus cycle/PTDF with proof obligations",
+    "positive": "3-bus flows satisfy nodal and loop balances",
+    "negative": "circulating flow satisfies KCL but violates KVL",
+    "rewrite": "R08 sign-correct branch reversal only",
+    "comparison": "E4 needs separate topological/reactance proof",
+    "slr": "SLR-08,13–20,25",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "bus and branch IDs distinct; f[branch]: MW oriented; x[branch]: consistent DC reactance coefficient; p[bus]: MW; A,C incidence matrices",
+  "synthetic_input": "branches 1->2,2->3,3->1; f=[2,1,-3] MW; x=[1,1,1] synthetic angle/MW; p=[5,-1,-4] MW; lossless DC",
+  "external_obligations": "A*f=p; C*diag(x)*f=0; branch limit if declared; reference angle only internal",
+  "independent_analytical_oracle": "A*f=[5,-1,-4]; cycle sum=0. f+[1,1,1] preserves KCL but cycle sum=3, fails KVL.",
+  "observables": "branch flows/orientation, nodal injections, cycle residuals",
+  "internal_variation": "angles/DC Ohm versus cycle/PTDF with proof obligations",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "and(eq(matmul(A,f),p),eq(matmul(C,mul(x,f)),0))",
+  "candidate_B_prospective_predicate": {
+    "op": "and",
+    "args": [
+      {
+        "op": "eq",
+        "args": [
+          {
+            "op": "matmul",
+            "args": [
+              {
+                "ref": "A"
+              },
+              {
+                "ref": "f"
+              }
+            ]
+          },
+          {
+            "ref": "p"
+          }
+        ]
+      },
+      {
+        "op": "eq",
+        "args": [
+          {
+            "op": "matmul",
+            "args": [
+              {
+                "ref": "C"
+              },
+              {
+                "op": "elementwise_mul",
+                "args": [
+                  {
+                    "ref": "x"
+                  },
+                  {
+                    "ref": "f"
+                  }
+                ]
+              }
+            ]
+          },
+          0
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "RC09",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC09",
+    "name": "CBA / Counterfactual",
+    "contract": "project-baseline pairing, shared exogenous conditions, discount and authority; N2E owner unresolved",
+    "variants": "integrated modelling versus independent CBA postprocess",
+    "positive": "synthetic matched baseline differential with same price convention",
+    "negative": "counterfactual demand altered without approved scope",
+    "rewrite": "R02 indicator-set only; owner not defaulted",
+    "comparison": "methodological status BLOCKED_OWNER_TBD",
+    "slr": "SLR-03,11,27–31,36",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "BLOCKED_OR_DIFFERENT",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "cost EUR:real:2025; pair baseline/project IDs; shared exogenous snapshot digest; scenario weights; discount method version; authority",
+  "synthetic_input": "baseline costs [1200,1500], project [1100,1350]; p=[3/5,2/5]; identical exogenous IDs, declared project delta; rate 1/10 end discount synthetic",
+  "external_obligations": "require pair context identity except authorized delta; benefit=baseline-project on same basis; discount via external profile; owner unresolved",
+  "independent_analytical_oracle": "100*3/5+150*2/5=120 EUR, one-year end-discount=1200/11 EUR. Changed demand snapshot without permission BLOCKED.",
+  "observables": "pair IDs, context digest, signed differential, typed KPI, authority",
+  "internal_variation": "integrated modelling versus independent CBA postprocess",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "and(eq(exog_base,exog_project),eq(benefit,weighted_difference(base,project,p)))",
+  "candidate_B_prospective_predicate": {
+    "op": "and",
+    "args": [
+      {
+        "op": "eq",
+        "args": [
+          {
+            "ref": "exog_base"
+          },
+          {
+            "ref": "exog_project"
+          }
+        ]
+      },
+      {
+        "op": "eq",
+        "args": [
+          {
+            "ref": "benefit"
+          },
+          {
+            "op": "weighted_difference",
+            "baseline": {
+              "ref": "base"
+            },
+            "project": {
+              "ref": "project"
+            },
+            "weights": {
+              "ref": "p"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

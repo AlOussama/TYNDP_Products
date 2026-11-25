@@ -1,0 +1,82 @@
+{
+  "id": "RC07",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC07",
+    "name": "Investition / Information",
+    "contract": "scenario tree, decision time and information partitions; nonanticipativity",
+    "variants": "one shared first-stage decision versus scenario-indexed equalities",
+    "positive": "pre-revelation decisions equal in same information set",
+    "negative": "future weather revelation changes first-stage choice",
+    "rewrite": "R02 on sets but not stage order",
+    "comparison": "E4 not inferred from one scenario sample",
+    "slr": "SLR-04,08,38",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "scenario IDs; ordered stage IDs; information equivalence relation I[t,s,s2]; decision x[t,s] MW",
+  "synthetic_input": "s1,s2 share information at t0; separate at t1; x0=[10,10]; x1=[12,8]",
+  "external_obligations": "forall t,s,s2: same_information(t,s,s2) implies x[t,s]=x[t,s2]; scenario tree partitions refine with revelation",
+  "independent_analytical_oracle": "x0=[10,10] passes; [10,11] fails despite scenario-dependent future weather; x1 may differ after revelation.",
+  "observables": "scenario tree, partition, decision, revelation time",
+  "internal_variation": "one shared first-stage decision versus scenario-indexed equalities",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "forall(t,s,s2,implies(same_info(t,s,s2),eq(x[t,s],x[t,s2])))",
+  "candidate_B_prospective_predicate": {
+    "op": "forall",
+    "binders": [
+      {
+        "name": "t",
+        "domain": "stages"
+      },
+      {
+        "name": "s",
+        "domain": "scenarios"
+      },
+      {
+        "name": "s2",
+        "domain": "scenarios"
+      }
+    ],
+    "body": {
+      "op": "implies",
+      "antecedent": {
+        "ref": "same_info",
+        "at": [
+          "t",
+          "s",
+          "s2"
+        ]
+      },
+      "consequent": {
+        "op": "eq",
+        "args": [
+          {
+            "ref": "x",
+            "at": [
+              "t",
+              "s"
+            ]
+          },
+          {
+            "ref": "x",
+            "at": [
+              "t",
+              "s2"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

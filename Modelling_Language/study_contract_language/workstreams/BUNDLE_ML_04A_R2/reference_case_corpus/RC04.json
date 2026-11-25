@@ -1,0 +1,78 @@
+{
+  "id": "RC04",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC04",
+    "name": "H2-Speicher",
+    "contract": "H2 kg/h port, mass ledger, losses; energy basis if explicitly approved",
+    "variants": "kg inventory vs energy inventory with stated conversion",
+    "positive": "ledger conserved on shared declared basis",
+    "negative": "kg treated as MWh or HHV/LHV substituted",
+    "rewrite": "R06 only with explicit approved conversion",
+    "comparison": "E2-obligation possible; E4 open",
+    "slr": "SLR-12–20,35",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "M: hydrogen inventory kg; inflow/outflow kg/h; duration h; loss kg; optional explicit heating value MWh/kg",
+  "synthetic_input": "M0=100 kg; inflow 10 kg/h; outflow 5 kg/h; dt=2 h; loss 1 kg; M1=109 kg",
+  "external_obligations": "M1=M0+(inflow-outflow)*dt-loss; mass carrier H2; energy basis only authorized and explicitly converted",
+  "independent_analytical_oracle": "109 kg passes. M1=109 MWh is ill-typed; HHV substituted for declared LHV rejected.",
+  "observables": "mass inventory, port mass flows, mass loss, optional basis",
+  "internal_variation": "kg inventory vs energy inventory with stated conversion",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "eq(M1,sub(add(M0,mul(sub(inflow,outflow),dt)),loss))",
+  "candidate_B_prospective_predicate": {
+    "op": "eq",
+    "args": [
+      {
+        "ref": "M1"
+      },
+      {
+        "op": "sub",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "ref": "M0"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "sub",
+                    "args": [
+                      {
+                        "ref": "inflow"
+                      },
+                      {
+                        "ref": "outflow"
+                      }
+                    ]
+                  },
+                  {
+                    "ref": "dt"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ref": "loss"
+          }
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

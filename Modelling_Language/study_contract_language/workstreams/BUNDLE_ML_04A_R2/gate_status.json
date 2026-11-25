@@ -1,0 +1,37 @@
+{
+  "status": "NON-NORMATIVE / RESEARCH ONLY",
+  "B0": "MET",
+  "B1": "PARTIAL",
+  "isolated_method_swap": "MET_FINITE_SCOPE_HISTORICAL",
+  "R1_integrated_experiment": "MET_FINITE_SCOPE_HISTORICAL",
+  "integrated_method_swap": "PARTIAL",
+  "B2": "PARTIAL",
+  "B3": "NOT_READY",
+  "G1": "BLOCKED",
+  "SysML_H0": "OPEN",
+  "full_04B_ready": false,
+  "N3_authorized": false,
+  "N6_final_architecture_authorized": false,
+  "owner": "OWNER_TBD",
+  "actual_tests": {
+    "new_component_passed": 7,
+    "p5_micro_oracle_passed": 36,
+    "p5_original_mutations_oracle_only": 30,
+    "original_identities_preserved": 58,
+    "original_full_chain_paths_expected": 116,
+    "original_full_chain_paths_executed": 0,
+    "R1_regression_expected": 57,
+    "R1_regression_executed": 0,
+    "R2_integrated_swaps": 0
+  },
+  "traceability_preserved": 105,
+  "blocking": [
+    "B1-01",
+    "B1-02",
+    "B1-03",
+    "B1-04",
+    "B1-05",
+    "B1-06",
+    "B1-07"
+  ]
+}
