@@ -1,0 +1,91 @@
+{
+  "id": "data:paired",
+  "context": {
+    "demand": "synthetic-dataset-1",
+    "network": "synthetic-network-1",
+    "weather": "synthetic-weather-1"
+  },
+  "cases": {
+    "case:base": "39dd4a3def876d7fad38dd3ee32e5f2ff43e286555a4d39ac0fd125d0a25efe0",
+    "case:alt": "39dd4a3def876d7fad38dd3ee32e5f2ff43e286555a4d39ac0fd125d0a25efe0"
+  },
+  "observations": {
+    "obs:base": [
+      {
+        "key": [
+          "y1",
+          "low"
+        ],
+        "value": "100"
+      },
+      {
+        "key": [
+          "y1",
+          "high"
+        ],
+        "value": "120"
+      },
+      {
+        "key": [
+          "y2",
+          "low"
+        ],
+        "value": "150"
+      },
+      {
+        "key": [
+          "y2",
+          "high"
+        ],
+        "value": "180"
+      }
+    ],
+    "obs:alt": [
+      {
+        "key": [
+          "y1",
+          "low"
+        ],
+        "value": "80"
+      },
+      {
+        "key": [
+          "y1",
+          "high"
+        ],
+        "value": "90"
+      },
+      {
+        "key": [
+          "y2",
+          "low"
+        ],
+        "value": "110"
+      },
+      {
+        "key": [
+          "y2",
+          "high"
+        ],
+        "value": "120"
+      }
+    ]
+  },
+  "flags": {
+    "flag:applicable": true
+  },
+  "weights": {
+    "w:p": {
+      "low": "1/4",
+      "high": "3/4"
+    },
+    "w:t": {
+      "y1": "1",
+      "y2": "1"
+    },
+    "w:y": {
+      "y1": "1",
+      "y2": "2"
+    }
+  }
+}

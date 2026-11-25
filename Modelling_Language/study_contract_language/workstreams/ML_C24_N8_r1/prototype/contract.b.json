@@ -1,0 +1,226 @@
+{
+  "frame": {
+    "id": "study:paired",
+    "schema": "C20-research-0.1",
+    "ruleset": "CSNF-R0",
+    "registry": "R1-research-0.1",
+    "question": "Synthetic paired cost observables",
+    "time": {
+      "id": "time:base",
+      "duration": "1",
+      "duration_unit": "h"
+    },
+    "domains": [
+      {
+        "id": "axis:t",
+        "kind": "time",
+        "members": [
+          "y1",
+          "y2"
+        ]
+      },
+      {
+        "id": "axis:s",
+        "kind": "scenario",
+        "members": [
+          "low",
+          "high"
+        ]
+      }
+    ],
+    "flags": [
+      {
+        "id": "flag:applicable",
+        "type": "Bool3"
+      }
+    ],
+    "weights": [
+      {
+        "id": "w:p",
+        "axis": "axis:s",
+        "role": "probability"
+      },
+      {
+        "id": "w:t",
+        "axis": "axis:t",
+        "role": "time_weight"
+      },
+      {
+        "id": "w:y",
+        "axis": "axis:t",
+        "role": "elapsed_years"
+      }
+    ]
+  },
+  "referents": [
+    {
+      "id": "case:base",
+      "kind": "entity",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      }
+    },
+    {
+      "id": "case:alt",
+      "kind": "entity",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "pair:1",
+      "kind": "counterfactual_of",
+      "from": "case:alt",
+      "to": "case:base",
+      "authority_refs": [
+        "auth:synthetic"
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "id": "pred:bounds",
+      "expr": {
+        "op": "forall",
+        "args": [
+          "t",
+          "axis:t",
+          {
+            "op": "forall",
+            "args": [
+              "s",
+              "axis:s",
+              {
+                "op": "le",
+                "args": [
+                  {
+                    "op": "at",
+                    "args": [
+                      "obs:alt",
+                      {
+                        "op": "var",
+                        "args": [
+                          "t"
+                        ]
+                      },
+                      {
+                        "op": "var",
+                        "args": [
+                          "s"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "op": "at",
+                    "args": [
+                      "obs:base",
+                      {
+                        "op": "var",
+                        "args": [
+                          "t"
+                        ]
+                      },
+                      {
+                        "op": "var",
+                        "args": [
+                          "s"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "id": "assert:bounds",
+      "modality": "CONDITIONAL",
+      "semantic_role": "SAFETY_GUARANTEE",
+      "predicate_ref": "pred:bounds",
+      "scope": "axis:t",
+      "guard": {
+        "op": "flag",
+        "args": [
+          "flag:applicable"
+        ]
+      },
+      "authority_refs": [
+        "auth:synthetic"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [
+    {
+      "id": "obs:base",
+      "subject": "case:base",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "axes": [
+        "axis:t",
+        "axis:s"
+      ],
+      "aggregation": "identity"
+    },
+    {
+      "id": "obs:alt",
+      "subject": "case:alt",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "axes": [
+        "axis:t",
+        "axis:s"
+      ],
+      "aggregation": "identity"
+    }
+  ],
+  "variations": [],
+  "evidences": [
+    {
+      "id": "ev:bounds",
+      "role": "REQUEST",
+      "subject_ref": "assert:bounds",
+      "status": "NOT_EXECUTED",
+      "oracle": "oracle:finite"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "auth:synthetic",
+      "role": "SOURCE",
+      "immutable_ref": "synthetic:paired-cost-v1",
+      "revision": "1",
+      "decision_state": "OWNER_TBD"
+    }
+  ]
+}

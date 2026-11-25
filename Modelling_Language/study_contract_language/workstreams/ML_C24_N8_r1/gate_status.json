@@ -1,0 +1,33 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "B0": "MET",
+  "B1": "PARTIAL",
+  "isolated_method_swap": "MET_FINITE_SCOPE_HISTORICAL",
+  "integrated_method_swap": "PARTIAL",
+  "B2": "PARTIAL",
+  "B3": "NOT_READY",
+  "G1": "BLOCKED",
+  "bundle_04B": "PREPARATORY_ONLY",
+  "N3": "BLOCKED_FULL_EXECUTION",
+  "N6": "DESIGN_ONLY",
+  "basis": {
+    "new_checks": 35,
+    "passed": 35,
+    "original_RC_executed_R1": 0,
+    "original_C23_executed_R1": 0,
+    "original_P5_executed_R1": 0,
+    "traceability_rows_retained": 105
+  },
+  "blockers": [
+    "Complete negotiated C20 grammar and typed semantic coverage not implemented",
+    "R1 extension is not a lossless canonical CSNF integration; C21 guard projection loses meaning",
+    "Method expression AST evaluated downstream of C21 rather than lowered losslessly into CSNF",
+    "No complete general component/port/trace/service/information partition semantics",
+    "Contribution coverage declarations not derived from expression lineage",
+    "Authority authenticity, authorized overrides and evidence trust not established",
+    "Original 10 RC and 48 mutations not re-executed",
+    "Native comparable experiments not executed",
+    "Official guideline binary SHA-256 unavailable"
+  ],
+  "review": "AI-internal critical review, not personnel-independent audit"
+}

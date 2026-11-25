@@ -1,0 +1,2022 @@
+[
+  {
+    "syntax": "A",
+    "profile": "undiscounted",
+    "result": {
+      "audit": {
+        "chain": "9e987e953f4d6d9cdb1ccd48d78a1b7705ec6346d17e2decb9a85375e29641c0",
+        "semantic": "54deb1a88bf4bc154123be910cd2669a20aa04945730aeac4571de73ae502ca4",
+        "method_id": "method:undiscounted",
+        "method_hash": "21f06441b7bd1aaaa95a6c367cd3da8e241b0c0f5a49dc2cc522a1a4040590b8",
+        "data_hash": "b32b54462e0f9420599fb998a6c437bebe7ca95ae232200124ef04c395768341",
+        "study_hash": "75e1fd96ee01dc701de58de379c5da9106502d4fc7244455868b52c7b8fb32de",
+        "code_hashes": {
+          "research_chain.py": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+          "csnf_validator.py": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1"
+        },
+        "outputs": {
+          "rule:result": "165/2"
+        },
+        "finite_assertion_checks": {
+          "assert:bounds": "FINITE_TRUE"
+        },
+        "contributions": [
+          "impact:operating-cost"
+        ],
+        "status": "OWNER_TBD",
+        "verification_scope": "FINITE_RESEARCH_ONLY"
+      },
+      "audit_digest": "e7010aa518090447106729b057dd361f950ae25667c7ca335830f480e4395d7d",
+      "graph": {
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "op": "flag",
+              "args": [
+                "flag:applicable"
+              ]
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "frame": {
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ],
+          "id": "study:paired",
+          "schema": "C20-research-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "R1-research-0.1"
+        }
+      },
+      "legacy": {
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "atom": "R1:typed-guard"
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "frame": {
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ],
+          "id": "study:paired",
+          "schema": "CSNF-C21-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "energy-c21-0.1"
+        }
+      },
+      "diagnostics": {
+        "rules": [
+          "R02:unordered_roles",
+          "R03:boolean_commutativity",
+          "R04:boolean_flattening",
+          "R05:negation_structure",
+          "R09:authority_preservation",
+          "R06:explicit_exact_units",
+          "R12:typed_observables",
+          "R07:duration_converted",
+          "R01:strict_qualified_ids",
+          "R08:port_compatibility_check_only",
+          "R10:no_implicit_imports",
+          "R11:no_implicit_defaults",
+          "R13:evidence_status_preserved"
+        ],
+        "diagnostics": [
+          {
+            "code": "OWNER_UNRESOLVED",
+            "path": "$.assertions[0].decision",
+            "severity": "BLOCKED",
+            "detail": ""
+          }
+        ],
+        "phase": "P0_P6_PARTIAL"
+      }
+    }
+  },
+  {
+    "syntax": "A",
+    "profile": "discounted",
+    "result": {
+      "audit": {
+        "chain": "9e987e953f4d6d9cdb1ccd48d78a1b7705ec6346d17e2decb9a85375e29641c0",
+        "semantic": "54deb1a88bf4bc154123be910cd2669a20aa04945730aeac4571de73ae502ca4",
+        "method_id": "method:discounted",
+        "method_hash": "e808c2afc1ca7a5ef8df6cd1cf272aeb212566f9df9259b3b7de029455c5f038",
+        "data_hash": "b32b54462e0f9420599fb998a6c437bebe7ca95ae232200124ef04c395768341",
+        "study_hash": "25f197c3e0339201a8fb7bdd0b337980c2d25178d707214f5342a4fc3f98c726",
+        "code_hashes": {
+          "research_chain.py": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+          "csnf_validator.py": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1"
+        },
+        "outputs": {
+          "rule:result": "775/11"
+        },
+        "finite_assertion_checks": {
+          "assert:bounds": "FINITE_TRUE"
+        },
+        "contributions": [
+          "impact:operating-cost"
+        ],
+        "status": "OWNER_TBD",
+        "verification_scope": "FINITE_RESEARCH_ONLY"
+      },
+      "audit_digest": "607f3a6810d5225e1a0377870ed8a7220d9b66f491ecf0c59364f02e9063a487",
+      "graph": {
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "op": "flag",
+              "args": [
+                "flag:applicable"
+              ]
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "frame": {
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ],
+          "id": "study:paired",
+          "schema": "C20-research-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "R1-research-0.1"
+        }
+      },
+      "legacy": {
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "atom": "R1:typed-guard"
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "frame": {
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ],
+          "id": "study:paired",
+          "schema": "CSNF-C21-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "energy-c21-0.1"
+        }
+      },
+      "diagnostics": {
+        "rules": [
+          "R02:unordered_roles",
+          "R03:boolean_commutativity",
+          "R04:boolean_flattening",
+          "R05:negation_structure",
+          "R09:authority_preservation",
+          "R06:explicit_exact_units",
+          "R12:typed_observables",
+          "R07:duration_converted",
+          "R01:strict_qualified_ids",
+          "R08:port_compatibility_check_only",
+          "R10:no_implicit_imports",
+          "R11:no_implicit_defaults",
+          "R13:evidence_status_preserved"
+        ],
+        "diagnostics": [
+          {
+            "code": "OWNER_UNRESOLVED",
+            "path": "$.assertions[0].decision",
+            "severity": "BLOCKED",
+            "detail": ""
+          }
+        ],
+        "phase": "P0_P6_PARTIAL"
+      }
+    }
+  },
+  {
+    "syntax": "B",
+    "profile": "undiscounted",
+    "result": {
+      "audit": {
+        "chain": "ce0f166084fb7c87f025bfb8fc8ee213932aee34f4aba76469d1b1fb27b3eba5",
+        "semantic": "54deb1a88bf4bc154123be910cd2669a20aa04945730aeac4571de73ae502ca4",
+        "method_id": "method:undiscounted",
+        "method_hash": "21f06441b7bd1aaaa95a6c367cd3da8e241b0c0f5a49dc2cc522a1a4040590b8",
+        "data_hash": "b32b54462e0f9420599fb998a6c437bebe7ca95ae232200124ef04c395768341",
+        "study_hash": "75e1fd96ee01dc701de58de379c5da9106502d4fc7244455868b52c7b8fb32de",
+        "code_hashes": {
+          "research_chain.py": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+          "csnf_validator.py": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1"
+        },
+        "outputs": {
+          "rule:result": "165/2"
+        },
+        "finite_assertion_checks": {
+          "assert:bounds": "FINITE_TRUE"
+        },
+        "contributions": [
+          "impact:operating-cost"
+        ],
+        "status": "OWNER_TBD",
+        "verification_scope": "FINITE_RESEARCH_ONLY"
+      },
+      "audit_digest": "33e39347143cdf3702273fb0e45a263d9c15042237e38499858ae3e4c4d30eac",
+      "graph": {
+        "frame": {
+          "id": "study:paired",
+          "schema": "C20-research-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "R1-research-0.1",
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ]
+        },
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "op": "flag",
+              "args": [
+                "flag:applicable"
+              ]
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision_state": "OWNER_TBD"
+          }
+        ]
+      },
+      "legacy": {
+        "frame": {
+          "id": "study:paired",
+          "schema": "CSNF-C21-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "energy-c21-0.1",
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ]
+        },
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "atom": "R1:typed-guard"
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision": "OWNER_TBD"
+          }
+        ]
+      },
+      "diagnostics": {
+        "rules": [
+          "R02:unordered_roles",
+          "R03:boolean_commutativity",
+          "R04:boolean_flattening",
+          "R05:negation_structure",
+          "R09:authority_preservation",
+          "R06:explicit_exact_units",
+          "R12:typed_observables",
+          "R07:duration_converted",
+          "R01:strict_qualified_ids",
+          "R08:port_compatibility_check_only",
+          "R10:no_implicit_imports",
+          "R11:no_implicit_defaults",
+          "R13:evidence_status_preserved"
+        ],
+        "diagnostics": [
+          {
+            "code": "OWNER_UNRESOLVED",
+            "path": "$.assertions[0].decision",
+            "severity": "BLOCKED",
+            "detail": ""
+          }
+        ],
+        "phase": "P0_P6_PARTIAL"
+      }
+    }
+  },
+  {
+    "syntax": "B",
+    "profile": "discounted",
+    "result": {
+      "audit": {
+        "chain": "ce0f166084fb7c87f025bfb8fc8ee213932aee34f4aba76469d1b1fb27b3eba5",
+        "semantic": "54deb1a88bf4bc154123be910cd2669a20aa04945730aeac4571de73ae502ca4",
+        "method_id": "method:discounted",
+        "method_hash": "e808c2afc1ca7a5ef8df6cd1cf272aeb212566f9df9259b3b7de029455c5f038",
+        "data_hash": "b32b54462e0f9420599fb998a6c437bebe7ca95ae232200124ef04c395768341",
+        "study_hash": "25f197c3e0339201a8fb7bdd0b337980c2d25178d707214f5342a4fc3f98c726",
+        "code_hashes": {
+          "research_chain.py": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+          "csnf_validator.py": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1"
+        },
+        "outputs": {
+          "rule:result": "775/11"
+        },
+        "finite_assertion_checks": {
+          "assert:bounds": "FINITE_TRUE"
+        },
+        "contributions": [
+          "impact:operating-cost"
+        ],
+        "status": "OWNER_TBD",
+        "verification_scope": "FINITE_RESEARCH_ONLY"
+      },
+      "audit_digest": "7e7ff4fc29b51e82c2b889a44e1588c10a479fcb396167e520ae94bc1f747c37",
+      "graph": {
+        "frame": {
+          "id": "study:paired",
+          "schema": "C20-research-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "R1-research-0.1",
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ]
+        },
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "op": "flag",
+              "args": [
+                "flag:applicable"
+              ]
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision_state": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision_state": "OWNER_TBD"
+          }
+        ]
+      },
+      "legacy": {
+        "frame": {
+          "id": "study:paired",
+          "schema": "CSNF-C21-0.1",
+          "ruleset": "CSNF-R0",
+          "registry": "energy-c21-0.1",
+          "question": "Synthetic paired cost observables",
+          "time": {
+            "id": "time:base",
+            "duration": "1",
+            "duration_unit": "h"
+          },
+          "domains": [
+            {
+              "id": "axis:t",
+              "kind": "time",
+              "members": [
+                "y1",
+                "y2"
+              ]
+            },
+            {
+              "id": "axis:s",
+              "kind": "scenario",
+              "members": [
+                "low",
+                "high"
+              ]
+            }
+          ],
+          "flags": [
+            {
+              "id": "flag:applicable",
+              "type": "Bool3"
+            }
+          ],
+          "weights": [
+            {
+              "id": "w:p",
+              "axis": "axis:s",
+              "role": "probability"
+            },
+            {
+              "id": "w:t",
+              "axis": "axis:t",
+              "role": "time_weight"
+            },
+            {
+              "id": "w:y",
+              "axis": "axis:t",
+              "role": "elapsed_years"
+            }
+          ]
+        },
+        "referents": [
+          {
+            "id": "case:alt",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          },
+          {
+            "id": "case:base",
+            "kind": "entity",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "pair:1",
+            "kind": "counterfactual_of",
+            "from": "case:alt",
+            "to": "case:base",
+            "authority_refs": [
+              "auth:synthetic"
+            ]
+          }
+        ],
+        "predicates": [
+          {
+            "id": "pred:bounds",
+            "expr": {
+              "op": "forall",
+              "args": [
+                "t",
+                "axis:t",
+                {
+                  "op": "forall",
+                  "args": [
+                    "s",
+                    "axis:s",
+                    {
+                      "op": "le",
+                      "args": [
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:alt",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "at",
+                          "args": [
+                            "obs:base",
+                            {
+                              "op": "var",
+                              "args": [
+                                "t"
+                              ]
+                            },
+                            {
+                              "op": "var",
+                              "args": [
+                                "s"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "assertions": [
+          {
+            "id": "assert:bounds",
+            "modality": "CONDITIONAL",
+            "semantic_role": "SAFETY_GUARANTEE",
+            "predicate_ref": "pred:bounds",
+            "scope": "axis:t",
+            "guard": {
+              "atom": "R1:typed-guard"
+            },
+            "authority_refs": [
+              "auth:synthetic"
+            ],
+            "decision": "OWNER_TBD"
+          }
+        ],
+        "observables": [
+          {
+            "id": "obs:alt",
+            "subject": "case:alt",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          },
+          {
+            "id": "obs:base",
+            "subject": "case:base",
+            "quantity": {
+              "carrier": "currency",
+              "kind": "cost",
+              "unit": "EUR",
+              "value": "0",
+              "sign": "NONE",
+              "basis": "EUR:real:2024"
+            },
+            "axes": [
+              "axis:t",
+              "axis:s"
+            ],
+            "aggregation": "identity"
+          }
+        ],
+        "variations": [],
+        "evidences": [
+          {
+            "id": "ev:bounds",
+            "role": "REQUEST",
+            "subject_ref": "assert:bounds",
+            "status": "NOT_EXECUTED",
+            "oracle": "oracle:finite"
+          }
+        ],
+        "authorities": [
+          {
+            "id": "auth:synthetic",
+            "role": "SOURCE",
+            "immutable_ref": "synthetic:paired-cost-v1",
+            "revision": "1",
+            "decision": "OWNER_TBD"
+          }
+        ]
+      },
+      "diagnostics": {
+        "rules": [
+          "R02:unordered_roles",
+          "R03:boolean_commutativity",
+          "R04:boolean_flattening",
+          "R05:negation_structure",
+          "R09:authority_preservation",
+          "R06:explicit_exact_units",
+          "R12:typed_observables",
+          "R07:duration_converted",
+          "R01:strict_qualified_ids",
+          "R08:port_compatibility_check_only",
+          "R10:no_implicit_imports",
+          "R11:no_implicit_defaults",
+          "R13:evidence_status_preserved"
+        ],
+        "diagnostics": [
+          {
+            "code": "OWNER_UNRESOLVED",
+            "path": "$.assertions[0].decision",
+            "severity": "BLOCKED",
+            "detail": ""
+          }
+        ],
+        "phase": "P0_P6_PARTIAL"
+      }
+    }
+  }
+]
