@@ -1,0 +1,33 @@
+{
+  "status": "NON-NORMATIVE / RESEARCH ONLY",
+  "B0": "MET",
+  "B1": "PARTIAL",
+  "isolated_method_swap": "MET_FINITE_SCOPE",
+  "R1_integrated_experiment": "MET_FINITE_SCOPE",
+  "integrated_method_swap": "PARTIAL",
+  "B2": "PARTIAL",
+  "B3": "NOT_READY",
+  "G1": "BLOCKED",
+  "SysML_H0": "OPEN",
+  "N3_authorized": false,
+  "N6_final_architecture_authorized": false,
+  "full_04B_ready": false,
+  "owner": "OWNER_TBD",
+  "contract_evidence_request": "NOT_EXECUTED",
+  "actual_tests": {
+    "new_R1": 45,
+    "new_generality": 5,
+    "rerun_original_N5": 7,
+    "passed": 57,
+    "original_full_RC_executions": 0,
+    "original_full_C23_P5_mutations_executed_this_run": 0
+  },
+  "blocking": [
+    "full original agreed grammar/schema/operator coverage",
+    "complete binding, guard applicability and service semantics; closed extension trust boundary",
+    "typed KPI result binding, complete dimension/conversion and authorized variation",
+    "generalized support/coefficients/authority/evidence governance",
+    "original full-chain regression denominators and independent review",
+    "official PDF SHA256 unavailable; native comparisons unavailable (not independent B1 blockers)"
+  ]
+}

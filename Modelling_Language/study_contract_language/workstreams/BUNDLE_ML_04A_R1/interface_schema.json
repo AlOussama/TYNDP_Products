@@ -1,0 +1,68 @@
+{
+  "status": "RESEARCH_SCHEMA_DESCRIPTOR_NOT_FULL_JSON_SCHEMA",
+  "source_versions": [
+    "C20-research-r1",
+    "CSNF-R0",
+    "energy-r1"
+  ],
+  "target": [
+    "C21 original normalizer; exact pinned code"
+  ],
+  "frame_required": [
+    "id",
+    "schema",
+    "ruleset",
+    "registry",
+    "question",
+    "time",
+    "domains",
+    "scopes",
+    "guards",
+    "information_sets",
+    "data_inputs",
+    "method_slots"
+  ],
+  "domain_kinds": [
+    "time",
+    "scenario",
+    "trace",
+    "request",
+    "response",
+    "component",
+    "port"
+  ],
+  "predicate_operators": [
+    "bool3",
+    "var",
+    "forall",
+    "exists",
+    "and",
+    "or",
+    "not",
+    "measure",
+    "literal",
+    "integrate",
+    "compare",
+    "in_information"
+  ],
+  "study_schema": "study-r1",
+  "method_schema": "profile-r1",
+  "operator_version": "operators-r1",
+  "snapshot_schema": "snapshot-r1",
+  "resolved_profile_schema": "resolved-profile-r1",
+  "ledger_policy_schema": "ledger-policy-r1",
+  "ledger_modes": [
+    "DISJOINT",
+    "ALLOW_REUSE"
+  ],
+  "standalone_conversion_schema": "conversion-r1",
+  "actual_enforcement": [
+    "n1r.py:typed",
+    "n2r.py:evaluate",
+    "pinned/profile_engine.py:Engine",
+    "n7.py:authority/contribution_table/lineage",
+    "units_r1.py:monetary"
+  ],
+  "examples": "fixtures/",
+  "limitations": "No full C20 grammar, schema portability, behavioral logic, general dimension or signed trust implementation; no normative choice."
+}
