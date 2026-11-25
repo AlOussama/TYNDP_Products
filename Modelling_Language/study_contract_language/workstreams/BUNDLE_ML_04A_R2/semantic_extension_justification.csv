@@ -1,0 +1,4 @@
+"function","counterexample","ablation","evidence","status","core_change"
+"canonical_boundary.validate","unknown operator accepted by original C21; arbitrary extension unvalidated","Original C21 accepts unknown operator; strict boundary rejects it","c21_boundary.log (7 tests)","FINITE_COMPONENT_EXECUTED_NOT_INTEGRATED","NONE"
+"guard/binding validation","unbound guard variable; Bool3 unknown","boundary rejects unbound variable, preserves unknown; full semantics not covered","c21_boundary.log","FINITE_COMPONENT_EXECUTED_NOT_INTEGRATED","NONE"
+"R1 resolved profile admission","arbitrary frame extension","restrictive boundary rejects unchecked extension; legitimate typed extension still needs integration","c21_boundary.log","INCOMPLETE","NONE"

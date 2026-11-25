@@ -1,0 +1,65 @@
+{
+  "id": "RC10",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC10",
+    "name": "Multi-Model",
+    "contract": "common study/data/scenario/observable IDs, variation and independent evidence",
+    "variants": "two different internal model structures with separate projections",
+    "positive": "both disclose variation and individual evidence",
+    "negative": "unsupported E4 assertion from equal objective or concealed extra assumption",
+    "rewrite": "R09 preserve both source identities",
+    "comparison": "E5 only on two separately supported conformances",
+    "slr": "SLR-21–34,41–42",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "study/data/scenario/observable IDs; model and independent evidence IDs; variation disclosure; claim status",
+  "synthetic_input": "models M-A/M-B share contract and inputs; different disclosed internal formulation; distinct evidence generators; both synthetic outputs 170 EUR; no real evidence",
+  "external_obligations": "compare only aligned observables; declare variation and independent provenance; equal objectives alone never entail E4 or E5",
+  "independent_analytical_oracle": "same numerical value supports at most finite observation agreement; false E4 promotion rejected; concealed variation rejected; genuine equivalence NOT_PROVED.",
+  "observables": "aligned outputs, variation, evidence identity/lifecycle, claim strength",
+  "internal_variation": "two different internal model structures with separate projections",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "and(common_context(MA,MB),distinct(evidenceA,evidenceB),disclosed_variations(MA,MB))",
+  "candidate_B_prospective_predicate": {
+    "op": "and",
+    "args": [
+      {
+        "op": "common_context",
+        "models": [
+          "M-A",
+          "M-B"
+        ]
+      },
+      {
+        "op": "distinct",
+        "args": [
+          {
+            "ref": "evidenceA"
+          },
+          {
+            "ref": "evidenceB"
+          }
+        ]
+      },
+      {
+        "op": "disclosed_variations",
+        "models": [
+          "M-A",
+          "M-B"
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

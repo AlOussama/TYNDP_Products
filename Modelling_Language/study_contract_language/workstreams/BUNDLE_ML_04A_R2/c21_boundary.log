@@ -1,0 +1,13 @@
+Python 3.13.5 C21 SHA256 b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1
+test_arbitrary_extension_rejected (__main__.Boundary.test_arbitrary_extension_rejected) ... ok
+test_existing_bool3_unknown_retained (__main__.Boundary.test_existing_bool3_unknown_retained) ... ok
+test_native_pin_and_baseline (__main__.Boundary.test_native_pin_and_baseline) ... ok
+test_nested_unknown_operator (__main__.Boundary.test_nested_unknown_operator) ... ok
+test_original_unknown_operator_defect (__main__.Boundary.test_original_unknown_operator_defect) ... ok
+test_unbound_guard_variable (__main__.Boundary.test_unbound_guard_variable) ... ok
+test_unknown_field_rejected (__main__.Boundary.test_unknown_field_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.008s
+
+OK

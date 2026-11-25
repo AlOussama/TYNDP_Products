@@ -1,0 +1,17 @@
+{
+  "schema": "R2-component-interface-descriptor-0.1",
+  "scope": "canonical boundary only; not a full language schema",
+  "native_validator": {
+    "source_commit": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+    "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+    "sha256": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1"
+  },
+  "boundary": "c21_boundary.py",
+  "contract": "Strict canonical graph boundary, no unchecked frame extensions; native C21 validate and normalize; operator signatures and lexical binding checked within implemented fragment",
+  "not_covered": [
+    "complete A/B grammar",
+    "full static type and scope semantics",
+    "resolved profile integration",
+    "scientific model conformance"
+  ]
+}

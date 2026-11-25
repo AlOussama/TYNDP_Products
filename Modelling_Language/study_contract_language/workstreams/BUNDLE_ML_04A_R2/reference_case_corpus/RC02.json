@@ -1,0 +1,64 @@
+{
+  "id": "RC02",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC02",
+    "name": "EV-Flotte",
+    "contract": "individuelle Abfahrtsenergie/Anschlussfenster, V2G nur bei expliziter Erlaubnis",
+    "variants": "individual vehicles versus aggregate service envelope with per-vehicle witness",
+    "positive": "service witness fulfils each declared deadline",
+    "negative": "aggregate MWh right but EV2 misses departure",
+    "rewrite": "R02 unordered vehicle identifiers only",
+    "comparison": "E5 conditional; service universally not proved",
+    "slr": "SLR-12–24",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "vehicle: finite ID; t: interval; availability[v,t]: Bool3; delivered[v,t]: kWh; required[v]: kWh; departure[v]: time",
+  "synthetic_input": "EV1,EV2 departure requirements 4,6 kWh; available before deadline; delivered totals 4,6; V2G not permitted absent authority",
+  "external_obligations": "forall v, sum delivered before departure >= required[v]; zero outside connection window; no negative charging absent V2G permission",
+  "independent_analytical_oracle": "[4,6] passes; [5,5] has equal fleet total but EV2 fails. Finite witness does not establish forall requests exists feasible response.",
+  "observables": "individual deadline energy, availability, V2G authority",
+  "internal_variation": "individual vehicles versus aggregate service envelope with per-vehicle witness",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "forall(v, ge(sum(t in before_departure[v],delivered[v,t]),required[v]))",
+  "candidate_B_prospective_predicate": {
+    "op": "forall",
+    "binder": {
+      "name": "v",
+      "domain": "vehicles"
+    },
+    "body": {
+      "op": "ge",
+      "args": [
+        {
+          "op": "sum",
+          "domain": "before_departure(v)",
+          "value": {
+            "ref": "delivered",
+            "at": [
+              "v",
+              "t"
+            ]
+          }
+        },
+        {
+          "ref": "required",
+          "at": [
+            "v"
+          ]
+        }
+      ]
+    }
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}
