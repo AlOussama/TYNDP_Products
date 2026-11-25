@@ -1,0 +1,371 @@
+{
+  "status": "NON-NORMATIVE / RESEARCH ONLY",
+  "date": "2026-11-25",
+  "repository": "AlOussama/TYNDP_Products",
+  "original_pins": [
+    {
+      "workstream": "ML-C19/B0",
+      "pr": 55,
+      "sha": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C20",
+      "pr": 57,
+      "sha": "b81edeb7551aa786e0d309ccd5bc2271d244e450",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C21",
+      "pr": 59,
+      "sha": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C22",
+      "pr": 58,
+      "sha": "828c87eb100646da6fcce5f8751af5f3f42c7600",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C23",
+      "pr": 56,
+      "sha": "d3d5362231d81a00fd6a19501bc7187f4ad12da5",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-P1",
+      "pr": 60,
+      "sha": "506be1607e1e8a6eb50db2f1317961d5bbaffcce",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-P2",
+      "pr": 61,
+      "sha": "01f4eb798aff5391a51aff2365e6841850907464",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-P3",
+      "pr": 62,
+      "sha": "0e85be6d9d2a84dffd7bb2685e6548671be3ef17",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-P4",
+      "pr": 63,
+      "sha": "4b61addb0e87205e6670e253bd65cb0428e08681",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-P5",
+      "pr": 64,
+      "sha": "eaea6dd99b736f2560866abda722cde78b908bce",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "BUNDLE-ML-04",
+      "pr": 65,
+      "sha": "63e36207351a23f2290c25ffd865a166e03e1bc8",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-N1",
+      "pr": 68,
+      "sha": "fc601cd5727f69473623748744e24c06335704c0",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-N2",
+      "pr": 69,
+      "sha": "6bcfde7ae16d873af30af924aa563b66661f1c30",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-N4",
+      "pr": 66,
+      "sha": "fa93f3a995b97da23a3113753b7144e9872c0be3",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "workstream": "ML-C24-N5",
+      "pr": 67,
+      "sha": "81f3b0100653a48abb4b2a273916839afbd969f7",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    }
+  ],
+  "source_handoff_blobs": {
+    "04B_handoff.md": "220c0a5609a2ed65d73f1214210979faa7f23468",
+    "handoff_04B.json": "4432218e424558a738d9aa7c810f582c8d5debeb",
+    "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6",
+    "repository_verification.json": "f90792e91255ad68135c2f9e70bbb25e912ddb57"
+  },
+  "integrated_commit": "8bf14eab73f2c77bcd3339d32af11868cfae569c",
+  "workstreams": [
+    {
+      "id": "N2R",
+      "pr": 76,
+      "sha": "8bf14eab73f2c77bcd3339d32af11868cfae569c",
+      "branch": "research/ml-c24-n2r-integrated-profiles-2026-11-25"
+    },
+    {
+      "id": "N1R",
+      "pr": 77,
+      "sha": "ee41e9f72bac35ec43736ab6d228ee06515b24b3",
+      "branch": "research/ml-c24-n1r-semantic-closure-2026-11-25"
+    },
+    {
+      "id": "N7",
+      "pr": 78,
+      "sha": "258e8bee23efefb270c18eff1ff11ce0eb6e93c2",
+      "branch": "research/ml-c24-n7-ledger-authority-2026-11-25"
+    },
+    {
+      "id": "N4R",
+      "pr": 79,
+      "sha": "ce697839b8445743526a927aa6f0c291830371ab",
+      "branch": "research/ml-c24-n4r-native-reuse-2026-11-25"
+    },
+    {
+      "id": "N5R",
+      "pr": 80,
+      "sha": "53b7eb472a387dffc5e99dc327871da99d897b03",
+      "branch": "research/ml-c24-n5r-generality-2026-11-25"
+    }
+  ],
+  "execution": {
+    "python": "3.13.5",
+    "dependencies": "stdlib + immutable original Python sources",
+    "environment": "local sandbox; git DNS unavailable; authenticated GitHub connector used for exact blob reconstruction and upload",
+    "commands": [
+      "python test_r1.py",
+      "python test_generality.py",
+      "python pinned/test_freedom.py"
+    ],
+    "regenerate_optional": "python make_fixtures.py (not during swap)",
+    "runtime_verification": "LOCAL_EXECUTED; NO_CI_CLAIM"
+  },
+  "artifacts": [
+    {
+      "path": "n1r.py",
+      "sha256": "eba77c2c364ac1218193a629756e09f6088a2b3704f19dd04f19be1eda6544c5",
+      "git_blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "n2r.py",
+      "sha256": "ccc6df8ef437f12f22e82b3853c892661eb56a2ad04730a4897a979eadfe9153",
+      "git_blob": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "n7.py",
+      "sha256": "58ae79d3881fa919ad1929b1ab4cc88ed93ae1177394778a0338ef397ee6da6c",
+      "git_blob": "b9234f4d3f32463cb675d22d5b153a0ab83d7114",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "units_r1.py",
+      "sha256": "0ea3ef48b554f68fe2433470ab8abeaee32aa7bd1860099466f4620343146a78",
+      "git_blob": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "make_fixtures.py",
+      "sha256": "603348fded6b929dbe8ad468c8652e0e0a574c25a58138784e31281747e3ca49",
+      "git_blob": "d4a53d37f9550f419580c4c4b294ca5c6635af9f",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "test_r1.py",
+      "sha256": "c7e7a623218dff47d4b1e7bfa47434446ecec7d2952cad3cd735f93defadcb2b",
+      "git_blob": "efddf5abadfaaad38abc472d81a1366d90a00df7",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "test_generality.py",
+      "sha256": "3eb5c750e123ff58678e2bcecaead6fb50a8af827db5785e0d202554c5513f69",
+      "git_blob": "6b78e03cc668bf685532711be362329e9490057c",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "pinned/chain.py",
+      "sha256": "86737b73d6d8add9f46726704aaa1e716cec5829466b2cc89a8bc7235b5f1de0",
+      "git_blob": "7eb5dfea8343edfec8fd5a58aad77ca9143f878a",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "pinned/csnf_validator.py",
+      "sha256": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1",
+      "git_blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "pinned/profile_engine.py",
+      "sha256": "3e1842f817830a7fd15db0f3ead72339f51a5f5fed28389fae836ba5c9416959",
+      "git_blob": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "pinned/test_freedom.py",
+      "sha256": "b2a239e8f54e929b2e309c7966ca156a5a0dc70299a0b0273ba74df8b0b6104a",
+      "git_blob": "d92787e4b816b950058435d08bc76dd382485b82",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/contract.a.scn",
+      "sha256": "e8210fc996399cdae231738dee9f9a8b4bb4206c89708d8ede5227cfddaf6d7c",
+      "git_blob": "745582de117fe8a2618e5fa3bbad20d28a721b22",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/contract.b.json",
+      "sha256": "3e9437154d48a1ebabcb100ce838b74c4b0be83f6a3fe84221e2cdd0f75c84c5",
+      "git_blob": "cfeebb782da12aea6569ebd446a06c50bc0a57b7",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/data.json",
+      "sha256": "7f792b2062fd977d20ba988158161000dad92b920f758491df31eb0a57d3bcbb",
+      "git_blob": "73b530e84ae6ff167d5b02582d92eefa0a40c923",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/method-begin.json",
+      "sha256": "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d",
+      "git_blob": "5317c1f5ffd38a17b123249941829224d38d7e7c",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/method-end.json",
+      "sha256": "207fb0c06065f637872bcfef0a71ac349969d727b2a28b22e75d64faa2e92e7e",
+      "git_blob": "230624a9104d8fe4d6e70d0267347740278740af",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/source.json",
+      "sha256": "4efbdc91529922cd144f34b5b52e530959c02894780c51ee18f3a3105043ae1c",
+      "git_blob": "002982b1451b0b6a93bd267812697e37c3063c6d",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/study-begin.json",
+      "sha256": "9777adbbd13245ebc4b5b9b78a14d2771609708a2315841f0ef1f8e2d3df0125",
+      "git_blob": "11904adb48d44876b672ac9c310d1854a1053720",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/study-end.json",
+      "sha256": "bed16e1fd2363f30b59589a2559e2f534aa080324d023460e959eba45d3e83f0",
+      "git_blob": "1da2c37f84310796fde76d334d3fd94c14767bf0",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "fixtures/trust.json",
+      "sha256": "c49935ee0bd38ed36149d82f84075acf4bd8912d0199c9343a05b1001776cd25",
+      "git_blob": "cbe4f9af0c83b5a71e486aeb01fe8e31d90a9faa",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "run.log",
+      "sha256": "8c3fc004fff40d1d84852337dd14dbcb8d3e163f36509d5116b12b0a4938bcdb",
+      "git_blob": "6b94c61c843afb7619484e7497edd6cf847d106d",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "freedom.log",
+      "sha256": "de77b0e73fd1b1dd62152575307d9201a40de585ebf5b4b79f671ee66cd1c220",
+      "git_blob": "0cba4926410f722eb04eea57f9ec3b2270ffbad2",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "generality.log",
+      "sha256": "686acedd322d64f2938c86872acd171f609ddea7b1a498449d0f20638f88e378",
+      "git_blob": "78f57a92e77291c004bf0214c0f3b19dceadf5e2",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "native_preflight.log",
+      "sha256": "c46988d3fa1ec4268cad60575e53bc9d755b3510b8aaa90b76330f8656897976",
+      "git_blob": "fe1234b2c1e0f8c1b17b89cc7ed3ae11e27fc165",
+      "local_remote_blob_match": true
+    },
+    {
+      "path": "method_swap_receipts.json",
+      "sha256": "0ca9d7d11956bdf157950580561438327cf82bcafedea5cc8bd32368f5b280dc",
+      "git_blob": "5609379c24a0b498eb920c527ec496fc669d6b3b",
+      "local_remote_blob_match": true
+    }
+  ],
+  "frozen_catalogs": {
+    "golden_cases.json": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+    "p5_negative_case_manifest.json": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+    "k01_k17.csv": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+    "nfr01_nfr18.csv": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+    "slr01_slr42.csv": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+    "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+  },
+  "external": {
+    "mathspec": {
+      "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+      "path": "src/mathspec/_canonical.py",
+      "blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+      "runtime": "NOT_EXECUTED"
+    },
+    "GEMS": {
+      "commit": "c463e30b610443c1f59b20074bb7acffa2844cce",
+      "path": "doc/user-guide/input-files/library.md",
+      "blob": "01a5b0f5555a44fe5cd89e99c23989d6024bdefa",
+      "runtime": "NOT_EXECUTED"
+    },
+    "SysML_KerML": {
+      "reference": "ML-C24-P3",
+      "sysml": "2.0",
+      "kerml": "1.0",
+      "api": "1.0",
+      "runtime": "NOT_EXECUTED"
+    },
+    "ENTSOE": {
+      "document": "4th ENTSO-E Guideline for Cost Benefit Analysis of Grid Development Projects, v4.2",
+      "publication_status": "FINAL_EC_APPROVED",
+      "approved": "2024-03-26",
+      "published": "2024-04-09",
+      "official_notice": "https://www.entsoe.eu/news/2024/04/09/entso-e-publishes-the-final-guideline-for-cost-benefit-analysis-of-grid-development-projects/",
+      "version_evidence": "ENTSO-E Annual Report 2023, section 3.2.3",
+      "sha256": null,
+      "hash_status": "BLOCKED_DOWNLOAD",
+      "implemented_as_method": false
+    }
+  }
+}
