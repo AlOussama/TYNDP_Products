@@ -1,0 +1,19 @@
+Python 3.13.5
+mathspec None
+sysml: executable not on PATH
+kerml: executable not on PATH
+gems: executable not on PATH
+mathspec: executable not on PATH
+julia: executable not on PATH
+openjdk version "21.0.12.1" 2026-08-18
+OpenJDK Runtime Environment (build 21.0.12.1+1-1-deb13u1-Debian)
+OpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-deb13u1-Debian, mixed mode, sharing)
+git ls-remote https://github.com/energy-models/mathspec.git
+fatal: unable to access 'https://github.com/energy-models/mathspec.git/': Could not resolve host: github.com
+exit=128
+git ls-remote https://github.com/AntaresSimulatorTeam/GEMS.git
+fatal: unable to access 'https://github.com/AntaresSimulatorTeam/GEMS.git/': Could not resolve host: github.com
+exit=128
+git ls-remote https://github.com/Systems-Modeling/SysML-v2-Pilot-Implementation.git
+fatal: unable to access 'https://github.com/Systems-Modeling/SysML-v2-Pilot-Implementation.git/': Could not resolve host: github.com
+exit=128

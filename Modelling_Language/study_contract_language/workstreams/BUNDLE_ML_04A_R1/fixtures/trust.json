@@ -1,0 +1,19 @@
+{
+  "source_id": "urn:research:synthetic-source",
+  "source_version": "1",
+  "source_sha256": "4efbdc91529922cd144f34b5b52e530959c02894780c51ee18f3a3105043ae1c",
+  "authenticity": "UNVERIFIED",
+  "publication": "SYNTHETIC",
+  "method_allowlist": [
+    "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d",
+    "207fb0c06065f637872bcfef0a71ac349969d727b2a28b22e75d64faa2e92e7e"
+  ],
+  "ledger_policy_sha256": "4faf58dbbf9b20856b5a36e0539935b4a5363427130516b49f3581e30e5a1ac0",
+  "data_allowlist": [
+    "7f792b2062fd977d20ba988158161000dad92b920f758491df31eb0a57d3bcbb"
+  ],
+  "contract_allowlist": [
+    "60711196b20615fbf004d9c1ffe949725f6a3ef3de38011ebc77a8662aa85731"
+  ],
+  "study_id": "urn:study:paired"
+}

@@ -1,0 +1,13 @@
+Python 3.13.5
+test_RC01_battery (__main__.Freedom.test_RC01_battery) ... ok
+test_RC02_EV (__main__.Freedom.test_RC02_EV) ... ok
+test_RC03_electrolysis (__main__.Freedom.test_RC03_electrolysis) ... ok
+test_RC04_H2 (__main__.Freedom.test_RC04_H2) ... ok
+test_RC05_grid (__main__.Freedom.test_RC05_grid) ... ok
+test_RC06_expansion (__main__.Freedom.test_RC06_expansion) ... ok
+test_RC07_information (__main__.Freedom.test_RC07_information) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.003s
+
+OK

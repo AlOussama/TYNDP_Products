@@ -1,0 +1,11 @@
+Python 3.13.5
+test_RC01_power_energy_fragment (__main__.Fragments.test_RC01_power_energy_fragment) ... ok
+test_RC03_RC04_hydrogen_mass_flow_fragment (__main__.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment) ... ok
+test_RC05_port_connection_fragment (__main__.Fragments.test_RC05_port_connection_fragment) ... ok
+test_RC07_information_fragment (__main__.Fragments.test_RC07_information_fragment) ... ok
+test_RC10_variation_fragment (__main__.Fragments.test_RC10_variation_fragment) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.029s
+
+OK

@@ -1,0 +1,141 @@
+{
+  "id": "urn:method:begin",
+  "version": "1",
+  "schema": "profile-r1",
+  "operator_version": "operators-r1",
+  "source": {
+    "path": "source.json",
+    "sha256": "4efbdc91529922cd144f34b5b52e530959c02894780c51ee18f3a3105043ae1c"
+  },
+  "approval": "RESEARCH_ASSUMPTION",
+  "assumptions": [
+    "Finite synthetic period-count discounting; begin"
+  ],
+  "parameters": {
+    "rate": {
+      "unit": "1",
+      "min": "0",
+      "max": "1"
+    }
+  },
+  "inputs": {
+    "base": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ],
+      "role": "value"
+    },
+    "alternative": {
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ],
+      "role": "value"
+    },
+    "probability": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "domain:scenario"
+      ],
+      "role": "probability"
+    },
+    "duration_weight": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "domain:period"
+      ],
+      "role": "time_weight"
+    },
+    "elapsed": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "domain:period"
+      ],
+      "role": "value"
+    }
+  },
+  "rules": {
+    "delta": {
+      "expr": {
+        "op": "sub",
+        "lhs": {
+          "op": "select_case",
+          "pair": "pair-1",
+          "side": "reference"
+        },
+        "rhs": {
+          "op": "select_case",
+          "pair": "pair-1",
+          "side": "alternative"
+        }
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ]
+    },
+    "discounted": {
+      "expr": {
+        "op": "div",
+        "lhs": {
+          "op": "rule",
+          "id": "delta"
+        },
+        "rhs": {
+          "op": "pow",
+          "lhs": {
+            "op": "add",
+            "lhs": {
+              "op": "literal",
+              "value": "1",
+              "unit": "1"
+            },
+            "rhs": {
+              "op": "param",
+              "id": "rate"
+            }
+          },
+          "rhs": {
+            "op": "input",
+            "id": "elapsed"
+          }
+        }
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ]
+    },
+    "summary": {
+      "expr": {
+        "op": "weighted_sum",
+        "expr": {
+          "op": "weighted_sum",
+          "expr": {
+            "op": "rule",
+            "id": "discounted"
+          },
+          "axis": "domain:period",
+          "weight": "duration_weight"
+        },
+        "axis": "domain:scenario",
+        "weight": "probability"
+      },
+      "unit": "EUR",
+      "basis": "EUR:real:2024",
+      "axes": []
+    }
+  }
+}

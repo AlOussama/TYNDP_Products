@@ -1,0 +1,330 @@
+{
+  "referents": [
+    {
+      "id": "case:base",
+      "kind": "entity",
+      "type": "currency.cost",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ]
+    },
+    {
+      "id": "case:alt",
+      "kind": "entity",
+      "type": "currency.cost",
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "axes": [
+        "domain:scenario",
+        "domain:period"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation:pair",
+      "kind": "counterfactual_of",
+      "from": "case:alt",
+      "to": "case:base",
+      "authority_refs": [
+        "source:research"
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "id": "predicate:comparison",
+      "expr": {
+        "op": "forall",
+        "var": "s",
+        "domain": {
+          "kind": "scenario",
+          "ref": "domain:scenario"
+        },
+        "body": {
+          "op": "forall",
+          "var": "t",
+          "domain": {
+            "kind": "time",
+            "ref": "domain:period"
+          },
+          "body": {
+            "op": "compare",
+            "cmp": "le",
+            "lhs": {
+              "op": "measure",
+              "ref": "case:alt",
+              "indices": [
+                {
+                  "op": "var",
+                  "name": "s"
+                },
+                {
+                  "op": "var",
+                  "name": "t"
+                }
+              ]
+            },
+            "rhs": {
+              "op": "measure",
+              "ref": "case:base",
+              "indices": [
+                {
+                  "op": "var",
+                  "name": "s"
+                },
+                {
+                  "op": "var",
+                  "name": "t"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "id": "assertion:comparison",
+      "modality": "REQUIRED",
+      "semantic_role": "SAFETY_GUARANTEE",
+      "predicate_ref": "predicate:comparison",
+      "scope": "scope:pair",
+      "guard": true,
+      "authority_refs": [
+        "source:research"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [
+    {
+      "id": "observable:base",
+      "subject": "case:base",
+      "projection": {
+        "op": "measure",
+        "ref": "case:base",
+        "indices": [
+          {
+            "op": "var",
+            "name": "s"
+          },
+          {
+            "op": "var",
+            "name": "t"
+          }
+        ]
+      },
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "aggregation": "identity",
+      "bindings": [
+        {
+          "var": "s",
+          "domain": "domain:scenario"
+        },
+        {
+          "var": "t",
+          "domain": "domain:period"
+        }
+      ]
+    },
+    {
+      "id": "observable:alt",
+      "subject": "case:alt",
+      "projection": {
+        "op": "measure",
+        "ref": "case:alt",
+        "indices": [
+          {
+            "op": "var",
+            "name": "s"
+          },
+          {
+            "op": "var",
+            "name": "t"
+          }
+        ]
+      },
+      "quantity": {
+        "carrier": "currency",
+        "kind": "cost",
+        "unit": "EUR",
+        "value": "0",
+        "sign": "NONE",
+        "basis": "EUR:real:2024"
+      },
+      "aggregation": "identity",
+      "bindings": [
+        {
+          "var": "s",
+          "domain": "domain:scenario"
+        },
+        {
+          "var": "t",
+          "domain": "domain:period"
+        }
+      ]
+    }
+  ],
+  "variations": [],
+  "evidences": [
+    {
+      "id": "evidence:comparison",
+      "role": "REQUEST",
+      "subject_ref": "assertion:comparison",
+      "status": "NOT_EXECUTED",
+      "oracle": "research:finite-paired"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "source:research",
+      "role": "SOURCE",
+      "immutable_ref": "urn:research:synthetic-source",
+      "revision": "1",
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "frame": {
+    "id": "study:paired",
+    "schema": "C20-research-r1",
+    "ruleset": "CSNF-R0",
+    "registry": "energy-r1",
+    "question": "Finite synthetic paired observable study",
+    "time": {
+      "id": "study:duration",
+      "duration": "1",
+      "duration_unit": "h"
+    },
+    "domains": [
+      {
+        "id": "domain:scenario",
+        "kind": "scenario",
+        "members": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "domain:period",
+        "kind": "time",
+        "members": [
+          "t0",
+          "t1"
+        ]
+      }
+    ],
+    "scopes": [
+      {
+        "id": "scope:pair",
+        "domains": [
+          "domain:scenario",
+          "domain:period"
+        ]
+      }
+    ],
+    "guards": [
+      {
+        "id": "guard:available",
+        "expr": {
+          "op": "bool3",
+          "value": "TRUE"
+        }
+      }
+    ],
+    "information_sets": [
+      {
+        "id": "info:initial",
+        "time_domain": "domain:period",
+        "stage": "t0",
+        "scenario_domain": "domain:scenario",
+        "partition": [
+          [
+            "s1",
+            "s2"
+          ]
+        ]
+      },
+      {
+        "id": "info:revealed",
+        "time_domain": "domain:period",
+        "stage": "t1",
+        "scenario_domain": "domain:scenario",
+        "partition": [
+          [
+            "s1"
+          ],
+          [
+            "s2"
+          ]
+        ]
+      }
+    ],
+    "data_inputs": [
+      {
+        "id": "input:probability",
+        "role": "probability",
+        "axes": [
+          "domain:scenario"
+        ],
+        "unit": "1",
+        "basis": ""
+      },
+      {
+        "id": "input:duration_weight",
+        "role": "time_weight",
+        "axes": [
+          "domain:period"
+        ],
+        "unit": "1",
+        "basis": ""
+      },
+      {
+        "id": "input:elapsed",
+        "role": "period_count",
+        "axes": [
+          "domain:period"
+        ],
+        "unit": "1",
+        "basis": ""
+      }
+    ],
+    "method_slots": [
+      {
+        "id": "slot:cost",
+        "observables": [
+          "observable:base",
+          "observable:alt"
+        ],
+        "data_inputs": [
+          "input:probability",
+          "input:duration_weight",
+          "input:elapsed"
+        ]
+      }
+    ]
+  }
+}
