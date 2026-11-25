@@ -1,0 +1,162 @@
+{
+  "id": "method:discounted",
+  "version": "1",
+  "registry": "R1-research-0.1",
+  "authority": "OWNER_TBD",
+  "parameters": {
+    "rate": {
+      "min": "0",
+      "max": "1"
+    }
+  },
+  "rules": [
+    {
+      "id": "rule:result",
+      "expr": {
+        "op": "sum",
+        "args": [
+          "t",
+          "axis:t",
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "weight",
+                "args": [
+                  "w:t",
+                  {
+                    "op": "var",
+                    "args": [
+                      "t"
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "sum",
+                "args": [
+                  "s",
+                  "axis:s",
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "weight",
+                        "args": [
+                          "w:p",
+                          {
+                            "op": "var",
+                            "args": [
+                              "s"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "op": "div",
+                        "args": [
+                          {
+                            "op": "sub",
+                            "args": [
+                              {
+                                "op": "at",
+                                "args": [
+                                  "obs:base",
+                                  {
+                                    "op": "var",
+                                    "args": [
+                                      "t"
+                                    ]
+                                  },
+                                  {
+                                    "op": "var",
+                                    "args": [
+                                      "s"
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "op": "at",
+                                "args": [
+                                  "obs:alt",
+                                  {
+                                    "op": "var",
+                                    "args": [
+                                      "t"
+                                    ]
+                                  },
+                                  {
+                                    "op": "var",
+                                    "args": [
+                                      "s"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "op": "pow",
+                            "args": [
+                              {
+                                "op": "add",
+                                "args": [
+                                  {
+                                    "op": "scalar",
+                                    "args": [
+                                      "1"
+                                    ]
+                                  },
+                                  {
+                                    "op": "param",
+                                    "args": [
+                                      "rate"
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "op": "weight",
+                                "args": [
+                                  "w:y",
+                                  {
+                                    "op": "var",
+                                    "args": [
+                                      "t"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "type": [
+        "currency",
+        "cost",
+        "EUR:real:2024",
+        "NONE"
+      ]
+    }
+  ],
+  "ledger": [
+    {
+      "id": "contribution:paired",
+      "atoms": [
+        "impact:operating-cost"
+      ]
+    }
+  ],
+  "expected_atoms": [
+    "impact:operating-cost"
+  ]
+}

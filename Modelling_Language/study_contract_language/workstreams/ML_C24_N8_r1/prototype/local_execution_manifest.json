@@ -1,0 +1,58 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "dependencies": "Python standard library",
+  "execution_date_context": "2026-11-25",
+  "file_identities": {
+    "research_chain.py": {
+      "sha256": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+      "git_blob_sha1": "aff01e234129b15264f20b002b67e367bb333297"
+    },
+    "csnf_validator.py": {
+      "sha256": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1",
+      "git_blob_sha1": "5201bda3c0a611d27e2bc335bbfebc191f252ec7"
+    },
+    "build_fixtures.py": {
+      "sha256": "8d22375eaf64e225b72ab69cf808ebfb1ef9b2d0ebef94ce4232f06487570f7f",
+      "git_blob_sha1": "e5bc60e6270e625d482c02ce69d49cfb7d561058"
+    },
+    "test_research.py": {
+      "sha256": "450af22797257b40de35d48c5f990981cefbc210126762104413a3396c474359",
+      "git_blob_sha1": "ad68ea8857780312a196245a5fb2ae24323b22af"
+    },
+    "contract.a": {
+      "sha256": "40d0d0e7453c623851b25a860cda81331269a3c3b59b121ffe36528ebf7588be",
+      "git_blob_sha1": "dcddb754b2ec51d831037be44f5864f65da17b7a"
+    },
+    "contract.b.json": {
+      "sha256": "6be441c0d2fb194cc4f25746a2dc723979ed04f59a01d5131ace453665932854",
+      "git_blob_sha1": "256ac8e5f3c42677fe0f6051499491fb2e9fce00"
+    },
+    "data.json": {
+      "sha256": "ff3572559403ec9a752092edd74538ad974a42271b2aef5c551f13e671dd164d",
+      "git_blob_sha1": "7260a907ccc65768822d94503a308969d5444c43"
+    },
+    "method-undiscounted.json": {
+      "sha256": "200c697255d8dcef63a8006a8748a2b16da7921dd442736f4f8190194807836b",
+      "git_blob_sha1": "ea298a597def6c1ba520f7a263a85521aeabf266"
+    },
+    "method-discounted.json": {
+      "sha256": "e738fc7bad208d55594e0f78f3ff55aa5a273ef41478703132a6b81e6de98d66",
+      "git_blob_sha1": "36603366cdd335200a565198ba3266f235adbd12"
+    },
+    "study-undiscounted.json": {
+      "sha256": "11b8fe5f172a24ceee010ba2d4814998aa6f8ffe38617f3bf157151379d49415",
+      "git_blob_sha1": "af11e4a549adabeb19ffca9e1cd20283c8ade301"
+    },
+    "study-discounted.json": {
+      "sha256": "f527c6e6f75d172069cbc91b7be5561d490849f3ced86710389cfd7c60e3cf3c",
+      "git_blob_sha1": "7f52a038c2a5eb3a0ef113b67028e60125f5195c"
+    },
+    "run.log": {
+      "sha256": "c8f64f95770228904c664ac20970bf6627b8e7c9aa392f85287d646760288575",
+      "git_blob_sha1": "8b9688d8d9b185a25581676205615084ca13b950"
+    }
+  },
+  "run_id": "95818c172b5047631a5ef3ad54940b6935aa1979e92c4928f3bf16de8583ac7b"
+}

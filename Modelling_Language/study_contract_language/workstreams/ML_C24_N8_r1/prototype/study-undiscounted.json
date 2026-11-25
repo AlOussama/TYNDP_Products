@@ -1,0 +1,11 @@
+{
+  "id": "study-profile:paired",
+  "version": "1",
+  "method_hash": "21f06441b7bd1aaaa95a6c367cd3da8e241b0c0f5a49dc2cc522a1a4040590b8",
+  "data_hash": "b32b54462e0f9420599fb998a6c437bebe7ca95ae232200124ef04c395768341",
+  "contract_semantic": "54deb1a88bf4bc154123be910cd2669a20aa04945730aeac4571de73ae502ca4",
+  "parameters": {
+    "rate": "1/10"
+  },
+  "status": "OWNER_TBD"
+}

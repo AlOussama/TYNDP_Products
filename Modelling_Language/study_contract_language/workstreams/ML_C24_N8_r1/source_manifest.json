@@ -1,0 +1,127 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "verified_repository_pr_head_pins": {
+    "55": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+    "56": "d3d5362231d81a00fd6a19501bc7187f4ad12da5",
+    "57": "b81edeb7551aa786e0d309ccd5bc2271d244e450",
+    "58": "828c87eb100646da6fcce5f8751af5f3f42c7600",
+    "59": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+    "60": "506be1607e1e8a6eb50db2f1317961d5bbaffcce",
+    "61": "01f4eb798aff5391a51aff2365e6841850907464",
+    "62": "0e85be6d9d2a84dffd7bb2685e6548671be3ef17",
+    "63": "4b61addb0e87205e6670e253bd65cb0428e08681",
+    "64": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "65": "63e36207351a23f2290c25ffd865a166e03e1bc8",
+    "66": "fa93f3a995b97da23a3113753b7144e9872c0be3",
+    "67": "81f3b0100653a48abb4b2a273916839afbd969f7",
+    "68": "fc601cd5727f69473623748744e24c06335704c0",
+    "69": "6bcfde7ae16d873af30af924aa563b66661f1c30"
+  },
+  "verification_scope": "15 PR heads checked against supplied source SHAs; selected required files read by immutable ref. Not exhaustive artifact-by-artifact verification.",
+  "integration_base": {
+    "sha": "6bcfde7ae16d873af30af924aa563b66661f1c30",
+    "tree": "60ac908df45dd2af814230a13a8861c83d8c6e9d",
+    "branch": "research/ml-c24-n2-method-profiles-2026-11-24",
+    "rationale": "Pin N2 handoff and frozen artifacts; new child branch, no existing ref modification."
+  },
+  "workstreams": {
+    "N1R": {
+      "pr": 70,
+      "sha": "b7bb1e8dd53d651c6b2cbcdbae85d19a6a005b77",
+      "status": "PARTIAL"
+    },
+    "N2R": {
+      "pr": 71,
+      "sha": "77ce10cc479dd94eed20df80447eef1bfba59551",
+      "status": "PARTIAL"
+    },
+    "N7": {
+      "pr": 72,
+      "sha": "73b63cd0685c23899f3cf8f1a572b8dcbfb4de4d",
+      "status": "PARTIAL"
+    },
+    "N4R": {
+      "pr": 73,
+      "sha": "852fbd98ba6b0d43b280a10c69a470d7e3091af6",
+      "status": "NOT_EXECUTED_NATIVE"
+    },
+    "N5R": {
+      "pr": 74,
+      "sha": "9d9ab9f4261859b024cc9347a2327281ade913a5",
+      "status": "PARTIAL"
+    }
+  },
+  "required_handoff_blobs": {
+    "04B_handoff.md": "220c0a5609a2ed65d73f1214210979faa7f23468",
+    "handoff_04B.json": "4432218e424558a738d9aa7c810f582c8d5debeb",
+    "repository_verification.json": "f90792e91255ad68135c2f9e70bbb25e912ddb57",
+    "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+  },
+  "frozen_blobs": {
+    "golden_cases.json": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+    "p5_negative_case_manifest.json": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+    "slr01_slr42.csv": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+    "nfr01_nfr18.csv": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+    "k01_k17.csv": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a"
+  },
+  "prototype_git_blobs": {
+    "README.md": "8633103e9acaa8e25a130c9180cf1f5787b30727",
+    "research_chain.py": "aff01e234129b15264f20b002b67e367bb333297",
+    "csnf_validator.py": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+    "build_fixtures.py": "e5bc60e6270e625d482c02ce69d49cfb7d561058",
+    "test_research.py": "ad68ea8857780312a196245a5fb2ae24323b22af",
+    "contract.a": "dcddb754b2ec51d831037be44f5864f65da17b7a",
+    "contract.b.json": "256ac8e5f3c42677fe0f6051499491fb2e9fce00",
+    "data.json": "7260a907ccc65768822d94503a308969d5444c43",
+    "method-undiscounted.json": "ea298a597def6c1ba520f7a263a85521aeabf266",
+    "method-discounted.json": "36603366cdd335200a565198ba3266f235adbd12",
+    "study-undiscounted.json": "af11e4a549adabeb19ffca9e1cd20283c8ade301",
+    "study-discounted.json": "7f52a038c2a5eb3a0ef113b67028e60125f5195c",
+    "run.log": "8b9688d8d9b185a25581676205615084ca13b950",
+    "local_execution_manifest.json": "3e9d6cd44a2988a811dea040b395f965f03ca713",
+    "method_swap_runs.json": "5fab532ce8e5fec7999fdea355f0a30fa0046dc0",
+    "evidence_register.csv": "1929e7ac4884423137a13db65ff559a236352e2f"
+  },
+  "local_execution": {
+    "python": "3.13.5",
+    "dependencies": "stdlib only",
+    "command": "python test_research.py",
+    "run_id": "95818c172b5047631a5ef3ad54940b6935aa1979e92c4928f3bf16de8583ac7b",
+    "run_log_sha256": "c8f64f95770228904c664ac20970bf6627b8e7c9aa392f85287d646760288575",
+    "research_chain_sha256": "efba3de1c73dd0030bfa0d8de3de9e19623c32cd4de180548e711d0e07b92e90",
+    "original_c21_sha256": "b59c7f1c4570df2ac3141fb75a1c0d3432d8259ffa3ebee142a2470988f4adc1",
+    "ci": "NOT_EXECUTED"
+  },
+  "external": {
+    "mathspec": {
+      "repo": "energy-models/mathspec",
+      "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+      "commit_verified": true,
+      "native": "NOT_EXECUTED"
+    },
+    "GEMS": {
+      "repo": "AntaresSimulatorTeam/GEMS",
+      "commit": "c463e30b610443c1f59b20074bb7acffa2844cce",
+      "commit_verified": true,
+      "native": "NOT_EXECUTED"
+    },
+    "OMG": {
+      "SysML": "2.0",
+      "KerML": "1.0",
+      "Systems_Modeling_API": "1.0",
+      "basis": "P3 pinned source documents",
+      "native": "NOT_EXECUTED"
+    },
+    "ENTSO_E": {
+      "edition": "4th CBA Guideline",
+      "version": "4.2",
+      "publication_date": "2024-04-09",
+      "EC_approval_date": "2024-03-26",
+      "status": "Final EC-approved publication; not an owner-approved study method",
+      "source": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/news/2024/entso-e_4th_CBA_Guideline_240409.pdf",
+      "sha256": null,
+      "checksum_status": "BLOCKED_BINARY_DOWNLOAD"
+    }
+  }
+}

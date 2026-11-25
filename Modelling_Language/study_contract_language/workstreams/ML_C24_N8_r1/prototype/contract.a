@@ -1,0 +1,18 @@
+contract "study:paired" schema "C20-research-0.1" rules "CSNF-R0" registry "R1-research-0.1" {
+frame "study:paired" {
+ question: "Synthetic paired cost observables";
+ time: { id: "time:base"; duration: "1"; duration_unit: "h"; };
+ domains: [{ id: "axis:t"; kind: time; members: ["y1", "y2"]; }, { id: "axis:s"; kind: scenario; members: ["low", "high"]; }];
+ flags: [{ id: "flag:applicable"; type: Bool3; }];
+ weights: [{ id: "w:p"; axis: "axis:s"; role: probability; }, { id: "w:t"; axis: "axis:t"; role: time_weight; }, { id: "w:y"; axis: "axis:t"; role: elapsed_years; }];
+}
+referent "case:base": entity { quantity: { carrier: currency; kind: cost; unit: EUR; value: "0"; sign: NONE; basis: "EUR:real:2024"; }; }
+referent "case:alt": entity { quantity: { carrier: currency; kind: cost; unit: EUR; value: "0"; sign: NONE; basis: "EUR:real:2024"; }; }
+relation "pair:1": counterfactual_of("case:alt", "case:base") { authority_refs: ["auth:synthetic"]; }
+observe "obs:base" from "case:base" { quantity: { carrier: currency; kind: cost; unit: EUR; value: "0"; sign: NONE; basis: "EUR:real:2024"; }; axes: ["axis:t", "axis:s"]; aggregation: identity; }
+observe "obs:alt" from "case:alt" { quantity: { carrier: currency; kind: cost; unit: EUR; value: "0"; sign: NONE; basis: "EUR:real:2024"; }; axes: ["axis:t", "axis:s"]; aggregation: identity; }
+predicate "pred:bounds" = forall("t", "axis:t", forall("s", "axis:s", le(at("obs:alt", var("t"), var("s")), at("obs:base", var("t"), var("s")))));
+assert "assert:bounds" CONDITIONAL SAFETY_GUARANTEE predicate "pred:bounds" scope "axis:t" guard flag("flag:applicable") authority ["auth:synthetic"] decision OWNER_TBD;
+evidence "ev:bounds": REQUEST for "assert:bounds" { status: NOT_EXECUTED; oracle: "oracle:finite"; }
+authority "auth:synthetic": SOURCE { immutable_ref: "synthetic:paired-cost-v1"; revision: "1"; decision_state: OWNER_TBD; }
+}
