@@ -1,0 +1,325 @@
+{
+  "schema": "snapshot-r1",
+  "engine_data": {
+    "axes": {
+      "domain:scenario": {
+        "role": "scenario",
+        "ids": [
+          "s1",
+          "s2"
+        ]
+      },
+      "domain:period": {
+        "role": "time",
+        "ids": [
+          "t0",
+          "t1"
+        ]
+      }
+    },
+    "series": {
+      "base": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "domain:scenario",
+          "domain:period"
+        ],
+        "role": "value",
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "100"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "100"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "100"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "100"
+          }
+        ]
+      },
+      "alternative": {
+        "unit": "EUR",
+        "basis": "EUR:real:2024",
+        "axes": [
+          "domain:scenario",
+          "domain:period"
+        ],
+        "role": "value",
+        "rows": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "80"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "70"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "90"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "80"
+          }
+        ]
+      },
+      "probability": {
+        "unit": "1",
+        "basis": "",
+        "axes": [
+          "domain:scenario"
+        ],
+        "role": "probability",
+        "rows": [
+          {
+            "key": [
+              "s1"
+            ],
+            "value": "1/2"
+          },
+          {
+            "key": [
+              "s2"
+            ],
+            "value": "1/2"
+          }
+        ]
+      },
+      "duration_weight": {
+        "unit": "1",
+        "basis": "",
+        "axes": [
+          "domain:period"
+        ],
+        "role": "time_weight",
+        "rows": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "1"
+          },
+          {
+            "key": [
+              "t1"
+            ],
+            "value": "1"
+          }
+        ]
+      },
+      "elapsed": {
+        "unit": "1",
+        "basis": "",
+        "axes": [
+          "domain:period"
+        ],
+        "role": "value",
+        "rows": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              "t1"
+            ],
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "pairs": [
+      {
+        "id": "pair-1",
+        "reference": "base",
+        "alternative": "alternative",
+        "reference_snapshot": "2fdc8c1530c598a3b94d092a4c5063b1e8864f1222f88527deaea13f928bed31",
+        "alternative_snapshot": "2fdc8c1530c598a3b94d092a4c5063b1e8864f1222f88527deaea13f928bed31"
+      }
+    ]
+  },
+  "bindings": {
+    "base": {
+      "role": "contribution",
+      "observable": "observable:base",
+      "case": "case:base",
+      "data_ref": ""
+    },
+    "alternative": {
+      "role": "contribution",
+      "observable": "observable:alt",
+      "case": "case:alt",
+      "data_ref": ""
+    },
+    "probability": {
+      "role": "auxiliary",
+      "observable": "",
+      "case": "",
+      "data_ref": "input:probability"
+    },
+    "duration_weight": {
+      "role": "auxiliary",
+      "observable": "",
+      "case": "",
+      "data_ref": "input:duration_weight"
+    },
+    "elapsed": {
+      "role": "auxiliary",
+      "observable": "",
+      "case": "",
+      "data_ref": "input:elapsed"
+    }
+  },
+  "contexts": {
+    "2fdc8c1530c598a3b94d092a4c5063b1e8864f1222f88527deaea13f928bed31": {
+      "id": "context:shared",
+      "load": [
+        "1",
+        "2"
+      ],
+      "scenario_set": [
+        "s1",
+        "s2"
+      ],
+      "period_set": [
+        "t0",
+        "t1"
+      ]
+    }
+  },
+  "cases": {
+    "case:base": {
+      "referent": "case:base",
+      "exogenous_ref": "2fdc8c1530c598a3b94d092a4c5063b1e8864f1222f88527deaea13f928bed31"
+    },
+    "case:alt": {
+      "referent": "case:alt",
+      "exogenous_ref": "2fdc8c1530c598a3b94d092a4c5063b1e8864f1222f88527deaea13f928bed31"
+    }
+  },
+  "contributions": [
+    {
+      "id": "contribution:base0",
+      "series": "base",
+      "key": [
+        "s1",
+        "t0"
+      ],
+      "case": "case:base",
+      "observable": "observable:base",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:base1",
+      "series": "base",
+      "key": [
+        "s1",
+        "t1"
+      ],
+      "case": "case:base",
+      "observable": "observable:base",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:base2",
+      "series": "base",
+      "key": [
+        "s2",
+        "t0"
+      ],
+      "case": "case:base",
+      "observable": "observable:base",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:base3",
+      "series": "base",
+      "key": [
+        "s2",
+        "t1"
+      ],
+      "case": "case:base",
+      "observable": "observable:base",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:alternative0",
+      "series": "alternative",
+      "key": [
+        "s1",
+        "t0"
+      ],
+      "case": "case:alt",
+      "observable": "observable:alt",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:alternative1",
+      "series": "alternative",
+      "key": [
+        "s1",
+        "t1"
+      ],
+      "case": "case:alt",
+      "observable": "observable:alt",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:alternative2",
+      "series": "alternative",
+      "key": [
+        "s2",
+        "t0"
+      ],
+      "case": "case:alt",
+      "observable": "observable:alt",
+      "event": "cost:operation"
+    },
+    {
+      "id": "contribution:alternative3",
+      "series": "alternative",
+      "key": [
+        "s2",
+        "t1"
+      ],
+      "case": "case:alt",
+      "observable": "observable:alt",
+      "event": "cost:operation"
+    }
+  ]
+}

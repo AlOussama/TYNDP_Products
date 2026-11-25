@@ -1,0 +1,41 @@
+{
+  "schema": "study-r1",
+  "id": "urn:study:paired",
+  "version": "begin-1",
+  "method_ref": {
+    "path": "method-begin.json",
+    "sha256": "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d"
+  },
+  "data_ref": {
+    "path": "data.json",
+    "sha256": "7f792b2062fd977d20ba988158161000dad92b920f758491df31eb0a57d3bcbb"
+  },
+  "contract_ref": "60711196b20615fbf004d9c1ffe949725f6a3ef3de38011ebc77a8662aa85731",
+  "parameters": {
+    "rate": "1/10"
+  },
+  "status": "OWNER_TBD",
+  "slot": "slot:cost",
+  "ledger_policy": {
+    "schema": "ledger-policy-r1",
+    "id": "policy:disjoint",
+    "version": "1",
+    "rules": {
+      "delta": "DISJOINT",
+      "discounted": "DISJOINT",
+      "summary": "DISJOINT"
+    },
+    "expected": {
+      "summary": [
+        "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17",
+        "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361",
+        "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b",
+        "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8",
+        "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6",
+        "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21",
+        "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640",
+        "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e"
+      ]
+    }
+  }
+}
