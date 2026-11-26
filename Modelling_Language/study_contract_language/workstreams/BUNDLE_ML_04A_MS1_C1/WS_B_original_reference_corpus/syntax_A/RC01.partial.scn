@@ -1,0 +1,9 @@
+contract "study:RC01" schema "C20-research-r1" rules "CSNF-R0" registry "energy-r1" {
+frame "study:RC01" { question: "RC01 signed grid exchange fragment"; time: { id: "duration:t0"; duration: "0.5"; duration_unit: "h"; }; domains: [{ id: "domain:t"; kind: "time"; members: ["t0"]; }]; scopes: [{ id: "scope:t"; domains: ["domain:t"]; }]; guards: []; information_sets: []; data_inputs: []; method_slots: []; }
+referent "ref:p": entity { type: "electricity.active_power"; quantity: { carrier: "electricity"; kind: "active_power"; unit: "MW"; value: "-2"; sign: "INJECTION"; }; axes: ["domain:t"]; }
+referent "ref:e": entity { type: "electricity.energy"; quantity: { carrier: "electricity"; kind: "energy"; unit: "MWh"; value: "-1"; sign: "INJECTION"; }; axes: ["domain:t"]; }
+predicate "pred:exchange" = ast({ op: "forall"; var: "t"; domain: { kind: "time"; ref: "domain:t"; }; body: { op: "compare"; cmp: "eq"; lhs: { op: "integrate"; duration_ref: "duration:t0"; expr: { op: "measure"; ref: "ref:p"; indices: [{ op: "var"; name: "t"; }]; }; }; rhs: { op: "measure"; ref: "ref:e"; indices: [{ op: "var"; name: "t"; }]; }; }; });
+assert "assert:exchange" REQUIRED SAFETY_GUARANTEE predicate "pred:exchange" scope "scope:t" guard true authority ["source:rc01"] decision OWNER_TBD;
+authority "source:rc01": SOURCE { immutable_ref: "git:2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"; revision: "c1-research-0.1"; decision_state: "OWNER_TBD"; }
+evidence "evidence:exchange": REQUEST for "assert:exchange" { status: "NOT_EXECUTED"; oracle: "research:RC01-partial"; }
+}

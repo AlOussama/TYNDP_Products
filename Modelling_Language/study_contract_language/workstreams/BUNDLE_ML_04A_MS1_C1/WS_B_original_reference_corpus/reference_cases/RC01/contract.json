@@ -1,0 +1,111 @@
+{
+  "schema": "c1-original-scientific-fixture-0.1",
+  "id": "RC01",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "source": {
+    "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "ms1_draft_blob": "9c908d9e3de1699306653aa80606d489a94b15ba"
+  },
+  "original": {
+    "id": "RC01",
+    "name": "Batteriespeicher",
+    "contract": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal",
+    "variants": "SOC-state against MWh-state",
+    "positive": "2 MW charging for 0.5 h = 1 MWh grid intake before efficiency",
+    "negative": "2 MWh inferred or missing terminal owner rule",
+    "rewrite": "R06/R07; audit intact",
+    "comparison": "E5 conditional; E4 not assumed",
+    "slr": "SLR-12–26",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "study_frame": {
+    "id": "study:RC01",
+    "question": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal",
+    "domains": {
+      "interval": [
+        "t0"
+      ],
+      "component": [
+        "battery"
+      ],
+      "bus": [
+        "BUS_A"
+      ]
+    },
+    "authority": "OWNER_TBD",
+    "method": "method:RC01:synthetic-0.1",
+    "study_profile": "profile:RC01:synthetic-0.1",
+    "evidence": "REQUEST_NOT_EXECUTED"
+  },
+  "typed_symbols": "P[t]: electricity injection MW; dt[t]: h >0; E[t]: MWh; eta: dimensionless; L[t]: MWh; Emax: MWh",
+  "component_interfaces": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal",
+  "assumptions": "t0: P=-2 MW, dt=1/2 h, eta=9/10, E0=1 MWh, Emax=4 MWh; no discharge; conversion loss=1/10 MWh; terminal OWNER_TBD",
+  "external_obligations": "-3<=P[t]<=4; I=-P*dt on charging support; E1=E0+eta*I; 0<=E1<=Emax; terminal only with authorized rule",
+  "observables": "P, I, E, loss, initial/terminal policy",
+  "synthetic_data": {
+    "domains": {
+      "interval": [
+        "t0"
+      ],
+      "component": [
+        "battery"
+      ],
+      "bus": [
+        "BUS_A"
+      ]
+    },
+    "inputs": {
+      "p": "-2",
+      "dt": "1/2",
+      "eta": "9/10",
+      "initial": "1",
+      "capacity": "4",
+      "min_p": "-3",
+      "max_p": "4"
+    },
+    "units": {
+      "p": "MW",
+      "dt": "h",
+      "eta": "1",
+      "initial": "MWh",
+      "capacity": "MWh"
+    },
+    "observed": {
+      "intake": "1",
+      "final": "19/10",
+      "loss": "1/10",
+      "terminal_policy": "OWNER_TBD"
+    },
+    "expected": {
+      "intake": "1",
+      "final": "19/10",
+      "loss": "1/10"
+    },
+    "variants": [
+      {
+        "id": "SOC",
+        "projection": "E = SOC * Emax",
+        "internal_final": "19/40"
+      },
+      {
+        "id": "ENERGY",
+        "projection": "E = internal energy",
+        "internal_final": "19/10"
+      }
+    ],
+    "limit": "Single interval, no discharge; terminal obligation only if approved, not assumed."
+  },
+  "analytic_derivation": "I=1 MWh, E1=19/10 MWh, loss=1/10 MWh. Mutation I=2 fails energy integration; missing terminal policy remains BLOCKED if applicable.",
+  "proof_obligation": "E5 conditional; E4 not assumed",
+  "expected_original": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+  "negative_original": "E1_DIFFERENT_OR_BLOCKED",
+  "expression_gap": "signed conditional energy ledger, efficiency and terminal authority",
+  "status": "STRUCTURED_SYNTHETIC_REFERENCE_CANDIDATE_NOT_FULL_CONTRACT"
+}

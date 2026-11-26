@@ -1,0 +1,30 @@
+{
+  "schema": "c1-c23-derived-mutation-0.1",
+  "original": {
+    "id": "MUT-13",
+    "rc": "RC10",
+    "mutation": "evidence_promotion",
+    "expected": [
+      "FAIL_STATIC"
+    ],
+    "executed": false
+  },
+  "source_blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+  "fixture": "reference_cases/RC10/contract.json",
+  "edits": [
+    {
+      "path": [
+        "synthetic_data",
+        "observed",
+        "evidence_status"
+      ],
+      "value": "PASS"
+    }
+  ],
+  "derived_diagnostic": "EVIDENCE_PROMOTION",
+  "original_expected": [
+    "FAIL_STATIC"
+  ],
+  "stage": "INDEPENDENT_SYNTHETIC_ORACLE_ONLY",
+  "note": "Derived finite rejection is not the historical E1/AUDIT verdict. Alternative variants of ambiguous original descriptions remain scope for complete materialisation."
+}

@@ -1,0 +1,41 @@
+{
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "ports": [
+      "electric",
+      "H2"
+    ]
+  },
+  "inputs": {
+    "power": "30",
+    "lhv": "1/30",
+    "eta_min": "3/5",
+    "eta_max": "4/5",
+    "basis": "LHV"
+  },
+  "units": {
+    "power": "MW electricity consumption",
+    "lhv": "MWh_H2_LHV/kg",
+    "flow": "kg/h"
+  },
+  "observed": {
+    "flow": "600"
+  },
+  "expected": {
+    "hydrogen_power": "20",
+    "eta": "2/3"
+  },
+  "variants": [
+    {
+      "id": "constant_eta",
+      "projection": "m * LHV = P * eta"
+    },
+    {
+      "id": "piecewise",
+      "projection": "Segment weights produce observed P and m"
+    }
+  ],
+  "limit": "One operating point; no general nonlinear feasible-set equivalence."
+}

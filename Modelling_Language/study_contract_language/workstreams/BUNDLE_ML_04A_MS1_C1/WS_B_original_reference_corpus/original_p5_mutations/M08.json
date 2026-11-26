@@ -1,0 +1,13 @@
+{
+  "schema": "c1-p5-original-recipe-0.1",
+  "original": {
+    "id": "M08",
+    "expected_diagnostic": "COST_PROXY_MISLABELED_AS_SEW",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  "source_commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+  "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+  "original_recipe": "[\"M08\",\"COST_PROXY_MISLABELED_AS_SEW\",c=>{c.observable.value_kind=\"B1_SEW\";c.observable.cba_b1_claim=true;}],",
+  "materialization": "makeFixture -> deep clone -> original mutations[i] edit function; use materialize_p5.js",
+  "stage": "ORIGINAL_SYNTHETIC_MICRO_ORACLE_NOT_CONTRACT"
+}

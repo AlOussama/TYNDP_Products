@@ -1,0 +1,65 @@
+{
+  "domains": {
+    "scenario": [
+      "s1",
+      "s2"
+    ],
+    "stage": [
+      "t0",
+      "t1"
+    ]
+  },
+  "inputs": {
+    "partitions": [
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    ],
+    "stage_order": [
+      "t0",
+      "t1"
+    ],
+    "guard_present": true
+  },
+  "units": {
+    "decision": "MW"
+  },
+  "observed": {
+    "decision": [
+      [
+        "10",
+        "10"
+      ],
+      [
+        "12",
+        "8"
+      ]
+    ]
+  },
+  "expected": {
+    "pre_revelation_equal": true,
+    "after_revelation_may_differ": true
+  },
+  "variants": [
+    {
+      "id": "shared_policy",
+      "projection": "one t0 variable for information set"
+    },
+    {
+      "id": "indexed",
+      "projection": "scenario-indexed decision with equality on information class"
+    }
+  ],
+  "limit": "Only two stages and two scenarios; full policy conformance not proved."
+}

@@ -1,0 +1,92 @@
+{
+  "status": "PARTIAL",
+  "full_paths": 116,
+  "blockers": [
+    {
+      "id": "RC01",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "signed conditional energy ledger, efficiency and terminal authority",
+      "affected_original_slr": "SLR-12–26",
+      "example": "2 MWh inferred or missing terminal owner rule",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC02",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+      "affected_original_slr": "SLR-12–24",
+      "example": "aggregate MWh right but EV2 misses departure",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC03",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "affected_original_slr": "SLR-12–20,35",
+      "example": "MW compared to kg/h or missing heating value",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC04",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "mass inventory recursion, loss and heating-value basis",
+      "affected_original_slr": "SLR-12–20,35",
+      "example": "kg treated as MWh or HHV/LHV substituted",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC05",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "topology-aware incidence/cycle relations and KVL",
+      "affected_original_slr": "SLR-08,13–20,25",
+      "example": "circulating flow satisfies KCL but violates KVL",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC06",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "integer domain, lead time, investment option and cost obligations",
+      "affected_original_slr": "SLR-08,21–26",
+      "example": "0.3 module accepted as physically buildable",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC07",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "affected_original_slr": "SLR-04,08,38",
+      "example": "future weather revelation changes first-stage choice",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC08",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "weighted cost contribution uniqueness, price basis and typed method output",
+      "affected_original_slr": "SLR-09,29,31,40",
+      "example": "omits time weight or double-counts CAPEX",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC09",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "counterfactual exogeneity, method context and authority",
+      "affected_original_slr": "SLR-03,11,27–31,36",
+      "example": "counterfactual demand altered without approved scope",
+      "target": "C2/C3"
+    },
+    {
+      "id": "RC10",
+      "category": "FORMAL_CONTRACT_SEMANTIC_OR_IMPLEMENTATION_GAP",
+      "gap": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "affected_original_slr": "SLR-21–34,41–42",
+      "example": "unsupported E4 assertion from equal objective or concealed extra assumption",
+      "target": "C2/C3"
+    }
+  ],
+  "additional": [
+    "No complete A/B authoring for all identities; RC01 only signed grid exchange fragment.",
+    "Historical C23 alternative verdicts preserved but some alternative error descriptions need additional materialisation.",
+    "P5 executable original recipes exist; generated JSON fixtures only after script runs.",
+    "Proofs of universal behavior and model equivalence not supplied."
+  ]
+}

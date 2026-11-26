@@ -1,0 +1,19 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC01:synthetic-0.1",
+  "method_ref": "method:RC01:synthetic-0.1",
+  "data_ref": "synthetic_data/RC01.json",
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "component": [
+      "battery"
+    ],
+    "bus": [
+      "BUS_A"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

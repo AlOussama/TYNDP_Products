@@ -1,0 +1,17 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC06:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "n belongs to admissible integer choices; installed=n*module_capacity only after lead time; cost=n*capex",
+  "parameters": {
+    "module_capacity": "100",
+    "capex": "100",
+    "invest_time": 0,
+    "lead_time": 2,
+    "max_modules": 3,
+    "price_basis": "EUR:real:2025"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

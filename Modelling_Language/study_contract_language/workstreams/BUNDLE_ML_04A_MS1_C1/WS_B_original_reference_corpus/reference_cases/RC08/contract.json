@@ -1,0 +1,119 @@
+{
+  "schema": "c1-original-scientific-fixture-0.1",
+  "id": "RC08",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "source": {
+    "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "ms1_draft_blob": "a7c07022c244559a81298508f920741e7064a205"
+  },
+  "original": {
+    "id": "RC08",
+    "name": "KPI / Kosten",
+    "contract": "cost inventory, currency/price year, discount, scenario/time weights and selection",
+    "variants": "in-objective decomposition versus postprocess ledger",
+    "positive": "same total after exact unit+weight reconciliation",
+    "negative": "omits time weight or double-counts CAPEX",
+    "rewrite": "R12 only within same price/basis",
+    "comparison": "E3 sampled values possible; E4 not inferred",
+    "slr": "SLR-09,29,31,40",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "study_frame": {
+    "id": "study:RC08",
+    "question": "cost inventory, currency/price year, discount, scenario/time weights and selection",
+    "domains": {
+      "interval": [
+        "t0",
+        "t1"
+      ],
+      "scenario": [
+        "s1"
+      ],
+      "event": [
+        "capex0",
+        "opex0",
+        "opex1"
+      ]
+    },
+    "authority": "OWNER_TBD",
+    "method": "method:RC08:synthetic-0.1",
+    "study_profile": "profile:RC08:synthetic-0.1",
+    "evidence": "REQUEST_NOT_EXECUTED"
+  },
+  "typed_symbols": "opex EUR/h; duration h; scenario probability dimensionless; capex EUR; price basis EUR:real:2025; year index; discount policy",
+  "component_interfaces": "cost inventory, currency/price year, discount, scenario/time weights and selection",
+  "assumptions": "opex=[20,40] EUR/h, dt=[1/2,3/2] h, one scenario p=1; capex 100 EUR at time zero; discount factor 1 synthetic",
+  "external_obligations": "KPI=sum_s p_s sum_t dt_t*opex_s,t + one capex contribution; apply authorized discount factors at designated times; unique underlying contribution support",
+  "observables": "typed KPI output, cost items, weights, selection, contribution ledger",
+  "synthetic_data": {
+    "domains": {
+      "interval": [
+        "t0",
+        "t1"
+      ],
+      "scenario": [
+        "s1"
+      ],
+      "event": [
+        "capex0",
+        "opex0",
+        "opex1"
+      ]
+    },
+    "inputs": {
+      "opex": [
+        "20",
+        "40"
+      ],
+      "duration": [
+        "1/2",
+        "3/2"
+      ],
+      "probability": "1",
+      "capex": "100",
+      "discount": "1",
+      "basis": "EUR:real:2025"
+    },
+    "units": {
+      "opex": "EUR/h",
+      "duration": "h",
+      "capex": "EUR",
+      "kpi": "EUR"
+    },
+    "observed": {
+      "kpi": "170",
+      "contributions": [
+        "capex0",
+        "opex0",
+        "opex1"
+      ]
+    },
+    "expected": {
+      "kpi": "170"
+    },
+    "variants": [
+      {
+        "id": "objective_ledger",
+        "projection": "Component cost decomposition"
+      },
+      {
+        "id": "postprocess",
+        "projection": "Independent cost ledger over observable flows"
+      }
+    ],
+    "limit": "Synthetic identity discount, unique support; no approved KPI policy."
+  },
+  "analytic_derivation": "10+60+100=170 EUR. Omitting dt gives 160 (dimensionally wrong); adding same capex again gives 270.",
+  "proof_obligation": "E3 sampled values possible; E4 not inferred",
+  "expected_original": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+  "negative_original": "E1_DIFFERENT_OR_BLOCKED",
+  "expression_gap": "weighted cost contribution uniqueness, price basis and typed method output",
+  "status": "STRUCTURED_SYNTHETIC_REFERENCE_CANDIDATE_NOT_FULL_CONTRACT"
+}
