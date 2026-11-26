@@ -1,0 +1,30 @@
+{
+  "schema": "c1-c23-derived-mutation-0.1",
+  "original": {
+    "id": "MUT-16",
+    "rc": "RC03",
+    "mutation": "carrier_dimension",
+    "expected": [
+      "FAIL_STATIC"
+    ],
+    "executed": false
+  },
+  "source_blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+  "fixture": "reference_cases/RC03/contract.json",
+  "edits": [
+    {
+      "path": [
+        "synthetic_data",
+        "units",
+        "flow"
+      ],
+      "value": "MW"
+    }
+  ],
+  "derived_diagnostic": "CARRIER_UNIT",
+  "original_expected": [
+    "FAIL_STATIC"
+  ],
+  "stage": "INDEPENDENT_SYNTHETIC_ORACLE_ONLY",
+  "note": "Derived finite rejection is not the historical E1/AUDIT verdict. Alternative variants of ambiguous original descriptions remain scope for complete materialisation."
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "c1-runner-protocol-0.1",
+  "status": "CANDIDATE",
+  "architecture": [
+    "M0",
+    "M2",
+    "M3"
+  ],
+  "required_full_chain_receipt": [
+    "original_id",
+    "syntax",
+    "source_commit",
+    "fixture_sha256",
+    "architecture",
+    "stage",
+    "command",
+    "environment",
+    "expected",
+    "actual",
+    "diagnostics",
+    "evidence_id",
+    "scope"
+  ],
+  "status_classes": [
+    "MATERIALISED",
+    "MATERIALISATION_BLOCKED",
+    "READY_FOR_EXECUTION",
+    "NOT_EXECUTED",
+    "UNSUPPORTED",
+    "EXECUTED_PARTIAL",
+    "PASS",
+    "FAIL",
+    "BLOCKED",
+    "NOT_APPLICABLE"
+  ],
+  "policy": "No full path pass without complete source, validated independent representation and all applicable stages; no removal from denominator. Adapter protocol defined, complete adapters not implemented."
+}

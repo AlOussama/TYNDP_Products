@@ -1,0 +1,81 @@
+{
+  "domains": {
+    "bus": [
+      "b1",
+      "b2",
+      "b3"
+    ],
+    "branch": [
+      "e12",
+      "e23",
+      "e31"
+    ]
+  },
+  "inputs": {
+    "orientation": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "reactance": [
+      "1",
+      "1",
+      "1"
+    ],
+    "injection": [
+      "5",
+      "-1",
+      "-4"
+    ],
+    "cycle": [
+      1,
+      1,
+      1
+    ]
+  },
+  "units": {
+    "flow": "MW",
+    "injection": "MW",
+    "reactance": "synthetic angle/MW"
+  },
+  "observed": {
+    "flow": [
+      "2",
+      "1",
+      "-3"
+    ]
+  },
+  "expected": {
+    "nodal": [
+      "5",
+      "-1",
+      "-4"
+    ],
+    "cycle": "0"
+  },
+  "variants": [
+    {
+      "id": "angles",
+      "projection": "theta_from-theta_to=x*f",
+      "theta": [
+        "2",
+        "0",
+        "-1"
+      ]
+    },
+    {
+      "id": "cycle",
+      "projection": "A*f=p and C*diag(x)*f=0"
+    }
+  ],
+  "limit": "Connected lossless triangular DC fixture; no AC or arbitrary topology proof."
+}

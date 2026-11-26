@@ -1,0 +1,21 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC06:synthetic-0.1",
+  "method_ref": "method:RC06:synthetic-0.1",
+  "data_ref": "synthetic_data/RC06.json",
+  "domains": {
+    "site": [
+      "s"
+    ],
+    "stage": [
+      0,
+      1,
+      2
+    ],
+    "option": [
+      "module"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

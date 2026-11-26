@@ -1,0 +1,18 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC07:synthetic-0.1",
+  "method_ref": "method:RC07:synthetic-0.1",
+  "data_ref": "synthetic_data/RC07.json",
+  "domains": {
+    "scenario": [
+      "s1",
+      "s2"
+    ],
+    "stage": [
+      "t0",
+      "t1"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

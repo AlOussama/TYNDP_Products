@@ -1,0 +1,489 @@
+{
+  "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+  "ci_run": 45887494752,
+  "job": 140141740756,
+  "conclusion": "success",
+  "derived": [
+    {
+      "id": "RC01",
+      "family": "RC",
+      "fixture_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "intake": "1",
+        "final": "19/10",
+        "loss": "1/10"
+      },
+      "actual": {
+        "intake": "1",
+        "final": "19/10",
+        "loss": "1/10"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC02",
+      "family": "RC",
+      "fixture_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "individual": [
+          "4",
+          "6"
+        ],
+        "fleet": "10"
+      },
+      "actual": {
+        "individual": [
+          "4",
+          "6"
+        ],
+        "fleet": "10"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC03",
+      "family": "RC",
+      "fixture_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "hydrogen_power": "20",
+        "eta": "2/3"
+      },
+      "actual": {
+        "hydrogen_power": "20",
+        "eta": "2/3"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC04",
+      "family": "RC",
+      "fixture_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "final": "109",
+        "converted_energy": "109/30"
+      },
+      "actual": {
+        "final": "109",
+        "converted_energy": "109/30"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC05",
+      "family": "RC",
+      "fixture_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "nodal": [
+          "5",
+          "-1",
+          "-4"
+        ],
+        "cycle": "0"
+      },
+      "actual": {
+        "nodal": [
+          "5",
+          "-1",
+          "-4"
+        ],
+        "cycle": "0"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC06",
+      "family": "RC",
+      "fixture_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "modules": "1",
+        "commission": 2,
+        "capacity": [
+          "0",
+          "0",
+          "100"
+        ],
+        "cost": "100"
+      },
+      "actual": {
+        "modules": "1",
+        "commission": 2,
+        "capacity": [
+          "0",
+          "0",
+          "100"
+        ],
+        "cost": "100"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC07",
+      "family": "RC",
+      "fixture_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "pre_revelation_equal": true,
+        "after_revelation_may_differ": true
+      },
+      "actual": {
+        "pre_revelation_equal": true,
+        "after_revelation_may_differ": true
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC08",
+      "family": "RC",
+      "fixture_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "kpi": "170"
+      },
+      "actual": {
+        "kpi": "170"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC09",
+      "family": "RC",
+      "fixture_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "annual": "120",
+        "discounted": "1200/11",
+        "owner": "OWNER_TBD"
+      },
+      "actual": {
+        "annual": "120",
+        "discounted": "1200/11",
+        "owner": "OWNER_TBD"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "RC10",
+      "family": "RC",
+      "fixture_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": {
+        "finite_agreement": true,
+        "e4": "NOT_PROVED",
+        "e5": "NOT_ASSESSED"
+      },
+      "actual": {
+        "finite_agreement": true,
+        "e4": "NOT_PROVED",
+        "e5": "NOT_ASSESSED"
+      },
+      "status": "PASS",
+      "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "scope": "No full contract verdict"
+    },
+    {
+      "id": "MUT-01",
+      "family": "C23",
+      "fixture_sha256": "16782038acd57bf99e6484f2b3bdfbf6ddf0f6cf5a25b84599f263cb77dc3100",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "ENERGY_LEDGER",
+      "actual": "ENERGY_LEDGER",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-02",
+      "family": "C23",
+      "fixture_sha256": "18858877e5d6cd3ae972df23d4b53a601dcef380e0c52d8a15ceb09d95655b56",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "EV_SERVICE",
+      "actual": "EV_SERVICE",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-03",
+      "family": "C23",
+      "fixture_sha256": "75325d1e74c01452dda69911d36ef476ca68db27befa6acf62e6d828ae7606e4",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "HEATING_VALUE_BASIS",
+      "actual": "HEATING_VALUE_BASIS",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-04",
+      "family": "C23",
+      "fixture_sha256": "83112aacb1caa04c7b0c465343feebff75294e6c5cd54115f910689bae6af59f",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "MASS_UNIT",
+      "actual": "MASS_UNIT",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-05",
+      "family": "C23",
+      "fixture_sha256": "c09b2436ad96936cc5ebec2341ffb26af5194ec240db56a1db57c681ce124029",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "KVL",
+      "actual": "KVL",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-06",
+      "family": "C23",
+      "fixture_sha256": "ff67e69cb330c821c14b9501f1e09cc80a3e94024be3389498ac01c8137449e0",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "INTEGER_MODULE",
+      "actual": "INTEGER_MODULE",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-07",
+      "family": "C23",
+      "fixture_sha256": "dd02b230427899cfc022104ca42bb05712a24fbd33f20af657df57182f6627d5",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "NONANTICIPATIVITY",
+      "actual": "NONANTICIPATIVITY",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-08",
+      "family": "C23",
+      "fixture_sha256": "034f43be1bbc6bb1ba8c0feed4a5bcd914c27b5e9b326cf52f97f26ea1233ba2",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "DUPLICATE_CONTRIBUTION",
+      "actual": "DUPLICATE_CONTRIBUTION",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-09",
+      "family": "C23",
+      "fixture_sha256": "3c92b13115667c54d343950a76cc1b4d1a1b7af84f9644d82e02b7c06bff2004",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "EXOGENEITY",
+      "actual": "EXOGENEITY",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-10",
+      "family": "C23",
+      "fixture_sha256": "a25abc463d0f61ffea1fa609b94ab2ae94c8f92609a6ddbe1f90c970bb00f734",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "E4_UNSUPPORTED",
+      "actual": "E4_UNSUPPORTED",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-11",
+      "family": "C23",
+      "fixture_sha256": "e72fbae9f1e27480cccf02809faded72be699d82772fc7109b664ff3f2ae0264",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "AUTHORITY_DRIFT",
+      "actual": "AUTHORITY_DRIFT",
+      "status": "PASS",
+      "original_expected": [
+        "E1_DIFFERENT"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-12",
+      "family": "C23",
+      "fixture_sha256": "8fa66cb8b95b477ab6063ffce7e03581f92a854b2110088015e3436f553b6113",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "SOURCE_LOSS",
+      "actual": "SOURCE_LOSS",
+      "status": "PASS",
+      "original_expected": [
+        "AUDIT_LOSS"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-13",
+      "family": "C23",
+      "fixture_sha256": "c40c4ee42e476f55bba189c18876e5a5f96394c6af3fc4ddc2f8736aa33cdec0",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "EVIDENCE_PROMOTION",
+      "actual": "EVIDENCE_PROMOTION",
+      "status": "PASS",
+      "original_expected": [
+        "FAIL_STATIC"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-14",
+      "family": "C23",
+      "fixture_sha256": "6418bcdd36cabec4caf52a05180ff50ed1af5146f0f39094e83cdce6fbe52504",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "AMBIGUOUS_ALIAS",
+      "actual": "AMBIGUOUS_ALIAS",
+      "status": "PASS",
+      "original_expected": [
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-15",
+      "family": "C23",
+      "fixture_sha256": "540b257dd672f93be6cc24e405368be595ea0f41cf8dc093fa1f3d4a8b6ffbb4",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "GUARD_REQUIRED",
+      "actual": "GUARD_REQUIRED",
+      "status": "PASS",
+      "original_expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-16",
+      "family": "C23",
+      "fixture_sha256": "e5acbbb0907ad9c796d2c2e0892d51b5a2bb7e770c9957fee85ebb0bfb2cafc9",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "CARRIER_UNIT",
+      "actual": "CARRIER_UNIT",
+      "status": "PASS",
+      "original_expected": [
+        "FAIL_STATIC"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-17",
+      "family": "C23",
+      "fixture_sha256": "668fff2ff875a766145f20cfb8207792290492205b9cb465d8710f1f52f52cae",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "DURATION_REQUIRED",
+      "actual": "DURATION_REQUIRED",
+      "status": "PASS",
+      "original_expected": [
+        "BLOCKED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    },
+    {
+      "id": "MUT-18",
+      "family": "C23",
+      "fixture_sha256": "a7cbf875b739ba89128ba65a5ecb5ad2a123ad016b8aee48981ea0f266f9a176",
+      "stage": "DERIVED_FINITE_ORACLE",
+      "expected": "KVL",
+      "actual": "KVL",
+      "status": "PASS",
+      "original_expected": [
+        "E4_NOT_PROVED"
+      ],
+      "scope": "Original E1/AUDIT verdict NOT evaluated"
+    }
+  ],
+  "partial": [
+    {
+      "id": "RC01",
+      "syntax": "A",
+      "architecture": "M0",
+      "stage": "STATIC_FRAGMENT_ONLY",
+      "fixture_sha256": "c8906ecf34e397f021f91975e24fea2bfc476a17bfba64f5e3bad7ad6c1a0bda",
+      "expected": "BLOCKED_OWNER_TBD",
+      "actual": "BLOCKED",
+      "blocked": [
+        "OWNER_UNRESOLVED"
+      ],
+      "semantic_digest": "4524843b6e504a3f0dbf31b218ea3c4e3406e607b23febe41c19512826a05340",
+      "audit_digest": "fc9e6cf442e3200e70b97b7b1f7817c4cad18f79930eeaacc2b334bdbb4c73c2",
+      "status": "EXECUTED_PARTIAL"
+    },
+    {
+      "id": "RC01",
+      "syntax": "B",
+      "architecture": "M0",
+      "stage": "STATIC_FRAGMENT_ONLY",
+      "fixture_sha256": "17cbd6bd1109785d64869304a6458818fdbd61d1deb2ac733e271f49589f1dcf",
+      "expected": "BLOCKED_OWNER_TBD",
+      "actual": "BLOCKED",
+      "blocked": [
+        "OWNER_UNRESOLVED"
+      ],
+      "semantic_digest": "4524843b6e504a3f0dbf31b218ea3c4e3406e607b23febe41c19512826a05340",
+      "audit_digest": "fc9e6cf442e3200e70b97b7b1f7817c4cad18f79930eeaacc2b334bdbb4c73c2",
+      "status": "EXECUTED_PARTIAL"
+    }
+  ],
+  "original_paths": 116,
+  "full_executed": 0,
+  "full_passed": 0,
+  "p5_materialization": "Original recipes executed; generated fixture files in runner workspace not retained as artifact. Reproducible script and original blob retained."
+}

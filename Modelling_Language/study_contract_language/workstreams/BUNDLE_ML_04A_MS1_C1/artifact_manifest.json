@@ -1,0 +1,726 @@
+{
+  "schema": "c1-artifact-manifest-0.1",
+  "source_artifacts": [
+    {
+      "path": ".github/workflows/research-ms1-c1-a.yml",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/WS_A_critical_review.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/WS_A_interface_handoff.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/canonical_csnf_integration_specification.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/canonical_roundtrip_report.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/extension_necessity_register.csv",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/index_relation_temporal_semantics.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/m2_prototype/README.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/m3_prototype/README.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/mathematical_foundation_summary.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/mathematical_integration_interface.json",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/mathematical_leaf_schema.json",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/native_adapter/foundation.py",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/numeric_semantics.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_quantity_type_system.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/public_api_compatibility_report.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/redundancy_candidate_register.csv",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/static_validator/README.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/subset_semantic_specification.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/symbol_role_specification.md",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/tests/test_foundation.py",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/validated_mathspec_subset.yaml",
+      "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "source_pr": 84
+    },
+    {
+      "path": ".github/workflows/research-ms1-c1-b.yml",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/README.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/WS_B_critical_review.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/WS_B_handoff.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/baseline_execution_report.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/expected_diagnostics_register.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/ms1_original_regression_matrix.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/materialisation_blockers.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC01.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC02.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC03.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC04.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC05.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC06.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC07.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC08.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC09.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/method_profiles/RC10.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/oracle_derivation_register.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-11.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-12.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-13.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-14.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-15.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-16.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-17.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-18.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M01.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M02.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M03.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M04.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M05.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M06.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M07.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M08.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M09.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M10.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M11.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M12.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M13.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M14.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M15.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M16.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M17.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M18.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M19.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M20.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M21.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M22.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M23.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M24.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M25.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M26.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M27.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M28.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M29.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/M30.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/materialize_p5.js",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/original_cba_stress_oracle.js",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_reference_corpus_summary.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_regression_matrix.csv",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_case_manifest.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC02/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC03/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC04/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC05/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC06/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC07/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC08/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC09/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/regression_runner/run.py",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/schemas/runner_protocol.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/scientific_corpus_readiness_report.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC01.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC02.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC03.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC04.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC05.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC06.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC07.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC08.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC09.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/study_profiles/RC10.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/syntax_A/RC01.partial.scn",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/syntax_A/README.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/syntax_B/RC01.partial.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/syntax_B/README.md",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC01.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC02.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC03.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC04.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC05.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC06.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC07.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC08.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC09.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/synthetic_data/RC10.json",
+      "source_commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "source_pr": 85
+    }
+  ],
+  "method": "Exact source tree B plus exact blob references from A; common evidence additions only. Use git ls-tree -r on the pinned source commits for per-blob identities. No previous branch mutated.",
+  "new_evidence": [
+    "WS_A_mathematical_foundation/native_test_logs/ci_run_45887233840_excerpt.log",
+    "WS_A_mathematical_foundation/native_test_logs/c1_receipt.json",
+    "WS_B_original_reference_corpus/actual_test_logs/ci_run_45887494752_excerpt.log",
+    "WS_B_original_reference_corpus/actual_test_logs/c1_receipt.json",
+    "WS_B_original_reference_corpus/original_p5_oracle_results.json"
+  ],
+  "missing_or_incomplete": [
+    "Complete CSNF mapping M2",
+    "complete static quantity/physical conversion and temporal semantics",
+    "per-test upstream receipt (pytest -q only)",
+    "all 116 full A/B source representations and integrated adapters",
+    "full independent reference proofs",
+    "persisted generated P5 mutant fixture bytes"
+  ]
+}

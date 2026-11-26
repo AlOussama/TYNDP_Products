@@ -1,0 +1,22 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC08:synthetic-0.1",
+  "method_ref": "method:RC08:synthetic-0.1",
+  "data_ref": "synthetic_data/RC08.json",
+  "domains": {
+    "interval": [
+      "t0",
+      "t1"
+    ],
+    "scenario": [
+      "s1"
+    ],
+    "event": [
+      "capex0",
+      "opex0",
+      "opex1"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

@@ -1,0 +1,53 @@
+{
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "component": [
+      "battery"
+    ],
+    "bus": [
+      "BUS_A"
+    ]
+  },
+  "inputs": {
+    "p": "-2",
+    "dt": "1/2",
+    "eta": "9/10",
+    "initial": "1",
+    "capacity": "4",
+    "min_p": "-3",
+    "max_p": "4"
+  },
+  "units": {
+    "p": "MW",
+    "dt": "h",
+    "eta": "1",
+    "initial": "MWh",
+    "capacity": "MWh"
+  },
+  "observed": {
+    "intake": "1",
+    "final": "19/10",
+    "loss": "1/10",
+    "terminal_policy": "OWNER_TBD"
+  },
+  "expected": {
+    "intake": "1",
+    "final": "19/10",
+    "loss": "1/10"
+  },
+  "variants": [
+    {
+      "id": "SOC",
+      "projection": "E = SOC * Emax",
+      "internal_final": "19/40"
+    },
+    {
+      "id": "ENERGY",
+      "projection": "E = internal energy",
+      "internal_final": "19/10"
+    }
+  ],
+  "limit": "Single interval, no discharge; terminal obligation only if approved, not assumed."
+}

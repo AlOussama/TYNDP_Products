@@ -1,0 +1,95 @@
+{
+  "schema": "c1-reference-manifest-0.1",
+  "cases": [
+    {
+      "id": "RC01",
+      "source": "9c908d9e3de1699306653aa80606d489a94b15ba",
+      "fixture": "reference_cases/RC01/contract.json",
+      "data": "synthetic_data/RC01.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "signed conditional energy ledger, efficiency and terminal authority"
+    },
+    {
+      "id": "RC02",
+      "source": "93a84aae192aa926b10cb94a3f570c7f060a0a76",
+      "fixture": "reference_cases/RC02/contract.json",
+      "data": "synthetic_data/RC02.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "vehicle-specific departure, connection windows, capability/service and request witnesses"
+    },
+    {
+      "id": "RC03",
+      "source": "24ca75520688e6ec81841bb52cbbeadd8933b339",
+      "fixture": "reference_cases/RC03/contract.json",
+      "data": "synthetic_data/RC03.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "cross-carrier typed arithmetic and explicit heating value conversion"
+    },
+    {
+      "id": "RC04",
+      "source": "fb6fbb11e1a3d128278c8ea4adbadc8f592de6bc",
+      "fixture": "reference_cases/RC04/contract.json",
+      "data": "synthetic_data/RC04.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "mass inventory recursion, loss and heating-value basis"
+    },
+    {
+      "id": "RC05",
+      "source": "cb6a913b603cd3a2a92f2c6993c80b0f56664059",
+      "fixture": "reference_cases/RC05/contract.json",
+      "data": "synthetic_data/RC05.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "topology-aware incidence/cycle relations and KVL"
+    },
+    {
+      "id": "RC06",
+      "source": "532fdb2c51afa797a4f3560e8d0a17172c2a1f6a",
+      "fixture": "reference_cases/RC06/contract.json",
+      "data": "synthetic_data/RC06.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "integer domain, lead time, investment option and cost obligations"
+    },
+    {
+      "id": "RC07",
+      "source": "90fc60cc9df88288b27dd00088b1ed904940a7a3",
+      "fixture": "reference_cases/RC07/contract.json",
+      "data": "synthetic_data/RC07.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "complete pairwise information-domain nonanticipativity and temporal scope"
+    },
+    {
+      "id": "RC08",
+      "source": "a7c07022c244559a81298508f920741e7064a205",
+      "fixture": "reference_cases/RC08/contract.json",
+      "data": "synthetic_data/RC08.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "weighted cost contribution uniqueness, price basis and typed method output"
+    },
+    {
+      "id": "RC09",
+      "source": "509700f2b464d13f610848064d8c9acda6a3f0c4",
+      "fixture": "reference_cases/RC09/contract.json",
+      "data": "synthetic_data/RC09.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "counterfactual exogeneity, method context and authority"
+    },
+    {
+      "id": "RC10",
+      "source": "68d1e3fbfb52fc8e3196e62b29fe9dd469a1f38a",
+      "fixture": "reference_cases/RC10/contract.json",
+      "data": "synthetic_data/RC10.json",
+      "oracle": "independent_oracles/oracles.py",
+      "status": "STRUCTURED_CANDIDATE",
+      "gap": "independent evidence lifecycle and claim/equivalence proof obligations"
+    }
+  ]
+}

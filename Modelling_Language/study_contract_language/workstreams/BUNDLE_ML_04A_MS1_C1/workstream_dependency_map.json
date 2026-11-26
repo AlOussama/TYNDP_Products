@@ -1,0 +1,39 @@
+{
+  "baseline": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+  "workstreams": [
+    {
+      "id": "WS-A",
+      "depends_on": [
+        "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7"
+      ],
+      "commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "status": "BOUNDED_IMPLEMENTATION_CI_PASS"
+    },
+    {
+      "id": "WS-B",
+      "depends_on": [
+        "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7"
+      ],
+      "commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+      "status": "FINITE_CORPUS_CI_PASS"
+    }
+  ],
+  "dependency_between_workstreams": false,
+  "consolidation": {
+    "depends_on": [
+      "b5789198863bb7a06f9feee242290f1f75c39b6d",
+      "2eb4c2d162665424c0cb43262f2d54e448e08c2c"
+    ],
+    "scope": "source manifests, interface reference, original traceability, evidence and gate status only"
+  },
+  "C2": {
+    "requires": "C1-A4",
+    "status": "NOT_READY"
+  },
+  "C3": {
+    "requires": "C2 semantic closure and integrated A/B paths"
+  },
+  "C4": {
+    "requires": "complete original corpus, A/B and comparable M0/M2/M3 execution"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "c1-original-scientific-fixture-0.1",
+  "id": "RC10",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "source": {
+    "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "ms1_draft_blob": "68d1e3fbfb52fc8e3196e62b29fe9dd469a1f38a"
+  },
+  "original": {
+    "id": "RC10",
+    "name": "Multi-Model",
+    "contract": "common study/data/scenario/observable IDs, variation and independent evidence",
+    "variants": "two different internal model structures with separate projections",
+    "positive": "both disclose variation and individual evidence",
+    "negative": "unsupported E4 assertion from equal objective or concealed extra assumption",
+    "rewrite": "R09 preserve both source identities",
+    "comparison": "E5 only on two separately supported conformances",
+    "slr": "SLR-21–34,41–42",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "study_frame": {
+    "id": "study:RC10",
+    "question": "common study/data/scenario/observable IDs, variation and independent evidence",
+    "domains": {
+      "model": [
+        "M-A",
+        "M-B"
+      ],
+      "observable": [
+        "cost"
+      ],
+      "scenario": [
+        "s1"
+      ]
+    },
+    "authority": "OWNER_TBD",
+    "method": "method:RC10:synthetic-0.1",
+    "study_profile": "profile:RC10:synthetic-0.1",
+    "evidence": "REQUEST_NOT_EXECUTED"
+  },
+  "typed_symbols": "study/data/scenario/observable IDs; model and independent evidence IDs; variation disclosure; claim status",
+  "component_interfaces": "common study/data/scenario/observable IDs, variation and independent evidence",
+  "assumptions": "models M-A/M-B share contract and inputs; different disclosed internal formulation; distinct evidence generators; both synthetic outputs 170 EUR; no real evidence",
+  "external_obligations": "compare only aligned observables; declare variation and independent provenance; equal objectives alone never entail E4 or E5",
+  "observables": "aligned outputs, variation, evidence identity/lifecycle, claim strength",
+  "synthetic_data": {
+    "domains": {
+      "model": [
+        "M-A",
+        "M-B"
+      ],
+      "observable": [
+        "cost"
+      ],
+      "scenario": [
+        "s1"
+      ]
+    },
+    "inputs": {
+      "contract": "contract:common",
+      "snapshot": "data:common",
+      "scenario": "s1",
+      "observable": "cost",
+      "basis": "EUR:real:2025",
+      "model_ids": [
+        "M-A",
+        "M-B"
+      ],
+      "source_ids": [
+        "source:A",
+        "source:B"
+      ],
+      "generator_ids": [
+        "generator:A",
+        "generator:B"
+      ],
+      "variation_disclosed": [
+        true,
+        true
+      ]
+    },
+    "units": {
+      "cost": "EUR"
+    },
+    "observed": {
+      "cost": [
+        "170",
+        "170"
+      ],
+      "evidence_role": "REQUEST",
+      "evidence_status": "NOT_EXECUTED",
+      "e4_claim": false
+    },
+    "expected": {
+      "finite_agreement": true,
+      "e4": "NOT_PROVED",
+      "e5": "NOT_ASSESSED"
+    },
+    "variants": [
+      {
+        "id": "M-A",
+        "projection": "Synthetic objective ledger",
+        "source": "source:A"
+      },
+      {
+        "id": "M-B",
+        "projection": "Synthetic independent postprocess representation",
+        "source": "source:B"
+      }
+    ],
+    "limit": "Distinct asserted identities do not establish human or tool independence."
+  },
+  "analytic_derivation": "same numerical value supports at most finite observation agreement; false E4 promotion rejected; concealed variation rejected; genuine equivalence NOT_PROVED.",
+  "proof_obligation": "E5 only on two separately supported conformances",
+  "expected_original": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+  "negative_original": "E1_DIFFERENT_OR_BLOCKED",
+  "expression_gap": "independent evidence lifecycle and claim/equivalence proof obligations",
+  "status": "STRUCTURED_SYNTHETIC_REFERENCE_CANDIDATE_NOT_FULL_CONTRACT"
+}

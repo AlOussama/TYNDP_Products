@@ -1,0 +1,71 @@
+{
+  "schema": "c1-gates-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "gates": {
+    "C1-A0": {
+      "status": "PARTIAL",
+      "reason": "Actual pinned native runtime, canonical/lock SHA256, required named PR heads and original catalogue identities verified. Additional inherited artifact pins and individual upstream receipts not fully reverified."
+    },
+    "C1-A1": {
+      "status": "PARTIAL",
+      "reason": "Closed nine-node implementation and native tests; full all-node positive coverage and index/predicate signatures not proven."
+    },
+    "C1-A2": {
+      "status": "PARTIAL",
+      "reason": "20/20 required negatives in bounded scope; full carrier/conversion, physical convention and numeric type coverage not demonstrated."
+    },
+    "C1-A3": {
+      "status": "PARTIAL",
+      "reason": "M3 and restricted M2 prototypes run; deterministic roundtrip; full old CSNF mathematical mapping and actual C21 boundary acceptance not shown."
+    },
+    "C1-A4": {
+      "status": "NOT_MET",
+      "reason": "Versioned candidate interface exists; not complete or frozen for two independent C2 streams."
+    },
+    "C1-B0": {
+      "status": "MET",
+      "reason": "Frozen catalogue blob copies, 58 identities, 116 unique A/B paths, 105 traceability identities, original P5/C21 source pins verified."
+    },
+    "C1-B1": {
+      "status": "PARTIAL",
+      "reason": "10 structured fixtures and 18 derived C23 mutations with 28/28 independent finite checks; 30 original P5 recipes run; scientific full scope and alternate mutation interpretations not fully materialised."
+    },
+    "C1-B2": {
+      "status": "PARTIAL",
+      "reason": "Only two partial RC01 static source representations; 0/116 full A/B representations."
+    },
+    "C1-B3": {
+      "status": "PARTIAL",
+      "reason": "Runner and unchanged P5 suite executed; 0 full paths, two RC01 static fragments; full architecture adapters absent."
+    },
+    "C1-G": {
+      "status": "PARTIAL_WITH_TARGETED_BLOCKERS",
+      "reason": "Both workstreams have actual CI, but C1-A4 and full original materialisation not closed."
+    }
+  },
+  "followup": {
+    "C2_SEMANTIC_WORKSTREAM_READY": false,
+    "C2_METHOD_BINDING_WORKSTREAM_READY": false,
+    "C4_REFERENCE_CORPUS_READY": false,
+    "C4_REFERENCE_CORPUS_PARTIAL": true
+  },
+  "previous_gates": {
+    "MS-G0": "MET",
+    "MS-G1": "PARTIAL",
+    "MS-G2": "PARTIAL",
+    "MS-G3": "PARTIAL",
+    "MS-G4": "PARTIAL",
+    "MS-G5": "PARTIAL",
+    "MS-G6": "NOT_READY",
+    "B0": "MET",
+    "B1": "PARTIAL",
+    "B2": "PARTIAL",
+    "B3": "NOT_READY",
+    "G1": "BLOCKED",
+    "SysML-H0": "OPEN"
+  },
+  "architecture": "OPTION F",
+  "preferred_hypothesis": "M3",
+  "owner": "OWNER_TBD",
+  "release_04B": false
+}

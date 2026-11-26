@@ -1,0 +1,40 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC05:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "A*f=p; C*diag(x)*f=0; branch limit if declared; reference angle only internal",
+  "parameters": {
+    "orientation": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "reactance": [
+      "1",
+      "1",
+      "1"
+    ],
+    "injection": [
+      "5",
+      "-1",
+      "-4"
+    ],
+    "cycle": [
+      1,
+      1,
+      1
+    ]
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

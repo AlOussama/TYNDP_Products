@@ -1,0 +1,29 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC09:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "require pair context identity except authorized delta; benefit=baseline-project on same basis; discount via external profile; owner unresolved",
+  "parameters": {
+    "baseline": [
+      "1200",
+      "1500"
+    ],
+    "project": [
+      "1100",
+      "1350"
+    ],
+    "weights": [
+      "3/5",
+      "2/5"
+    ],
+    "discount_rate": "1/10",
+    "reference_snapshot": "snapshot:common",
+    "project_snapshot": "snapshot:common",
+    "project_delta": "delta:capacity",
+    "basis": "EUR:real:2025",
+    "owner": "OWNER_TBD"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}
