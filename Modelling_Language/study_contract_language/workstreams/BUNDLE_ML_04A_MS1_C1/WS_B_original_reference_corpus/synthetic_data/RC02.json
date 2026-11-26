@@ -1,0 +1,67 @@
+{
+  "domains": {
+    "vehicle": [
+      "EV1",
+      "EV2"
+    ],
+    "interval": [
+      "t0",
+      "t1"
+    ]
+  },
+  "inputs": {
+    "required": [
+      "4",
+      "6"
+    ],
+    "connected": [
+      [
+        true,
+        false
+      ],
+      [
+        true,
+        true
+      ]
+    ],
+    "departure": [
+      1,
+      2
+    ],
+    "v2g_authority": false
+  },
+  "units": {
+    "required": "kWh",
+    "delivered": "kWh"
+  },
+  "observed": {
+    "delivered": [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "3",
+        "3"
+      ]
+    ]
+  },
+  "expected": {
+    "individual": [
+      "4",
+      "6"
+    ],
+    "fleet": "10"
+  },
+  "variants": [
+    {
+      "id": "individual",
+      "projection": "Per-vehicle interval energy"
+    },
+    {
+      "id": "aggregate",
+      "projection": "Fleet schedule plus allocation witness for each EV"
+    }
+  ],
+  "limit": "One declared request; no universal service or capability guarantee."
+}

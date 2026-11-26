@@ -1,0 +1,63 @@
+{
+  "domains": {
+    "site": [
+      "s"
+    ],
+    "stage": [
+      0,
+      1,
+      2
+    ],
+    "option": [
+      "module"
+    ]
+  },
+  "inputs": {
+    "module_capacity": "100",
+    "capex": "100",
+    "invest_time": 0,
+    "lead_time": 2,
+    "max_modules": 3,
+    "price_basis": "EUR:real:2025"
+  },
+  "units": {
+    "module_capacity": "MW/module",
+    "capex": "EUR/module"
+  },
+  "observed": {
+    "modules": "1",
+    "commission": 2,
+    "capacity": [
+      "0",
+      "0",
+      "100"
+    ],
+    "cost": "100"
+  },
+  "expected": {
+    "modules": "1",
+    "commission": 2,
+    "capacity": [
+      "0",
+      "0",
+      "100"
+    ],
+    "cost": "100"
+  },
+  "variants": [
+    {
+      "id": "integer_count",
+      "projection": "n integer, capacity n*module_capacity"
+    },
+    {
+      "id": "binary_slots",
+      "projection": "sum of three binary module options",
+      "slots": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "limit": "Discrete required research scope; continuous approximation not approved."
+}

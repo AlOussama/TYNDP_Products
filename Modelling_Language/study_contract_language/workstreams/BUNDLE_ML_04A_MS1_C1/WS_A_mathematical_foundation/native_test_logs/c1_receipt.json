@@ -1,0 +1,264 @@
+{
+  "source_commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+  "ci_run": 45887233840,
+  "job": 140140853320,
+  "conclusion": "success",
+  "command_sources": ".github/workflows/research-ms1-c1-a.yml",
+  "native": {
+    "passed": 4140,
+    "skipped": 47,
+    "source_tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "exact_source_and_lock": "CI_VERIFIED"
+  },
+  "r1": {
+    "passed": 57,
+    "expected": 57
+  },
+  "ms1_native_fragments": 9,
+  "ms1_finite": [
+    {
+      "id": "RC01",
+      "negative": true,
+      "positive": true,
+      "scope": "single-step projected observations"
+    },
+    {
+      "id": "RC02",
+      "negative": true,
+      "positive": true,
+      "scope": "complete per-EV witness; not universal service"
+    },
+    {
+      "id": "RC03",
+      "negative": true,
+      "positive": true,
+      "scope": "two different feasible outputs; common envelope"
+    },
+    {
+      "id": "RC04",
+      "negative": true,
+      "positive": true,
+      "scope": "explicit boundary state only; shift execution deferred"
+    },
+    {
+      "id": "RC05",
+      "negative": true,
+      "positive": true,
+      "scope": "equal reactances triangle; KCL not sufficient for KVL"
+    },
+    {
+      "id": "RC06",
+      "negative": true,
+      "positive": true,
+      "scope": "integer domain"
+    },
+    {
+      "id": "RC07",
+      "negative": true,
+      "positive": true,
+      "scope": "provided information pairs only"
+    }
+  ],
+  "ms1_methods": [
+    {
+      "audit_identity": "c5f80838af115fa2217fcf97a2a5bc2af49d7fd6f67ab75a5e47b560f37b7a72",
+      "basis": "EUR:real:2024",
+      "canonical_sha256": "176e1522d74ba0a6915577ea276bf15b2a03a96ac9b228916424655c0ad062e3",
+      "code_hashes": {
+        "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+        "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+        "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+        "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+        "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+      },
+      "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d",
+      "method": "urn:method:begin",
+      "method_identity": "4e93e7ffb474a31b27af6406f9363522a1e108d300265a00fe270317bfa67521",
+      "output_observable": "ms1:cost-summary",
+      "owner": "OWNER_TBD",
+      "unit": "EUR",
+      "value": "415/11"
+    },
+    {
+      "audit_identity": "640fc1aaf6bef67ddba8cb9986dce41ae9edda9df2c941dda1fd7f8d2252bc11",
+      "basis": "EUR:real:2024",
+      "canonical_sha256": "8024197dc52ea30cf88b67fd1250c71e9c9f9630147e97f0902564c745cdca5a",
+      "code_hashes": {
+        "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+        "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+        "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+        "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+        "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+      },
+      "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d",
+      "method": "urn:method:end",
+      "method_identity": "12f772920e33e50c0223b97ef7ba8dbb031e541a17e525550d2b3ee95c4dd0cf",
+      "output_observable": "ms1:cost-summary",
+      "owner": "OWNER_TBD",
+      "unit": "EUR",
+      "value": "4150/121"
+    },
+    {
+      "audit_identity": "4f1dd13f145dca36ebdf3b46dd067d86e48b794e37a6303e013ebfb998645f09",
+      "basis": "",
+      "canonical_sha256": "deb9bad752f8afcd9e930303aca6ba1b9abf45bd121a0e0339ad35a5655b822c",
+      "code_hashes": {
+        "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+        "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+        "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+        "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+        "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+      },
+      "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7",
+      "method": "urn:ms1:method:gross",
+      "method_identity": "10f172c3211febf57b9d9b509ed9d9817e4755f8971441df7de624a0962b3400",
+      "output_observable": "ms1:energy-summary",
+      "owner": "OWNER_TBD",
+      "unit": "MWh",
+      "value": "5"
+    },
+    {
+      "audit_identity": "c5a0151072a002d28c54a274224cc344f01487bcd7a1d687f94de856585ccd17",
+      "basis": "",
+      "canonical_sha256": "0af4445adb6f989cdf25efa6536c8508726d05cd94216213e06d5d3c9b4f567f",
+      "code_hashes": {
+        "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+        "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+        "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+        "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+        "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+      },
+      "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7",
+      "method": "urn:ms1:method:eligible",
+      "method_identity": "0a70f595348e67cf3caa85b0cc9fc28db7243c40eb29711cd19423cc754318fa",
+      "output_observable": "ms1:energy-summary",
+      "owner": "OWNER_TBD",
+      "unit": "MWh",
+      "value": "3"
+    }
+  ],
+  "c1_additional_tests": [
+    {
+      "id": "A_N01",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6482987Z test_A_N01 (__main__.Foundation.test_A_N01) ... ok"
+    },
+    {
+      "id": "A_N02",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6487453Z test_A_N02 (__main__.Foundation.test_A_N02) ... ok"
+    },
+    {
+      "id": "A_N03",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6487849Z test_A_N03 (__main__.Foundation.test_A_N03) ... ok"
+    },
+    {
+      "id": "A_N04",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6494188Z test_A_N04 (__main__.Foundation.test_A_N04) ... ok"
+    },
+    {
+      "id": "A_N05",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6496825Z test_A_N05 (__main__.Foundation.test_A_N05) ... ok"
+    },
+    {
+      "id": "A_N06",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6498667Z test_A_N06 (__main__.Foundation.test_A_N06) ... ok"
+    },
+    {
+      "id": "A_N07",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6499916Z test_A_N07 (__main__.Foundation.test_A_N07) ... ok"
+    },
+    {
+      "id": "A_N08",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6503587Z test_A_N08 (__main__.Foundation.test_A_N08) ... ok"
+    },
+    {
+      "id": "A_N09",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6506466Z test_A_N09 (__main__.Foundation.test_A_N09) ... ok"
+    },
+    {
+      "id": "A_N10",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6511469Z test_A_N10 (__main__.Foundation.test_A_N10) ... ok"
+    },
+    {
+      "id": "A_N11",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6516747Z test_A_N11 (__main__.Foundation.test_A_N11) ... ok"
+    },
+    {
+      "id": "A_N12",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6560732Z test_A_N12 (__main__.Foundation.test_A_N12) ... ok"
+    },
+    {
+      "id": "A_N13",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6562603Z test_A_N13 (__main__.Foundation.test_A_N13) ... ok"
+    },
+    {
+      "id": "A_N14",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6568523Z test_A_N14 (__main__.Foundation.test_A_N14) ... ok"
+    },
+    {
+      "id": "A_N15",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6615933Z test_A_N15 (__main__.Foundation.test_A_N15) ... ok"
+    },
+    {
+      "id": "A_N16",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6617283Z test_A_N16 (__main__.Foundation.test_A_N16) ... ok"
+    },
+    {
+      "id": "A_N17",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6661494Z test_A_N17 (__main__.Foundation.test_A_N17) ... ok"
+    },
+    {
+      "id": "A_N18",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6662644Z test_A_N18 (__main__.Foundation.test_A_N18) ... ok"
+    },
+    {
+      "id": "A_N19",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6663880Z test_A_N19 (__main__.Foundation.test_A_N19) ... ok"
+    },
+    {
+      "id": "A_N20",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6695482Z test_A_N20 (__main__.Foundation.test_A_N20) ... ok"
+    },
+    {
+      "id": "m2_mapping",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:31.6724169Z test_m2_mapping (__main__.Foundation.test_m2_mapping) ... ok"
+    },
+    {
+      "id": "processes",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:32.0987595Z test_processes (__main__.Foundation.test_processes) ... ok"
+    },
+    {
+      "id": "roundtrip",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:32.1109110Z test_roundtrip (__main__.Foundation.test_roundtrip) ... ok"
+    },
+    {
+      "id": "static_sum_and_rational",
+      "status": "PASS",
+      "log_line": "2026-11-26T19:56:32.1131417Z test_static_sum_and_rational (__main__.Foundation.test_static_sum_and_rational) ... ok"
+    }
+  ],
+  "p5_scope": "REPEATED_ORIGINAL_ORACLE; count once using WS-B receipt",
+  "scope": "No full contract paths; no general equivalence."
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC03:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "eta=m*h/P if P>0; 3/5<=eta<=4/5; zero output when input zero under synthetic envelope; basis explicitly LHV",
+  "parameters": {
+    "power": "30",
+    "lhv": "1/30",
+    "eta_min": "3/5",
+    "eta_max": "4/5",
+    "basis": "LHV"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

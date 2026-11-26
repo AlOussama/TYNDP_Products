@@ -1,0 +1,143 @@
+{
+  "frame": {
+    "id": "study:RC01",
+    "schema": "C20-research-r1",
+    "ruleset": "CSNF-R0",
+    "registry": "energy-r1",
+    "question": "RC01 signed grid exchange fragment",
+    "time": {
+      "id": "duration:t0",
+      "duration": "0.5",
+      "duration_unit": "h"
+    },
+    "domains": [
+      {
+        "id": "domain:t",
+        "kind": "time",
+        "members": [
+          "t0"
+        ]
+      }
+    ],
+    "scopes": [
+      {
+        "id": "scope:t",
+        "domains": [
+          "domain:t"
+        ]
+      }
+    ],
+    "guards": [],
+    "information_sets": [],
+    "data_inputs": [],
+    "method_slots": []
+  },
+  "referents": [
+    {
+      "id": "ref:p",
+      "kind": "entity",
+      "type": "electricity.active_power",
+      "quantity": {
+        "carrier": "electricity",
+        "kind": "active_power",
+        "unit": "MW",
+        "value": "-2",
+        "sign": "INJECTION"
+      },
+      "axes": [
+        "domain:t"
+      ]
+    },
+    {
+      "id": "ref:e",
+      "kind": "entity",
+      "type": "electricity.energy",
+      "quantity": {
+        "carrier": "electricity",
+        "kind": "energy",
+        "unit": "MWh",
+        "value": "-1",
+        "sign": "INJECTION"
+      },
+      "axes": [
+        "domain:t"
+      ]
+    }
+  ],
+  "relations": [],
+  "predicates": [
+    {
+      "id": "pred:exchange",
+      "expr": {
+        "op": "forall",
+        "var": "t",
+        "domain": {
+          "kind": "time",
+          "ref": "domain:t"
+        },
+        "body": {
+          "op": "compare",
+          "cmp": "eq",
+          "lhs": {
+            "op": "integrate",
+            "duration_ref": "duration:t0",
+            "expr": {
+              "op": "measure",
+              "ref": "ref:p",
+              "indices": [
+                {
+                  "op": "var",
+                  "name": "t"
+                }
+              ]
+            }
+          },
+          "rhs": {
+            "op": "measure",
+            "ref": "ref:e",
+            "indices": [
+              {
+                "op": "var",
+                "name": "t"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "id": "assert:exchange",
+      "modality": "REQUIRED",
+      "semantic_role": "SAFETY_GUARANTEE",
+      "predicate_ref": "pred:exchange",
+      "scope": "scope:t",
+      "guard": true,
+      "authority_refs": [
+        "source:rc01"
+      ],
+      "decision_state": "OWNER_TBD"
+    }
+  ],
+  "observables": [],
+  "variations": [],
+  "evidences": [
+    {
+      "id": "evidence:exchange",
+      "role": "REQUEST",
+      "subject_ref": "assert:exchange",
+      "status": "NOT_EXECUTED",
+      "oracle": "research:RC01-partial"
+    }
+  ],
+  "authorities": [
+    {
+      "id": "source:rc01",
+      "role": "SOURCE",
+      "immutable_ref": "git:2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "revision": "c1-research-0.1",
+      "decision_state": "OWNER_TBD"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC04:synthetic-0.1",
+  "method_ref": "method:RC04:synthetic-0.1",
+  "data_ref": "synthetic_data/RC04.json",
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "component": [
+      "H2_store"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "c1-p5-original-recipe-0.1",
+  "original": {
+    "id": "M05",
+    "expected_diagnostic": "OUTPUT_BASIS_MISMATCH",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  "source_commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+  "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+  "original_recipe": "[\"M05\",\"OUTPUT_BASIS_MISMATCH\",c=>{c.samples[0].unit=\"MWh\";}],",
+  "materialization": "makeFixture -> deep clone -> original mutations[i] edit function; use materialize_p5.js",
+  "stage": "ORIGINAL_SYNTHETIC_MICRO_ORACLE_NOT_CONTRACT"
+}

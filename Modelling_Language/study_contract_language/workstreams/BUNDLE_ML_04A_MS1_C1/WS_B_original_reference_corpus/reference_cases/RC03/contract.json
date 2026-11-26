@@ -1,0 +1,97 @@
+{
+  "schema": "c1-original-scientific-fixture-0.1",
+  "id": "RC03",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "source": {
+    "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "ms1_draft_blob": "24ca75520688e6ec81841bb52cbbeadd8933b339"
+  },
+  "original": {
+    "id": "RC03",
+    "name": "Elektrolyse",
+    "contract": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit",
+    "variants": "constant vs piecewise efficiency constrained to external envelope",
+    "positive": "output and electricity flow respect stated efficiency envelope",
+    "negative": "MW compared to kg/h or missing heating value",
+    "rewrite": "R06 exact same-basis units only",
+    "comparison": "E5 conditional; nonlinearity allowed by contract",
+    "slr": "SLR-12–20,35",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "study_frame": {
+    "id": "study:RC03",
+    "question": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit",
+    "domains": {
+      "interval": [
+        "t0"
+      ],
+      "ports": [
+        "electric",
+        "H2"
+      ]
+    },
+    "authority": "OWNER_TBD",
+    "method": "method:RC03:synthetic-0.1",
+    "study_profile": "profile:RC03:synthetic-0.1",
+    "evidence": "REQUEST_NOT_EXECUTED"
+  },
+  "typed_symbols": "P: electricity consumption MW; m: hydrogen kg/h; h: MWh/kg LHV; eta: dimensionless",
+  "component_interfaces": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit",
+  "assumptions": "P=30 MW; m=600 kg/h; h=1/30 MWh/kg synthetic LHV; envelope 3/5..4/5",
+  "external_obligations": "eta=m*h/P if P>0; 3/5<=eta<=4/5; zero output when input zero under synthetic envelope; basis explicitly LHV",
+  "observables": "electricity port, H2 port, h basis, eta",
+  "synthetic_data": {
+    "domains": {
+      "interval": [
+        "t0"
+      ],
+      "ports": [
+        "electric",
+        "H2"
+      ]
+    },
+    "inputs": {
+      "power": "30",
+      "lhv": "1/30",
+      "eta_min": "3/5",
+      "eta_max": "4/5",
+      "basis": "LHV"
+    },
+    "units": {
+      "power": "MW electricity consumption",
+      "lhv": "MWh_H2_LHV/kg",
+      "flow": "kg/h"
+    },
+    "observed": {
+      "flow": "600"
+    },
+    "expected": {
+      "hydrogen_power": "20",
+      "eta": "2/3"
+    },
+    "variants": [
+      {
+        "id": "constant_eta",
+        "projection": "m * LHV = P * eta"
+      },
+      {
+        "id": "piecewise",
+        "projection": "Segment weights produce observed P and m"
+      }
+    ],
+    "limit": "One operating point; no general nonlinear feasible-set equivalence."
+  },
+  "analytic_derivation": "600/30=20 MW chemical energy; eta=2/3. Absent h/basis blocks conversion; raw MW=kg/h rejected.",
+  "proof_obligation": "E5 conditional; nonlinearity allowed by contract",
+  "expected_original": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+  "negative_original": "E1_DIFFERENT_OR_BLOCKED",
+  "expression_gap": "cross-carrier typed arithmetic and explicit heating value conversion",
+  "status": "STRUCTURED_SYNTHETIC_REFERENCE_CANDIDATE_NOT_FULL_CONTRACT"
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "c1-c23-derived-mutation-0.1",
+  "original": {
+    "id": "MUT-14",
+    "rc": "RC01",
+    "mutation": "ambiguous_alias",
+    "expected": [
+      "BLOCKED"
+    ],
+    "executed": false
+  },
+  "source_blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+  "fixture": "reference_cases/RC01/contract.json",
+  "edits": [
+    {
+      "path": [
+        "study_frame",
+        "domains",
+        "component"
+      ],
+      "value": [
+        "battery",
+        "battery"
+      ]
+    }
+  ],
+  "derived_diagnostic": "AMBIGUOUS_ALIAS",
+  "original_expected": [
+    "BLOCKED"
+  ],
+  "stage": "INDEPENDENT_SYNTHETIC_ORACLE_ONLY",
+  "note": "Derived finite rejection is not the historical E1/AUDIT verdict. Alternative variants of ambiguous original descriptions remain scope for complete materialisation."
+}

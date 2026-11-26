@@ -1,0 +1,30 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC02:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "forall v, sum delivered before departure >= required[v]; zero outside connection window; no negative charging absent V2G permission",
+  "parameters": {
+    "required": [
+      "4",
+      "6"
+    ],
+    "connected": [
+      [
+        true,
+        false
+      ],
+      [
+        true,
+        true
+      ]
+    ],
+    "departure": [
+      1,
+      2
+    ],
+    "v2g_authority": false
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

@@ -1,0 +1,6 @@
+id,extension,reason,status
+EX1,symbol binding,parameter != observable,PROTOTYPE
+EX2,quantity typing,MW != kg/h or heat,PROTOTYPE
+EX3,exact lexical admission,native Constant.value float,PROTOTYPE
+EX4,audit envelope,native canonical source normalization loses audit,PROTOTYPE
+EX5,contract semantics,quantifier/Bool3/time/evidence,C2_DEFERRED

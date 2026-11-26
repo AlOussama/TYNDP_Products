@@ -1,0 +1,3 @@
+# C1 reproduction
+
+NON-NORMATIVE / RESEARCH ONLY. Exact baseline c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7. Review PRs #84/#85 and CI runs 45887233840/45887494752. All original code and test files unchanged. Re-run using the two pinned workflows on their respective branches. WS-B stdlib runner: `python regression_runner/run.py --m0 --output results.json`; original P5: `node original_p5_mutations/materialize_p5.js p5-output`. WS-A: native pinned Pixi py313 environment; run `tests/test_foundation.py` via Pixi, inherited probes and original R1/upstream suites. Logs and gate register retain actual evidence and limitations. No complete C1 or C2 freeze claim.

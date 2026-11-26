@@ -1,0 +1,11 @@
+id,original_source,derived_oracle,scope,limitations
+"RC01","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Single interval, no discharge; terminal obligation only if approved, not assumed."
+"RC02","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","One declared request; no universal service or capability guarantee."
+"RC03","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","One operating point; no general nonlinear feasible-set equivalence."
+"RC04","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","No assumed universal heating value; synthetic factor only."
+"RC05","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Connected lossless triangular DC fixture; no AC or arbitrary topology proof."
+"RC06","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Discrete required research scope; continuous approximation not approved."
+"RC07","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Only two stages and two scenarios; full policy conformance not proved."
+"RC08","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Synthetic identity discount, unique support; no approved KPI policy."
+"RC09","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Cost proxy, not CBA B1 welfare. Owner approval remains blocked."
+"RC10","2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28","independent_oracles/oracles.py","finite synthetic check","Distinct asserted identities do not establish human or tool independence."

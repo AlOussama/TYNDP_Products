@@ -1,0 +1,3 @@
+# Cross-workstream coordination
+
+Both workstreams began independently at MS1 c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7. WS-A did not depend on B. WS-B did not use A or mathspec as oracle. Consolidation retains exact source files and actual receipts. The common scientific gaps are RC02/RC07 external scope and information; RC03/RC04 physical basis; RC05 relations; RC08/RC09 typed method and contribution context; RC10 evidence lifecycle. No original expectation changed. C2 uses a versioned mathematical interface only after C1-A4; current candidate is not frozen. No cross-workstream semantic integration performed.
