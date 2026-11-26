@@ -15,8 +15,8 @@ def context(d):
     names=list(d["dimensions"])
     return {"domains":{n:{"id":"domain:"+n,"labels":[0,1]} for n in names},
             "symbols":{n:{"id":"ref:"+n,"role":"DERIVED_EXPRESSION" if n=="total" else "OBSERVABLE","quantity":quantity(),"nonzero":False} for n in ("a","b","total")},
-            "scope":{"id":"scope:study","binders":names},
-            "predicates":{"pred:balance":{"lhs":"a","rhs":"b","cmp":"eq","guard":True,"axes":names,"alignment":"SAME_AXES","guard_alignment":"CONSTANT"}},
+            "scope":{"id":"scope:study","binders":list(names)},
+            "predicates":{"pred:balance":{"lhs":"a","rhs":"b","cmp":"eq","guard":True,"axes":list(names),"alignment":"SAME_AXES","guard_alignment":"CONSTANT"}},
             "method":"method:synthetic@0.1","audit":{"source_id":"source:research","source_ref":"fixture:canonical-first","evidence_id":"evidence:request"}}
 
 class CanonicalFirst(unittest.TestCase):
@@ -114,4 +114,49 @@ class CanonicalFirst(unittest.TestCase):
         with self.assertRaisesRegex(c1.Reject,"GUARD_ALIGNMENT"):admit_canonical(canon(d),c)
         c["predicates"]["pred:balance"]["guard_alignment"]="SCALAR_BROADCAST"
         self.assertEqual(admit_canonical(canon(d),c)["predicate_support"]["pred:balance"]["guard_alignment"],"SCALAR_BROADCAST")
+    def test_N08_canonical_origin_limit(self):
+        # Native binary floating-point normalisation can erase the source
+        # distinction even when the resulting canonical literal is admitted.
+        a,b=mathdoc("a * 1"),mathdoc("a * 1.00000000000000001")
+        self.assertEqual(canon(a),canon(b))
+        c=context(a)
+        leaf=admit_canonical(canon(b),c)
+        self.assertEqual(leaf["origin"]["kind"],"CANONICAL_AS_SOURCE")
+        with self.assertRaisesRegex(c1.Reject,"NUMERIC_"):
+            admit_canonical(canon(b),c,json.dumps(b))
+    def test_B08_RC03_cross_carrier_conversion(self):
+        d=mathdoc()
+        d["parameters"]={"flow":{"dims":["t"]},"heating_value":{"dims":[]},"reported":{"dims":["t"]}}
+        d["expressions"]={"chemical_power":"flow * heating_value"}
+        c=context(d)
+        def symbol(n,role,q):
+            return {"id":"ref:"+n,"role":role,"quantity":q,"nonzero":False}
+        c["symbols"]={
+            "flow":symbol("flow","OBSERVABLE",quantity("kg/h","hydrogen")),
+            "heating_value":symbol("heating_value","METHOD_PARAMETER",quantity("MWh_H2_LHV/kg","conversion","LHV")),
+            "reported":symbol("reported","OBSERVABLE",quantity("MW_H2_LHV","hydrogen","LHV")),
+            "chemical_power":symbol("chemical_power","DERIVED_EXPRESSION",quantity("MW_H2_LHV","hydrogen","LHV"))}
+        c["predicates"]["pred:balance"].update(lhs="chemical_power",rhs="reported")
+        self.assertEqual(admit_canonical(canon(d),c)["predicate_support"]["pred:balance"]["axes"],["t"])
+        c["symbols"]["heating_value"]["quantity"]=quantity("MWh_H2_HHV/kg","conversion","HHV")
+        with self.assertRaisesRegex(c1.Reject,"EXPRESSION_TYPE"):
+            admit_canonical(canon(d),c)
+    def test_B09_RC08_weighted_cost(self):
+        d=mathdoc()
+        d["parameters"]={"opex":{"dims":["t"]},"duration":{"dims":["t"]},"capex":{"dims":[]},"reported":{"dims":[]}}
+        d["expressions"]={"total_cost":"sum(opex * duration, over=t) + capex"}
+        c=context(d)
+        def symbol(n,role,q):
+            return {"id":"ref:"+n,"role":role,"quantity":q,"nonzero":False}
+        c["symbols"]={
+            "opex":symbol("opex","OBSERVABLE",quantity("EUR/h","currency","EUR:real:2025")),
+            "duration":symbol("duration","INPUT",quantity("h","none")),
+            "capex":symbol("capex","OBSERVABLE",quantity("EUR","currency","EUR:real:2025")),
+            "reported":symbol("reported","OBSERVABLE",quantity("EUR","currency","EUR:real:2025")),
+            "total_cost":symbol("total_cost","DERIVED_EXPRESSION",quantity("EUR","currency","EUR:real:2025"))}
+        c["predicates"]["pred:balance"].update(lhs="total_cost",rhs="reported",axes=[])
+        self.assertEqual(admit_canonical(canon(d),c)["predicate_support"]["pred:balance"]["axes"],[])
+        c["symbols"]["capex"]["quantity"]=quantity("EUR","currency","EUR:nominal:2025")
+        with self.assertRaisesRegex(c1.Reject,"PHYSICAL_TYPE_MISMATCH"):
+            admit_canonical(canon(d),c)
 if __name__=="__main__":unittest.main(verbosity=2)
