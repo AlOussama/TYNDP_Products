@@ -1,0 +1,9 @@
+function,assessment,scope,limit
+parser,POTENTIAL_NATIVE_REUSE,restricted mathspec expression strings,outer A/B unaffected
+AST,POTENTIAL_NATIVE_REUSE,9 native nodes,M2 projection incomplete
+index,POTENTIAL_NATIVE_REUSE,dense named dimensions,relation support deferred
+operator registry,PARTIAL_NATIVE_REUSE,9 node admission,contract operator registry remains
+normalization,POTENTIAL_NATIVE_REUSE,canonical native leaf,no CSNF semantic equivalence
+serialization,POTENTIAL_NATIVE_REUSE,native canonical YAML,audit sidecar remains
+physical typing,RETAIN,tagged R1 Dimension algebra,native does not enforce carrier
+contract validation,RETAIN,outer obligations and authority,not native

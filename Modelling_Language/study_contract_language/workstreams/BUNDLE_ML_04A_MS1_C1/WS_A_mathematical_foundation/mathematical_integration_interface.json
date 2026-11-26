@@ -1,0 +1,27 @@
+{
+  "status": "CANDIDATE_NOT_FROZEN",
+  "version": "c1-math-interface-0.1",
+  "public_api": {
+    "validate": "strict JSON source envelope -> validated leaf; native public to_spec only",
+    "reimport": "revalidate original source and reject tampered leaf",
+    "bind_data": "dense finite typed parameter support; no obligation verdict",
+    "m3": "native canonical nested leaf",
+    "m2_measure_predicate": "bounded existing R1 measure/compare mapping, outer binder supplied"
+  },
+  "c2_T1B": {
+    "scope": "ordered binders and qualified domain identities",
+    "predicate": "typed comparison + explicit guard; external quantifier, Bool3, assume-guarantee, temporal and information semantics not implemented"
+  },
+  "c2_T2A": {
+    "symbols": "explicit role, axes, quantity, dtype, nonzero",
+    "method": "explicit identity only; output/context receipt binding deferred",
+    "data": "finite dense input/observable/witness bindings"
+  },
+  "blocked": [
+    "complete M2 arithmetic/normalization mapping",
+    "physical conversion authority",
+    "generic relation, temporal and conditional support",
+    "full typed MethodProfile binding",
+    "C21 integration in outer chain"
+  ]
+}
