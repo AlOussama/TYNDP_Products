@@ -1,0 +1,83 @@
+{
+  "schema": "ms1-bounded-snapshot-v1",
+  "engine_data": {
+    "axes": {
+      "domain:period": {
+        "ids": [
+          "t0",
+          "t1"
+        ],
+        "role": "time"
+      }
+    },
+    "series": {
+      "power": {
+        "unit": "MW",
+        "basis": "",
+        "axes": [
+          "domain:period"
+        ],
+        "role": "value",
+        "rows": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "2"
+          },
+          {
+            "key": [
+              "t1"
+            ],
+            "value": "4"
+          }
+        ]
+      },
+      "duration": {
+        "unit": "h",
+        "basis": "",
+        "axes": [
+          "domain:period"
+        ],
+        "role": "time_weight",
+        "rows": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "1/2"
+          },
+          {
+            "key": [
+              "t1"
+            ],
+            "value": "1"
+          }
+        ]
+      },
+      "eligibility": {
+        "unit": "1",
+        "basis": "",
+        "axes": [
+          "domain:period"
+        ],
+        "role": "value",
+        "rows": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "1"
+          },
+          {
+            "key": [
+              "t1"
+            ],
+            "value": "1/2"
+          }
+        ]
+      }
+    },
+    "pairs": []
+  }
+}
