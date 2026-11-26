@@ -1,0 +1,85 @@
+name: C1 WS-A pinned native mathspec research
+on:
+  pull_request:
+    branches:
+      - research/bundle-ml-04a-ms1-mathspec-reuse-2026-11-26
+    paths:
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/**'
+      - '.github/workflows/research-ms1-c1-a.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c1-ws-a-mathematical-foundation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Checkout exact upstream
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: energy-models/mathspec
+          ref: 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          path: mathspec-src
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify source identities
+        working-directory: mathspec-src
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          test "$(git rev-parse HEAD)" = 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          git hash-object src/mathspec/_canonical.py
+          test "$(git hash-object src/mathspec/_canonical.py)" = a8487b60f03839fc622834ffcaf76e1f9c99f6e9
+          test "$(git hash-object pixi.lock)" = dcf89e3e6b3794a1ae79d00a07978ceaec37daba
+          test "$(git rev-parse HEAD^{tree})" = 635a594392e990e2e22393d408cc5b307704cda0
+          echo '4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2  pixi.lock' | sha256sum -c -
+          echo 'e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093  src/mathspec/_canonical.py' | sha256sum -c -
+          sha256sum pixi.lock pyproject.toml LICENSE src/mathspec/_canonical.py
+      - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94
+        with:
+          manifest-path: mathspec-src/pixi.toml
+          environments: py313
+          locked: true
+          cache: false
+      - name: Native bounded probes (not original full-chain tests)
+        working-directory: mathspec-src
+        run: |
+          pixi --version
+          pixi run --locked -e py313 python --version
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/native_probe.py
+      - name: Native contract adapter and profile math
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py
+      - name: Checkout original P5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: eaea6dd99b736f2560866abda722cde78b908bce
+          path: p5-src
+          persist-credentials: false
+      - name: Original P5 domain oracle (not full-chain)
+        working-directory: p5-src
+        run: |
+          test "$(git rev-parse HEAD)" = eaea6dd99b736f2560866abda722cde78b908bce
+          test "$(git hash-object Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js)" = ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2
+          node -e 'const r=require("./Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js").runSuite();console.log("P5_ORIGINAL="+JSON.stringify(r));if(r.passed!==r.total)process.exit(1)'
+      - name: Original upstream test suite
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 pytest -q
+      - name: Original R1 regression, no changes
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          cd ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/../BUNDLE_ML_04A_R1
+          ../BUNDLE_ML_04A_MS1/native_mathspec_experiments/run_r1.sh
+
+      - name: C1 bounded static and canonical tests
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/tests/test_foundation.py

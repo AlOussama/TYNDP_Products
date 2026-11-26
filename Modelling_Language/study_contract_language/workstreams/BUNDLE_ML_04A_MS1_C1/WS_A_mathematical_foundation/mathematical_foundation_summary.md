@@ -1,0 +1,3 @@
+# C1 WS-A — bounded implementation
+
+NON-NORMATIVE / RESEARCH ONLY. Candidate 0.1. Native upstream source is not modified. Implementation adopts closed JSON admission, the nine native Program nodes, R1 Dimension algebra, native canonical serialization, independent source/audit identities and a limited M2 measure/compare mapping. All native results require CI receipts; no C1 gate is promoted at authoring. Cases, relation joins, temporal operators, macros and native assumptions are excluded/deferred rather than interpreted incorrectly. No complete M2 projection, no complete contract equivalence, no C2 freeze.

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C1 research mathematical leaf",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "upstream",
+    "native_canonical",
+    "source",
+    "source_digest",
+    "native_identity",
+    "semantic_identity",
+    "audit_identity",
+    "audit",
+    "scope",
+    "method",
+    "types"
+  ],
+  "properties": {
+    "schema": {
+      "const": "c1-math-interface-0.1"
+    },
+    "upstream": {
+      "const": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a"
+    },
+    "native_canonical": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "native_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "semantic_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "audit_identity": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "types": {
+      "type": "object"
+    }
+  }
+}

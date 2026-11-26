@@ -1,0 +1,197 @@
+{
+  "schema": "c1-quantity-registry-0.1",
+  "authority": "RESEARCH_ONLY",
+  "units": {
+    "1": {
+      "physical": {},
+      "atoms": {}
+    },
+    "h": {
+      "physical": {
+        "time": 1
+      },
+      "atoms": {
+        "h": 1
+      }
+    },
+    "MW": {
+      "physical": {
+        "energy": 1,
+        "time": -1
+      },
+      "atoms": {
+        "electricity_MWh": 1,
+        "h": -1
+      }
+    },
+    "MWh": {
+      "physical": {
+        "energy": 1
+      },
+      "atoms": {
+        "electricity_MWh": 1
+      }
+    },
+    "MW_heat": {
+      "physical": {
+        "energy": 1,
+        "time": -1
+      },
+      "atoms": {
+        "heat_MWh": 1,
+        "h": -1
+      }
+    },
+    "MWh_heat": {
+      "physical": {
+        "energy": 1
+      },
+      "atoms": {
+        "heat_MWh": 1
+      }
+    },
+    "kg": {
+      "physical": {
+        "mass": 1
+      },
+      "atoms": {
+        "hydrogen_kg": 1
+      }
+    },
+    "kg/h": {
+      "physical": {
+        "mass": 1,
+        "time": -1
+      },
+      "atoms": {
+        "hydrogen_kg": 1,
+        "h": -1
+      }
+    },
+    "MWh_H2_LHV": {
+      "physical": {
+        "energy": 1
+      },
+      "atoms": {
+        "hydrogen_LHV_MWh": 1
+      }
+    },
+    "MWh_H2_HHV": {
+      "physical": {
+        "energy": 1
+      },
+      "atoms": {
+        "hydrogen_HHV_MWh": 1
+      }
+    },
+    "MW_H2_LHV": {
+      "physical": {
+        "energy": 1,
+        "time": -1
+      },
+      "atoms": {
+        "hydrogen_LHV_MWh": 1,
+        "h": -1
+      }
+    },
+    "MW_H2_HHV": {
+      "physical": {
+        "energy": 1,
+        "time": -1
+      },
+      "atoms": {
+        "hydrogen_HHV_MWh": 1,
+        "h": -1
+      }
+    },
+    "MWh_H2_LHV/kg": {
+      "physical": {
+        "energy": 1,
+        "mass": -1
+      },
+      "atoms": {
+        "hydrogen_LHV_MWh": 1,
+        "hydrogen_kg": -1
+      }
+    },
+    "MWh_H2_HHV/kg": {
+      "physical": {
+        "energy": 1,
+        "mass": -1
+      },
+      "atoms": {
+        "hydrogen_HHV_MWh": 1,
+        "hydrogen_kg": -1
+      }
+    },
+    "LHV_ratio": {
+      "physical": {},
+      "atoms": {
+        "hydrogen_LHV_MWh": 1,
+        "electricity_MWh": -1
+      }
+    },
+    "HHV_ratio": {
+      "physical": {},
+      "atoms": {
+        "hydrogen_HHV_MWh": 1,
+        "electricity_MWh": -1
+      }
+    },
+    "HHV_per_LHV": {
+      "physical": {},
+      "atoms": {
+        "hydrogen_HHV_MWh": 1,
+        "hydrogen_LHV_MWh": -1
+      }
+    },
+    "module": {
+      "physical": {
+        "count": 1
+      },
+      "atoms": {
+        "module": 1
+      }
+    },
+    "MW/module": {
+      "physical": {
+        "energy": 1,
+        "time": -1,
+        "count": -1
+      },
+      "atoms": {
+        "electricity_MWh": 1,
+        "h": -1,
+        "module": -1
+      }
+    },
+    "EUR": {
+      "physical": {
+        "money": 1
+      },
+      "atoms": {
+        "EUR": 1
+      }
+    },
+    "EUR/h": {
+      "physical": {
+        "money": 1,
+        "time": -1
+      },
+      "atoms": {
+        "EUR": 1,
+        "h": -1
+      }
+    },
+    "EUR/module": {
+      "physical": {
+        "money": 1,
+        "count": -1
+      },
+      "atoms": {
+        "EUR": 1,
+        "module": -1
+      }
+    }
+  }
+}
