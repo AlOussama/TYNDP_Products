@@ -1,0 +1,111 @@
+{
+  "status": "PARTIAL_RESEARCH_EVIDENCE",
+  "blockers": [
+    {
+      "id": "B1-01",
+      "category": "IMPLEMENTATION_DEFECT",
+      "issue": "R1 bypass accepts unvalidated extension; component boundary not integrated",
+      "acceptance": "Integrate exact boundary with R1 run and validated typed extension path; prove legitimate extension accepted and arbitrary AST rejected through both parsers.",
+      "b1_blocker": true,
+      "ms1_status": "OPEN",
+      "ms1_note": "Inherited acceptance criteria not reduced"
+    },
+    {
+      "id": "B1-02",
+      "category": "FORMAL_SEMANTIC_GAP",
+      "issue": "guard/scope and service/capability nonvacuity; information-domain semantics",
+      "acceptance": "RC02/RC07: complete finite request and paired scenario contracts, missing/unknown support blocks, correct quantifier order, no information leak.",
+      "b1_blocker": true,
+      "ms1_status": "PARTIAL_BOUNDED_NATIVE_WITNESSES",
+      "ms1_note": "Finite active guard and supplied information pairs checked; quantifier and service semantics open"
+    },
+    {
+      "id": "B1-03",
+      "category": "FORMAL_SEMANTIC_GAP",
+      "issue": "cross-carrier dimensional algebra and indexed composition incomplete",
+      "acceptance": "RC01/03/04/05/06: prove reuse of generic typed sums, integration, explicit conversion and integer domains; no new core unless counterexample forces one.",
+      "b1_blocker": true,
+      "ms1_status": "PARTIAL_BOUNDED_NATIVE_WITNESSES",
+      "ms1_note": "Finite carrier/basis and integer checks only; static type system and composition incomplete"
+    },
+    {
+      "id": "B1-04",
+      "category": "IMPLEMENTATION_DEFECT",
+      "issue": "method result not bound to typed observable; validated context flag remains unresolved",
+      "acceptance": "Bind result signature and context receipt into canonical and audit graphs; verify both R1 profiles and non-CBA external method swaps, fixed code hashes.",
+      "b1_blocker": true,
+      "ms1_status": "PARTIAL_BOUNDED_NATIVE_WITNESSES",
+      "ms1_note": "Four external profiles computed with unchanged checked code; output binding not integrated"
+    },
+    {
+      "id": "B1-05",
+      "category": "FORMAL_SEMANTIC_GAP",
+      "issue": "contribution support, coefficients, versioned authorization, evidence lifecycle",
+      "acceptance": "Implement externally configured overlap policy with canonical event identity and signed contributions; run duplicate IDs, overlap, basis, override, provenance and promotion negatives.",
+      "b1_blocker": true,
+      "ms1_status": "OPEN",
+      "ms1_note": "Inherited acceptance criteria not reduced"
+    },
+    {
+      "id": "B1-06",
+      "category": "SCIENTIFIC_EVIDENCE_GAP",
+      "issue": "0/116 original full-chain paths; 0/57 R1 reruns",
+      "acceptance": "Materialize original 58 identities in A/B, execute all 116 paths and R1 regression; preserve expected negative verdicts; record actual logs and independent oracles.",
+      "b1_blocker": true,
+      "ms1_status": "PARTIALLY_CLOSED_R1_57_OF_57_AND_P5_ORACLE_36_OF_36_ORIGINAL_0_OF_116",
+      "ms1_note": "57/57 R1 and original P5 domain oracle executed; C23 full-chain cases remain conceptual, no 116 paths"
+    },
+    {
+      "id": "B1-07",
+      "category": "SCIENTIFIC_EVIDENCE_GAP",
+      "issue": "full A/B grammar and semantics/audit correspondence not shown",
+      "acceptance": "Validate independently authored complete original-scope contracts against actual parsers and compare projections, not only hashes.",
+      "b1_blocker": true,
+      "ms1_status": "OPEN",
+      "ms1_note": "Inherited acceptance criteria not reduced"
+    },
+    {
+      "id": "EXT-01",
+      "category": "EXTERNAL_RUNTIME_BLOCKER",
+      "issue": "Native pinned external tool runtimes unavailable in current execution environment",
+      "acceptance": "Isolated network-enabled CI with pinned source/dependency hashes and recorded native tests; H0 remains open; not B1 blocker.",
+      "b1_blocker": false,
+      "ms1_status": "PARTIALLY_CLOSED_MATHSPEC_NATIVE_ONLY",
+      "ms1_note": "Native mathspec execution verified; GEMS/SysML native status not changed"
+    },
+    {
+      "id": "EXT-02",
+      "category": "EXTERNAL_RUNTIME_BLOCKER",
+      "issue": "official ENTSO-E v4.2 PDF identified but bytes unavailable for SHA-256",
+      "acceptance": "Download exact official binary, validate file signature and hash; not B1 blocker.",
+      "b1_blocker": false,
+      "ms1_status": "OPEN",
+      "ms1_note": "Inherited acceptance criteria not reduced"
+    },
+    {
+      "id": "GOV-01",
+      "category": "OWNER_DECISION_REQUIRED",
+      "issue": "study-specific method approval, permitted overrides and trust root unresolved",
+      "acceptance": "Owner approves explicit versions and scope; synthetic trust never promotes real authority; retain OWNER_TBD.",
+      "b1_blocker": false,
+      "ms1_status": "OPEN",
+      "ms1_note": "Inherited acceptance criteria not reduced"
+    },
+    {
+      "id": "MS-01",
+      "category": "REUSE_ARCHITECTURE_EVIDENCE",
+      "issue": "Public API alpha and selected subset not minimality-proved; M0/M2/M3 equivalent-scope comparison absent",
+      "acceptance": "Versioned public-API compatibility suite; exact original cases on comparable architecture branches; controlled ablation; human review",
+      "ms1_status": "OPEN",
+      "b1_blocker": false
+    },
+    {
+      "id": "MS-02",
+      "category": "SEMANTIC_INTEGRATION",
+      "issue": "Canonical native leaf has no full CSNF scope/audit binding; finite consumer rejects Unknown eagerly and checks quantities on evaluated support",
+      "acceptance": "Static fail-closed validation of every leaf/guard; exact rational literals; complete Bool3, ordered scope, physical unit and temporal/relation semantics; dual roundtrip",
+      "ms1_status": "OPEN",
+      "b1_blocker": true
+    }
+  ]
+}

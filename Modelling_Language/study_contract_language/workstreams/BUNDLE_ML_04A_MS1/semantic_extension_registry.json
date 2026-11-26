@@ -1,0 +1,139 @@
+{
+  "schema": "ms1-extension-registry-v1",
+  "status": "PROVISIONAL",
+  "new_core_operators_proposed": 0,
+  "extensions": [
+    {
+      "id": "X01",
+      "name": "Modal obligation",
+      "requirements": "C5;SLR-18,19,21,26",
+      "gap": "Native assumptions/constraints have different quantifier and role semantics",
+      "solution": "Existing CSNF Assertion + explicit safety/capability/service modality",
+      "reference_cases": "RC01,02,07",
+      "evidence": "DESIGN; finite witnesses only",
+      "necessity_witness": "Without role, existential feasibility mistaken for universal safety",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X02",
+      "name": "Physical quantity and carrier/basis",
+      "requirements": "SLR-14,16,35;NFR-07",
+      "gap": "Index dimensions not physical dimensions; same-axis MW + kg/h accepted",
+      "solution": "Reuse R1 quantity registry concept; explicit conversion; finite adapter uses exact tagged exponent algebra",
+      "reference_cases": "RC01,03,04,05",
+      "evidence": "FINITE_COUNTEREXAMPLE",
+      "necessity_witness": "Removing check accepts physically invalid sum",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X03",
+      "name": "Quantifier and information domains",
+      "requirements": "C1,C5;SLR-04,38;NFR-08",
+      "gap": "Native row indexing not arbitrary nested quantifiers or nonanticipative policies",
+      "solution": "CSNF ordered binder tree and versioned information partitions",
+      "reference_cases": "RC02,07",
+      "evidence": "FINITE_PAIR_ONLY",
+      "necessity_witness": "forall scenario exists action leaks future knowledge",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X04",
+      "name": "Unknown / Bool3",
+      "requirements": "SLR-36;NFR-06,18;R03,R05,R11",
+      "gap": "Absent mask false and absent sum omitted; not contract Unknown",
+      "solution": "External completeness check, Bool3/blocked semantics; no implicit default",
+      "reference_cases": "RC01,02,07",
+      "evidence": "FINITE_MISSING_UNKNOWN_GUARD",
+      "necessity_witness": "Unknown guard otherwise drops obligation",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X05",
+      "name": "Behaviour / service nonvacuity",
+      "requirements": "SLR-19,20,23;NFR-10",
+      "gap": "Native programs feasibility not capability and observed witness not universal",
+      "solution": "CSNF modality/projection with nonempty inputs/requests/behaviours and proof obligations",
+      "reference_cases": "RC02,07",
+      "evidence": "FINITE_EMPTY_GUARD",
+      "necessity_witness": "Empty request support vacuously passes universal check",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X06",
+      "name": "Ports and interface",
+      "requirements": "SLR-12,13,14;NFR-09",
+      "gap": "Native relations link labels, not interface direction, carrier compatibility",
+      "solution": "CSNF Referent, Relation, port types; GEMS ports concept; SysML port definition candidate",
+      "reference_cases": "RC01,03,05",
+      "evidence": "DESIGN",
+      "necessity_witness": "Same-index MW flow can have wrong sign/port/carrier",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X07",
+      "name": "External Method/StudyProfile",
+      "requirements": "SLR-09,11,31,39;NFR-11,13",
+      "gap": "Native expressions compute rules, not method authorization/applicability",
+      "solution": "Existing R1 external profile schema + checked compiler and source pins",
+      "reference_cases": "RC08,09",
+      "evidence": "FOUR_BOUNDED_MATH_LAYER_SWAPS",
+      "necessity_witness": "Hardcoded method change violates code hash invariance",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X08",
+      "name": "Observable binding",
+      "requirements": "C6;SLR-06,09,29;R12",
+      "gap": "Parameter name alone does not bind case/model/output identity",
+      "solution": "Existing CSNF Observable/Projection/DataBinding; typed role sidecar and output receipt",
+      "reference_cases": "RC01-10",
+      "evidence": "FINITE_SIGNATURE_ONLY",
+      "necessity_witness": "Equal axes/name with wrong observable or model",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X09",
+      "name": "Counterfactual context",
+      "requirements": "SLR-03,27,28",
+      "gap": "Relations/macros cannot certify aligned context/authorized delta",
+      "solution": "Reuse R1 pair and exogeneity identity checks; CSNF context receipt",
+      "reference_cases": "RC09",
+      "evidence": "R1 + P5_ORACLE; integration open",
+      "necessity_witness": "Cross-model or changed demand pairing",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X10",
+      "name": "Contribution ledger",
+      "requirements": "SLR-09,31;NFR-11,12",
+      "gap": "Native sum not signed canonical event identity or approved overlap policy",
+      "solution": "Existing R1 lineage; external signed contribution/overlap policy",
+      "reference_cases": "RC08,09",
+      "evidence": "R1/P5_ONLY",
+      "necessity_witness": "Duplicate physical event counted twice",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X11",
+      "name": "Authority/governance",
+      "requirements": "C9;SLR-05,11,24,42",
+      "gap": "Native override and version do not grant owner authority",
+      "solution": "Existing versioned approval/trust and source model; OWNER_TBD",
+      "reference_cases": "RC08-10",
+      "evidence": "R1/P5_ONLY",
+      "necessity_witness": "Hash/override cannot authorize method",
+      "priority": "reuse existing contract semantics before extension"
+    },
+    {
+      "id": "X12",
+      "name": "Scientific evidence lifecycle",
+      "requirements": "C7,C8;SLR-10,22,25,30,32,33,34,40,41;NFR-17",
+      "gap": "Native AST validity and equal hash not proof or independent evidence",
+      "solution": "Existing evidence/variation objects, independent oracles and claim strength",
+      "reference_cases": "RC10",
+      "evidence": "DESIGN + P5_ORACLE",
+      "necessity_witness": "Equal objective promoted to E4",
+      "priority": "reuse existing contract semantics before extension"
+    }
+  ]
+}

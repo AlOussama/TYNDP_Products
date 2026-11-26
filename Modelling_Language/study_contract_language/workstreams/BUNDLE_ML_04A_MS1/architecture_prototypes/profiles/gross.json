@@ -1,0 +1,50 @@
+{
+  "schema": "profile-r1",
+  "id": "urn:ms1:method:gross",
+  "version": "1",
+  "operator_version": "operators-r1",
+  "approval": "RESEARCH_ASSUMPTION",
+  "parameters": {},
+  "inputs": {
+    "power": {
+      "unit": "MW",
+      "basis": "",
+      "axes": [
+        "domain:period"
+      ],
+      "role": "value"
+    },
+    "duration": {
+      "unit": "h",
+      "basis": "",
+      "axes": [
+        "domain:period"
+      ],
+      "role": "time_weight"
+    },
+    "eligibility": {
+      "unit": "1",
+      "basis": "",
+      "axes": [
+        "domain:period"
+      ],
+      "role": "value"
+    }
+  },
+  "rules": {
+    "summary": {
+      "unit": "MWh",
+      "basis": "",
+      "axes": [],
+      "expr": {
+        "op": "weighted_sum",
+        "axis": "domain:period",
+        "weight": "duration",
+        "expr": {
+          "op": "input",
+          "id": "power"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+# Verbatim selected lines from GitHub Actions job 140108187595; run 45877500514
+# Original full log: https://github.com/AlOussama/TYNDP_Products/actions/runs/45877500514/job/140108187595
+# Excerpt, not a synthetic/reconstructed log. ANSI control codes retained where present.
+2026-11-26T18:38:20.2263424Z [36;1mgit rev-parse HEAD[0m
+2026-11-26T18:38:20.2263810Z [36;1mtest "$(git rev-parse HEAD)" = 5f1464c334c1012cdee2947d4d55b4d1d6bef40a[0m
+2026-11-26T18:38:20.2264186Z [36;1mgit hash-object src/mathspec/_canonical.py[0m
+2026-11-26T18:38:20.2264814Z [36;1mtest "$(git hash-object src/mathspec/_canonical.py)" = a8487b60f03839fc622834ffcaf76e1f9c99f6e9[0m
+2026-11-26T18:38:20.2265592Z [36;1mtest "$(git hash-object pixi.lock)" = dcf89e3e6b3794a1ae79d00a07978ceaec37daba[0m
+2026-11-26T18:38:20.4325725Z 4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2  pixi.lock
+2026-11-26T18:38:20.4326320Z 0b13a1f26644b1b6b646029ffd26b78fb8aa83a75e9011fba19ca124718a3bc4  pyproject.toml
+2026-11-26T18:38:20.4326942Z 5274d9a08acd651aadc9dbd4113e5b6b0be772570454b29f87355a29ed9893b3  LICENSE
+2026-11-26T18:38:20.4327617Z e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093  src/mathspec/_canonical.py
+2026-11-26T18:38:24.4139023Z pixi 0.85.0
+2026-11-26T18:38:24.5085985Z Python 3.13.15
+2026-11-26T18:38:25.1843207Z {"source_pin_expected": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a", "module_count_checked": 36, "imported": "/home/runner/work/TYNDP_Products/TYNDP_Products/mathspec-src/src/mathspec", "python": "3.13.15 | packaged by conda-forge | (main, Aug 10 2026, 13:05:01) [GCC 14.4.0]", "versions": {"mathspec": "0.4.1.dev40+g5f1464c33", "pydantic": "2.13.4", "pyparsing": "3.3.2", "PyYAML": "6.0.3"}}
+2026-11-26T18:38:25.1846119Z {
+2026-11-26T18:38:25.1846665Z   "cases": [
+2026-11-26T18:38:25.1847221Z     {
+2026-11-26T18:38:25.1847681Z       "id": "RC01",
+2026-11-26T18:38:25.1848207Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1849032Z       "hash": "d8bf575097c91f37be14e9acd51d5a11d16eb39af190a716b372708b9d26328d",
+2026-11-26T18:38:25.1849869Z       "expressions": [
+2026-11-26T18:38:25.1850344Z         "integral"
+2026-11-26T18:38:25.1850800Z       ],
+2026-11-26T18:38:25.1851231Z       "assumptions": [
+2026-11-26T18:38:25.1851696Z         "observed_intake"
+2026-11-26T18:38:25.1852157Z       ]
+2026-11-26T18:38:25.1852594Z     },
+2026-11-26T18:38:25.1853012Z     {
+2026-11-26T18:38:25.1853412Z       "id": "RC02",
+2026-11-26T18:38:25.1853903Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1854702Z       "hash": "c3af73bebb7838a064145293aad473f80832c3f478ba77a92f78b483ad47ab76",
+2026-11-26T18:38:25.1855690Z       "expressions": [],
+2026-11-26T18:38:25.1856212Z       "assumptions": [
+2026-11-26T18:38:25.1856690Z         "service"
+2026-11-26T18:38:25.1857126Z       ]
+2026-11-26T18:38:25.1857517Z     },
+2026-11-26T18:38:25.1857944Z     {
+2026-11-26T18:38:25.1858361Z       "id": "RC03",
+2026-11-26T18:38:25.1859131Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1859970Z       "hash": "01deab6c7f80dd8db44ce2a6ec653b69e1a3e7d424066ef925f455bbfd67f41a",
+2026-11-26T18:38:25.1860794Z       "expressions": [
+2026-11-26T18:38:25.1861302Z         "output_energy"
+2026-11-26T18:38:25.1861753Z       ],
+2026-11-26T18:38:25.1862152Z       "assumptions": [
+2026-11-26T18:38:25.1862647Z         "high",
+2026-11-26T18:38:25.1863065Z         "low"
+2026-11-26T18:38:25.1863413Z       ]
+2026-11-26T18:38:25.1863714Z     },
+2026-11-26T18:38:25.1863982Z     {
+2026-11-26T18:38:25.1864245Z       "id": "RC04",
+2026-11-26T18:38:25.1864555Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1865116Z       "hash": "21944d48c23ffc33677c61c70968155f0477d12f389d15457cdd4a515d9c2432",
+2026-11-26T18:38:25.1865800Z       "expressions": [
+2026-11-26T18:38:25.1866089Z         "delta"
+2026-11-26T18:38:25.1866368Z       ],
+2026-11-26T18:38:25.1866651Z       "assumptions": [
+2026-11-26T18:38:25.1866948Z         "ledger"
+2026-11-26T18:38:25.1867292Z       ]
+2026-11-26T18:38:25.1867554Z     },
+2026-11-26T18:38:25.1867821Z     {
+2026-11-26T18:38:25.1868086Z       "id": "RC05",
+2026-11-26T18:38:25.1868435Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1868963Z       "hash": "5d756726dded64cd5f5e680110bd20e7471ee15af6b0b6613b6b102bca9d0989",
+2026-11-26T18:38:25.1869446Z       "expressions": [
+2026-11-26T18:38:25.1869741Z         "loop_sum",
+2026-11-26T18:38:25.1870038Z         "nodal"
+2026-11-26T18:38:25.1870325Z       ],
+2026-11-26T18:38:25.1870616Z       "assumptions": [
+2026-11-26T18:38:25.1870897Z         "kcl",
+2026-11-26T18:38:25.1871150Z         "kvl"
+2026-11-26T18:38:25.1871453Z       ]
+2026-11-26T18:38:25.1871694Z     },
+2026-11-26T18:38:25.1872003Z     {
+2026-11-26T18:38:25.1872498Z       "id": "RC06",
+2026-11-26T18:38:25.1872802Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1873327Z       "hash": "94f295f55e91ea8dde61b6c8cf01b728c85e2a2aebe749afa07867416876797b",
+2026-11-26T18:38:25.1873841Z       "expressions": [],
+2026-11-26T18:38:25.1874141Z       "assumptions": [
+2026-11-26T18:38:25.1874419Z         "limit"
+2026-11-26T18:38:25.1874690Z       ]
+2026-11-26T18:38:25.1874954Z     },
+2026-11-26T18:38:25.1875449Z     {
+2026-11-26T18:38:25.1875772Z       "id": "RC07",
+2026-11-26T18:38:25.1876087Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1876521Z       "hash": "e360e227cc66c6025792379d05c9f19c53875c11c1b3290c47eb34a5ad709ee2",
+2026-11-26T18:38:25.1876978Z       "expressions": [],
+2026-11-26T18:38:25.1877306Z       "assumptions": [
+2026-11-26T18:38:25.1877606Z         "paired_decision"
+2026-11-26T18:38:25.1877949Z       ]
+2026-11-26T18:38:25.1878215Z     },
+2026-11-26T18:38:25.1878460Z     {
+2026-11-26T18:38:25.1878750Z       "id": "RC08",
+2026-11-26T18:38:25.1879080Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1879579Z       "hash": "8f477b971de38341944b69d8be52397706a5ed8ac7eecfdca098971157fd2525",
+2026-11-26T18:38:25.1880033Z       "expressions": [
+2026-11-26T18:38:25.1880311Z         "weighted"
+2026-11-26T18:38:25.1880605Z       ],
+2026-11-26T18:38:25.1880854Z       "assumptions": [
+2026-11-26T18:38:25.1881154Z         "reported_total"
+2026-11-26T18:38:25.1881462Z       ]
+2026-11-26T18:38:25.1881696Z     },
+2026-11-26T18:38:25.1882019Z     {
+2026-11-26T18:38:25.1882330Z       "id": "RC09",
+2026-11-26T18:38:25.1882679Z       "stage": "NATIVE_STATIC_FRAGMENT_ONLY",
+2026-11-26T18:38:25.1883164Z       "hash": "284119404d89f7e293fde1f528aeea5be6ef5a736e03d89ae53587fad9bd149a",
+2026-11-26T18:38:25.1883610Z       "expressions": [
+2026-11-26T18:38:25.1883954Z         "difference"
+2026-11-26T18:38:25.1884231Z       ],
+2026-11-26T18:38:25.1884764Z       "assumptions": [
+2026-11-26T18:38:25.1885069Z         "result"
+2026-11-26T18:38:25.1885519Z       ]
+2026-11-26T18:38:25.1885785Z     }
+2026-11-26T18:38:25.1886055Z   ],
+2026-11-26T18:38:25.1886298Z   "checks": {
+2026-11-26T18:38:25.1886586Z     "commutative": true,
+2026-11-26T18:38:25.1887003Z     "ordered_subtraction": true,
+2026-11-26T18:38:25.1887609Z     "ordered_division": true,
+2026-11-26T18:38:25.1888739Z     "unknown_operator": "Named expression 'value': Unknown operator 'unregistered'.\nAvailable: ['at', 'dual', 'shift', 'sum', 'sum_back']\nDefine 'unregistered' as a macro under 'macros:' if it composes built-ins. A file cannot add an operator: see docs/about/limits.md.",
+2026-11-26T18:38:25.1890856Z     "unknown_name": "Named expression 'value': 'undeclared' not found.\n  Variables: []\n  Parameters: ['a', 'b', 'c']\nCheck the spelling, or declare 'undeclared'.",
+2026-11-26T18:38:25.2042706Z     "unknown_section": "unknown key 'arbitrary_ast' in the top level of the file. Valid keys: assumptions, conditions, constraints, description, dimensions, expressions, given, macros, objective, parameters, piecewise, relations, sos, variables, version.",
+2026-11-26T18:38:25.2044836Z     "physical_type_gap": "NATIVE_ACCEPTS_NUMERIC_SAME_AXIS_REQUIRES_CONTRACT_TYPE_CHECK",
+2026-11-26T18:38:25.2045883Z     "data_evaluation": "NOT_EXECUTED_BY_MATHSPEC"
+2026-11-26T18:38:25.2046365Z   }
+2026-11-26T18:38:25.2046673Z }
+2026-11-26T18:39:07.3303565Z 4140 passed, 47 skipped in 41.49s
+2026-11-26T18:39:07.8388064Z test_RC01_power_energy_fragment (test_generality.Fragments.test_RC01_power_energy_fragment) ... ok
+2026-11-26T18:39:07.8436232Z test_RC03_RC04_hydrogen_mass_flow_fragment (test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment) ... ok
+2026-11-26T18:39:07.8487660Z test_RC05_port_connection_fragment (test_generality.Fragments.test_RC05_port_connection_fragment) ... ok
+2026-11-26T18:39:07.8535961Z test_RC07_information_fragment (test_generality.Fragments.test_RC07_information_fragment) ... ok
+2026-11-26T18:39:07.8588302Z test_RC10_variation_fragment (test_generality.Fragments.test_RC10_variation_fragment) ... ok
+2026-11-26T18:39:07.8607359Z test_authority_conflict (test_r1.N1R.test_authority_conflict) ... ok
+2026-11-26T18:39:07.8634541Z test_authority_source_audit_not_semantics (test_r1.N1R.test_authority_source_audit_not_semantics) ... ok
+2026-11-26T18:39:07.8678019Z test_capability_vs_service (test_r1.N1R.test_capability_vs_service) ... ok
+2026-11-26T18:39:07.8714725Z test_dual_syntax_idempotence_and_source (test_r1.N1R.test_dual_syntax_idempotence_and_source) ... ok
+2026-11-26T18:39:07.8734408Z test_duplicate_id (test_r1.N1R.test_duplicate_id) ... ok
+2026-11-26T18:39:07.8734921Z test_duplicate_json_key (test_r1.N1R.test_duplicate_json_key) ... ok
+2026-11-26T18:39:07.8756087Z test_evidence_promotion (test_r1.N1R.test_evidence_promotion) ... ok
+2026-11-26T18:39:07.8775917Z test_exact_units_and_no_silent_rounding (test_r1.N1R.test_exact_units_and_no_silent_rounding) ... ok
+2026-11-26T18:39:07.8795578Z test_guard_nonboolean (test_r1.N1R.test_guard_nonboolean) ... ok
+2026-11-26T18:39:07.8815951Z test_guard_ref (test_r1.N1R.test_guard_ref) ... ok
+2026-11-26T18:39:07.8854839Z test_guard_typed_but_unexecuted (test_r1.N1R.test_guard_typed_but_unexecuted) ... ok
+2026-11-26T18:39:07.8892059Z test_guard_unknown_not_false (test_r1.N1R.test_guard_unknown_not_false) ... ok
+2026-11-26T18:39:07.8910980Z test_information_refinement (test_r1.N1R.test_information_refinement) ... ok
+2026-11-26T18:39:07.8931951Z test_invalid_observable_projection (test_r1.N1R.test_invalid_observable_projection) ... ok
+2026-11-26T18:39:07.8942321Z test_legacy_path (test_r1.N1R.test_legacy_path) ... ok
+2026-11-26T18:39:07.8974578Z test_nested_quantifier_order (test_r1.N1R.test_nested_quantifier_order) ... ok
+2026-11-26T18:39:07.8995105Z test_scope_escape (test_r1.N1R.test_scope_escape) ... ok
+2026-11-26T18:39:07.9013790Z test_unbound_variable (test_r1.N1R.test_unbound_variable) ... ok
+2026-11-26T18:39:07.9036615Z test_unknown_operator_c21_defect_and_reject (test_r1.N1R.test_unknown_operator_c21_defect_and_reject) ... ok
+2026-11-26T18:39:07.9056491Z test_unsupported_approval (test_r1.N1R.test_unsupported_approval) ... ok
+2026-11-26T18:39:07.9078047Z test_wrong_index_domain (test_r1.N1R.test_wrong_index_domain) ... ok
+2026-11-26T18:39:07.9108458Z test_auxiliary_binding (test_r1.N2N7.test_auxiliary_binding) ... ok
+2026-11-26T18:39:07.9137353Z test_bad_probability (test_r1.N2N7.test_bad_probability) ... ok
+2026-11-26T18:39:07.9163517Z test_context_content_changed_with_authorized_data (test_r1.N2N7.test_context_content_changed_with_authorized_data) ... ok
+2026-11-26T18:39:07.9176457Z test_data_bytes_changed (test_r1.N2N7.test_data_bytes_changed) ... ok
+2026-11-26T18:39:07.9205515Z test_double_count_reject (test_r1.N2N7.test_double_count_reject) ... ok
+2026-11-26T18:39:07.9234854Z test_duplicate_contribution (test_r1.N2N7.test_duplicate_contribution) ... ok
+2026-11-26T18:39:07.9450722Z test_integrated_swap_four_runs_oracle_and_hashes (test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes) ... ok
+2026-11-26T18:39:07.9474390Z test_invalid_basis (test_r1.N2N7.test_invalid_basis) ... ok
+2026-11-26T18:39:07.9486887Z test_ledger_policy_override (test_r1.N2N7.test_ledger_policy_override) ... ok
+2026-11-26T18:39:07.9496699Z test_method_bytes_changed (test_r1.N2N7.test_method_bytes_changed) ... ok
+2026-11-26T18:39:07.9526616Z test_missing_contribution (test_r1.N2N7.test_missing_contribution) ... ok
+2026-11-26T18:39:07.9539644Z test_no_result_promotion (test_r1.N2N7.test_no_result_promotion) ... ok
+2026-11-26T18:39:07.9563985Z test_observable_binding (test_r1.N2N7.test_observable_binding) ... ok
+2026-11-26T18:39:07.9589334Z test_period_count (test_r1.N2N7.test_period_count) ... ok
+2026-11-26T18:39:07.9647503Z test_permitted_reuse_separate_policy (test_r1.N2N7.test_permitted_reuse_separate_policy) ... ok
+2026-11-26T18:39:07.9673141Z test_rule_cycle (test_r1.N2N7.test_rule_cycle) ... ok
+2026-11-26T18:39:07.9683097Z test_source_missing (test_r1.N2N7.test_source_missing) ... ok
+2026-11-26T18:39:07.9698504Z test_source_substitution (test_r1.N2N7.test_source_substitution) ... ok
+2026-11-26T18:39:07.9713488Z test_unauthorized_data_rehash (test_r1.N2N7.test_unauthorized_data_rehash) ... ok
+2026-11-26T18:39:07.9727649Z test_unauthorized_method_rehash (test_r1.N2N7.test_unauthorized_method_rehash) ... ok
+2026-11-26T18:39:07.9757620Z test_unknown_not_zero (test_r1.N2N7.test_unknown_not_zero) ... ok
+2026-11-26T18:39:07.9784876Z test_unknown_operator (test_r1.N2N7.test_unknown_operator) ... ok
+2026-11-26T18:39:07.9785591Z test_dimensional_product (test_r1.Units.test_dimensional_product) ... ok
+2026-11-26T18:39:07.9786985Z test_explicit_basis_conversion (test_r1.Units.test_explicit_basis_conversion) ... ok
+2026-11-26T18:39:07.9787669Z Ran 50 tests in 0.146s
+2026-11-26T18:39:07.9787837Z OK

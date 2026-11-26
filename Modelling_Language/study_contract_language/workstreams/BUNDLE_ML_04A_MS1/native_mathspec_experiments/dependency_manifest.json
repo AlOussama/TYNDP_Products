@@ -1,0 +1,32 @@
+{
+  "schema": "ms1-dependency-manifest-v1",
+  "upstream_repo": "https://github.com/energy-models/mathspec",
+  "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+  "lockfile": {
+    "path": "pixi.lock",
+    "git_blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+    "sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "environment": "py313"
+  },
+  "runtime_observed": {
+    "python": "3.13.15",
+    "mathspec": "0.4.1.dev40+g5f1464c33",
+    "pydantic": "2.13.4",
+    "pyparsing": "3.3.2",
+    "PyYAML": "6.0.3",
+    "pixi": "0.85.0"
+  },
+  "runner": "ubuntu-24.04",
+  "actions": {
+    "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "setup_pixi": "ad1da6449d9e506fd127fd67ab2d054a769f6a94"
+  },
+  "license": {
+    "upstream_code": "MIT",
+    "license_blob": "f6581072f2a255611c5a480f775bfecc6e077ed9",
+    "documentation": "CC-BY-4.0 where marked",
+    "vendored_code": false
+  },
+  "note": "Upstream pinned lock is authoritative for transitive dependencies; manifest is a reference to immutable original lock, not a newly solved environment."
+}

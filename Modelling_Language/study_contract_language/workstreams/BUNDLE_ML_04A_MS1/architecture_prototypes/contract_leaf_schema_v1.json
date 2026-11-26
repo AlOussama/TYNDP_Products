@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:research:ms1:contract-leaf-v1",
+  "title": "PROSPECTIVE MS1 contract mathematical leaf, non-normative",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "native_source_commit",
+    "mathspec",
+    "bindings",
+    "scope",
+    "source",
+    "authority"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ms1-contract-leaf-v1"
+    },
+    "native_source_commit": {
+      "const": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a"
+    },
+    "mathspec": {
+      "type": "object"
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "symbol",
+          "observable_or_input_id",
+          "role",
+          "unit",
+          "basis",
+          "axes"
+        ],
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z_0-9]*$"
+          },
+          "observable_or_input_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "OBSERVABLE",
+              "INPUT",
+              "METHOD_PARAMETER"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "basis": {
+            "type": "string"
+          },
+          "axes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "modality",
+        "ordered_binders"
+      ],
+      "properties": {
+        "modality": {
+          "enum": [
+            "SAFETY",
+            "CAPABILITY",
+            "SERVICE",
+            "OBSERVED_WITNESS"
+          ]
+        },
+        "ordered_binders": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "authority": {
+      "enum": [
+        "OWNER_TBD",
+        "NON_NORMATIVE_RESEARCH"
+      ]
+    }
+  }
+}

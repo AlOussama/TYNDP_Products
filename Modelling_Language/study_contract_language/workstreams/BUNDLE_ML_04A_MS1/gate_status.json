@@ -1,0 +1,65 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "decision": "OPTION_F_INSUFFICIENT_EVIDENCE_FOR_ARCHITECTURE_SELECTION",
+  "preferred_hypothesis_for_targeted_test": "M3",
+  "gates": {
+    "MS-G0": {
+      "status": "MET",
+      "evidence": "EV-NATIVE-STATIC;EV-UPSTREAM;source identity actual CI"
+    },
+    "MS-G1": {
+      "status": "PARTIAL",
+      "evidence": "20 candidate families + 105 requirement mapping; minimality/coverage not proved"
+    },
+    "MS-G2": {
+      "status": "PARTIAL",
+      "evidence": "9 static native fragments and 7 finite external witness pairs; original full-scope preservation not proved"
+    },
+    "MS-G3": {
+      "status": "PARTIAL",
+      "evidence": "7 original R1 freedom tests + bounded native observations, no universal proof"
+    },
+    "MS-G4": {
+      "status": "PARTIAL",
+      "evidence": "12 justified outer semantic families, five bounded counterexample controls; controlled full ablation missing"
+    },
+    "MS-G5": {
+      "status": "PARTIAL",
+      "evidence": "4 native mathematical profile swaps, no full A/B-CSNF integration"
+    },
+    "MS-G6": {
+      "status": "NOT_READY",
+      "evidence": "M1/M4 unexecuted; M0/M2/M3 incomparable full scope; 0/116"
+    }
+  },
+  "inherited": {
+    "B0": "MET",
+    "B1": "PARTIAL",
+    "B2": "PARTIAL",
+    "B3": "NOT_READY",
+    "G1": "BLOCKED",
+    "SysML_H0": "OPEN",
+    "owner": "OWNER_TBD",
+    "full_04B_ready": false
+  },
+  "actual_counts": {
+    "upstream_passed": 4140,
+    "upstream_skipped": 47,
+    "native_static_derived_rc": 9,
+    "finite_rc_positive_negative_pairs": 7,
+    "profiles_executed": 4,
+    "R1_expected": 57,
+    "R1_passed": 57,
+    "P5_original_mutations": 30,
+    "P5_original_controls": 6,
+    "original_identities_preserved": 58,
+    "original_full_chain_expected": 116,
+    "original_full_chain_executed": 0,
+    "traceability": 105
+  },
+  "native_ci_runs": [
+    45877500514,
+    45878174824
+  ],
+  "non_additive_test_populations": true
+}

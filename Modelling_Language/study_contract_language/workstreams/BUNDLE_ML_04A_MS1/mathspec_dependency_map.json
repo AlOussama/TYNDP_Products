@@ -1,0 +1,231 @@
+{
+  "schema": "ms1-dependency-map-v1",
+  "source_commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "method": "Exact pinned source imports for selected core modules; dynamic dependencies not fully expanded",
+  "modules": [
+    {
+      "path": "src/mathspec/__init__.py",
+      "blob": "3aff9268e73c4a952372b0c1178562bfdba7e106",
+      "boundary": "PUBLIC_ENTRY_OR_REPRESENTATION",
+      "imports": [
+        "from mathspec import errors, program, spec",
+        "from mathspec._advising import advice",
+        "from mathspec._composition import merge, override",
+        "from mathspec._renaming import rename",
+        "from mathspec._typesetting import (",
+        "from mathspec._validation import to_spec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/spec.py",
+      "blob": "7935fae207497b4ab5d3c90b409cc9c9f90f940f",
+      "boundary": "PUBLIC_ENTRY_OR_REPRESENTATION",
+      "imports": [
+        "from pydantic import (",
+        "from mathspec._expression_parser import NAME, Sense",
+        "from mathspec._frozen import Frozen",
+        "from mathspec._operators import BUILTIN_NAMES",
+        "from mathspec.errors import did_you_mean, schema_error",
+        "from mathspec.program import (",
+        "from pydantic import GetJsonSchemaHandler, SerializerFunctionWrapHandler",
+        "from pydantic.config import ExtraValues",
+        "from pydantic_core import CoreSchema",
+        "from mathspec._lowering import lower",
+        "from mathspec import __version__ as installed",
+        "from mathspec._canonical import canonical_yaml",
+        "from mathspec._yaml import dump_yaml",
+        "from mathspec._piecewise import expand_piecewise",
+        "from mathspec._sos import expand_sets"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/program.py",
+      "blob": "bd9296cc8bca12cbd803c148bf02a0dcf1d481ec",
+      "boundary": "PUBLIC_ENTRY_OR_REPRESENTATION",
+      "imports": [
+        "from mathspec._expression_parser import Sense",
+        "from mathspec._frozen import Frozen",
+        "from mathspec.errors import did_you_mean",
+        "from mathspec._separability import separabilities"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_validation.py",
+      "blob": "c6bb2388ae11d466d0fbb99d1982ba3bd8bb2fe3",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from mathspec._operators import BUILTIN_NAMES",
+        "from mathspec._piecewise import Emitted as EmittedCurve",
+        "from mathspec._piecewise import gate_of",
+        "from mathspec._sos import Emitted as EmittedSet",
+        "from mathspec._sos import coefficients",
+        "from mathspec._yaml import read_spec",
+        "from mathspec.errors import SchemaError, unordered",
+        "from mathspec.spec import NUMERIC_DTYPES, Spec, side_columns",
+        "from mathspec.program import Program",
+        "from mathspec.spec import PiecewiseLinkSpec, PiecewiseSpec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_lowering.py",
+      "blob": "eeae7870a350b26e6d66e12abe3379a81432aeec",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from mathspec._dimensions import check_spec",
+        "from mathspec._divisors import zero_divisor_refusals",
+        "from mathspec._expansion import expand, parse_template",
+        "from mathspec._piecewise import (",
+        "from mathspec._resolution import (",
+        "from mathspec._validation import emitted_name_errors, reference_errors",
+        "from mathspec.errors import SchemaError, did_you_mean, prefixed",
+        "from mathspec.program import (",
+        "from mathspec.program import Expression, Gate, JoinColumns",
+        "from mathspec.spec import AssumptionSpec, Spec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_expression_parser.py",
+      "blob": "54553ed2a198863589fee1b0c6b34c23968975eb",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "import pyparsing as pp",
+        "from mathspec._frozen import Frozen",
+        "from mathspec.errors import SchemaError"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_condition_parser.py",
+      "blob": "d2093ef6aa4accb463f397904aed9ae1bba9716d",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "import pyparsing as pp",
+        "from mathspec._expression_parser import (",
+        "from mathspec._frozen import Frozen",
+        "from mathspec.program import ("
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_expression_resolver.py",
+      "blob": "bb228270eb9e1520d0500ea922e9e36f31a624b1",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from mathspec._dimensions import check_node, joined, sorted_dims",
+        "from mathspec._expression_parser import (",
+        "from mathspec._operators import (",
+        "from mathspec.errors import DimensionError, SchemaError, did_you_mean, unordered",
+        "from mathspec.program import (",
+        "from mathspec.spec import NUMERIC_DTYPES",
+        "from mathspec._resolution import Namespace"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_condition_resolver.py",
+      "blob": "996ceb5f45530f43b70e4c33354fc6405e41c485",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "import mathspec._degree as degree",
+        "from mathspec._condition_parser import (",
+        "from mathspec._dimensions import join_dims, sorted_dims",
+        "from mathspec._divisors import zero_divisor_refusals",
+        "from mathspec._expansion import expand",
+        "from mathspec._expression_parser import (",
+        "from mathspec._expression_resolver import ExpressionResolver, condition_compared",
+        "from mathspec.errors import DimensionError, LanguageError, SchemaError, did_you_mean, prefixed, unordered",
+        "from mathspec.program import (",
+        "from mathspec._resolution import Namespace",
+        "from mathspec.program import DeclaredDtype"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_operators.py",
+      "blob": "dc14e75be45218b24e539ea798fef58aeb73b262",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_dimensions.py",
+      "blob": "89b25b287bc32d2f371d5a15fcd94ca4c1c6c798",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from mathspec.errors import DimensionError, case_context",
+        "from mathspec.program import (",
+        "from mathspec.program import Program",
+        "from mathspec.spec import Spec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_composition.py",
+      "blob": "409272f3b8d0785102a931f0f982b732cb9d7928",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from pydantic import BaseModel, ValidationError",
+        "from mathspec._frozen import Frozen",
+        "from mathspec._validation import to_spec",
+        "from mathspec._yaml import read_spec",
+        "from mathspec.errors import LanguageError, SchemaError, did_you_mean, schema_error",
+        "from mathspec.program import variables_of",
+        "from mathspec.spec import GivenSpec, Spec",
+        "from mathspec.program import Program",
+        "from mathspec.spec import DimensionSpec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    },
+    {
+      "path": "src/mathspec/_canonical.py",
+      "blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+      "boundary": "PRIVATE_INTERNAL",
+      "imports": [
+        "from mathspec._condition_parser import (",
+        "from mathspec._expression_parser import (",
+        "from mathspec._yaml import dump_yaml",
+        "from mathspec.program import And, BooleanLiteral, Not, Or",
+        "from mathspec._condition_parser import UnresolvedConditionNode",
+        "from mathspec._expression_parser import ArithmeticNode, ParsedNode",
+        "from mathspec.program import Condition",
+        "from mathspec.spec import Spec"
+      ],
+      "scope": "direct import lines; not a complete transitive graph"
+    }
+  ],
+  "runtime_dependencies": {
+    "python": ">=3.12",
+    "pydantic": "2.13.4 in native CI",
+    "pyparsing": "3.3.2 in native CI",
+    "PyYAML": "6.0.3 in native CI"
+  },
+  "dependencies": {
+    "solver": "none in experiment",
+    "public_boundary": [
+      "mathspec.to_spec",
+      "Spec.program",
+      "Spec.to_yaml(canonical=True)",
+      "mathspec.program",
+      "LanguageError"
+    ],
+    "private_boundary": [
+      "parser",
+      "lowerer",
+      "canonical implementation",
+      "operator registry"
+    ],
+    "composition": [
+      "merge",
+      "override",
+      "rename"
+    ],
+    "presentation": [
+      "typesetting API"
+    ]
+  }
+}

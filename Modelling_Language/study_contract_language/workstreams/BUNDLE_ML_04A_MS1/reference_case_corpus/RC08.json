@@ -1,0 +1,63 @@
+{
+  "id": "RC08",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC08",
+    "name": "KPI / Kosten",
+    "contract": "cost inventory, currency/price year, discount, scenario/time weights and selection",
+    "variants": "in-objective decomposition versus postprocess ledger",
+    "positive": "same total after exact unit+weight reconciliation",
+    "negative": "omits time weight or double-counts CAPEX",
+    "rewrite": "R12 only within same price/basis",
+    "comparison": "E3 sampled values possible; E4 not inferred",
+    "slr": "SLR-09,29,31,40",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "opex EUR/h; duration h; scenario probability dimensionless; capex EUR; price basis EUR:real:2025; year index; discount policy",
+  "synthetic_input": "opex=[20,40] EUR/h, dt=[1/2,3/2] h, one scenario p=1; capex 100 EUR at time zero; discount factor 1 synthetic",
+  "external_obligations": "KPI=sum_s p_s sum_t dt_t*opex_s,t + one capex contribution; apply authorized discount factors at designated times; unique underlying contribution support",
+  "independent_analytical_oracle": "10+60+100=170 EUR. Omitting dt gives 160 (dimensionally wrong); adding same capex again gives 270.",
+  "observables": "typed KPI output, cost items, weights, selection, contribution ledger",
+  "internal_variation": "in-objective decomposition versus postprocess ledger",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "eq(total,add(weighted_integral(opex,dt,p),capex))",
+  "candidate_B_prospective_predicate": {
+    "op": "eq",
+    "args": [
+      {
+        "ref": "total"
+      },
+      {
+        "op": "add",
+        "args": [
+          {
+            "op": "weighted_integral",
+            "value": {
+              "ref": "opex"
+            },
+            "duration": {
+              "ref": "dt"
+            },
+            "probability": {
+              "ref": "p"
+            }
+          },
+          {
+            "ref": "capex"
+          }
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}
