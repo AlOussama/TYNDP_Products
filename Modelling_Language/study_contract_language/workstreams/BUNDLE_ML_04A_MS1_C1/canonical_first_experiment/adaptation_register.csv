@@ -1,0 +1,11 @@
+id,layer,native_support,required_adaptation,placement,reference_case,priority
+CF01,mathematical canonical form,"native canonical YAML + public Program","reuse unchanged; pin canonicalizer and runtime",NATIVE,RC01-RC09,P0
+CF02,shape and indices,"dims; native typed Program; sorted names","qualify identities; preserve contract binder order and actual coordinates; explicit comparison alignment",SIDECAR,RC02 RC05 RC07,P0
+CF03,physical semantics,"numeric expression typing only","physical dimension; carrier; unit; LHV/HHV; price basis; sign and conversion provenance",SEMANTIC_BINDING,RC01 RC03 RC04 RC08,P0
+CF04,numeric domain,"float literal parsing; canonical default omission","exact-source admission before normalization; rational external values; explicit missingness and domain policy",ADMISSION_POLICY,RC01 RC06 RC08,P0
+CF05,conditions and assumptions,"native typed condition syntax; data assumptions","outer assumption/guarantee roles; Bool3; nonvacuity; quantifier scope; no silent absent-as-false",CONTRACT_LAYER,RC02 RC07,P0
+CF06,relations and temporal,"native relation keys; shift; window; joins","data cardinality/support; chronology and boundary semantics; information-domain policy",DATA_AND_CONTRACT_BINDING,RC01 RC04 RC05 RC07,P0
+CF07,methods and profiles,"native arithmetic; composition candidates","versioned method/study/input/output/context signatures and approval; configurable not hardcoded",PROFILE_LAYER,RC08 RC09,P0
+CF08,provenance and evidence,"canonical text; no source proof","separate source/native/bound contract/audit IDs; evidence receipt and authority",AUDIT_LAYER,RC09 RC10,P0
+CF09,decision variables,"solver-facing variables exist","exclude from external observable profile; no solver formulation requirement",ADMISSION_POLICY,RC01-RC10,P0
+CF10,legacy CSNF,"not native mathspec","M0 comparison and bounded migration/interop only; no parallel mathematical AST in canonical-first target",LEGACY_BOUNDARY,RC01-RC10,P1
