@@ -1,0 +1,52 @@
+{
+  "RC01.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC01.json",
+    "git_blob": "9c908d9e3de1699306653aa80606d489a94b15ba",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC02.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC02.json",
+    "git_blob": "93a84aae192aa926b10cb94a3f570c7f060a0a76",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC03.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC03.json",
+    "git_blob": "24ca75520688e6ec81841bb52cbbeadd8933b339",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC04.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC04.json",
+    "git_blob": "fb6fbb11e1a3d128278c8ea4adbadc8f592de6bc",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC05.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC05.json",
+    "git_blob": "cb6a913b603cd3a2a92f2c6993c80b0f56664059",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC06.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC06.json",
+    "git_blob": "532fdb2c51afa797a4f3560e8d0a17172c2a1f6a",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC07.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC07.json",
+    "git_blob": "90fc60cc9df88288b27dd00088b1ed904940a7a3",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC08.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC08.json",
+    "git_blob": "a7c07022c244559a81298508f920741e7064a205",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC09.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC09.json",
+    "git_blob": "509700f2b464d13f610848064d8c9acda6a3f0c4",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  },
+  "RC10.json": {
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R2/reference_case_corpus/RC10.json",
+    "git_blob": "68d1e3fbfb52fc8e3196e62b29fe9dd469a1f38a",
+    "source_commit": "976e680ebfd951ac1bf1521a4689f25416d3054b"
+  }
+}

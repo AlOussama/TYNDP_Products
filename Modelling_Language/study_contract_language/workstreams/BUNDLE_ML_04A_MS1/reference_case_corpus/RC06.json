@@ -1,0 +1,66 @@
+{
+  "id": "RC06",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC06",
+    "name": "Netzausbau",
+    "contract": "admissible expansion choices, lead time, modularity if specified, capex",
+    "variants": "two discrete formulations or continuous only with approved policy",
+    "positive": "integer module result for discrete-required scope",
+    "negative": "0.3 module accepted as physically buildable",
+    "rewrite": "R06 MW only; never erase integrality",
+    "comparison": "E5 conditional on approximation permission",
+    "slr": "SLR-08,21–26",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "n: count integer; module_capacity MW; invest/commission time; lead_time periods; capex currency basis",
+  "synthetic_input": "n=1; 100 MW/module; invest t=0; lead=2 periods; commission t=2; capex=100 EUR real2025/module synthetic",
+  "external_obligations": "n belongs to admissible integer choices; installed=n*module_capacity only after lead time; cost=n*capex",
+  "independent_analytical_oracle": "1 module gives 100 MW and 100 EUR at commission; n=3/10 is not an admissible physical build.",
+  "observables": "option ID, module count, timing, capacity, cost",
+  "internal_variation": "two discrete formulations or continuous only with approved policy",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "and(member(n,admissible_counts),ge(commission,add(invest,lead)))",
+  "candidate_B_prospective_predicate": {
+    "op": "and",
+    "args": [
+      {
+        "op": "member",
+        "value": {
+          "ref": "n"
+        },
+        "domain": "admissible_counts"
+      },
+      {
+        "op": "ge",
+        "args": [
+          {
+            "ref": "commission"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "ref": "invest"
+              },
+              {
+                "ref": "lead"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}

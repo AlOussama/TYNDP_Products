@@ -1,0 +1,71 @@
+{
+  "id": "RC03",
+  "status": "TYPED_MATHEMATICAL_REFERENCE_DRAFT_NOT_EXECUTABLE_CONTRACT",
+  "original": {
+    "id": "RC03",
+    "name": "Elektrolyse",
+    "contract": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit",
+    "variants": "constant vs piecewise efficiency constrained to external envelope",
+    "positive": "output and electricity flow respect stated efficiency envelope",
+    "negative": "MW compared to kg/h or missing heating value",
+    "rewrite": "R06 exact same-basis units only",
+    "comparison": "E5 conditional; nonlinearity allowed by contract",
+    "slr": "SLR-12–20,35",
+    "positive_oracle": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+    "mutation_oracle": "E1_DIFFERENT_OR_BLOCKED",
+    "e2": "NOT_PROVED",
+    "e3": "NOT_EXECUTED",
+    "e4": "NOT_PROVED",
+    "e5": "CONDITIONAL_ONLY",
+    "source": "ML-C19/11",
+    "authority": "NON_NORMATIVE_RESEARCH"
+  },
+  "typed_symbols": "P: electricity consumption MW; m: hydrogen kg/h; h: MWh/kg LHV; eta: dimensionless",
+  "synthetic_input": "P=30 MW; m=600 kg/h; h=1/30 MWh/kg synthetic LHV; envelope 3/5..4/5",
+  "external_obligations": "eta=m*h/P if P>0; 3/5<=eta<=4/5; zero output when input zero under synthetic envelope; basis explicitly LHV",
+  "independent_analytical_oracle": "600/30=20 MW chemical energy; eta=2/3. Absent h/basis blocks conversion; raw MW=kg/h rejected.",
+  "observables": "electricity port, H2 port, h basis, eta",
+  "internal_variation": "constant vs piecewise efficiency constrained to external envelope",
+  "verification": "Separate static checks, finite witness oracle and scientific proof obligations; original oracle unchanged",
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED_FULL_CHAIN",
+  "candidate_A_prospective_predicate": "implies(gt(P,0), between(div(mul(m,h),P),3/5,4/5))",
+  "candidate_B_prospective_predicate": {
+    "op": "implies",
+    "antecedent": {
+      "op": "gt",
+      "args": [
+        {
+          "ref": "P"
+        },
+        0
+      ]
+    },
+    "consequent": {
+      "op": "between",
+      "value": {
+        "op": "div",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "ref": "m"
+              },
+              {
+                "ref": "h"
+              }
+            ]
+          },
+          {
+            "ref": "P"
+          }
+        ]
+      },
+      "lower": "3/5",
+      "upper": "4/5"
+    }
+  },
+  "syntax_status": "INDEPENDENTLY_WRITTEN_DESIGN_FRAGMENTS_NOT_VALIDATED_AGAINST_EITHER_PARSER",
+  "method_profile": "SYNTHETIC_DESIGN_ONLY_NOT_BOUND"
+}
