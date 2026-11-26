@@ -1,0 +1,58 @@
+{
+  "domains": {
+    "interval": [
+      "t0",
+      "t1"
+    ],
+    "scenario": [
+      "s1"
+    ],
+    "event": [
+      "capex0",
+      "opex0",
+      "opex1"
+    ]
+  },
+  "inputs": {
+    "opex": [
+      "20",
+      "40"
+    ],
+    "duration": [
+      "1/2",
+      "3/2"
+    ],
+    "probability": "1",
+    "capex": "100",
+    "discount": "1",
+    "basis": "EUR:real:2025"
+  },
+  "units": {
+    "opex": "EUR/h",
+    "duration": "h",
+    "capex": "EUR",
+    "kpi": "EUR"
+  },
+  "observed": {
+    "kpi": "170",
+    "contributions": [
+      "capex0",
+      "opex0",
+      "opex1"
+    ]
+  },
+  "expected": {
+    "kpi": "170"
+  },
+  "variants": [
+    {
+      "id": "objective_ledger",
+      "projection": "Component cost decomposition"
+    },
+    {
+      "id": "postprocess",
+      "projection": "Independent cost ledger over observable flows"
+    }
+  ],
+  "limit": "Synthetic identity discount, unique support; no approved KPI policy."
+}

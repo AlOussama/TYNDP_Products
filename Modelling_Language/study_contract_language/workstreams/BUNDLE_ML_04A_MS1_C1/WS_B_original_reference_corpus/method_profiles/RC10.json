@@ -1,0 +1,32 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC10:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "compare only aligned observables; declare variation and independent provenance; equal objectives alone never entail E4 or E5",
+  "parameters": {
+    "contract": "contract:common",
+    "snapshot": "data:common",
+    "scenario": "s1",
+    "observable": "cost",
+    "basis": "EUR:real:2025",
+    "model_ids": [
+      "M-A",
+      "M-B"
+    ],
+    "source_ids": [
+      "source:A",
+      "source:B"
+    ],
+    "generator_ids": [
+      "generator:A",
+      "generator:B"
+    ],
+    "variation_disclosed": [
+      true,
+      true
+    ]
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

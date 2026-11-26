@@ -1,0 +1,20 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC05:synthetic-0.1",
+  "method_ref": "method:RC05:synthetic-0.1",
+  "data_ref": "synthetic_data/RC05.json",
+  "domains": {
+    "bus": [
+      "b1",
+      "b2",
+      "b3"
+    ],
+    "branch": [
+      "e12",
+      "e23",
+      "e31"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

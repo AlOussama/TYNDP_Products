@@ -1,0 +1,152 @@
+[
+  {
+    "id": "M01",
+    "expected_diagnostic": "PAIR_INCOMPLETE",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M02",
+    "expected_diagnostic": "EXOGENOUS_SNAPSHOT_DRIFT",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M03",
+    "expected_diagnostic": "SCENARIO_WEIGHT_INVALID",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M04",
+    "expected_diagnostic": "SCENARIO_WEIGHT_SUM",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M05",
+    "expected_diagnostic": "OUTPUT_BASIS_MISMATCH",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M06",
+    "expected_diagnostic": "OUTPUT_BASIS_MISMATCH",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M07",
+    "expected_diagnostic": "BENEFIT_SIGN_CONVENTION",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M08",
+    "expected_diagnostic": "COST_PROXY_MISLABELED_AS_SEW",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M09",
+    "expected_diagnostic": "UNSUPPORTED_OWNER_APPROVAL",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M10",
+    "expected_diagnostic": "EVIDENCE_PROMOTION_UNSUPPORTED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M11",
+    "expected_diagnostic": "SOURCE_LEDGER_LOSS",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M12",
+    "expected_diagnostic": "MODEL_VARIATION_NOT_DISCLOSED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M13",
+    "expected_diagnostic": "PROJECT_SCOPE_DRIFT",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M14",
+    "expected_diagnostic": "PROJECT_DELTA_MISASSIGNED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M15",
+    "expected_diagnostic": "CROSS_MODEL_PAIRING_FORBIDDEN",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M16",
+    "expected_diagnostic": "TIME_SUPPORT_INVALID",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M17",
+    "expected_diagnostic": "UNKNOWN_COERCED_TO_NUMBER",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M18",
+    "expected_diagnostic": "CARRIER_UNIT_TYPE_MISMATCH",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M19",
+    "expected_diagnostic": "PROJECT_DELTA_MISASSIGNED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M20",
+    "expected_diagnostic": "DISCOUNT_POLICY_INVALID",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M21",
+    "expected_diagnostic": "INDEPENDENCE_IDENTITY_COLLISION",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M22",
+    "expected_diagnostic": "DISCOUNT_CURRENCY_BASIS",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M23",
+    "expected_diagnostic": "WEIGHT_ROLE_CONFLATION",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M24",
+    "expected_diagnostic": "OBSERVABLE_SELECTION_UNDEFINED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M25",
+    "expected_diagnostic": "UNKNOWN_SAMPLE_REFERENCE",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M26",
+    "expected_diagnostic": "CONSULTATION_SOURCE_PROMOTION",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M27",
+    "expected_diagnostic": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M28",
+    "expected_diagnostic": "KPI_DOUBLE_COUNTING_POLICY",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M29",
+    "expected_diagnostic": "STAGE1_INFORMATION_LEAKAGE",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  },
+  {
+    "id": "M30",
+    "expected_diagnostic": "E4_UNSUPPORTED",
+    "evidence_category": "EXECUTED_SYNTHETIC_MICRO_ORACLE_ONLY"
+  }
+]

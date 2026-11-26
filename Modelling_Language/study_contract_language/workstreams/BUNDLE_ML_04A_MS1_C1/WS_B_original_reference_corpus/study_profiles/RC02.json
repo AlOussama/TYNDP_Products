@@ -1,0 +1,18 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC02:synthetic-0.1",
+  "method_ref": "method:RC02:synthetic-0.1",
+  "data_ref": "synthetic_data/RC02.json",
+  "domains": {
+    "vehicle": [
+      "EV1",
+      "EV2"
+    ],
+    "interval": [
+      "t0",
+      "t1"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

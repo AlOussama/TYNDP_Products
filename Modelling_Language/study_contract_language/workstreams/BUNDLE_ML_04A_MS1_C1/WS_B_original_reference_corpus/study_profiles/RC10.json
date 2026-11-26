@@ -1,0 +1,20 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC10:synthetic-0.1",
+  "method_ref": "method:RC10:synthetic-0.1",
+  "data_ref": "synthetic_data/RC10.json",
+  "domains": {
+    "model": [
+      "M-A",
+      "M-B"
+    ],
+    "observable": [
+      "cost"
+    ],
+    "scenario": [
+      "s1"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

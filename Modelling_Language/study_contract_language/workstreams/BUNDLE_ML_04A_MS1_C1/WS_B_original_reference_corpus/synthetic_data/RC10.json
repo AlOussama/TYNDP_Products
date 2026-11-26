@@ -1,0 +1,67 @@
+{
+  "domains": {
+    "model": [
+      "M-A",
+      "M-B"
+    ],
+    "observable": [
+      "cost"
+    ],
+    "scenario": [
+      "s1"
+    ]
+  },
+  "inputs": {
+    "contract": "contract:common",
+    "snapshot": "data:common",
+    "scenario": "s1",
+    "observable": "cost",
+    "basis": "EUR:real:2025",
+    "model_ids": [
+      "M-A",
+      "M-B"
+    ],
+    "source_ids": [
+      "source:A",
+      "source:B"
+    ],
+    "generator_ids": [
+      "generator:A",
+      "generator:B"
+    ],
+    "variation_disclosed": [
+      true,
+      true
+    ]
+  },
+  "units": {
+    "cost": "EUR"
+  },
+  "observed": {
+    "cost": [
+      "170",
+      "170"
+    ],
+    "evidence_role": "REQUEST",
+    "evidence_status": "NOT_EXECUTED",
+    "e4_claim": false
+  },
+  "expected": {
+    "finite_agreement": true,
+    "e4": "NOT_PROVED",
+    "e5": "NOT_ASSESSED"
+  },
+  "variants": [
+    {
+      "id": "M-A",
+      "projection": "Synthetic objective ledger",
+      "source": "source:A"
+    },
+    {
+      "id": "M-B",
+      "projection": "Synthetic independent postprocess representation",
+      "source": "source:B"
+    }
+  ],
+  "limit": "Distinct asserted identities do not establish human or tool independence."
+}

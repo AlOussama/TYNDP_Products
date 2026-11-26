@@ -1,0 +1,18 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC01:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "-3<=P[t]<=4; I=-P*dt on charging support; E1=E0+eta*I; 0<=E1<=Emax; terminal only with authorized rule",
+  "parameters": {
+    "p": "-2",
+    "dt": "1/2",
+    "eta": "9/10",
+    "initial": "1",
+    "capacity": "4",
+    "min_p": "-3",
+    "max_p": "4"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

@@ -1,0 +1,47 @@
+{
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "component": [
+      "H2_store"
+    ]
+  },
+  "inputs": {
+    "initial": "100",
+    "inflow": "10",
+    "outflow": "5",
+    "dt": "2",
+    "loss": "1",
+    "basis": "LHV",
+    "heating_value": "1/30"
+  },
+  "units": {
+    "initial": "kg",
+    "inflow": "kg/h",
+    "outflow": "kg/h",
+    "dt": "h",
+    "loss": "kg",
+    "final": "kg"
+  },
+  "observed": {
+    "final": "109",
+    "inventory_unit": "kg",
+    "energy_basis": "LHV"
+  },
+  "expected": {
+    "final": "109",
+    "converted_energy": "109/30"
+  },
+  "variants": [
+    {
+      "id": "mass",
+      "projection": "Inventory directly kg"
+    },
+    {
+      "id": "energy",
+      "projection": "LHV energy / explicit heating value -> kg"
+    }
+  ],
+  "limit": "No assumed universal heating value; synthetic factor only."
+}

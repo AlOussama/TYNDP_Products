@@ -1,0 +1,18 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC04:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "M1=M0+(inflow-outflow)*dt-loss; mass carrier H2; energy basis only authorized and explicitly converted",
+  "parameters": {
+    "initial": "100",
+    "inflow": "10",
+    "outflow": "5",
+    "dt": "2",
+    "loss": "1",
+    "basis": "LHV",
+    "heating_value": "1/30"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "c1-scientific-reference-method-0.1",
+  "id": "method:RC08:synthetic-0.1",
+  "authority": "RESEARCH_ASSUMPTION",
+  "owner": "OWNER_TBD",
+  "obligations": "KPI=sum_s p_s sum_t dt_t*opex_s,t + one capex contribution; apply authorized discount factors at designated times; unique underlying contribution support",
+  "parameters": {
+    "opex": [
+      "20",
+      "40"
+    ],
+    "duration": [
+      "1/2",
+      "3/2"
+    ],
+    "probability": "1",
+    "capex": "100",
+    "discount": "1",
+    "basis": "EUR:real:2025"
+  },
+  "original_source": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+  "note": "Scientific oracle specification, not approved executable MethodProfile"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "c1-scientific-reference-study-0.1",
+  "id": "profile:RC03:synthetic-0.1",
+  "method_ref": "method:RC03:synthetic-0.1",
+  "data_ref": "synthetic_data/RC03.json",
+  "domains": {
+    "interval": [
+      "t0"
+    ],
+    "ports": [
+      "electric",
+      "H2"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "evidence": "NOT_EXECUTED"
+}

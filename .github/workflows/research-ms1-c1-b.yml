@@ -1,0 +1,28 @@
+name: C1 WS-B independent original corpus
+on:
+  pull_request:
+    branches: [research/bundle-ml-04a-ms1-mathspec-reuse-2026-11-26]
+    paths:
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/**'
+      - '.github/workflows/research-ms1-c1-b.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  corpus:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c1-ws-b-reference-corpus'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify unchanged original R1 validator
+        run: |
+          test "$(git hash-object Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py)" = 5201bda3c0a611d27e2bc335bbfebc191f252ec7
+      - name: Independent reference oracles and M0 fragment
+        run: python Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/regression_runner/run.py --m0 --output c1-corpus-results.json
+      - name: Original P5 domain oracle and actual mutation fixture materialisation
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_p5_mutations/materialize_p5.js c1-p5-output

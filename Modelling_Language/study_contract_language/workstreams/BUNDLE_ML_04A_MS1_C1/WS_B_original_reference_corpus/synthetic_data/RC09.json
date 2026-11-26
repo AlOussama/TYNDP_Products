@@ -1,0 +1,61 @@
+{
+  "domains": {
+    "scenario": [
+      "s1",
+      "s2"
+    ],
+    "case": [
+      "reference",
+      "project"
+    ],
+    "period": [
+      "year1"
+    ]
+  },
+  "inputs": {
+    "baseline": [
+      "1200",
+      "1500"
+    ],
+    "project": [
+      "1100",
+      "1350"
+    ],
+    "weights": [
+      "3/5",
+      "2/5"
+    ],
+    "discount_rate": "1/10",
+    "reference_snapshot": "snapshot:common",
+    "project_snapshot": "snapshot:common",
+    "project_delta": "delta:capacity",
+    "basis": "EUR:real:2025",
+    "owner": "OWNER_TBD"
+  },
+  "units": {
+    "baseline": "EUR",
+    "project": "EUR",
+    "discount_rate": "1",
+    "benefit": "EUR"
+  },
+  "observed": {
+    "annual": "120",
+    "discounted": "1200/11"
+  },
+  "expected": {
+    "annual": "120",
+    "discounted": "1200/11",
+    "owner": "OWNER_TBD"
+  },
+  "variants": [
+    {
+      "id": "integrated",
+      "projection": "Paired model scenario outputs"
+    },
+    {
+      "id": "postprocess",
+      "projection": "Matched cost observations, same method profile"
+    }
+  ],
+  "limit": "Cost proxy, not CBA B1 welfare. Owner approval remains blocked."
+}
