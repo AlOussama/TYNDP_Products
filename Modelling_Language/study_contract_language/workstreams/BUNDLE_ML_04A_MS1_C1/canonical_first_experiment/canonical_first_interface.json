@@ -1,0 +1,29 @@
+{
+  "schema": "canonical-first-research-0.1",
+  "status": "EXPERIMENT_NOT_FROZEN",
+  "primary": "native mathspec canonical YAML from public Spec.to_yaml(canonical=True)",
+  "runtime": "public Spec.program",
+  "external_context": {
+    "domains": "qualified identity and actual labels (dtype/order from native)",
+    "symbols": "qualified identity, role, physical type, nonzero (native shape and dtype reused)",
+    "scope": "explicit ordered binder list",
+    "predicates": "named expressions, comparison, explicit support/alignment, guard",
+    "method": "identifier only; C2 signatures remain open",
+    "audit": "source and evidence references, no authority inference"
+  },
+  "identity": {
+    "native": "upstream pin + canonical bytes",
+    "semantic": "native identity + versioned semantic context + type registry",
+    "audit": "semantic identity + exact source origin + context as received"
+  },
+  "origin_modes": [
+    "CANONICAL_AS_SOURCE",
+    "ORIGINAL_JSON_CHECKED"
+  ],
+  "limitations": [
+    "No original-source fidelity claim for canonical-only input",
+    "Bounded bridge retains C1 restrictions",
+    "No full native condition physical typing, relation data binding, or temporal semantics",
+    "No C2 freeze"
+  ]
+}
