@@ -46,20 +46,49 @@ def evaluate(package,data,assertion):
     if guard=="FALSE":status="NOT_APPLICABLE";truth=None
     elif guard=="UNKNOWN":status="BLOCKED";truth="UNKNOWN";reason="UNKNOWN_GUARD"
     elif consumer is None:status="BLOCKED";truth="UNKNOWN";reason="MISSING_DATA"
-    elif pred["role"]=="DATA_ASSUMPTION":status="BLOCKED";truth="UNKNOWN";reason="NATIVE_ASSUMPTION_EVALUATION_NOT_IMPLEMENTED"
     elif role=="PERMITTED_BEHAVIOUR":status="NOT_EXECUTED";truth=None;reason="PERMISSION_NOT_OBLIGATION"
     else:
-        cond=consumer.program.conditions[pred["native_name"]].condition.root
+        assumption=consumer.program.assumptions[pred["native_name"]] if pred["role"]=="DATA_ASSUMPTION" else None
+        cond=assumption.holds.root if assumption is not None else consumer.program.conditions[pred["native_name"]].condition.root
         def walk(i,env):
             if i==len(bs):
+                if assumption is not None and assumption.where is not None and not consumer.cond(assumption.where.root,env):return None
                 value=consumer.cond(cond,env)
                 need(type(value) is bool,"NONBINARY_NATIVE_PREDICATE")
                 truth="TRUE" if value else "FALSE"
                 return not3(truth) if assertion["modality"]=="MUST_NOT" else truth
             b=bs[i];n,labels=domains[b["axis"]]
-            return fold3(b["quantifier"],[walk(i+1,{**env,n:x}) for x in labels])
+            values=[walk(i+1,{**env,n:x}) for x in labels]
+            applicable=[v for v in values if v is not None]
+            return fold3(b["quantifier"],applicable) if applicable else None
         truth=walk(0,{})
-        status="FINITE_OBSERVED_TRUE" if truth=="TRUE" else "FINITE_OBSERVED_FALSE" if truth=="FALSE" else "BLOCKED"
+        status="FINITE_OBSERVED_TRUE" if truth=="TRUE" else "FINITE_OBSERVED_FALSE" if truth=="FALSE" else "NOT_APPLICABLE" if truth is None else "BLOCKED"
         if role in ("SERVICE_GUARANTEE","CAPABILITY_GUARANTEE"):
             reason="BEHAVIOURAL_EVIDENCE_REQUIRED"  # finite matrix is not complete actual behavior
     return {"assertion_id":assertion["id"],"truth":truth,"finite_status":status,"reason":reason,"owner":"OWNER_TBD","authority_status":"UNRESOLVED","conformance":"NOT_PROVED","mathematical_identity":pred["mathematical_identity"],"evidence_scope":"FINITE_DECLARED_SUPPORT_ONLY"}
+
+def evaluate_group(package,data,contract):
+    """Common scope and assume-guarantee gating for complete finite supplied observations.
+    Does not certify trace coverage or authenticate authority."""
+    leaf=import_package(package)
+    fields(contract,("schema","id","domain_kinds","assertions"),"CONTRACT_FIELDS")
+    need(contract["schema"]=="c2-external-contract-0.2" and type(contract["id"]) is str and bool(contract["id"]),"CONTRACT_VERSION")
+    kinds=contract["domain_kinds"]
+    need(type(kinds) is dict and set(kinds)=={v["id"] for v in leaf["context"]["domains"].values()} and all(v in ("time","scenario","trace","request","response","component","port","sample") for v in kinds.values()),"DOMAIN_KIND_REGISTRY")
+    assertions=contract["assertions"]
+    need(type(assertions) is list and bool(assertions) and len({a["id"] for a in assertions})==len(assertions),"ASSERTION_IDENTITY")
+    receipts=[]
+    for a in assertions:
+        need(all(kinds.get(b["axis"])==b["kind"] for b in a["binders"]),"BINDER_DOMAIN_KIND")
+        receipts.append(evaluate(package,data,a))
+    assumption_roles=("DATA_ASSUMPTION","TECHNICAL_ASSUMPTION","ENVIRONMENT_ASSUMPTION")
+    assumptions=[r for a,r in zip(assertions,receipts) if a["role"] in assumption_roles]
+    guarantees=[r for a,r in zip(assertions,receipts) if a["role"] not in assumption_roles and a["role"]!="PERMITTED_BEHAVIOUR"]
+    need(bool(guarantees),"NO_OBLIGATION")
+    if any(r["truth"]=="FALSE" for r in assumptions):status="OUTSIDE_ASSUMPTIONS"
+    elif any(r["truth"]!="TRUE" for r in assumptions):status="BLOCKED_ASSUMPTIONS"
+    elif any(r["truth"]=="FALSE" for r in guarantees):status="FINITE_COUNTEREXAMPLE"
+    elif any(r["truth"]=="UNKNOWN" for r in guarantees):status="BLOCKED_GUARANTEE"
+    elif all(r["finite_status"]=="NOT_APPLICABLE" for r in guarantees):status="NOT_APPLICABLE"
+    else:status="FINITE_OBSERVATIONS_ONLY"
+    return {"contract_id":contract["id"],"assertion_receipts":receipts,"finite_status":status,"owner":"OWNER_TBD","conformance":"NOT_PROVED"}

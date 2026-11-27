@@ -1,5 +1,5 @@
 import copy,json,sys,unittest
-from contract import evaluate,not3,fold3,TRUTH
+from contract import evaluate,evaluate_group,not3,fold3,TRUTH
 from common_fixtures import cases,build,p
 from closure import admit,Reject
 from package_interface import export_package,predicate_client
@@ -46,4 +46,33 @@ class Contract(unittest.TestCase):
         with self.assertRaisesRegex(Reject,"UNBOUND"):evaluate(pkg,c["data"],a)
         a=assertion(pkg,"exchange_ok");a["authority"]="APPROVED"
         with self.assertRaisesRegex(Reject,"AUTHORITY"):evaluate(pkg,c["data"],a)
+    def test_C2_A06_assumption_gate(self):
+        c=cases()[0]
+        c["doc"]["assumptions"]={"valid_dt":"dt >= dt"}
+        c["context"]["predicates"]["valid_dt"]={"id":"pred:valid_dt","role":"DATA_ASSUMPTION","axes":[]}
+        pkg=package(c)
+        assumption={"id":"assertion:valid_dt","role":"DATA_ASSUMPTION","modality":"MUST","predicate":{"predicate_id":"pred:valid_dt","role":"DATA_ASSUMPTION","axes":[],"scope_id":c["context"]["scope"]["id"]},"binders":[],"guard":"TRUE","authority":"OWNER_TBD"}
+        guarantee=assertion(pkg,"exchange_ok")
+        group={"schema":"c2-external-contract-0.2","id":"contract:rc01","domain_kinds":{"domain:t":"sample"},"assertions":[assumption,guarantee]}
+        r=evaluate_group(pkg,c["data"],group)
+        self.assertEqual(r["finite_status"],"FINITE_OBSERVATIONS_ONLY")
+        self.assertEqual(r["assertion_receipts"][0]["truth"],"TRUE")
+        group["assertions"][0]["guard"]="UNKNOWN"
+        self.assertEqual(evaluate_group(pkg,c["data"],group)["finite_status"],"BLOCKED_ASSUMPTIONS")
+        group["assertions"][0]["guard"]="TRUE"
+        bad=copy.deepcopy(c["data"]);bad["parameters"]["e"][0]["value"]="-2"
+        self.assertEqual(evaluate_group(pkg,bad,group)["finite_status"],"FINITE_COUNTEREXAMPLE")
+        group["domain_kinds"]["domain:t"]="time"
+        with self.assertRaisesRegex(Reject,"BINDER_DOMAIN_KIND"):evaluate_group(pkg,c["data"],group)
+    def test_C2_A07_assumption_false_and_where(self):
+        c=cases()[0]
+        c["doc"]["assumptions"]={"valid_dt":{"holds":"dt < dt","where":"dt >= dt"}}
+        c["context"]["predicates"]["valid_dt"]={"id":"pred:valid_dt","role":"DATA_ASSUMPTION","axes":[]}
+        pkg=package(c)
+        a={"id":"assertion:valid_dt","role":"DATA_ASSUMPTION","modality":"MUST","predicate":{"predicate_id":"pred:valid_dt","role":"DATA_ASSUMPTION","axes":[],"scope_id":c["context"]["scope"]["id"]},"binders":[],"guard":"TRUE","authority":"OWNER_TBD"}
+        g=assertion(pkg,"exchange_ok");group={"schema":"c2-external-contract-0.2","id":"contract:rc01","domain_kinds":{"domain:t":"sample"},"assertions":[a,g]}
+        self.assertEqual(evaluate_group(pkg,c["data"],group)["finite_status"],"OUTSIDE_ASSUMPTIONS")
+        c["doc"]["assumptions"]["valid_dt"]["where"]="dt < dt"
+        pkg=package(c)
+        self.assertEqual(evaluate_group(pkg,c["data"],group)["finite_status"],"BLOCKED_ASSUMPTIONS")
 if __name__=="__main__":unittest.main(verbosity=2)
