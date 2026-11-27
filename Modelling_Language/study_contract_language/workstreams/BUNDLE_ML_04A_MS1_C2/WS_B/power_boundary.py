@@ -20,15 +20,16 @@ class PowerChecked(Checked):
     def base_positive(self,e):
         v=constant(e)
         return (v is not None and v>0) or (type(e) is mp.ParameterReference and self.c["symbols"][e.name]["domain_rule"]=="POSITIVE")
+    def exponent_policy(self,n):
+        need(type(n) is mp.ParameterReference and n.name in self.p.parameters and self.p.parameters[n.name].dtype=="int","POWER_INTEGER_PARAMETER")
+        need(self.c["symbols"][n.name]["role"] in ("INPUT","METHOD_PARAMETER") and n.name in self.power_domains,"POWER_PARAMETER_ROLE")
+        self.used_exponents.add(n.name)
     def expr(self,e,opened=False):
         if type(e) is mp.Power and constant(e.exponent) is None:
             a,b=self.expr(e.base),self.expr(e.exponent)
-            n=e.exponent
-            need(type(n) is mp.ParameterReference and n.name in self.p.parameters and self.p.parameters[n.name].dtype=="int","POWER_INTEGER_PARAMETER")
-            need(self.c["symbols"][n.name]["role"] in ("INPUT","METHOD_PARAMETER") and n.name in self.power_domains,"POWER_PARAMETER_ROLE")
+            self.exponent_policy(e.exponent)
             need(a==b==DIMLESS,"DYNAMIC_POWER_DIMENSIONLESS")
             need(self.base_positive(e.base),"POWER_POSITIVE_BASE_REQUIRED")
-            self.used_exponents.add(n.name)
             return DIMLESS
         return super().expr(e,opened)
 

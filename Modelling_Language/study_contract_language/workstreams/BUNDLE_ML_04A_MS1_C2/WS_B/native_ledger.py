@@ -7,7 +7,7 @@ from n7 import contribution_table,ident,unique
 
 def check(consumer,leaf,profile,context):
     spec=profile["ledger"]
-    fields(spec,("policy","bindings"),"LEDGER_FIELDS")
+    fields(spec,("policy","bindings","key_axes"),"LEDGER_FIELDS")
     policy=spec["policy"];bindings=spec["bindings"]
     fields(policy,("schema","id","version","rules","expected"),"LEDGER_POLICY_FIELDS")
     need(policy["schema"]=="ledger-policy-r1","LEDGER_VERSION")
@@ -16,9 +16,14 @@ def check(consumer,leaf,profile,context):
     need(set(policy["rules"])==set(p.expressions) and set(policy["expected"])<=set(p.expressions),"LEDGER_POLICY_SCOPE")
     inputs={z["native_name"]:z for z in leaf["interface"]["method_signature"]["inputs"]}
     need(type(bindings) is dict and set(bindings)==set(inputs),"LEDGER_INPUT_BINDINGS")
+    axes=spec["key_axes"];need(type(axes) is dict and set(axes)==set(inputs),"LEDGER_KEY_AXES")
+    ordered={}
     for n,b in bindings.items():
         fields(b,("role","observable","case","data_ref"),"LEDGER_BINDING_FIELDS")
         z=inputs[n];sym=z["symbol_id"];role=leaf["context"]["symbols"][n]["role"]
+        want=z["domain_ids"];have=axes[n]
+        need(type(have) is list and len(have)==len(want) and set(have)==set(want),"LEDGER_KEY_AXES")
+        ordered[n]={tuple(k[want.index(a)] for a in have):v for k,v in consumer.data[n].items()}
         if b["role"]=="contribution":
             need(role=="OBSERVABLE" and profile["input_roles"][sym]=="VALUE" and b["observable"]==sym and type(b["case"]) is str and bool(b["case"]) and b["data_ref"]=="","CONTRIBUTION_SIGNATURE")
         else:
@@ -30,7 +35,7 @@ def check(consumer,leaf,profile,context):
     need(type(context["contributions"]) is list,"CONTRIBUTION_LIST")
     try:
         # Original implementation, not a C2 reimplementation of atomic identity or coverage.
-        atoms=contribution_table(context["contributions"],{n:SimpleNamespace(values=consumer.data[n]) for n in inputs},bindings)
+        atoms=contribution_table(context["contributions"],{n:SimpleNamespace(values=ordered[n]) for n in inputs},bindings)
     except (ValueError,KeyError,TypeError) as e:
         raise Reject("N7_CONTRIBUTION:"+str(e)) from e
     cache={};active=set()

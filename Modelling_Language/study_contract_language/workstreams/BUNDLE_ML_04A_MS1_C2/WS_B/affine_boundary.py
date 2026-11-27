@@ -6,6 +6,21 @@ from WS_B import power_boundary as old
 VERSION="canonical-first-research-0.4"
 PACKAGE="canonical-mathematical-contract-package-0.3"
 class AffinePowerChecked(old.PowerChecked):
+    def exponent_policy(self,e):
+        def bounds(n):
+            v=constant(n)
+            if v is not None:return v,v
+            if type(n) is mp.ParameterReference:
+                super(AffinePowerChecked,self).exponent_policy(n)
+                b=self.power_domains[n.name];return b["min"],b["max"]
+            if type(n) is mp.ExpressionReference:return bounds(n.body)
+            if type(n) is mp.Add:
+                a,b=bounds(n.left);c,d=bounds(n.right);return a+c,b+d
+            if type(n) is mp.Negate:
+                a,b=bounds(n.operand);return -b,-a
+            need(False,"POWER_INTEGER_AFFINE_REQUIRED")
+        lo,hi=bounds(e)
+        need(-100<=lo<=hi<=100,"POWER_EXPRESSION_RANGE")
     def nonnegative(self,e):
         v=constant(e)
         if v is not None:return v>=0
