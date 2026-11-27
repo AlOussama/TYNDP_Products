@@ -58,4 +58,81 @@ class ClosureControls(unittest.TestCase):
         with self.assertRaisesRegex(Reject,"DURATION_OR_CHRONOLOGY"):metadata.validate(bad)
         bad=copy.deepcopy(f);bad["information_sets"].pop()
         with self.assertRaisesRegex(Reject,"INFORMATION_STAGE_COVERAGE"):metadata.validate(bad)
+def assertion(package,id,name,axes,kinds,role="SAFETY_GUARANTEE",guard=None,at=None,assumptions=None):
+    from interface import predicate_client
+    pr=predicate_client(package,"pred:"+name,"DATA_ASSUMPTION" if role=="DATA_ASSUMPTION" else "PREDICATE")
+    return {"id":id,"role":role,"modality":"MUST","predicate":{"predicate_id":pr["predicate_id"],"role":pr["role"],"axes":pr["qualified_axes"],"scope_id":pr["scope_id"]},"scope":"scope:main","binders":[{"axis":a,"kind":k,"quantifier":"EXISTS" if k=="response" and role in ("SERVICE_GUARANTEE","CAPABILITY_GUARANTEE") else "FORALL"} for a,k in zip(axes,kinds,strict=True)],"at":at or {},"guard":guard or {"truth":"TRUE","reason":None},"assumptions":assumptions or [],"authority_refs":["authority:source"]}
+
+class ObligationControls(unittest.TestCase):
+    def service(self,role):
+        from common_fixtures import build,p
+        from interface import predicate_client
+        from closure_v1.obligations import Bound
+        c=build("C2SERVICE",{"r":["r1","r2"],"y":["y1","y2"]},{"a":p("r","y"),"threshold":p(),"available":p("r")},{},{"ok":"a >= threshold","enabled":"available >= 1"},{"a":[1,0,0,1],"threshold":1,"available":[1,1]},{},{},None,roles={"available":"INPUT","threshold":"INPUT"},pred_axes={"ok":["r","y"],"enabled":["r"]})
+        c["context"]["predicates"]["enabled"]["role"]="GUARD"
+        pck=pkg(c["doc"],c["context"]);f=frame()
+        f["domains"]=[{"id":"domain:r","kind":"request","members":["r1","r2"],"ordered":False},{"id":"domain:y","kind":"response","members":["y1","y2"],"ordered":False}]
+        f["scopes"]=[{"id":"scope:main","domains":["domain:r","domain:y"],"subjects":[]}]
+        t=metadata.validate(f);bound=Bound(pck,t,c["data"])
+        g=predicate_client(pck,"pred:enabled","GUARD")
+        ref={"predicate_id":g["predicate_id"],"role":g["role"],"axes":g["qualified_axes"],"scope_id":g["scope_id"]}
+        a=assertion(pck,"assertion:service","ok",["domain:r","domain:y"],["request","response"],role,{"predicate":ref})
+        return c,pck,f,bound,a
+    def test_CL06_service_requires_actual_witness(self):
+        from closure_v1.obligations import evaluate,Bound
+        c,pck,f,b,a=self.service("SERVICE_GUARANTEE")
+        self.assertEqual(evaluate(b,[a],[])["status"],"BLOCKED")
+        w=[{"id":"witness:"+r,"assertion":a["id"],"key":[r],"response":y,"source_ref":"authority:source","data_identity":b.data_identity} for r,y in (("r1","y1"),("r2","y2"))]
+        self.assertEqual(evaluate(b,[a],w)["status"],"FINITE_OBSERVATIONS_ONLY")
+        w[0]["response"]="y2"
+        self.assertEqual(evaluate(b,[a],w)["status"],"FINITE_COUNTEREXAMPLE")
+        w[0]["data_identity"]="wrong"
+        with self.assertRaisesRegex(Reject,"WITNESS_SNAPSHOT"):evaluate(b,[a],w)
+    def test_CL07_capability_order_and_nonvacuity(self):
+        from closure_v1.obligations import evaluate,Bound
+        c,pck,f,b,a=self.service("CAPABILITY_GUARANTEE")
+        self.assertEqual(evaluate(b,[a],[])["status"],"FINITE_OBSERVATIONS_ONLY")
+        a["binders"].reverse()
+        with self.assertRaisesRegex(Reject,"REQUEST_RESPONSE_ORDER"):evaluate(b,[a],[])
+        a["binders"].reverse()
+        for row in c["data"]["parameters"]["available"]:row["value"]=0
+        b=Bound(pck,metadata.validate(f),c["data"])
+        self.assertEqual(evaluate(b,[a],[])["status"],"BLOCKED")
+    def test_CL08_scoped_assumptions_unknown(self):
+        from closure_v1.obligations import Bound,evaluate
+        d,c=arithmetic();d["assumptions"]={"valid":"a >= b"}
+        c=fixture(d,roles={"a":"INPUT","b":"INPUT"})
+        pck=pkg(d,c);f=ts();f["scopes"]=[{"id":"scope:main","domains":["domain:t"],"subjects":[]}]
+        b=Bound(pck,metadata.validate(f),dataset({"a":series([1,0,3]),"b":series([1,1,1])}))
+        a=assertion(pck,"assertion:assume","valid",["domain:t"],["time"],"DATA_ASSUMPTION")
+        g=assertion(pck,"assertion:guarantee","match",["domain:t"],["time"],assumptions=[a["id"]])
+        r=evaluate(b,[a,g],[]);self.assertEqual(r["status"],"FINITE_OBSERVATIONS_ONLY")
+        a["guard"]={"truth":"UNKNOWN","reason":"AUTHORITY_UNRESOLVED"}
+        self.assertEqual(evaluate(b,[a,g],[])["status"],"BLOCKED")
+        g["assumptions"]=[]
+        with self.assertRaisesRegex(Reject,"UNBOUND_ASSUMPTION"):evaluate(b,[a,g],[])
+    def test_CL09_full_information_policy(self):
+        from closure_v1.obligations import Bound,nonanticipativity
+        d={"version":0,"dimensions":{"t":{"dtype":"int","ordered":True},"s":{"dtype":"str"}},"parameters":{"decision":{"dims":["s","t"]}}}
+        c=fixture(d,domains={"t":[0,1,2],"s":["a","b"]});pck=pkg(d,c)
+        rows=[{"key":[s,t],"value":v} for s,vs in (("a",[10,20,30]),("b",[10,40,50])) for t,v in enumerate(vs)]
+        data=dataset({"decision":rows});f=ts()
+        p=[{"id":"policy:decision","symbol":"ref:decision","time_domain":"domain:t","scenario_domain":"domain:s","authority_refs":["authority:source"]}]
+        b=Bound(pck,metadata.validate(f),data);self.assertEqual(nonanticipativity(b,p)[0]["status"],"FINITE_OBSERVED_TRUE")
+        rows[3]["value"]=11
+        b=Bound(pck,metadata.validate(f),data);self.assertEqual(nonanticipativity(b,p)[0]["status"],"FINITE_COUNTEREXAMPLE")
+    def test_CL10_explicit_state_boundary_scope(self):
+        from closure_v1.obligations import Bound,boundaries,evaluate
+        d={"version":0,"dimensions":{"t":{"dtype":"int","ordered":True}},"parameters":{"state":{"dims":["t"]},"start":{"dims":[]},"end":{"dims":[]}},"conditions":{"initial":"state == start","terminal":"state == end"}}
+        c=fixture(d,quant={n:q("MWh","electricity") for n in ("state","start","end")},pred_axes={"initial":["t"],"terminal":["t"]})
+        pck=pkg(d,c);f=ts();f["scopes"]=[{"id":"scope:main","domains":["domain:t"],"subjects":[]}]
+        data=dataset({"state":series([1,2,3]),"start":[{"key":[],"value":1}],"end":[{"key":[],"value":3}]})
+        b=Bound(pck,metadata.validate(f),data)
+        aa=[assertion(pck,"assertion:"+n,n,["domain:t"],["time"],at={"domain:t":[v]}) for n,v in (("initial",0),("terminal",2))]
+        st=[{"id":"state:ledger","symbol":"ref:state","time_domain":"domain:t","mode":"NONCYCLIC","initial":"assertion:initial","terminal":"assertion:terminal","authority_refs":["authority:source"]}]
+        self.assertEqual(boundaries(b,aa,st)[0]["status"],"BOUND_NATIVE_ASSERTIONS")
+        self.assertEqual(evaluate(b,aa,[])["status"],"FINITE_OBSERVATIONS_ONLY")
+        aa[1]["at"]["domain:t"]=[1]
+        with self.assertRaisesRegex(Reject,"BOUNDARY_SCOPE_OR_SYMBOL"):boundaries(b,aa,st)
+
 if __name__=="__main__":unittest.main(verbosity=2)

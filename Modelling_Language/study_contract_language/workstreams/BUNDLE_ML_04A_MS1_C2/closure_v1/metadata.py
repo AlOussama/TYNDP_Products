@@ -140,6 +140,12 @@ def validate_package_domains(leaf,tables):
     for n,z in leaf["context"]["temporal"].items():
         k=leaf["context"]["domains"][n]["id"];ch=[x for x in tables["chronologies"].values() if x["domain"]==k]
         need(len(ch)==1 and z["chronology_ref"]==ch[0]["id"],"CHRONOLOGY_BINDING")
-        if z["shift_edge"]=="WRAP" or z["window_edge"]=="WRAP":need(ch[0]["mode"]=="CYCLIC","CYCLIC_EDGE")
-        if z["shift_edge"]=="ZERO" or z["window_edge"]=="TRUNCATE":need(ch[0]["mode"]=="NONCYCLIC","NONCYCLIC_EDGE")
+        import mathspec.program as mp
+        # The checked native leaf already validates edge policies. Only
+        # operators actually used impose chronology-mode restrictions.
+        def visit(node):
+            if type(node) in (mp.Translate,mp.WindowSum) and node.along==n:
+                need(node.wrap==(ch[0]["mode"]=="CYCLIC"),"CYCLIC_EDGE" if node.wrap else "NONCYCLIC_EDGE")
+            for child in mp.children(node):visit(child)
+        for exp in program.expressions.values():visit(exp.expression)
     return program
