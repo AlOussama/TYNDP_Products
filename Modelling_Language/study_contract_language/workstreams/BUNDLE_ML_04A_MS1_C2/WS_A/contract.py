@@ -5,10 +5,8 @@ from itertools import product
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(ROOT.parent/"BUNDLE_ML_04A_MS1_C1"/"comparative_canonical"))
-from interface import resolve_predicate
-from package_interface import import_package
+from interface import resolve_predicate,import_package,finite_consumer
 from closure import need,fields
-from native_consumer import FiniteNative
 
 TRUTH=("FALSE","UNKNOWN","TRUE")
 ROLES=("SAFETY_GUARANTEE","SERVICE_GUARANTEE","CAPABILITY_GUARANTEE","DATA_ASSUMPTION","TECHNICAL_ASSUMPTION","ENVIRONMENT_ASSUMPTION","CONDITIONAL_OBLIGATION","PERMITTED_BEHAVIOUR","PROHIBITED_BEHAVIOUR")
@@ -40,8 +38,9 @@ def evaluate(package,data,assertion):
     need(len(axes)==len(set(axes)) and set(axes)==set(pred["qualified_axes"]),"UNBOUND_OR_DUPLICATE_AXIS")
     if role in ("SERVICE_GUARANTEE","CAPABILITY_GUARANTEE"):
         need(len(bs)>=2 and (bs[0]["kind"],bs[0]["quantifier"],bs[1]["kind"],bs[1]["quantifier"])==("request","FORALL","response","EXISTS"),"REQUEST_RESPONSE_ORDER")
+    if role=="DATA_ASSUMPTION":need(all(b["quantifier"]=="FORALL" for b in bs),"DATA_ASSUMPTION_UNIVERSAL")
     guard=assertion["guard"];need(guard in TRUTH,"BOOL3_GUARD")
-    consumer=FiniteNative(leaf,data) if data is not None else None  # validate all supplied data even on inactive guard
+    consumer=finite_consumer(package,data) if data is not None else None  # validate all supplied data even on inactive guard
     reason=None
     if guard=="FALSE":status="NOT_APPLICABLE";truth=None
     elif guard=="UNKNOWN":status="BLOCKED";truth="UNKNOWN";reason="UNKNOWN_GUARD"

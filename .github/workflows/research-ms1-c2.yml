@@ -79,7 +79,12 @@ jobs:
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_first_experiment/test_canonical_first.py
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/native_probe.py
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py
+      - name: Full pinned upstream mathspec suite after integration seam changes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 pytest -q
       - name: Original P5 pinned oracle
+        if: always()
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: eaea6dd99b736f2560866abda722cde78b908bce

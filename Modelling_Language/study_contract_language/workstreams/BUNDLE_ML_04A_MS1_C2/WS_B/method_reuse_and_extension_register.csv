@@ -1,0 +1,9 @@
+feature,classification,evidence,limit
+C1 native package and signature,REUSE_UNCHANGED,method_client,static input support
+C1 finite native consumer,REUSE_UNCHANGED,FiniteNative,finite exact arithmetic
+R1 rational parser,REUSE_UNCHANGED,profile_engine.rational,exact synthetic data
+R1 weight and pair validation,REUSE_WITH_ADAPTATION,Engine and map_profile reference controls,native typed policy adapter subset; full R1 mapping open
+R1 n2r/N7 authority and ledger,REUSE_WITH_ADAPTATION,original_profile_controls,not yet bound to all native methods
+ABL08 semantic projection,EXTEND_REQUIRED,top-level description only,not full semantic canonical equivalence
+ABL06 provenance envelope,EXTEND_REQUIRED,source and legacy audit receipt,only supported legacy mapper
+EXPOW,EXTEND_REQUIRED,pinned public Power node and existing Q.power,full native admission blocked
