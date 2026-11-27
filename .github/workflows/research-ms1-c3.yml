@@ -167,12 +167,24 @@ jobs:
         if: always()
         working-directory: mathspec-src
         run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_targeted_c3.py
+      - name: C3 unchanged independent P5 original mutation replay
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/independent_p5_replay.js p5-src/Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js /tmp/c3-full-p5-oracle.json
+      - name: C3 actual 116 committed original candidate paths
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/run_originals.py /tmp/c3-full-p5-oracle.json /tmp/c3-original-results.json
   original-corpus-exit:
-    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c3-original-integration'
+    needs: native
+    if: always() && (github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c3-original-integration')
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - name: Refuse incomplete original corpus closure
-        run: python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/audit_originals.py --require-complete
+      - name: Require actual original corpus native job and committed source population
+        env:
+          NATIVE_RESULT: ${{ needs.native.result }}
+        run: |
+          python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/audit_originals.py --require-sources
+          test "$NATIVE_RESULT" = success

@@ -172,7 +172,15 @@
     "observed_contributions": [],
     "comparison": null,
     "models": [],
-    "external_reports": []
+    "external_reports": [
+      {
+        "id": "report:e4_proof",
+        "status": "NOT_EXECUTED",
+        "reason": "FORMAL_PROOF_NOT_EXECUTED",
+        "value": null,
+        "source_ref": "authority:source"
+      }
+    ]
   },
   "definition": {
     "schema": "c3-authored-native-contract-0.2",
@@ -624,7 +632,15 @@
     "ledgers": [],
     "comparison": null,
     "models": [],
-    "report_requests": [],
+    "report_requests": [
+      {
+        "id": "report:e4_proof",
+        "subject": "frame:research",
+        "value_type": "QUALITATIVE",
+        "declared_unit": null,
+        "basis": "E4_FORMAL_PROOF"
+      }
+    ],
     "projection_notes": [
       "Synthetic unit-coefficient triangle: angle coordinate normalized in MW-equivalent units; explicit topology and both KCL and KVL. General E4 not proved."
     ],

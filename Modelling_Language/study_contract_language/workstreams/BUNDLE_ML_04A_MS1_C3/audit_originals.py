@@ -37,7 +37,12 @@ def main():
         assert b["C3_full_original_evidence"]=="NOT_EXECUTED"
     print("C3_POPULATION_AUDIT="+json.dumps({"identities":58,"paths":116,"materialized_full":0,
           "executed_full":0,"requirements":125,"scope":"POPULATION_INTEGRITY_ONLY","status":"PASS"},sort_keys=True))
-    if "--require-complete" in sys.argv:
-        raise SystemExit("C3-G1/G2 NOT_MET: 0/116 full paths; original corpus closure refused")
+    # Historic partial receipt is unchanged; committed source population
+    # is verified separately. Full execution is decided by run_originals.py.
+    actual={(r["id"],s) for r in m["originals"] for s in ("A","B")
+            if (HERE/"originals"/s/(r["id"]+(".scn" if s=="A" else ".json"))).is_file()}
+    print("C3_COMMITTED_SOURCE_POPULATION="+json.dumps({"source_files":len(actual),"target":116}))
+    if "--require-sources" in sys.argv:
+        assert actual==set(a),"C3_COMMITTED_SOURCE_COVERAGE"
 
 if __name__=="__main__":main()

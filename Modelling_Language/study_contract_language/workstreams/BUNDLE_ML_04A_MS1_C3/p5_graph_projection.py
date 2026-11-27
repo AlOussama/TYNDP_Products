@@ -32,10 +32,11 @@ def make_slot_affine(f,src,k,d,c,data,bindings,inputs,obs,outputs,external_symbo
     f["processes"].append({"id":"process:"+k,"slot":"slot:"+k,"depends_on":depends or [],"authority_refs":[src["id"]]})
     return {"id":"slot:"+k,"package":pck,"profile":prof,"study":st,"source_ref":src["id"],"data":data,"case_context":ctx,"bindings":bindings,"assertions":a,"witnesses":[],"policies":[],"states":[],"comparisons":[],"verification":verify,"ledger":ledger}
 
-def build():
+def build(p5_override=None, authored_method=None, authored_source=None):
     # Original fixture bytes retained from its pinned Git blob. This is a
     # deliberately narrow semantic projection, not the original full A/B path.
-    p5_text=(C2/"closure_v1"/"p5_fixture.json").read_text();p5=json.loads(p5_text)
+    p5_text=(C2/"closure_v1"/"p5_fixture.json").read_text() if authored_source is None else authored_source
+    p5=json.loads(p5_text) if p5_override is None else copy.deepcopy(p5_override)
     f=frame();src=[source_row("authority:source","fixture:source",p5_text)]
     labels=[r["id"] for r in p5["scenarios"]]
     f["domains"]=[{"id":"domain:s","kind":"scenario","members":labels,"ordered":False}]
@@ -69,7 +70,7 @@ def build():
             contexts[name]=[{"key":[r["scenario_id"]],"value":r["project_delta_id"] or "NO_PROJECT_DELTA"} for r in samples[case]]
         f["comparisons"].append({"id":policy,"relation":rel,"exogenous":fields_,"project":{"project_delta":pr},"allowed_changes":["project_delta"],"authority_refs":["authority:source"]})
         out="output:"+key;f["outputs"].append(sig(out,money,contribution_policy="REQUIRED"))
-        d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt","prob")},"expressions":{"benefit":"sum((base-alt)*prob, over=s)"}}
+        d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt","prob")},"expressions":{"benefit":authored_method["annual_source"] if authored_method is not None else "sum((base-alt)*prob, over=s)"}}
         c=fixture(d,roles={"prob":"INPUT"},quant={"base":money,"alt":money,"benefit":money},domains={"s":labels})
         # One stated study-year amount: actual original annual rate * 1 year.
         rows={case:[{"key":[r["scenario_id"]],"value":str(r["operating_cost_proxy_eur_per_year"])} for r in samples[case]] for case in ("R","P")}
@@ -113,8 +114,9 @@ def build():
         f["outputs"].append(sig(out,money,contribution_policy="REQUIRED"))
         doc={"version":0,"dimensions":{"y":{"dtype":"int","ordered":True}},
              "parameters":{"annual":{"dims":[]},"capex":{"dims":[]},"rate":{"dims":[]},"year":{"dims":["y"],"dtype":"int"}},
-             "expressions":{"factor":"sum((1 + rate)**(-year), over=y)","npv":"annual * factor - capex"},
-             "conditions":{"valid_rate":"rate >= 0 and rate < 1"}}
+             "expressions":{"factor":authored_method["discount_factor_source"] if authored_method is not None else "sum((1 + rate)**(-year), over=y)",
+                            "npv":authored_method["npv_source"] if authored_method is not None else "annual * factor - capex"},
+             "conditions":{"valid_rate":authored_method["rate_guard"] if authored_method is not None else "rate >= 0 and rate < 1"}}
         ctx=fixture(doc,roles={"annual":"INPUT","rate":"INPUT","year":"INPUT"},
                     quant={n:money for n in ("annual","capex","npv")},
                     domains={"y":years},domain_rules={"rate":"NONNEGATIVE","year":"POSITIVE"},pred_axes={"valid_rate":[]})
