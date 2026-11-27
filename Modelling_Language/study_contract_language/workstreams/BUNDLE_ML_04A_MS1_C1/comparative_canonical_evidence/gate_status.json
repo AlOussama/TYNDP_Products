@@ -1,0 +1,73 @@
+{
+  "schema": "c1-comp-gates-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "tested_commit": "8802240fc162e6da0aea22800a5331d7623635f7",
+  "gates": {
+    "COMP-G0": {
+      "status": "MET",
+      "scope": "Frozen primary/upstream identity and actual CI receipts"
+    },
+    "COMP-G1": {
+      "status": "MET_BOUNDED",
+      "scope": "10 same-source derived mathematical fragments, three unchanged legacy controls, two matched M2/M3 numerical outputs, two extra controls"
+    },
+    "COMP-G2": {
+      "status": "MET_BOUNDED",
+      "scope": "12 executed semantic ablation/counterexample controls"
+    },
+    "COMP-G3": {
+      "status": "PARTIAL",
+      "scope": "No full equal-scope implementation/performance comparison or code removal ablation"
+    },
+    "COMP-ADR": {
+      "status": "SELECTED",
+      "architecture": "M3-HYBRID",
+      "scope": "Research development only"
+    },
+    "COMP-G": {
+      "status": "COMPLETE_BOUNDED_DECISION_EXPERIMENT",
+      "scope": "Decision reached, not full scientific approval"
+    },
+    "C1-A0": "PARTIAL",
+    "C1-A1": "PARTIAL",
+    "C1-A2": "PARTIAL",
+    "C1-A3": "PARTIAL",
+    "C1-A4": "PARTIAL",
+    "C1-B0": "MET",
+    "C1-B1": "PARTIAL",
+    "C1-B2": "PARTIAL",
+    "C1-B3": "PARTIAL",
+    "C1-G": "PARTIAL_WITH_TARGETED_BLOCKERS",
+    "MS-G0": "MET",
+    "MS-G1": "PARTIAL",
+    "MS-G2": "PARTIAL",
+    "MS-G3": "PARTIAL",
+    "MS-G4": "PARTIAL",
+    "MS-G5": "PARTIAL",
+    "MS-G6": "NOT_READY_FOR_FINAL_SCIENTIFIC_APPROVAL",
+    "B0": "MET",
+    "B1": "PARTIAL",
+    "B2": "PARTIAL",
+    "B3": "NOT_READY",
+    "G1": "BLOCKED",
+    "SysML-H0": "OPEN"
+  },
+  "architecture": {
+    "development": "M3-HYBRID_SELECTED",
+    "formal_scientific_evidence": "INSUFFICIENT_FOR_FINAL_APPROVAL",
+    "reopen_only_on_evidence": true
+  },
+  "next": {
+    "C2_RESEARCH_DEVELOPMENT_READY": true,
+    "C2_FORMAL_RELEASE": false,
+    "C4_REFERENCE_CORPUS_PARTIAL": true
+  },
+  "original_population": {
+    "identities": 58,
+    "AB_paths": 116,
+    "full_paths_executed": 0,
+    "traceability": 105
+  },
+  "owner": "OWNER_TBD",
+  "release_04B": false
+}
