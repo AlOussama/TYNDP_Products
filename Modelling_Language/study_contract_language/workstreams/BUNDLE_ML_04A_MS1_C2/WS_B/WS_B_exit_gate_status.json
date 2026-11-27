@@ -1,0 +1,13 @@
+{
+  "status": "PARTIAL",
+  "native_tests": "NOT_EXECUTED_AT_COMMIT",
+  "blockers": [
+    "EXPOW native admission",
+    "full N2R/N7 binding",
+    "native contribution lineage",
+    "all original MethodProfiles and StudyProfiles integrated",
+    "source authority and allowed project changes",
+    "full output projection"
+  ],
+  "conformance": "NOT_PROVED"
+}
