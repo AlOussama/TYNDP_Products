@@ -1,0 +1,1267 @@
+{
+  "schema": "c2-original-diagnostic-contracts-0.1",
+  "manifest_blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9",
+  "rule_source": {
+    "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+    "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+    "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+  },
+  "scope": "Expected rule mapping for all frozen IDs, original catalogue and derived/actual oracle path distinguished. Candidate A/B path must be attached only on actual C3 execution.",
+  "originals": [
+    {
+      "family": "RC",
+      "id": "RC01",
+      "rc": "RC01",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC01",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC02",
+      "rc": "RC02",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC02",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC03",
+      "rc": "RC03",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC03",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC04",
+      "rc": "RC04",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC04",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC05",
+      "rc": "RC05",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R08",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC05",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC06",
+      "rc": "RC06",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R00",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC06",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC07",
+      "rc": "RC07",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC07",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC08",
+      "rc": "RC08",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC08",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC09",
+      "rc": "RC09",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC09",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "RC",
+      "id": "RC10",
+      "rc": "RC10",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "pointer": null
+      },
+      "expected_catalogue_identity": "RC10",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-01",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/0/mutation"
+      },
+      "expected_catalogue_identity": "MUT-01",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json",
+        "blob": "80c5fa2a0d9c89200c545e9b2d37c972deb851fc"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-02",
+      "rc": "RC02",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/1/mutation"
+      },
+      "expected_catalogue_identity": "MUT-02",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json",
+        "blob": "4905c76a34e8750623c9d14ca553b90c5dbf1ba2"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-03",
+      "rc": "RC03",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/2/mutation"
+      },
+      "expected_catalogue_identity": "MUT-03",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json",
+        "blob": "e4ff3ded3ff46658e9492cd08efeae6fbb201fbc"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-04",
+      "rc": "RC04",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/3/mutation"
+      },
+      "expected_catalogue_identity": "MUT-04",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json",
+        "blob": "eb88329f164f6f58167d8dc8ecacd56c21031287"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-05",
+      "rc": "RC05",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/4/mutation"
+      },
+      "expected_catalogue_identity": "MUT-05",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json",
+        "blob": "28bef7e40edd70a13656df0660f63d54844c556d"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-06",
+      "rc": "RC06",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R00",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/5/mutation"
+      },
+      "expected_catalogue_identity": "MUT-06",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json",
+        "blob": "e4bd15debc43e38f3234b295f8b51303659d0f52"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-07",
+      "rc": "RC07",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/6/mutation"
+      },
+      "expected_catalogue_identity": "MUT-07",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json",
+        "blob": "c54d0ef19a06807e23482e478d65b83486b56007"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-08",
+      "rc": "RC08",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/7/mutation"
+      },
+      "expected_catalogue_identity": "MUT-08",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json",
+        "blob": "f3c13c584b1b44b12ce5b1ab876ad0cf2d36c63c"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-09",
+      "rc": "RC09",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/8/mutation"
+      },
+      "expected_catalogue_identity": "MUT-09",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json",
+        "blob": "d41478599ea0846a3a5486fddc35d11c42e3afee"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-10",
+      "rc": "RC10",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/9/mutation"
+      },
+      "expected_catalogue_identity": "MUT-10",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json",
+        "blob": "9898d4be03cefb1b6b1e85a902757d77e7e593d9"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-11",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/10/mutation"
+      },
+      "expected_catalogue_identity": "MUT-11",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-11.json",
+        "blob": "2bb6c21b9e138df91e54d2aad65bbaaa2865d52e"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-12",
+      "rc": "RC10",
+      "expected": [
+        "AUDIT_LOSS"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/11/mutation"
+      },
+      "expected_catalogue_identity": "MUT-12",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-12.json",
+        "blob": "4c9c3c99df6e1995488e01f1ab78097495e2c237"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-13",
+      "rc": "RC10",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/12/mutation"
+      },
+      "expected_catalogue_identity": "MUT-13",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-13.json",
+        "blob": "129c1014acca4d18a2b7b2bf29c5cb7601441b4c"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-14",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R01",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/13/mutation"
+      },
+      "expected_catalogue_identity": "MUT-14",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-14.json",
+        "blob": "a026e6584b54e21836b97ef7bb9588f954c494e1"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-15",
+      "rc": "RC07",
+      "expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R05",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/14/mutation"
+      },
+      "expected_catalogue_identity": "MUT-15",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-15.json",
+        "blob": "b11c5dca37811e928b85a353d70b482348937f9c"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-16",
+      "rc": "RC03",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/15/mutation"
+      },
+      "expected_catalogue_identity": "MUT-16",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-16.json",
+        "blob": "3d4797008fece83a61ac4d78bd567f7e6a7a9972"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-17",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/16/mutation"
+      },
+      "expected_catalogue_identity": "MUT-17",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-17.json",
+        "blob": "ed97b9f93473799091bbb188e30de56d6e1637bb"
+      }
+    },
+    {
+      "family": "C23",
+      "id": "MUT-18",
+      "rc": "RC05",
+      "expected": [
+        "E4_NOT_PROVED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "pointer": "/cases/17/mutation"
+      },
+      "expected_catalogue_identity": "MUT-18",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH",
+      "derived_mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-18.json",
+        "blob": "64d1377cf0a17c315438c6877392dc4bcc3392fb"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M01",
+      "rc": "",
+      "expected": "PAIR_INCOMPLETE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/0"
+      },
+      "expected_catalogue_identity": "M01",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M02",
+      "rc": "",
+      "expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/1"
+      },
+      "expected_catalogue_identity": "M02",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M03",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/2"
+      },
+      "expected_catalogue_identity": "M03",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M04",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_SUM",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/3"
+      },
+      "expected_catalogue_identity": "M04",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M05",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/4"
+      },
+      "expected_catalogue_identity": "M05",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M06",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/5"
+      },
+      "expected_catalogue_identity": "M06",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M07",
+      "rc": "",
+      "expected": "BENEFIT_SIGN_CONVENTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/6"
+      },
+      "expected_catalogue_identity": "M07",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M08",
+      "rc": "",
+      "expected": "COST_PROXY_MISLABELED_AS_SEW",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/7"
+      },
+      "expected_catalogue_identity": "M08",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M09",
+      "rc": "",
+      "expected": "UNSUPPORTED_OWNER_APPROVAL",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/8"
+      },
+      "expected_catalogue_identity": "M09",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M10",
+      "rc": "",
+      "expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/9"
+      },
+      "expected_catalogue_identity": "M10",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M11",
+      "rc": "",
+      "expected": "SOURCE_LEDGER_LOSS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/10"
+      },
+      "expected_catalogue_identity": "M11",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M12",
+      "rc": "",
+      "expected": "MODEL_VARIATION_NOT_DISCLOSED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/11"
+      },
+      "expected_catalogue_identity": "M12",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M13",
+      "rc": "",
+      "expected": "PROJECT_SCOPE_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R10",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/12"
+      },
+      "expected_catalogue_identity": "M13",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M14",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/13"
+      },
+      "expected_catalogue_identity": "M14",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M15",
+      "rc": "",
+      "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/14"
+      },
+      "expected_catalogue_identity": "M15",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M16",
+      "rc": "",
+      "expected": "TIME_SUPPORT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/15"
+      },
+      "expected_catalogue_identity": "M16",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M17",
+      "rc": "",
+      "expected": "UNKNOWN_COERCED_TO_NUMBER",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R11",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/16"
+      },
+      "expected_catalogue_identity": "M17",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M18",
+      "rc": "",
+      "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/17"
+      },
+      "expected_catalogue_identity": "M18",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M19",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/18"
+      },
+      "expected_catalogue_identity": "M19",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M20",
+      "rc": "",
+      "expected": "DISCOUNT_POLICY_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/19"
+      },
+      "expected_catalogue_identity": "M20",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M21",
+      "rc": "",
+      "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R01",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/20"
+      },
+      "expected_catalogue_identity": "M21",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M22",
+      "rc": "",
+      "expected": "DISCOUNT_CURRENCY_BASIS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R06",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/21"
+      },
+      "expected_catalogue_identity": "M22",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M23",
+      "rc": "",
+      "expected": "WEIGHT_ROLE_CONFLATION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/22"
+      },
+      "expected_catalogue_identity": "M23",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M24",
+      "rc": "",
+      "expected": "OBSERVABLE_SELECTION_UNDEFINED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/23"
+      },
+      "expected_catalogue_identity": "M24",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M25",
+      "rc": "",
+      "expected": "UNKNOWN_SAMPLE_REFERENCE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R01",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/24"
+      },
+      "expected_catalogue_identity": "M25",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M26",
+      "rc": "",
+      "expected": "CONSULTATION_SOURCE_PROMOTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R09",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/25"
+      },
+      "expected_catalogue_identity": "M26",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M27",
+      "rc": "",
+      "expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R10",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/26"
+      },
+      "expected_catalogue_identity": "M27",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M28",
+      "rc": "",
+      "expected": "KPI_DOUBLE_COUNTING_POLICY",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R12",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/27"
+      },
+      "expected_catalogue_identity": "M28",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M29",
+      "rc": "",
+      "expected": "STAGE1_INFORMATION_LEAKAGE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R07",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/28"
+      },
+      "expected_catalogue_identity": "M29",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    },
+    {
+      "family": "P5",
+      "id": "M30",
+      "rc": "",
+      "expected": "E4_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "rule_id": "R13",
+      "catalogue": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "pointer": "/29"
+      },
+      "expected_catalogue_identity": "M30",
+      "original_full_paths": "NOT_EXECUTED",
+      "candidate_path": null,
+      "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH",
+      "oracle": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      }
+    }
+  ]
+}

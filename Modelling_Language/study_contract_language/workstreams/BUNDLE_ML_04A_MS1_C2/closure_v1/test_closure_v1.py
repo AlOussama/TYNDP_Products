@@ -513,4 +513,117 @@ class CriticalControls(unittest.TestCase):
         self.assertEqual(evaluate(b,[a],[])["status"],"FINITE_OBSERVATIONS_ONLY")
         data["parameters"]["selected"][0]["value"]=3
         self.assertEqual(evaluate(Bound(p,metadata.validate(f),data),[a],[])["status"],"FINITE_COUNTEREXAMPLE")
+# Final closure: exact selector membership, controlled override, diagnostics.
+from closure_v1 import selection,composition,diagnostics
+from interface import import_package
+from closure import source_map
+def select_case():
+    f=frame();src=[source_row("authority:source","fixture:source","synthetic selector and oracle")]
+    f["domains"]=[{"id":"domain:s","kind":"sample","members":["a","b"],"ordered":False}]
+    f["scopes"]=[{"id":"scope:main","domains":["domain:s"],"subjects":["case:a","case:b"]}]
+    for n in ("a","b"):
+        f["referents"].append({"id":"case:"+n,"kind":"study_case","quantity":q(),"axes":["domain:s"],"authority_refs":["authority:source"]})
+        f["observables"].append(sig("observable:"+n,q(),["domain:s"],subject="case:"+n,projection="IDENTITY"))
+    f["inputs"]=[sig("input:selected",q())]
+    f["outputs"]=[sig("output:delta",q(),["domain:s"],contribution_policy="NOT_REQUIRED")]
+    s=source_for_slot(f,src,"select")
+    d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{"a":{"dims":["s"]},"b":{"dims":["s"]},"selected":{"dims":[]}},"expressions":{"delta":"a-b"},"conditions":{"lower":"selected <= delta","member":"selected == delta"}}
+    c=fixture(d,roles={"selected":"INPUT"},domains={"s":["a","b"]},pred_axes={"lower":["s"],"member":["s"]})
+    p=pkg(d,c);low=assertion(p,"assertion:lower","lower",["domain:s"],["sample"])
+    mem=assertion(p,"assertion:member","member",["domain:s"],["sample"],role="CONDITIONAL_OBLIGATION");mem["binders"][0]["quantifier"]="EXISTS"
+    data=dataset({"a":[{"key":["a"],"value":2},{"key":["b"],"value":4}],"b":[{"key":["a"],"value":1},{"key":["b"],"value":1}],"selected":[{"key":[],"value":1}]})
+    row=make_slot(f,s,"select",d,c,data,{"ref:a":{"kind":"OBSERVABLE","ref":"observable:a"},"ref:b":{"kind":"OBSERVABLE","ref":"observable:b"},"ref:selected":{"kind":"INPUT","ref":"input:selected"},"ref:delta":{"kind":"OUTPUT","ref":"output:delta"}},["input:selected"],["observable:a","observable:b"],["output:delta"],["ref:delta"],assertions=[low,mem])
+    x,p=bundle(f,[row],src)
+    de,dp=to_definition(x);de["requirements"]["models"]=[{"id":"model:"+n,"implementation_ref":"impl:"+n,"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","observables":["observable:"+n],"variations":[]} for n in ("a","b")]
+    de["requirements"]["comparisons"]=[{"id":"comparison:selector","models":["model:a","model:b"],"metric_outputs":["output:delta"],"decision_assertions":["assertion:lower","assertion:member"],"tolerances":[],"sensitivity_domains":["domain:s"],"selection_policy":"DECLARED_NATIVE_SELECTOR","equivalence_target":"E3","oracle_ref":"authority:source","authority_refs":["authority:source"]}]
+    return x,de,digest(de)
+def replacement(row,expression,protected_condition=False):
+    old=import_package(row["package"]);doc=source_map(old["native_canonical"]);c=copy.deepcopy(old["context"])
+    doc["expressions"]["w"]=expression
+    c["method"]["version"]="0.3";c["study"]["method_ref"]=digest(c["method"])
+    p=pkg(doc,c);new=copy.deepcopy(row);new["package"]=p
+    new["profile"].update(version="0.3",native_signature=import_package(p)["interface"]["method_identity"],native_semantic_identity=old_identities(p)["semantic"])
+    return new
+def authorize(d,old,new,allowed=None):
+    bp=digest(d);r={"schema":composition.VERSION,"base_ref":bp,"overrides":[{"id":"override:second","slot":old["id"],"expected_old":digest(old),"replacement":new,"allowed_expressions":allowed or ["w"]}]}
+    rp=digest(r);a={"schema":composition.APPROVAL,"base_ref":bp,"request_ref":rp,"decision_scope":"NON_NORMATIVE_RESEARCH_ONLY","approvals":[{"id":"override:second","slot":old["id"],"old_ref":digest(old),"new_ref":digest(new),"allowed_expressions":allowed or ["w"],"authority_ref":old["source_ref"],"source_sha256":old["profile"]["source_sha256"],"decision":"APPROVED_RESEARCH_OVERRIDE","reason":"synthetic research-only method choice"}]}
+    return r,rp,a,digest(a)
+class FinalClosure(unittest.TestCase):
+    def test_CL27_selection_membership_and_order(self):
+        x,d,dp=select_case();static=definition.admit(d,dp)
+        self.assertEqual(static["status"],"STATIC_VALID")
+        def run(v,tie=False):
+            y=copy.deepcopy(x);row=y["slots"][0];row["data"]["parameters"]["selected"][0]["value"]=v
+            if tie:row["data"]["parameters"]["a"][1]["value"]=2
+            repin(y);i=to_instance(y,d,dp);return definition.instantiate(d,dp,i,digest(i))
+        a=run(1);self.assertEqual(a["status"],"FINITE_OBSERVATIONS_ONLY")
+        self.assertEqual(run(1,True)["status"],"FINITE_OBSERVATIONS_ONLY")
+        below=run(0);above=run(3)
+        for z in (below,above):self.assertEqual(z["status"],"FINITE_COUNTEREXAMPLE");self.assertEqual(z["comparison_evidence"][0]["status"],"NOT_PROVED")
+        b={r["id"]:r["truth"] for r in below["graph"]["slots"]["slot:select"]["obligations"]["assertions"]}
+        self.assertEqual(b,{"assertion:lower":"TRUE","assertion:member":"FALSE"})
+        bad=copy.deepcopy(d);bad["requirements"]["comparisons"][0]["decision_assertions"]=["assertion:lower"]
+        with self.assertRaisesRegex(Reject,"SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED"):definition.admit(bad,digest(bad))
+        bad=copy.deepcopy(d);bad["slots"][0]["assertions"][1]["binders"][0]["quantifier"]="FORALL"
+        with self.assertRaisesRegex(Reject,"SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED"):definition.admit(bad,digest(bad))
+        print("C2_FINAL_SELECTOR="+json.dumps({"valid":a["status"],"below":below["status"],"above":above["status"],"below_truth":b,"owner":a["owner"]},sort_keys=True))
+    def test_CL28_authorized_composition_and_roundtrip(self):
+        x,p=simple_graph();d,dp=to_definition(x);old=d["slots"][1];new=replacement(old,"b+2")
+        r,rp,a,ap=authorize(d,old,new)
+        out=composition.compose(d,dp,r,rp,a,ap)
+        self.assertEqual(out["owner"],"OWNER_TBD");self.assertEqual(out["conformance"],"NOT_PROVED")
+        self.assertNotEqual(out["base_semantic_identity"],out["effective_receipt"]["semantic_identity"])
+        self.assertEqual(out["effective_definition"]["frame"],d["frame"])
+        self.assertEqual(out["effective_definition"]["sources"],d["sources"])
+        self.assertEqual(out["effective_definition"]["slots"][0],d["slots"][0])
+        t=composition.export(d,dp,r,rp,a,ap);self.assertEqual(composition.reimport(t,dp,rp,ap)["receipt"],out)
+        y=copy.deepcopy(x);y["slots"][1].update(package=new["package"],profile=new["profile"]);repin(y)
+        effective=out["effective_definition"];ep=out["effective_pin"];i=to_instance(y,effective,ep)
+        got=definition.instantiate(effective,ep,i,digest(i));self.assertEqual(got["graph"]["outputs"]["output:result"][0]["value"],"8")
+        original=to_instance(x,d,dp)
+        with self.assertRaisesRegex(Reject,"INSTANCE_PIN"):definition.instantiate(effective,ep,original,digest(original))
+        print("C2_FINAL_OVERRIDE="+json.dumps({"before":"7","after":"8","overrides":out["overrides"],"owner":out["owner"],"base":out["base_semantic_identity"],"effective":out["effective_receipt"]["semantic_identity"]},sort_keys=True))
+    def test_CL29_override_rejection(self):
+        x,p=simple_graph();d,dp=to_definition(x);old=d["slots"][1];new=replacement(old,"b+2")
+        r,rp,a,ap=authorize(d,old,new)
+        with self.assertRaisesRegex(Reject,"OVERRIDE_AUTHORIZATION_PIN"):composition.compose(d,dp,r,rp,a,"wrong")
+        bad=copy.deepcopy(a);bad["approvals"][0]["decision"]="PROPOSED"
+        with self.assertRaisesRegex(Reject,"OVERRIDE_NOT_AUTHORIZED"):composition.compose(d,dp,r,rp,bad,digest(bad))
+        bad=copy.deepcopy(a);bad["decision_scope"]="NORMATIVE_APPROVAL"
+        with self.assertRaisesRegex(Reject,"OVERRIDE_AUTHORITY_PROMOTION"):composition.compose(d,dp,r,rp,bad,digest(bad))
+        bad=copy.deepcopy(r);bad["overrides"][0]["expected_old"]="wrong";a2=copy.deepcopy(a);a2["request_ref"]=digest(bad)
+        with self.assertRaisesRegex(Reject,"OVERRIDE_STALE_BASE"):composition.compose(d,dp,bad,digest(bad),a2,digest(a2))
+        bad=copy.deepcopy(new);bad["verification"]=[]
+        r2,rp2,a2,ap2=authorize(d,old,bad)
+        with self.assertRaisesRegex(Reject,"OVERRIDE_PROTECTED_FIELD"):composition.compose(d,dp,r2,rp2,a2,ap2)
+        r2,rp2,a2,ap2=authorize(d,old,new,["unrelated"])
+        with self.assertRaisesRegex(Reject,"OVERRIDE_EXPRESSION_SCOPE"):composition.compose(d,dp,r2,rp2,a2,ap2)
+        r2=copy.deepcopy(r);a2=copy.deepcopy(a);r2["overrides"].append({**r2["overrides"][0],"id":"override:duplicate"});a2["approvals"].append({**a2["approvals"][0],"id":"override:duplicate"});a2["request_ref"]=digest(r2)
+        with self.assertRaisesRegex(Reject,"OVERRIDE_DUPLICATE_OR_UNKNOWN_TARGET"):composition.compose(d,dp,r2,digest(r2),a2,digest(a2))
+    def test_CL30_protect_transitive_native_obligation(self):
+        x,p=simple_graph();d,dp=to_definition(x);old=d["slots"][1]
+        a=import_package(old["package"]);doc=source_map(a["native_canonical"]);c=copy.deepcopy(a["context"])
+        doc["conditions"]={"required":"w <= b+1"}
+        c["predicates"]["required"]={"id":"pred:required","role":"PREDICATE","axes":[]}
+        pk=pkg(doc,c);old["package"]=pk;old["profile"].update(native_signature=import_package(pk)["interface"]["method_identity"],native_semantic_identity=old_identities(pk)["semantic"])
+        old["assertions"]=[assertion(pk,"assertion:protected","required",[],[])]
+        old["verification"].append({"id":"verification:protected","subject":"assertion:protected","kind":"FINITE_OBSERVATION","oracle_ref":"authority:source","status":"NOT_EXECUTED"})
+        d["requirements"]["normativity"]["assertion:protected"]={"status":"RESEARCH_ASSUMPTION","authority_ref":"authority:source"};dp=digest(d)
+        definition.admit(d,dp)
+        new=replacement(old,"b+2")
+        r,rp,a,ap=authorize(d,old,new)
+        with self.assertRaisesRegex(Reject,"OVERRIDE_PROTECTED_NATIVE_OBLIGATION"):composition.compose(d,dp,r,rp,a,ap)
+    def test_CL31_structured_diagnostic_boundary(self):
+        x,d,dp=select_case()
+        bad=copy.deepcopy(d);bad["slots"][0]["profile"]["source_sha256"]="wrong"
+        rec=diagnostics.candidate_receipt(definition.admit,bad,digest(bad));self.assertEqual(rec["status"],"REJECTED")
+        e=rec["diagnostics"][0]
+        self.assertEqual(e["code"],"METHOD_SOURCE");self.assertEqual(e["path"],"/slots/0/profile");self.assertEqual(e["subject"],"slot:select")
+        self.assertEqual(e["rule_id"],"R09");self.assertIn("authority:select",e["source_refs"]);self.assertEqual(e["rule_source"]["blob"],"7e9f506183bdce7a7c76e08fb7a2f316649088b7")
+        bad=copy.deepcopy(d);bad["requirements"]["comparisons"][0]["decision_assertions"]=["assertion:lower"]
+        rec2=diagnostics.candidate_receipt(definition.admit,bad,digest(bad));e2=rec2["diagnostics"][0]
+        self.assertEqual(e2["rule_id"],"R12");self.assertEqual(e2["path"],"/requirements")
+        self.assertEqual(e2["code"],"SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED")
+        self.assertEqual(diagnostics.pointer("a/b","~x",1),"/a~1b/~0x/1")
+        print("C2_FINAL_DIAGNOSTICS="+json.dumps([e,e2],sort_keys=True))
 if __name__=="__main__":unittest.main(verbosity=2)
