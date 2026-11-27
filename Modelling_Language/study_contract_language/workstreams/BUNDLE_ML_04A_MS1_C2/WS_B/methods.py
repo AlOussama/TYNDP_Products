@@ -4,12 +4,23 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(ROOT.parent/"BUNDLE_ML_04A_MS1_C1"/"comparative_canonical"))
-from interface import resolve_method
+from interface import resolve_method as old_resolve_method
 from closure import need,fields,digest,native,source_map,semantic_context,text_hash
-from package_interface import import_package
+from package_interface import import_package as old_import_package
+from closure import c1
+import power_boundary as power
 from native_consumer import FiniteNative
 from legacy_comparison import map_predicates
 from profile_engine import rational
+
+def package_version(package):
+    obj=c1.parse(package)
+    need(type(obj) is dict and obj.get('schema') in ('canonical-mathematical-contract-package-0.1',power.PACKAGE),'PACKAGE_VERSION')
+    return obj['schema']
+def import_package(package):
+    return power.import_package(package) if package_version(package)==power.PACKAGE else old_import_package(package)
+def resolve_method(package,data):
+    return power.method_client(package,data) if package_version(package)==power.PACKAGE else old_resolve_method(package,data)
 
 def identities(package):
     leaf=import_package(package)
@@ -21,6 +32,7 @@ def identities(package):
     return {"native":leaf["native_identity"],"semantic":sem,"original_source":leaf["origin"]["sha256"],"audit":leaf["audit_identity"]}
 
 def migrate_with_audit(case,package):
+    need(package_version(package)!=power.PACKAGE,'LEGACY_POWER_PACKAGE_UNSUPPORTED')
     leaf=import_package(package)
     need(native(json.dumps(case["doc"])).to_yaml(canonical=True)==leaf["native_canonical"] and case["context"]==leaf["context"],"MIGRATION_SOURCE_MISMATCH")
     target=map_predicates(case,native(leaf["native_canonical"]).program)
@@ -80,7 +92,7 @@ def validate(package,data,profile,study,source,context):
         need(all(ins[a][f]==ins[b][f] for f in ("quantity","domain_ids","dtype")),"COUNTERFACTUAL_SIGNATURE")
         r=ap[k]["reference_exogenous"];s=ap[k]["alternative_exogenous"]
         need(type(r) is dict and bool(r) and type(s) is dict and bool(s) and digest(r)==digest(s),"COUNTERFACTUAL_EXOGENEITY")
-    consumer=FiniteNative(leaf,data)
+    consumer=(power.FinitePowerNative if package_version(package)==power.PACKAGE else FiniteNative)(leaf,data)
     return {"profile_identity":digest(profile),"study_identity":digest(study),"context":receipt["context_receipt"],
             "identities":identities(package),"outputs":consumer.outputs(),"conditions":consumer.conditions(),
             "evidence_scope":"BOUNDED_FINITE_NATIVE_METHOD","owner":"OWNER_TBD","ledger":"NOT_EXECUTED","conformance":"NOT_PROVED"}

@@ -1,13 +1,15 @@
 import copy,json,unittest
-from methods import validate,identities,migrate_with_audit
+from methods import validate,identities,migrate_with_audit,resolve_method
+import power_boundary as power
 from common_fixtures import cases,extra_cases
 from closure import admit,native,digest,text_hash,Reject
 from package_interface import export_package,method_client
 from legacy_comparison import map_profile
 from run_comparison import original_profile_controls
 def setup(case,pairs=False):
-    pkg=export_package(admit(json.dumps(case["doc"]),case["context"]))
-    r=method_client(pkg,case["data"]);s=r["signature"];c=case["context"]
+    api=power if "power_domains" in case["context"] else None
+    pkg=api.export_package(api.admit(json.dumps(case["doc"]),case["context"])) if api else export_package(admit(json.dumps(case["doc"]),case["context"]))
+    r=resolve_method(pkg,case["data"]);s=r["signature"];c=case["context"]
     source="synthetic research method source: "+case["id"]
     profile={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"native_semantic_identity":identities(pkg)["semantic"],"source_ref":"fixture:"+case["id"],"source_sha256":text_hash(source),"approval":"RESEARCH_ASSUMPTION",
       "input_roles":{z["symbol_id"]:case["weight_roles"].get(z["native_name"],"value").upper() for z in s["inputs"]},
@@ -19,7 +21,7 @@ def setup(case,pairs=False):
     context={"pairs":[{"id":"pair:cost","reference_exogenous":{"scenario":["a","b"],"weather":"synthetic"},"alternative_exogenous":{"scenario":["a","b"],"weather":"synthetic"}}] if pairs else []}
     return pkg,profile,source,context
 def study(case,pkg,profile,context):
-    r=method_client(pkg,case["data"]);s=case["context"]["study"]
+    r=resolve_method(pkg,case["data"]);s=case["context"]["study"]
     return {"id":s["id"],"version":s["version"],"profile_identity":digest(profile),"native_study_identity":r["study_identity"],"data_context_identity":r["context_receipt"]["context_identity"],"case_context_identity":digest(context),"owner":"OWNER_TBD"}
 def evaluate(case,pkg,profile,source,context):
     return validate(pkg,case["data"],profile,study(case,pkg,profile,context),source,context)
@@ -70,4 +72,21 @@ class Methods(unittest.TestCase):
     def test_C2_B07_unpinned_context(self):
         c=self.rc("RC09");p,m,s,x=setup(c,True);st=study(c,p,m,x);st["data_context_identity"]="invalid"
         with self.assertRaisesRegex(Reject,"STUDY_DATA_CONTEXT"):validate(p,c["data"],m,st,s,x)
+    def test_C2_B08_EXPOW_native(self):
+        c=next(x for x in extra_cases() if x["id"]=="EXPOW")
+        c["context"]["symbols"]["base"]["domain_rule"]="POSITIVE"
+        c["context"]["power_domains"]={"n":{"min":-2,"max":2}}
+        p,m,s,x=setup(c)
+        r=evaluate(c,p,m,s,x)
+        self.assertEqual(r["outputs"],c["expected"])
+        self.assertEqual(map_profile(c,native(json.dumps(c["doc"])).program)["outputs"],r["outputs"])
+        self.assertEqual(power.export_package(power.import_package(p)),p)
+        for name,value,code in (("n","3","POWER_RANGE"),("n","1/2","INTEGER_DOMAIN"),("base","0","DATA_NUMERIC_DOMAIN")):
+            bad=copy.deepcopy(c);bad["data"]["parameters"][name][0]["value"]=value
+            with self.assertRaisesRegex(Reject,code):evaluate(bad,p,m,s,x)
+        bad=copy.deepcopy(c);bad["context"]["symbols"]["base"]["domain_rule"]="ANY_EXACT"
+        with self.assertRaisesRegex(Reject,"POWER_POSITIVE_BASE_REQUIRED"):setup(bad)
+        bad=copy.deepcopy(c);bad["doc"]["parameters"]["n"]["dtype"]="float"
+        with self.assertRaisesRegex(Reject,"POWER_INTEGER_PARAMETER"):setup(bad)
+        print("C2_EXPOW="+json.dumps(r,sort_keys=True))
 if __name__=="__main__":unittest.main(verbosity=2)
