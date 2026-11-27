@@ -1,0 +1,99 @@
+{
+  "schema": "c1-cf-gate-register-0.1",
+  "tested_commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "gates": {
+    "CF-G0": {
+      "status": "MET",
+      "scope": "Pinned source and dependency identity, actual native CI logs."
+    },
+    "CF-G1": {
+      "status": "MET_BOUNDED",
+      "scope": "Direct native typed Program, no duplicate mathematical AST, 44 additional tests pass."
+    },
+    "CF-G2": {
+      "status": "MET_BOUNDED",
+      "scope": "Canonical mathematical package export/import, independent predicate and method clients; 7 additional tests pass."
+    },
+    "CF-G3": {
+      "status": "PARTIAL",
+      "scope": "Minimal extensions classified and supported by specific counterexamples; no full comparable ablation or complete semantic proof."
+    },
+    "CF-G": {
+      "status": "COMPLETE_BOUNDED_EXPERIMENT",
+      "scope": "Targeted experiment completed; not equivalent to original C1 gate closure."
+    },
+    "C1-A0": {
+      "status": "PARTIAL",
+      "reason": "Inherited additional artifact-level verification and upstream per-test evidence not closed."
+    },
+    "C1-A1": {
+      "status": "PARTIAL",
+      "reason": "Expanded native scope validated; sparse support, macros/composition, general condition and temporal constructs remain deferred."
+    },
+    "C1-A2": {
+      "status": "PARTIAL",
+      "reason": "Exact admission and bounded static physical typing tested; general sign/authority/price conversion and full physical chronology open."
+    },
+    "C1-A3": {
+      "status": "PARTIAL",
+      "reason": "M3 canonical package validated; prior full M2 mapping/C21 extension boundary not completed, no A/B integration."
+    },
+    "C1-A4": {
+      "status": "PARTIAL",
+      "reason": "Both research clients independently consume candidate interface, but no approved freeze; original A3 and complete external signature/Unknown handling unresolved."
+    },
+    "C1-B0": {
+      "status": "MET",
+      "reason": "Inherited C1 frozen 58 identities, 116 A/B paths, 105 traceability IDs unchanged."
+    },
+    "C1-B1": {
+      "status": "PARTIAL",
+      "reason": "Inherited, no complete new scientific corpus."
+    },
+    "C1-B2": {
+      "status": "PARTIAL",
+      "reason": "0/116 original full representations."
+    },
+    "C1-B3": {
+      "status": "PARTIAL",
+      "reason": "No new full-chain execution."
+    },
+    "C1-G": {
+      "status": "PARTIAL_WITH_TARGETED_BLOCKERS",
+      "reason": "Canonical-first candidate validated; original release criteria not met."
+    }
+  },
+  "previous": {
+    "MS-G0": "MET",
+    "MS-G1": "PARTIAL",
+    "MS-G2": "PARTIAL",
+    "MS-G3": "PARTIAL",
+    "MS-G4": "PARTIAL",
+    "MS-G5": "PARTIAL",
+    "MS-G6": "NOT_READY",
+    "B0": "MET",
+    "B1": "PARTIAL",
+    "B2": "PARTIAL",
+    "B3": "NOT_READY",
+    "G1": "BLOCKED",
+    "SysML-H0": "OPEN"
+  },
+  "architecture": {
+    "decision": "OPTION F",
+    "hypothesis": "M3 canonical-first",
+    "proposed_gate_reframe": "M3 primary research candidate, M2 bounded migration/comparison, M0 frozen reference; requires explicit owner acceptance; original criteria not silently changed"
+  },
+  "followup": {
+    "C2_RESEARCH_INTERFACE_PROTOTYPE_READY": true,
+    "C2_FORMAL_RELEASE": false,
+    "C4_REFERENCE_CORPUS_PARTIAL": true
+  },
+  "original_population": {
+    "identities": 58,
+    "paths": 116,
+    "full_executed": 0,
+    "traceability": 105
+  },
+  "owner": "OWNER_TBD"
+}

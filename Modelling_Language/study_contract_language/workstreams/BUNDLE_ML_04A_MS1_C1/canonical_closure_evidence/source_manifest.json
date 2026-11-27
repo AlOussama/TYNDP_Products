@@ -1,0 +1,90 @@
+{
+  "schema": "c1-cf-closure-source-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "baseline": {
+    "pr": 87,
+    "commit": "7953830daf56aa8a79405e791ed7fc02458af60b",
+    "verified": true
+  },
+  "inherited": {
+    "pr": 86,
+    "commit": "4d5e143a4c29e17e8b12f427f758d717b049c514",
+    "source_manifest_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/source_manifest.json",
+    "gate_status_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/gate_status.json",
+    "notes": "All original requirements and pins retained by reference; not all individually reverified."
+  },
+  "tested": {
+    "pr": 88,
+    "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4",
+    "run": 45961811450,
+    "job": 140381141944
+  },
+  "upstream": {
+    "repository": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "lock_blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+    "lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "ci_verified_commit_tree_and_hashes": true,
+    "license": "MIT; no fork, no upstream patch"
+  },
+  "quantity_registry": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json",
+    "blob": "12adb68a3f76c105661a771150bc9548ca7d9a5a"
+  },
+  "artifacts": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "blob": "8be0453ec01d359b80b226b7e57ef4b0073175b9",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+      "blob": "4011b01bd63f2472e33a8c4c08402189ce56b736",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_closure.py",
+      "blob": "7ac9dd51e5e4a04018b8cd1c705d9bd00df951db",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_package_interface.py",
+      "blob": "b601979bb0d5721c286b8c5e5831d23e1f94c994",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/interface.json",
+      "blob": "8d8d95959e6fc4ff52230d205f57b10b88bc293e",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/adaptation_matrix.csv",
+      "blob": "4151e0e7222fb74337a76d7d54ce25be17e96592",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/README.md",
+      "blob": "9354021fa06930e57f41de83d301f179e9f2f3a8",
+      "commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4"
+    }
+  ],
+  "previous_attempts": [
+    {
+      "commit": "8a53840f217c65b659ed0b1c82d7024f8b58fc13",
+      "run": 45961479507,
+      "job": 140380069745,
+      "conclusion": "failure",
+      "reason": "Four tests used key rather than value column in native at(); one test expected adapter diagnostic but native mathspec refused earlier."
+    },
+    {
+      "commit": "d9404ef9a7977fcc6d98261e7377bff8da2b78ec",
+      "run": 45961628795,
+      "job": 140380550651,
+      "conclusion": "success",
+      "scope": "44 new tests, 17+24+57 unchanged suites"
+    }
+  ]
+}

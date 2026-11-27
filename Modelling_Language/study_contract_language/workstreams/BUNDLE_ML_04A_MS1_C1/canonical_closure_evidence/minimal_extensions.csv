@@ -1,0 +1,8 @@
+id,layer,required_reason,native_reuse,closure_status,not_proved
+E01,qualified binding and symbol roles,Same native parameter may be INPUT OBSERVABLE or WITNESS,Native parameter and expression names/dims,IMPLEMENTED_BOUNDED,Complete external interface semantics
+E02,quantity and conversion context,MW vs kg/h or LHV vs HHV or price basis,Native arithmetic plus R1 quantity algebra,IMPLEMENTED_BOUNDED,All carrier conversions and signed convention algebra
+E03,exact admission and data support,Float preimage collision and missing/Unknown semantics,Native parser and Program,IMPLEMENTED_BOUNDED,Unrestricted exact arithmetic and sparse data
+E04,domain relation and temporal context,Native axes and relations do not attach actual labels or physical chronology,Native dimensions/relations/join/shift/window,IMPLEMENTED_BOUNDED,Arbitrary sparse joins or temporal/information semantics
+E05,external obligations,Data assumption is not A/G or forall-exists service obligation,Named native conditions and assumptions,INTERFACE_TESTED_C2_REQUIRED,Bool3 quantifiers nonvacuity behavioural conformance
+E06,method and study signatures,Same mathematics may bind different profiles and snapshots,Native expression shapes and typed bindings,INTERFACE_TESTED_C2_REQUIRED,Actual profile exchange and result receipt
+E07,source and evidence governance,Canonical export removes authoring details; equal math is not scientific proof,Native canonical bytes and pinned source,PACKAGE_TESTED_C2_REQUIRED,Authority authenticity and independent conformance

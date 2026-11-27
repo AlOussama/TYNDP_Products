@@ -1,0 +1,451 @@
+{
+  "schema": "c1-cf-execution-receipt-0.1",
+  "tested_commit": "0a61f8415a45a365fc14ef3c5a71dfa87a5b01c4",
+  "run": 45961811450,
+  "job": 140381141944,
+  "runner": "ubuntu-24.04",
+  "python": "3.13.15",
+  "mathspec_source_pin": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "conclusion": "success",
+  "additional_tests": [
+    {
+      "id": "A01_all_arithmetic_nodes",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.4880638Z test_A01_all_arithmetic_nodes (__main__.Closure.test_A01_all_arithmetic_nodes) ... ok"
+    },
+    {
+      "id": "A02_native_roundtrip_and_canonical_as_source",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.4938039Z test_A02_native_roundtrip_and_canonical_as_source (__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source) ... ok"
+    },
+    {
+      "id": "A03_exact_admission_before_float",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.4979130Z test_A03_exact_admission_before_float (__main__.Closure.test_A03_exact_admission_before_float) ... ok"
+    },
+    {
+      "id": "A04_nonzero_bound_domain",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5094365Z test_A04_nonzero_bound_domain (__main__.Closure.test_A04_nonzero_bound_domain) ... ok"
+    },
+    {
+      "id": "A05_quantity_in_unused_expression",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5104026Z test_A05_quantity_in_unused_expression (__main__.Closure.test_A05_quantity_in_unused_expression) ... ok"
+    },
+    {
+      "id": "C01_conditions_and_refs",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5148645Z test_C01_conditions_and_refs (__main__.Closure.test_C01_conditions_and_refs) ... ok"
+    },
+    {
+      "id": "C02_physical_comparison",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5161858Z test_C02_physical_comparison (__main__.Closure.test_C02_physical_comparison) ... ok"
+    },
+    {
+      "id": "C03_folded_invalid_condition",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5169205Z test_C03_folded_invalid_condition (__main__.Closure.test_C03_folded_invalid_condition) ... ok"
+    },
+    {
+      "id": "C04_explicit_typed_literal",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5180365Z test_C04_explicit_typed_literal (__main__.Closure.test_C04_explicit_typed_literal) ... ok"
+    },
+    {
+      "id": "C05_cross_axis_comparison",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5188647Z test_C05_cross_axis_comparison (__main__.Closure.test_C05_cross_axis_comparison) ... ok"
+    },
+    {
+      "id": "C06_assumption_role",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5231594Z test_C06_assumption_role (__main__.Closure.test_C06_assumption_role) ... ok"
+    },
+    {
+      "id": "C07_bool_guard_no_unknown",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5305882Z test_C07_bool_guard_no_unknown (__main__.Closure.test_C07_bool_guard_no_unknown) ... ok"
+    },
+    {
+      "id": "C08_cases_all_regions",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5361190Z test_C08_cases_all_regions (__main__.Closure.test_C08_cases_all_regions) ... ok"
+    },
+    {
+      "id": "C09_case_requires_explicit_else",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5370073Z test_C09_case_requires_explicit_else (__main__.Closure.test_C09_case_requires_explicit_else) ... ok"
+    },
+    {
+      "id": "C10_scalar_parameter_condition",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5402757Z test_C10_scalar_parameter_condition (__main__.Closure.test_C10_scalar_parameter_condition) ... ok"
+    },
+    {
+      "id": "C11_dimension_comparison",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5434917Z test_C11_dimension_comparison (__main__.Closure.test_C11_dimension_comparison) ... ok"
+    },
+    {
+      "id": "C12_native_count",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5465360Z test_C12_native_count (__main__.Closure.test_C12_native_count) ... ok"
+    },
+    {
+      "id": "C13_native_joined_condition",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5548985Z test_C13_native_joined_condition (__main__.Closure.test_C13_native_joined_condition) ... ok"
+    },
+    {
+      "id": "G01_tamper_and_solver",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5612999Z test_G01_tamper_and_solver (__main__.Closure.test_G01_tamper_and_solver) ... ok"
+    },
+    {
+      "id": "G02_duplicate_source",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5615512Z test_G02_duplicate_source (__main__.Closure.test_G02_duplicate_source) ... ok"
+    },
+    {
+      "id": "G03_unauthorized_authority",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5625369Z test_G03_unauthorized_authority (__main__.Closure.test_G03_unauthorized_authority) ... ok"
+    },
+    {
+      "id": "G04_duplicate_ids",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.5634536Z test_G04_duplicate_ids (__main__.Closure.test_G04_duplicate_ids) ... ok"
+    },
+    {
+      "id": "G05_process_determinism",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9432919Z test_G05_process_determinism (__main__.Closure.test_G05_process_determinism) ... ok"
+    },
+    {
+      "id": "M01_rc03_conversion",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9509891Z test_M01_rc03_conversion (__main__.Closure.test_M01_rc03_conversion) ... ok"
+    },
+    {
+      "id": "M02_rc08_cost_and_price_basis",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9555982Z test_M02_rc08_cost_and_price_basis (__main__.Closure.test_M02_rc08_cost_and_price_basis) ... ok"
+    },
+    {
+      "id": "M03_method_and_study_signatures",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9695224Z test_M03_method_and_study_signatures (__main__.Closure.test_M03_method_and_study_signatures) ... ok"
+    },
+    {
+      "id": "M04_role_signature_mismatch",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9704863Z test_M04_role_signature_mismatch (__main__.Closure.test_M04_role_signature_mismatch) ... ok"
+    },
+    {
+      "id": "M05_data_context_and_exact_identity",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9844174Z test_M05_data_context_and_exact_identity (__main__.Closure.test_M05_data_context_and_exact_identity) ... ok"
+    },
+    {
+      "id": "M06_integer_and_unknown",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:41.9987139Z test_M06_integer_and_unknown (__main__.Closure.test_M06_integer_and_unknown) ... ok"
+    },
+    {
+      "id": "M07_qualified_method_axes",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0043094Z test_M07_qualified_method_axes (__main__.Closure.test_M07_qualified_method_axes) ... ok"
+    },
+    {
+      "id": "R01_lookup_native",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0106338Z test_R01_lookup_native (__main__.Closure.test_R01_lookup_native) ... ok"
+    },
+    {
+      "id": "R02_group_sum_native",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0179330Z test_R02_group_sum_native (__main__.Closure.test_R02_group_sum_native) ... ok"
+    },
+    {
+      "id": "R03_duplicate_key",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0242486Z test_R03_duplicate_key (__main__.Closure.test_R03_duplicate_key) ... ok"
+    },
+    {
+      "id": "R04_missing_key",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0308821Z test_R04_missing_key (__main__.Closure.test_R04_missing_key) ... ok"
+    },
+    {
+      "id": "R05_empty_group",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0374252Z test_R05_empty_group (__main__.Closure.test_R05_empty_group) ... ok"
+    },
+    {
+      "id": "R06_unknown_coordinate",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0437645Z test_R06_unknown_coordinate (__main__.Closure.test_R06_unknown_coordinate) ... ok"
+    },
+    {
+      "id": "R07_rc05_oriented_net",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0582458Z test_R07_rc05_oriented_net (__main__.Closure.test_R07_rc05_oriented_net) ... ok"
+    },
+    {
+      "id": "T01_explicit_shift",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0622441Z test_T01_explicit_shift (__main__.Closure.test_T01_explicit_shift) ... ok"
+    },
+    {
+      "id": "T02_implicit_edge_rejected",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0635279Z test_T02_implicit_edge_rejected (__main__.Closure.test_T02_implicit_edge_rejected) ... ok"
+    },
+    {
+      "id": "T03_window_policy",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0677069Z test_T03_window_policy (__main__.Closure.test_T03_window_policy) ... ok"
+    },
+    {
+      "id": "T04_future_shift_rejected",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0698370Z test_T04_future_shift_rejected (__main__.Closure.test_T04_future_shift_rejected) ... ok"
+    },
+    {
+      "id": "T05_order_changes_bound_identity",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0756198Z test_T05_order_changes_bound_identity (__main__.Closure.test_T05_order_changes_bound_identity) ... ok"
+    },
+    {
+      "id": "T06_explicit_wrap",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0806664Z test_T06_explicit_wrap (__main__.Closure.test_T06_explicit_wrap) ... ok"
+    },
+    {
+      "id": "T07_window_beyond_support",
+      "suite": "canonical_closure",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.0819862Z test_T07_window_beyond_support (__main__.Closure.test_T07_window_beyond_support) ... ok"
+    },
+    {
+      "id": "P01_canonical_package_roundtrip",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.4551866Z test_P01_canonical_package_roundtrip (__main__.Package.test_P01_canonical_package_roundtrip) ... ok"
+    },
+    {
+      "id": "P02_source_audit_separation",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.4682161Z test_P02_source_audit_separation (__main__.Package.test_P02_source_audit_separation) ... ok"
+    },
+    {
+      "id": "P03_external_contract_client",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.4954944Z test_P03_external_contract_client (__main__.Package.test_P03_external_contract_client) ... ok"
+    },
+    {
+      "id": "P04_assumption_not_predicate",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.5192585Z test_P04_assumption_not_predicate (__main__.Package.test_P04_assumption_not_predicate) ... ok"
+    },
+    {
+      "id": "P05_independent_method_client",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.5360048Z test_P05_independent_method_client (__main__.Package.test_P05_independent_method_client) ... ok"
+    },
+    {
+      "id": "P06_package_tamper",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.5761851Z test_P06_package_tamper (__main__.Package.test_P06_package_tamper) ... ok"
+    },
+    {
+      "id": "P07_different_method_context_same_native_math",
+      "suite": "canonical_package",
+      "status": "PASS",
+      "log_line": "2026-11-27T07:55:42.6091859Z test_P07_different_method_context_same_native_math (__main__.Package.test_P07_different_method_context_same_native_math) ... ok"
+    }
+  ],
+  "unchanged": {
+    "canonical_first_17": 17,
+    "c1_static_24": 24,
+    "r1_57": 57,
+    "ms1_finite_pairs": [
+      {
+        "id": "RC01",
+        "negative": true,
+        "positive": true,
+        "scope": "single-step projected observations"
+      },
+      {
+        "id": "RC02",
+        "negative": true,
+        "positive": true,
+        "scope": "complete per-EV witness; not universal service"
+      },
+      {
+        "id": "RC03",
+        "negative": true,
+        "positive": true,
+        "scope": "two different feasible outputs; common envelope"
+      },
+      {
+        "id": "RC04",
+        "negative": true,
+        "positive": true,
+        "scope": "explicit boundary state only; shift execution deferred"
+      },
+      {
+        "id": "RC05",
+        "negative": true,
+        "positive": true,
+        "scope": "equal reactances triangle; KCL not sufficient for KVL"
+      },
+      {
+        "id": "RC06",
+        "negative": true,
+        "positive": true,
+        "scope": "integer domain"
+      },
+      {
+        "id": "RC07",
+        "negative": true,
+        "positive": true,
+        "scope": "provided information pairs only"
+      }
+    ],
+    "ms1_profile_swaps": [
+      {
+        "audit_identity": "c5f80838af115fa2217fcf97a2a5bc2af49d7fd6f67ab75a5e47b560f37b7a72",
+        "basis": "EUR:real:2024",
+        "canonical_sha256": "176e1522d74ba0a6915577ea276bf15b2a03a96ac9b228916424655c0ad062e3",
+        "code_hashes": {
+          "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+          "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+          "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+          "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+          "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+        },
+        "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d",
+        "method": "urn:method:begin",
+        "method_identity": "4e93e7ffb474a31b27af6406f9363522a1e108d300265a00fe270317bfa67521",
+        "output_observable": "ms1:cost-summary",
+        "owner": "OWNER_TBD",
+        "unit": "EUR",
+        "value": "415/11"
+      },
+      {
+        "audit_identity": "640fc1aaf6bef67ddba8cb9986dce41ae9edda9df2c941dda1fd7f8d2252bc11",
+        "basis": "EUR:real:2024",
+        "canonical_sha256": "8024197dc52ea30cf88b67fd1250c71e9c9f9630147e97f0902564c745cdca5a",
+        "code_hashes": {
+          "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+          "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+          "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+          "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+          "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+        },
+        "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d",
+        "method": "urn:method:end",
+        "method_identity": "12f772920e33e50c0223b97ef7ba8dbb031e541a17e525550d2b3ee95c4dd0cf",
+        "output_observable": "ms1:cost-summary",
+        "owner": "OWNER_TBD",
+        "unit": "EUR",
+        "value": "4150/121"
+      },
+      {
+        "audit_identity": "4f1dd13f145dca36ebdf3b46dd067d86e48b794e37a6303e013ebfb998645f09",
+        "basis": "",
+        "canonical_sha256": "deb9bad752f8afcd9e930303aca6ba1b9abf45bd121a0e0339ad35a5655b822c",
+        "code_hashes": {
+          "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+          "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+          "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+          "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+          "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+        },
+        "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7",
+        "method": "urn:ms1:method:gross",
+        "method_identity": "10f172c3211febf57b9d9b509ed9d9817e4755f8971441df7de624a0962b3400",
+        "output_observable": "ms1:energy-summary",
+        "owner": "OWNER_TBD",
+        "unit": "MWh",
+        "value": "5"
+      },
+      {
+        "audit_identity": "c5a0151072a002d28c54a274224cc344f01487bcd7a1d687f94de856585ccd17",
+        "basis": "",
+        "canonical_sha256": "0af4445adb6f989cdf25efa6536c8508726d05cd94216213e06d5d3c9b4f567f",
+        "code_hashes": {
+          "_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+          "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71",
+          "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c",
+          "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149",
+          "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"
+        },
+        "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7",
+        "method": "urn:ms1:method:eligible",
+        "method_identity": "0a70f595348e67cf3caa85b0cc9fc28db7243c40eb29711cd19423cc754318fa",
+        "output_observable": "ms1:energy-summary",
+        "owner": "OWNER_TBD",
+        "unit": "MWh",
+        "value": "3"
+      }
+    ]
+  },
+  "not_executed_in_this_macro": {
+    "upstream_full_suite": "Previously 4140 pass and 47 skip at C1; not rerun here",
+    "p5_original": "Previously 30 negative + 6 control; not rerun here",
+    "full_original_AB": "0/116 remain"
+  },
+  "limitations": "Unittest identities, not subtest count; no double counting repeated runs; new RC05 finite check not a full original path."
+}
