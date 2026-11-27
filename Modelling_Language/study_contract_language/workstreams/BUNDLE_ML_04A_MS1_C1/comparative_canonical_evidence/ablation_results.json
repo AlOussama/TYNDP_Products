@@ -1,0 +1,180 @@
+{
+  "schema": "c1-comp-ablation-0.1",
+  "controls": [
+    {
+      "id": "ABL01",
+      "description": "Remove physical compatibility while keeping identical native math",
+      "actual": {
+        "native_load": "ACCEPTS_IDENTICAL_MATH",
+        "M3": "COMPARISON_TYPE",
+        "M2": "LEGACY_RC01_QUANTITY_OR_ROLE"
+      },
+      "limit": "Both require a semantic binding; M2 fixed-duration adapter must validate its target specialization.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL02",
+      "description": "Remove conversion metadata",
+      "actual": {
+        "M3": "CONVERSION_BINDING",
+        "native_load": "ACCEPTS"
+      },
+      "limit": "No scientific proof of authenticity of declared conversion source.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL03",
+      "description": "Remove one identical EV observation row",
+      "actual": {
+        "M3": "INCOMPLETE_PARAMETER_SUPPORT",
+        "M2": "DOMAIN_COVERAGE"
+      },
+      "limit": "Comparable finite data-support control.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL04",
+      "description": "Remove an oriented endpoint row",
+      "actual": {
+        "M3": "RELATION_KEY_COVERAGE",
+        "native_load": "ACCEPTS_WITH_NO_DATA",
+        "M2": "NO_LEGACY_RELATION_MAPPER"
+      },
+      "limit": "No general proof of arbitrary sparse topology.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL05",
+      "description": "Change OBSERVABLE to INPUT with identical native math",
+      "actual": {
+        "native_identity_equal": true,
+        "M3_bound_identity_equal": false,
+        "M2": "LEGACY_SYMBOL_ROLE:INPUT"
+      },
+      "limit": "Both preserve role separation in their tested admitted scopes.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL06",
+      "description": "Change original audit source, compare native-bound and legacy identities",
+      "actual": {
+        "M3_semantic_same": true,
+        "M3_audit_changed": true,
+        "M2_current_mapping_audit_changed": false,
+        "R1_can_preserve_audit_if_explicitly_mapped": true
+      },
+      "limit": "Actual M2 adapter gap, not intrinsic inability of R1; prior legacy digest equality was only in the legacy projection.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL07",
+      "description": "Distinct integer literals collide after native float parsing",
+      "actual": {
+        "native_canonical_equal": true,
+        "shared_preflight_rejects": "NUMERIC_PRECISION"
+      },
+      "limit": "No intrinsic advantage of M2 or M3 when both start from lossy native math.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL08",
+      "description": "Documentation-only edit in native Spec changes current semantic identity",
+      "actual": {
+        "native_identity_changed": true,
+        "M3_bound_identity_changed": true
+      },
+      "limit": "Current identity over-distinguishes documentation; define semantic projection policy separately from canonical text and audit.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL09",
+      "description": "Methodologically invalid probability weights, but arithmetic and reported result agree",
+      "actual": {
+        "weight_sum": "6/5",
+        "M3_static_and_finite_math_accepts": true,
+        "M3_math": {
+          "annual": [
+            "150"
+          ],
+          "discounted": [
+            "1500/11"
+          ]
+        },
+        "M3_predicates": {
+          "result_ok": true
+        },
+        "M2_original_profile_engine": "PROBABILITY_NORMALIZATION",
+        "independent_oracle": "WEIGHT"
+      },
+      "limit": "Mandatory method-role normalization semantics missing in current M3; no contract PASS claimed.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL10",
+      "description": "Promote evidence without actual contract execution",
+      "actual": {
+        "M3": "PACKAGE_TAMPER_OR_NONCANONICAL"
+      },
+      "limit": "This protects package integrity, not a complete evidence lifecycle.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL11",
+      "description": "Break exogeneity of original paired method dataset",
+      "actual": {
+        "original_R1_profile_engine": "COUNTERFACTUAL_EXOGENEITY",
+        "M3": "Current arithmetic package has no typed counterfactual pair context"
+      },
+      "limit": "The compared M2 arithmetic adapter also does not yet carry full pair context; strength lies in original R1 profile machinery.",
+      "status": "PASS"
+    },
+    {
+      "id": "ABL12",
+      "description": "Equal fleet total but unmet individual EV deadline",
+      "actual": {
+        "both_numeric_outputs": {
+          "outside": [
+            "0",
+            "0"
+          ],
+          "received": [
+            "1/200",
+            "1/200"
+          ]
+        },
+        "M3_service_predicate": false,
+        "M2_legacy_profile_predicate": "NOT_EXECUTED",
+        "independent_oracle": "EV_SERVICE"
+      },
+      "limit": "Same finite arithmetic; M2 still needs separate obligation evaluation.",
+      "status": "PASS"
+    }
+  ],
+  "source_metrics": [
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+      "nonblank_noncomment_lines": 167
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/native_consumer.py",
+      "nonblank_noncomment_lines": 74
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "nonblank_noncomment_lines": 355
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+      "nonblank_noncomment_lines": 55
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/n1r.py",
+      "nonblank_noncomment_lines": 159
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "nonblank_noncomment_lines": 104
+    }
+  ],
+  "scope": "12 independent additional control identities; raw file size not equivalent-scope LOC savings"
+}

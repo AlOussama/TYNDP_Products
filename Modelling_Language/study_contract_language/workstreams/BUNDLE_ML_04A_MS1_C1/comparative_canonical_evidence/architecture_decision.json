@@ -1,0 +1,83 @@
+{
+  "schema": "c1-comp-architecture-decision-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "id": "ADR-C1-COMP-01",
+  "status": "SELECTED_FOR_FURTHER_RESEARCH_DEVELOPMENT",
+  "selected": "M3-HYBRID",
+  "definition": "M3 canonical-first mathematical architecture, selectively reuse existing R1/R2 Study Contract, quantity, method/profile, governance, provenance and verification concepts and implementations. Not two authoritative mathematical normal forms.",
+  "decision_rule": {
+    "primary": "Meet all original requirements with minimum additional development, integration and maintenance complexity; avoid unnecessary duplication.",
+    "hard_constraints": [
+      "No requirement removal or weakened original expectations",
+      "General study-independent, model-tool- and solver-independent external obligations",
+      "Internally different model formulations allowed",
+      "Methods and parameters externally configurable",
+      "Full original A/B population and evidence boundaries preserved",
+      "Fail closed for unsupported or unproven semantics",
+      "No production or scientific approval inferred"
+    ],
+    "basis": "Observed scope, counterexamples and qualitative remaining work; no unmeasured cost or time savings claimed."
+  },
+  "alternatives": {
+    "M0": "Frozen reference and fallback; not selected as primary because more mathematical language expansion required.",
+    "M2": "Not selected as general target; bounded legacy interoperability/migration only, retain genuine mapping and evidence; fix audit loss before using mapping for conformance.",
+    "M3_greenfield": "Not selected as rewrite of outer semantics: existing R1 features demonstrably valuable.",
+    "M3_HYBRID": "Selected, one mathematical canonical authority plus reuse of existing domain semantics and method validation."
+  },
+  "authority_by_layer": {
+    "mathematics": "Pinned native mathspec Canonical Specification + public Program; no second authoritative mathematical AST",
+    "physical": "Existing canonical_closure and R1 quantity algebra/registry; extend needed sign/basis/conversion context",
+    "contract": "Reuse R1/R2 outer concepts and validated checks, adapt to native predicate signatures; C2 closes actual semantics",
+    "method": "Reuse existing configurable MethodProfile/StudyProfile, R1/N2R/N7 weight/authority/exogeneity/ledger/result binding; mathematical rules reference native expressions; legacy evaluator may remain compatibility/oracle but not independent competing definition",
+    "canonical_outer": "Versioned mathematical package plus outer contract semantics; separate audit; define semantic projection for description-only changes",
+    "migration": "M0 frozen; M2 bounded and fail closed; no required generalized math-to-legacy translation",
+    "evidence": "Original oracle population, distinct evidence scopes and receipts"
+  },
+  "evidence": {
+    "tested_commit": "8802240fc162e6da0aea22800a5331d7623635f7",
+    "run": 45995179530,
+    "counts": {
+      "primary_fragments": 10,
+      "M0_static_controls": 3,
+      "M2_legacy_predicate_static": 3,
+      "M2_legacy_profile_numeric": 2,
+      "M3_static_and_finite": 10,
+      "matched_numeric_M2_M3": 2,
+      "matched_legacy_M0_M2": 3
+    },
+    "ablation_controls": 12,
+    "original_R1_profile_controls": 2,
+    "extra_fragments": [
+      "EX08",
+      "EXPOW"
+    ],
+    "unchanged_regressions": {
+      "CF": 51,
+      "R1": 57
+    },
+    "decisive": [
+      "RC03/04/05/06/08 native representation avoids legacy general math gaps",
+      "ABL09 old profile rejects invalid probabilities while M3 finite maths accepts consistent but inadmissible numbers",
+      "ABL11 old profile exogeneity validation",
+      "EXPOW old profile handles data-dependent integer powers, current M3 rejects",
+      "ABL06 legacy mapping loses audit source; legacy semantics can preserve it if mapped",
+      "ABL08 M3 semantic identity changes on documentation edits"
+    ]
+  },
+  "release": {
+    "research_direction_decided": true,
+    "research_C2_can_start_on_pinned_interface": true,
+    "formal_original_C1_A4": "PARTIAL; no retroactive promotion",
+    "MS_G6": "NOT_READY_FOR_FINAL_SCIENTIFIC_APPROVAL",
+    "original_full_paths": "0/116",
+    "production": false,
+    "normative": false,
+    "original_OWNER_TBD_unchanged": true
+  },
+  "reopen_conditions": [
+    "Proven original requirement cannot be represented or validated in native+outer architecture without disproportionate extension",
+    "Unresolvable mathematical source/canonical semantic loss or upgrade risk",
+    "C4 comparative independent evidence falsifies expected simplicity or conformance"
+  ],
+  "next": "C2 parallel WS-A and WS-B on M3-H selected research architecture, no further broad architecture comparison before C4."
+}

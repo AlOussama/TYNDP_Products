@@ -1,0 +1,88 @@
+{
+  "schema": "c1-comp-source-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "baseline": {
+    "pr": 88,
+    "commit": "58f370c7503aa9ee8bfed51021b6b31c93cb6d06",
+    "verified": true
+  },
+  "tested": {
+    "pr": 89,
+    "commit": "8802240fc162e6da0aea22800a5331d7623635f7",
+    "run": 45995179530,
+    "job": 140492665768,
+    "conclusion": "success"
+  },
+  "upstream": {
+    "repository": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+    "lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "license": "MIT; no upstream modification",
+    "verified_in_CI": true
+  },
+  "inherited": {
+    "source_manifest": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/source_manifest.json",
+    "canonical_closure_manifest": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure_evidence/source_manifest.json",
+    "original_test_population": "58 identities / 116 full A/B paths / 105 traceability identities",
+    "original_C21_blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+    "original_R1_profile_engine_blob": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+    "original_R1_contract_validator_blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+    "original_MS1_adapter_blob": "384530beb13ef96bad6b4165013aaa27944d880f",
+    "independent_oracle_blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
+    "all_previous_pins_retained": true,
+    "not_all_individually_reverified": true
+  },
+  "files": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/common_fixtures.py",
+      "blob": "33828d7fee7a885fc8c214ba591b801429ebb424"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/native_consumer.py",
+      "blob": "1b2812bb8e5f43fa64da6d6951e374d331041b21"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+      "blob": "e7e7976bda1d939ce79df7b7f72a19b58aedfbab"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/run_comparison.py",
+      "blob": "ea51d81db82fbac644f8056c3167628671eeef06"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/ablation_controls.py",
+      "blob": "47b88ea4826e8ade059b30f615c3817fc5aaed1a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/README.md",
+      "blob": "7d4843ec02f25ab920df9fe366dd5301368ee739"
+    }
+  ],
+  "attempts": [
+    {
+      "commit": "90698125b2c5fd0e079da49ed4c25ee4572d14a6",
+      "run": 45994706786,
+      "job": 140491088063,
+      "conclusion": "success",
+      "scope": "10 RC fragments + two extra cases, original profile controls, 51 CF and 57 R1 regression tests"
+    },
+    {
+      "commit": "9e5787d7044babec6403d787cf4cb53b6d6c7839",
+      "run": 45994958140,
+      "job": 140491954362,
+      "conclusion": "failure",
+      "reason": "Ablation fixture shared quantity object mutated two declarations; main comparison and regression passed."
+    },
+    {
+      "commit": "7a541fb40b07c1796a684c508a1e112f62362b7b",
+      "run": 45995074148,
+      "job": 140492324313,
+      "conclusion": "failure",
+      "reason": "Ablations reached source-metric collection; path relative_to failed on unresolved ../ in CI. Main comparison and regression passed."
+    }
+  ],
+  "evidence_note": "Final CI verifies 10 primary fragments, 2 extra controls, 12 ablation identities, original profile and outer-semantic controls, 44+7 CF and 57 R1 tests. Previous failures retained in Actions. No duplicate test count."
+}

@@ -1,0 +1,62 @@
+name: C1 comparative canonical architecture
+on:
+  pull_request:
+    branches: [research/bundle-ml-04a-ms1-c1-canonical-closure]
+    paths:
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/**'
+      - '.github/workflows/research-ms1-c1-comp.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c1-comparative-canonical'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: energy-models/mathspec
+          ref: 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          path: mathspec-src
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify pinned mathspec and original R1 validator
+        working-directory: mathspec-src
+        run: |
+          test "$(git rev-parse HEAD)" = 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          test "$(git rev-parse HEAD^{tree})" = 635a594392e990e2e22393d408cc5b307704cda0
+          echo '4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2  pixi.lock' | sha256sum -c -
+          echo 'e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093  src/mathspec/_canonical.py' | sha256sum -c -
+          cd ..
+          test "$(git hash-object Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/../BUNDLE_ML_04A_R1/pinned/csnf_validator.py)" = 5201bda3c0a611d27e2bc335bbfebc191f252ec7
+      - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94
+        with:
+          manifest-path: mathspec-src/pixi.toml
+          environments: py313
+          locked: true
+          cache: false
+      - name: Actual same-fixture comparative experiment
+        working-directory: mathspec-src
+        run: |
+          pixi run --locked -e py313 python --version
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/run_comparison.py
+      - name: Controlled semantic ablation and falsification probes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/ablation_controls.py
+      - name: Unchanged canonical closure regressions
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_closure.py
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_package_interface.py
+      - name: Original R1 tests
+        if: always()
+        run: |
+          cd Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/../BUNDLE_ML_04A_R1
+          ../BUNDLE_ML_04A_MS1/native_mathspec_experiments/run_r1.sh
