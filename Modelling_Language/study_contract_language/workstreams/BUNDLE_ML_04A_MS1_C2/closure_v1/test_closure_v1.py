@@ -137,6 +137,7 @@ class ObligationControls(unittest.TestCase):
 
 # Integrated graph fixtures. No CBA/IoSN-specific rule is in the validator.
 from closure import digest,text_hash
+from fractions import Fraction as F
 from closure_v1 import graph,identity
 from interface import resolve_method
 from WS_B.methods import identities as old_identities
@@ -283,4 +284,79 @@ class GraphControls(unittest.TestCase):
         y["slots"][1]["verification"][0]["kind"]="TOOL_CONFORMANCE";r=graph.evaluate(y,repin(y))
         self.assertEqual(r["slots"]["slot:second"]["verification"][0]["status"],"NOT_EXECUTED")
         self.assertEqual(r["owner"],"OWNER_TBD")
+# Static definitions and separately pinned study instances.
+from closure_v1 import definition
+def to_definition(x):
+    ds=[]
+    for row in x["slots"]:
+        d={k:copy.deepcopy(row[k]) for k in definition.STATIC_FIELDS}
+        if d["ledger"] is not None:
+            d["ledger"].pop("contributions");d["ledger"]["coverage"]=list(d["ledger"].pop("expected"))
+        ds.append(d)
+    f=copy.deepcopy(x["frame"]);subjects=[a["id"] for k in ("components","ports","referents") for a in f[k]]
+    ext=[*f["inputs"],*[z for z in f["observables"] if z["projection"]=="IDENTITY"]]
+    req={"boundary":{"included":subjects,"environment":[],"space_domains":[],"functional_scopes":["scope:main"],"authority_refs":["authority:source"]},
+         "data_contracts":[{"id":a["id"],"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","reproducibility":"PINNED_SNAPSHOT","quality":"TYPE_AND_COMPLETE_SUPPORT","quality_assertions":[],"missing":"BLOCK","conversion":None} for a in ext],
+         "process_roles":{r["id"]:"EVALUATION" for r in f["processes"]},
+         "normativity":{a["id"]:{"status":"RESEARCH_ASSUMPTION","authority_ref":a["authority_refs"][0]} for row in ds for a in row["assertions"]},
+         "models":[],"comparisons":[],"time_policies":[{"id":a["id"],"resolution":"EXPLICIT_INTERVALS","interpolation":"NONE","aggregation":"NONE","rule_outputs":[],"authority_refs":["authority:source"]} for a in f["domains"] if a["kind"]=="time"]}
+    d={"schema":definition.DEF,"study":{k:x["study"][k] for k in ("id","version","owner")},"frame":f,"slots":ds,"sources":copy.deepcopy(x["sources"]),"requirements":req}
+    return d,digest(d)
+def to_instance(x,d,dp):
+    static=definition.admit(d,dp);rows=[]
+    for r in x["slots"]:
+        rows.append({"id":r["id"],"profile_ref":static["method_identities"][r["id"]],"package_ref":identity.mathematics(r["package"]),"data_status":"PRESENT","data":copy.deepcopy(r["data"]),"snapshot_digest":digest(r["data"]),"case_context":copy.deepcopy(r["case_context"]),"witnesses":copy.deepcopy(r["witnesses"]),"contributions":copy.deepcopy(r["ledger"]["contributions"]) if r["ledger"] else [],"expected_events":copy.deepcopy(r["ledger"]["expected"]) if r["ledger"] else {}})
+    values=graph.evaluate(x,digest(x["trust"]))["data_bindings"]
+    return {"schema":definition.INST,"definition_ref":static["semantic_identity"],"slots":rows,"events":copy.deepcopy(x["events"]),"disclosures":copy.deepcopy(x["disclosures"]),
+            "data_receipts":[{"id":k,"snapshot_identity":v,"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","raw_rows":None} for k,v in values.items()]}
+class DefinitionControls(unittest.TestCase):
+    def test_CL17_static_no_data_and_instance_roundtrip(self):
+        x,p=ledger_graph();d,dp=to_definition(x)
+        s=definition.admit(d,dp);self.assertEqual(s["status"],"STATIC_VALID");self.assertEqual(s["data_status"],"NOT_EXECUTED")
+        t=definition.export(d,dp);self.assertEqual(definition.reimport(t,dp)["receipt"],s)
+        inst=to_instance(x,d,dp);ip=digest(inst);res=definition.instantiate(d,dp,inst,ip)
+        self.assertEqual(res["graph"]["outputs"]["output:total"][0]["value"],"12")
+        self.assertEqual(definition.reimport(definition.export(d,dp,inst,ip),dp,ip)["receipt"],res)
+        inst["slots"][0].update(data_status="MISSING_DATA",data=None,snapshot_digest=None,witnesses=[],contributions=[],expected_events={})
+        self.assertEqual(definition.instantiate(d,dp,inst,digest(inst))["status"],"BLOCKED")
+        print("C2_CLOSURE_STATIC="+json.dumps(s,sort_keys=True))
+    def test_CL18_method_identity_cross_study(self):
+        from interface import import_package,resolve_method
+        d,c=arithmetic();c=fixture(d,roles={"a":"INPUT","b":"INPUT"});p=pkg(d,c);data=dataset({"a":series([1,2,3]),"b":series([1,1,1])})
+        r=resolve_method(p,data);s=r["signature"]
+        pr={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"native_semantic_identity":old_identities(p)["semantic"],"source_ref":"fixture:method","source_sha256":text_hash("method"),"approval":"RESEARCH_ASSUMPTION","input_roles":{"ref:a":"VALUE","ref:b":"VALUE"},"axis_roles":{"domain:t":"time"},"parameter_ranges":{},"probability_rules":{},"counterfactual_pairs":[],"outputs":["ref:v"]}
+        a=identity.method_identity(pr,p)
+        c["study"]["id"]="study:other";c["study"]["version"]="2";c["domains"]["t"]["labels"]=[5,6];c["study"]["data_id"]="data:other"
+        p2=pkg(d,c);pr2=copy.deepcopy(pr);pr2["native_semantic_identity"]=old_identities(p2)["semantic"]
+        self.assertEqual(a,identity.method_identity(pr2,p2))
+        self.assertNotEqual(identity.mathematics(p),identity.mathematics(p2))
+    def test_CL19_data_policy_and_explicit_conversion(self):
+        x,p=simple_graph();d,dp=to_definition(x);inst=to_instance(x,d,dp)
+        bad=copy.deepcopy(d);bad["requirements"]["data_contracts"]=[]
+        with self.assertRaisesRegex(Reject,"DATA_CONTRACT_COVERAGE"):definition.admit(bad,digest(bad))
+        inst["data_receipts"][0]["license_ref"]="authority:other"
+        with self.assertRaisesRegex(Reject,"DATA_PROVENANCE_PIN"):definition.instantiate(d,dp,inst,digest(inst))
+        source={"authority:source":source_row("authority:source","fixture:source","exact unit rule")}
+        cv={"kind":"UNIT","source_unit":"kW","source_basis":"NONE","factor":"1/1000","source_ref":"authority:source"}
+        target=q("MW","electricity");definition.validate_conversion(cv,target,source)
+        self.assertEqual(definition.converted_rows([{"key":[],"value":"2000"}],cv,target),[{"key":[],"value":"2"}])
+        cv["factor"]="1"
+        with self.assertRaisesRegex(Reject,"CONVERSION_FACTOR"):definition.validate_conversion(cv,target,source)
+    def test_CL20_relation_support_binding(self):
+        from closure_v1.obligations import Bound
+        d,c,data=relation_fixture();p=pkg(d,c);f=frame()
+        f["domains"]=[{"id":"domain:"+n,"kind":"sample","members":z["labels"],"ordered":False} for n,z in c["domains"].items()]
+        f["authorities"][0]["immutable_ref"]="fixture:endpoint"
+        f["relation_domains"]=[{"id":"relation:endpoint","roles":{"branch":"domain:branch","bus":"domain:bus"},"key":["branch"],"support":"CARTESIAN","rows":copy.deepcopy(data["relations"]["endpoint"]),"topology":None,"authority_refs":["authority:source"]}]
+        Bound(p,metadata.validate(f),data)
+        data["relations"]["endpoint"][0]["bus"]="b2"
+        with self.assertRaisesRegex(Reject,"RELATION_SUPPORT_BINDING"):Bound(p,metadata.validate(f),data)
+        # Sparse tuples represented by an explicit key-domain, not implicit missing rows.
+        f["relation_domains"][0]["support"]="EXPLICIT_TUPLES"
+        with self.assertRaisesRegex(Reject,"EXPLICIT_TUPLE_ALIAS"):metadata.validate(f)
+    def test_CL21_configurable_probability_scope(self):
+        from WS_B.methods import probability_policy
+        self.assertEqual(probability_policy("SUM_ONE"),(1,1))
+        self.assertEqual(probability_policy({"kind":"SUM_RANGE","min":"1/2","max":"1","scope":"DECLARED_SUBPROBABILITY"}),(F(1,2),F(1)))
+        with self.assertRaisesRegex(Reject,"PROBABILITY_POLICY_RANGE"):probability_policy({"kind":"SUM_RANGE","min":"0","max":"6/5","scope":"DECLARED_SUBPROBABILITY"})
 if __name__=="__main__":unittest.main(verbosity=2)

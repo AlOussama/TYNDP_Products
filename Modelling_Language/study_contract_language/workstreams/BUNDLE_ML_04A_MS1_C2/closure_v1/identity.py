@@ -32,6 +32,7 @@ def frame(value):
                 if f in r:r[f]=sorted(r[f])
             if k=="domains" and not r["ordered"]:r["members"]=sorted(r["members"])
             if k=="information_sets":r["partition"]=sorted([sorted(g) for g in r["partition"]])
+            if k=="relation_domains":r["rows"]=sorted(r["rows"],key=digest)
     return x
 def guard(g):
     x=deepcopy(g)
