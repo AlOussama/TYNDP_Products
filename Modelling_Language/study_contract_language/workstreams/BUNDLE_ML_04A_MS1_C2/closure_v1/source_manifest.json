@@ -1,0 +1,102 @@
+{
+  "schema": "c2-closure-source-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "parent": {
+    "pr": 94,
+    "commit": "415cf8285797a4bd695c5bfe85500753563af547",
+    "validated_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+    "run": 46040116020,
+    "job": 140645396629
+  },
+  "inherited_manifest": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json",
+    "blob": "39ace6db99f2e030cfb717db56c0f7907daf7da8"
+  },
+  "direct_reused_blobs": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json",
+      "blob": "12adb68a3f76c105661a771150bc9548ca7d9a5a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv",
+      "blob": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv",
+      "blob": "81dc87d54e36baf10c773b55cdecb314a4a0df8b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv",
+      "blob": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv",
+      "blob": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+      "blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py",
+      "blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/dependency_manifest.json",
+      "blob": "7d06b62cc8f2731399cf3f11c0edc600fc77d137"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/original_regression_manifest.json",
+      "blob": "7ed73cf1080d7443141ee48f715cbc5cf200fb30"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/requirement_coverage_matrix.csv",
+      "blob": "33c51cafe94475c7e97aa36fb2d15fb9b7f14db9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json",
+      "blob": "39ace6db99f2e030cfb717db56c0f7907daf7da8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n1r.py",
+      "blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n2r.py",
+      "blob": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n7.py",
+      "blob": "b9234f4d3f32463cb675d22d5b153a0ab83d7114"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+      "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "blob": "d98289b3e07d6ba9377a5698d273ff5c88327179"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/units_r1.py",
+      "blob": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f"
+    }
+  ],
+  "upstream": {
+    "repository": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "pixi_lock_blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+    "pixi_lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "python": "3.13.15"
+  },
+  "original_p5": {
+    "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "fixture_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+    "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+    "use": "original domain oracle unchanged; actual native graph controls use separate synthetic fixtures"
+  },
+  "note": "Inherited indirect pins retained through prior manifest; not all historical branches independently replayed. No upstream or R1 modification."
+}
