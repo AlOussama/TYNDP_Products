@@ -54,6 +54,7 @@ def lex(s,condition=False):
     """
     if type(s) is int:s=str(s)
     need(type(s) is str and bool(s.strip()),"EXPRESSION_SOURCE")
+    need(not re.search(r"(?<![A-Za-z_0-9])[0-9]+[A-Za-z_]",s),"NUMERIC_LITERAL_ADJACENCY")
     pos=0
     for m in re.finditer(r"\s+|'wrap'|\"wrap\"|[A-Za-z_][A-Za-z_0-9]*|[0-9]+|[()\[\]+*/=,<>!\-]",s):
         need(m.start()==pos,"NUMERIC_OR_TOKEN")
@@ -151,6 +152,7 @@ class Checked:
                 if entry.dtype=="bool":need(q==DIMLESS and z["domain_rule"]=="ANY_EXACT","BOOL_QUANTITY")
             else:need(z["domain_rule"]=="ANY_EXACT","DERIVED_DOMAIN_RULE")
             self.sig[n]=as_signature(n,entry,z,q)
+            self.sig[n]["domain_ids"]=[c["domains"][a]["id"] for a in entry.dims]
         need(set(c["conversions"])=={n for n,z in c["symbols"].items() if z["quantity"]["unit"] in CONVERSION_UNITS},"CONVERSION_BINDING")
         for n,z in c["conversions"].items():
             fields(z,("id","version","source_ref","source_sha256","authority"),"CONVERSION_FIELDS");claim(z["id"])
@@ -243,7 +245,7 @@ class Checked:
             return self.expr(e.operand)
         if t is mp.WindowSum:
             z=self.time(e.along)
-            need(e.partition is None and type(e.width) is int and e.width>=1,"WINDOW_SCOPE")
+            need(e.partition is None and type(e.width) is int and 1<=e.width<=len(self.c["domains"][e.along]["labels"]),"WINDOW_SCOPE")
             need(z["window_edge"]==("WRAP" if e.wrap else "TRUNCATE"),"WINDOW_EDGE")
             return self.expr(e.operand)
         if t is mp.Cases:

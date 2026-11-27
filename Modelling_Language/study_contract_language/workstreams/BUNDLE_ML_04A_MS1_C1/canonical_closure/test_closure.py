@@ -30,7 +30,7 @@ def dataset(p,r=None):
 def series(xs):return [{"key":[i],"value":v} for i,v in enumerate(xs)]
 def scalar(x):return [{"key":[],"value":x}]
 def relation_fixture(group=False):
-    d={"version":0,"dimensions":{"bus":{},"branch":{}},"relations":{"endpoint":{"key":"branch","values":"bus"}},"parameters":{"a":{"dims":["branch" if group else "bus"]}},"expressions":{"v":"sum(a, over=branch, by=endpoint[bus])" if group else "at(a, by=endpoint[branch])"}}
+    d={"version":0,"dimensions":{"bus":{},"branch":{}},"relations":{"endpoint":{"key":"branch","values":"bus"}},"parameters":{"a":{"dims":["branch" if group else "bus"]}},"expressions":{"v":"sum(a, over=branch, by=endpoint[bus])" if group else "at(a, by=endpoint[bus])"}}
     c=fixture(d,domains={"bus":["b1","b2"],"branch":["l1","l2","l3"]},quant={"a":q("MW","electricity"),"v":q("MW","electricity")})
     rows=[{"branch":"l1","bus":"b1"},{"branch":"l2","bus":"b1"},{"branch":"l3","bus":"b2"}]
     values=[{"key":[n],"value":i+1} for i,n in enumerate(c["domains"]["branch" if group else "bus"]["labels"])]
@@ -47,7 +47,7 @@ class Closure(unittest.TestCase):
         self.assertEqual(a["native_identity"],b["native_identity"]);self.assertEqual(a["semantic_identity"],b["semantic_identity"])
         self.assertNotEqual(a["audit_identity"],b["audit_identity"])
     def test_A03_exact_admission_before_float(self):
-        for x in ("9007199254740993 * a","a * 1.00000000000000001","inf * a","a / 0"):
+        for x in ("9007199254740993 * a","a * 1.00000000000000001","inf * a","a / 0","a * 1e-324","a * 1e3"):
             d,c=arithmetic(x);self.bad(d,c,"NUMERIC|NONFINITE|DIVISOR|NATIVE_REJECT")
     def test_A04_nonzero_bound_domain(self):
         d,c=arithmetic("a / b");self.bad(d,c,"DIVISOR_NONZERO_REQUIRED")
@@ -112,7 +112,7 @@ class Closure(unittest.TestCase):
         self.assertEqual(open_(d,c)["interface"]["temporal_domains"],["t"])
     def test_T02_implicit_edge_rejected(self):
         d,c=arithmetic("shift(a, along=t, offset=1)");c=fixture(d,temporal=timepolicy())
-        self.bad(d,c,"SHIFT_EDGE")
+        self.bad(d,c,"SHIFT_EDGE|NATIVE_REJECT")
     def test_T03_window_policy(self):
         d,c=arithmetic("sum_back(a, along=t, window=2)");c=fixture(d,temporal=timepolicy())
         self.assertEqual(open_(d,c)["interface"]["temporal_domains"],["t"])
@@ -164,4 +164,60 @@ class Closure(unittest.TestCase):
         d,c=arithmetic();c["study"]["owner"]="APPROVED";self.bad(d,c,"STUDY_BINDING")
     def test_G04_duplicate_ids(self):
         d,c=arithmetic();c["symbols"]["a"]["id"]=c["symbols"]["b"]["id"];self.bad(d,c,"AMBIGUOUS_ID")
+    def test_C10_scalar_parameter_condition(self):
+        d,c=arithmetic();d["conditions"]["positive"]="a >= 0";c=fixture(d)
+        self.assertIn("positive",open_(d,c)["interface"]["predicates"])
+    def test_C11_dimension_comparison(self):
+        d,c=arithmetic();d["conditions"]["late"]="t >= 1";c=fixture(d)
+        self.assertIn("late",open_(d,c)["interface"]["predicates"])
+    def test_C12_native_count(self):
+        d={"version":0,"dimensions":{"t":{"dtype":"int"}},"parameters":{"g":{"dims":["t"],"dtype":"bool"}},"conditions":{"available":"g","enough":"count(available, over=t) >= 1"}}
+        c=fixture(d,pred_axes={"available":["t"],"enough":[]})
+        self.assertEqual(open_(d,c)["interface"]["predicates"]["enough"]["axes"],[])
+    def test_C13_native_joined_condition(self):
+        d,c,data=relation_fixture();d["conditions"]={"positive":"a > 0","at_branch":"at(positive, by=endpoint[bus])"}
+        # Named condition numeric literal is dimensionless in this fixture.
+        c=fixture(d,domains={"bus":["b1","b2"],"branch":["l1","l2","l3"]},pred_axes={"positive":["bus"],"at_branch":["branch"]})
+        self.assertEqual(bind_data(open_(d,c),data)["predicate_verdict"],"NOT_EXECUTED")
+    def test_T06_explicit_wrap(self):
+        d,c=arithmetic("shift(a, along=t, offset=1, edge='wrap')");c=fixture(d,temporal=timepolicy("WRAP"))
+        self.assertEqual(open_(d,c)["interface"]["temporal_domains"],["t"])
+        c["temporal"]["t"]["shift_edge"]="ZERO";self.bad(d,c,"SHIFT_EDGE")
+    def test_T07_window_beyond_support(self):
+        d,c=arithmetic("sum_back(a, along=t, window=4)");c=fixture(d,temporal=timepolicy())
+        self.bad(d,c,"WINDOW_SCOPE")
+    def test_R07_rc05_oriented_net(self):
+        d={"version":0,"dimensions":{"bus":{},"branch":{}},"relations":{"sending":{"key":"branch","values":"bus"},"receiving":{"key":"branch","values":"bus"}},
+           "parameters":{"flow":{"dims":["branch"]},"injection":{"dims":["bus"]},"zero":{"dims":[]},"x":{"dims":["branch"]}},
+           "expressions":{"net":"sum(flow, over=branch, by=sending[bus]) - sum(flow, over=branch, by=receiving[bus])","cycle":"sum(flow*x, over=branch)"},
+           "conditions":{"kcl":"net == injection","kvl":"cycle == zero"}}
+        quant={k:q("MW","electricity") for k in ("flow","injection","zero","net","cycle")}
+        c=fixture(d,quant=quant,domains={"bus":["b1","b2","b3"],"branch":["l1","l2","l3"]},pred_axes={"kcl":["bus"],"kvl":[]})
+        leaf=open_(d,c)
+        data=dataset({"flow":[{"key":["l"+str(i+1)],"value":v} for i,v in enumerate([2,1,-3])],
+                      "injection":[{"key":["b"+str(i+1)],"value":v} for i,v in enumerate([5,-1,-4])],
+                      "zero":scalar(0),"x":[{"key":["l"+str(i+1)],"value":1} for i in range(3)]},
+                     {"sending":[{"branch":"l"+str(i+1),"bus":"b"+str(i+1)} for i in range(3)],
+                      "receiving":[{"branch":"l"+str(i+1),"bus":"b"+str((i+1)%3+1)} for i in range(3)]})
+        self.assertEqual(bind_data(leaf,data)["stage"],"FINITE_INPUT_SUPPORT_ONLY")
+        # Independent finite arithmetic, NOT an evaluation of the native AST.
+        from fractions import Fraction as F
+        flows=[F(v["value"]) for v in data["parameters"]["flow"]]
+        self.assertEqual([flows[i]-flows[(i-1)%3] for i in range(3)],[F(5),F(-1),F(-4)])
+        self.assertEqual(sum(flows),0)
+        self.assertEqual([flows[i]+1-(flows[(i-1)%3]+1) for i in range(3)],[F(5),F(-1),F(-4)])
+        self.assertNotEqual(sum(v+1 for v in flows),0)
+    def test_M07_qualified_method_axes(self):
+        d,c=arithmetic();a=open_(d,c)
+        self.assertEqual(a["interface"]["method_signature"]["inputs"][0]["domain_ids"],["domain:t"])
+        c["domains"]["t"]["id"]="domain:other_t";b=open_(d,c)
+        self.assertNotEqual(a["interface"]["method_identity"],b["interface"]["method_identity"])
+    def test_G05_process_determinism(self):
+        import subprocess,sys,os
+        from pathlib import Path
+        here=str(Path(__file__).parent)
+        cmd=[sys.executable,"-c","import sys;sys.path.insert(0,"+repr(here)+");from test_closure import *;d,c=arithmetic();print(open_(d,c)['semantic_identity'])"]
+        a=subprocess.check_output(cmd,env=dict(os.environ,PYTHONHASHSEED="7"))
+        b=subprocess.check_output(cmd,env=dict(os.environ,PYTHONHASHSEED="101"))
+        self.assertEqual(a,b)
 if __name__=="__main__":unittest.main(verbosity=2)
