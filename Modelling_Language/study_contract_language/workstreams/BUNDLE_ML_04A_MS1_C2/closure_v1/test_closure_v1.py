@@ -414,7 +414,7 @@ class OriginalProjectionControls(unittest.TestCase):
         f["scopes"]=[{"id":"scope:main","domains":["domain:s"],"subjects":[]}]
         money=q("EUR","currency","EUR:real:2025")
         f["inputs"]=[sig("input:probability",q(),["domain:s"])]
-        models=[];slots=[];contexts={};raw={}
+        models=[];slots=[];contexts={};raw={};events=[]
         for m in p5["models"]:
             mid=m["id"];key=mid.lower();cases={case:"case:"+key+":"+case for case in ("R","P")}
             for case,k in cases.items():
@@ -440,7 +440,7 @@ class OriginalProjectionControls(unittest.TestCase):
                 f["context_fields"].append({"id":name,"axes":["domain:s"],"value_type":"TOKEN","allowed_values":[],"authority_refs":["authority:source"]})
                 contexts[name]=[{"key":[r["scenario_id"]],"value":r["project_delta_id"] or "NO_PROJECT_DELTA"} for r in samples[case]]
             f["comparisons"].append({"id":policy,"relation":rel,"exogenous":fields_,"project":{"project_delta":pr},"allowed_changes":["project_delta"],"authority_refs":["authority:source"]})
-            out="output:"+key;f["outputs"].append(sig(out,money,contribution_policy="NOT_REQUIRED"))
+            out="output:"+key;f["outputs"].append(sig(out,money,contribution_policy="REQUIRED"))
             d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt","prob")},"expressions":{"benefit":"sum((base-alt)*prob, over=s)"}}
             c=fixture(d,roles={"prob":"INPUT"},quant={"base":money,"alt":money,"benefit":money},domains={"s":labels})
             # One stated study-year amount: actual original annual rate * 1 year.
@@ -451,12 +451,22 @@ class OriginalProjectionControls(unittest.TestCase):
             ds={field:digest(sorted(contexts[pair["reference"]],key=lambda r:r["key"])) for field,pair in fields_.items()}
             ctx={"pairs":[{"id":pairid,"reference_exogenous":ds,"alternative_exogenous":ds}]}
             row=make_slot(f,source_for_slot(f,src,key),key,d,c,data,{"ref:base":{"kind":"OBSERVABLE","ref":"observable:"+key+":R"},"ref:alt":{"kind":"OBSERVABLE","ref":"observable:"+key+":P"},"ref:prob":{"kind":"INPUT","ref":"input:probability"},"ref:benefit":{"kind":"OUTPUT","ref":out}},["input:probability"],["observable:"+key+":R","observable:"+key+":P"],[out],["ref:benefit"],comparison_pairs=[{"id":pairid,"reference":"ref:base","alternative":"ref:alt"}],case_context=ctx,weight_roles={"ref:prob":"PROBABILITY"})
-            row["profile"]["probability_rules"]={"ref:prob":"SUM_ONE"};row["comparisons"]=[{"id":pairid,"policy":policy,"source_ref":"authority:source"}];slots.append(row)
+            row["profile"]["probability_rules"]={"ref:prob":"SUM_ONE"};row["comparisons"]=[{"id":pairid,"policy":policy,"source_ref":"authority:source"}]
+            # Derived event catalogue: each original sample ID determines a
+            # unique case/scenario contribution to the annual benefit.
+            contributions=[];event_ids=[]
+            for case,series_name in (("R","base"),("P","alt")):
+                for r in samples[case]:
+                    eid="event:"+r["id"];event_ids.append(eid)
+                    events.append({"id":eid,"case":cases[case],"event_key":r["id"]+":operating_cost_proxy","coordinate":{"domain:s":r["scenario_id"]},"source_ref":"authority:source"})
+                    contributions.append({"id":"contribution:"+r["id"],"series":series_name,"key":[r["scenario_id"]],"case":cases[case],"observable":"observable:"+key+":"+case,"event":eid})
+            row["ledger"]={"bindings":{"base":{"role":"contribution","observable":"observable:"+key+":R","case":cases["R"],"data_ref":""},"alt":{"role":"contribution","observable":"observable:"+key+":P","case":cases["P"],"data_ref":""},"prob":{"role":"auxiliary","observable":"","case":"","data_ref":"ref:prob"}},"key_axes":{n:["domain:s"] for n in ("base","alt","prob")},"contributions":contributions,"policy":{"benefit":"DISJOINT"},"global_disjoint":["benefit"],"expected":{"benefit":event_ids}}
+            slots.append(row)
             models.append({"id":"model:"+key,"implementation_ref":m["generator_identity"],"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","observables":["observable:"+key+":R","observable:"+key+":P"],"variations":[]})
         for r in p5["additional_indicators"]:
             k="report:"+r["id"];qual=r["unit"]=="qualitative"
             f["report_requests"].append({"id":k,"subject":f["id"],"value_type":"QUALITATIVE" if qual else "QUANTITY","declared_unit":None if qual else r["unit"],"basis":"ORIGINAL_P5_NOT_MONETIZED","oracle_ref":"authority:source","authority_refs":["authority:source"]})
-        x,_=bundle(f,slots,src);x["context_data"]=contexts;x["reports"]=[{"id":r["id"],"status":"NOT_EXECUTED","reason":"ORIGINAL_P5_INDICATOR_NOT_EXECUTED","value":None,"source_ref":"authority:source"} for r in f["report_requests"]];repin(x)
+        x,_=bundle(f,slots,src,events);x["context_data"]=contexts;x["reports"]=[{"id":r["id"],"status":"NOT_EXECUTED","reason":"ORIGINAL_P5_INDICATOR_NOT_EXECUTED","value":None,"source_ref":"authority:source"} for r in f["report_requests"]];repin(x)
         d,dp=to_definition(x);d["requirements"]["models"]=models
         for r in d["requirements"]["data_contracts"]:
             if r["id"] in raw:r["conversion"]={"kind":"ANNUAL_RATE_TO_PERIOD_AMOUNT","source_unit":"EUR/year","source_basis":"EUR:real:2025","period_years":"1","period_ref":"authority:source","source_ref":"authority:source"}
@@ -467,11 +477,40 @@ class OriginalProjectionControls(unittest.TestCase):
         self.assertEqual(res["graph"]["outputs"],{"output:m-a":[{"key":[],"value":"120"}],"output:m-b":[{"key":[],"value":"104"}]})
         self.assertEqual(res["status"],"BLOCKED");self.assertEqual(res["conformance"],"NOT_PROVED")
         self.assertEqual(len(res["graph"]["external_reports"]),2)
+        for row in res["graph"]["slots"].values():
+            self.assertEqual(len(row["lineage"]["benefit"][0]["events"]),4)
+            self.assertTrue(all(v==1 for v in row["lineage"]["benefit"][0]["events"].values()))
+        bad=copy.deepcopy(x);bad["slots"][0]["ledger"]["contributions"].pop()
+        with self.assertRaisesRegex(Reject,"MISSING_CONTRIBUTION"):graph.evaluate(bad,repin(bad))
         bad=copy.deepcopy(x);bad["context_data"]["context:m-a:P:weather_year"][0]["value"]="DRIFT"
         with self.assertRaisesRegex(Reject,"COUNTERFACTUAL_EXOGENEITY"):graph.evaluate(bad,repin(bad))
         bad=copy.deepcopy(x);bad["frame"]["referents"][1]["model_id"]="model:m-b"
         with self.assertRaisesRegex(Reject,"CROSS_MODEL_PAIRING_FORBIDDEN"):graph.evaluate(bad,repin(bad))
         bad=copy.deepcopy(x);bad["reports"][0]["value"]=0
         with self.assertRaisesRegex(Reject,"REPORT_EVIDENCE_PROMOTION"):graph.evaluate(bad,repin(bad))
-        print("C2_CLOSURE_P5_PROJECTION="+json.dumps({"outputs":res["graph"]["outputs"],"reports":res["graph"]["external_reports"],"status":res["status"],"full_path":False},sort_keys=True))
+        print("C2_CLOSURE_P5_PROJECTION="+json.dumps({"outputs":res["graph"]["outputs"],"reports":res["graph"]["external_reports"],"lineage":{k:r["lineage"] for k,r in res["graph"]["slots"].items()},"status":res["status"],"full_path":False},sort_keys=True))
+class CriticalControls(unittest.TestCase):
+    def test_CL25_conflict_fail_closed(self):
+        from closure_v1.obligations import Bound,evaluate
+        d,c=arithmetic();p=pkg(d,c);f=ts();f["scopes"]=[{"id":"scope:main","domains":["domain:t"],"subjects":[]}]
+        b=Bound(p,metadata.validate(f),dataset({"a":series([1,2,3]),"b":series([1,1,1])}))
+        a=assertion(p,"assertion:safety","match",["domain:t"],["time"])
+        neg=copy.deepcopy(a);neg.update(id="assertion:prohibition",role="PROHIBITED_BEHAVIOUR",modality="MUST_NOT")
+        with self.assertRaisesRegex(Reject,"DIRECT_OBLIGATION_CONFLICT"):evaluate(b,[a,neg],[])
+        neg["guard"]={"truth":"FALSE","reason":None}
+        self.assertEqual(evaluate(b,[a,neg],[])["status"],"FINITE_OBSERVATIONS_ONLY")
+    def test_CL26_native_finite_robustness_and_selector(self):
+        # Unweighted variance and an explicit finite selected result. No
+        # universal optimization or hidden selection implementation is used.
+        d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{"cost":{"dims":["s"]},"selected":{"dims":[]},"weight":{"dims":["s"]}},"expressions":{"mean":"sum(cost*weight, over=s)","variance":"sum((cost-mean)**2*weight, over=s)"},"conditions":{"selected_is_min":"selected <= cost"}}
+        c=fixture(d,domains={"s":["a","b"]},pred_axes={"selected_is_min":["s"]})
+        p=pkg(d,c);f=frame();f["domains"]=[{"id":"domain:s","kind":"sample","members":["a","b"],"ordered":False}];f["scopes"]=[{"id":"scope:main","domains":["domain:s"],"subjects":[]}]
+        data=dataset({"cost":[{"key":["a"],"value":1},{"key":["b"],"value":3}],"selected":[{"key":[],"value":1}],"weight":[{"key":["a"],"value":"1/2"},{"key":["b"],"value":"1/2"}]})
+        from closure_v1.obligations import Bound,evaluate
+        b=Bound(p,metadata.validate(f),data)
+        self.assertEqual(b.consumer.outputs(),{"mean":["2"],"variance":["1"]})
+        a=assertion(p,"assertion:selection","selected_is_min",["domain:s"],["sample"])
+        self.assertEqual(evaluate(b,[a],[])["status"],"FINITE_OBSERVATIONS_ONLY")
+        data["parameters"]["selected"][0]["value"]=3
+        self.assertEqual(evaluate(Bound(p,metadata.validate(f),data),[a],[])["status"],"FINITE_COUNTEREXAMPLE")
 if __name__=="__main__":unittest.main(verbosity=2)

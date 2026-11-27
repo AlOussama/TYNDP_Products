@@ -57,6 +57,7 @@ jobs:
           test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py')" = 5201bda3c0a611d27e2bc335bbfebc191f252ec7
           test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py')" = d98289b3e07d6ba9377a5698d273ff5c88327179
           test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/units_r1.py')" = 0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json')" = 8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0
           python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/verify_research_manifest.py
       - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94
         with:

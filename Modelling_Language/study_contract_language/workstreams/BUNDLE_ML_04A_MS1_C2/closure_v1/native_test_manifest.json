@@ -2,7 +2,7 @@
   "schema": "c2-closure-test-manifest-0.1",
   "scope": "Independent authored targeted synthetic controls; not original full A/B paths",
   "test_file": "test_closure_v1.py",
-  "test_count": 24,
+  "test_count": 26,
   "controls": [
     {
       "id": "CL01",
@@ -145,8 +145,20 @@
     {
       "id": "CL24",
       "subject": "Original P5 narrow projection: numeric one-year amounts, opaque exogeneity and pending reporting",
-      "expected": "Exact model annual proxies 120/104 EUR for declared one-year period; original non-executed indicators remain blocked; weather/model drift and invented report value refused. Not full original path.",
+      "expected": "Exact model annual proxies 120/104 EUR for declared one-year period; original non-executed indicators remain blocked; weather/model drift and invented report value refused. Not full original path. Four exact original sample-event identities per model contribute to the output; missing contribution refused.",
       "oracle": "Frozen P5 fixture and analytical exact weighted differences"
+    },
+    {
+      "id": "CL25",
+      "subject": "Direct conflict, no implicit precedence",
+      "expected": "Identical unconditional positive and prohibited obligation refused; inactive prohibition does not conflict.",
+      "oracle": "independently authored static assertion"
+    },
+    {
+      "id": "CL26",
+      "subject": "Finite robustness metric and native selector",
+      "expected": "Mean 2, variance 1 for costs 1,3 with equal weights; declared minimum 1 satisfies every sample, 3 fails. Not general optimization.",
+      "oracle": "exact analytic synthetic witness"
     }
   ],
   "preserved_original": {

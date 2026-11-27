@@ -110,6 +110,16 @@ def validate(bound,assertions):
     given=[s["predicate"]["predicate_id"] for s in specs.values() if s["row"]["role"]=="DATA_ASSUMPTION"]
     need(len(given)==len(set(given)) and set(given)==nset,"NATIVE_ASSUMPTION_COVERAGE")
     need({k for k,s in specs.items() if s["row"]["role"] in ASSUMPTIONS}<=used,"UNBOUND_ASSUMPTION")
+    # Direct unconditional contradiction at the identical native predicate
+    # and identical typed coordinates is a declaration conflict. General
+    # symbolic satisfiability is not decided; no implicit priority or override.
+    opposite={}
+    for s in specs.values():
+        z=s["row"]
+        if z["role"] in ("SAFETY_GUARANTEE","PROHIBITED_BEHAVIOUR") and z["guard"]=={"truth":"TRUE","reason":None} and not z["assumptions"]:
+            key=digest([s["predicate"]["predicate_id"],z["binders"],{a:sorted(v) for a,v in z["at"].items()}])
+            need(key not in opposite or opposite[key]==z["modality"],"DIRECT_OBLIGATION_CONFLICT")
+            opposite[key]=z["modality"]
     need(any(s["row"]["role"] not in ASSUMPTIONS and s["row"]["modality"]!="MAY" for s in specs.values()),"NO_OBLIGATION")
     return specs
 

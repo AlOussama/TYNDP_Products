@@ -17,6 +17,9 @@ def _mathematics(package,method_only=False):
     if method_only:
         context.pop("study")
         context["domains"]={n:{"id":z["id"]} for n,z in context["domains"].items()}
+        # Concrete source and chronology references are instance bindings.
+        for z in context["temporal"].values():z.pop("chronology_ref",None)
+        for z in context["relations"].values():z.pop("source_ref",None)
     else:context["study"]["method_ref"]=digest(context["method"])
     return digest({"projection":"c2-closure-method-math-0.1" if method_only else "c2-closure-native-semantic-0.1","package_schema":package_version(package),"upstream":leaf["upstream"],"registry":digest(c1.REGISTRY),"canonical":spec.to_yaml(canonical=True),"binding":context})
 def mathematics(package):return _mathematics(package,False)
