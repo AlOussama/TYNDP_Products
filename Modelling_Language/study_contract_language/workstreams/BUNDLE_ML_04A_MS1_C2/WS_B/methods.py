@@ -4,11 +4,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(ROOT.parent/"BUNDLE_ML_04A_MS1_C1"/"comparative_canonical"))
-from interface import resolve_method,import_package,package_version,finite_consumer,V2
+from interface import resolve_method,import_package,package_version,finite_consumer,V1
 from closure import need,fields,digest,native,source_map,semantic_context,text_hash
 from closure import c1
 from legacy_comparison import map_predicates
 from profile_engine import rational
+from WS_B.native_ledger import check as check_ledger
 
 def identities(package):
     leaf=import_package(package)
@@ -20,7 +21,7 @@ def identities(package):
     return {"native":leaf["native_identity"],"semantic":sem,"original_source":leaf["origin"]["sha256"],"audit":leaf["audit_identity"]}
 
 def migrate_with_audit(case,package):
-    need(package_version(package)!=V2,'LEGACY_POWER_PACKAGE_UNSUPPORTED')
+    need(package_version(package)==V1,'LEGACY_POWER_PACKAGE_UNSUPPORTED')
     leaf=import_package(package)
     need(native(json.dumps(case["doc"])).to_yaml(canonical=True)==leaf["native_canonical"] and case["context"]==leaf["context"],"MIGRATION_SOURCE_MISMATCH")
     target=map_predicates(case,native(leaf["native_canonical"]).program)
@@ -32,7 +33,8 @@ def validate(package,data,profile,study,source,context):
     leaf=import_package(package)
     receipt=resolve_method(package,data)
     signature=receipt["signature"]
-    fields(profile,("id","version","native_signature","native_semantic_identity","source_ref","source_sha256","approval","input_roles","axis_roles","parameter_ranges","probability_rules","counterfactual_pairs","outputs"),"PROFILE_FIELDS")
+    optional=tuple(k for k in ("ledger","output_contract") if k in profile)
+    fields(profile,("id","version","native_signature","native_semantic_identity","source_ref","source_sha256","approval","input_roles","axis_roles","parameter_ranges","probability_rules","counterfactual_pairs","outputs")+optional,"PROFILE_FIELDS")
     fields(study,("id","version","profile_identity","native_study_identity","data_context_identity","case_context_identity","owner"),"STUDY_FIELDS")
     need(type(source) is str and profile["source_sha256"]==text_hash(source) and type(profile["source_ref"]) is str and bool(profile["source_ref"]),"METHOD_SOURCE")
     need(profile["approval"]=="RESEARCH_ASSUMPTION" and study["owner"]=="OWNER_TBD","AUTHORITY_PROMOTION")
@@ -44,13 +46,13 @@ def validate(package,data,profile,study,source,context):
     ins={z["symbol_id"]:z for z in signature["inputs"]};params={z["symbol_id"]:z for z in signature["parameters"]};outs={z["symbol_id"]:z for z in signature["outputs"]}
     need(type(profile["outputs"]) is list and len(set(profile["outputs"]))==len(profile["outputs"]) and set(profile["outputs"])==set(outs),"OUTPUT_COVERAGE")
     roles=profile["input_roles"];axis_roles=profile["axis_roles"]
-    need(type(roles) is dict and set(roles)==set(ins) and all(v in ("VALUE","PROBABILITY","TIME_WEIGHT") for v in roles.values()),"INPUT_ROLE_COVERAGE")
+    need(type(roles) is dict and set(roles)==set(ins) and all(v in ("VALUE","PROBABILITY","TIME_WEIGHT","DURATION_WEIGHT") for v in roles.values()),"INPUT_ROLE_COVERAGE")
     need(type(axis_roles) is dict and set(axis_roles)=={z["id"] for z in leaf["context"]["domains"].values()} and all(v in ("scenario","time","sample") for v in axis_roles.values()),"AXIS_ROLE_COVERAGE")
     rules=profile["probability_rules"];need(type(rules) is dict and set(rules)=={k for k,v in roles.items() if v=="PROBABILITY"},"PROBABILITY_POLICY_COVERAGE")
     for k,role in roles.items():
         if role=="VALUE":continue
         z=ins[k];axes=z["domain_ids"];q=z["quantity"]
-        need(len(axes)==1 and axis_roles[axes[0]]==("scenario" if role=="PROBABILITY" else "time") and q["unit"]=="1" and q["carrier"]=="none" and q["basis"]=="NONE","WEIGHT_ROLE")
+        need(len(axes)==1 and axis_roles[axes[0]]==("scenario" if role=="PROBABILITY" else "time") and q["unit"]==("h" if role=="DURATION_WEIGHT" else "1") and q["carrier"]=="none" and q["basis"]=="NONE","WEIGHT_ROLE")
         values=[rational(row["value"]) for row in data["parameters"][z["native_name"]]]
         if role=="PROBABILITY":
             need(rules[k]=="SUM_ONE","UNSUPPORTED_PROBABILITY_POLICY")
@@ -62,7 +64,7 @@ def validate(package,data,profile,study,source,context):
         fields(bounds,("min","max"),"PARAMETER_RANGE_FIELDS")
         lo,hi=rational(bounds["min"]),rational(bounds["max"])
         need(lo<=hi and all(lo<=rational(x["value"])<=hi for x in data["parameters"][params[k]["native_name"]]),"PARAMETER_RANGE")
-    fields(context,("pairs",),"CASE_CONTEXT_FIELDS")
+    fields(context,("pairs","contributions") if "ledger" in profile else ("pairs",),"CASE_CONTEXT_FIELDS")
     declared=profile["counterfactual_pairs"];actual=context["pairs"]
     need(type(declared) is list and type(actual) is list,"PAIR_SET")
     def index(rows,keys):
@@ -81,6 +83,13 @@ def validate(package,data,profile,study,source,context):
         r=ap[k]["reference_exogenous"];s=ap[k]["alternative_exogenous"]
         need(type(r) is dict and bool(r) and type(s) is dict and bool(s) and digest(r)==digest(s),"COUNTERFACTUAL_EXOGENEITY")
     consumer=finite_consumer(package,data)
+    ledger=check_ledger(consumer,leaf,profile,context) if "ledger" in profile else "NOT_EXECUTED"
+    outputs=consumer.outputs();external={}
+    if "output_contract" in profile:
+        oc=profile["output_contract"];fields(oc,("external","intermediate"),"OUTPUT_CONTRACT_FIELDS")
+        a,b=oc["external"],oc["intermediate"]
+        need(type(a) is list and type(b) is list and bool(a) and len(a+b)==len(set(a+b)) and set(a+b)==set(outs),"OUTPUT_PARTITION")
+        external={k:outputs[outs[k]["native_name"]] for k in a}
     return {"profile_identity":digest(profile),"study_identity":digest(study),"context":receipt["context_receipt"],
-            "identities":identities(package),"outputs":consumer.outputs(),"conditions":consumer.conditions(),
-            "evidence_scope":"BOUNDED_FINITE_NATIVE_METHOD","owner":"OWNER_TBD","ledger":"NOT_EXECUTED","conformance":"NOT_PROVED"}
+            "identities":identities(package),"outputs":outputs,"external_outputs":external,"conditions":consumer.conditions(),
+            "evidence_scope":"BOUNDED_FINITE_NATIVE_METHOD","owner":"OWNER_TBD","ledger":ledger,"conformance":"NOT_PROVED"}

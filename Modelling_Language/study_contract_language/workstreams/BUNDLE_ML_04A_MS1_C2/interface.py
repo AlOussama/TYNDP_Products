@@ -8,15 +8,22 @@ import package_interface as old
 from closure import need,fields,c1
 V1="canonical-mathematical-contract-package-0.1"
 V2="canonical-mathematical-contract-package-0.2"
+V3="canonical-mathematical-contract-package-0.3"
 def package_version(package):
     obj=c1.parse(package)
-    need(type(obj) is dict and obj.get("schema") in (V1,V2),"PACKAGE_VERSION")
+    need(type(obj) is dict and obj.get("schema") in (V1,V2,V3),"PACKAGE_VERSION")
     return obj["schema"]
-def _power():
-    from WS_B import power_boundary
-    return power_boundary
+def _api(package):
+    v=package_version(package)
+    if v==V3:
+        from WS_B import affine_boundary
+        return affine_boundary
+    if v==V2:
+        from WS_B import power_boundary
+        return power_boundary
+    return old
 def import_package(package):
-    return _power().import_package(package) if package_version(package)==V2 else old.import_package(package)
+    return _api(package).import_package(package)
 def predicate_client(package,predicate_id,expected_role):
     return old._predicate_from_leaf(import_package(package),predicate_id,expected_role)
 def resolve_predicate(package,ref):
@@ -26,9 +33,9 @@ def resolve_predicate(package,ref):
     need(p["scope_id"]==ref["scope_id"],"C2_SCOPE_ALIGNMENT")
     return p
 def resolve_method(package,data):
-    return _power().method_client(package,data) if package_version(package)==V2 else old.method_client(package,data)
+    return _api(package).method_client(package,data)
 def finite_consumer(package,data):
     leaf=import_package(package)
-    if package_version(package)==V2:return _power().FinitePowerNative(leaf,data)
+    if package_version(package)!=V1:return _api(package).FinitePowerNative(leaf,data)
     from native_consumer import FiniteNative
     return FiniteNative(leaf,data)

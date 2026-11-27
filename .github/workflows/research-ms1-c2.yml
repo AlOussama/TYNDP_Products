@@ -68,7 +68,7 @@ jobs:
         run: |
           set -euo pipefail
           pixi run --locked -e py313 python -c "import sys; assert sys.version_info[:3]==(3,13,15); print(sys.version)"
-          for f in test_interface.py WS_A/test_contract.py WS_B/test_methods.py test_integrated.py; do
+          for f in test_interface.py WS_A/test_contract.py WS_B/test_methods.py WS_B/test_original_profiles.py test_integrated.py; do
             if test -f ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/$f; then pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/$f; fi
           done
       - name: Original foundation and MS1 probes and method pairs
