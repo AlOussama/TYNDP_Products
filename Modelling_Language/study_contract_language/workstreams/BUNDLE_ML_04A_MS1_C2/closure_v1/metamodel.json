@@ -1,5 +1,5 @@
 {
-  "schema": "c2-closure-metamodel-0.1",
+  "schema": "c2-closure-metamodel-0.2",
   "status": "RESEARCH_CANDIDATE",
   "math_authority": "pinned mathspec public Program/canonical",
   "levels": {
@@ -60,6 +60,46 @@
         "instance",
         "receipt"
       ]
+    },
+    "Composition": {
+      "version": "c2-approved-composition-0.1",
+      "fields": [
+        "schema",
+        "base_ref",
+        "overrides"
+      ],
+      "authorization": {
+        "version": "c2-research-composition-authorization-0.1",
+        "fields": [
+          "schema",
+          "base_ref",
+          "request_ref",
+          "approvals",
+          "decision_scope"
+        ]
+      },
+      "package": "c2-approved-composition-package-0.1",
+      "scope": "Exact research-authorized disjoint method slot replacement; no normative owner decision"
+    },
+    "Diagnostic": {
+      "version": "c2-structured-diagnostic-0.1",
+      "fields": [
+        "schema",
+        "code",
+        "path",
+        "path_kind",
+        "rule_id",
+        "rule_source",
+        "subject",
+        "source_refs",
+        "source_pins",
+        "trace",
+        "reason",
+        "status",
+        "owner",
+        "conformance"
+      ],
+      "path_kind": "VALIDATION_OBJECT"
     }
   },
   "frame": {
@@ -112,6 +152,7 @@
     "instance": "pinned source/data/witness/receipt input",
     "audit": "complete exact received representations and source/evidence roots"
   },
-  "reference_validation": "metadata.py, obligations.py, graph.py, definition.py",
-  "note": "Structural schema alone is not semantic admission; exact validators authoritative."
+  "reference_validation": "metadata.py, obligations.py, graph.py, definition.py, composition.py, selection.py, diagnostics.py",
+  "note": "Structural schema alone is not semantic admission; exact validators authoritative.",
+  "selector": "Existing native condition references: equality with EXISTS candidate binder, order with FORALL all axes; same selected and candidate symbols, typed signature, scope; no new math AST"
 }

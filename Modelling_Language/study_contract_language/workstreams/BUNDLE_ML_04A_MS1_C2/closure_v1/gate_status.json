@@ -1,12 +1,12 @@
 {
-  "schema": "c2-closure-gates-0.1",
+  "schema": "c2-final-closure-gates-0.1",
   "governance": "NON-NORMATIVE / RESEARCH ONLY",
   "architecture": "M3-HYBRID",
-  "status": "CONTROLLED_LANGUAGE_CLOSURE_VALIDATED; FORMAL_C3_GATE_BLOCKED",
-  "tested_commit": "e22e47867395ea93b9e5b33b414830d154890695",
+  "status": "C2_CONTROLLED_LANGUAGE_READY_FOR_C3_RESEARCH",
+  "tested_commit": "8a99cc96edc98add28a69b8fa30db7d0dad08947",
   "ci": {
-    "run_id": 46046306356,
-    "job_id": 140666316682,
+    "run_id": 46056048896,
+    "job_id": 140698674026,
     "conclusion": "success"
   },
   "gates": [
@@ -42,21 +42,21 @@
     },
     {
       "id": "C2-G5",
-      "status": "PARTIAL",
-      "scope": "125 original identities preserved and classified; no full satisfaction claim",
-      "reason": "BLK-06 residual: approved override semantics refused, original complete diagnostic provenance mapping not demonstrated, CL26 lower-bound witness not full selected-value membership. A requirement-preserving disposition for C3 is still needed."
+      "status": "MET",
+      "scope": "controlled research language requirement disposition and C3 readiness, not proof of unrestricted conformance",
+      "reason": "BLK-06 resolved by CL27–33: native membership + universal order; explicit research-only typed override with external approval pin, immutable obligations and deterministic disjoint precedence; structured diagnostic boundary and frozen original expected rule/source mappings with actual derived C23 and original P5 paths. 125 identities preserved and classified. Original A/B verdicts and empirical/general proof explicitly deferred, not claimed."
     },
     {
       "id": "C2-G6",
       "status": "MET",
       "scope": "actual C2 closure regression",
-      "reason": "26/26 new, 26/26 previous C2, all inherited executed suites green including 4140 upstream; exact 58/116 preserved and not represented as full execution."
+      "reason": "33/33 targeted, 26/26 previous C2, all inherited executed suites green including 4140 upstream with 47 skipped; original diagnostic 18/30 actual paths, exact 58/116 preserved and not represented as full execution."
     },
     {
       "id": "C2-G7",
-      "status": "BLOCKED",
-      "scope": "formal C3 start",
-      "reason": "G5 not MET; C3 not started, no automatic promotion. Research candidate frozen for focused remaining decision, no broad architecture reopening."
+      "status": "MET",
+      "scope": "C3 research integration entry, not normative release or empirical model conformity",
+      "reason": "G0–G6 met within controlled scope; all seven previous blocker groups dispositioned and residuals validated. Exact tested code baseline and handoff prepared; C3 must materialize/execute all 116 original paths without scope relaxation."
     }
   ],
   "original_population": {

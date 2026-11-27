@@ -7,6 +7,7 @@ from closure import need,fields,qualified,exact,digest,text_hash,canon,c1
 from interface import resolve_method
 from WS_B.methods import check_static
 from closure_v1 import graph,metadata as md,obligations as ob,identity,ledger
+from closure_v1.diagnostics import call as checked,pointer,scope as diagnostic_scope
 
 DEF="c2-closure-definition-0.2"
 INST="c2-closure-instance-0.2"
@@ -109,6 +110,23 @@ def requirement_design(req,tables,source,prepared):
             pred=bd.resolve(ar["predicate"],("PREDICATE",))
             symbols={bd.symbols[k]["native_name"] for k in pred["required_symbols"]}
             need(any(slot==owner and bool(names) and names<=symbols for owner,sym,names in metric_dependencies.values()),"DECISION_METRIC_BINDING")
+        if r["selection_policy"]=="DECLARED_NATIVE_SELECTOR":
+            from closure_v1.selection import validate as validate_selector
+            groups={}
+            for aid in r["decision_assertions"]:groups.setdefault(ass[aid][0],[]).append(aid)
+            found=[]
+            for sk,ids in groups.items():
+                row,bd,bi=prepared[sk]
+                # All selector-shaped obligations in the relevant slot must
+                # pair; unrelated decision assertions cannot stand in for membership.
+                from closure_v1.selection import native_pair
+                specs=ob.validate(bd,row["assertions"])
+                if any(native_pair(bd,specs[i]) for i in ids):
+                    pairs=validate_selector(bd,row["assertions"],ids)
+                    for pair in pairs:
+                        need(pair["candidate"] in {sym for owner,sym,_ in metric_dependencies.values() if owner==sk},"SELECTOR_METRIC_BINDING")
+                    found.extend(pairs)
+            need(bool(found),"SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED")
         for tol in r["tolerances"]:
             fields(tol,("slot","parameter","metric_output"),"TOLERANCE_FIELDS")
             need(tol["slot"] in prepared and tol["metric_output"] in r["metric_outputs"],"TOLERANCE_REFERENCE")
@@ -161,12 +179,12 @@ def converted_rows(rows,cv,target):
         out.append({"key":r["key"],"value":str(v)})
     return sorted(out,key=lambda r:r["key"])
 
-def admit(definition,expected_definition):
+def _admit(definition,expected_definition):
     fields(definition,("schema","study","frame","slots","sources","requirements"),"DEFINITION_FIELDS")
     need(definition["schema"]==DEF and digest(definition)==expected_definition,"DEFINITION_PIN")
     s=definition["study"];fields(s,("id","version","owner"),"STUDY_DEFINITION_FIELDS")
     need(qualified(s["id"]) and type(s["version"]) is str and bool(s["version"]) and s["owner"]=="OWNER_TBD","STUDY_IDENTITY")
-    tables=md.validate(definition["frame"]);source=graph.sources(definition,tables);slots=md.index(definition["slots"])
+    tables=checked("/frame","R00",None,(),md.validate,definition["frame"]);source=checked("/sources","R13",None,(),graph.sources,definition,tables);slots=checked("/slots","R01",None,(),md.index,definition["slots"])
     need(bool(slots) and set(slots)==set(tables["slots"]),"STUDY_SLOT_COVERAGE")
     prepared={};producers={};ext=set();obs=set();relations=set();comparison_policies=set();allids={definition["frame"]["id"],s["id"],*(k for t in tables.values() for k in t)}
     for k,row in slots.items():
@@ -174,11 +192,13 @@ def admit(definition,expected_definition):
         slot=tables["slots"][k];p=row["profile"]
         need(row["source_ref"] in source and row["source_ref"] in slot["authority_refs"] and p["source_ref"]==source[row["source_ref"]]["immutable_ref"],"METHOD_SOURCE_AUTHORITY")
         need("ledger" not in p,"USE_VERSIONED_NATIVE_LEDGER")
-        check_static(row["package"],p,source[row["source_ref"]]["content"])
-        b=ob.Bound(row["package"],tables,None)
+        path=pointer("slots",next(i for i,s in enumerate(definition["slots"]) if s["id"]==k))
+        sources=[source[row["source_ref"]]]
+        checked(path+"/profile","R12",k,sources,check_static,row["package"],p,source[row["source_ref"]]["content"])
+        b=checked(path+"/package","R00",k,sources,ob.Bound,row["package"],tables,None)
         need(b.leaf["context"]["study"]["id"]==s["id"] and b.leaf["context"]["study"]["version"]==s["version"],"STUDY_IDENTITY")
         relations|={z["id"] for z in b.leaf["context"]["relations"].values()}
-        bi=graph.validate_bindings(row,b,slot)
+        bi=checked(path+"/bindings","R01",k,sources,graph.validate_bindings,row,b,slot)
         for out,sym in bi["producers"].items():need(out not in producers,"DUPLICATE_OUTPUT_PRODUCER");producers[out]=(k,sym)
         ext|={x["ref"] for x in row["bindings"].values() if x["kind"]=="INPUT"};obs|=set(bi["observables"].values())
         for r in [*row["assertions"],*row["policies"],*row["states"],*row["verification"]]:
@@ -186,7 +206,7 @@ def admit(definition,expected_definition):
         required={z["id"] for z in b.leaf["interface"]["predicates"].values() if z["role"] in ("PREDICATE","DATA_ASSUMPTION")}
         need({a["predicate"]["predicate_id"] for a in row["assertions"]}==required,"PREDICATE_COVERAGE")
         if row["assertions"]:
-            specs=ob.validate(b,row["assertions"])
+            specs=checked(path+"/assertions","R09",k,sources,ob.validate,b,row["assertions"])
             for a in specs.values():
                 ar=a["row"];sc=tables["scopes"][ar["scope"]];slot_scope=tables["scopes"][slot["scope"]]
                 need(set(sc["domains"])<=set(slot_scope["domains"]) and set(sc["subjects"])<=set(slot_scope["subjects"]),"ASSERTION_SLOT_SCOPE")
@@ -196,7 +216,7 @@ def admit(definition,expected_definition):
             sg=b.symbols.get(po["symbol"]);td,sd=po["time_domain"],po["scenario_domain"]
             need(sg is not None and td in sg["domain_ids"] and sd in sg["domain_ids"] and td!=sd,"POLICY_AXES")
             need(any(i["time_domain"]==td and i["scenario_domain"]==sd for i in tables["information_sets"].values()),"INFORMATION_PARTITION_REQUIRED")
-        if row["states"]:ob.boundaries(b,row["assertions"],row["states"])
+        if row["states"]:checked(path+"/states","R07",k,sources,ob.boundaries,b,row["assertions"],row["states"])
         prs={x["id"]:x for x in p["counterfactual_pairs"]};cs=md.index(row["comparisons"]);need(set(cs)==set(prs),"COUNTERFACTUAL_COVERAGE")
         for pair,cr in cs.items():
             fields(cr,("id","policy","source_ref"),"COMPARISON_BINDING_FIELDS")
@@ -210,7 +230,7 @@ def admit(definition,expected_definition):
             fields(r,("id","subject","kind","oracle_ref","status"),"VERIFICATION_FIELDS")
             need(r["status"]=="NOT_EXECUTED" and r["oracle_ref"] in source and r["kind"] in ("FINITE_OBSERVATION","BEHAVIORAL","FORMAL_PROOF","TOOL_CONFORMANCE"),"VERIFICATION_COVERAGE_OR_PROMOTION")
         need(row["ledger"] is not None or not any(tables["outputs"][out]["contribution_policy"]=="REQUIRED" for out in bi["producers"]),"LEDGER_REQUIRED")
-        ledger_static(row["ledger"],b,bi)
+        checked(path+"/ledger","R12",k,sources,ledger_static,row["ledger"],b,bi)
         for z in b.leaf["context"]["conversions"].values():
             need(sum(x["immutable_ref"]==z["source_ref"] and x["sha256"]==z["source_sha256"] and x["revision"]==z["version"] for x in source.values())==1,"CONVERSION_SOURCE_BINDING")
         prepared[k]=(row,b,bi)
@@ -222,7 +242,7 @@ def admit(definition,expected_definition):
     order=[];pending=set(slots)
     while pending:
         ready=sorted(k for k in pending if deps[k]<=set(order));need(bool(ready),"METHOD_DEPENDENCY_CYCLE");order+=ready;pending-=set(ready)
-    data,comps=requirement_design(definition["requirements"],tables,source,prepared)
+    data,comps=checked("/requirements","R00",None,(),requirement_design,definition["requirements"],tables,source,prepared)
     semantic_slots={}
     for k,(row,b,bi) in prepared.items():
         ld=deepcopy(row["ledger"])
@@ -243,7 +263,10 @@ def admit(definition,expected_definition):
     return {"schema":DEF,"semantic_identity":semantic,"source_identity":expected_definition,"method_identities":{k:identity.method_identity(r["profile"],r["package"]) for k,(r,_,_) in prepared.items()},"execution_order":order,
             "status":"STATIC_VALID","data_status":"NOT_EXECUTED","owner":"OWNER_TBD","conformance":"NOT_PROVED"}
 
-def instantiate(definition,definition_pin,instance,instance_pin):
+def admit(definition,expected_definition):
+    return checked("","R00",None,(),_admit,definition,expected_definition)
+
+def _instantiate(definition,definition_pin,instance,instance_pin):
     static=admit(definition,definition_pin)
     fields(instance,("schema","definition_ref","slots","events","disclosures","context_data","reports","data_receipts"),"INSTANCE_FIELDS")
     need(instance["schema"]==INST and digest(instance)==instance_pin and instance["definition_ref"]==static["semantic_identity"],"INSTANCE_PIN")
@@ -270,7 +293,7 @@ def instantiate(definition,definition_pin,instance,instance_pin):
     # This inner pin is derived ONLY after both separately supplied roots have
     # matched their exact objects. It adds no authority or self-certification.
     obj["trust"]=graph.pins(obj);obj["study"]["frame_ref"]=obj["trust"]["frame"];obj["study"]["slot_refs"]=obj["trust"]["slots"]
-    result=graph.evaluate(obj,digest(obj["trust"]))
+    result=checked("/slots","R00",None,(),graph.evaluate,obj,digest(obj["trust"]))
     contracts=md.index(definition["requirements"]["data_contracts"]);receipts=md.index(instance["data_receipts"])
     need(set(receipts)==set(contracts)==set(result["data_bindings"]),"DATA_PROVENANCE_COVERAGE")
     tabs=md.validate(definition["frame"]);ext={**tabs["inputs"],**tabs["observables"],**tabs["context_fields"]}
@@ -290,6 +313,9 @@ def instantiate(definition,definition_pin,instance,instance_pin):
         comps.append({"id":c["id"],"requested":c["equivalence_target"],"status":status,"independence":"UNVERIFIED","owner":"OWNER_TBD"})
     return {"definition":static,"instance_identity":instance_pin,"status":"FINITE_COUNTEREXAMPLE" if result["finite_status"]=="FINITE_COUNTEREXAMPLE" or any(v=="FINITE_REJECTED" for v in qualities.values()) else "BLOCKED" if any(v=="BLOCKED" for v in qualities.values()) else result["finite_status"],
             "graph":result,"data_quality":qualities,"comparison_evidence":comps,"owner":"OWNER_TBD","conformance":"NOT_PROVED"}
+def instantiate(definition,definition_pin,instance,instance_pin):
+    return checked("","R00",None,(),_instantiate,definition,definition_pin,instance,instance_pin)
+
 def export(definition,definition_pin,instance=None,instance_pin=None):
     if instance is None:
         need(instance_pin is None,"INSTANCE_PIN");r=admit(definition,definition_pin)

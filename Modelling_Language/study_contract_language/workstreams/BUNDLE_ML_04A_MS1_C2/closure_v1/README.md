@@ -5,3 +5,6 @@ Research only. Baseline PR #94 commit 415cf8285797a4bd695c5bfe85500753563af547, 
 - [Gate decision](gate_status.json) and [blocker closure register](blocker_closure_register.json)
 - [Actual native results](native_regression_results.json), [critical review](critical_review.md), [conditional C3 handoff](C3_handoff.md)
 - Tested e22e47867395ea93b9e5b33b414830d154890695, CI [46046306356](https://github.com/AlOussama/TYNDP_Products/actions/runs/46046306356). G5 PARTIAL, G7 BLOCKED. No claim of full original conformance or automatic C3 start.
+
+## Final targeted C2 requirement closure — PR #96
+Supersedes prior PARTIAL gate assessment on PR #95 for controlled research readiness only. [Final residual semantics](final_closure_semantics.md), [Final gates](gate_status.json), [Original diagnostic contracts](original_diagnostic_contracts.json), [Actual diagnostic results](original_diagnostic_results.json), [Final actual CI](final_native_regression_results.json), [C3 handoff](C3_handoff.md). Exact tested commit 8a99cc96edc98add28a69b8fa30db7d0dad08947, [CI 46056048896](https://github.com/AlOussama/TYNDP_Products/actions/runs/46056048896) success; C3 ready, not started. Previous native_regression_results.json is historical first closure evidence; final evidence has its own file. All original 58/116 remain, 0 full paths executed in C2.

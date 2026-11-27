@@ -29,6 +29,7 @@ class Integrated(unittest.TestCase):
         self.assertEqual(r["method"]["outputs"],c["expected"])
         self.assertEqual(r["contract"]["finite_status"],"FINITE_OBSERVATIONS_ONLY")
         self.assertEqual(r["conformance"],"NOT_PROVED")
+        q=copy.deepcopy(q)  # retain unmodified actual receipt for the evidence log
         q["receipt"]["conformance"]="PROVED"
         with self.assertRaisesRegex(Reject,"TAMPER"):reimport(canon(q))
         print("C2_INTEGRATED_RC09="+json.dumps(r,sort_keys=True))

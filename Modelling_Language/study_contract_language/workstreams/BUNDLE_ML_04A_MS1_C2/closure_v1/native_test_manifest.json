@@ -2,7 +2,7 @@
   "schema": "c2-closure-test-manifest-0.1",
   "scope": "Independent authored targeted synthetic controls; not original full A/B paths",
   "test_file": "test_closure_v1.py",
-  "test_count": 26,
+  "test_count": 33,
   "controls": [
     {
       "id": "CL01",
@@ -159,6 +159,48 @@
       "subject": "Finite robustness metric and native selector",
       "expected": "Mean 2, variance 1 for costs 1,3 with equal weights; declared minimum 1 satisfies every sample, 3 fails. Not general optimization.",
       "oracle": "exact analytic synthetic witness"
+    },
+    {
+      "id": "CL27",
+      "subject": "Native selected result membership and universal ordering",
+      "expected": "Minimum 1 in [1,3], ties valid; 0 lower than all but not member fails, 3 member but not minimum fails. Missing membership and wrong quantifier refused.",
+      "oracle": "explicit independent finite or static test assertions"
+    },
+    {
+      "id": "CL28",
+      "subject": "Explicit independently pinned research override",
+      "expected": "Same interface, explicit approved method expression/version change 7→8, exact canonical roundtrip, prior instance invalid, OWNER_TBD.",
+      "oracle": "explicit independent finite or static test assertions"
+    },
+    {
+      "id": "CL29",
+      "subject": "Refuse unauthorized/overlapping override",
+      "expected": "Wrong pin, unapproved or normative claim, stale target, evidence loss, undeclared expression, duplicate target refused.",
+      "oracle": "explicit independent finite or static test assertions"
+    },
+    {
+      "id": "CL30",
+      "subject": "Protect native dependency of obligation",
+      "expected": "Native condition references changed expression; same condition string does not hide changed obligation, override refused.",
+      "oracle": "explicit independent finite or static test assertions"
+    },
+    {
+      "id": "CL31",
+      "subject": "Structured diagnostic boundary",
+      "expected": "Actual candidate failure includes rule ID, pinned original rule source, object path and subject/source refs. Exact leaf path not fabricated.",
+      "oracle": "explicit independent finite or static test assertions"
+    },
+    {
+      "id": "CL32",
+      "subject": "Unexpected validator failure is blocked, never expected rejection",
+      "expected": "Actual KeyError yields BLOCKED_INTERNAL and VALIDATION_EXCEPTION with enclosing object path; unresolved source list not promoted.",
+      "oracle": "explicit static test assertions"
+    },
+    {
+      "id": "CL33",
+      "subject": "Explicit disjoint override precedence",
+      "expected": "Two separately authorized disjoint replacements compose independently of request order, exact audit differs, effective native result 11.",
+      "oracle": "exact finite arithmetic and separate source/audit identity"
     }
   ],
   "preserved_original": {
