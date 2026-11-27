@@ -1,0 +1,34 @@
+Run 46044279985 job 140659502682 commit 71fb705f54ed91c5989f52ce89493edbbd76977e, actual conclusion failure
+2026-11-27T17:45:30.2572505Z Ran 44 tests in 0.801s
+2026-11-27T17:45:30.8544399Z Ran 7 tests in 0.225s
+2026-11-27T17:45:31.1685250Z Ran 50 tests in 0.183s
+2026-11-27T17:45:31.2184146Z Ran 7 tests in 0.003s
+2026-11-27T17:45:31.8377238Z Ran 3 tests in 0.104s
+2026-11-27T17:45:34.5031586Z Ran 7 tests in 2.277s
+2026-11-27T17:45:35.9834097Z Ran 8 tests in 1.094s
+2026-11-27T17:45:37.7406536Z Ran 4 tests in 1.364s
+2026-11-27T17:45:40.4460860Z Ran 4 tests in 2.301s
+2026-11-27T17:45:41.0449148Z test_CL06_service_requires_actual_witness (__main__.ObligationControls.test_CL06_service_requires_actual_witness) ... ERROR
+2026-11-27T17:45:41.0647763Z test_CL07_capability_order_and_nonvacuity (__main__.ObligationControls.test_CL07_capability_order_and_nonvacuity) ... ERROR
+2026-11-27T17:45:41.0853574Z test_CL08_scoped_assumptions_unknown (__main__.ObligationControls.test_CL08_scoped_assumptions_unknown) ... ERROR
+2026-11-27T17:45:41.0975742Z test_CL09_full_information_policy (__main__.ObligationControls.test_CL09_full_information_policy) ... ERROR
+2026-11-27T17:45:41.1166147Z test_CL10_explicit_state_boundary_scope (__main__.ObligationControls.test_CL10_explicit_state_boundary_scope) ... ERROR
+2026-11-27T17:45:41.1167659Z ERROR: test_CL06_service_requires_actual_witness (__main__.ObligationControls.test_CL06_service_requires_actual_witness)
+2026-11-27T17:45:41.1168973Z Traceback (most recent call last):
+2026-11-27T17:45:41.1175030Z KeyError: 'id'
+2026-11-27T17:45:41.1175670Z ERROR: test_CL07_capability_order_and_nonvacuity (__main__.ObligationControls.test_CL07_capability_order_and_nonvacuity)
+2026-11-27T17:45:41.1176395Z Traceback (most recent call last):
+2026-11-27T17:45:41.1181945Z KeyError: 'id'
+2026-11-27T17:45:41.1182551Z ERROR: test_CL08_scoped_assumptions_unknown (__main__.ObligationControls.test_CL08_scoped_assumptions_unknown)
+2026-11-27T17:45:41.1183236Z Traceback (most recent call last):
+2026-11-27T17:45:41.1186398Z KeyError: 'id'
+2026-11-27T17:45:41.1186961Z ERROR: test_CL09_full_information_policy (__main__.ObligationControls.test_CL09_full_information_policy)
+2026-11-27T17:45:41.1187623Z Traceback (most recent call last):
+2026-11-27T17:45:41.1191154Z KeyError: 'id'
+2026-11-27T17:45:41.1191766Z ERROR: test_CL10_explicit_state_boundary_scope (__main__.ObligationControls.test_CL10_explicit_state_boundary_scope)
+2026-11-27T17:45:41.1192609Z Traceback (most recent call last):
+2026-11-27T17:45:41.1196263Z KeyError: 'id'
+2026-11-27T17:45:41.1196726Z Ran 10 tests in 0.277s
+2026-11-27T17:45:41.1196912Z FAILED (errors=5)
+2026-11-27T17:45:42.0168188Z Ran 24 tests in 0.506s
+2026-11-27T17:45:42.4904719Z Ran 17 tests in 0.100s

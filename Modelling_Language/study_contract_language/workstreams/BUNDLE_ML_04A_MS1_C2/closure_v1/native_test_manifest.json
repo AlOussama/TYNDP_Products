@@ -1,0 +1,171 @@
+{
+  "schema": "c2-closure-test-manifest-0.1",
+  "scope": "Independent authored targeted synthetic controls; not original full A/B paths",
+  "test_file": "test_closure_v1.py",
+  "test_count": 26,
+  "controls": [
+    {
+      "id": "CL01",
+      "subject": "Shift and window",
+      "expected": "2,3,5 -> shift zero 0,2,3; wrap 5,2,3; trailing window 2,5,8.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL02",
+      "subject": "Definedness and Count",
+      "expected": "False is defined; 3 rows count 3; null refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL03",
+      "subject": "Joined condition",
+      "expected": "All joined rows positive then mutate endpoint value negative.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL04",
+      "subject": "Port and carrier",
+      "expected": "Compatible OUT/IN accepted; heat mismatch, same direction, observable unit mismatch refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL05",
+      "subject": "Chronology/information",
+      "expected": "Positive durations, stage coverage/refinement; negatives rejected.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL06",
+      "subject": "Service actual witness",
+      "expected": "Missing witness blocks; valid response witness yields finite observation; wrong response counterexample.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL07",
+      "subject": "Capability",
+      "expected": "Ordered FORALL request/EXISTS response, nonvacuity; invalid response set counterexample.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL08",
+      "subject": "Scoped assumption and Bool3",
+      "expected": "Input-derived guard, true/false/unknown assumptions and scope; no observational promotion.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL09",
+      "subject": "Nonanticipativity",
+      "expected": "Stage partitions, equal pre-revelation decisions; leakage counterexample.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL10",
+      "subject": "State endpoints",
+      "expected": "First and last interval native assertions; wrong terminal scope refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL11",
+      "subject": "Multiple profiles",
+      "expected": "3*2 then +1 =7, actual typed dependency and exact roundtrip.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL12",
+      "subject": "Graph tamper/dependency",
+      "expected": "Unpinned input, changed upstream value, undeclared dependency, cycle refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL13",
+      "subject": "Counterfactual",
+      "expected": "100-80=20; declared capacity change only; exogenous drift and false context digest refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL14",
+      "subject": "Coordinate ledger",
+      "expected": "2+4=6; 2*6=12; two unique events carried across slots; missing/double counting refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL15",
+      "subject": "Semantic/audit",
+      "expected": "Set order/docs invariant semantic, exact source/audit change; changed expression semantically different.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL16",
+      "subject": "Evidence/variation",
+      "expected": "Required disclosure; tool conformance request stays NOT_EXECUTED; false PASS refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL17",
+      "subject": "Static vs instance",
+      "expected": "No dataset required for static validity; complete instance roundtrip; missing dataset BLOCKED.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL18",
+      "subject": "Method definition identity",
+      "expected": "Different study/labels, same method definition; different binding identity.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL19",
+      "subject": "Data provenance/conversion",
+      "expected": "Complete source/license/access receipts, 2000 kW = 2 MW, invalid factor refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL20",
+      "subject": "Relation support",
+      "expected": "Actual relation rows bound; changed support/tuple alias refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL21",
+      "subject": "Probability policy",
+      "expected": "SUM_ONE, declared subprobability range 1/2..1, upper >1 refused.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL22",
+      "subject": "Cyclic boundary",
+      "expected": "Two endpoint constraints and equal endpoint values; same-stage alias rejected; noncyclic value counterexample.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL23",
+      "subject": "Model comparison",
+      "expected": "Native scenario deltas 0,-1 under tolerance 1; E3 finite only, E4 NOT_PROVED.",
+      "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL24",
+      "subject": "Original P5 narrow projection: numeric one-year amounts, opaque exogeneity and pending reporting",
+      "expected": "Exact model annual proxies 120/104 EUR for declared one-year period; original non-executed indicators remain blocked; weather/model drift and invented report value refused. Not full original path. Four exact original sample-event identities per model contribute to the output; missing contribution refused.",
+      "oracle": "Frozen P5 fixture and analytical exact weighted differences"
+    },
+    {
+      "id": "CL25",
+      "subject": "Direct conflict, no implicit precedence",
+      "expected": "Identical unconditional positive and prohibited obligation refused; inactive prohibition does not conflict.",
+      "oracle": "independently authored static assertion"
+    },
+    {
+      "id": "CL26",
+      "subject": "Finite robustness metric and native selector",
+      "expected": "Mean 2, variance 1 for costs 1,3 with equal weights; declared minimum 1 satisfies every sample, 3 fails. Not general optimization.",
+      "oracle": "exact analytic synthetic witness"
+    }
+  ],
+  "preserved_original": {
+    "identities": 58,
+    "paths": 116,
+    "traceability": 105,
+    "MS_K": 20,
+    "full_paths_executed": 0
+  }
+}
