@@ -32,7 +32,9 @@ def import_package(text):
 
 def predicate_client(package,predicate_id,expected_role):
     """C2 external-contract client: no method evaluation or A/G implementation."""
-    leaf=import_package(package)
+    return _predicate_from_leaf(import_package(package),predicate_id,expected_role)
+
+def _predicate_from_leaf(leaf,predicate_id,expected_role):
     p=native(leaf["native_canonical"]).program
     matches=[(n,z) for n,z in leaf["interface"]["predicates"].items() if z["id"]==predicate_id]
     need(len(matches)==1,"PREDICATE_ID")

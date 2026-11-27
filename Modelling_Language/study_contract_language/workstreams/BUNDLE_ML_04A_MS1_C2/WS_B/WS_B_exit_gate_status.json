@@ -1,0 +1,18 @@
+{
+  "status": "PARTIAL",
+  "native_tests": {
+    "status": "PASS",
+    "count": 12,
+    "original_profile_migrations": 4,
+    "run_id": 46040116020,
+    "job_id": 140645396629
+  },
+  "blockers": [
+    "Full N2R/N7 context/authority integration",
+    "General native contribution lineage beyond bounded tested subset",
+    "Multi-profile and complete study-profile composition",
+    "Source authority and authorized project changes",
+    "Full output/process projection"
+  ],
+  "conformance": "NOT_PROVED"
+}

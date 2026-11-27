@@ -1,0 +1,3 @@
+# Bounded group assume-guarantee semantics
+
+Native DATA_ASSUMPTION holds/where uses actual complete binary native conditions. No applicable where means NOT_APPLICABLE, never TRUE. False assumptions yield OUTSIDE_ASSUMPTIONS, Unknown or unexecuted assumption yields BLOCKED_ASSUMPTIONS. Finite false guarantee under observed assumptions yields FINITE_COUNTEREXAMPLE, not proof of complete model invalidity. Group registry declares qualified domain kinds consistently across assertions. All supplied assertions and data validate before group classification. No general trace or service evidence completeness; authority remains OWNER_TBD.

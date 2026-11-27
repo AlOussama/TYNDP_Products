@@ -1,0 +1,63 @@
+{
+  "schema": "c2-integrated-metamodel-0.1",
+  "status": "PARTIAL_RESEARCH",
+  "root": "CanonicalStudyContract",
+  "sections": [
+    {
+      "name": "Study Frame",
+      "representation": "native typed domains + study and domain kinds",
+      "status": "PARTIAL"
+    },
+    {
+      "name": "Contract Semantics",
+      "representation": "external-contract-0.2",
+      "status": "FINITE_PARTIAL"
+    },
+    {
+      "name": "Component and Port Semantics",
+      "representation": "R1 n1r typed reference + native physical quantities",
+      "status": "FULL_ADAPTER_OPEN"
+    },
+    {
+      "name": "Mathematical Specification",
+      "representation": "native mathspec canonical YAML, public Program",
+      "status": "NATIVE_BOUNDED"
+    },
+    {
+      "name": "Physical and Semantic Binding",
+      "representation": "C1 Checked context, quantity registry",
+      "status": "BOUNDED"
+    },
+    {
+      "name": "Data and Observable Binding",
+      "representation": "native symbol signatures and snapshot, optional ledger",
+      "status": "PARTIAL"
+    },
+    {
+      "name": "Method and Study Profiles",
+      "representation": "qualified profile and study records",
+      "status": "SINGLE_METHOD_PARTIAL"
+    },
+    {
+      "name": "Verification Requirements",
+      "representation": "explicit verification per assertion",
+      "status": "FINITE_PARTIAL"
+    },
+    {
+      "name": "Governance",
+      "representation": "OWNER_TBD, RESEARCH_ASSUMPTION",
+      "status": "AUTHENTICITY_OPEN"
+    },
+    {
+      "name": "Provenance",
+      "representation": "source/semantic/native/audit identities and migration receipt",
+      "status": "BOUNDED"
+    },
+    {
+      "name": "Evidence",
+      "representation": "recomputed finite receipts",
+      "status": "NOT_PROVED"
+    }
+  ],
+  "identity": "canonical.py; four distinct identity levels; source bytes retained"
+}

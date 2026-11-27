@@ -1,0 +1,9 @@
+function,assessment,scope,limit,C2_disposition
+parser,POTENTIAL_NATIVE_REUSE,restricted mathspec expression strings,outer A/B unaffected,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+AST,POTENTIAL_NATIVE_REUSE,9 native nodes,M2 projection incomplete,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+index,POTENTIAL_NATIVE_REUSE,dense named dimensions,relation support deferred,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+operator registry,PARTIAL_NATIVE_REUSE,9 node admission,contract operator registry remains,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+normalization,POTENTIAL_NATIVE_REUSE,canonical native leaf,no CSNF semantic equivalence,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+serialization,POTENTIAL_NATIVE_REUSE,native canonical YAML,audit sidecar remains,RETAIN_HISTORIC_IMPLEMENTATION_PENDING_C4
+physical typing,RETAIN,tagged R1 Dimension algebra,native does not enforce carrier,RETAIN_REQUIRED
+contract validation,RETAIN,outer obligations and authority,not native,RETAIN_REQUIRED

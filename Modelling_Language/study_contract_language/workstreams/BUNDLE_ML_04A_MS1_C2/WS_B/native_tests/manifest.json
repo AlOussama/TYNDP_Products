@@ -1,0 +1,28 @@
+{
+  "runners": [
+    "../test_methods.py",
+    "../test_original_profiles.py"
+  ],
+  "tests": [
+    "C2-B01",
+    "C2-B02",
+    "C2-B03",
+    "C2-B04",
+    "C2-B05",
+    "C2-B06",
+    "C2-B07",
+    "C2-B08",
+    "C2-B09",
+    "C2-B10",
+    "C2-B11",
+    "C2-B12"
+  ],
+  "environment": "pinned mathspec py313",
+  "last_independent_workstream": {
+    "run": 46038230753,
+    "job": 140639024457,
+    "head": "c8247aa2db1a9f1e0afbe6441fb80326f95d7141",
+    "passed": 8
+  },
+  "additional_integration": "See native_regression_results.json; first original-profile attempt failed, retained."
+}

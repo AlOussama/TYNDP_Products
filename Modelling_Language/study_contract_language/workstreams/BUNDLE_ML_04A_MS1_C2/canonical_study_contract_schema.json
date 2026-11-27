@@ -1,0 +1,693 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:c2:canonical-study-contract-0.1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "enum": [
+        "c2-canonical-study-contract-0.1"
+      ]
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "enum": [
+            "c2-study-contract-input-0.1"
+          ]
+        },
+        "package": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "enum": [
+                "c2-external-contract-0.2"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "domain_kinds": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "time",
+                  "scenario",
+                  "trace",
+                  "request",
+                  "response",
+                  "component",
+                  "port",
+                  "sample"
+                ]
+              }
+            },
+            "assertions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "role": {
+                    "enum": [
+                      "SAFETY_GUARANTEE",
+                      "SERVICE_GUARANTEE",
+                      "CAPABILITY_GUARANTEE",
+                      "DATA_ASSUMPTION",
+                      "TECHNICAL_ASSUMPTION",
+                      "ENVIRONMENT_ASSUMPTION",
+                      "CONDITIONAL_OBLIGATION",
+                      "PERMITTED_BEHAVIOUR",
+                      "PROHIBITED_BEHAVIOUR"
+                    ]
+                  },
+                  "modality": {
+                    "enum": [
+                      "MUST",
+                      "MUST_NOT",
+                      "MAY"
+                    ]
+                  },
+                  "predicate": {
+                    "type": "object",
+                    "properties": {
+                      "predicate_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "role": {
+                        "enum": [
+                          "PREDICATE",
+                          "GUARD",
+                          "DATA_ASSUMPTION"
+                        ]
+                      },
+                      "axes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "scope_id": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "predicate_id",
+                      "role",
+                      "axes",
+                      "scope_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "binders": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "axis": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "kind": {
+                          "enum": [
+                            "time",
+                            "scenario",
+                            "trace",
+                            "request",
+                            "response",
+                            "component",
+                            "port",
+                            "sample"
+                          ]
+                        },
+                        "quantifier": {
+                          "enum": [
+                            "FORALL",
+                            "EXISTS"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "axis",
+                        "kind",
+                        "quantifier"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "guard": {
+                    "enum": [
+                      "TRUE",
+                      "FALSE",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "authority": {
+                    "enum": [
+                      "OWNER_TBD"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "role",
+                  "modality",
+                  "predicate",
+                  "binders",
+                  "guard",
+                  "authority"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "schema",
+            "id",
+            "domain_kinds",
+            "assertions"
+          ],
+          "additionalProperties": false
+        },
+        "contract_ref": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "profile": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "native_signature": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "native_semantic_identity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "source_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "approval": {
+              "enum": [
+                "RESEARCH_ASSUMPTION"
+              ]
+            },
+            "input_roles": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "VALUE",
+                  "PROBABILITY",
+                  "TIME_WEIGHT",
+                  "DURATION_WEIGHT"
+                ]
+              }
+            },
+            "axis_roles": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "scenario",
+                  "time",
+                  "sample"
+                ]
+              }
+            },
+            "parameter_ranges": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "min": {
+                    "type": [
+                      "string",
+                      "integer"
+                    ]
+                  },
+                  "max": {
+                    "type": [
+                      "string",
+                      "integer"
+                    ]
+                  }
+                },
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "probability_rules": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "SUM_ONE"
+                ]
+              }
+            },
+            "counterfactual_pairs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reference": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "alternative": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "reference",
+                  "alternative"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "ledger": {
+              "type": "object",
+              "properties": {
+                "policy": {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "enum": [
+                        "ledger-policy-r1"
+                      ]
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "rules": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "enum": [
+                          "ALLOW_REUSE",
+                          "DISJOINT"
+                        ]
+                      }
+                    },
+                    "expected": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema",
+                    "id",
+                    "version",
+                    "rules",
+                    "expected"
+                  ],
+                  "additionalProperties": false
+                },
+                "bindings": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "role": {
+                        "enum": [
+                          "contribution",
+                          "auxiliary"
+                        ]
+                      },
+                      "observable": {
+                        "type": "string"
+                      },
+                      "case": {
+                        "type": "string"
+                      },
+                      "data_ref": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "role",
+                      "observable",
+                      "case",
+                      "data_ref"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "key_axes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "required": [
+                "policy",
+                "bindings",
+                "key_axes"
+              ],
+              "additionalProperties": false
+            },
+            "output_contract": {
+              "type": "object",
+              "properties": {
+                "external": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                },
+                "intermediate": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "required": [
+                "external",
+                "intermediate"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "native_signature",
+            "native_semantic_identity",
+            "source_ref",
+            "source_sha256",
+            "approval",
+            "input_roles",
+            "axis_roles",
+            "parameter_ranges",
+            "probability_rules",
+            "counterfactual_pairs",
+            "outputs"
+          ],
+          "additionalProperties": false
+        },
+        "study": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "profile_identity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "native_study_identity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "data_context_identity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "case_context_identity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "owner": {
+              "enum": [
+                "OWNER_TBD"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "profile_identity",
+            "native_study_identity",
+            "data_context_identity",
+            "case_context_identity",
+            "owner"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "parameters": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "integer",
+                          "string"
+                        ]
+                      }
+                    },
+                    "value": {
+                      "type": [
+                        "integer",
+                        "string",
+                        "boolean"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "relations": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "parameters",
+            "relations"
+          ],
+          "additionalProperties": false
+        },
+        "case_context": {
+          "type": "object",
+          "properties": {
+            "pairs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reference_exogenous": {
+                    "type": "object"
+                  },
+                  "alternative_exogenous": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "id",
+                  "reference_exogenous",
+                  "alternative_exogenous"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "contributions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "series": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "key": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "string",
+                        "integer"
+                      ]
+                    }
+                  },
+                  "case": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "observable": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "event": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "series",
+                  "key",
+                  "case",
+                  "observable",
+                  "event"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "pairs"
+          ],
+          "additionalProperties": false
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "assertion_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "FINITE_OBSERVATION"
+                ]
+              },
+              "authority": {
+                "enum": [
+                  "OWNER_TBD"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "assertion_id",
+              "kind",
+              "authority"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "contract",
+        "contract_ref",
+        "profile",
+        "study",
+        "source",
+        "data",
+        "case_context",
+        "verification"
+      ],
+      "additionalProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "description": "Recomputed by canonical.reimport, no caller authority. Full cross-field semantic checks are code, not JSON Schema."
+    }
+  },
+  "required": [
+    "schema",
+    "input",
+    "receipt"
+  ],
+  "additionalProperties": false
+}

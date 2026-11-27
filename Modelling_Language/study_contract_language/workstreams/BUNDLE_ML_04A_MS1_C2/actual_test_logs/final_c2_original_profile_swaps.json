@@ -1,0 +1,310 @@
+[
+  {
+    "family": "R1",
+    "label": "begin",
+    "migration": {
+      "data_sha256": "7f792b2062fd977d20ba988158161000dad92b920f758491df31eb0a57d3bcbb",
+      "legacy_audit_identity": "d0fe4fe40ded45072b4a243246ea0d21bc776334da58467604024731beec73d9",
+      "legacy_math_canonical_sha256": "176e1522d74ba0a6915577ea276bf15b2a03a96ac9b228916424655c0ad062e3",
+      "legacy_scope": "FINITE_RESEARCH_MIGRATION_NOT_GENERAL_EQUIVALENCE",
+      "method_path": "BUNDLE_ML_04A_R1/fixtures/method-begin.json",
+      "method_sha256": "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d",
+      "migration_package_identity": "b8cb27c1c52d4637076ea9a32aa63ffc77baeaa0af62d8d0bff189f9a8e4f5d0",
+      "source_pin": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "study_sha256": "9777adbbd13245ebc4b5b9b78a14d2771609708a2315841f0ef1f8e2d3df0125"
+    },
+    "receipt": {
+      "conditions": {},
+      "conformance": "NOT_PROVED",
+      "context": {
+        "context_identity": "204f6412372ee3b91dc535a59a4289540bb736657ac501d9430c5914604a0001",
+        "data_audit_identity": "d799f4e5fe1d83743dc007f1fb4d0a4fa78e2ffdba5a3f85e41935a303126f9c",
+        "data_identity": "be72e0f42b65eef211ca0e91883803a8c076137942ec49819aceb7abf6d8769b",
+        "leaf_identity": "d3617ed6fd85232a429e8089917335cd2c42a296cfa3fac4b9b70f796b905ca5",
+        "method_identity": "f937463280c7d3dea7a44a66b6d23fb60ed1b53af5ce9009bdf006a2ce858699",
+        "owner": "OWNER_TBD",
+        "predicate_verdict": "NOT_EXECUTED",
+        "schema": "canonical-first-research-0.4",
+        "scientific_claim": "NONE",
+        "stage": "FINITE_INPUT_SUPPORT_ONLY",
+        "study_identity": "b85786afbec67b684fc8c12ca3ccd3fb8fd6829d0bac2862a2eda903f3b9f299"
+      },
+      "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+      "external_outputs": {
+        "output:summary": [
+          "415/11"
+        ]
+      },
+      "identities": {
+        "audit": "b8cb27c1c52d4637076ea9a32aa63ffc77baeaa0af62d8d0bff189f9a8e4f5d0",
+        "native": "1bd0135b76c64cfa4b29074bebe477d01c19c0d87731814f6cab2b8bf8dda462",
+        "original_source": "0855107ea5be1f38ed935f819873ee8d0ca536bb9537a895614aacc0e5ff943d",
+        "semantic": "208b63e96da7342d329bbcbb547e74d721107233bb9cb259df9968cdbd12474b"
+      },
+      "ledger": {
+        "conformance": "NOT_PROVED",
+        "lineage": {
+          "delta": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          },
+          "discounted": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          },
+          "summary": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          }
+        },
+        "scope": "SAME_SUPPORT_AFFINE_FINITE_LINEAGE",
+        "status": "FINITE_EXECUTED"
+      },
+      "outputs": {
+        "delta": [
+          "20",
+          "10",
+          "30",
+          "20"
+        ],
+        "discounted": [
+          "20",
+          "10",
+          "300/11",
+          "200/11"
+        ],
+        "summary": [
+          "415/11"
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "profile_identity": "0ca6f12fc0a106ff1a2a90620c325601090e323feae1aa792d1c82e51f7a5d6a",
+      "study_identity": "01a2f649afb54e6d55e02b39d58d35114dae80b4e14ca7ba40d4567744e9bd36"
+    }
+  },
+  {
+    "family": "R1",
+    "label": "end",
+    "migration": {
+      "data_sha256": "7f792b2062fd977d20ba988158161000dad92b920f758491df31eb0a57d3bcbb",
+      "legacy_audit_identity": "c3acb4d2c724ea9fe4a94f781e530b3502a6093fc39eeaf675e8c94266ed6049",
+      "legacy_math_canonical_sha256": "8024197dc52ea30cf88b67fd1250c71e9c9f9630147e97f0902564c745cdca5a",
+      "legacy_scope": "FINITE_RESEARCH_MIGRATION_NOT_GENERAL_EQUIVALENCE",
+      "method_path": "BUNDLE_ML_04A_R1/fixtures/method-end.json",
+      "method_sha256": "207fb0c06065f637872bcfef0a71ac349969d727b2a28b22e75d64faa2e92e7e",
+      "migration_package_identity": "a410b41b4f4ba5e6f8e6f2c8e0979db55b7a78e8f17175e6c8d8de58e4fc8cc3",
+      "source_pin": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "study_sha256": "bed16e1fd2363f30b59589a2559e2f534aa080324d023460e959eba45d3e83f0"
+    },
+    "receipt": {
+      "conditions": {},
+      "conformance": "NOT_PROVED",
+      "context": {
+        "context_identity": "ea2e160f640d952947c7417c2f4018c92891eab6cd7849c78a2f85eaab9fc58d",
+        "data_audit_identity": "d799f4e5fe1d83743dc007f1fb4d0a4fa78e2ffdba5a3f85e41935a303126f9c",
+        "data_identity": "be72e0f42b65eef211ca0e91883803a8c076137942ec49819aceb7abf6d8769b",
+        "leaf_identity": "2d240ca1d804d29bd2324b8ec0218351f7d593f3ccd475251908909ec3b6253a",
+        "method_identity": "6c9569ee88e1dc3c252b817f5ed83d6c53aed0e4f019d319454eae5085c5e1a4",
+        "owner": "OWNER_TBD",
+        "predicate_verdict": "NOT_EXECUTED",
+        "schema": "canonical-first-research-0.4",
+        "scientific_claim": "NONE",
+        "stage": "FINITE_INPUT_SUPPORT_ONLY",
+        "study_identity": "469c235eac50f0a436af17098a656de44634479d75e8daf5726f0fc2368d1edd"
+      },
+      "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+      "external_outputs": {
+        "output:summary": [
+          "4150/121"
+        ]
+      },
+      "identities": {
+        "audit": "a410b41b4f4ba5e6f8e6f2c8e0979db55b7a78e8f17175e6c8d8de58e4fc8cc3",
+        "native": "a63aff664665f977c4794a3c62dc1427404e801b3b93c00b77ebdc349c2a6288",
+        "original_source": "ce159832c03c29de2d32eb64fd32bb9d523b83bb63497a5a982ace2486676926",
+        "semantic": "ac1c87409fe68f137c2d372db8c007df6194497ff9f33f3c7485f017dc76c951"
+      },
+      "ledger": {
+        "conformance": "NOT_PROVED",
+        "lineage": {
+          "delta": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          },
+          "discounted": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          },
+          "summary": {
+            "04289cbbd4a260eb288d9e351a481db64cb01ca36e5a13c91a91b0a5fe440f17": 1,
+            "0e9813b8749c0e05880ead74191c64f6d6276b5590116cef0ebec2e4bef82361": 1,
+            "9a9ffeac6db0451df222b6b85737e194b8850059f88bcdfbe2038cb135fbad6b": 1,
+            "a82a41d4f302428bee3e9d47bf897b6d976b427b675181fe25afb660e87d7fd8": 1,
+            "c745146493a7931ccb1c12ab5cc35a98217efe0752a10ff7a3686cc7e4df07c6": 1,
+            "d5aba0ffd4dfbba936215e1212d6005d0fc156d92e9e52060812685c7fde3c21": 1,
+            "df5ad46c96641f23df0e06f59d0deca525096a2197db978d14c32294ea3d9640": 1,
+            "e4250415798952dce49a597eec60746d64c11691f277f44e3dba820cb49d508e": 1
+          }
+        },
+        "scope": "SAME_SUPPORT_AFFINE_FINITE_LINEAGE",
+        "status": "FINITE_EXECUTED"
+      },
+      "outputs": {
+        "delta": [
+          "20",
+          "10",
+          "30",
+          "20"
+        ],
+        "discounted": [
+          "200/11",
+          "100/11",
+          "3000/121",
+          "2000/121"
+        ],
+        "summary": [
+          "4150/121"
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "profile_identity": "cc2dd88f5f186a13abb0090fcc810e100a96da39b8e35e00eba03595f2675c52",
+      "study_identity": "1cc9697c28bc1ec2d2865e1d5e5244de4b04b334d83cfac9f0856cae55d5c85d"
+    }
+  },
+  {
+    "family": "MS1",
+    "label": "gross",
+    "migration": {
+      "data_sha256": "f5f38cc326dd795a2c86326ad7128fa6f1384dfd6d9812265c6ea2f3377bc660",
+      "legacy_audit_identity": null,
+      "legacy_math_canonical_sha256": "deb9bad752f8afcd9e930303aca6ba1b9abf45bd121a0e0339ad35a5655b822c",
+      "legacy_scope": "FINITE_RESEARCH_MIGRATION_NOT_GENERAL_EQUIVALENCE",
+      "method_path": "BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/gross.json",
+      "method_sha256": "92871afcb5347e52458ecc8122ec7bd3ec2df5e231111aaa31306a6b55a0642d",
+      "migration_package_identity": "d42f8e3811c7ef32111c47b2578d56c8545e51be7c5da296727b937d21eb3a79",
+      "source_pin": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "study_sha256": "46d0a86e6d3a082c1a201ef194a0e099c18efff094c6bb9faeb091d3526f09b5"
+    },
+    "receipt": {
+      "conditions": {},
+      "conformance": "NOT_PROVED",
+      "context": {
+        "context_identity": "8357a0be196b511c35b62ba8cd231923919b4bbba5c7d6b00f21dc62ca3d954c",
+        "data_audit_identity": "e096395b46f4b5746f3a95b50e85505d6f6665dc3df2a63ccee3ee8eb0abe6b3",
+        "data_identity": "e096395b46f4b5746f3a95b50e85505d6f6665dc3df2a63ccee3ee8eb0abe6b3",
+        "leaf_identity": "15e46579bbb9781f3bfd61feeebf4bc66483f5a79049cff1c1d6a35c6252f816",
+        "method_identity": "7d66c3e7f53596a1688d6e2e8d2abe4dc81417e2eb2fccef224dcc72009da76f",
+        "owner": "OWNER_TBD",
+        "predicate_verdict": "NOT_EXECUTED",
+        "schema": "canonical-first-research-0.2",
+        "scientific_claim": "NONE",
+        "stage": "FINITE_INPUT_SUPPORT_ONLY",
+        "study_identity": "193566f37d85faf4d9adfb7e675d8da0128f8c59907e886342bc91f51cc7bb79"
+      },
+      "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+      "external_outputs": {
+        "output:summary": [
+          "5"
+        ]
+      },
+      "identities": {
+        "audit": "d42f8e3811c7ef32111c47b2578d56c8545e51be7c5da296727b937d21eb3a79",
+        "native": "d52de37336734f5fc3ae75fe7a51cb4c3ea5a25dacff6ff09fea068cc0ff59df",
+        "original_source": "75344572ece7ce7b2a0ca2262f06574fa1361a38ac4e5c56068806d4593c3403",
+        "semantic": "f063662f972a01b5b9506536893bb666b37b3ccd801c7b9192c534f7cf89c59d"
+      },
+      "ledger": "NOT_EXECUTED",
+      "outputs": {
+        "summary": [
+          "5"
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "profile_identity": "e9702bb7fc99b44ea69ee129861911f497189126b3034e1bf515c3643a7485df",
+      "study_identity": "c49d785f6944f8ab61dbb136e792823a24ac9e3acd0ce06da7e5d3bc381e2db6"
+    }
+  },
+  {
+    "family": "MS1",
+    "label": "eligible",
+    "migration": {
+      "data_sha256": "f5f38cc326dd795a2c86326ad7128fa6f1384dfd6d9812265c6ea2f3377bc660",
+      "legacy_audit_identity": null,
+      "legacy_math_canonical_sha256": "0af4445adb6f989cdf25efa6536c8508726d05cd94216213e06d5d3c9b4f567f",
+      "legacy_scope": "FINITE_RESEARCH_MIGRATION_NOT_GENERAL_EQUIVALENCE",
+      "method_path": "BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/eligible.json",
+      "method_sha256": "890bedfd39771f0a24396e5cc0b385585249f23c689d4a0f9180a836fc4c118e",
+      "migration_package_identity": "f724001e4d8c06d3772e9edc94e8b3717d9105eddc6171a4731b8c90d9b36bd5",
+      "source_pin": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "study_sha256": "46d0a86e6d3a082c1a201ef194a0e099c18efff094c6bb9faeb091d3526f09b5"
+    },
+    "receipt": {
+      "conditions": {},
+      "conformance": "NOT_PROVED",
+      "context": {
+        "context_identity": "bedd9815bbe1a807b0162f8612399500c5aec2889728ecdb85606f22a610d5fe",
+        "data_audit_identity": "e096395b46f4b5746f3a95b50e85505d6f6665dc3df2a63ccee3ee8eb0abe6b3",
+        "data_identity": "e096395b46f4b5746f3a95b50e85505d6f6665dc3df2a63ccee3ee8eb0abe6b3",
+        "leaf_identity": "86801ed07e43a0630acce04c09e1d70fff7140ce855049f448ea56b1ef21cb26",
+        "method_identity": "978357c1a125419e5d09faff093fb91bf59288c4244dff65c656cd2e79415c0e",
+        "owner": "OWNER_TBD",
+        "predicate_verdict": "NOT_EXECUTED",
+        "schema": "canonical-first-research-0.2",
+        "scientific_claim": "NONE",
+        "stage": "FINITE_INPUT_SUPPORT_ONLY",
+        "study_identity": "ba0fc8c24632d58c5bbfe23a92a914302d6c2ee0117bff338e70ca7006f024fe"
+      },
+      "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+      "external_outputs": {
+        "output:summary": [
+          "3"
+        ]
+      },
+      "identities": {
+        "audit": "f724001e4d8c06d3772e9edc94e8b3717d9105eddc6171a4731b8c90d9b36bd5",
+        "native": "1a5cdfa81bbc76e3dc3e55bec441e10df4aef91dce1f8f28eb6481a4eb2c47f8",
+        "original_source": "b473a554d27c0f73a7055d0c2173f4ffdf295e7ab34e76c525871792397d8d9b",
+        "semantic": "446136224a1199ab36ac659f96b81f6db4af788a8d873a519d67a770e2c1b1bd"
+      },
+      "ledger": "NOT_EXECUTED",
+      "outputs": {
+        "summary": [
+          "3"
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "profile_identity": "1f5b219bec3fae7dbefc34dcb3026a94bfca28094ff04b88ce1265274cb9b958",
+      "study_identity": "3fb5a1a164d5564bde7cd47d9e5bdea0bb29b9dfee1f4ca9baa9a98acc303efc"
+    }
+  }
+]

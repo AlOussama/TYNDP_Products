@@ -1,0 +1,19 @@
+{
+  "runner": "../test_contract.py",
+  "tests": [
+    "C2-A01",
+    "C2-A02",
+    "C2-A03",
+    "C2-A04",
+    "C2-A05",
+    "C2-A06",
+    "C2-A07"
+  ],
+  "environment": "pinned mathspec py313",
+  "latest_workstream_ci": {
+    "run": 46038424853,
+    "job": 140639647522,
+    "head": "bf36a1aa41c6819b48b7c92408e69e819e76210d",
+    "passed": 7
+  }
+}

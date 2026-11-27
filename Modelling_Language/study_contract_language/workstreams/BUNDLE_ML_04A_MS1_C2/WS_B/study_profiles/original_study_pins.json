@@ -1,0 +1,26 @@
+{
+  "profiles": [
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/study-begin.json",
+      "blob": "11904adb48d44876b672ac9c310d1854a1053720",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/study-end.json",
+      "blob": "1da2c37f84310796fde76d334d3fd94c14767bf0",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/study.json",
+      "blob": "eeb2b0d4079ff0682b5cc72fe8cb041226e77d44",
+      "match": true
+    }
+  ],
+  "binding": "StudyProfile generated from exact source identity, profile, data and case context by original_profiles.py and test_methods.py; see actual receipts"
+}

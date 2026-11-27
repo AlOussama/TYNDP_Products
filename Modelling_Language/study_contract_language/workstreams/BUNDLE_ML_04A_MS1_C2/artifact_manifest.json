@@ -1,0 +1,515 @@
+{
+  "schema": "c2-artifact-manifest-0.1",
+  "scope": "All C2 artifacts at evidence tree excluding manifest itself to avoid recursive self hash",
+  "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+  "pre_manifest_tree": "d347d63ebd1f85aa3d16411a8f58b00c2bd310d9",
+  "ci_run_id": 46040116020,
+  "ci_job_id": 140645396629,
+  "files": [
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2_summary.md",
+      "git_blob_sha": "cc6f49a05ee80e3d869bd86b115de30828afdc54",
+      "size": 1790
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C3_handoff.md",
+      "git_blob_sha": "ab9b14d2d238ce277bf9fd572ec2225b1862b3d1",
+      "size": 3334
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "88ecee023a1ac018d9ea5299ea933da0ef01a054",
+      "size": 752
+    },
+    {
+      "path": "WS_A/WS_A_critical_review.md",
+      "git_blob_sha": "3359803a6ad488e437e035800b52edb439b801b1",
+      "size": 668
+    },
+    {
+      "path": "WS_A/WS_A_exit_gate_status.json",
+      "git_blob_sha": "37fca952bade2e87b5875519db803c1d1b769538",
+      "size": 454
+    },
+    {
+      "path": "WS_A/actual_test_logs/README.md",
+      "git_blob_sha": "5df4761268f66e5036bf7b345fc924e276468ad6",
+      "size": 253
+    },
+    {
+      "path": "WS_A/assume_guarantee_semantics.md",
+      "git_blob_sha": "dcb824d19d8a26e9e3f3ee475fa7542297470301",
+      "size": 636
+    },
+    {
+      "path": "WS_A/bool3_and_applicability_semantics.md",
+      "git_blob_sha": "8530420ea3d22a2393abb98fb3f17708e428311f",
+      "size": 880
+    },
+    {
+      "path": "WS_A/component_port_semantics.md",
+      "git_blob_sha": "194d7f1094b3081c0b717315f3d6569671102d1f",
+      "size": 1596
+    },
+    {
+      "path": "WS_A/contract.py",
+      "git_blob_sha": "c8ab460c36d8cc2a2bb35221d4acfa89d3d142ef",
+      "size": 6891
+    },
+    {
+      "path": "WS_A/contract_concrete_syntax.md",
+      "git_blob_sha": "c82ae46f6791d5e7e2aef5fc5f44e6bb3b0ba04a",
+      "size": 914
+    },
+    {
+      "path": "WS_A/contract_metamodel.json",
+      "git_blob_sha": "b319e71efe8b23a2f7d20c6d5c52abe610245929",
+      "size": 809
+    },
+    {
+      "path": "WS_A/contract_reference_fragments/README.md",
+      "git_blob_sha": "1c55d921307b05f4ecb0f8a1c1d9ba6a0674eafd",
+      "size": 723
+    },
+    {
+      "path": "WS_A/contract_requirement_traceability.csv",
+      "git_blob_sha": "4e73c6a177bf900631b19281e00552c33a33108e",
+      "size": 10618
+    },
+    {
+      "path": "WS_A/contract_reuse_and_extension_register.csv",
+      "git_blob_sha": "ae9917acc8fb3f7a0850c6eedbce1a563568c5cb",
+      "size": 759
+    },
+    {
+      "path": "WS_A/external_contract_language_specification.md",
+      "git_blob_sha": "67f04e861ebfe9f02d47410d52d134e2d1729f1b",
+      "size": 2482
+    },
+    {
+      "path": "WS_A/formal_contract_semantics.md",
+      "git_blob_sha": "fe14e31aaa0f10cdab36388632e1b8ef1eee100d",
+      "size": 2124
+    },
+    {
+      "path": "WS_A/modelling_freedom_specification.md",
+      "git_blob_sha": "7ad5ce0bd30ef98cfd6f2918816fdc7fd83a8d77",
+      "size": 818
+    },
+    {
+      "path": "WS_A/native_tests/manifest.json",
+      "git_blob_sha": "1ba7b8b32223c1886b7e342903930457a9b5233a",
+      "size": 349
+    },
+    {
+      "path": "WS_A/physical_quantity_and_conversion_specification.md",
+      "git_blob_sha": "c3045d925a737e9344d695aee77765649ebc9ee9",
+      "size": 935
+    },
+    {
+      "path": "WS_A/quantifier_and_scope_semantics.md",
+      "git_blob_sha": "b306ebeb39d9d26af966fb8a7fd7fdb4ab60a1a7",
+      "size": 917
+    },
+    {
+      "path": "WS_A/schemas/external_contract.schema.json",
+      "git_blob_sha": "63a638090c26c2b59d30cdc1806e9f3db60dac16",
+      "size": 3764
+    },
+    {
+      "path": "WS_A/temporal_relation_information_semantics.md",
+      "git_blob_sha": "81f854c0e189bc929f9f17a7f8107ef21734059a",
+      "size": 897
+    },
+    {
+      "path": "WS_A/test_contract.py",
+      "git_blob_sha": "29e82a07a0c844e21aa26c227b3d5e2cde92878d",
+      "size": 5960
+    },
+    {
+      "path": "WS_B/WS_B_critical_review.md",
+      "git_blob_sha": "0ea6163949ea6f6c0b9ccbd18ca5d21ec74dfa5b",
+      "size": 815
+    },
+    {
+      "path": "WS_B/WS_B_exit_gate_status.json",
+      "git_blob_sha": "f43fa2d713c5bcb48c9a77936646697fb8d67ea0",
+      "size": 507
+    },
+    {
+      "path": "WS_B/actual_test_logs/README.md",
+      "git_blob_sha": "6130251f121700b05922a93b971fc4c7ff964475",
+      "size": 321
+    },
+    {
+      "path": "WS_B/actual_test_logs/first_failure.md",
+      "git_blob_sha": "d28e14134aa8e8fdf15e834a6461144012880565",
+      "size": 567
+    },
+    {
+      "path": "WS_B/actual_test_logs/original_profile_first_failure.md",
+      "git_blob_sha": "9f58204800f55d540508bcb5beb57de331349eb9",
+      "size": 698
+    },
+    {
+      "path": "WS_B/affine_boundary.py",
+      "git_blob_sha": "00cc1723bb380169006457aebbe68edde0b2d4af",
+      "size": 3776
+    },
+    {
+      "path": "WS_B/contribution_ledger_semantics.md",
+      "git_blob_sha": "215f10d000192a2e5e3054fade7f4a4226727c51",
+      "size": 711
+    },
+    {
+      "path": "WS_B/counterfactual_semantics.md",
+      "git_blob_sha": "4d6bc137951ffb69ab9c61b51f1f6f4971464930",
+      "size": 756
+    },
+    {
+      "path": "WS_B/evidence_lifecycle_specification.md",
+      "git_blob_sha": "092d8ddefa537862cccce7f31081d5911c4e9738",
+      "size": 557
+    },
+    {
+      "path": "WS_B/general_method_profile_specification.md",
+      "git_blob_sha": "2689f630ff915ddb4472b47b7e07f86522f74d79",
+      "size": 1886
+    },
+    {
+      "path": "WS_B/general_study_profile_specification.md",
+      "git_blob_sha": "347e73f60b9fd912853ae080a109b2f55e3c9dab",
+      "size": 599
+    },
+    {
+      "path": "WS_B/interface_change_request_ICR002.json",
+      "git_blob_sha": "8aa31ea3444a050c0f926a53161e36c3f802d519",
+      "size": 1029
+    },
+    {
+      "path": "WS_B/method_authority_and_governance.md",
+      "git_blob_sha": "29b007f23a273f80c11fcfb79a4c280352c00eed",
+      "size": 831
+    },
+    {
+      "path": "WS_B/method_context_binding_specification.md",
+      "git_blob_sha": "6746e5cff4b9d4883989d9bc2be0999980c258cb",
+      "size": 855
+    },
+    {
+      "path": "WS_B/method_profile_schema.json",
+      "git_blob_sha": "e206b98f57a90a1399ddaf21f9e8cfd991e9fe5d",
+      "size": 5547
+    },
+    {
+      "path": "WS_B/method_profiles/original_profile_pins.json",
+      "git_blob_sha": "7f24ae9cd0e895e0a2f2d8cfd29e417e03ae966a",
+      "size": 1381
+    },
+    {
+      "path": "WS_B/method_requirement_traceability.csv",
+      "git_blob_sha": "e10b3ad86d2596e71e7a629b83891271a0392fd8",
+      "size": 11180
+    },
+    {
+      "path": "WS_B/method_reuse_and_extension_register.csv",
+      "git_blob_sha": "0fc6cc61e5920cdb16f208c619dddb6f0db023bc",
+      "size": 856
+    },
+    {
+      "path": "WS_B/method_swap_receipts/new_native_swap.json",
+      "git_blob_sha": "77ec9d3b8a37fc2f01891ad8916a76ddb46e11bd",
+      "size": 3362
+    },
+    {
+      "path": "WS_B/method_swap_receipts/original_ms1_swaps.json",
+      "git_blob_sha": "9dd228975f5ae1aed0d7e328feacfb5415b3b5c0",
+      "size": 4142
+    },
+    {
+      "path": "WS_B/method_swap_receipts/original_profile_migration.json",
+      "git_blob_sha": "54a13878bc69fe8956a01aa74dfe7071302090e6",
+      "size": 15237
+    },
+    {
+      "path": "WS_B/methods.py",
+      "git_blob_sha": "99681dc4072a5aeda5e78eb3f3060fe8a5cf4d76",
+      "size": 7585
+    },
+    {
+      "path": "WS_B/native_ledger.py",
+      "git_blob_sha": "e740180d9e119de472bf8efb9ed0a3645ad854ff",
+      "size": 4486
+    },
+    {
+      "path": "WS_B/native_tests/manifest.json",
+      "git_blob_sha": "71fbc946410d2554cbc85995ba7d8dd6cf0a4f8f",
+      "size": 588
+    },
+    {
+      "path": "WS_B/observable_binding_specification.md",
+      "git_blob_sha": "0d4e44c2c70b3e4cd45856d0608f1bb8224998f8",
+      "size": 782
+    },
+    {
+      "path": "WS_B/original_profiles.py",
+      "git_blob_sha": "cd11b79255da8fc7a10b5804c8477fabf41fc79c",
+      "size": 8444
+    },
+    {
+      "path": "WS_B/power_admission_specification.md",
+      "git_blob_sha": "a8903cd7f91ab144961ac22d881f28304cdda8e7",
+      "size": 1030
+    },
+    {
+      "path": "WS_B/power_boundary.py",
+      "git_blob_sha": "c647a17d1f01023fed48fe7b7c460da1a44ae5d1",
+      "size": 5149
+    },
+    {
+      "path": "WS_B/semantic_identity_and_provenance_specification.md",
+      "git_blob_sha": "d7f3e7a1e4ff6dfda7e88d0682d38ac2199f7ca5",
+      "size": 829
+    },
+    {
+      "path": "WS_B/study_profile_schema.json",
+      "git_blob_sha": "d3485417f540cf1c0c60dd0cf99a20ccbd3b1f41",
+      "size": 919
+    },
+    {
+      "path": "WS_B/study_profiles/original_study_pins.json",
+      "git_blob_sha": "c46aaf0b413927615b235bf41246303dd0d65b27",
+      "size": 1068
+    },
+    {
+      "path": "WS_B/synthetic_data/source_pins.json",
+      "git_blob_sha": "392979ae3a2410e2a7acb12ab8e0b75f71c7d1fe",
+      "size": 827
+    },
+    {
+      "path": "WS_B/test_methods.py",
+      "git_blob_sha": "31dd601dc1ab92ed496aa22e783b7d4b44eb2b42",
+      "size": 7086
+    },
+    {
+      "path": "WS_B/test_original_profiles.py",
+      "git_blob_sha": "db6af79e848efa6e2f3e43aef6c7ed9752639dfe",
+      "size": 3364
+    },
+    {
+      "path": "actual_test_logs/final_c1_comp_ablation.json",
+      "git_blob_sha": "721c075ec17d7101405a465cf744bbbe65ff16bb",
+      "size": 5885
+    },
+    {
+      "path": "actual_test_logs/final_c1_comp_results.json",
+      "git_blob_sha": "cbc4db721956ca3829932c510e3092f5a6900956",
+      "size": 56223
+    },
+    {
+      "path": "actual_test_logs/final_c1_corpus_oracles.json",
+      "git_blob_sha": "a32dd99283819e646356ee12b01eca784e82d8af",
+      "size": 11893
+    },
+    {
+      "path": "actual_test_logs/final_c1_m0_partial.json",
+      "git_blob_sha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+      "size": 3
+    },
+    {
+      "path": "actual_test_logs/final_c2_expow.json",
+      "git_blob_sha": "4486184eb2c8e450a296f25f1b7e908dd608e3bc",
+      "size": 1542
+    },
+    {
+      "path": "actual_test_logs/final_c2_integrated_rc09.json",
+      "git_blob_sha": "dae92aca40e7b1a68626d5ea8a97039d69d82dd2",
+      "size": 2897
+    },
+    {
+      "path": "actual_test_logs/final_c2_original_profile_swaps.json",
+      "git_blob_sha": "54a13878bc69fe8956a01aa74dfe7071302090e6",
+      "size": 15237
+    },
+    {
+      "path": "actual_test_logs/final_c2_synthetic_swap.json",
+      "git_blob_sha": "77ec9d3b8a37fc2f01891ad8916a76ddb46e11bd",
+      "size": 3362
+    },
+    {
+      "path": "actual_test_logs/final_finite_rc.json",
+      "git_blob_sha": "e7993b45c10f64bf88e96b26d89fc9ab512cb8ac",
+      "size": 891
+    },
+    {
+      "path": "actual_test_logs/final_method_receipts.json",
+      "git_blob_sha": "9dd228975f5ae1aed0d7e328feacfb5415b3b5c0",
+      "size": 4142
+    },
+    {
+      "path": "actual_test_logs/final_p5_original.json",
+      "git_blob_sha": "2ff3a78db4991909ab07654513d198b849bc6f4e",
+      "size": 7501
+    },
+    {
+      "path": "actual_test_logs/run_46037963133_job_140638097226.log",
+      "git_blob_sha": "eb0979bfe8e5ad3e1614636305bf8ed679086b88",
+      "size": 62900
+    },
+    {
+      "path": "actual_test_logs/run_46039430432_job_140643075380.log",
+      "git_blob_sha": "ec8f66899f87841191dac40b9842e801dc0baebb",
+      "size": 74693
+    },
+    {
+      "path": "actual_test_logs/run_46040116020_job_140645396629.log",
+      "git_blob_sha": "5fd83e6a74a50f1684879ce5243b063e46f5d2af",
+      "size": 100090
+    },
+    {
+      "path": "canonical.py",
+      "git_blob_sha": "614cc970ddf53e6a29d88f5400d601d4860f3380",
+      "size": 3382
+    },
+    {
+      "path": "canonical_study_contract_schema.json",
+      "git_blob_sha": "38930dbf2042e3a92ac893e77f6cb3bfbca6449e",
+      "size": 19638
+    },
+    {
+      "path": "canonical_study_contract_specification.md",
+      "git_blob_sha": "d7f9898481cc48b57bf029f99c8ee3f5b697b399",
+      "size": 1808
+    },
+    {
+      "path": "controlled_mathspec_subset.yaml",
+      "git_blob_sha": "36df8ab51d7bf17bed6c3279786061afd3d9f6d7",
+      "size": 15346
+    },
+    {
+      "path": "critical_review.md",
+      "git_blob_sha": "b740a8dfdd1683b9b5faf477bda1dd6aaa1f3a84",
+      "size": 2065
+    },
+    {
+      "path": "dependency_manifest.json",
+      "git_blob_sha": "7d06b62cc8f2731399cf3f11c0edc600fc77d137",
+      "size": 5510
+    },
+    {
+      "path": "evidence_register.csv",
+      "git_blob_sha": "f7935f7cb1f907755be6004583134b7801fd1b5e",
+      "size": 1842
+    },
+    {
+      "path": "formal_semantics_specification.md",
+      "git_blob_sha": "424f9be3b1ddce267e5b23ebec221d38bc304ecb",
+      "size": 2262
+    },
+    {
+      "path": "gate_status.json",
+      "git_blob_sha": "93f541af41e39a34fb5fbf1e0ceb1c678f7450aa",
+      "size": 2181
+    },
+    {
+      "path": "general_study_contract_language_specification.md",
+      "git_blob_sha": "6a94753f8a9d565f68f9b1e8193ee7c4c2687dbe",
+      "size": 4806
+    },
+    {
+      "path": "integrated_language_metamodel.json",
+      "git_blob_sha": "129e469ead10a5e01936abdae6ddbef79ad14790",
+      "size": 1869
+    },
+    {
+      "path": "interface.py",
+      "git_blob_sha": "aab9d76fd057d32b3d06400e88ce20d47aa163da",
+      "size": 1825
+    },
+    {
+      "path": "interface_change_register.json",
+      "git_blob_sha": "82a793784d902af450ebeb168564d28ff6ff9250",
+      "size": 3042
+    },
+    {
+      "path": "mathematical_integration_interface.json",
+      "git_blob_sha": "0a6963802093c2066876a3ca319ad6ae904c6b4f",
+      "size": 2769
+    },
+    {
+      "path": "native_regression_results.json",
+      "git_blob_sha": "10bb83b032dbbbb08b7478d96e6cfd74f429219d",
+      "size": 108144
+    },
+    {
+      "path": "original_regression_manifest.json",
+      "git_blob_sha": "7ed73cf1080d7443141ee48f715cbc5cf200fb30",
+      "size": 71238
+    },
+    {
+      "path": "redundancy_candidate_register.csv",
+      "git_blob_sha": "c2e2cea6e3c6301200895d0cea0fa319164e9121",
+      "size": 979
+    },
+    {
+      "path": "reference_case_coverage_matrix.csv",
+      "git_blob_sha": "0888799e67e2f909c5fca612d899dc3be9ec4666",
+      "size": 2110
+    },
+    {
+      "path": "remaining_blockers.json",
+      "git_blob_sha": "3e5114e4498a504d1dd9e09d8f09df902d2ba8bc",
+      "size": 2900
+    },
+    {
+      "path": "requirement_coverage_matrix.csv",
+      "git_blob_sha": "33c51cafe94475c7e97aa36fb2d15fb9b7f14db9",
+      "size": 10976
+    },
+    {
+      "path": "requirement_population_receipt.json",
+      "git_blob_sha": "1e540b26a2dff35379d4adece794cffcff38dccc",
+      "size": 146
+    },
+    {
+      "path": "reuse_decision_register.csv",
+      "git_blob_sha": "48893918ffc1c3c787e252f1576b70531e217afb",
+      "size": 1541
+    },
+    {
+      "path": "schemas/predicate_reference.schema.json",
+      "git_blob_sha": "80ff8901e4cf818f77c08db6381ae6bc8241c61e",
+      "size": 670
+    },
+    {
+      "path": "scientific_traceability.csv",
+      "git_blob_sha": "cf781321fa8be1b9e6689016daec1d5f1014e1d2",
+      "size": 55168
+    },
+    {
+      "path": "semantic_extension_register.csv",
+      "git_blob_sha": "1f6eb0a9ecaafc73c50c039a1256ad4f67d6c536",
+      "size": 2133
+    },
+    {
+      "path": "source_manifest.json",
+      "git_blob_sha": "39ace6db99f2e030cfb717db56c0f7907daf7da8",
+      "size": 33179
+    },
+    {
+      "path": "test_integrated.py",
+      "git_blob_sha": "372e628b575724da57c39b89e9d16d33207f490c",
+      "size": 3749
+    },
+    {
+      "path": "test_interface.py",
+      "git_blob_sha": "dcec84a49a07eda1238a033edf6ff61f71329ade",
+      "size": 1299
+    },
+    {
+      "path": "workstream_dependency_map.json",
+      "git_blob_sha": "86ccbe3f27039ec61a086dc2006f1c4708d27a82",
+      "size": 734
+    }
+  ]
+}

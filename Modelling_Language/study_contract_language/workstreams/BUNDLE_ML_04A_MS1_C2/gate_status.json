@@ -1,0 +1,60 @@
+{
+  "schema": "c2-gates-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "status": "PARTIAL_RESEARCH; C3 NOT READY",
+  "gates": [
+    {
+      "id": "C2-G0",
+      "status": "MET",
+      "reason": "Primary C1-COMP and explicit historical PR pins verified; directly reused original source blobs verified; pinned native runtime and hashes verified in successful CI. Indirect inherited pins preserved, not all individually replayed."
+    },
+    {
+      "id": "C2-G1",
+      "status": "PARTIAL",
+      "reason": "Finite A/G, Bool3, ordered binders; BLK-01/02/03 remain"
+    },
+    {
+      "id": "C2-G2",
+      "status": "PARTIAL",
+      "reason": "Sole native mathematical authority and bounded package 0.1–0.3 / boundary 0.4 integration tested; full temporal, information, condition execution and physical context remain open."
+    },
+    {
+      "id": "C2-G3",
+      "status": "PARTIAL",
+      "reason": "Four original profiles plus synthetic swap, bounded native ledger, ABL09/11 and identity checks pass; multi-profile, full N2R/N7 context/authority, general lineage and output semantics open."
+    },
+    {
+      "id": "C2-G4",
+      "status": "PARTIAL",
+      "reason": "Strict integrated canonical candidate; full metadata, composition and identity semantics open"
+    },
+    {
+      "id": "C2-G5",
+      "status": "PARTIAL",
+      "reason": "105 + 20 identities preserved; full requirement-by-requirement proof not closed"
+    },
+    {
+      "id": "C2-G6",
+      "status": "PARTIAL",
+      "reason": "All executed native suites successful on tested commit, failures preserved; new test scope does not cover remaining semantic blockers. Full 116 original paths intentionally not counted as C2."
+    },
+    {
+      "id": "C2-G7",
+      "status": "BLOCKED",
+      "reason": "Fundamental C2 semantic blockers remain; do not start C3"
+    }
+  ],
+  "original_path_population": {
+    "identities": 58,
+    "paths": 116,
+    "full_executed": 0
+  },
+  "authority": "OWNER_TBD",
+  "normative_release": false,
+  "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+  "native_ci": {
+    "run_id": 46040116020,
+    "job_id": 140645396629,
+    "conclusion": "success"
+  }
+}

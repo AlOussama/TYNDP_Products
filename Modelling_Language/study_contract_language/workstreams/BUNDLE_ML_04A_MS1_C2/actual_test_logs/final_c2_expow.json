@@ -1,0 +1,35 @@
+{
+  "conditions": {},
+  "conformance": "NOT_PROVED",
+  "context": {
+    "context_identity": "f21ff0faa3343076369d283dbe62f234f028f050e0d28fd73df4eb9d9615a84c",
+    "data_audit_identity": "a5a3f57af0f54733b25d1827e29570f1ecd0cf2d81fe55b006f1b5fc6d55ac2b",
+    "data_identity": "4cf158b73924090ba30dc714d880245fdf25701db5821461bf160f5ee5f89a9e",
+    "leaf_identity": "9c8b2be2a4b131da13e1b9639d588a8194df6130999f0a9aaad8990099070dc9",
+    "method_identity": "761155486fb85f5eee607f4abdd2fcc2444b11d6c5913f885064b09b279bedd7",
+    "owner": "OWNER_TBD",
+    "predicate_verdict": "NOT_EXECUTED",
+    "schema": "canonical-first-research-0.3",
+    "scientific_claim": "NONE",
+    "stage": "FINITE_INPUT_SUPPORT_ONLY",
+    "study_identity": "cb774abd98ca3f3c4b28f4487731293f593953eede925e4d516159f8a64a69ce"
+  },
+  "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+  "external_outputs": {},
+  "identities": {
+    "audit": "e2918e5140ac7ab35e9e2395b2df4d7c945899760af16a85641888a6281d8f8b",
+    "native": "1b2b103ce90fae6f72343dbd7dcdf6c1223ebfe5a1f446ad2eeecb52a7f6f50d",
+    "original_source": "c654623aa862afa722cf3e692fa8aabb06c5e86ac5f564e2567544de5ecd9691",
+    "semantic": "dbd63c96f2ac0242cbc18d6d5bf03c7df43f48d8faf0de996c5e4c1ff827a81c"
+  },
+  "ledger": "NOT_EXECUTED",
+  "outputs": {
+    "v": [
+      "11/10",
+      "121/100"
+    ]
+  },
+  "owner": "OWNER_TBD",
+  "profile_identity": "4ab7182c05efb6e5bfebccfa2d5c8491814aef00fae7f418b45352ee6c81f442",
+  "study_identity": "4ddbed1229a888d387060d281cc43208d60c85123c5425b2ce7597f65d3f583c"
+}

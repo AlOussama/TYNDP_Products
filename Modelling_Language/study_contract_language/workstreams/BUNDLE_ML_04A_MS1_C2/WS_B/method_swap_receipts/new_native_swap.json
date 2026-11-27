@@ -1,0 +1,80 @@
+{
+  "a": {
+    "conditions": {
+      "result_ok": true
+    },
+    "conformance": "NOT_PROVED",
+    "context": {
+      "context_identity": "154fb69332873b158547094c7c5b020a46a4f6530173423a1f36a087676e0239",
+      "data_audit_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+      "data_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+      "leaf_identity": "e4286d8b75c82ddae0553d028cf0e9fdfcfb71b334b1322eebe8d9f63ce14237",
+      "method_identity": "c9fdb4715b611dd1ce88ac4230875d66ca71ecf6eb213a070d90af92370b89dc",
+      "owner": "OWNER_TBD",
+      "predicate_verdict": "NOT_EXECUTED",
+      "schema": "canonical-first-research-0.2",
+      "scientific_claim": "NONE",
+      "stage": "FINITE_INPUT_SUPPORT_ONLY",
+      "study_identity": "06b512bb2bd2ea8746686935557881b352b2e4bc2d61499d03978952c93d3222"
+    },
+    "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+    "external_outputs": {},
+    "identities": {
+      "audit": "4344caff2640f66b9214cb104df45e2c3089a912e26110c7d4c31e2c3949a7f5",
+      "native": "e68e206dc41d3a5f20ec3d68587fa1f600baefbc2448c44650d72934915be56b",
+      "original_source": "3956d0150b5878b856032645bf600e8329336cc8e1f0d211e11ae72864661f9c",
+      "semantic": "cc2d830b8be58832c5866f81ba0239b57ad72ad16ede48d7a3a8291d32f39994"
+    },
+    "ledger": "NOT_EXECUTED",
+    "outputs": {
+      "annual": [
+        "120"
+      ],
+      "discounted": [
+        "1200/11"
+      ]
+    },
+    "owner": "OWNER_TBD",
+    "profile_identity": "ea94193d38011be2479a1742098e5be9eb506623bb9ee84296648952f34bb09d",
+    "study_identity": "24259778e65db43f5c74874103d89773e7c489ce81076fc1d2a863dc76f610d4"
+  },
+  "b": {
+    "conditions": {
+      "result_ok": true
+    },
+    "conformance": "NOT_PROVED",
+    "context": {
+      "context_identity": "b4add2da8a38ffa535b1e39ea33a7d161ab8c8c8144e09dc659bf757ff72414b",
+      "data_audit_identity": "45016ad75eb8b41a17fb2add75161e70c7c3f18f9b086e25904db61c251a3817",
+      "data_identity": "45016ad75eb8b41a17fb2add75161e70c7c3f18f9b086e25904db61c251a3817",
+      "leaf_identity": "8856f56d2085edb069c075346751e17e001d6c987e6c4dbd69bed649e0776725",
+      "method_identity": "2e3025beb43efa351cc39f237328969732848ef9561c023227aa6f82f88069a9",
+      "owner": "OWNER_TBD",
+      "predicate_verdict": "NOT_EXECUTED",
+      "schema": "canonical-first-research-0.2",
+      "scientific_claim": "NONE",
+      "stage": "FINITE_INPUT_SUPPORT_ONLY",
+      "study_identity": "e28601448cf216747b285e8778bae67685e7f14f9b5609859de5687d1d33ee12"
+    },
+    "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+    "external_outputs": {},
+    "identities": {
+      "audit": "284509806a8e6bc491eb6c933db86b8c09ec9013320494446a743c5c3300f3ca",
+      "native": "74624fd140c66100fe2beaa7f6968dc5847641f0a2efa701bd4dacf62e4ca821",
+      "original_source": "04277dce7b472f5dcb49892c701dc060db781530d6d5497e15a382d09c96a23e",
+      "semantic": "11645b6444f424dfa7372b9c74cb75a1ad06af39473e644b4de93cac92073448"
+    },
+    "ledger": "NOT_EXECUTED",
+    "outputs": {
+      "annual": [
+        "120"
+      ],
+      "discounted": [
+        "600/11"
+      ]
+    },
+    "owner": "OWNER_TBD",
+    "profile_identity": "57d4455c94fdd0d6ce0c656335ee297b9b5dd9852a629954bf6a3cdab0ace8bc",
+    "study_identity": "951a30b8d68a977c3f526cbceb68d21f42c8797e468d7da1a4549840a7d16ad6"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:c2:external-contract-0.2",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "enum": [
+        "c2-external-contract-0.2"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_kinds": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "time",
+          "scenario",
+          "trace",
+          "request",
+          "response",
+          "component",
+          "port",
+          "sample"
+        ]
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "SAFETY_GUARANTEE",
+              "SERVICE_GUARANTEE",
+              "CAPABILITY_GUARANTEE",
+              "DATA_ASSUMPTION",
+              "TECHNICAL_ASSUMPTION",
+              "ENVIRONMENT_ASSUMPTION",
+              "CONDITIONAL_OBLIGATION",
+              "PERMITTED_BEHAVIOUR",
+              "PROHIBITED_BEHAVIOUR"
+            ]
+          },
+          "modality": {
+            "enum": [
+              "MUST",
+              "MUST_NOT",
+              "MAY"
+            ]
+          },
+          "predicate": {
+            "type": "object",
+            "properties": {
+              "predicate_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "enum": [
+                  "PREDICATE",
+                  "GUARD",
+                  "DATA_ASSUMPTION"
+                ]
+              },
+              "axes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "scope_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "predicate_id",
+              "role",
+              "axes",
+              "scope_id"
+            ],
+            "additionalProperties": false
+          },
+          "binders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "axis": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "time",
+                    "scenario",
+                    "trace",
+                    "request",
+                    "response",
+                    "component",
+                    "port",
+                    "sample"
+                  ]
+                },
+                "quantifier": {
+                  "enum": [
+                    "FORALL",
+                    "EXISTS"
+                  ]
+                }
+              },
+              "required": [
+                "axis",
+                "kind",
+                "quantifier"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "guard": {
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ]
+          },
+          "authority": {
+            "enum": [
+              "OWNER_TBD"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "role",
+          "modality",
+          "predicate",
+          "binders",
+          "guard",
+          "authority"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "domain_kinds",
+    "assertions"
+  ],
+  "additionalProperties": false
+}

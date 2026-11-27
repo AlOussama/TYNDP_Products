@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/data.json",
+      "blob": "73b530e84ae6ff167d5b02582d92eefa0a40c923",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/data.json",
+      "blob": "77403467756135f929f252685c88612dbcf1c8bf",
+      "match": true
+    }
+  ],
+  "original_reference_root": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/",
+  "scope": "Synthetic research only; no TYNDP source approval"
+}

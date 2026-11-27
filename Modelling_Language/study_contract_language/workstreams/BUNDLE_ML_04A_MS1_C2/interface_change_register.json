@@ -1,0 +1,82 @@
+{
+  "schema": "c2-interface-changes-0.1",
+  "changes": [
+    {
+      "id": "ICR-001",
+      "change": "Additive qualified outer reference and explicit separation of native/semantic/source/audit identity; C1 signatures unchanged",
+      "status": "IMPLEMENTED_AND_TESTED_BOUNDED_RESEARCH_SCOPE",
+      "breaking": false,
+      "tests": [
+        "C2-I01",
+        "C2-I02",
+        "C2-I03"
+      ],
+      "validation": {
+        "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+        "run_id": 46040116020,
+        "job_id": 140645396629
+      }
+    },
+    {
+      "id": "ICR-002",
+      "status": "IMPLEMENTED_AND_TESTED_BOUNDED_RESEARCH_SCOPE",
+      "old_boundary": "canonical-first-research-0.2",
+      "new_boundary": "canonical-first-research-0.3",
+      "old_package": "canonical-mathematical-contract-package-0.1",
+      "new_package": "canonical-mathematical-contract-package-0.2",
+      "scope": "explicit bounded data-dependent integer Power of positive dimensionless base; method path only",
+      "changes": [
+        "private extraction of existing admission, data binding and finite consumer initialization; old public behavior unchanged",
+        "fixed subclass checker with exact typed power policy",
+        "strict versioned package and recomputation",
+        "method dispatch accepts known versions; legacy power migration refused"
+      ],
+      "risks": [
+        "C1 source files modified only on new C2 branch for private seams, historic pinned versions preserved"
+      ],
+      "tests": [
+        "C2-B08",
+        "unchanged C1 51 and ablation EXPOW old rejection"
+      ],
+      "validation": {
+        "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+        "run_id": 46040116020,
+        "job_id": 140645396629
+      }
+    },
+    {
+      "id": "ICR-003",
+      "status": "IMPLEMENTED_AND_TESTED_BOUNDED_RESEARCH_SCOPE",
+      "change": "Unify explicit package dispatch for WS-A and WS-B; extract existing predicate client helper; cross-domain/contract/verification bindings; full upstream replay",
+      "breaking": false,
+      "tests": [
+        "C2-C01",
+        "C2-C02",
+        "C2-C03",
+        "C2-C04"
+      ],
+      "validation": {
+        "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+        "run_id": 46040116020,
+        "job_id": 140645396629
+      }
+    },
+    {
+      "id": "ICR-004",
+      "status": "IMPLEMENTED_AND_TESTED_BOUNDED_RESEARCH_SCOPE",
+      "change": "Versioned 0.4 boundary with exact literal division, nonnegative/positive base proof, affine integer exponent bounds; explicit physical duration weights and N7 key-order/ledger binding, optional external/intermediate output partition. Reuse original compiler for four bounded migrations.",
+      "breaking": false,
+      "tests": [
+        "C2-B09",
+        "C2-B10",
+        "C2-B11",
+        "C2-B12"
+      ],
+      "validation": {
+        "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+        "run_id": 46040116020,
+        "job_id": 140645396629
+      }
+    }
+  ]
+}

@@ -301,17 +301,21 @@ def admit(source,context,require_canonical=False):
     """Preflight authored source, then native load, then full public-Program walk.
     Both source and roundtrip Programs must satisfy the same restrictions.
     """
-    spec=native(source);first=Checked(spec,context);text=spec.to_yaml(canonical=True)
+    return _admit(source,context,require_canonical,Checked,VERSION)
+
+def _admit(source,context,require_canonical,checker,version):
+    # Private seam for explicitly versioned C2 admission. Public v0.2 stays unchanged.
+    spec=native(source);first=checker(spec,context);text=spec.to_yaml(canonical=True)
     if require_canonical:need(source==text,"NOT_NATIVE_CANONICAL")
-    again=native(text);second=Checked(again,context)
+    again=native(text);second=checker(again,context)
     need(again.to_yaml(canonical=True)==text and first.summary()==second.summary(),"CANONICAL_BOUNDARY_ROUNDTRIP")
     sctx=semantic_context(spec,context)
     # study method_ref names original profile bytes; preserve it deliberately.
     ni=digest({"upstream":c1.UPSTREAM,"canonical":text})
-    sem=digest({"version":VERSION,"native":ni,"registry":digest(c1.REGISTRY),"context":sctx})
+    sem=digest({"version":version,"native":ni,"registry":digest(c1.REGISTRY),"context":sctx})
     origin={"kind":"CANONICAL_AS_SOURCE" if require_canonical else "AUTHOR_SOURCE_PRECHECKED","sha256":text_hash(source)}
     audit=digest({"semantic":sem,"source":origin,"context_as_received":context})
-    return {"schema":VERSION,"upstream":c1.UPSTREAM,"native_canonical":text,"source":source,"context":deepcopy(context),
+    return {"schema":version,"upstream":c1.UPSTREAM,"native_canonical":text,"source":source,"context":deepcopy(context),
             "origin":origin,"native_identity":ni,"semantic_identity":sem,"audit_identity":audit,"interface":second.summary(),
             "stage":"STATIC_MATHEMATICAL_BOUNDARY_ONLY"}
 def reimport(leaf):
@@ -320,7 +324,11 @@ def reimport(leaf):
     need(got==leaf,"LEAF_TAMPER");return got
 
 def bind_data(leaf,data):
-    leaf=reimport(leaf);c=leaf["context"];p=native(leaf["native_canonical"]).program
+    return _bind_data(leaf,data,reimport)
+
+def _bind_data(leaf,data,reimporter):
+    # Private seam: a versioned caller must supply its fixed validating reimporter.
+    leaf=reimporter(leaf);c=leaf["context"];p=native(leaf["native_canonical"]).program
     fields(data,("id","version","parameters","relations"),"DATA_FIELDS")
     need(data["id"]==c["study"]["data_id"] and data["version"]==c["study"]["data_version"],"DATA_CONTEXT")
     need(type(data["parameters"]) is dict and set(data["parameters"])==set(p.parameters),"DATA_PARAMETERS")
@@ -362,7 +370,7 @@ def bind_data(leaf,data):
                 need(groups==coordinates([r.dim(k) for k in cols]),"RELATION_GROUP_COVERAGE")
         norm["relations"][n]=[got[k] for k in sorted(got)]
     di=digest(norm)
-    return {"schema":VERSION,"stage":"FINITE_INPUT_SUPPORT_ONLY","data_identity":di,"data_audit_identity":digest(data),
+    return {"schema":leaf["schema"],"stage":"FINITE_INPUT_SUPPORT_ONLY","data_identity":di,"data_audit_identity":digest(data),
             "leaf_identity":leaf["semantic_identity"],"method_identity":leaf["interface"]["method_identity"],"study_identity":leaf["interface"]["study_identity"],
             "context_identity":digest({"leaf":leaf["semantic_identity"],"data":di,"study":leaf["interface"]["study_identity"]}),
             "owner":"OWNER_TBD","predicate_verdict":"NOT_EXECUTED","scientific_claim":"NONE"}

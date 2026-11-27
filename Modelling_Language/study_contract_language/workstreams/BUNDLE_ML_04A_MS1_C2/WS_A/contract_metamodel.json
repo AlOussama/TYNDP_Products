@@ -1,0 +1,40 @@
+{
+  "schema": "c2-external-contract-metamodel-0.1",
+  "classifiers": [
+    "DomainKindRegistry",
+    "Assertion",
+    "QualifiedPredicateReference",
+    "OrderedBinder",
+    "Applicability",
+    "Authority"
+  ],
+  "associations": [
+    [
+      "Assertion",
+      "QualifiedPredicateReference",
+      "1"
+    ],
+    [
+      "Assertion",
+      "OrderedBinder",
+      "0..* ordered"
+    ],
+    [
+      "OrderedBinder",
+      "DomainKindRegistry",
+      "1"
+    ],
+    [
+      "QualifiedPredicateReference",
+      "NativePackage",
+      "1"
+    ]
+  ],
+  "implemented": "contract.py",
+  "source_of_math": "native canonical package",
+  "not_yet_closed": [
+    "StudyFrame/ports/referents/variation adapter",
+    "complete information and trace coverage",
+    "native guards as evidence-derived applicability"
+  ]
+}
