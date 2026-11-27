@@ -153,7 +153,7 @@ class Checked:
             else:need(z["domain_rule"]=="ANY_EXACT","DERIVED_DOMAIN_RULE")
             self.sig[n]=as_signature(n,entry,z,q)
             self.sig[n]["domain_ids"]=[c["domains"][a]["id"] for a in entry.dims]
-        need(set(c["conversions"])=={n for n,z in c["symbols"].items() if z["quantity"]["unit"] in CONVERSION_UNITS},"CONVERSION_BINDING")
+        need(set(c["conversions"])=={n for n,z in c["symbols"].items() if n in p.parameters and z["quantity"]["unit"] in CONVERSION_UNITS},"CONVERSION_BINDING")
         for n,z in c["conversions"].items():
             fields(z,("id","version","source_ref","source_sha256","authority"),"CONVERSION_FIELDS");claim(z["id"])
             need(string(z["version"]) and string(z["source_ref"]) and sha(z["source_sha256"]) and z["authority"]=="RESEARCH_ASSUMPTION","CONVERSION_PROVENANCE")

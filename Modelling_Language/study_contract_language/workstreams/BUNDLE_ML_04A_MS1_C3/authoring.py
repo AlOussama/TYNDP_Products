@@ -7,6 +7,8 @@ from pathlib import Path
 from hashlib import sha256
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"BUNDLE_ML_04A_MS1_C2"))
+# Initialize the existing C2 interface explicitly, without test-module side effects.
+import interface as _native_interface
 from closure_v1 import r1_reuse
 from n1r import old, pins as r1_pins
 SCHEMA="c3-authoring-0.1"

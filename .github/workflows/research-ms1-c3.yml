@@ -163,6 +163,10 @@ jobs:
         if: always()
         working-directory: mathspec-src
         run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/rc01_sign_gap_probe.py
+      - name: C3 targeted sign conversion, stage information and derived ratio
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_targeted_c3.py
   original-corpus-exit:
     if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c3-original-integration'
     runs-on: ubuntu-24.04

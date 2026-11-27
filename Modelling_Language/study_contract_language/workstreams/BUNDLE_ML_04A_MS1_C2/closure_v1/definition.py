@@ -67,7 +67,13 @@ def requirement_design(req,tables,source,prepared):
             pred=bd.resolve(ar["predicate"],("PREDICATE","DATA_ASSUMPTION"))
             need(any(row["bindings"][s]["ref"]==k for s in pred["required_symbols"]),"QUALITY_ASSERTION_BINDING")
         if k in tables["context_fields"]:need(r["conversion"] is None and r["quality"]=="TYPE_AND_COMPLETE_SUPPORT","CONTEXT_NOT_MATHEMATICS")
-        else:validate_conversion(r["conversion"],ext[k]["quantity"],source)
+        else:
+            cv=r["conversion"]
+            validate_conversion(cv,ext[k]["quantity"],source)
+            if cv is not None and cv["kind"]=="SIGN_CONVENTION":
+                src=tables["observables"].get(cv["source_observable"])
+                need(src is not None and src["projection"]=="IDENTITY" and src["quantity"]==cv["source_quantity"]
+                     and src["axes"]==ext[k]["axes"] and src["value_type"]==ext[k]["value_type"],"SIGN_CONVERSION_SOURCE_BINDING")
     models=md.index(req["models"]);implementations=set()
     for k,m in models.items():
         fields(m,("id","implementation_ref","source_ref","license_ref","access_ref","observables","variations"),"MODEL_FIELDS")
@@ -155,6 +161,17 @@ def validate_conversion(cv,target,source):
         matches=[z for (carrier,_),z in c21.UNITS.items() if carrier==target["carrier"] and cv["source_unit"] in z and target["unit"] in z]
         need(len(matches)==1,"EXPLICIT_CONVERSION_UNSUPPORTED")
         need(exact(cv["factor"])==F(matches[0][cv["source_unit"]])/F(matches[0][target["unit"]]),"CONVERSION_FACTOR")
+    elif cv.get("kind")=="SIGN_CONVENTION":
+        fields(cv,("kind","source_quantity","source_observable","factor","scope","source_ref"),"SIGN_CONVERSION_FIELDS")
+        source_refs([cv["source_ref"]],source)
+        src=cv["source_quantity"]
+        from closure import quantity
+        quantity(src);quantity(target)
+        # Controlled charging-only transfer: same physical quantity, explicit
+        # injection-positive -> unsigned nonnegative charging magnitude.
+        # Neither the source port sign nor native expression typing is erased.
+        need(cv["scope"]=="CHARGING_ONLY" and src["sign"]=="INJECTION" and target["sign"]=="NONE"
+             and {**src,"sign":"NONE"}==target and exact(cv["factor"])==-1,"SIGN_CONVERSION_POLICY")
     elif cv.get("kind")=="ANNUAL_RATE_TO_PERIOD_AMOUNT":
         fields(cv,("kind","source_unit","source_basis","period_years","period_ref","source_ref"),"ANNUAL_INTEGRATION_FIELDS")
         source_refs([cv["source_ref"]],source);source_refs([cv["period_ref"]],source)
@@ -173,7 +190,9 @@ def converted_rows(rows,cv,target):
         fields(r,("key","value"),"RAW_CONVERSION_ROW")
         key=tuple(r["key"]);need(key not in seen,"DUPLICATE_COORDINATE");seen.add(key)
         v=exact(r["value"])
-        if cv["kind"]=="UNIT":v=v*exact(cv["factor"])
+        if cv["kind"]=="SIGN_CONVENTION":
+            need(v<=0,"SIGN_CONVERSION_CHARGING_SCOPE");v=v*exact(cv["factor"])
+        elif cv["kind"]=="UNIT":v=v*exact(cv["factor"])
         elif cv["kind"]=="ANNUAL_RATE_TO_PERIOD_AMOUNT":v=v*exact(cv["period_years"])
         else:v=F(monetary(str(v),cv["source_basis"],target["basis"],cv["registry"],cv["rule_id"],cv["registry_digest"])["value"])
         out.append({"key":r["key"],"value":str(v)})
@@ -303,7 +322,11 @@ def _instantiate(definition,definition_pin,instance,instance_pin):
         fields(r,("id","snapshot_identity","source_ref","license_ref","access_ref","raw_rows"),"DATA_RECEIPT_FIELDS")
         c=contracts[k];need(r["snapshot_identity"]==result["data_bindings"][k] and all(r[f]==c[f] for f in ("source_ref","license_ref","access_ref")),"DATA_PROVENANCE_PIN")
         if c["conversion"] is None:need(r["raw_rows"] is None,"UNDECLARED_CONVERSION")
-        else:need(digest(converted_rows(r["raw_rows"],c["conversion"],ext[k]["quantity"]))==r["snapshot_identity"],"CONVERTED_DATA_BINDING")
+        else:
+            cv=c["conversion"]
+            if cv["kind"]=="SIGN_CONVENTION":
+                need(digest(sorted(r["raw_rows"],key=lambda z:z["key"]))==result["data_bindings"][cv["source_observable"]],"SIGN_CONVERSION_RAW_SOURCE_DRIFT")
+            need(digest(converted_rows(r["raw_rows"],cv,ext[k]["quantity"]))==r["snapshot_identity"],"CONVERTED_DATA_BINDING")
         qs=[assertions[a]["truth"] for a in c["quality_assertions"]]
         qualities[k]="FINITE_REJECTED" if "FALSE" in qs else "BLOCKED" if any(q!="TRUE" for q in qs) else "FINITE_CHECKED"
     # Design may request stronger evidence than this consumer can supply.
