@@ -1,11 +1,15 @@
-# Internal critical review — C3 increment
+# Internal critical review — C3 observed increment
 
-NON-NORMATIVE / RESEARCH ONLY. This is a separate analytical review role, not a person-independent audit.
+NON-NORMATIVE / RESEARCH ONLY. Internal review is not person-independent audit.
 
-1. The source and oracle identities have been checked against immutable GitHub metadata. C2 successful CI does not establish C3 runtime success.
-2. The A envelope is a versioned structural representation, not the historical complete R1 syntax and not a second mathematical grammar. It has not yet been shown usable by independently authored original contracts. Generated A/B test inputs are controls only. Explicit source hash is representation audit evidence, not proof of independently authored provenance.
-3. The native P5 numeric projection tests discounting and sign only. It does not show the original P5 governance, economic contribution ledger and all 30 mutations pass through complete A/B candidates. Equal numbers are not equivalent semantics or tool conformance. The explicit EUR 1e-9 comparison tolerance is only for the original JS floating-point oracle.
-4. The catalogue exposes all 116 target paths and exact expectation/oracle provenance, but contains no full candidate files. Candidate code/path/source/reason are null, not inferred from original JSONPaths or derived C23 edit paths.
-5. All 125 requirement identities retained; no closure credit for inherited or projected evidence. Native controls must run in pinned CI. Unexpected exceptions remain BLOCKED_INTERNAL.
+The source pins and native regression are verified. Both actual native jobs passed; separate original-corpus exit jobs failed deliberately. The second tested implementation is 018735e919c641e0d9fe1e6c3a5ae0583d1d54bc (run 46075294159/job 140761500569). No unexplained failure in native job. Upstream skips are reported, not relabelled as passes.
 
-Decision: G1–G7 remain NOT_MET. Do not start C4 or relax any original expectation. The minimal next step is to finish C3 source-level materialisation and execution, with genuine candidate diagnostics and complete traceability.
+The two A/B control pairs use generated equivalent forms over native mathspec packages. They prove bounded structural interoperability, not independent source-level original authoring or equivalence of complete original contracts. Native source and object pins are caller supplied; self-generated pins in controls do not establish external approval or independently authored provenance. Standalone authoring bootstrap is not isolated by the tests (see C3-B06).
+
+P5 annual and discounted results agree against the unchanged independent JS oracle within 1e-9 EUR. The extended graph includes explicit one-year amount mapping, separate economic year index, upstream lineage and one-off CAPEX event; every model's five events occur once. This is not a full CBA method, actual model evidence, or original 30 full mutation paths. Both graph receipts are BLOCKED; external indicators remain not executed. No general E4/E5 claim.
+
+RC01 signed-to-unsigned stock convention admission fails with actual EXPRESSION_TYPE:intake. A negative numeric sign does not by itself redefine carrier/sign semantics. Do not bypass physical typing. The stage-vs-time issue for RC07 is a static source finding, not a tested candidate failure. Other gaps are inherited corpus requirements, not falsely attributed candidate diagnostics.
+
+The independent 28 analytical and 30 P5 original ID replays and their actual diagnostic receipts are stored. Original E1/AUDIT/BLOCKED/FAIL_STATIC verdicts are not inferred from derived analytical edit paths or original P5 oracle JSONPaths. All 116 candidate source, candidate diagnostics and full result fields remain null/not executed; exact 125 requirement identities retained with C3 full evidence open.
+
+Decision: G0 met. G1–G7 not met, G3–G6 have partial evidence only. No C4 entry, normative release, merge, or owner sign-off. Finish materialization, targeted sign/stage integration only where proven needed, source-level A/B regression, candidate diagnostics, complete traceability and gate review in C3.

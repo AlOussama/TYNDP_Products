@@ -1,41 +1,51 @@
 {
-  "schema": "c3-gate-status-0.1",
+  "schema": "c3-gate-status-0.2",
   "governance": "NON-NORMATIVE / RESEARCH ONLY",
   "decision": "NOT_READY_FOR_C4",
+  "tested_commit": "018735e919c641e0d9fe1e6c3a5ae0583d1d54bc",
+  "ci": {
+    "run": 46075294159,
+    "native_job": 140761500569,
+    "native": "success",
+    "corpus_job": 140761500848,
+    "corpus": "failure"
+  },
   "gates": {
     "G0": {
       "status": "MET",
-      "scope": "Verified C2 parent and source metadata, prior successful native CI; C3 repeat pending"
+      "scope": "Verified C2 parent and source pins; repeated actual pinned CI checks"
     },
     "G1": {
       "status": "NOT_MET",
       "full_materialized": 0,
-      "target": 116
+      "target": 116,
+      "inventory_verified": 116
     },
     "G2": {
       "status": "NOT_MET",
       "full_executed": 0,
-      "target": 116
+      "target": 116,
+      "independent_oracle_identities_replayed": 58
     },
     "G3": {
       "status": "NOT_MET",
-      "scope": "Original oracles preserved, exact candidate A/B diagnostics unavailable"
+      "partial": "58 original identity oracles replayed; 28/28 analytical, 30/30 P5 negative, six additional P5 positive controls; no original candidate A/B diagnostics"
     },
     "G4": {
       "status": "NOT_MET",
-      "scope": "A/B adapter controls prepared, not yet observed; no original path roundtrip"
+      "partial": "Two actual native A/B control pairs passed; same definition and graph semantics/canonical package, distinct raw source and representation audit identities; no original path roundtrip"
     },
     "G5": {
       "status": "NOT_MET",
-      "scope": "125 identities retained; full original evidence unexecuted"
+      "partial": "125 exact requirement identities preserved; full path evidence absent"
     },
     "G6": {
       "status": "NOT_MET",
-      "scope": "C3 native repeat not observed at implementation commit"
+      "partial": "Native regression job successful, 33+26 C2 controls, full inherited suite and 4140 upstream pass/47 skip; internal review recorded; full original corpus exit intentionally fails"
     },
     "G7": {
       "status": "NOT_MET",
-      "scope": "Blocked C4 entry"
+      "scope": "C4 HOLD; C3 completion prerequisites absent"
     }
   },
   "normative": false,

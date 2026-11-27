@@ -42,5 +42,12 @@
     "fixture_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
   },
   "analytic_oracle_blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
-  "c3_native_ci": "NOT_OBSERVED_AT_COMMIT"
+  "c3_native_ci": {
+    "tested_commit": "018735e919c641e0d9fe1e6c3a5ae0583d1d54bc",
+    "run": 46075294159,
+    "job": 140761500569,
+    "conclusion": "success",
+    "full_corpus_job": 140761500848,
+    "full_corpus_conclusion": "failure"
+  }
 }
