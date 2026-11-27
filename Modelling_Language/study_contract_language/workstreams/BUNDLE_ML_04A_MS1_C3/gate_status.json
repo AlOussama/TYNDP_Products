@@ -1,0 +1,43 @@
+{
+  "schema": "c3-gate-status-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "decision": "NOT_READY_FOR_C4",
+  "gates": {
+    "G0": {
+      "status": "MET",
+      "scope": "Verified C2 parent and source metadata, prior successful native CI; C3 repeat pending"
+    },
+    "G1": {
+      "status": "NOT_MET",
+      "full_materialized": 0,
+      "target": 116
+    },
+    "G2": {
+      "status": "NOT_MET",
+      "full_executed": 0,
+      "target": 116
+    },
+    "G3": {
+      "status": "NOT_MET",
+      "scope": "Original oracles preserved, exact candidate A/B diagnostics unavailable"
+    },
+    "G4": {
+      "status": "NOT_MET",
+      "scope": "A/B adapter controls prepared, not yet observed; no original path roundtrip"
+    },
+    "G5": {
+      "status": "NOT_MET",
+      "scope": "125 identities retained; full original evidence unexecuted"
+    },
+    "G6": {
+      "status": "NOT_MET",
+      "scope": "C3 native repeat not observed at implementation commit"
+    },
+    "G7": {
+      "status": "NOT_MET",
+      "scope": "Blocked C4 entry"
+    }
+  },
+  "normative": false,
+  "owner": "OWNER_TBD"
+}

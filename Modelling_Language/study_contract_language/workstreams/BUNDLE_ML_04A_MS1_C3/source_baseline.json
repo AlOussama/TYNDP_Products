@@ -1,0 +1,46 @@
+{
+  "schema": "c3-source-baseline-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "parent": {
+    "pr": 96,
+    "head": "e8a0ee3b7057a1e93afebb1f83b79fd19620446b",
+    "tree": "8f7b6dc1ab98d7f2d1e53a6dab8b9bccd8e8cc6c",
+    "tested": "8a99cc96edc98add28a69b8fa30db7d0dad08947",
+    "run": 46056048896,
+    "job": 140698674026,
+    "conclusion": "success",
+    "descendant_changes": "10 evidence/metamodel files; no runtime code/workflow changes"
+  },
+  "original_catalogue": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+    "blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9"
+  },
+  "diagnostics": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/original_diagnostic_contracts.json",
+    "blob": "2d9321293450511d7bafdd6b8b2ffa7fe0f7b814"
+  },
+  "requirements": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/requirement_traceability.csv",
+    "blob": "ffaf99882531fe03c12e1be1d3e2924d2ca8d474"
+  },
+  "inherited_source_manifest": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/source_manifest.json",
+    "blob": "d7a1bf82f6cffca2fe45e1d55c369ed82b336fff",
+    "direct_blob_checks": "17/17 matched parent tree"
+  },
+  "mathspec": {
+    "repo": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "pixi_lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "python": "3.13.15"
+  },
+  "p5": {
+    "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+    "fixture_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+  },
+  "analytic_oracle_blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
+  "c3_native_ci": "NOT_OBSERVED_AT_COMMIT"
+}
