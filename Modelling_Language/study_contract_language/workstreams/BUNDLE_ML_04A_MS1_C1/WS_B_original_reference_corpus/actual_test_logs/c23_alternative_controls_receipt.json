@@ -1,0 +1,405 @@
+{
+  "schema": "c1-c23-alternative-controls-receipt-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "parent": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+  "independent_corpus_source": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+  "source_blobs": {
+    "frozen/c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+    "reference_cases/RC01/contract.json": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+    "reference_cases/RC03/contract.json": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+    "reference_cases/RC04/contract.json": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+    "reference_cases/RC08/contract.json": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+    "reference_cases/RC10/contract.json": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+  },
+  "actual_environment": "Isolated V8 JavaScript runtime; function executed on JSON read from pinned GitHub blobs; Node CLI reproduction wrapper not executed in this session.",
+  "command": "node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/c23_alternative_controls.js",
+  "original_population": {
+    "originals": 58,
+    "original_AB_paths": 116,
+    "new_full_paths_executed": 0,
+    "traceability": 105
+  },
+  "summary": {
+    "positive_controls": 5,
+    "alternative_mutation_controls": 6,
+    "passed": 11,
+    "failed": 0
+  },
+  "results": [
+    {
+      "id": "ALT-CTRL-01",
+      "kind": "positive_control",
+      "original_id": null,
+      "rc": "RC01",
+      "source_fixture_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_expected": null,
+      "original_description": null,
+      "edits": [],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "ADMITTED_OWNER_STATUS_ONLY",
+        "owner": "OWNER_TBD"
+      },
+      "actual": {
+        "diagnostic": "ADMITTED_OWNER_STATUS_ONLY",
+        "owner": "OWNER_TBD"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-01B",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-01",
+      "rc": "RC01",
+      "source_fixture_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "2 MWh inferred or missing terminal owner rule",
+      "edits": [
+        {
+          "op": "remove",
+          "path": [
+            "synthetic_data",
+            "observed",
+            "terminal_policy"
+          ]
+        }
+      ],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "TERMINAL_POLICY_UNDECLARED"
+      },
+      "actual": {
+        "diagnostic": "TERMINAL_POLICY_UNDECLARED"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-CTRL-03",
+      "kind": "positive_control",
+      "original_id": null,
+      "rc": "RC03",
+      "source_fixture_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_expected": null,
+      "original_description": null,
+      "edits": [],
+      "derived_context": {
+        "comparison": "CONVERT_FLOW_TO_H2_POWER"
+      },
+      "expected": {
+        "diagnostic": "EXPLICIT_CONVERSION_ONLY",
+        "hydrogen_power": "20"
+      },
+      "actual": {
+        "diagnostic": "EXPLICIT_CONVERSION_ONLY",
+        "hydrogen_power": "20"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-03B",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-03",
+      "rc": "RC03",
+      "source_fixture_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "MW compared to kg/h or missing heating value",
+      "edits": [
+        {
+          "op": "replace",
+          "path": [
+            "derived_context",
+            "comparison"
+          ],
+          "value": "DIRECT_MW_VS_KG_PER_H"
+        }
+      ],
+      "derived_context": {
+        "comparison": "DIRECT_MW_VS_KG_PER_H"
+      },
+      "expected": {
+        "diagnostic": "INCOMPATIBLE_DIMENSIONS"
+      },
+      "actual": {
+        "diagnostic": "INCOMPATIBLE_DIMENSIONS"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-03C",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-03",
+      "rc": "RC03",
+      "source_fixture_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "MW compared to kg/h or missing heating value",
+      "edits": [
+        {
+          "op": "remove",
+          "path": [
+            "synthetic_data",
+            "inputs",
+            "lhv"
+          ]
+        }
+      ],
+      "derived_context": {
+        "comparison": "CONVERT_FLOW_TO_H2_POWER"
+      },
+      "expected": {
+        "diagnostic": "HEATING_VALUE_REQUIRED"
+      },
+      "actual": {
+        "diagnostic": "HEATING_VALUE_REQUIRED"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-CTRL-04",
+      "kind": "positive_control",
+      "original_id": null,
+      "rc": "RC04",
+      "source_fixture_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_expected": null,
+      "original_description": null,
+      "edits": [],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "BASIS_MATCH_ONLY",
+        "basis": "LHV"
+      },
+      "actual": {
+        "diagnostic": "BASIS_MATCH_ONLY",
+        "basis": "LHV"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-04B",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-04",
+      "rc": "RC04",
+      "source_fixture_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "kg treated as MWh or HHV/LHV substituted",
+      "edits": [
+        {
+          "op": "replace",
+          "path": [
+            "synthetic_data",
+            "observed",
+            "energy_basis"
+          ],
+          "value": "HHV"
+        }
+      ],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "HEATING_VALUE_BASIS_MISMATCH"
+      },
+      "actual": {
+        "diagnostic": "HEATING_VALUE_BASIS_MISMATCH"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-CTRL-08",
+      "kind": "positive_control",
+      "original_id": null,
+      "rc": "RC08",
+      "source_fixture_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_expected": null,
+      "original_description": null,
+      "edits": [],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "WEIGHTED_KPI_MATCH",
+        "expected": "170",
+        "reported": "170"
+      },
+      "actual": {
+        "diagnostic": "WEIGHTED_KPI_MATCH",
+        "expected": "170",
+        "reported": "170"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-08B",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-08",
+      "rc": "RC08",
+      "source_fixture_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "omits time weight or double-counts CAPEX",
+      "edits": [
+        {
+          "op": "replace",
+          "path": [
+            "synthetic_data",
+            "observed",
+            "kpi"
+          ],
+          "value": "160",
+          "derivation": "100 + 20 + 40 (omits declared durations)"
+        }
+      ],
+      "derived_context": {},
+      "expected": {
+        "diagnostic": "KPI_TIME_WEIGHT_OMITTED_OR_VALUE_MISMATCH",
+        "expected": "170",
+        "reported": "160"
+      },
+      "actual": {
+        "diagnostic": "KPI_TIME_WEIGHT_OMITTED_OR_VALUE_MISMATCH",
+        "expected": "170",
+        "reported": "160"
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-CTRL-10",
+      "kind": "positive_control",
+      "original_id": null,
+      "rc": "RC10",
+      "source_fixture_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_expected": null,
+      "original_description": null,
+      "edits": [],
+      "derived_context": {
+        "actual": [
+          [
+            "common",
+            "synthetic-extra"
+          ],
+          [
+            "common"
+          ]
+        ],
+        "disclosed": [
+          [
+            "common",
+            "synthetic-extra"
+          ],
+          [
+            "common"
+          ]
+        ]
+      },
+      "expected": {
+        "diagnostic": "DISCLOSURE_MATCH_ONLY",
+        "hidden": []
+      },
+      "actual": {
+        "diagnostic": "DISCLOSURE_MATCH_ONLY",
+        "hidden": []
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    },
+    {
+      "id": "ALT-MUT-10B",
+      "kind": "alternative_mutation",
+      "original_id": "MUT-10",
+      "rc": "RC10",
+      "source_fixture_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "original_description": "unsupported E4 assertion from equal objective or concealed extra assumption",
+      "edits": [
+        {
+          "op": "remove",
+          "path": [
+            "derived_context",
+            "disclosed",
+            0,
+            1
+          ]
+        }
+      ],
+      "derived_context": {
+        "actual": [
+          [
+            "common",
+            "synthetic-extra"
+          ],
+          [
+            "common"
+          ]
+        ],
+        "disclosed": [
+          [
+            "common"
+          ],
+          [
+            "common"
+          ]
+        ]
+      },
+      "expected": {
+        "diagnostic": "UNDISCLOSED_ASSUMPTION",
+        "hidden": [
+          {
+            "model": "M-A",
+            "assumption": "synthetic-extra"
+          }
+        ]
+      },
+      "actual": {
+        "diagnostic": "UNDISCLOSED_ASSUMPTION",
+        "hidden": [
+          {
+            "model": "M-A",
+            "assumption": "synthetic-extra"
+          }
+        ]
+      },
+      "status": "PASS",
+      "stage": "ADDITIONAL_INDEPENDENT_FINITE_CONTROL",
+      "scope": "No original E1/AUDIT or full A/B verdict; synthetic control only"
+    }
+  ],
+  "limitations": [
+    "No additional original test identity or original verdict.",
+    "RC01 checks explicit unresolved owner policy, not terminal behaviour.",
+    "RC03 checks declared conversion boundary, not universal type-system soundness.",
+    "RC10 disclosure is a synthetic declared/actual witness, not independent evidence about a real model.",
+    "Full C1-B1, B2, B3 and A4 remain partial; no formal C2 release."
+  ],
+  "script_commit": "fb05cb971b98322430a5a8dc3171cd57c0dbb246"
+}
