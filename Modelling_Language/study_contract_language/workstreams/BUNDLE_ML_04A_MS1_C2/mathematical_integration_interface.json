@@ -1,0 +1,55 @@
+{
+  "schema": "c2-shared-interface-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "base": {
+    "boundary": "canonical-first-research-0.2",
+    "package": "canonical-mathematical-contract-package-0.1",
+    "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5"
+  },
+  "authority": "Native canonical YAML and public Program only",
+  "predicate": {
+    "client": "predicate_client(package,predicate_id,expected_role)",
+    "signature": "c2-predicate-interface-0.1",
+    "required": [
+      "mathematical_identity",
+      "predicate_id",
+      "role",
+      "qualified_axes",
+      "required_symbols",
+      "required_relations",
+      "truth_contract",
+      "scope_id"
+    ],
+    "roles": [
+      "PREDICATE",
+      "GUARD",
+      "DATA_ASSUMPTION"
+    ],
+    "axis_alignment": "explicit ordered qualified axis identity; bind every axis, no implicit broadcast of external binders",
+    "verdict": "NOT_EXECUTED"
+  },
+  "method": {
+    "client": "method_client(package,data)",
+    "signature": "c2-method-interface-0.1",
+    "required": [
+      "signature",
+      "method_signature_identity",
+      "study_identity",
+      "context_receipt"
+    ],
+    "verdict": "NOT_EXECUTED",
+    "price_basis": "explicit currency, real/nominal, price year, exchange or deflation source when applicable"
+  },
+  "identities": {
+    "native": "exact canonical bytes identity",
+    "semantic": "versioned projection of admitted mathematics and all meaning-bearing bindings; do not strip arbitrary keys",
+    "source": "exact original source bytes",
+    "audit": "source, binding as received, provenance and execution evidence; no evidence promotion"
+  },
+  "compatibility": "Additive outer wrapper; keep C1 package and boundary unchanged. Breaking or expanded native admission requires explicit interface change and replay; unknown fields fail closed.",
+  "workstreams": {
+    "A": "external obligations and scope; consume predicate client",
+    "B": "method context, output and evidence; consume method client"
+  },
+  "status": "FROZEN_RESEARCH_WORKING_INTERFACE; closure not asserted"
+}

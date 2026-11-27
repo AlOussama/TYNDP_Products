@@ -1,0 +1,16 @@
+{
+  "schema": "c2-interface-changes-0.1",
+  "changes": [
+    {
+      "id": "ICR-001",
+      "change": "Additive qualified outer reference and explicit separation of native/semantic/source/audit identity; C1 signatures unchanged",
+      "status": "RESEARCH_WORKING_BASELINE",
+      "breaking": false,
+      "tests": [
+        "C2-I01",
+        "C2-I02",
+        "C2-I03"
+      ]
+    }
+  ]
+}

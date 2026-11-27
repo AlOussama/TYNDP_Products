@@ -1,0 +1,399 @@
+{
+  "schema": "c2-source-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "baseline": {
+    "pr": 89,
+    "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+    "tree": "f8edce835a8d9442509501ef22066d98b4a2d47f",
+    "tested_commit": "8802240fc162e6da0aea22800a5331d7623635f7",
+    "run": 45995179530,
+    "job": 140492665768
+  },
+  "inherited_manifest": {
+    "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/source_manifest.json",
+    "blob": "82d7e63a219f9ea74c1240e02e9c8fa5ff1c7d40",
+    "contents": {
+      "schema": "c1-source-manifest-0.1",
+      "governance": "NON-NORMATIVE / RESEARCH ONLY",
+      "baseline": {
+        "repo": "AlOussama/TYNDP_Products",
+        "pr": 83,
+        "head": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+        "head_verified": true,
+        "manifest_blob": "c2c591133fe873a4abfd34e2b86b1f957f564d40"
+      },
+      "inherited_source_pins": {
+        "schema": "ms1-source-manifest-v1",
+        "governance": "NON-NORMATIVE / RESEARCH ONLY",
+        "baseline": {
+          "repo": "AlOussama/TYNDP_Products",
+          "pr": 82,
+          "commit": "976e680ebfd951ac1bf1521a4689f25416d3054b",
+          "tree": "78bf4881d27269132e2edc63086253108ed1b72a",
+          "manifest_blob": "02e48b009b908568409395dbbbbb1258ef0a9481"
+        },
+        "r1": {
+          "pr": 81,
+          "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+          "manifest_blob": "8cdbd11d107b9df0b13f053053e2c8a994135752"
+        },
+        "directly_reverified_prs": [
+          54,
+          55,
+          57,
+          59,
+          58,
+          56,
+          64,
+          76,
+          79,
+          81,
+          82
+        ],
+        "historical_pins_in_verified_r2_manifest": [
+          {
+            "workstream": "ML-C19/B0",
+            "pr": 55,
+            "sha": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C20",
+            "pr": 57,
+            "sha": "b81edeb7551aa786e0d309ccd5bc2271d244e450",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C21",
+            "pr": 59,
+            "sha": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C22",
+            "pr": 58,
+            "sha": "828c87eb100646da6fcce5f8751af5f3f42c7600",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C23",
+            "pr": 56,
+            "sha": "d3d5362231d81a00fd6a19501bc7187f4ad12da5",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-P1",
+            "pr": 60,
+            "sha": "506be1607e1e8a6eb50db2f1317961d5bbaffcce",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-P2",
+            "pr": 61,
+            "sha": "01f4eb798aff5391a51aff2365e6841850907464",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-P3",
+            "pr": 62,
+            "sha": "0e85be6d9d2a84dffd7bb2685e6548671be3ef17",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-P4",
+            "pr": 63,
+            "sha": "4b61addb0e87205e6670e253bd65cb0428e08681",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-P5",
+            "pr": 64,
+            "sha": "eaea6dd99b736f2560866abda722cde78b908bce",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "BUNDLE-ML-04",
+            "pr": 65,
+            "sha": "63e36207351a23f2290c25ffd865a166e03e1bc8",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-N1",
+            "pr": 68,
+            "sha": "fc601cd5727f69473623748744e24c06335704c0",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-N2",
+            "pr": 69,
+            "sha": "6bcfde7ae16d873af30af924aa563b66661f1c30",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-N4",
+            "pr": 66,
+            "sha": "fa93f3a995b97da23a3113753b7144e9872c0be3",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          },
+          {
+            "workstream": "ML-C24-N5",
+            "pr": 67,
+            "sha": "81f3b0100653a48abb4b2a273916839afbd969f7",
+            "head_match": true,
+            "draft": true,
+            "merged": false
+          }
+        ],
+        "additional_r1_pins": [
+          {
+            "id": "N2R",
+            "pr": 76,
+            "sha": "8bf14eab73f2c77bcd3339d32af11868cfae569c",
+            "branch": "research/ml-c24-n2r-integrated-profiles-2026-11-25"
+          },
+          {
+            "id": "N1R",
+            "pr": 77,
+            "sha": "ee41e9f72bac35ec43736ab6d228ee06515b24b3",
+            "branch": "research/ml-c24-n1r-semantic-closure-2026-11-25"
+          },
+          {
+            "id": "N7",
+            "pr": 78,
+            "sha": "258e8bee23efefb270c18eff1ff11ce0eb6e93c2",
+            "branch": "research/ml-c24-n7-ledger-authority-2026-11-25"
+          },
+          {
+            "id": "N4R",
+            "pr": 79,
+            "sha": "ce697839b8445743526a927aa6f0c291830371ab",
+            "branch": "research/ml-c24-n4r-native-reuse-2026-11-25"
+          },
+          {
+            "id": "N5R",
+            "pr": 80,
+            "sha": "53b7eb472a387dffc5e99dc327871da99d897b03",
+            "branch": "research/ml-c24-n5r-generality-2026-11-25"
+          },
+          {
+            "id": "N8",
+            "pr": 81,
+            "sha": "44bf974adb15915a0f53d8448b6f2364741a9f7c"
+          }
+        ],
+        "mathspec": {
+          "repository": "energy-models/mathspec",
+          "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+          "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+          "blobs": {
+            "src/mathspec/__init__.py": "3aff9268e73c4a952372b0c1178562bfdba7e106",
+            "src/mathspec/spec.py": "7935fae207497b4ab5d3c90b409cc9c9f90f940f",
+            "src/mathspec/program.py": "bd9296cc8bca12cbd803c148bf02a0dcf1d481ec",
+            "src/mathspec/_validation.py": "c6bb2388ae11d466d0fbb99d1982ba3bd8bb2fe3",
+            "src/mathspec/_lowering.py": "eeae7870a350b26e6d66e12abe3379a81432aeec",
+            "src/mathspec/_expression_parser.py": "54553ed2a198863589fee1b0c6b34c23968975eb",
+            "src/mathspec/_condition_parser.py": "d2093ef6aa4accb463f397904aed9ae1bba9716d",
+            "src/mathspec/_expression_resolver.py": "bb228270eb9e1520d0500ea922e9e36f31a624b1",
+            "src/mathspec/_condition_resolver.py": "996ceb5f45530f43b70e4c33354fc6405e41c485",
+            "src/mathspec/_operators.py": "dc14e75be45218b24e539ea798fef58aeb73b262",
+            "src/mathspec/_dimensions.py": "89b25b287bc32d2f371d5a15fcd94ca4c1c6c798",
+            "src/mathspec/_composition.py": "409272f3b8d0785102a931f0f982b732cb9d7928",
+            "src/mathspec/_canonical.py": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+            "pyproject.toml": "b2cb15825a39affb4acf573dac012085070bd8f9",
+            "pixi.toml": "96b29cf75e37d4e61da3f6d16b2d93956ef3d488",
+            "pixi.lock": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+            "LICENSE": "f6581072f2a255611c5a480f775bfecc6e077ed9",
+            "schema/mathspec.schema.json": "3be9b2317b0630c3839c412829a8888df227f73f"
+          },
+          "license": "MIT",
+          "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093"
+        },
+        "frozen_catalogs": {
+          "golden_cases.json": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "p5_negative_case_manifest.json": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "k01_k17.csv": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+          "nfr01_nfr18.csv": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+          "slr01_slr42.csv": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+          "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+        },
+        "original_oracle": {
+          "p5_commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "p5_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "r1_test_blobs": [
+            "efddf5abadfaaad38abc472d81a1366d90a00df7",
+            "6b78e03cc668bf685532711be362329e9490057c",
+            "d92787e4b816b950058435d08bc76dd382485b82"
+          ]
+        },
+        "ci": [
+          {
+            "run": 45877500514,
+            "commit": "023357b72e273857416f7d552e14958f6296f42d"
+          },
+          {
+            "run": 45878174824,
+            "commit": "4358e8e31b9e357e34ceedbf71de063213137e23"
+          }
+        ],
+        "baseline_preserved": true
+      },
+      "direct_pr_heads_reverified": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "direct_catalog_blobs": {
+        "golden_cases.json": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "p5_negative_case_manifest.json": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "k01_k17.csv": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+        "nfr01_nfr18.csv": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+        "slr01_slr42.csv": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+        "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+      },
+      "original_c21": {
+        "commit": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+        "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+        "verified_at_ms1_path_and_ci": true
+      },
+      "original_r1_test_blobs": [
+        "efddf5abadfaaad38abc472d81a1366d90a00df7",
+        "6b78e03cc668bf685532711be362329e9490057c",
+        "d92787e4b816b950058435d08bc76dd382485b82"
+      ],
+      "original_p5": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+        "verified": true
+      },
+      "profiles": "Frozen original MS1 and R1 profiles retained unchanged; four native method swaps rerun; no integrated C1 result binding",
+      "r2_manifest": {
+        "commit": "976e680ebfd951ac1bf1521a4689f25416d3054b",
+        "blob": "02e48b009b908568409395dbbbbb1258ef0a9481",
+        "retrieved": true
+      },
+      "r1_manifest": {
+        "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+        "blob": "8cdbd11d107b9df0b13f053053e2c8a994135752",
+        "retrieved": true
+      },
+      "workstreams": [
+        {
+          "id": "WS-A",
+          "pr": 84,
+          "commit": "b5789198863bb7a06f9feee242290f1f75c39b6d",
+          "tree": "b04935755db0833ee16d01a090f08c42ed3153a6",
+          "ci": 45887233840
+        },
+        {
+          "id": "WS-B",
+          "pr": 85,
+          "commit": "2eb4c2d162665424c0cb43262f2d54e448e08c2c",
+          "tree": "85d812000c62c56bc131957e8b32116d93ae1fc4",
+          "ci": 45887494752
+        }
+      ],
+      "limitations": [
+        "Additional inherited artifact-level hashes retained but not all individually reverified in C1; GEMS and SysML/KerML native runtime not revisited. N4R2 inherited via R2.",
+        "All workstreams began from identical MS1 pin. No existing PR modified or merged.",
+        "Native source/dependency identity checked in actual CI. Local sandbox lacked DNS and Pixi."
+      ]
+    }
+  },
+  "additional_baselines": [
+    {
+      "pr": 88,
+      "commit": "58f370c7503aa9ee8bfed51021b6b31c93cb6d06"
+    },
+    {
+      "pr": 87,
+      "commit": "7953830daf56aa8a79405e791ed7fc02458af60b"
+    },
+    {
+      "pr": 86,
+      "commit": "4d5e143a4c29e17e8b12f427f758d717b049c514"
+    }
+  ],
+  "upstream": {
+    "repository": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "blobs": {
+      "src/mathspec/__init__.py": "3aff9268e73c4a952372b0c1178562bfdba7e106",
+      "src/mathspec/spec.py": "7935fae207497b4ab5d3c90b409cc9c9f90f940f",
+      "src/mathspec/program.py": "bd9296cc8bca12cbd803c148bf02a0dcf1d481ec",
+      "src/mathspec/_validation.py": "c6bb2388ae11d466d0fbb99d1982ba3bd8bb2fe3",
+      "src/mathspec/_lowering.py": "eeae7870a350b26e6d66e12abe3379a81432aeec",
+      "src/mathspec/_expression_parser.py": "54553ed2a198863589fee1b0c6b34c23968975eb",
+      "src/mathspec/_condition_parser.py": "d2093ef6aa4accb463f397904aed9ae1bba9716d",
+      "src/mathspec/_expression_resolver.py": "bb228270eb9e1520d0500ea922e9e36f31a624b1",
+      "src/mathspec/_condition_resolver.py": "996ceb5f45530f43b70e4c33354fc6405e41c485",
+      "src/mathspec/_operators.py": "dc14e75be45218b24e539ea798fef58aeb73b262",
+      "src/mathspec/_dimensions.py": "89b25b287bc32d2f371d5a15fcd94ca4c1c6c798",
+      "src/mathspec/_composition.py": "409272f3b8d0785102a931f0f982b732cb9d7928",
+      "src/mathspec/_canonical.py": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+      "pyproject.toml": "b2cb15825a39affb4acf573dac012085070bd8f9",
+      "pixi.toml": "96b29cf75e37d4e61da3f6d16b2d93956ef3d488",
+      "pixi.lock": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+      "LICENSE": "f6581072f2a255611c5a480f775bfecc6e077ed9",
+      "schema/mathspec.schema.json": "3be9b2317b0630c3839c412829a8888df227f73f"
+    },
+    "license": "MIT",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+    "python": "3.13.15",
+    "tree_and_blob_verified": true,
+    "hash_and_runtime_C2": "NOT_EXECUTED"
+  },
+  "note": "Inherited pins retained, not all historical artifacts individually reverified. Primary PR HEAD and historical job verified by connector; local git clone unavailable (DNS), Pixi unavailable."
+}
