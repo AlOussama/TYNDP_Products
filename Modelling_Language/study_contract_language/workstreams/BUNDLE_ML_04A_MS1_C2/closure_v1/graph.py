@@ -9,6 +9,7 @@ import mathspec.program as mp
 from closure import need,fields,qualified,exact,digest,text_hash,canon,c1,Reject
 from WS_B.methods import validate as validate_method
 from closure_v1 import metadata as md,obligations as ob,identity
+from closure_v1.diagnostics import call as checked,pointer
 
 VERSION="c2-closure-study-contract-0.2"
 INPUT="c2-closure-study-input-0.2"
@@ -172,7 +173,7 @@ def report_receipts(obj,tables,source):
 def evaluate(obj,expected_trust):
     fields(obj,("schema","study","frame","slots","sources","disclosures","events","context_data","reports","trust"),"CLOSURE_FIELDS")
     need(obj["schema"]==INPUT,"CLOSURE_VERSION");t=trust(obj,expected_trust)
-    tables=md.validate(obj["frame"]);source=sources(obj,tables);disc=disclosures(obj,tables,source)
+    tables=checked("/frame","R00",None,(),md.validate,obj["frame"]);source=checked("/sources","R13",None,(),sources,obj,tables);disc=checked("/disclosures","R09",None,(),disclosures,obj,tables,source)
     slots=md.index(obj["slots"]);need(bool(slots) and set(slots)==set(tables["slots"]),"STUDY_SLOT_COVERAGE")
     prepared={};producers={};external=context_rows(obj,tables);reports=report_receipts(obj,tables,source);observed={};bound_obs=set()
     global_ids={obj["frame"]["id"],*(k for t in tables.values() for k in t)}
@@ -187,9 +188,10 @@ def evaluate(obj,expected_trust):
         need(row["source_ref"] in source and row["source_ref"] in slot["authority_refs"],"METHOD_SOURCE_AUTHORITY")
         src=source[row["source_ref"]];need(p["source_ref"]==src["immutable_ref"] and p["source_sha256"]==src["sha256"],"METHOD_SOURCE")
         need("ledger" not in p,"USE_VERSIONED_NATIVE_LEDGER")
-        b=ob.Bound(row["package"],tables,row["data"])
+        path=pointer("slots",next(i for i,s in enumerate(obj["slots"]) if s["id"]==k))
+        b=checked(path,"R00",k,[row["source_ref"]],ob.Bound,row["package"],tables,row["data"])
         need(b.leaf["context"]["study"]["id"]==obj["study"]["id"] and b.leaf["context"]["study"]["version"]==obj["study"]["version"],"STUDY_IDENTITY")
-        bind=validate_bindings(row,b,slot)
+        bind=checked(path+"/bindings","R01",k,[row["source_ref"]],validate_bindings,row,b,slot)
         for n,z in b.leaf["context"]["conversions"].items():
             matches=[x for x in source.values() if x["immutable_ref"]==z["source_ref"] and x["sha256"]==z["source_sha256"] and x["revision"]==z["version"]]
             need(len(matches)==1,"CONVERSION_SOURCE_BINDING")
@@ -218,35 +220,36 @@ def evaluate(obj,expected_trust):
         row,b,bind=prepared[k];slot=tables["slots"][k];src=source[row["source_ref"]]
         for sym,ref in bind["upstream"].items():
             need(values(b,sym)==out_values[ref],"UPSTREAM_RESULT_BINDING")
-        used,comp=comparison(row,b,bind,source,external)
+        path=pointer("slots",next(i for i,s in enumerate(obj["slots"]) if s["id"]==k));refs_=[row["source_ref"]]
+        used,comp=checked(path+"/case_context","R12",k,refs_,comparison,row,b,bind,source,external)
         need(not used_comparisons&used,"DUPLICATE_COMPARISON_POLICY");used_comparisons|=used
         # Original C2 exact method/profile/weight/range/context validation.
-        m=validate_method(row["package"],row["data"],row["profile"],row["study"],src["content"],row["case_context"])
+        m=checked(path,"R12",k,refs_,validate_method,row["package"],row["data"],row["profile"],row["study"],src["content"],row["case_context"])
         # Guards, assumptions and metadata scopes are validated before any verdict.
         native_required={z["id"] for z in b.leaf["interface"]["predicates"].values() if z["role"] in ("PREDICATE","DATA_ASSUMPTION")}
         need({a["predicate"]["predicate_id"] for a in row["assertions"]}==native_required,"PREDICATE_COVERAGE")
         if row["assertions"]:
-            specs=ob.validate(b,row["assertions"])
+            specs=checked(path+"/assertions","R09",k,refs_,ob.validate,b,row["assertions"])
             for a in specs.values():
                 z=a["row"];need(z["scope"]==slot["scope"] or set(tables["scopes"][z["scope"]]["domains"])<=set(tables["scopes"][slot["scope"]]["domains"]),"ASSERTION_SLOT_SCOPE")
                 allowed=set(tables["scopes"][z["scope"]]["subjects"])
                 need(all(tables["observables"][bind["observables"][s]]["subject"] in allowed for s in a["predicate"]["required_symbols"] if s in bind["observables"]),"ASSERTION_SUBJECT_SCOPE")
             for w in row["witnesses"]:need(w["source_ref"] in source,"WITNESS_SOURCE_BYTES")
-            obligations=ob.evaluate(b,row["assertions"],row["witnesses"])
+            obligations=checked(path,"R09",k,refs_,ob.evaluate,b,row["assertions"],row["witnesses"])
         else:
             need(not row["witnesses"] and not row["states"],"UNBOUND_EVIDENCE_OR_STATE");obligations={"status":"NOT_APPLICABLE","assertions":[],"conformance":"NOT_PROVED"}
-        policy=ob.nonanticipativity(b,row["policies"]);states=ob.boundaries(b,row["assertions"],row["states"]) if row["states"] else []
+        policy=checked(path+"/policies","R07",k,refs_,ob.nonanticipativity,b,row["policies"]);states=checked(path+"/states","R07",k,refs_,ob.boundaries,b,row["assertions"],row["states"]) if row["states"] else []
         incoming={sym:out_lineage[ref] for sym,ref in bind["upstream"].items()}
         required=any(tables["outputs"][r]["contribution_policy"]=="REQUIRED" for r in bind["producers"])
         need(not required or row["ledger"] is not None,"LEDGER_REQUIRED")
         need(row["ledger"] is not None or not any(any(v for v in x.values()) for x in incoming.values()),"UPSTREAM_LINEAGE_REQUIRED")
-        lr,used_events=ledger.evaluate(b,row["ledger"],events,incoming,bind["observables"]) if row["ledger"] is not None else ({},set())
+        lr,used_events=checked(path+"/ledger","R12",k,refs_,ledger.evaluate,b,row["ledger"],events,incoming,bind["observables"]) if row["ledger"] is not None else ({},set())
         event_usage|=used_events
         for ref,sym in bind["producers"].items():
             out_values[ref]=values(b,sym)
             n=b.symbols[sym]["native_name"];out_lineage[ref]=lr.get(n,{})
             if tables["outputs"][ref]["contribution_policy"]=="REQUIRED":need(n in lr and n in row["ledger"]["expected"] and bool(row["ledger"]["expected"][n]) and any(lr[n].values()),"CONTRIBUTION_COMPLETENESS")
-        verification=verify_requests(row,b,slot,source,obligations,policy,states)
+        verification=checked(path+"/verification","R13",k,refs_,verify_requests,row,b,slot,source,obligations,policy,states)
         results[k]={"method":m,"obligations":obligations,"policies":policy,"boundaries":states,"comparisons":comp,
                     "lineage":ledger.receipt(lr),"verification":verification,"data_identity":b.data_identity,"owner":"OWNER_TBD"}
         sem_slots[k]={"math":identity.mathematics(row["package"]),"profile":identity.profile(row["profile"],row["package"]),"data":b.data_identity,
