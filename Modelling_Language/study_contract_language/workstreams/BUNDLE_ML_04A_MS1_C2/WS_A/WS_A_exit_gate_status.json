@@ -1,0 +1,12 @@
+{
+  "status": "PARTIAL",
+  "native_tests": "NOT_EXECUTED_AT_COMMIT",
+  "formal_scope": "bounded finite predicates and quantifier order",
+  "blockers": [
+    "R1 outer metadata adapter",
+    "general assume-guarantee integration",
+    "information/chronology",
+    "full domain witness and evidence binding"
+  ],
+  "conformance": "NOT_PROVED"
+}

@@ -1,0 +1,8 @@
+feature,classification,evidence,limit
+C1 native predicate and typed package,REUSE_UNCHANGED,package_interface and resolve_predicate,static and bounded
+C1 quantities and exact support,REUSE_UNCHANGED,closure.Checked and bind_data,admitted subset
+C1 finite predicate consumer,REUSE_UNCHANGED,FiniteNative,finite complete support only
+R1 n1r.typed and C21,REUSE_WITH_ADAPTATION,verified original blob and regression,full qualified outer integration open
+R1 legacy mathematical AST,REPLACE_BY_NATIVE_MATHSPEC,ADR-C1-COMP-01,legacy reference retained
+ordered outer quantifier fold,EXTEND_REQUIRED,RC02 and RC07,finite synthetic scope only
+Bool3 applicability and blocked evidence,EXTEND_REQUIRED,R1 UNKNOWN_GUARD and C2 guard controls,authority remains unresolved
