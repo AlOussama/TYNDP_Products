@@ -46,6 +46,18 @@
         "C2-C03",
         "C2-C04"
       ]
+    },
+    {
+      "id": "ICR-004",
+      "status": "IMPLEMENTED_RETEST_REQUIRED",
+      "change": "Versioned 0.4 boundary with exact literal division, nonnegative/positive base proof, affine integer exponent bounds; explicit physical duration weights and N7 key-order/ledger binding, optional external/intermediate output partition. Reuse original compiler for four bounded migrations.",
+      "breaking": false,
+      "tests": [
+        "C2-B09",
+        "C2-B10",
+        "C2-B11",
+        "C2-B12"
+      ]
     }
   ]
 }

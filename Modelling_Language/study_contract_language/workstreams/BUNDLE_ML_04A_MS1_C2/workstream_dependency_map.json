@@ -1,16 +1,33 @@
 {
-  "phase0": "shared interface",
-  "phase1": {
-    "A": [
-      "phase0"
-    ],
-    "B": [
-      "phase0"
-    ]
+  "schema": "c2-workstream-dependencies-0.2",
+  "phase0": {
+    "head": "50065a4013b3c3a4fdceaeeecc330b4ae1931799",
+    "pr": 91
   },
-  "phase2": [
-    "A",
-    "B"
-  ],
-  "C3": "Only after C2 gates MET; 58/116 preserved"
+  "phase1": {
+    "A": {
+      "head": "bf36a1aa41c6819b48b7c92408e69e819e76210d",
+      "pr": 92,
+      "depends": [
+        "phase0"
+      ]
+    },
+    "B": {
+      "head": "c8247aa2db1a9f1e0afbe6441fb80326f95d7141",
+      "pr": 93,
+      "depends": [
+        "phase0"
+      ]
+    }
+  },
+  "partial_snapshot": {
+    "pr": 94,
+    "initial_integration": "45f728f8b6a44cda5dff6ab648c9429f389c60bb",
+    "depends": [
+      "A",
+      "B"
+    ],
+    "closure_claim": false
+  },
+  "phase2_exit": "BLOCKED until remaining semantic blockers resolved; integration snapshot is not exit-gate acceptance"
 }

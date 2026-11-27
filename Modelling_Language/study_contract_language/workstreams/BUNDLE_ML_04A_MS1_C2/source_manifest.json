@@ -1,5 +1,5 @@
 {
-  "schema": "c2-source-0.1",
+  "schema": "c2-source-0.2",
   "governance": "NON-NORMATIVE / RESEARCH ONLY",
   "baseline": {
     "pr": 89,
@@ -395,5 +395,436 @@
     "tree_and_blob_verified": true,
     "hash_and_runtime_C2": "NOT_EXECUTED"
   },
-  "note": "Inherited pins retained, not all historical artifacts individually reverified. Primary PR HEAD and historical job verified by connector; local git clone unavailable (DNS), Pixi unavailable."
+  "note": "Inherited pins retained, not all historical artifacts individually reverified. Primary PR HEAD and historical job verified by connector; local git clone unavailable (DNS), Pixi unavailable.",
+  "explicit_pr_pins_reverified": [
+    {
+      "pr": 88,
+      "commit": "58f370c7503aa9ee8bfed51021b6b31c93cb6d06",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 87,
+      "commit": "7953830daf56aa8a79405e791ed7fc02458af60b",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 86,
+      "commit": "4d5e143a4c29e17e8b12f427f758d717b049c514",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 83,
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 82,
+      "commit": "976e680ebfd951ac1bf1521a4689f25416d3054b",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 81,
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 54,
+      "commit": "5555be36f74d1d4f6e871d4503c1fc91e417e57c",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 55,
+      "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 57,
+      "commit": "b81edeb7551aa786e0d309ccd5bc2271d244e450",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 59,
+      "commit": "cad6d30edf32476ee5e915dbea7566127cbffa5f",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 58,
+      "commit": "828c87eb100646da6fcce5f8751af5f3f42c7600",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 56,
+      "commit": "d3d5362231d81a00fd6a19501bc7187f4ad12da5",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 64,
+      "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+      "head_match": true,
+      "draft": true,
+      "merged": false
+    }
+  ],
+  "direct_original_blobs": [
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/contract.a.scn",
+      "blob": "745582de117fe8a2618e5fa3bbad20d28a721b22",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/contract.b.json",
+      "blob": "cfeebb782da12aea6569ebd446a06c50bc0a57b7",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/data.json",
+      "blob": "73b530e84ae6ff167d5b02582d92eefa0a40c923",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/method-begin.json",
+      "blob": "5317c1f5ffd38a17b123249941829224d38d7e7c",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/method-end.json",
+      "blob": "230624a9104d8fe4d6e70d0267347740278740af",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/source.json",
+      "blob": "002982b1451b0b6a93bd267812697e37c3063c6d",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/study-begin.json",
+      "blob": "11904adb48d44876b672ac9c310d1854a1053720",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/study-end.json",
+      "blob": "1da2c37f84310796fde76d334d3fd94c14767bf0",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/fixtures/trust.json",
+      "blob": "cbe4f9af0c83b5a71e486aeb01fe8e31d90a9faa",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n1r.py",
+      "blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n2r.py",
+      "blob": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n7.py",
+      "blob": "b9234f4d3f32463cb675d22d5b153a0ab83d7114",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/chain.py",
+      "blob": "7eb5dfea8343edfec8fd5a58aad77ca9143f878a",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+      "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "blob": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "match": true
+    },
+    {
+      "source": "R1",
+      "commit": "44bf974adb15915a0f53d8448b6f2364741a9f7c",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/test_freedom.py",
+      "blob": "d92787e4b816b950058435d08bc76dd382485b82",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/adapter.py",
+      "blob": "384530beb13ef96bad6b4165013aaa27944d880f",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py",
+      "blob": "7227cc0641d6b7010fab53c1bdeff170367569a3",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/data.json",
+      "blob": "77403467756135f929f252685c88612dbcf1c8bf",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/eligible.json",
+      "blob": "10454f1ab785551f8fc267588e50e6125cb6be4b",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/gross.json",
+      "blob": "5862e00be547f46d0aa5d77355ea62fb212b3cbc",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/profiles/study.json",
+      "blob": "eeb2b0d4079ff0682b5cc72fe8cb041226e77d44",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/native_probe.py",
+      "blob": "078365b4cf5fd928a200c06bf8bb00622f5af2d1",
+      "match": true
+    },
+    {
+      "source": "MS1",
+      "commit": "c89e2cc4a3b881c44ae3b47fbbcb7ed8e83ad4c7",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/run_r1.sh",
+      "blob": "d7e1167d26ee79cfa6ef968621e4e4277a4a0e05",
+      "match": true
+    }
+  ],
+  "c1_read_blobs": [
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv",
+      "blob": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/ms1_original_regression_matrix.csv",
+      "blob": "d8876c9b176a1d38e80f79d58684f3ae9edd66bd"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv",
+      "blob": "81dc87d54e36baf10c773b55cdecb314a4a0df8b"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv",
+      "blob": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv",
+      "blob": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+      "blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py",
+      "blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/regression_runner/run.py",
+      "blob": "fb84df60b0630201b1f8005d8e01ce36f1aa5fa5"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "blob": "8be0453ec01d359b80b226b7e57ef4b0073175b9"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+      "blob": "4011b01bd63f2472e33a8c4c08402189ce56b736"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_closure.py",
+      "blob": "7ac9dd51e5e4a04018b8cd1c705d9bd00df951db"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_package_interface.py",
+      "blob": "b601979bb0d5721c286b8c5e5831d23e1f94c994"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/ablation_controls.py",
+      "blob": "47b88ea4826e8ade059b30f615c3817fc5aaed1a"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/common_fixtures.py",
+      "blob": "33828d7fee7a885fc8c214ba591b801429ebb424"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+      "blob": "e7e7976bda1d939ce79df7b7f72a19b58aedfbab"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/native_consumer.py",
+      "blob": "1b2812bb8e5f43fa64da6d6951e374d331041b21"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/run_comparison.py",
+      "blob": "ea51d81db82fbac644f8056c3167628671eeef06"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/ADR_C1_COMP_01.md",
+      "blob": "bdf8f0686a25853387fe5aa28d2dbad49ffcc9e3"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/C2_handoff.md",
+      "blob": "196f889363aa3bc45d2cc538a03ac7c8b2b65cd6"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/ablation_results.json",
+      "blob": "4f6570d910da50ad623e3be5512c21db478c319d"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/architecture_comparison.csv",
+      "blob": "8f8cf55a2b5440ed2aaba84badcf1d5891d694c9"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/architecture_decision.json",
+      "blob": "441202a252f5fc961372f0368dab27a2b31ab97c"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/comparison_results.json",
+      "blob": "cbc4db721956ca3829932c510e3092f5a6900956"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/critical_review.md",
+      "blob": "c8113bd67cbe460fa7a53a706877d83f56045904"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/gate_status.json",
+      "blob": "e1f4cd02960d0b52c47becab5e5a9f8ef3b04153"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/reference_case_comparison.csv",
+      "blob": "e840400e12c2b9ee96f467cb815e60391695024f"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/source_manifest.json",
+      "blob": "3ac1ff3cc26cb21853ed4b68ac71d0da6c9ed3c4"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/dependency_manifest.json",
+      "blob": "c367595b0c21f36210bf3d058b7bf819162b93a8"
+    },
+    {
+      "commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/scientific_traceability.csv",
+      "blob": "4edd94b2e1bffbfccd385d7a4aae1cc561689238"
+    }
+  ],
+  "shared_interface_commit": "50065a4013b3c3a4fdceaeeecc330b4ae1931799",
+  "workstream_heads": {
+    "A": "bf36a1aa41c6819b48b7c92408e69e819e76210d",
+    "B": "c8247aa2db1a9f1e0afbe6441fb80326f95d7141"
+  },
+  "historical_inheritance_rule": "All further N/P, R1/R2, GEMS, KerML and SysML pins preserved transitively in the frozen inherited manifest. No external version refresh; only directly used original artifacts rechecked in C2."
 }

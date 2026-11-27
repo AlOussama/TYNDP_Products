@@ -1,0 +1,153 @@
+{
+  "schema": "c2-dependency-manifest-0.1",
+  "upstream": {
+    "repository": "energy-models/mathspec",
+    "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "blobs": {
+      "src/mathspec/__init__.py": "3aff9268e73c4a952372b0c1178562bfdba7e106",
+      "src/mathspec/spec.py": "7935fae207497b4ab5d3c90b409cc9c9f90f940f",
+      "src/mathspec/program.py": "bd9296cc8bca12cbd803c148bf02a0dcf1d481ec",
+      "src/mathspec/_validation.py": "c6bb2388ae11d466d0fbb99d1982ba3bd8bb2fe3",
+      "src/mathspec/_lowering.py": "eeae7870a350b26e6d66e12abe3379a81432aeec",
+      "src/mathspec/_expression_parser.py": "54553ed2a198863589fee1b0c6b34c23968975eb",
+      "src/mathspec/_condition_parser.py": "d2093ef6aa4accb463f397904aed9ae1bba9716d",
+      "src/mathspec/_expression_resolver.py": "bb228270eb9e1520d0500ea922e9e36f31a624b1",
+      "src/mathspec/_condition_resolver.py": "996ceb5f45530f43b70e4c33354fc6405e41c485",
+      "src/mathspec/_operators.py": "dc14e75be45218b24e539ea798fef58aeb73b262",
+      "src/mathspec/_dimensions.py": "89b25b287bc32d2f371d5a15fcd94ca4c1c6c798",
+      "src/mathspec/_composition.py": "409272f3b8d0785102a931f0f982b732cb9d7928",
+      "src/mathspec/_canonical.py": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+      "pyproject.toml": "b2cb15825a39affb4acf573dac012085070bd8f9",
+      "pixi.toml": "96b29cf75e37d4e61da3f6d16b2d93956ef3d488",
+      "pixi.lock": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+      "LICENSE": "f6581072f2a255611c5a480f775bfecc6e077ed9",
+      "schema/mathspec.schema.json": "3be9b2317b0630c3839c412829a8888df227f73f"
+    },
+    "license": "MIT",
+    "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "blobs_verified": [
+      {
+        "path": "src/mathspec/__init__.py",
+        "blob": "3aff9268e73c4a952372b0c1178562bfdba7e106",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/spec.py",
+        "blob": "7935fae207497b4ab5d3c90b409cc9c9f90f940f",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/program.py",
+        "blob": "bd9296cc8bca12cbd803c148bf02a0dcf1d481ec",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_validation.py",
+        "blob": "c6bb2388ae11d466d0fbb99d1982ba3bd8bb2fe3",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_lowering.py",
+        "blob": "eeae7870a350b26e6d66e12abe3379a81432aeec",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_expression_parser.py",
+        "blob": "54553ed2a198863589fee1b0c6b34c23968975eb",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_condition_parser.py",
+        "blob": "d2093ef6aa4accb463f397904aed9ae1bba9716d",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_expression_resolver.py",
+        "blob": "bb228270eb9e1520d0500ea922e9e36f31a624b1",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_condition_resolver.py",
+        "blob": "996ceb5f45530f43b70e4c33354fc6405e41c485",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_operators.py",
+        "blob": "dc14e75be45218b24e539ea798fef58aeb73b262",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_dimensions.py",
+        "blob": "89b25b287bc32d2f371d5a15fcd94ca4c1c6c798",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_composition.py",
+        "blob": "409272f3b8d0785102a931f0f982b732cb9d7928",
+        "match": true
+      },
+      {
+        "path": "src/mathspec/_canonical.py",
+        "blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+        "match": true
+      },
+      {
+        "path": "pyproject.toml",
+        "blob": "b2cb15825a39affb4acf573dac012085070bd8f9",
+        "match": true
+      },
+      {
+        "path": "pixi.toml",
+        "blob": "96b29cf75e37d4e61da3f6d16b2d93956ef3d488",
+        "match": true
+      },
+      {
+        "path": "pixi.lock",
+        "blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+        "match": true
+      },
+      {
+        "path": "LICENSE",
+        "blob": "f6581072f2a255611c5a480f775bfecc6e077ed9",
+        "match": true
+      },
+      {
+        "path": "schema/mathspec.schema.json",
+        "blob": "3be9b2317b0630c3839c412829a8888df227f73f",
+        "match": true
+      }
+    ]
+  },
+  "ci_environment": {
+    "runner": "ubuntu-24.04",
+    "python": "3.13.15",
+    "mathspec": "0.4.1.dev40+g5f1464c33",
+    "pydantic": "2.13.4",
+    "pyparsing": "3.3.2",
+    "PyYAML": "6.0.3",
+    "pixi": "0.85.0",
+    "lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2"
+  },
+  "reuse": [
+    "mathspec public API and public Program",
+    "R1 Dimension algebra",
+    "unmodified original C21 validator, P5 oracle and R1 test files",
+    "original MS1 profile compiler and finite rational Consumer",
+    "N7 contribution_table; native Program lineage adapter",
+    "C1 canonical package, typed admission and exact support"
+  ],
+  "license": "MIT upstream source, attribution retained; no vendoring or fork; alpha public API risk requires replay",
+  "ci_workflow": ".github/workflows/research-ms1-c2.yml",
+  "actions": {
+    "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "pixi": "ad1da6449d9e506fd127fd67ab2d054a769f6a94"
+  },
+  "upstream_replay": {
+    "run": 46038869045,
+    "job": 140641160479,
+    "tested_head": "45f728f8b6a44cda5dff6ab648c9429f389c60bb",
+    "passed": 4140,
+    "skipped": 47
+  }
+}

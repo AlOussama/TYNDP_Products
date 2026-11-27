@@ -1,3 +1,2 @@
-# C2 shared interface
-
-NON-NORMATIVE / RESEARCH ONLY. Additive interface over unchanged C1 boundary and package. This is a working freeze for WS-A and WS-B, not a gate-complete release. Both clients reimport native packages and return NOT_EXECUTED. No legacy mathematical AST introduced. C2 tests pending native CI. Original population 58/116/105 retained; no historical gate promoted.
+# BUNDLE-ML-04A-MS1-C2 — M3 Hybrid
+NON-NORMATIVE / RESEARCH ONLY; PARTIAL RESEARCH SNAPSHOT; C3 BLOCKED. Native mathspec canonical specification remains sole mathematical authority. Start with general_study_contract_language_specification.md, formal_semantics_specification.md, canonical_study_contract_specification.md, gate_status.json, remaining_blockers.json and native_regression_results.json. WS_A/ and WS_B/ are separate development artifacts; canonical.py is bounded common integration. Actual tests run via .github/workflows/research-ms1-c2.yml on the pinned native environment. Exact original 58/116/105 identities retained, full original A/B paths not yet executed. See conditional C3 handoff. No historical branch altered, no main merge.

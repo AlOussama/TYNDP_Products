@@ -1,0 +1,54 @@
+{
+  "schema": "c2-gates-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "status": "PARTIAL_RESEARCH; C3 NOT READY",
+  "gates": [
+    {
+      "id": "C2-G0",
+      "status": "PARTIAL_PENDING_FINAL_EVIDENCE",
+      "reason": "Primary and all explicit pins reverified; actual final native receipt to be attached"
+    },
+    {
+      "id": "C2-G1",
+      "status": "PARTIAL",
+      "reason": "Finite A/G, Bool3, ordered binders; BLK-01/02/03 remain"
+    },
+    {
+      "id": "C2-G2",
+      "status": "PARTIAL",
+      "reason": "Native mathematical authority established and bounded power integration; complete temporal/condition execution and physical context open"
+    },
+    {
+      "id": "C2-G3",
+      "status": "PARTIAL",
+      "reason": "Actual bounded swaps, source and counterfactual checks; BLK-04/05 remain"
+    },
+    {
+      "id": "C2-G4",
+      "status": "PARTIAL",
+      "reason": "Strict integrated canonical candidate; full metadata, composition and identity semantics open"
+    },
+    {
+      "id": "C2-G5",
+      "status": "PARTIAL",
+      "reason": "105 + 20 identities preserved; full requirement-by-requirement proof not closed"
+    },
+    {
+      "id": "C2-G6",
+      "status": "PARTIAL",
+      "reason": "Native regression executed; final evidence and additional original profile retest pending, scope incomplete"
+    },
+    {
+      "id": "C2-G7",
+      "status": "BLOCKED",
+      "reason": "Fundamental C2 semantic blockers remain; do not start C3"
+    }
+  ],
+  "original_path_population": {
+    "identities": 58,
+    "paths": 116,
+    "full_executed": 0
+  },
+  "authority": "OWNER_TBD",
+  "normative_release": false
+}

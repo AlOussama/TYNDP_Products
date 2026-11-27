@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:c2:method-profile",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_signature": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "native_semantic_identity": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "approval": {
+      "enum": [
+        "RESEARCH_ASSUMPTION"
+      ]
+    },
+    "input_roles": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "VALUE",
+          "PROBABILITY",
+          "TIME_WEIGHT",
+          "DURATION_WEIGHT"
+        ]
+      }
+    },
+    "axis_roles": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "scenario",
+          "time",
+          "sample"
+        ]
+      }
+    },
+    "parameter_ranges": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "max": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          }
+        },
+        "required": [
+          "min",
+          "max"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "probability_rules": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "SUM_ONE"
+        ]
+      }
+    },
+    "counterfactual_pairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alternative": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "reference",
+          "alternative"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ledger": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "enum": [
+                "ledger-policy-r1"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rules": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "ALLOW_REUSE",
+                  "DISJOINT"
+                ]
+              }
+            },
+            "expected": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          },
+          "required": [
+            "schema",
+            "id",
+            "version",
+            "rules",
+            "expected"
+          ],
+          "additionalProperties": false
+        },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "enum": [
+                  "contribution",
+                  "auxiliary"
+                ]
+              },
+              "observable": {
+                "type": "string"
+              },
+              "case": {
+                "type": "string"
+              },
+              "data_ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "role",
+              "observable",
+              "case",
+              "data_ref"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "key_axes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "required": [
+        "policy",
+        "bindings",
+        "key_axes"
+      ],
+      "additionalProperties": false
+    },
+    "output_contract": {
+      "type": "object",
+      "properties": {
+        "external": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "intermediate": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "external",
+        "intermediate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "native_signature",
+    "native_semantic_identity",
+    "source_ref",
+    "source_sha256",
+    "approval",
+    "input_roles",
+    "axis_roles",
+    "parameter_ranges",
+    "probability_rules",
+    "counterfactual_pairs",
+    "outputs"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,2076 @@
+{
+  "schema": "c2-original-population-0.1",
+  "source_commit": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+  "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+  "source_blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9",
+  "original_identities": 58,
+  "original_paths": 116,
+  "catalog_blobs": {
+    "golden_cases.json": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+    "c23_mutation_cases.json": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+    "p5_negative_case_manifest.json": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+    "k01_k17.csv": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+    "nfr01_nfr18.csv": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+    "slr01_slr42.csv": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+    "traceability.csv": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+  },
+  "originals": [
+    {
+      "family": "RC",
+      "id": "RC01",
+      "rc": "RC01",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC02",
+      "rc": "RC02",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC03",
+      "rc": "RC03",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC04",
+      "rc": "RC04",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC05",
+      "rc": "RC05",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC06",
+      "rc": "RC06",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC07",
+      "rc": "RC07",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC08",
+      "rc": "RC08",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC09",
+      "rc": "RC09",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "RC",
+      "id": "RC10",
+      "rc": "RC10",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-01",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-02",
+      "rc": "RC02",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-03",
+      "rc": "RC03",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-04",
+      "rc": "RC04",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-05",
+      "rc": "RC05",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-06",
+      "rc": "RC06",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-07",
+      "rc": "RC07",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-08",
+      "rc": "RC08",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-09",
+      "rc": "RC09",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-10",
+      "rc": "RC10",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-11",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-12",
+      "rc": "RC10",
+      "expected": [
+        "AUDIT_LOSS"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-13",
+      "rc": "RC10",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-14",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-15",
+      "rc": "RC07",
+      "expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-16",
+      "rc": "RC03",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-17",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-18",
+      "rc": "RC05",
+      "expected": [
+        "E4_NOT_PROVED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f"
+    },
+    {
+      "family": "P5",
+      "id": "M01",
+      "rc": "",
+      "expected": "PAIR_INCOMPLETE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M02",
+      "rc": "",
+      "expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M03",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M04",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_SUM",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M05",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M06",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M07",
+      "rc": "",
+      "expected": "BENEFIT_SIGN_CONVENTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M08",
+      "rc": "",
+      "expected": "COST_PROXY_MISLABELED_AS_SEW",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M09",
+      "rc": "",
+      "expected": "UNSUPPORTED_OWNER_APPROVAL",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M10",
+      "rc": "",
+      "expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M11",
+      "rc": "",
+      "expected": "SOURCE_LEDGER_LOSS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M12",
+      "rc": "",
+      "expected": "MODEL_VARIATION_NOT_DISCLOSED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M13",
+      "rc": "",
+      "expected": "PROJECT_SCOPE_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M14",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M15",
+      "rc": "",
+      "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M16",
+      "rc": "",
+      "expected": "TIME_SUPPORT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M17",
+      "rc": "",
+      "expected": "UNKNOWN_COERCED_TO_NUMBER",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M18",
+      "rc": "",
+      "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M19",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M20",
+      "rc": "",
+      "expected": "DISCOUNT_POLICY_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M21",
+      "rc": "",
+      "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M22",
+      "rc": "",
+      "expected": "DISCOUNT_CURRENCY_BASIS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M23",
+      "rc": "",
+      "expected": "WEIGHT_ROLE_CONFLATION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M24",
+      "rc": "",
+      "expected": "OBSERVABLE_SELECTION_UNDEFINED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M25",
+      "rc": "",
+      "expected": "UNKNOWN_SAMPLE_REFERENCE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M26",
+      "rc": "",
+      "expected": "CONSULTATION_SOURCE_PROMOTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M27",
+      "rc": "",
+      "expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M28",
+      "rc": "",
+      "expected": "KPI_DOUBLE_COUNTING_POLICY",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M29",
+      "rc": "",
+      "expected": "STAGE1_INFORMATION_LEAKAGE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    },
+    {
+      "family": "P5",
+      "id": "M30",
+      "rc": "",
+      "expected": "E4_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945"
+    }
+  ],
+  "paths": [
+    {
+      "family": "RC",
+      "id": "RC01",
+      "rc": "RC01",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "PARTIAL_R1_FRAGMENT",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC01",
+      "rc": "RC01",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "PARTIAL_R1_FRAGMENT",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC02",
+      "rc": "RC02",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC02",
+      "rc": "RC02",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC03",
+      "rc": "RC03",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC03",
+      "rc": "RC03",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC04",
+      "rc": "RC04",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "mass inventory recursion, loss and heating-value basis",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC04",
+      "rc": "RC04",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "mass inventory recursion, loss and heating-value basis",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC05",
+      "rc": "RC05",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC05",
+      "rc": "RC05",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC06",
+      "rc": "RC06",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "integer domain, lead time, investment option and cost obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC06",
+      "rc": "RC06",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "integer domain, lead time, investment option and cost obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC07",
+      "rc": "RC07",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC07",
+      "rc": "RC07",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC08",
+      "rc": "RC08",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "weighted cost contribution uniqueness, price basis and typed method output",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC08",
+      "rc": "RC08",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "weighted cost contribution uniqueness, price basis and typed method output",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC09",
+      "rc": "RC09",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "counterfactual exogeneity, method context and authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC09",
+      "rc": "RC09",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "counterfactual exogeneity, method context and authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC10",
+      "rc": "RC10",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "RC",
+      "id": "RC10",
+      "rc": "RC10",
+      "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+      "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-01",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-01",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-02",
+      "rc": "RC02",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-02",
+      "rc": "RC02",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-03",
+      "rc": "RC03",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-03",
+      "rc": "RC03",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-04",
+      "rc": "RC04",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "mass inventory recursion, loss and heating-value basis",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-04",
+      "rc": "RC04",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "mass inventory recursion, loss and heating-value basis",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-05",
+      "rc": "RC05",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-05",
+      "rc": "RC05",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-06",
+      "rc": "RC06",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "integer domain, lead time, investment option and cost obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-06",
+      "rc": "RC06",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "integer domain, lead time, investment option and cost obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-07",
+      "rc": "RC07",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-07",
+      "rc": "RC07",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-08",
+      "rc": "RC08",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "weighted cost contribution uniqueness, price basis and typed method output",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-08",
+      "rc": "RC08",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "weighted cost contribution uniqueness, price basis and typed method output",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-09",
+      "rc": "RC09",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "counterfactual exogeneity, method context and authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-09",
+      "rc": "RC09",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "counterfactual exogeneity, method context and authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-10",
+      "rc": "RC10",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-10",
+      "rc": "RC10",
+      "expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-11",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-11",
+      "rc": "RC01",
+      "expected": [
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-12",
+      "rc": "RC10",
+      "expected": [
+        "AUDIT_LOSS"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-12",
+      "rc": "RC10",
+      "expected": [
+        "AUDIT_LOSS"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-13",
+      "rc": "RC10",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-13",
+      "rc": "RC10",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-14",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-14",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-15",
+      "rc": "RC07",
+      "expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-15",
+      "rc": "RC07",
+      "expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-16",
+      "rc": "RC03",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-16",
+      "rc": "RC03",
+      "expected": [
+        "FAIL_STATIC"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-17",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-17",
+      "rc": "RC01",
+      "expected": [
+        "BLOCKED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "signed conditional energy ledger, efficiency and terminal authority",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-18",
+      "rc": "RC05",
+      "expected": [
+        "E4_NOT_PROVED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "C23",
+      "id": "MUT-18",
+      "rc": "RC05",
+      "expected": [
+        "E4_NOT_PROVED"
+      ],
+      "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "topology-aware incidence/cycle relations and KVL",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M01",
+      "rc": "",
+      "expected": "PAIR_INCOMPLETE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M01",
+      "rc": "",
+      "expected": "PAIR_INCOMPLETE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M02",
+      "rc": "",
+      "expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M02",
+      "rc": "",
+      "expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M03",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M03",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M04",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_SUM",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M04",
+      "rc": "",
+      "expected": "SCENARIO_WEIGHT_SUM",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M05",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M05",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M06",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M06",
+      "rc": "",
+      "expected": "OUTPUT_BASIS_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M07",
+      "rc": "",
+      "expected": "BENEFIT_SIGN_CONVENTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M07",
+      "rc": "",
+      "expected": "BENEFIT_SIGN_CONVENTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M08",
+      "rc": "",
+      "expected": "COST_PROXY_MISLABELED_AS_SEW",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M08",
+      "rc": "",
+      "expected": "COST_PROXY_MISLABELED_AS_SEW",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M09",
+      "rc": "",
+      "expected": "UNSUPPORTED_OWNER_APPROVAL",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M09",
+      "rc": "",
+      "expected": "UNSUPPORTED_OWNER_APPROVAL",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M10",
+      "rc": "",
+      "expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M10",
+      "rc": "",
+      "expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M11",
+      "rc": "",
+      "expected": "SOURCE_LEDGER_LOSS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M11",
+      "rc": "",
+      "expected": "SOURCE_LEDGER_LOSS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M12",
+      "rc": "",
+      "expected": "MODEL_VARIATION_NOT_DISCLOSED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M12",
+      "rc": "",
+      "expected": "MODEL_VARIATION_NOT_DISCLOSED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M13",
+      "rc": "",
+      "expected": "PROJECT_SCOPE_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M13",
+      "rc": "",
+      "expected": "PROJECT_SCOPE_DRIFT",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M14",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M14",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M15",
+      "rc": "",
+      "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M15",
+      "rc": "",
+      "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M16",
+      "rc": "",
+      "expected": "TIME_SUPPORT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M16",
+      "rc": "",
+      "expected": "TIME_SUPPORT_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M17",
+      "rc": "",
+      "expected": "UNKNOWN_COERCED_TO_NUMBER",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M17",
+      "rc": "",
+      "expected": "UNKNOWN_COERCED_TO_NUMBER",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M18",
+      "rc": "",
+      "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M18",
+      "rc": "",
+      "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M19",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M19",
+      "rc": "",
+      "expected": "PROJECT_DELTA_MISASSIGNED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M20",
+      "rc": "",
+      "expected": "DISCOUNT_POLICY_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M20",
+      "rc": "",
+      "expected": "DISCOUNT_POLICY_INVALID",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M21",
+      "rc": "",
+      "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M21",
+      "rc": "",
+      "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M22",
+      "rc": "",
+      "expected": "DISCOUNT_CURRENCY_BASIS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M22",
+      "rc": "",
+      "expected": "DISCOUNT_CURRENCY_BASIS",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M23",
+      "rc": "",
+      "expected": "WEIGHT_ROLE_CONFLATION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M23",
+      "rc": "",
+      "expected": "WEIGHT_ROLE_CONFLATION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M24",
+      "rc": "",
+      "expected": "OBSERVABLE_SELECTION_UNDEFINED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M24",
+      "rc": "",
+      "expected": "OBSERVABLE_SELECTION_UNDEFINED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M25",
+      "rc": "",
+      "expected": "UNKNOWN_SAMPLE_REFERENCE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M25",
+      "rc": "",
+      "expected": "UNKNOWN_SAMPLE_REFERENCE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M26",
+      "rc": "",
+      "expected": "CONSULTATION_SOURCE_PROMOTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M26",
+      "rc": "",
+      "expected": "CONSULTATION_SOURCE_PROMOTION",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M27",
+      "rc": "",
+      "expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M27",
+      "rc": "",
+      "expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M28",
+      "rc": "",
+      "expected": "KPI_DOUBLE_COUNTING_POLICY",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M28",
+      "rc": "",
+      "expected": "KPI_DOUBLE_COUNTING_POLICY",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M29",
+      "rc": "",
+      "expected": "STAGE1_INFORMATION_LEAKAGE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M29",
+      "rc": "",
+      "expected": "STAGE1_INFORMATION_LEAKAGE",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M30",
+      "rc": "",
+      "expected": "E4_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "A",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    },
+    {
+      "family": "P5",
+      "id": "M30",
+      "rc": "",
+      "expected": "E4_UNSUPPORTED",
+      "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+      "syntax": "B",
+      "representation_status": "MATERIALISATION_BLOCKED",
+      "full_chain": "NOT_EXECUTED",
+      "reason": "P5 original micro-oracle cannot substitute for full language representation",
+      "C2_full_chain": "NOT_EXECUTED",
+      "C2_full_chain_reason": "Deferred to C3; no derived fragment/oracle promoted"
+    }
+  ]
+}

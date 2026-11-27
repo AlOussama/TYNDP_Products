@@ -1,5 +1,5 @@
 {
-  "schema": "c2-shared-interface-0.2",
+  "schema": "c2-shared-interface-0.3",
   "governance": "NON-NORMATIVE / RESEARCH ONLY",
   "base": {
     "boundary": "canonical-first-research-0.2",
@@ -51,7 +51,7 @@
     "A": "external obligations and scope; consume predicate client",
     "B": "method context, output and evidence; consume method client"
   },
-  "status": "CANDIDATE_PARTIAL_INTEGRATION_PENDING_NATIVE_CI",
+  "status": "PARTIAL_RESEARCH_INTEGRATION; exact versions only; see gates",
   "supported_packages": [
     {
       "boundary": "canonical-first-research-0.2",
@@ -61,6 +61,11 @@
       "boundary": "canonical-first-research-0.3",
       "package": "canonical-mathematical-contract-package-0.2",
       "restriction": "bounded positive dimensionless dynamic integer power"
+    },
+    {
+      "boundary": "canonical-first-research-0.4",
+      "package": "canonical-mathematical-contract-package-0.3",
+      "restriction": "candidate conservative native positive arithmetic and affine bounded integer exponent proofs for original profile migration; actual test status in native_regression_results.json"
     }
   ]
 }

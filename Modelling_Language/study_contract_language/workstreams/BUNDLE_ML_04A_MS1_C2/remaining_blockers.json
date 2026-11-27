@@ -1,0 +1,77 @@
+{
+  "schema": "c2-blockers-0.1",
+  "status": "PARTIAL",
+  "blockers": [
+    {
+      "id": "C2-BLK-01",
+      "gate": [
+        "G1",
+        "G4",
+        "G5"
+      ],
+      "status": "OPEN",
+      "scope": "Full qualified StudyFrame/Referent/Port/Observable/variation adapter",
+      "action": "Reuse nonmathematical R1 n1r and C21 semantics in native contract; preserve original diagnostics; validate all ports/carriers/process and allowed variations without second AST."
+    },
+    {
+      "id": "C2-BLK-02",
+      "gate": [
+        "G1",
+        "G2"
+      ],
+      "status": "OPEN",
+      "scope": "Complete chronology, initial/terminal, information partitions and nonanticipativity",
+      "action": "Bind existing R1 partition/temporal checks; implement or explicitly scientifically block finite execution of admitted Translate, WindowSum, ParameterDefined, JoinedCondition, CountComparison; preserve static vs executable distinction."
+    },
+    {
+      "id": "C2-BLK-03",
+      "gate": [
+        "G1",
+        "G5"
+      ],
+      "status": "OPEN",
+      "scope": "Full A/G behavioral semantics and evidence",
+      "action": "Bind native guard references with typed applicability provenance, technical/environment assumptions, full quantified request/trace/response coverage, variation and witness semantics; preserve Bool3 reasons."
+    },
+    {
+      "id": "C2-BLK-04",
+      "gate": [
+        "G3",
+        "G4"
+      ],
+      "status": "OPEN",
+      "scope": "Multiple method profiles/slots, output and process binding, authority and allowed project changes",
+      "action": "Integrate R1 N2R/N7 context/authority coverage and explicit native dependency DAG across profiles. Verify authorized comparison changes and exogenous completeness, not just supplied equality."
+    },
+    {
+      "id": "C2-BLK-05",
+      "gate": [
+        "G3",
+        "G5"
+      ],
+      "status": "OPEN",
+      "scope": "General contribution/ledger and provenance",
+      "action": "Extend supported native lineage only when required; ensure original P5 event and counterfactual semantics bind to native outputs, all relevant audit identities survive, no owner promotion."
+    },
+    {
+      "id": "C2-BLK-06",
+      "gate": [
+        "G4",
+        "G5"
+      ],
+      "status": "OPEN",
+      "scope": "Complete canonical semantic projection, all 105 + MS-K requirements",
+      "action": "Resolve list-order semantics, full identity/authority model and requirement-specific coverage. Do not infer proof from traceability preservation."
+    },
+    {
+      "id": "C2-BLK-07",
+      "gate": [
+        "G6",
+        "G7"
+      ],
+      "status": "OPEN",
+      "scope": "Complete validation of final C2 semantic scope; C3 prerequisites",
+      "action": "Preserve actual failures, rerun pinned tests on resolved commit. Full original 58/116 paths explicitly deferred to C3 and not a C2 test claim."
+    }
+  ]
+}
