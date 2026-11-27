@@ -9,7 +9,7 @@ def setup(case,pairs=False):
     pkg=export_package(admit(json.dumps(case["doc"]),case["context"]))
     r=method_client(pkg,case["data"]);s=r["signature"];c=case["context"]
     source="synthetic research method source: "+case["id"]
-    profile={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"source_ref":"fixture:"+case["id"],"source_sha256":text_hash(source),"approval":"RESEARCH_ASSUMPTION",
+    profile={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"native_semantic_identity":identities(pkg)["semantic"],"source_ref":"fixture:"+case["id"],"source_sha256":text_hash(source),"approval":"RESEARCH_ASSUMPTION",
       "input_roles":{z["symbol_id"]:case["weight_roles"].get(z["native_name"],"value").upper() for z in s["inputs"]},
       "axis_roles":{z["id"]:case["axis_roles"].get(n,"sample") for n,z in c["domains"].items()},
       "parameter_ranges":{z["symbol_id"]:{"min":"1/100","max":"100"} for z in s["parameters"]},
@@ -53,10 +53,13 @@ class Methods(unittest.TestCase):
         self.assertEqual([x["expected"] for x in r],["415/11","4150/121"])
     def test_C2_B06_method_swap(self):
         c=self.rc("RC09");p,m,s,x=setup(c,True);a=evaluate(c,p,m,s,x)
-        d=copy.deepcopy(c);d["doc"]["expressions"]["discounted"]="annual / (factor * 2)"
+        d=copy.deepcopy(c);d["doc"]["expressions"]["discounted"]="annual / factor / 2"
         d["context"]["method"]["version"]="0.3";d["context"]["study"]["version"]="0.3"
         d["context"]["study"]["method_ref"]=digest(d["context"]["method"])
+        from fractions import Fraction as F
+        d["data"]["parameters"]["reported"][0]["value"]=str(F(a["outputs"]["discounted"][0])/2)
         q,n,t,y=setup(d,True);b=evaluate(d,q,n,t,y)
+        self.assertTrue(all(b["conditions"].values()))
         self.assertNotEqual(a["profile_identity"],b["profile_identity"])
         self.assertEqual(a["outputs"]["annual"],b["outputs"]["annual"])
         from fractions import Fraction as F

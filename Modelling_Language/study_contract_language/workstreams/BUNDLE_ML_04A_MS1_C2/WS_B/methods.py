@@ -32,11 +32,12 @@ def validate(package,data,profile,study,source,context):
     leaf=import_package(package)
     receipt=resolve_method(package,data)
     signature=receipt["signature"]
-    fields(profile,("id","version","native_signature","source_ref","source_sha256","approval","input_roles","axis_roles","parameter_ranges","probability_rules","counterfactual_pairs","outputs"),"PROFILE_FIELDS")
+    fields(profile,("id","version","native_signature","native_semantic_identity","source_ref","source_sha256","approval","input_roles","axis_roles","parameter_ranges","probability_rules","counterfactual_pairs","outputs"),"PROFILE_FIELDS")
     fields(study,("id","version","profile_identity","native_study_identity","data_context_identity","case_context_identity","owner"),"STUDY_FIELDS")
     need(type(source) is str and profile["source_sha256"]==text_hash(source) and type(profile["source_ref"]) is str and bool(profile["source_ref"]),"METHOD_SOURCE")
     need(profile["approval"]=="RESEARCH_ASSUMPTION" and study["owner"]=="OWNER_TBD","AUTHORITY_PROMOTION")
     need(profile["id"]==signature["id"] and profile["version"]==signature["version"] and profile["native_signature"]==receipt["method_signature_identity"],"METHOD_SIGNATURE")
+    need(profile["native_semantic_identity"]==identities(package)["semantic"],"METHOD_MATHEMATICAL_IDENTITY")
     need(study["id"]==leaf["context"]["study"]["id"] and study["version"]==leaf["context"]["study"]["version"],"STUDY_ID")
     need(study["profile_identity"]==digest(profile) and study["native_study_identity"]==receipt["study_identity"],"STUDY_METHOD_BINDING")
     need(study["data_context_identity"]==receipt["context_receipt"]["context_identity"] and study["case_context_identity"]==digest(context),"STUDY_DATA_CONTEXT")

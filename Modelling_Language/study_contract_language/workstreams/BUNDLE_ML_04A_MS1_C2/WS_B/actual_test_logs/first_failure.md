@@ -1,0 +1,3 @@
+# First actual run
+
+Run 46037963133, job 140638097226, tested head f469008cfec62813f6a05810dc43bbfbeaf4c3e5. Six of seven new WS-B tests passed; B06 failed admission: DIVISOR_NONZERO_REQUIRED for compound divisor factor*2. Rewrite as sequential divisions with identical mathematical intent and supported nonzero proof. The P5 checkout was skipped after the failure; subsequent always() command had no p5-src directory. Preserve failure, add always() to checkout. No requirement or oracle weakened. Add profile-level semantic mathematics pin (critical review finding).
