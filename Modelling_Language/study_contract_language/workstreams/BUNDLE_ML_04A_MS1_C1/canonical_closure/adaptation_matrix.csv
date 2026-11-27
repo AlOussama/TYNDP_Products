@@ -1,0 +1,10 @@
+family,native_reuse,additional_semantics,implementation_scope,reference
+arithmetic,Constant ParameterReference ExpressionReference Negate Add Multiply Divide Power Sum,physical algebra and exact source/domain,static direct Program,RC01 RC03 RC04 RC06 RC08
+conditions,ExpressionComparison ParameterComparison ParameterDefined ConditionReference And Or Not,typed comparison and explicit shape alignment; no Unknown coercion,static complete support,RC01 RC02 RC07
+relations,Relation Join Sum,qualified identity key coverage and group support,finite dense at/group sum,RC05
+temporal,Translate WindowSum DimensionPosition,explicit chronology reference and edge policy,ordered domains no partition,RC01 RC04 RC07
+cases,Cases Region Mask,static checks every branch; complete inputs,restricted native disjoint regions,RC03
+assumptions,Assumption,only input and method parameters; no guarantee substitution,static,RC01-RC09
+method,public native Program signatures,profile IDs typed inputs outputs context receipt,static and finite input binding,RC08 RC09
+audit,native canonical YAML,separate source/semantic/audit IDs,roundtrip and tamper check,RC10
+legacy,immutable M0/CSNF,no duplicate target mathematical AST,comparison only; prior M2 acceptance not removed,all
