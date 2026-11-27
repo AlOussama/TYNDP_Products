@@ -1,0 +1,301 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "RC";
+    "study_id": "study:RC08";
+    "reference": "RC08";
+    "question": "cost inventory, currency/price year, discount, scenario/time weights and selection";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION";
+      "proof_policy": "NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "process_role": "EVALUATION";
+      "data_policy": "PINNED_SNAPSHOT";
+      "missing_data": "BLOCK";
+      "authority_status": "RESEARCH_ONLY";
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE";
+    };
+    "original_obligations": "KPI=sum_s p_s sum_t dt_t*opex_s,t + one capex contribution; apply authorized discount factors at designated times; unique underlying contribution support";
+    "original_assumptions": "opex=[20,40] EUR/h, dt=[1/2,3/2] h, one scenario p=1; capex 100 EUR at time zero; discount factor 1 synthetic";
+    "original_typed_symbols": "opex EUR/h; duration h; scenario probability dimensionless; capex EUR; price basis EUR:real:2025; year index; discount policy";
+    "original_interfaces": "cost inventory, currency/price year, discount, scenario/time weights and selection";
+    "variants": [{
+        "id": "objective_ledger";
+        "projection": "Component cost decomposition";
+      }, {
+        "id": "postprocess";
+        "projection": "Independent cost ledger over observable flows";
+      }];
+    "proof_obligation": "E3 sampled values possible; E4 not inferred";
+    "domains": {
+      "t": {
+        "labels": ["t0", "t1"];
+        "kind": "time";
+        "ordered": true;
+      };
+      "s": {
+        "labels": ["s1"];
+        "kind": "scenario";
+        "ordered": false;
+      };
+    };
+    "parameters": {
+      "opex": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "EUR/h";
+          "carrier": "currency";
+          "basis": "EUR:real:2025";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "opex"];
+      };
+      "dt": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "h";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "POSITIVE";
+        "weight_role": "DURATION_WEIGHT";
+        "source_path": ["synthetic_data", "inputs", "duration"];
+      };
+      "prob": {
+        "dims": ["s"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "weight_role": "PROBABILITY";
+        "source_path": ["synthetic_data", "inputs", "probability"];
+      };
+      "discount": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "discount"];
+      };
+      "capex": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "EUR";
+          "carrier": "currency";
+          "basis": "EUR:real:2025";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "capex"];
+      };
+      "reported": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "EUR";
+          "carrier": "currency";
+          "basis": "EUR:real:2025";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "kpi"];
+      };
+    };
+    "expressions": {
+      "total": {
+        "formula": "sum(sum(opex*dt, over=t)*prob, over=s)*discount+capex";
+        "quantity": {
+          "unit": "EUR";
+          "carrier": "currency";
+          "basis": "EUR:real:2025";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+    };
+    "conditions": {
+      "kpi": {
+        "formula": "total == reported";
+        "axes": [];
+        "role": "SAFETY_GUARANTEE";
+      };
+    };
+    "components": [];
+    "ports": [];
+    "relations": [];
+    "chronologies": [{
+        "id": "chronology:t";
+        "domain": "domain:t";
+        "mode": "NONCYCLIC";
+        "intervals": [{
+            "label": "t0";
+            "start_h": "0";
+            "end_h": "1/2";
+            "duration_h": "1/2";
+          }, {
+            "label": "t1";
+            "start_h": "1/2";
+            "end_h": "2";
+            "duration_h": "3/2";
+          }];
+      }];
+    "information_sets": [];
+    "policies": [];
+    "native_relations": {
+
+    };
+    "relation_domains": [];
+    "checks": [{
+        "kind": "equals";
+        "path": ["synthetic_data", "inputs", "basis"];
+        "equals": "EUR:real:2025";
+        "rule": "R06";
+        "code": "PRICE_BASIS";
+      }];
+    "transfers": {
+
+    };
+    "ledgers": [{
+        "output": "total";
+        "event_catalog": ["capex0", "opex0", "opex1"];
+        "series": {
+          "capex": {
+            "events": ["capex0"];
+            "keys": [[]];
+          };
+          "opex": {
+            "events": ["opex0", "opex1"];
+            "keys": [["t0"], ["t1"]];
+          };
+        };
+      }];
+    "comparison": null;
+    "models": [];
+    "report_requests": [];
+    "projection_notes": [];
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC08/contract.json";
+      "blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd";
+    };
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json";
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE";
+    };
+  }
+ instance {
+    "id": "MUT-08";
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1";
+      "id": "RC08";
+      "governance": "NON-NORMATIVE / RESEARCH ONLY";
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28";
+        "ms1_draft_blob": "a7c07022c244559a81298508f920741e7064a205";
+      };
+      "study_frame": {
+        "id": "study:RC08";
+        "question": "cost inventory, currency/price year, discount, scenario/time weights and selection";
+        "domains": {
+          "interval": ["t0", "t1"];
+          "scenario": ["s1"];
+          "event": ["capex0", "opex0", "opex1"];
+        };
+        "authority": "OWNER_TBD";
+        "method": "method:RC08:synthetic-0.1";
+        "study_profile": "profile:RC08:synthetic-0.1";
+        "evidence": "REQUEST_NOT_EXECUTED";
+      };
+      "typed_symbols": "opex EUR/h; duration h; scenario probability dimensionless; capex EUR; price basis EUR:real:2025; year index; discount policy";
+      "component_interfaces": "cost inventory, currency/price year, discount, scenario/time weights and selection";
+      "assumptions": "opex=[20,40] EUR/h, dt=[1/2,3/2] h, one scenario p=1; capex 100 EUR at time zero; discount factor 1 synthetic";
+      "external_obligations": "KPI=sum_s p_s sum_t dt_t*opex_s,t + one capex contribution; apply authorized discount factors at designated times; unique underlying contribution support";
+      "observables": "typed KPI output, cost items, weights, selection, contribution ledger";
+      "synthetic_data": {
+        "domains": {
+          "interval": ["t0", "t1"];
+          "scenario": ["s1"];
+          "event": ["capex0", "opex0", "opex1"];
+        };
+        "inputs": {
+          "opex": ["20", "40"];
+          "duration": ["1/2", "3/2"];
+          "probability": "1";
+          "capex": "100";
+          "discount": "1";
+          "basis": "EUR:real:2025";
+        };
+        "units": {
+          "opex": "EUR/h";
+          "duration": "h";
+          "capex": "EUR";
+          "kpi": "EUR";
+        };
+        "observed": {
+          "kpi": "170";
+          "contributions": ["capex0", "capex0", "opex0", "opex1"];
+        };
+        "variants": [{
+            "id": "objective_ledger";
+            "projection": "Component cost decomposition";
+          }, {
+            "id": "postprocess";
+            "projection": "Independent cost ledger over observable flows";
+          }];
+        "limit": "Synthetic identity discount, unique support; no approved KPI policy.";
+      };
+      "proof_obligation": "E3 sampled values possible; E4 not inferred";
+    };
+    "parameters": {
+      "opex": ["20", "40"];
+      "dt": ["1/2", "3/2"];
+      "prob": ["1"];
+      "discount": "1";
+      "capex": "100";
+      "reported": "170";
+    };
+    "relation_rows": {
+
+    };
+    "raw_transfers": {
+
+    };
+    "observed_contributions": [["capex0", "capex0", "opex0", "opex1"]];
+    "comparison": null;
+    "models": [];
+    "external_reports": [];
+  }
+}

@@ -1,0 +1,195 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "RC";
+    "study_id": "study:RC07";
+    "reference": "RC07";
+    "question": "scenario tree, decision time and information partitions; nonanticipativity";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION";
+      "proof_policy": "NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "process_role": "EVALUATION";
+      "data_policy": "PINNED_SNAPSHOT";
+      "missing_data": "BLOCK";
+      "authority_status": "RESEARCH_ONLY";
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE";
+    };
+    "original_obligations": "forall t,s,s2: same_information(t,s,s2) implies x[t,s]=x[t,s2]; scenario tree partitions refine with revelation";
+    "original_assumptions": "s1,s2 share information at t0; separate at t1; x0=[10,10]; x1=[12,8]";
+    "original_typed_symbols": "scenario IDs; ordered stage IDs; information equivalence relation I[t,s,s2]; decision x[t,s] MW";
+    "original_interfaces": "scenario tree, decision time and information partitions; nonanticipativity";
+    "variants": [{
+        "id": "shared_policy";
+        "projection": "one t0 variable for information set";
+      }, {
+        "id": "indexed";
+        "projection": "scenario-indexed decision with equality on information class";
+      }];
+    "proof_obligation": "E4 not inferred from one scenario sample";
+    "domains": {
+      "s": {
+        "labels": ["s1", "s2"];
+        "kind": "scenario";
+        "ordered": false;
+      };
+      "t": {
+        "labels": ["t0", "t1"];
+        "kind": "stage";
+        "ordered": true;
+      };
+    };
+    "parameters": {
+      "decision": {
+        "dims": ["s", "t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "decision"];
+      };
+    };
+    "expressions": {
+      "decision_projection": {
+        "formula": "decision";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+    };
+    "conditions": {
+
+    };
+    "components": [];
+    "ports": [];
+    "relations": [];
+    "chronologies": [];
+    "information_sets": [{
+        "id": "info:0";
+        "time_domain": "domain:t";
+        "stage": "t0";
+        "scenario_domain": "domain:s";
+        "partition": [["s1", "s2"]];
+      }, {
+        "id": "info:1";
+        "time_domain": "domain:t";
+        "stage": "t1";
+        "scenario_domain": "domain:s";
+        "partition": [["s1"], ["s2"]];
+      }];
+    "policies": [{
+        "id": "policy:nonanticipativity";
+        "symbol": "ref:decision";
+        "time_domain": "domain:t";
+        "scenario_domain": "domain:s";
+      }];
+    "native_relations": {
+
+    };
+    "relation_domains": [];
+    "checks": [{
+        "kind": "equals";
+        "path": ["synthetic_data", "inputs", "guard_present"];
+        "equals": true;
+        "rule": "R09";
+        "code": "GUARD_REQUIRED";
+      }];
+    "transfers": {
+
+    };
+    "ledgers": [];
+    "comparison": null;
+    "models": [];
+    "report_requests": [];
+    "projection_notes": ["Exact original information partitions on ordered stages; no elapsed hours invented."];
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC07/contract.json";
+      "blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a";
+    };
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-15.json";
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE";
+    };
+  }
+ instance {
+    "id": "MUT-15";
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1";
+      "id": "RC07";
+      "governance": "NON-NORMATIVE / RESEARCH ONLY";
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28";
+        "ms1_draft_blob": "90fc60cc9df88288b27dd00088b1ed904940a7a3";
+      };
+      "study_frame": {
+        "id": "study:RC07";
+        "question": "scenario tree, decision time and information partitions; nonanticipativity";
+        "domains": {
+          "scenario": ["s1", "s2"];
+          "stage": ["t0", "t1"];
+        };
+        "authority": "OWNER_TBD";
+        "method": "method:RC07:synthetic-0.1";
+        "study_profile": "profile:RC07:synthetic-0.1";
+        "evidence": "REQUEST_NOT_EXECUTED";
+      };
+      "typed_symbols": "scenario IDs; ordered stage IDs; information equivalence relation I[t,s,s2]; decision x[t,s] MW";
+      "component_interfaces": "scenario tree, decision time and information partitions; nonanticipativity";
+      "assumptions": "s1,s2 share information at t0; separate at t1; x0=[10,10]; x1=[12,8]";
+      "external_obligations": "forall t,s,s2: same_information(t,s,s2) implies x[t,s]=x[t,s2]; scenario tree partitions refine with revelation";
+      "observables": "scenario tree, partition, decision, revelation time";
+      "synthetic_data": {
+        "domains": {
+          "scenario": ["s1", "s2"];
+          "stage": ["t0", "t1"];
+        };
+        "inputs": {
+          "partitions": [[[0, 1]], [[0], [1]]];
+          "stage_order": ["t0", "t1"];
+          "guard_present": false;
+        };
+        "units": {
+          "decision": "MW";
+        };
+        "observed": {
+          "decision": [["10", "10"], ["12", "8"]];
+        };
+        "variants": [{
+            "id": "shared_policy";
+            "projection": "one t0 variable for information set";
+          }, {
+            "id": "indexed";
+            "projection": "scenario-indexed decision with equality on information class";
+          }];
+        "limit": "Only two stages and two scenarios; full policy conformance not proved.";
+      };
+      "proof_obligation": "E4 not inferred from one scenario sample";
+    };
+    "parameters": {
+      "decision": ["10", "12", "10", "8"];
+    };
+    "relation_rows": {
+
+    };
+    "raw_transfers": {
+
+    };
+    "observed_contributions": [];
+    "comparison": null;
+    "models": [];
+    "external_reports": [];
+  }
+}

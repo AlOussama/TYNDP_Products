@@ -1,0 +1,344 @@
+{
+  "schema": "c3-original-authoring-0.2",
+  "instance": {
+    "id": "RC10",
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1",
+      "id": "RC10",
+      "governance": "NON-NORMATIVE / RESEARCH ONLY",
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "ms1_draft_blob": "68d1e3fbfb52fc8e3196e62b29fe9dd469a1f38a"
+      },
+      "study_frame": {
+        "id": "study:RC10",
+        "question": "common study/data/scenario/observable IDs, variation and independent evidence",
+        "domains": {
+          "model": [
+            "M-A",
+            "M-B"
+          ],
+          "observable": [
+            "cost"
+          ],
+          "scenario": [
+            "s1"
+          ]
+        },
+        "authority": "OWNER_TBD",
+        "method": "method:RC10:synthetic-0.1",
+        "study_profile": "profile:RC10:synthetic-0.1",
+        "evidence": "REQUEST_NOT_EXECUTED"
+      },
+      "typed_symbols": "study/data/scenario/observable IDs; model and independent evidence IDs; variation disclosure; claim status",
+      "component_interfaces": "common study/data/scenario/observable IDs, variation and independent evidence",
+      "assumptions": "models M-A/M-B share contract and inputs; different disclosed internal formulation; distinct evidence generators; both synthetic outputs 170 EUR; no real evidence",
+      "external_obligations": "compare only aligned observables; declare variation and independent provenance; equal objectives alone never entail E4 or E5",
+      "observables": "aligned outputs, variation, evidence identity/lifecycle, claim strength",
+      "synthetic_data": {
+        "domains": {
+          "model": [
+            "M-A",
+            "M-B"
+          ],
+          "observable": [
+            "cost"
+          ],
+          "scenario": [
+            "s1"
+          ]
+        },
+        "inputs": {
+          "contract": "contract:common",
+          "snapshot": "data:common",
+          "scenario": "s1",
+          "observable": "cost",
+          "basis": "EUR:real:2025",
+          "model_ids": [
+            "M-A",
+            "M-B"
+          ],
+          "source_ids": [
+            "source:A",
+            "source:B"
+          ],
+          "generator_ids": [
+            "generator:A",
+            "generator:B"
+          ],
+          "variation_disclosed": [
+            true,
+            true
+          ]
+        },
+        "units": {
+          "cost": "EUR"
+        },
+        "observed": {
+          "cost": [
+            "170",
+            "170"
+          ],
+          "evidence_role": "REQUEST",
+          "evidence_status": "NOT_EXECUTED",
+          "e4_claim": false
+        },
+        "variants": [
+          {
+            "id": "M-A",
+            "projection": "Synthetic objective ledger",
+            "source": "source:A"
+          },
+          {
+            "id": "M-B",
+            "projection": "Synthetic independent postprocess representation",
+            "source": "source:B"
+          }
+        ],
+        "limit": "Distinct asserted identities do not establish human or tool independence."
+      },
+      "proof_obligation": "E5 only on two separately supported conformances"
+    },
+    "parameters": {
+      "a": "170",
+      "b": "170"
+    },
+    "relation_rows": {},
+    "raw_transfers": {},
+    "observed_contributions": [],
+    "comparison": null,
+    "models": [
+      {
+        "id": "model:a",
+        "implementation_ref": "generator:A",
+        "source_ref": "source:A",
+        "observable": "a"
+      },
+      {
+        "id": "model:b",
+        "implementation_ref": "generator:B",
+        "source_ref": "source:B",
+        "observable": "b"
+      }
+    ],
+    "external_reports": [
+      {
+        "id": "report:independent_evidence",
+        "status": "NOT_EXECUTED",
+        "reason": "MISSING_EVIDENCE",
+        "value": null,
+        "source_ref": "authority:source"
+      }
+    ]
+  },
+  "definition": {
+    "schema": "c3-authored-native-contract-0.2",
+    "family": "RC",
+    "study_id": "study:RC10",
+    "reference": "RC10",
+    "question": "common study/data/scenario/observable IDs, variation and independent evidence",
+    "governance": "NON-NORMATIVE / RESEARCH ONLY",
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION",
+      "proof_policy": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "process_role": "EVALUATION",
+      "data_policy": "PINNED_SNAPSHOT",
+      "missing_data": "BLOCK",
+      "authority_status": "RESEARCH_ONLY",
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE"
+    },
+    "original_obligations": "compare only aligned observables; declare variation and independent provenance; equal objectives alone never entail E4 or E5",
+    "original_assumptions": "models M-A/M-B share contract and inputs; different disclosed internal formulation; distinct evidence generators; both synthetic outputs 170 EUR; no real evidence",
+    "original_typed_symbols": "study/data/scenario/observable IDs; model and independent evidence IDs; variation disclosure; claim status",
+    "original_interfaces": "common study/data/scenario/observable IDs, variation and independent evidence",
+    "variants": [
+      {
+        "id": "M-A",
+        "projection": "Synthetic objective ledger",
+        "source": "source:A"
+      },
+      {
+        "id": "M-B",
+        "projection": "Synthetic independent postprocess representation",
+        "source": "source:B"
+      }
+    ],
+    "proof_obligation": "E5 only on two separately supported conformances",
+    "domains": {},
+    "parameters": {
+      "a": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "EUR",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "subject": "case:a",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "cost",
+          0
+        ]
+      },
+      "b": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "EUR",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "subject": "case:b",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "cost",
+          1
+        ]
+      }
+    },
+    "expressions": {
+      "delta": {
+        "formula": "a-b",
+        "quantity": {
+          "unit": "EUR",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      }
+    },
+    "conditions": {
+      "agreement": {
+        "formula": "a == b",
+        "axes": [],
+        "role": "SAFETY_GUARANTEE"
+      }
+    },
+    "components": [],
+    "ports": [],
+    "relations": [],
+    "chronologies": [],
+    "information_sets": [],
+    "policies": [],
+    "native_relations": {},
+    "relation_domains": [],
+    "checks": [
+      {
+        "kind": "exact_population",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "source_ids"
+        ],
+        "values": [
+          "source:A",
+          "source:B"
+        ],
+        "rule": "R09",
+        "code": "SOURCE_LOSS"
+      },
+      {
+        "kind": "unique",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "generator_ids"
+        ],
+        "rule": "R13",
+        "code": "INDEPENDENCE_IDENTITY_COLLISION"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "variation_disclosed"
+        ],
+        "equals": [
+          true,
+          true
+        ],
+        "rule": "R10",
+        "code": "VARIATION_DISCLOSURE"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "observed",
+          "evidence_role"
+        ],
+        "equals": "REQUEST",
+        "rule": "R13",
+        "code": "EVIDENCE_PROMOTION"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "observed",
+          "evidence_status"
+        ],
+        "equals": "NOT_EXECUTED",
+        "rule": "R13",
+        "code": "EVIDENCE_PROMOTION"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "observed",
+          "e4_claim"
+        ],
+        "equals": false,
+        "rule": "R13",
+        "code": "E4_UNSUPPORTED"
+      }
+    ],
+    "transfers": {},
+    "ledgers": [],
+    "comparison": null,
+    "models": [
+      {
+        "id": "model:a",
+        "implementation_ref": "generator:A",
+        "observable": "a"
+      },
+      {
+        "id": "model:b",
+        "implementation_ref": "generator:B",
+        "observable": "b"
+      }
+    ],
+    "report_requests": [
+      {
+        "id": "report:independent_evidence",
+        "subject": "frame:research",
+        "value_type": "QUALITATIVE",
+        "declared_unit": null,
+        "basis": "ORIGINAL_RESEARCH_PENDING"
+      }
+    ],
+    "projection_notes": [],
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+      "blob": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+    }
+  }
+}

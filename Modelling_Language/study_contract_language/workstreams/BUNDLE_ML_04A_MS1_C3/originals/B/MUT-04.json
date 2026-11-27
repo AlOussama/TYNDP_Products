@@ -1,0 +1,456 @@
+{
+  "schema": "c3-original-authoring-0.2",
+  "instance": {
+    "id": "MUT-04",
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1",
+      "id": "RC04",
+      "governance": "NON-NORMATIVE / RESEARCH ONLY",
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "ms1_draft_blob": "fb6fbb11e1a3d128278c8ea4adbadc8f592de6bc"
+      },
+      "study_frame": {
+        "id": "study:RC04",
+        "question": "H2 kg/h port, mass ledger, losses; energy basis if explicitly approved",
+        "domains": {
+          "interval": [
+            "t0"
+          ],
+          "component": [
+            "H2_store"
+          ]
+        },
+        "authority": "OWNER_TBD",
+        "method": "method:RC04:synthetic-0.1",
+        "study_profile": "profile:RC04:synthetic-0.1",
+        "evidence": "REQUEST_NOT_EXECUTED"
+      },
+      "typed_symbols": "M: hydrogen inventory kg; inflow/outflow kg/h; duration h; loss kg; optional explicit heating value MWh/kg",
+      "component_interfaces": "H2 kg/h port, mass ledger, losses; energy basis if explicitly approved",
+      "assumptions": "M0=100 kg; inflow 10 kg/h; outflow 5 kg/h; dt=2 h; loss 1 kg; M1=109 kg",
+      "external_obligations": "M1=M0+(inflow-outflow)*dt-loss; mass carrier H2; energy basis only authorized and explicitly converted",
+      "observables": "mass inventory, port mass flows, mass loss, optional basis",
+      "synthetic_data": {
+        "domains": {
+          "interval": [
+            "t0"
+          ],
+          "component": [
+            "H2_store"
+          ]
+        },
+        "inputs": {
+          "initial": "100",
+          "inflow": "10",
+          "outflow": "5",
+          "dt": "2",
+          "loss": "1",
+          "basis": "LHV",
+          "heating_value": "1/30"
+        },
+        "units": {
+          "initial": "kg",
+          "inflow": "kg/h",
+          "outflow": "kg/h",
+          "dt": "h",
+          "loss": "kg",
+          "final": "kg"
+        },
+        "observed": {
+          "final": "109",
+          "inventory_unit": "MWh",
+          "energy_basis": "LHV"
+        },
+        "variants": [
+          {
+            "id": "mass",
+            "projection": "Inventory directly kg"
+          },
+          {
+            "id": "energy",
+            "projection": "LHV energy / explicit heating value -> kg"
+          }
+        ],
+        "limit": "No assumed universal heating value; synthetic factor only."
+      },
+      "proof_obligation": "E2-obligation possible; E4 open"
+    },
+    "parameters": {
+      "initial": "100",
+      "inflow": [
+        "10"
+      ],
+      "outflow": [
+        "5"
+      ],
+      "dt": [
+        "2"
+      ],
+      "loss": [
+        "1"
+      ],
+      "reported": [
+        "109"
+      ],
+      "zero": "0",
+      "hv": "1/30"
+    },
+    "relation_rows": {},
+    "raw_transfers": {},
+    "observed_contributions": [],
+    "comparison": null,
+    "models": [],
+    "external_reports": []
+  },
+  "definition": {
+    "schema": "c3-authored-native-contract-0.2",
+    "family": "RC",
+    "study_id": "study:RC04",
+    "reference": "RC04",
+    "question": "H2 kg/h port, mass ledger, losses; energy basis if explicitly approved",
+    "governance": "NON-NORMATIVE / RESEARCH ONLY",
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION",
+      "proof_policy": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "process_role": "EVALUATION",
+      "data_policy": "PINNED_SNAPSHOT",
+      "missing_data": "BLOCK",
+      "authority_status": "RESEARCH_ONLY",
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE"
+    },
+    "original_obligations": "M1=M0+(inflow-outflow)*dt-loss; mass carrier H2; energy basis only authorized and explicitly converted",
+    "original_assumptions": "M0=100 kg; inflow 10 kg/h; outflow 5 kg/h; dt=2 h; loss 1 kg; M1=109 kg",
+    "original_typed_symbols": "M: hydrogen inventory kg; inflow/outflow kg/h; duration h; loss kg; optional explicit heating value MWh/kg",
+    "original_interfaces": "H2 kg/h port, mass ledger, losses; energy basis if explicitly approved",
+    "variants": [
+      {
+        "id": "mass",
+        "projection": "Inventory directly kg"
+      },
+      {
+        "id": "energy",
+        "projection": "LHV energy / explicit heating value -> kg"
+      }
+    ],
+    "proof_obligation": "E2-obligation possible; E4 open",
+    "domains": {
+      "t": {
+        "labels": [
+          "t0"
+        ],
+        "kind": "time",
+        "ordered": true
+      }
+    },
+    "parameters": {
+      "initial": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "initial"
+        ]
+      },
+      "inflow": {
+        "dims": [
+          "t"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg/h",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "subject": "port:in",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "inflow"
+        ]
+      },
+      "outflow": {
+        "dims": [
+          "t"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg/h",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "subject": "port:out",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "outflow"
+        ]
+      },
+      "dt": {
+        "dims": [
+          "t"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "h",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "POSITIVE",
+        "weight_role": "DURATION_WEIGHT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "dt"
+        ]
+      },
+      "loss": {
+        "dims": [
+          "t"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "loss"
+        ]
+      },
+      "reported": {
+        "dims": [
+          "t"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "final"
+        ]
+      },
+      "zero": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "kg",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT"
+      },
+      "hv": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MWh_H2_LHV/kg",
+          "carrier": "conversion",
+          "basis": "LHV",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "METHOD_PARAMETER",
+        "domain_rule": "POSITIVE",
+        "range": {
+          "min": "1/1000",
+          "max": "100"
+        },
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "heating_value"
+        ]
+      }
+    },
+    "expressions": {
+      "final": {
+        "formula": "initial+(inflow-outflow)*dt-loss",
+        "quantity": {
+          "unit": "kg",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "converted_energy": {
+        "formula": "final*hv",
+        "quantity": {
+          "unit": "MWh_H2_LHV",
+          "carrier": "hydrogen",
+          "basis": "LHV",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      }
+    },
+    "conditions": {
+      "mass_ledger": {
+        "formula": "final == reported and final >= zero",
+        "axes": [
+          "t"
+        ],
+        "role": "SAFETY_GUARANTEE"
+      }
+    },
+    "components": [
+      {
+        "id": "component:H2_store",
+        "kind": "storage"
+      }
+    ],
+    "ports": [
+      {
+        "id": "port:in",
+        "component_ref": "component:H2_store",
+        "quantity": {
+          "unit": "kg/h",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "direction": "IN",
+        "axes": [
+          "domain:t"
+        ]
+      },
+      {
+        "id": "port:out",
+        "component_ref": "component:H2_store",
+        "quantity": {
+          "unit": "kg/h",
+          "carrier": "hydrogen",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "direction": "OUT",
+        "axes": [
+          "domain:t"
+        ]
+      }
+    ],
+    "relations": [],
+    "chronologies": [
+      {
+        "id": "chronology:t",
+        "domain": "domain:t",
+        "mode": "NONCYCLIC",
+        "intervals": [
+          {
+            "label": "t0",
+            "start_h": "0",
+            "end_h": "2",
+            "duration_h": "2"
+          }
+        ]
+      }
+    ],
+    "information_sets": [],
+    "policies": [],
+    "native_relations": {},
+    "relation_domains": [],
+    "checks": [
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "observed",
+          "inventory_unit"
+        ],
+        "equals": "kg",
+        "rule": "R06",
+        "code": "MASS_UNIT"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "observed",
+          "energy_basis"
+        ],
+        "equals": "LHV",
+        "rule": "R06",
+        "code": "HEATING_VALUE_BASIS"
+      },
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "basis"
+        ],
+        "equals": "LHV",
+        "rule": "R06",
+        "code": "HEATING_VALUE_BASIS"
+      }
+    ],
+    "transfers": {},
+    "ledgers": [],
+    "comparison": null,
+    "models": [],
+    "report_requests": [],
+    "projection_notes": [],
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC04/contract.json",
+      "blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c"
+    },
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json",
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+    }
+  }
+}

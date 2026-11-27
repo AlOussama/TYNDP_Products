@@ -1,0 +1,558 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "RC";
+    "study_id": "study:RC01";
+    "reference": "RC01";
+    "question": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION";
+      "proof_policy": "NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "process_role": "EVALUATION";
+      "data_policy": "PINNED_SNAPSHOT";
+      "missing_data": "BLOCK";
+      "authority_status": "RESEARCH_ONLY";
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE";
+    };
+    "original_obligations": "-3<=P[t]<=4; I=-P*dt on charging support; E1=E0+eta*I; 0<=E1<=Emax; terminal only with authorized rule";
+    "original_assumptions": "t0: P=-2 MW, dt=1/2 h, eta=9/10, E0=1 MWh, Emax=4 MWh; no discharge; conversion loss=1/10 MWh; terminal OWNER_TBD";
+    "original_typed_symbols": "P[t]: electricity injection MW; dt[t]: h >0; E[t]: MWh; eta: dimensionless; L[t]: MWh; Emax: MWh";
+    "original_interfaces": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal";
+    "variants": [{
+        "id": "SOC";
+        "projection": "E = SOC * Emax";
+        "internal_final": "19/40";
+      }, {
+        "id": "ENERGY";
+        "projection": "E = internal energy";
+        "internal_final": "19/10";
+      }];
+    "proof_obligation": "E5 conditional; E4 not assumed";
+    "domains": {
+      "t": {
+        "labels": ["t0"];
+        "kind": "time";
+        "ordered": true;
+      };
+    };
+    "parameters": {
+      "p": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "subject": "port:battery_grid";
+        "source_path": ["synthetic_data", "inputs", "p"];
+      };
+      "charge": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "p"];
+      };
+      "dt": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "h";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "POSITIVE";
+        "weight_role": "DURATION_WEIGHT";
+        "source_path": ["synthetic_data", "inputs", "dt"];
+      };
+      "eta": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "eta"];
+      };
+      "initial": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "initial"];
+      };
+      "capacity": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "capacity"];
+      };
+      "minp": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "min_p"];
+      };
+      "maxp": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "max_p"];
+      };
+      "zero_p": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+      };
+      "zero": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+      };
+      "intake_obs": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "intake"];
+      };
+      "final_obs": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "final"];
+      };
+      "loss_obs": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "loss"];
+      };
+      "soc": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "variants", 0, "internal_final"];
+      };
+      "energy_variant": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "variants", 1, "internal_final"];
+      };
+    };
+    "expressions": {
+      "intake": {
+        "formula": "charge*dt";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "final": {
+        "formula": "initial+eta*intake";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "loss": {
+        "formula": "intake*(1-eta)";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "soc_projection": {
+        "formula": "soc*capacity";
+        "quantity": {
+          "unit": "MWh";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+    };
+    "conditions": {
+      "port_range": {
+        "formula": "p >= minp and p <= maxp and p <= zero_p";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "efficiency_range": {
+        "formula": "eta > 0 and eta <= 1";
+        "axes": [];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "intake_balance": {
+        "formula": "intake == intake_obs";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "stock_balance": {
+        "formula": "final == final_obs and loss == loss_obs and final >= zero and final <= capacity";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "soc_equivalent": {
+        "formula": "soc_projection == final_obs";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "energy_equivalent": {
+        "formula": "energy_variant == final_obs";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+    };
+    "components": [{
+        "id": "component:battery";
+        "kind": "storage";
+      }, {
+        "id": "component:BUS_A";
+        "kind": "electric_bus";
+      }];
+    "ports": [{
+        "id": "port:battery_grid";
+        "component_ref": "component:battery";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": ["domain:t"];
+      }, {
+        "id": "port:bus";
+        "component_ref": "component:BUS_A";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": ["domain:t"];
+      }];
+    "relations": [{
+        "id": "relation:grid";
+        "kind": "connected_to";
+        "from": "port:battery_grid";
+        "to": "port:bus";
+      }];
+    "chronologies": [{
+        "id": "chronology:t";
+        "domain": "domain:t";
+        "mode": "NONCYCLIC";
+        "intervals": [{
+            "label": "t0";
+            "start_h": "0";
+            "end_h": "1/2";
+            "duration_h": "1/2";
+          }];
+      }];
+    "information_sets": [];
+    "policies": [];
+    "native_relations": {
+
+    };
+    "relation_domains": [];
+    "checks": [{
+        "kind": "unique";
+        "path": ["study_frame", "domains", "component"];
+        "rule": "R01";
+        "code": "AMBIGUOUS_ALIAS";
+      }, {
+        "kind": "present";
+        "path": ["synthetic_data", "inputs", "dt"];
+        "rule": "R07";
+        "code": "DURATION_REQUIRED";
+      }, {
+        "kind": "equals";
+        "path": ["study_frame", "authority"];
+        "equals": "OWNER_TBD";
+        "rule": "R09";
+        "code": "AUTHORITY_PROMOTION";
+      }];
+    "transfers": {
+      "charge": {
+        "kind": "SIGN_CONVENTION";
+        "source_quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "INJECTION";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "source_observable": "observable:p";
+        "factor": "-1";
+        "scope": "CHARGING_ONLY";
+      };
+    };
+    "ledgers": [];
+    "comparison": null;
+    "models": [];
+    "report_requests": [{
+        "id": "report:terminal_owner";
+        "subject": "frame:research";
+        "value_type": "QUALITATIVE";
+        "declared_unit": null;
+        "basis": "ORIGINAL_RESEARCH_PENDING";
+      }];
+    "projection_notes": ["Injection-positive grid port retained; charge magnitude explicit sign conversion bound to actual observation. SOC and energy variants both project to same finite external state. Terminal rule owner-dependent."];
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json";
+      "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f";
+    };
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-14.json";
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE";
+    };
+  }
+ instance {
+    "id": "MUT-14";
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1";
+      "id": "RC01";
+      "governance": "NON-NORMATIVE / RESEARCH ONLY";
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28";
+        "ms1_draft_blob": "9c908d9e3de1699306653aa80606d489a94b15ba";
+      };
+      "study_frame": {
+        "id": "study:RC01";
+        "question": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal";
+        "domains": {
+          "interval": ["t0"];
+          "component": ["battery", "battery"];
+          "bus": ["BUS_A"];
+        };
+        "authority": "OWNER_TBD";
+        "method": "method:RC01:synthetic-0.1";
+        "study_profile": "profile:RC01:synthetic-0.1";
+        "evidence": "REQUEST_NOT_EXECUTED";
+      };
+      "typed_symbols": "P[t]: electricity injection MW; dt[t]: h >0; E[t]: MWh; eta: dimensionless; L[t]: MWh; Emax: MWh";
+      "component_interfaces": "Stromport BUS_A, injection-positive MW; conditional energy ledger MWh, losses, initial and any source-approved terminal";
+      "assumptions": "t0: P=-2 MW, dt=1/2 h, eta=9/10, E0=1 MWh, Emax=4 MWh; no discharge; conversion loss=1/10 MWh; terminal OWNER_TBD";
+      "external_obligations": "-3<=P[t]<=4; I=-P*dt on charging support; E1=E0+eta*I; 0<=E1<=Emax; terminal only with authorized rule";
+      "observables": "P, I, E, loss, initial/terminal policy";
+      "synthetic_data": {
+        "domains": {
+          "interval": ["t0"];
+          "component": ["battery"];
+          "bus": ["BUS_A"];
+        };
+        "inputs": {
+          "p": "-2";
+          "dt": "1/2";
+          "eta": "9/10";
+          "initial": "1";
+          "capacity": "4";
+          "min_p": "-3";
+          "max_p": "4";
+        };
+        "units": {
+          "p": "MW";
+          "dt": "h";
+          "eta": "1";
+          "initial": "MWh";
+          "capacity": "MWh";
+        };
+        "observed": {
+          "intake": "1";
+          "final": "19/10";
+          "loss": "1/10";
+          "terminal_policy": "OWNER_TBD";
+        };
+        "variants": [{
+            "id": "SOC";
+            "projection": "E = SOC * Emax";
+            "internal_final": "19/40";
+          }, {
+            "id": "ENERGY";
+            "projection": "E = internal energy";
+            "internal_final": "19/10";
+          }];
+        "limit": "Single interval, no discharge; terminal obligation only if approved, not assumed.";
+      };
+      "proof_obligation": "E5 conditional; E4 not assumed";
+    };
+    "parameters": {
+      "p": ["-2"];
+      "charge": ["2"];
+      "dt": ["1/2"];
+      "eta": "9/10";
+      "initial": "1";
+      "capacity": "4";
+      "minp": "-3";
+      "maxp": "4";
+      "zero_p": "0";
+      "zero": "0";
+      "intake_obs": ["1"];
+      "final_obs": ["19/10"];
+      "loss_obs": ["1/10"];
+      "soc": "19/40";
+      "energy_variant": "19/10";
+    };
+    "relation_rows": {
+
+    };
+    "raw_transfers": {
+      "charge": ["-2"];
+    };
+    "observed_contributions": [];
+    "comparison": null;
+    "models": [];
+    "external_reports": [{
+        "id": "report:terminal_owner";
+        "status": "NOT_EXECUTED";
+        "reason": "AUTHORITY_UNRESOLVED";
+        "value": null;
+        "source_ref": "authority:source";
+      }];
+  }
+}
