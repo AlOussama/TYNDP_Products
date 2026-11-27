@@ -290,6 +290,13 @@ class Checked:
                 "method_identity":self.method_id,"study_identity":self.study_id,
                 "join_support":[[n,list(cols)] for n,cols in sorted(self.groups)],
                 "temporal_domains":sorted(self.used_time)}
+def semantic_context(spec,context):
+    sctx=deepcopy({k:v for k,v in context.items() if k!="audit"})
+    for n,z in sctx["domains"].items():
+        if not spec.program.dimensions[n].ordered:z["labels"]=sorted(z["labels"])
+    for k in ("inputs","parameters","outputs"):sctx["method"][k]=sorted(sctx["method"][k])
+    return sctx
+
 def admit(source,context,require_canonical=False):
     """Preflight authored source, then native load, then full public-Program walk.
     Both source and roundtrip Programs must satisfy the same restrictions.
@@ -298,10 +305,7 @@ def admit(source,context,require_canonical=False):
     if require_canonical:need(source==text,"NOT_NATIVE_CANONICAL")
     again=native(text);second=Checked(again,context)
     need(again.to_yaml(canonical=True)==text and first.summary()==second.summary(),"CANONICAL_BOUNDARY_ROUNDTRIP")
-    sctx=deepcopy({k:v for k,v in context.items() if k!="audit"})
-    for n,z in sctx["domains"].items():
-        if not spec.program.dimensions[n].ordered:z["labels"]=sorted(z["labels"])
-    for k in ("inputs","parameters","outputs"):sctx["method"][k]=sorted(sctx["method"][k])
+    sctx=semantic_context(spec,context)
     # study method_ref names original profile bytes; preserve it deliberately.
     ni=digest({"upstream":c1.UPSTREAM,"canonical":text})
     sem=digest({"version":VERSION,"native":ni,"registry":digest(c1.REGISTRY),"context":sctx})

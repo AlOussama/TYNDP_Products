@@ -43,6 +43,14 @@ jobs:
         run: |
           pixi run --locked -e py313 python --version
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_closure.py
+      - name: Canonical package and independent C2 research clients
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_package_interface.py
+      - name: Original MS1 native observation and method probes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/../BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py
       - name: Unchanged earlier canonical-first regression
         if: always()
         working-directory: mathspec-src

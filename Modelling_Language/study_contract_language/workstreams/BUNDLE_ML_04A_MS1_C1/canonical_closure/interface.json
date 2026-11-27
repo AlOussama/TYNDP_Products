@@ -5,17 +5,22 @@
   "api": {
     "admit": "exact lexical source admission -> native load -> static type walk -> canonical roundtrip -> bound leaf",
     "reimport": "recompute all leaf fields and reject tamper",
-    "bind_data": "exact finite support, coordinate/cardinality and profile-context binding; no predicate execution"
+    "bind_data": "exact finite support, coordinate/cardinality and profile-context binding; no predicate execution",
+    "export_package": "canonical JSON over native mathematical bytes, normalized binding and separate audit",
+    "import_package": "revalidate exact source and bindings, recompute every serialized field",
+    "predicate_client": "qualified native predicate signature and required typed references; role checked",
+    "method_client": "typed method signature and finite input context receipt; separate from predicate_client"
   },
+  "package": "canonical-mathematical-contract-package-0.1",
   "c2_contract": {
-    "predicate": "named native condition/assumption identity, ordered qualified axes, explicit alignment, complete-binary-data limitation",
+    "predicate": "named native condition/assumption identity, required symbols and relations, ordered qualified axes, explicit alignment, complete-binary-data limitation",
     "scope": "ordered binder declarations; quantifier semantics, nonvacuity, Bool3 and external behaviour remain C2",
     "temporal": "explicit chronology reference and native edge policy, no general information/physical boundary proof"
   },
   "c2_method": {
-    "method_signature": "version, fully typed input/parameter/output symbols, native axes, quantity and domain rule",
+    "method_signature": "version, fully typed input/parameter/output symbols, native axes and qualified axis identities, quantity and domain rule",
     "study_binding": "version, method reference digest, data identity/version and OWNER_TBD",
-    "context_receipt": "data digest, typed method identity, study identity, leaf identity and combined digest; no actual method evaluation or authority authentication"
+    "context_receipt": "data digest, typed method signature identity, study identity, leaf identity and combined digest; no actual method evaluation or authority authentication"
   },
   "source_modes": [
     "AUTHOR_SOURCE_PRECHECKED",
