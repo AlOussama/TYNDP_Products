@@ -1,0 +1,16 @@
+{
+  "phase0": "shared interface",
+  "phase1": {
+    "A": [
+      "phase0"
+    ],
+    "B": [
+      "phase0"
+    ]
+  },
+  "phase2": [
+    "A",
+    "B"
+  ],
+  "C3": "Only after C2 gates MET; 58/116 preserved"
+}
