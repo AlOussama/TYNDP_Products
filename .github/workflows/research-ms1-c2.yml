@@ -79,6 +79,12 @@ jobs:
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_first_experiment/test_canonical_first.py
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/native_probe.py
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py
+      - name: Frozen independent analytical reference corpus (not full A/B paths)
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          test "$(git -C .. hash-object Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py)" = 4ecf322c5522721dd463f0c6a465d982a94f2c22
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/regression_runner/run.py --output /tmp/c2-oracle.json
       - name: Full pinned upstream mathspec suite after integration seam changes
         if: always()
         working-directory: mathspec-src
