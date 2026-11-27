@@ -1,0 +1,166 @@
+2026-11-27T07:55:35.1381893Z pixi.lock: OK
+2026-11-27T07:55:35.1395988Z src/mathspec/_canonical.py: OK
+2026-11-27T07:55:39.6871931Z Python 3.13.15
+2026-11-27T07:55:41.4880638Z test_A01_all_arithmetic_nodes (__main__.Closure.test_A01_all_arithmetic_nodes) ... ok
+2026-11-27T07:55:41.4938039Z test_A02_native_roundtrip_and_canonical_as_source (__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source) ... ok
+2026-11-27T07:55:41.4979130Z test_A03_exact_admission_before_float (__main__.Closure.test_A03_exact_admission_before_float) ... ok
+2026-11-27T07:55:41.5094365Z test_A04_nonzero_bound_domain (__main__.Closure.test_A04_nonzero_bound_domain) ... ok
+2026-11-27T07:55:41.5104026Z test_A05_quantity_in_unused_expression (__main__.Closure.test_A05_quantity_in_unused_expression) ... ok
+2026-11-27T07:55:41.5148645Z test_C01_conditions_and_refs (__main__.Closure.test_C01_conditions_and_refs) ... ok
+2026-11-27T07:55:41.5161858Z test_C02_physical_comparison (__main__.Closure.test_C02_physical_comparison) ... ok
+2026-11-27T07:55:41.5169205Z test_C03_folded_invalid_condition (__main__.Closure.test_C03_folded_invalid_condition) ... ok
+2026-11-27T07:55:41.5180365Z test_C04_explicit_typed_literal (__main__.Closure.test_C04_explicit_typed_literal) ... ok
+2026-11-27T07:55:41.5188647Z test_C05_cross_axis_comparison (__main__.Closure.test_C05_cross_axis_comparison) ... ok
+2026-11-27T07:55:41.5231594Z test_C06_assumption_role (__main__.Closure.test_C06_assumption_role) ... ok
+2026-11-27T07:55:41.5305882Z test_C07_bool_guard_no_unknown (__main__.Closure.test_C07_bool_guard_no_unknown) ... ok
+2026-11-27T07:55:41.5361190Z test_C08_cases_all_regions (__main__.Closure.test_C08_cases_all_regions) ... ok
+2026-11-27T07:55:41.5370073Z test_C09_case_requires_explicit_else (__main__.Closure.test_C09_case_requires_explicit_else) ... ok
+2026-11-27T07:55:41.5402757Z test_C10_scalar_parameter_condition (__main__.Closure.test_C10_scalar_parameter_condition) ... ok
+2026-11-27T07:55:41.5434917Z test_C11_dimension_comparison (__main__.Closure.test_C11_dimension_comparison) ... ok
+2026-11-27T07:55:41.5465360Z test_C12_native_count (__main__.Closure.test_C12_native_count) ... ok
+2026-11-27T07:55:41.5548985Z test_C13_native_joined_condition (__main__.Closure.test_C13_native_joined_condition) ... ok
+2026-11-27T07:55:41.5612999Z test_G01_tamper_and_solver (__main__.Closure.test_G01_tamper_and_solver) ... ok
+2026-11-27T07:55:41.5615512Z test_G02_duplicate_source (__main__.Closure.test_G02_duplicate_source) ... ok
+2026-11-27T07:55:41.5625369Z test_G03_unauthorized_authority (__main__.Closure.test_G03_unauthorized_authority) ... ok
+2026-11-27T07:55:41.5634536Z test_G04_duplicate_ids (__main__.Closure.test_G04_duplicate_ids) ... ok
+2026-11-27T07:55:41.9432919Z test_G05_process_determinism (__main__.Closure.test_G05_process_determinism) ... ok
+2026-11-27T07:55:41.9509891Z test_M01_rc03_conversion (__main__.Closure.test_M01_rc03_conversion) ... ok
+2026-11-27T07:55:41.9555982Z test_M02_rc08_cost_and_price_basis (__main__.Closure.test_M02_rc08_cost_and_price_basis) ... ok
+2026-11-27T07:55:41.9695224Z test_M03_method_and_study_signatures (__main__.Closure.test_M03_method_and_study_signatures) ... ok
+2026-11-27T07:55:41.9704863Z test_M04_role_signature_mismatch (__main__.Closure.test_M04_role_signature_mismatch) ... ok
+2026-11-27T07:55:41.9844174Z test_M05_data_context_and_exact_identity (__main__.Closure.test_M05_data_context_and_exact_identity) ... ok
+2026-11-27T07:55:41.9987139Z test_M06_integer_and_unknown (__main__.Closure.test_M06_integer_and_unknown) ... ok
+2026-11-27T07:55:42.0043094Z test_M07_qualified_method_axes (__main__.Closure.test_M07_qualified_method_axes) ... ok
+2026-11-27T07:55:42.0106338Z test_R01_lookup_native (__main__.Closure.test_R01_lookup_native) ... ok
+2026-11-27T07:55:42.0179330Z test_R02_group_sum_native (__main__.Closure.test_R02_group_sum_native) ... ok
+2026-11-27T07:55:42.0242486Z test_R03_duplicate_key (__main__.Closure.test_R03_duplicate_key) ... ok
+2026-11-27T07:55:42.0308821Z test_R04_missing_key (__main__.Closure.test_R04_missing_key) ... ok
+2026-11-27T07:55:42.0374252Z test_R05_empty_group (__main__.Closure.test_R05_empty_group) ... ok
+2026-11-27T07:55:42.0437645Z test_R06_unknown_coordinate (__main__.Closure.test_R06_unknown_coordinate) ... ok
+2026-11-27T07:55:42.0582458Z test_R07_rc05_oriented_net (__main__.Closure.test_R07_rc05_oriented_net) ... ok
+2026-11-27T07:55:42.0622441Z test_T01_explicit_shift (__main__.Closure.test_T01_explicit_shift) ... ok
+2026-11-27T07:55:42.0635279Z test_T02_implicit_edge_rejected (__main__.Closure.test_T02_implicit_edge_rejected) ... ok
+2026-11-27T07:55:42.0677069Z test_T03_window_policy (__main__.Closure.test_T03_window_policy) ... ok
+2026-11-27T07:55:42.0698370Z test_T04_future_shift_rejected (__main__.Closure.test_T04_future_shift_rejected) ... ok
+2026-11-27T07:55:42.0756198Z test_T05_order_changes_bound_identity (__main__.Closure.test_T05_order_changes_bound_identity) ... ok
+2026-11-27T07:55:42.0806664Z test_T06_explicit_wrap (__main__.Closure.test_T06_explicit_wrap) ... ok
+2026-11-27T07:55:42.0819862Z test_T07_window_beyond_support (__main__.Closure.test_T07_window_beyond_support) ... ok
+2026-11-27T07:55:42.0820640Z Ran 44 tests in 0.650s
+2026-11-27T07:55:42.0820839Z OK
+2026-11-27T07:55:42.4551866Z test_P01_canonical_package_roundtrip (__main__.Package.test_P01_canonical_package_roundtrip) ... ok
+2026-11-27T07:55:42.4682161Z test_P02_source_audit_separation (__main__.Package.test_P02_source_audit_separation) ... ok
+2026-11-27T07:55:42.4954944Z test_P03_external_contract_client (__main__.Package.test_P03_external_contract_client) ... ok
+2026-11-27T07:55:42.5192585Z test_P04_assumption_not_predicate (__main__.Package.test_P04_assumption_not_predicate) ... ok
+2026-11-27T07:55:42.5360048Z test_P05_independent_method_client (__main__.Package.test_P05_independent_method_client) ... ok
+2026-11-27T07:55:42.5761851Z test_P06_package_tamper (__main__.Package.test_P06_package_tamper) ... ok
+2026-11-27T07:55:42.6091859Z test_P07_different_method_context_same_native_math (__main__.Package.test_P07_different_method_context_same_native_math) ... ok
+2026-11-27T07:55:42.6092450Z Ran 7 tests in 0.181s
+2026-11-27T07:55:42.6092582Z OK
+2026-11-27T07:55:42.9718411Z FINITE_RC=[{"id": "RC01", "negative": true, "positive": true, "scope": "single-step projected observations"}, {"id": "RC02", "negative": true, "positive": true, "scope": "complete per-EV witness; not universal service"}, {"id": "RC03", "negative": true, "positive": true, "scope": "two different feasible outputs; common envelope"}, {"id": "RC04", "negative": true, "positive": true, "scope": "explicit boundary state only; shift execution deferred"}, {"id": "RC05", "negative": true, "positive": true, "scope": "equal reactances triangle; KCL not sufficient for KVL"}, {"id": "RC06", "negative": true, "positive": true, "scope": "integer domain"}, {"id": "RC07", "negative": true, "positive": true, "scope": "provided information pairs only"}]
+2026-11-27T07:55:42.9733726Z METHOD_RECEIPTS=[{"audit_identity": "c5f80838af115fa2217fcf97a2a5bc2af49d7fd6f67ab75a5e47b560f37b7a72", "basis": "EUR:real:2024", "canonical_sha256": "176e1522d74ba0a6915577ea276bf15b2a03a96ac9b228916424655c0ad062e3", "code_hashes": {"_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093", "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71", "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c", "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149", "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"}, "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d", "method": "urn:method:begin", "method_identity": "4e93e7ffb474a31b27af6406f9363522a1e108d300265a00fe270317bfa67521", "output_observable": "ms1:cost-summary", "owner": "OWNER_TBD", "unit": "EUR", "value": "415/11"}, {"audit_identity": "640fc1aaf6bef67ddba8cb9986dce41ae9edda9df2c941dda1fd7f8d2252bc11", "basis": "EUR:real:2024", "canonical_sha256": "8024197dc52ea30cf88b67fd1250c71e9c9f9630147e97f0902564c745cdca5a", "code_hashes": {"_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093", "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71", "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c", "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149", "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"}, "data_identity": "90e7fc11351f76630a2e2ce65917d5124ef970a1104c761b5c5387dbd5685c1d", "method": "urn:method:end", "method_identity": "12f772920e33e50c0223b97ef7ba8dbb031e541a17e525550d2b3ee95c4dd0cf", "output_observable": "ms1:cost-summary", "owner": "OWNER_TBD", "unit": "EUR", "value": "4150/121"}, {"audit_identity": "4f1dd13f145dca36ebdf3b46dd067d86e48b794e37a6303e013ebfb998645f09", "basis": "", "canonical_sha256": "deb9bad752f8afcd9e930303aca6ba1b9abf45bd121a0e0339ad35a5655b822c", "code_hashes": {"_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093", "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71", "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c", "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149", "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"}, "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7", "method": "urn:ms1:method:gross", "method_identity": "10f172c3211febf57b9d9b509ed9d9817e4755f8971441df7de624a0962b3400", "output_observable": "ms1:energy-summary", "owner": "OWNER_TBD", "unit": "MWh", "value": "5"}, {"audit_identity": "c5a0151072a002d28c54a274224cc344f01487bcd7a1d687f94de856585ccd17", "basis": "", "canonical_sha256": "0af4445adb6f989cdf25efa6536c8508726d05cd94216213e06d5d3c9b4f567f", "code_hashes": {"_canonical.py": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093", "_condition_parser.py": "ba1849a64a4dd95dd3271f2ea0b1d699f87a6a53f678b72b06c332b9d9236e71", "_expression_parser.py": "bff5871710a57ba2f0f799220561fb0f70b00d4f63b856a197b8ea9a9124a54c", "_lowering.py": "3fcd0323e49afb996f7f3df22297f57fe651028a440436904bf518a09c80d149", "adapter.py": "06e77db6bc6992c8e40a8fd745b8f2c2248897de1652263ba446b07b25ee00da"}, "data_identity": "bf66c27321dc267234d7aa25897f29b89a686c4f6c3837dbc735b8b6a6e0b5f7", "method": "urn:ms1:method:eligible", "method_identity": "0a70f595348e67cf3caa85b0cc9fc28db7243c40eb29711cd19423cc754318fa", "output_observable": "ms1:energy-summary", "owner": "OWNER_TBD", "unit": "MWh", "value": "3"}]
+2026-11-27T07:55:43.3068228Z test_B01_direct_canonical_admission (__main__.CanonicalFirst.test_B01_direct_canonical_admission) ... ok
+2026-11-27T07:55:43.3121958Z test_B02_role_and_quantity_outside_math (__main__.CanonicalFirst.test_B02_role_and_quantity_outside_math) ... ok
+2026-11-27T07:55:43.3252305Z test_B03_ordered_binding (__main__.CanonicalFirst.test_B03_ordered_binding) ... ok
+2026-11-27T07:55:43.3286201Z test_B04_alignment (__main__.CanonicalFirst.test_B04_alignment) ... ok
+2026-11-27T07:55:43.3437613Z test_B05_original_and_audit (__main__.CanonicalFirst.test_B05_original_and_audit) ... ok
+2026-11-27T07:55:43.3485712Z test_B06_raw_extension_and_defaults (__main__.CanonicalFirst.test_B06_raw_extension_and_defaults) ... ok
+2026-11-27T07:55:43.3519669Z test_B07_explicit_guard_signature (__main__.CanonicalFirst.test_B07_explicit_guard_signature) ... ok
+2026-11-27T07:55:43.3558858Z test_B08_RC03_cross_carrier_conversion (__main__.CanonicalFirst.test_B08_RC03_cross_carrier_conversion) ... ok
+2026-11-27T07:55:43.3614396Z test_B09_RC08_weighted_cost (__main__.CanonicalFirst.test_B09_RC08_weighted_cost) ... ok
+2026-11-27T07:55:43.3635408Z test_N01_native_commutativity (__main__.CanonicalFirst.test_N01_native_commutativity) ... ok
+2026-11-27T07:55:43.3672548Z test_N02_native_not_equivalence (__main__.CanonicalFirst.test_N02_native_not_equivalence) ... ok
+2026-11-27T07:55:43.3687777Z test_N03_defaults_and_order (__main__.CanonicalFirst.test_N03_defaults_and_order) ... ok
+2026-11-27T07:55:43.3710749Z test_N04_numeric_preimage_collision (__main__.CanonicalFirst.test_N04_numeric_preimage_collision) ... ok
+2026-11-27T07:55:43.3750253Z test_N05_native_conditions (__main__.CanonicalFirst.test_N05_native_conditions) ... ok
+2026-11-27T07:55:43.3774318Z test_N06_native_relation_and_temporal (__main__.CanonicalFirst.test_N06_native_relation_and_temporal) ... ok
+2026-11-27T07:55:43.3797842Z test_N07_native_condition_cases (__main__.CanonicalFirst.test_N07_native_condition_cases) ... ok
+2026-11-27T07:55:43.3855007Z test_N08_canonical_origin_limit (__main__.CanonicalFirst.test_N08_canonical_origin_limit) ... ok
+2026-11-27T07:55:43.3855799Z Ran 17 tests in 0.086s
+2026-11-27T07:55:43.3855931Z OK
+2026-11-27T07:55:43.7172782Z test_A_N01 (__main__.Foundation.test_A_N01) ... ok
+2026-11-27T07:55:43.7176442Z test_A_N02 (__main__.Foundation.test_A_N02) ... ok
+2026-11-27T07:55:43.7178151Z test_A_N03 (__main__.Foundation.test_A_N03) ... ok
+2026-11-27T07:55:43.7182454Z test_A_N04 (__main__.Foundation.test_A_N04) ... ok
+2026-11-27T07:55:43.7219822Z test_A_N05 (__main__.Foundation.test_A_N05) ... ok
+2026-11-27T07:55:43.7221714Z test_A_N06 (__main__.Foundation.test_A_N06) ... ok
+2026-11-27T07:55:43.7222935Z test_A_N07 (__main__.Foundation.test_A_N07) ... ok
+2026-11-27T07:55:43.7226232Z test_A_N08 (__main__.Foundation.test_A_N08) ... ok
+2026-11-27T07:55:43.7228940Z test_A_N09 (__main__.Foundation.test_A_N09) ... ok
+2026-11-27T07:55:43.7233412Z test_A_N10 (__main__.Foundation.test_A_N10) ... ok
+2026-11-27T07:55:43.7238561Z test_A_N11 (__main__.Foundation.test_A_N11) ... ok
+2026-11-27T07:55:43.7274914Z test_A_N12 (__main__.Foundation.test_A_N12) ... ok
+2026-11-27T07:55:43.7276477Z test_A_N13 (__main__.Foundation.test_A_N13) ... ok
+2026-11-27T07:55:43.7281964Z test_A_N14 (__main__.Foundation.test_A_N14) ... ok
+2026-11-27T07:55:43.7325521Z test_A_N15 (__main__.Foundation.test_A_N15) ... ok
+2026-11-27T07:55:43.7326878Z test_A_N16 (__main__.Foundation.test_A_N16) ... ok
+2026-11-27T07:55:43.7366945Z test_A_N17 (__main__.Foundation.test_A_N17) ... ok
+2026-11-27T07:55:43.7367617Z test_A_N18 (__main__.Foundation.test_A_N18) ... ok
+2026-11-27T07:55:43.7368698Z test_A_N19 (__main__.Foundation.test_A_N19) ... ok
+2026-11-27T07:55:43.7393151Z test_A_N20 (__main__.Foundation.test_A_N20) ... ok
+2026-11-27T07:55:43.7420492Z test_m2_mapping (__main__.Foundation.test_m2_mapping) ... ok
+2026-11-27T07:55:44.1204747Z test_processes (__main__.Foundation.test_processes) ... ok
+2026-11-27T07:55:44.1307908Z test_roundtrip (__main__.Foundation.test_roundtrip) ... ok
+2026-11-27T07:55:44.1325700Z test_static_sum_and_rational (__main__.Foundation.test_static_sum_and_rational) ... ok
+2026-11-27T07:55:44.1326444Z Ran 24 tests in 0.417s
+2026-11-27T07:55:44.1327092Z OK
+2026-11-27T07:55:44.2602477Z test_RC01_power_energy_fragment (test_generality.Fragments.test_RC01_power_energy_fragment) ... ok
+2026-11-27T07:55:44.2645121Z test_RC03_RC04_hydrogen_mass_flow_fragment (test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment) ... ok
+2026-11-27T07:55:44.2689020Z test_RC05_port_connection_fragment (test_generality.Fragments.test_RC05_port_connection_fragment) ... ok
+2026-11-27T07:55:44.2729689Z test_RC07_information_fragment (test_generality.Fragments.test_RC07_information_fragment) ... ok
+2026-11-27T07:55:44.2777419Z test_RC10_variation_fragment (test_generality.Fragments.test_RC10_variation_fragment) ... ok
+2026-11-27T07:55:44.2796054Z test_authority_conflict (test_r1.N1R.test_authority_conflict) ... ok
+2026-11-27T07:55:44.2817820Z test_authority_source_audit_not_semantics (test_r1.N1R.test_authority_source_audit_not_semantics) ... ok
+2026-11-27T07:55:44.2853536Z test_capability_vs_service (test_r1.N1R.test_capability_vs_service) ... ok
+2026-11-27T07:55:44.2886807Z test_dual_syntax_idempotence_and_source (test_r1.N1R.test_dual_syntax_idempotence_and_source) ... ok
+2026-11-27T07:55:44.2904460Z test_duplicate_id (test_r1.N1R.test_duplicate_id) ... ok
+2026-11-27T07:55:44.2906102Z test_duplicate_json_key (test_r1.N1R.test_duplicate_json_key) ... ok
+2026-11-27T07:55:44.2925139Z test_evidence_promotion (test_r1.N1R.test_evidence_promotion) ... ok
+2026-11-27T07:55:44.2942085Z test_exact_units_and_no_silent_rounding (test_r1.N1R.test_exact_units_and_no_silent_rounding) ... ok
+2026-11-27T07:55:44.2959426Z test_guard_nonboolean (test_r1.N1R.test_guard_nonboolean) ... ok
+2026-11-27T07:55:44.2977391Z test_guard_ref (test_r1.N1R.test_guard_ref) ... ok
+2026-11-27T07:55:44.3010455Z test_guard_typed_but_unexecuted (test_r1.N1R.test_guard_typed_but_unexecuted) ... ok
+2026-11-27T07:55:44.3041987Z test_guard_unknown_not_false (test_r1.N1R.test_guard_unknown_not_false) ... ok
+2026-11-27T07:55:44.3058637Z test_information_refinement (test_r1.N1R.test_information_refinement) ... ok
+2026-11-27T07:55:44.3076963Z test_invalid_observable_projection (test_r1.N1R.test_invalid_observable_projection) ... ok
+2026-11-27T07:55:44.3085652Z test_legacy_path (test_r1.N1R.test_legacy_path) ... ok
+2026-11-27T07:55:44.3112200Z test_nested_quantifier_order (test_r1.N1R.test_nested_quantifier_order) ... ok
+2026-11-27T07:55:44.3130378Z test_scope_escape (test_r1.N1R.test_scope_escape) ... ok
+2026-11-27T07:55:44.3147599Z test_unbound_variable (test_r1.N1R.test_unbound_variable) ... ok
+2026-11-27T07:55:44.3167797Z test_unknown_operator_c21_defect_and_reject (test_r1.N1R.test_unknown_operator_c21_defect_and_reject) ... ok
+2026-11-27T07:55:44.3185204Z test_unsupported_approval (test_r1.N1R.test_unsupported_approval) ... ok
+2026-11-27T07:55:44.3203486Z test_wrong_index_domain (test_r1.N1R.test_wrong_index_domain) ... ok
+2026-11-27T07:55:44.3239320Z test_auxiliary_binding (test_r1.N2N7.test_auxiliary_binding) ... ok
+2026-11-27T07:55:44.3271258Z test_bad_probability (test_r1.N2N7.test_bad_probability) ... ok
+2026-11-27T07:55:44.3300172Z test_context_content_changed_with_authorized_data (test_r1.N2N7.test_context_content_changed_with_authorized_data) ... ok
+2026-11-27T07:55:44.3315932Z test_data_bytes_changed (test_r1.N2N7.test_data_bytes_changed) ... ok
+2026-11-27T07:55:44.3347813Z test_double_count_reject (test_r1.N2N7.test_double_count_reject) ... ok
+2026-11-27T07:55:44.3378850Z test_duplicate_contribution (test_r1.N2N7.test_duplicate_contribution) ... ok
+2026-11-27T07:55:44.3567136Z test_integrated_swap_four_runs_oracle_and_hashes (test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes) ... ok
+2026-11-27T07:55:44.3595245Z test_invalid_basis (test_r1.N2N7.test_invalid_basis) ... ok
+2026-11-27T07:55:44.3611217Z test_ledger_policy_override (test_r1.N2N7.test_ledger_policy_override) ... ok
+2026-11-27T07:55:44.3624875Z test_method_bytes_changed (test_r1.N2N7.test_method_bytes_changed) ... ok
+2026-11-27T07:55:44.3656418Z test_missing_contribution (test_r1.N2N7.test_missing_contribution) ... ok
+2026-11-27T07:55:44.3672003Z test_no_result_promotion (test_r1.N2N7.test_no_result_promotion) ... ok
+2026-11-27T07:55:44.3700043Z test_observable_binding (test_r1.N2N7.test_observable_binding) ... ok
+2026-11-27T07:55:44.3727928Z test_period_count (test_r1.N2N7.test_period_count) ... ok
+2026-11-27T07:55:44.3786664Z test_permitted_reuse_separate_policy (test_r1.N2N7.test_permitted_reuse_separate_policy) ... ok
+2026-11-27T07:55:44.3815344Z test_rule_cycle (test_r1.N2N7.test_rule_cycle) ... ok
+2026-11-27T07:55:44.3827801Z test_source_missing (test_r1.N2N7.test_source_missing) ... ok
+2026-11-27T07:55:44.3948427Z test_source_substitution (test_r1.N2N7.test_source_substitution) ... ok
+2026-11-27T07:55:44.3969671Z test_unauthorized_data_rehash (test_r1.N2N7.test_unauthorized_data_rehash) ... ok
+2026-11-27T07:55:44.3998069Z test_unauthorized_method_rehash (test_r1.N2N7.test_unauthorized_method_rehash) ... ok
+2026-11-27T07:55:44.4029839Z test_unknown_not_zero (test_r1.N2N7.test_unknown_not_zero) ... ok
+2026-11-27T07:55:44.4059192Z test_unknown_operator (test_r1.N2N7.test_unknown_operator) ... ok
+2026-11-27T07:55:44.4059922Z test_dimensional_product (test_r1.Units.test_dimensional_product) ... ok
+2026-11-27T07:55:44.4063329Z test_explicit_basis_conversion (test_r1.Units.test_explicit_basis_conversion) ... ok
+2026-11-27T07:55:44.4064060Z Ran 50 tests in 0.151s
+2026-11-27T07:55:44.4064292Z OK
+2026-11-27T07:55:44.4457348Z test_RC01_battery (__main__.Freedom.test_RC01_battery) ... ok
+2026-11-27T07:55:44.4457748Z test_RC02_EV (__main__.Freedom.test_RC02_EV) ... ok
+2026-11-27T07:55:44.4458199Z test_RC03_electrolysis (__main__.Freedom.test_RC03_electrolysis) ... ok
+2026-11-27T07:55:44.4458795Z test_RC04_H2 (__main__.Freedom.test_RC04_H2) ... ok
+2026-11-27T07:55:44.4460013Z test_RC05_grid (__main__.Freedom.test_RC05_grid) ... ok
+2026-11-27T07:55:44.4460389Z test_RC06_expansion (__main__.Freedom.test_RC06_expansion) ... ok
+2026-11-27T07:55:44.4460801Z test_RC07_information (__main__.Freedom.test_RC07_information) ... ok
+2026-11-27T07:55:44.4461492Z Ran 7 tests in 0.002s
+2026-11-27T07:55:44.4461685Z OK

@@ -1,0 +1,13 @@
+2026-11-27T07:52:48.4632055Z ERROR: test_R01_lookup_native (__main__.Closure.test_R01_lookup_native)
+2026-11-27T07:52:48.4662728Z foundation.Reject: NATIVE_REJECT:Named expression 'v': at(by=endpoint[branch]) names ['branch'], a key column of 'endpoint'. A lookup reads value columns at the key. Name one of the value columns, ['bus'], or sum through the key column.
+2026-11-27T07:52:48.4664221Z ERROR: test_R03_duplicate_key (__main__.Closure.test_R03_duplicate_key)
+2026-11-27T07:52:48.4683478Z foundation.Reject: NATIVE_REJECT:Named expression 'v': at(by=endpoint[branch]) names ['branch'], a key column of 'endpoint'. A lookup reads value columns at the key. Name one of the value columns, ['bus'], or sum through the key column.
+2026-11-27T07:52:48.4684925Z ERROR: test_R04_missing_key (__main__.Closure.test_R04_missing_key)
+2026-11-27T07:52:48.4851905Z foundation.Reject: NATIVE_REJECT:Named expression 'v': at(by=endpoint[branch]) names ['branch'], a key column of 'endpoint'. A lookup reads value columns at the key. Name one of the value columns, ['bus'], or sum through the key column.
+2026-11-27T07:52:48.4852857Z ERROR: test_R06_unknown_coordinate (__main__.Closure.test_R06_unknown_coordinate)
+2026-11-27T07:52:48.4864763Z foundation.Reject: NATIVE_REJECT:Named expression 'v': at(by=endpoint[branch]) names ['branch'], a key column of 'endpoint'. A lookup reads value columns at the key. Name one of the value columns, ['bus'], or sum through the key column.
+2026-11-27T07:52:48.4865880Z FAIL: test_T02_implicit_edge_rejected (__main__.Closure.test_T02_implicit_edge_rejected)
+2026-11-27T07:52:48.4872634Z foundation.Reject: NATIVE_REJECT:Named expression 'v': shift() over an expression with no variable leaves the vacated positions with no value. Write which you mean:
+2026-11-27T07:52:48.4878597Z AssertionError: "SHIFT_EDGE" does not match "NATIVE_REJECT:Named expression 'v': shift() over an expression with no variable leaves the vacated positions with no value. Write which you mean:
+2026-11-27T07:52:48.4880970Z Ran 35 tests in 0.234s
+2026-11-27T07:52:48.4881152Z FAILED (failures=1, errors=4)

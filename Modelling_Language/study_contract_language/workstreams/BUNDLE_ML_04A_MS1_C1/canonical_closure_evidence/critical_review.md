@@ -1,0 +1,9 @@
+# Critical review
+
+Internal AI review; not a person-independent audit.
+
+The tests establish static typed reuse and exact finite support in a narrow scope. Native relations and grouped sums were loaded and support checked, not numerically evaluated by the new boundary. RC05 includes an independent exact arithmetic counterexample, not a native predicate execution receipt. All new package clients return NOT_EXECUTED for scientific obligations/method results.
+
+The first CI attempt exposed an incorrect native at() fixture (key vs value column) and an earlier-than-expected native refusal of a missing shift edge. Both are corrected; tests use the actual upstream diagnostics, and original failed evidence is retained. Additional admission checks block integer/exponent adjacency and oversized windows. No historical tests modified.
+
+Limitations: method profiles in this boundary are signature descriptors and all mathematical named expressions are treated as outputs in the bounded profile. Actual method implementation, profile rule ownership, selected output binding and verified source artifacts are not supplied. Conversion source hash is a reference, not authentication. Scope is a typed ordered frame, not quantified behaviour. Explicit zero/wrap/truncate policies do not prove physical boundary validity or nonanticipativity. The source restriction rejects folded Boolean literals; sparse/absent data, partial joins, arbitrary sign composition, some native condition nodes and macro expansion are deferred. The native canonical string contains version-specific normalization, not an equivalence proof. Canonical-only input cannot attest a lost authoring preimage. No 116 original full paths executed, no person-independent audit, no owner approval. Original M2 and legacy CSNF acceptance gate remains open unless revised explicitly.

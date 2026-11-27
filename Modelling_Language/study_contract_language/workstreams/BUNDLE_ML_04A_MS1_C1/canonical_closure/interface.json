@@ -1,0 +1,40 @@
+{
+  "schema": "canonical-first-research-0.2",
+  "status": "RESEARCH_CANDIDATE_NOT_FROZEN",
+  "math": "native canonical YAML and public typed Program; no legacy math AST",
+  "api": {
+    "admit": "exact lexical source admission -> native load -> static type walk -> canonical roundtrip -> bound leaf",
+    "reimport": "recompute all leaf fields and reject tamper",
+    "bind_data": "exact finite support, coordinate/cardinality and profile-context binding; no predicate execution",
+    "export_package": "canonical JSON over native mathematical bytes, normalized binding and separate audit",
+    "import_package": "revalidate exact source and bindings, recompute every serialized field",
+    "predicate_client": "qualified native predicate signature and required typed references; role checked",
+    "method_client": "typed method signature and finite input context receipt; separate from predicate_client"
+  },
+  "package": "canonical-mathematical-contract-package-0.1",
+  "c2_contract": {
+    "predicate": "named native condition/assumption identity, required symbols and relations, ordered qualified axes, explicit alignment, complete-binary-data limitation",
+    "scope": "ordered binder declarations; quantifier semantics, nonvacuity, Bool3 and external behaviour remain C2",
+    "temporal": "explicit chronology reference and native edge policy, no general information/physical boundary proof"
+  },
+  "c2_method": {
+    "method_signature": "version, fully typed input/parameter/output symbols, native axes and qualified axis identities, quantity and domain rule",
+    "study_binding": "version, method reference digest, data identity/version and OWNER_TBD",
+    "context_receipt": "data digest, typed method signature identity, study identity, leaf identity and combined digest; no actual method evaluation or authority authentication"
+  },
+  "source_modes": [
+    "AUTHOR_SOURCE_PRECHECKED",
+    "CANONICAL_AS_SOURCE"
+  ],
+  "excluded": [
+    "sparse native masks or missing defaults",
+    "native literal folding in author conditions",
+    "solver constructs",
+    "macros and native fragment composition",
+    "partitioned temporal operators",
+    "negative offsets",
+    "translated conditions and implicit absent-at-edge",
+    "non-neutral compound sign conventions",
+    "general mathematical equivalence"
+  ]
+}
