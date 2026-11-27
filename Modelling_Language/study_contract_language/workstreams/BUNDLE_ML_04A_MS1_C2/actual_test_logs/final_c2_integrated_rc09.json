@@ -1,0 +1,68 @@
+{
+  "audit_identity": "d90f26d21665ea814494cb058e9d34a7d863382de0ced5de12582260739d45e3",
+  "conformance": "PROVED",
+  "contract": {
+    "assertion_receipts": [
+      {
+        "assertion_id": "assertion:result_ok",
+        "authority_status": "UNRESOLVED",
+        "conformance": "NOT_PROVED",
+        "evidence_scope": "FINITE_DECLARED_SUPPORT_ONLY",
+        "finite_status": "FINITE_OBSERVED_TRUE",
+        "mathematical_identity": "e4286d8b75c82ddae0553d028cf0e9fdfcfb71b334b1322eebe8d9f63ce14237",
+        "owner": "OWNER_TBD",
+        "reason": null,
+        "truth": "TRUE"
+      }
+    ],
+    "conformance": "NOT_PROVED",
+    "contract_id": "contract:RC09",
+    "finite_status": "FINITE_OBSERVATIONS_ONLY",
+    "owner": "OWNER_TBD"
+  },
+  "evidence_scope": "BOUNDED_FINITE_SYNTHETIC_OBSERVATIONS",
+  "mathematical_semantic_identity": "cc2d830b8be58832c5866f81ba0239b57ad72ad16ede48d7a3a8291d32f39994",
+  "method": {
+    "conditions": {
+      "result_ok": true
+    },
+    "conformance": "NOT_PROVED",
+    "context": {
+      "context_identity": "154fb69332873b158547094c7c5b020a46a4f6530173423a1f36a087676e0239",
+      "data_audit_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+      "data_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+      "leaf_identity": "e4286d8b75c82ddae0553d028cf0e9fdfcfb71b334b1322eebe8d9f63ce14237",
+      "method_identity": "c9fdb4715b611dd1ce88ac4230875d66ca71ecf6eb213a070d90af92370b89dc",
+      "owner": "OWNER_TBD",
+      "predicate_verdict": "NOT_EXECUTED",
+      "schema": "canonical-first-research-0.2",
+      "scientific_claim": "NONE",
+      "stage": "FINITE_INPUT_SUPPORT_ONLY",
+      "study_identity": "06b512bb2bd2ea8746686935557881b352b2e4bc2d61499d03978952c93d3222"
+    },
+    "evidence_scope": "BOUNDED_FINITE_NATIVE_METHOD",
+    "external_outputs": {},
+    "identities": {
+      "audit": "4344caff2640f66b9214cb104df45e2c3089a912e26110c7d4c31e2c3949a7f5",
+      "native": "e68e206dc41d3a5f20ec3d68587fa1f600baefbc2448c44650d72934915be56b",
+      "original_source": "3956d0150b5878b856032645bf600e8329336cc8e1f0d211e11ae72864661f9c",
+      "semantic": "cc2d830b8be58832c5866f81ba0239b57ad72ad16ede48d7a3a8291d32f39994"
+    },
+    "ledger": "NOT_EXECUTED",
+    "outputs": {
+      "annual": [
+        "120"
+      ],
+      "discounted": [
+        "1200/11"
+      ]
+    },
+    "owner": "OWNER_TBD",
+    "profile_identity": "ea94193d38011be2479a1742098e5be9eb506623bb9ee84296648952f34bb09d",
+    "study_identity": "24259778e65db43f5c74874103d89773e7c489ce81076fc1d2a863dc76f610d4"
+  },
+  "native_identity": "e68e206dc41d3a5f20ec3d68587fa1f600baefbc2448c44650d72934915be56b",
+  "original_source_identity": "3956d0150b5878b856032645bf600e8329336cc8e1f0d211e11ae72864661f9c",
+  "owner": "OWNER_TBD",
+  "semantic_identity": "d6feee451551f4855bd3dccedd349e75108079f35c77d0e81e11f1725cb0b4e2"
+}

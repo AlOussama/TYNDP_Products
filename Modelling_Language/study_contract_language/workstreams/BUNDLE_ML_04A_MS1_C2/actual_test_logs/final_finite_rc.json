@@ -1,0 +1,44 @@
+[
+  {
+    "id": "RC01",
+    "negative": true,
+    "positive": true,
+    "scope": "single-step projected observations"
+  },
+  {
+    "id": "RC02",
+    "negative": true,
+    "positive": true,
+    "scope": "complete per-EV witness; not universal service"
+  },
+  {
+    "id": "RC03",
+    "negative": true,
+    "positive": true,
+    "scope": "two different feasible outputs; common envelope"
+  },
+  {
+    "id": "RC04",
+    "negative": true,
+    "positive": true,
+    "scope": "explicit boundary state only; shift execution deferred"
+  },
+  {
+    "id": "RC05",
+    "negative": true,
+    "positive": true,
+    "scope": "equal reactances triangle; KCL not sufficient for KVL"
+  },
+  {
+    "id": "RC06",
+    "negative": true,
+    "positive": true,
+    "scope": "integer domain"
+  },
+  {
+    "id": "RC07",
+    "negative": true,
+    "positive": true,
+    "scope": "provided information pairs only"
+  }
+]

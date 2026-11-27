@@ -1,0 +1,1 @@
+Final consolidated execution: 46040116020, job 140645396629; 7 WS-A tests passed. See ../../actual_test_logs/run_46040116020_job_140645396629.log and ../../native_regression_results.json. Independent WS-A run 46038424853 / 140639647522 also successful.

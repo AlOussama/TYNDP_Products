@@ -1,0 +1,3090 @@
+{
+  "schema": "c2-native-regression-0.1",
+  "architecture": "M3-Hybrid",
+  "scope": "Actual pinned execution; bounded synthetic/static validation; no full 116 path or general equivalence claim",
+  "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+  "ci_run_id": 46040116020,
+  "ci_job_id": 140645396629,
+  "conclusion": "success",
+  "environment": {
+    "python": "3.13.15",
+    "mathspec_commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "canonicalizer_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+    "pixi_lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2"
+  },
+  "populations": [
+    {
+      "population": "Original R1",
+      "count": 57,
+      "status": "PASS",
+      "scope": "50+7 inherited suites"
+    },
+    {
+      "population": "C1 Static Foundation",
+      "count": 24,
+      "status": "PASS"
+    },
+    {
+      "population": "Canonical-First Experiment",
+      "count": 17,
+      "status": "PASS"
+    },
+    {
+      "population": "Canonical-First Closure and Package",
+      "count": 51,
+      "status": "PASS"
+    },
+    {
+      "population": "Comparative RC fragments",
+      "count": 10,
+      "status": "PASS",
+      "scope": "derived fragments only"
+    },
+    {
+      "population": "Comparative extra fragments",
+      "count": 2,
+      "status": "PASS",
+      "scope": "EX08 and original expected EXPOW rejection"
+    },
+    {
+      "population": "Comparative ablations",
+      "count": 12,
+      "status": "PASS"
+    },
+    {
+      "population": "MS1 reference pairs",
+      "count": 7,
+      "status": "PASS",
+      "scope": "finite observations"
+    },
+    {
+      "population": "Original MS1 profile controls",
+      "count": 4,
+      "status": "PASS"
+    },
+    {
+      "population": "Original profiles in C2 native migration",
+      "count": 4,
+      "status": "PASS",
+      "scope": "bounded migration, not additional original identities"
+    },
+    {
+      "population": "Original P5 oracle",
+      "count": 36,
+      "passed": 36,
+      "status": "PASS",
+      "scope": "30 negatives + 6 positives; original oracle, not M3 A/B paths"
+    },
+    {
+      "population": "Frozen RC/C23 derived oracle",
+      "count": 28,
+      "passed": 28,
+      "status": "PASS",
+      "scope": "10 RC + 18 C23, independent derived finite oracle, no full verdict"
+    },
+    {
+      "population": "C2 native tests",
+      "count": 26,
+      "passed": 26,
+      "status": "PASS"
+    },
+    {
+      "population": "Native upstream",
+      "passed": 4140,
+      "skipped": 47,
+      "status": "PASS"
+    }
+  ],
+  "original_population": {
+    "identities": 58,
+    "AB_paths": 116,
+    "full_executed": 0,
+    "full_status": "NOT_EXECUTED",
+    "original_traceability": 105,
+    "MS_K": 20
+  },
+  "test_results": [
+    {
+      "id": "test_C2_I01_reference",
+      "qualified": "__main__.Interface.test_C2_I01_reference",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_interface.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_I02_axis_scope_role",
+      "qualified": "__main__.Interface.test_C2_I02_axis_scope_role",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_interface.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_I03_method_separate",
+      "qualified": "__main__.Interface.test_C2_I03_method_separate",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_interface.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A01_bool3",
+      "qualified": "__main__.Contract.test_C2_A01_bool3",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A02_ordered_quantification",
+      "qualified": "__main__.Contract.test_C2_A02_ordered_quantification",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A03_guard_and_static_validation",
+      "qualified": "__main__.Contract.test_C2_A03_guard_and_static_validation",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A04_original_fragments",
+      "qualified": "__main__.Contract.test_C2_A04_original_fragments",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A05_unbound_axis_and_authority",
+      "qualified": "__main__.Contract.test_C2_A05_unbound_axis_and_authority",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A06_assumption_gate",
+      "qualified": "__main__.Contract.test_C2_A06_assumption_gate",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_A07_assumption_false_and_where",
+      "qualified": "__main__.Contract.test_C2_A07_assumption_false_and_where",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_A/test_contract.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B01_ABL09",
+      "qualified": "__main__.Methods.test_C2_B01_ABL09",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B02_ABL11",
+      "qualified": "__main__.Methods.test_C2_B02_ABL11",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B03_ABL08",
+      "qualified": "__main__.Methods.test_C2_B03_ABL08",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B04_ABL06",
+      "qualified": "__main__.Methods.test_C2_B04_ABL06",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B05_original_profile_controls",
+      "qualified": "__main__.Methods.test_C2_B05_original_profile_controls",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B06_method_swap",
+      "qualified": "__main__.Methods.test_C2_B06_method_swap",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B07_unpinned_context",
+      "qualified": "__main__.Methods.test_C2_B07_unpinned_context",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B08_EXPOW_native",
+      "qualified": "__main__.Methods.test_C2_B08_EXPOW_native",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_methods.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B09_original_profiles_native",
+      "qualified": "__main__.OriginalProfiles.test_C2_B09_original_profiles_native",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_original_profiles.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B10_n7_original_negative",
+      "qualified": "__main__.OriginalProfiles.test_C2_B10_n7_original_negative",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_original_profiles.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B11_disjoint_vs_reuse",
+      "qualified": "__main__.OriginalProfiles.test_C2_B11_disjoint_vs_reuse",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_original_profiles.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_B12_positive_and_exponent_range",
+      "qualified": "__main__.OriginalProfiles.test_C2_B12_positive_and_exponent_range",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "WS_B/test_original_profiles.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_C01_roundtrip",
+      "qualified": "__main__.Integrated.test_C2_C01_roundtrip",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_integrated.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_C02_cross_layer",
+      "qualified": "__main__.Integrated.test_C2_C02_cross_layer",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_integrated.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_C03_no_bypass",
+      "qualified": "__main__.Integrated.test_C2_C03_no_bypass",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_integrated.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    },
+    {
+      "id": "test_C2_C04_power_shared_clients",
+      "qualified": "__main__.Integrated.test_C2_C04_power_shared_clients",
+      "actual": "PASS",
+      "expected": "Assertions in pinned test source succeed, including expected negative diagnostics",
+      "architecture": "M3-Hybrid",
+      "source_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "fixture_or_test_source": "test_integrated.py",
+      "oracle": "Exact test assertions / pinned source or independent reference as specified by test; see native log and result receipts",
+      "ci_run_id": 46040116020,
+      "ci_job_id": 140645396629,
+      "evidence_path": "actual_test_logs/run_46040116020_job_140645396629.log"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": 46037583727,
+      "job_id": 140636801166,
+      "tested_commit": "50065a4013b3c3a4fdceaeeecc330b4ae1931799",
+      "scope": "Shared baseline",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46037583727/job/140636801166"
+    },
+    {
+      "run_id": 46038115009,
+      "job_id": 140638627214,
+      "tested_commit": "b17d877cdd00dc8239c4224888848d723bf01312",
+      "scope": "WS-B corrected",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46038115009/job/140638627214"
+    },
+    {
+      "run_id": 46038230753,
+      "job_id": 140639024457,
+      "tested_commit": "c8247aa2db1a9f1e0afbe6441fb80326f95d7141",
+      "scope": "WS-B bounded EXPOW",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46038230753/job/140639024457"
+    },
+    {
+      "run_id": 46038424853,
+      "job_id": 140639647522,
+      "tested_commit": "bf36a1aa41c6819b48b7c92408e69e819e76210d",
+      "scope": "WS-A assume-guarantee",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46038424853/job/140639647522"
+    },
+    {
+      "run_id": 46038869045,
+      "job_id": 140641160479,
+      "tested_commit": "45f728f8b6a44cda5dff6ab648c9429f389c60bb",
+      "scope": "Initial integration",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46038869045/job/140641160479"
+    },
+    {
+      "run_id": 46039248664,
+      "job_id": 140642448904,
+      "tested_commit": "aba5911c2195e2bd5f457ce065968380ecfb9579",
+      "scope": "Affine boundary implementation",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46039248664/job/140642448904"
+    },
+    {
+      "run_id": 46039691899,
+      "job_id": 140643961109,
+      "tested_commit": "cfeae176ab813fd41de15983af07c9e3477235bb",
+      "scope": "Corrected original profile integration",
+      "conclusion": "success",
+      "log": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46039691899/job/140643961109"
+    },
+    {
+      "run_id": 46037963133,
+      "job_id": 140638097226,
+      "tested_commit": "f469008cfec62813f6a05810dc43bbfbeaf4c3e5",
+      "scope": "WS-B first failure",
+      "conclusion": "failure",
+      "log": "actual_test_logs/run_46037963133_job_140638097226.log",
+      "test_results": [
+        {
+          "id": "test_A01_all_arithmetic_nodes",
+          "qualified": "__main__.Closure.test_A01_all_arithmetic_nodes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A02_native_roundtrip_and_canonical_as_source",
+          "qualified": "__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A03_exact_admission_before_float",
+          "qualified": "__main__.Closure.test_A03_exact_admission_before_float",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A04_nonzero_bound_domain",
+          "qualified": "__main__.Closure.test_A04_nonzero_bound_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A05_quantity_in_unused_expression",
+          "qualified": "__main__.Closure.test_A05_quantity_in_unused_expression",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C01_conditions_and_refs",
+          "qualified": "__main__.Closure.test_C01_conditions_and_refs",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C02_physical_comparison",
+          "qualified": "__main__.Closure.test_C02_physical_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C03_folded_invalid_condition",
+          "qualified": "__main__.Closure.test_C03_folded_invalid_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C04_explicit_typed_literal",
+          "qualified": "__main__.Closure.test_C04_explicit_typed_literal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C05_cross_axis_comparison",
+          "qualified": "__main__.Closure.test_C05_cross_axis_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C06_assumption_role",
+          "qualified": "__main__.Closure.test_C06_assumption_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C07_bool_guard_no_unknown",
+          "qualified": "__main__.Closure.test_C07_bool_guard_no_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C08_cases_all_regions",
+          "qualified": "__main__.Closure.test_C08_cases_all_regions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C09_case_requires_explicit_else",
+          "qualified": "__main__.Closure.test_C09_case_requires_explicit_else",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C10_scalar_parameter_condition",
+          "qualified": "__main__.Closure.test_C10_scalar_parameter_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C11_dimension_comparison",
+          "qualified": "__main__.Closure.test_C11_dimension_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C12_native_count",
+          "qualified": "__main__.Closure.test_C12_native_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C13_native_joined_condition",
+          "qualified": "__main__.Closure.test_C13_native_joined_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G01_tamper_and_solver",
+          "qualified": "__main__.Closure.test_G01_tamper_and_solver",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G02_duplicate_source",
+          "qualified": "__main__.Closure.test_G02_duplicate_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G03_unauthorized_authority",
+          "qualified": "__main__.Closure.test_G03_unauthorized_authority",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G04_duplicate_ids",
+          "qualified": "__main__.Closure.test_G04_duplicate_ids",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G05_process_determinism",
+          "qualified": "__main__.Closure.test_G05_process_determinism",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M01_rc03_conversion",
+          "qualified": "__main__.Closure.test_M01_rc03_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M02_rc08_cost_and_price_basis",
+          "qualified": "__main__.Closure.test_M02_rc08_cost_and_price_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M03_method_and_study_signatures",
+          "qualified": "__main__.Closure.test_M03_method_and_study_signatures",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M04_role_signature_mismatch",
+          "qualified": "__main__.Closure.test_M04_role_signature_mismatch",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M05_data_context_and_exact_identity",
+          "qualified": "__main__.Closure.test_M05_data_context_and_exact_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M06_integer_and_unknown",
+          "qualified": "__main__.Closure.test_M06_integer_and_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M07_qualified_method_axes",
+          "qualified": "__main__.Closure.test_M07_qualified_method_axes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R01_lookup_native",
+          "qualified": "__main__.Closure.test_R01_lookup_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R02_group_sum_native",
+          "qualified": "__main__.Closure.test_R02_group_sum_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R03_duplicate_key",
+          "qualified": "__main__.Closure.test_R03_duplicate_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R04_missing_key",
+          "qualified": "__main__.Closure.test_R04_missing_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R05_empty_group",
+          "qualified": "__main__.Closure.test_R05_empty_group",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R06_unknown_coordinate",
+          "qualified": "__main__.Closure.test_R06_unknown_coordinate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R07_rc05_oriented_net",
+          "qualified": "__main__.Closure.test_R07_rc05_oriented_net",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T01_explicit_shift",
+          "qualified": "__main__.Closure.test_T01_explicit_shift",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T02_implicit_edge_rejected",
+          "qualified": "__main__.Closure.test_T02_implicit_edge_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T03_window_policy",
+          "qualified": "__main__.Closure.test_T03_window_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T04_future_shift_rejected",
+          "qualified": "__main__.Closure.test_T04_future_shift_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T05_order_changes_bound_identity",
+          "qualified": "__main__.Closure.test_T05_order_changes_bound_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T06_explicit_wrap",
+          "qualified": "__main__.Closure.test_T06_explicit_wrap",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T07_window_beyond_support",
+          "qualified": "__main__.Closure.test_T07_window_beyond_support",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P01_canonical_package_roundtrip",
+          "qualified": "__main__.Package.test_P01_canonical_package_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P02_source_audit_separation",
+          "qualified": "__main__.Package.test_P02_source_audit_separation",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P03_external_contract_client",
+          "qualified": "__main__.Package.test_P03_external_contract_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P04_assumption_not_predicate",
+          "qualified": "__main__.Package.test_P04_assumption_not_predicate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P05_independent_method_client",
+          "qualified": "__main__.Package.test_P05_independent_method_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P06_package_tamper",
+          "qualified": "__main__.Package.test_P06_package_tamper",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P07_different_method_context_same_native_math",
+          "qualified": "__main__.Package.test_P07_different_method_context_same_native_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_power_energy_fragment",
+          "qualified": "test_generality.Fragments.test_RC01_power_energy_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "qualified": "test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_port_connection_fragment",
+          "qualified": "test_generality.Fragments.test_RC05_port_connection_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information_fragment",
+          "qualified": "test_generality.Fragments.test_RC07_information_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC10_variation_fragment",
+          "qualified": "test_generality.Fragments.test_RC10_variation_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_conflict",
+          "qualified": "test_r1.N1R.test_authority_conflict",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_source_audit_not_semantics",
+          "qualified": "test_r1.N1R.test_authority_source_audit_not_semantics",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_capability_vs_service",
+          "qualified": "test_r1.N1R.test_capability_vs_service",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dual_syntax_idempotence_and_source",
+          "qualified": "test_r1.N1R.test_dual_syntax_idempotence_and_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_id",
+          "qualified": "test_r1.N1R.test_duplicate_id",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_json_key",
+          "qualified": "test_r1.N1R.test_duplicate_json_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_evidence_promotion",
+          "qualified": "test_r1.N1R.test_evidence_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_exact_units_and_no_silent_rounding",
+          "qualified": "test_r1.N1R.test_exact_units_and_no_silent_rounding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_nonboolean",
+          "qualified": "test_r1.N1R.test_guard_nonboolean",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_ref",
+          "qualified": "test_r1.N1R.test_guard_ref",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_typed_but_unexecuted",
+          "qualified": "test_r1.N1R.test_guard_typed_but_unexecuted",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_unknown_not_false",
+          "qualified": "test_r1.N1R.test_guard_unknown_not_false",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_information_refinement",
+          "qualified": "test_r1.N1R.test_information_refinement",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_observable_projection",
+          "qualified": "test_r1.N1R.test_invalid_observable_projection",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_legacy_path",
+          "qualified": "test_r1.N1R.test_legacy_path",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_nested_quantifier_order",
+          "qualified": "test_r1.N1R.test_nested_quantifier_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_scope_escape",
+          "qualified": "test_r1.N1R.test_scope_escape",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unbound_variable",
+          "qualified": "test_r1.N1R.test_unbound_variable",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator_c21_defect_and_reject",
+          "qualified": "test_r1.N1R.test_unknown_operator_c21_defect_and_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unsupported_approval",
+          "qualified": "test_r1.N1R.test_unsupported_approval",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_wrong_index_domain",
+          "qualified": "test_r1.N1R.test_wrong_index_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_auxiliary_binding",
+          "qualified": "test_r1.N2N7.test_auxiliary_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_bad_probability",
+          "qualified": "test_r1.N2N7.test_bad_probability",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_context_content_changed_with_authorized_data",
+          "qualified": "test_r1.N2N7.test_context_content_changed_with_authorized_data",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_data_bytes_changed",
+          "qualified": "test_r1.N2N7.test_data_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_double_count_reject",
+          "qualified": "test_r1.N2N7.test_double_count_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_contribution",
+          "qualified": "test_r1.N2N7.test_duplicate_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_integrated_swap_four_runs_oracle_and_hashes",
+          "qualified": "test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_basis",
+          "qualified": "test_r1.N2N7.test_invalid_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_ledger_policy_override",
+          "qualified": "test_r1.N2N7.test_ledger_policy_override",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_method_bytes_changed",
+          "qualified": "test_r1.N2N7.test_method_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_missing_contribution",
+          "qualified": "test_r1.N2N7.test_missing_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_no_result_promotion",
+          "qualified": "test_r1.N2N7.test_no_result_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_observable_binding",
+          "qualified": "test_r1.N2N7.test_observable_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_period_count",
+          "qualified": "test_r1.N2N7.test_period_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_permitted_reuse_separate_policy",
+          "qualified": "test_r1.N2N7.test_permitted_reuse_separate_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_rule_cycle",
+          "qualified": "test_r1.N2N7.test_rule_cycle",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_missing",
+          "qualified": "test_r1.N2N7.test_source_missing",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_substitution",
+          "qualified": "test_r1.N2N7.test_source_substitution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_data_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_data_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_method_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_method_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_not_zero",
+          "qualified": "test_r1.N2N7.test_unknown_not_zero",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator",
+          "qualified": "test_r1.N2N7.test_unknown_operator",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dimensional_product",
+          "qualified": "test_r1.Units.test_dimensional_product",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_explicit_basis_conversion",
+          "qualified": "test_r1.Units.test_explicit_basis_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_battery",
+          "qualified": "__main__.Freedom.test_RC01_battery",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC02_EV",
+          "qualified": "__main__.Freedom.test_RC02_EV",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_electrolysis",
+          "qualified": "__main__.Freedom.test_RC03_electrolysis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC04_H2",
+          "qualified": "__main__.Freedom.test_RC04_H2",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_grid",
+          "qualified": "__main__.Freedom.test_RC05_grid",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC06_expansion",
+          "qualified": "__main__.Freedom.test_RC06_expansion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information",
+          "qualified": "__main__.Freedom.test_RC07_information",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I01_reference",
+          "qualified": "__main__.Interface.test_C2_I01_reference",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I02_axis_scope_role",
+          "qualified": "__main__.Interface.test_C2_I02_axis_scope_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I03_method_separate",
+          "qualified": "__main__.Interface.test_C2_I03_method_separate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B01_ABL09",
+          "qualified": "__main__.Methods.test_C2_B01_ABL09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B02_ABL11",
+          "qualified": "__main__.Methods.test_C2_B02_ABL11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B03_ABL08",
+          "qualified": "__main__.Methods.test_C2_B03_ABL08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B04_ABL06",
+          "qualified": "__main__.Methods.test_C2_B04_ABL06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B05_original_profile_controls",
+          "qualified": "__main__.Methods.test_C2_B05_original_profile_controls",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B06_method_swap",
+          "qualified": "__main__.Methods.test_C2_B06_method_swap",
+          "actual": "ERROR"
+        },
+        {
+          "id": "test_C2_B07_unpinned_context",
+          "qualified": "__main__.Methods.test_C2_B07_unpinned_context",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N01",
+          "qualified": "__main__.Foundation.test_A_N01",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N02",
+          "qualified": "__main__.Foundation.test_A_N02",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N03",
+          "qualified": "__main__.Foundation.test_A_N03",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N04",
+          "qualified": "__main__.Foundation.test_A_N04",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N05",
+          "qualified": "__main__.Foundation.test_A_N05",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N06",
+          "qualified": "__main__.Foundation.test_A_N06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N07",
+          "qualified": "__main__.Foundation.test_A_N07",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N08",
+          "qualified": "__main__.Foundation.test_A_N08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N09",
+          "qualified": "__main__.Foundation.test_A_N09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N10",
+          "qualified": "__main__.Foundation.test_A_N10",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N11",
+          "qualified": "__main__.Foundation.test_A_N11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N12",
+          "qualified": "__main__.Foundation.test_A_N12",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N13",
+          "qualified": "__main__.Foundation.test_A_N13",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N14",
+          "qualified": "__main__.Foundation.test_A_N14",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N15",
+          "qualified": "__main__.Foundation.test_A_N15",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N16",
+          "qualified": "__main__.Foundation.test_A_N16",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N17",
+          "qualified": "__main__.Foundation.test_A_N17",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N18",
+          "qualified": "__main__.Foundation.test_A_N18",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N19",
+          "qualified": "__main__.Foundation.test_A_N19",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N20",
+          "qualified": "__main__.Foundation.test_A_N20",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_m2_mapping",
+          "qualified": "__main__.Foundation.test_m2_mapping",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_processes",
+          "qualified": "__main__.Foundation.test_processes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_roundtrip",
+          "qualified": "__main__.Foundation.test_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_static_sum_and_rational",
+          "qualified": "__main__.Foundation.test_static_sum_and_rational",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B01_direct_canonical_admission",
+          "qualified": "__main__.CanonicalFirst.test_B01_direct_canonical_admission",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B02_role_and_quantity_outside_math",
+          "qualified": "__main__.CanonicalFirst.test_B02_role_and_quantity_outside_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B03_ordered_binding",
+          "qualified": "__main__.CanonicalFirst.test_B03_ordered_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B04_alignment",
+          "qualified": "__main__.CanonicalFirst.test_B04_alignment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B05_original_and_audit",
+          "qualified": "__main__.CanonicalFirst.test_B05_original_and_audit",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B06_raw_extension_and_defaults",
+          "qualified": "__main__.CanonicalFirst.test_B06_raw_extension_and_defaults",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B07_explicit_guard_signature",
+          "qualified": "__main__.CanonicalFirst.test_B07_explicit_guard_signature",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B08_RC03_cross_carrier_conversion",
+          "qualified": "__main__.CanonicalFirst.test_B08_RC03_cross_carrier_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B09_RC08_weighted_cost",
+          "qualified": "__main__.CanonicalFirst.test_B09_RC08_weighted_cost",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N01_native_commutativity",
+          "qualified": "__main__.CanonicalFirst.test_N01_native_commutativity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N02_native_not_equivalence",
+          "qualified": "__main__.CanonicalFirst.test_N02_native_not_equivalence",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N03_defaults_and_order",
+          "qualified": "__main__.CanonicalFirst.test_N03_defaults_and_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N04_numeric_preimage_collision",
+          "qualified": "__main__.CanonicalFirst.test_N04_numeric_preimage_collision",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N05_native_conditions",
+          "qualified": "__main__.CanonicalFirst.test_N05_native_conditions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N06_native_relation_and_temporal",
+          "qualified": "__main__.CanonicalFirst.test_N06_native_relation_and_temporal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N07_native_condition_cases",
+          "qualified": "__main__.CanonicalFirst.test_N07_native_condition_cases",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N08_canonical_origin_limit",
+          "qualified": "__main__.CanonicalFirst.test_N08_canonical_origin_limit",
+          "actual": "PASS"
+        }
+      ],
+      "failures": [
+        "2026-11-27T16:58:11.2365768Z foundation.Reject: DIVISOR_NONZERO_REQUIRED",
+        "2026-11-27T16:58:11.2366293Z FAILED (errors=1)"
+      ]
+    },
+    {
+      "run_id": 46039430432,
+      "job_id": 140643075380,
+      "tested_commit": "cb9aee6abbb4e85f9d81768d5fc347a7183cfda2",
+      "scope": "original profile integration failure",
+      "conclusion": "failure",
+      "log": "actual_test_logs/run_46039430432_job_140643075380.log",
+      "test_results": [
+        {
+          "id": "test_A01_all_arithmetic_nodes",
+          "qualified": "__main__.Closure.test_A01_all_arithmetic_nodes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A02_native_roundtrip_and_canonical_as_source",
+          "qualified": "__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A03_exact_admission_before_float",
+          "qualified": "__main__.Closure.test_A03_exact_admission_before_float",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A04_nonzero_bound_domain",
+          "qualified": "__main__.Closure.test_A04_nonzero_bound_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A05_quantity_in_unused_expression",
+          "qualified": "__main__.Closure.test_A05_quantity_in_unused_expression",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C01_conditions_and_refs",
+          "qualified": "__main__.Closure.test_C01_conditions_and_refs",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C02_physical_comparison",
+          "qualified": "__main__.Closure.test_C02_physical_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C03_folded_invalid_condition",
+          "qualified": "__main__.Closure.test_C03_folded_invalid_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C04_explicit_typed_literal",
+          "qualified": "__main__.Closure.test_C04_explicit_typed_literal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C05_cross_axis_comparison",
+          "qualified": "__main__.Closure.test_C05_cross_axis_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C06_assumption_role",
+          "qualified": "__main__.Closure.test_C06_assumption_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C07_bool_guard_no_unknown",
+          "qualified": "__main__.Closure.test_C07_bool_guard_no_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C08_cases_all_regions",
+          "qualified": "__main__.Closure.test_C08_cases_all_regions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C09_case_requires_explicit_else",
+          "qualified": "__main__.Closure.test_C09_case_requires_explicit_else",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C10_scalar_parameter_condition",
+          "qualified": "__main__.Closure.test_C10_scalar_parameter_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C11_dimension_comparison",
+          "qualified": "__main__.Closure.test_C11_dimension_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C12_native_count",
+          "qualified": "__main__.Closure.test_C12_native_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C13_native_joined_condition",
+          "qualified": "__main__.Closure.test_C13_native_joined_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G01_tamper_and_solver",
+          "qualified": "__main__.Closure.test_G01_tamper_and_solver",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G02_duplicate_source",
+          "qualified": "__main__.Closure.test_G02_duplicate_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G03_unauthorized_authority",
+          "qualified": "__main__.Closure.test_G03_unauthorized_authority",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G04_duplicate_ids",
+          "qualified": "__main__.Closure.test_G04_duplicate_ids",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G05_process_determinism",
+          "qualified": "__main__.Closure.test_G05_process_determinism",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M01_rc03_conversion",
+          "qualified": "__main__.Closure.test_M01_rc03_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M02_rc08_cost_and_price_basis",
+          "qualified": "__main__.Closure.test_M02_rc08_cost_and_price_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M03_method_and_study_signatures",
+          "qualified": "__main__.Closure.test_M03_method_and_study_signatures",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M04_role_signature_mismatch",
+          "qualified": "__main__.Closure.test_M04_role_signature_mismatch",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M05_data_context_and_exact_identity",
+          "qualified": "__main__.Closure.test_M05_data_context_and_exact_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M06_integer_and_unknown",
+          "qualified": "__main__.Closure.test_M06_integer_and_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M07_qualified_method_axes",
+          "qualified": "__main__.Closure.test_M07_qualified_method_axes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R01_lookup_native",
+          "qualified": "__main__.Closure.test_R01_lookup_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R02_group_sum_native",
+          "qualified": "__main__.Closure.test_R02_group_sum_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R03_duplicate_key",
+          "qualified": "__main__.Closure.test_R03_duplicate_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R04_missing_key",
+          "qualified": "__main__.Closure.test_R04_missing_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R05_empty_group",
+          "qualified": "__main__.Closure.test_R05_empty_group",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R06_unknown_coordinate",
+          "qualified": "__main__.Closure.test_R06_unknown_coordinate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R07_rc05_oriented_net",
+          "qualified": "__main__.Closure.test_R07_rc05_oriented_net",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T01_explicit_shift",
+          "qualified": "__main__.Closure.test_T01_explicit_shift",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T02_implicit_edge_rejected",
+          "qualified": "__main__.Closure.test_T02_implicit_edge_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T03_window_policy",
+          "qualified": "__main__.Closure.test_T03_window_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T04_future_shift_rejected",
+          "qualified": "__main__.Closure.test_T04_future_shift_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T05_order_changes_bound_identity",
+          "qualified": "__main__.Closure.test_T05_order_changes_bound_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T06_explicit_wrap",
+          "qualified": "__main__.Closure.test_T06_explicit_wrap",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T07_window_beyond_support",
+          "qualified": "__main__.Closure.test_T07_window_beyond_support",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P01_canonical_package_roundtrip",
+          "qualified": "__main__.Package.test_P01_canonical_package_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P02_source_audit_separation",
+          "qualified": "__main__.Package.test_P02_source_audit_separation",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P03_external_contract_client",
+          "qualified": "__main__.Package.test_P03_external_contract_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P04_assumption_not_predicate",
+          "qualified": "__main__.Package.test_P04_assumption_not_predicate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P05_independent_method_client",
+          "qualified": "__main__.Package.test_P05_independent_method_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P06_package_tamper",
+          "qualified": "__main__.Package.test_P06_package_tamper",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P07_different_method_context_same_native_math",
+          "qualified": "__main__.Package.test_P07_different_method_context_same_native_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_power_energy_fragment",
+          "qualified": "test_generality.Fragments.test_RC01_power_energy_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "qualified": "test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_port_connection_fragment",
+          "qualified": "test_generality.Fragments.test_RC05_port_connection_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information_fragment",
+          "qualified": "test_generality.Fragments.test_RC07_information_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC10_variation_fragment",
+          "qualified": "test_generality.Fragments.test_RC10_variation_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_conflict",
+          "qualified": "test_r1.N1R.test_authority_conflict",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_source_audit_not_semantics",
+          "qualified": "test_r1.N1R.test_authority_source_audit_not_semantics",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_capability_vs_service",
+          "qualified": "test_r1.N1R.test_capability_vs_service",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dual_syntax_idempotence_and_source",
+          "qualified": "test_r1.N1R.test_dual_syntax_idempotence_and_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_id",
+          "qualified": "test_r1.N1R.test_duplicate_id",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_json_key",
+          "qualified": "test_r1.N1R.test_duplicate_json_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_evidence_promotion",
+          "qualified": "test_r1.N1R.test_evidence_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_exact_units_and_no_silent_rounding",
+          "qualified": "test_r1.N1R.test_exact_units_and_no_silent_rounding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_nonboolean",
+          "qualified": "test_r1.N1R.test_guard_nonboolean",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_ref",
+          "qualified": "test_r1.N1R.test_guard_ref",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_typed_but_unexecuted",
+          "qualified": "test_r1.N1R.test_guard_typed_but_unexecuted",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_unknown_not_false",
+          "qualified": "test_r1.N1R.test_guard_unknown_not_false",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_information_refinement",
+          "qualified": "test_r1.N1R.test_information_refinement",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_observable_projection",
+          "qualified": "test_r1.N1R.test_invalid_observable_projection",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_legacy_path",
+          "qualified": "test_r1.N1R.test_legacy_path",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_nested_quantifier_order",
+          "qualified": "test_r1.N1R.test_nested_quantifier_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_scope_escape",
+          "qualified": "test_r1.N1R.test_scope_escape",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unbound_variable",
+          "qualified": "test_r1.N1R.test_unbound_variable",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator_c21_defect_and_reject",
+          "qualified": "test_r1.N1R.test_unknown_operator_c21_defect_and_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unsupported_approval",
+          "qualified": "test_r1.N1R.test_unsupported_approval",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_wrong_index_domain",
+          "qualified": "test_r1.N1R.test_wrong_index_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_auxiliary_binding",
+          "qualified": "test_r1.N2N7.test_auxiliary_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_bad_probability",
+          "qualified": "test_r1.N2N7.test_bad_probability",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_context_content_changed_with_authorized_data",
+          "qualified": "test_r1.N2N7.test_context_content_changed_with_authorized_data",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_data_bytes_changed",
+          "qualified": "test_r1.N2N7.test_data_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_double_count_reject",
+          "qualified": "test_r1.N2N7.test_double_count_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_contribution",
+          "qualified": "test_r1.N2N7.test_duplicate_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_integrated_swap_four_runs_oracle_and_hashes",
+          "qualified": "test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_basis",
+          "qualified": "test_r1.N2N7.test_invalid_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_ledger_policy_override",
+          "qualified": "test_r1.N2N7.test_ledger_policy_override",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_method_bytes_changed",
+          "qualified": "test_r1.N2N7.test_method_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_missing_contribution",
+          "qualified": "test_r1.N2N7.test_missing_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_no_result_promotion",
+          "qualified": "test_r1.N2N7.test_no_result_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_observable_binding",
+          "qualified": "test_r1.N2N7.test_observable_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_period_count",
+          "qualified": "test_r1.N2N7.test_period_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_permitted_reuse_separate_policy",
+          "qualified": "test_r1.N2N7.test_permitted_reuse_separate_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_rule_cycle",
+          "qualified": "test_r1.N2N7.test_rule_cycle",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_missing",
+          "qualified": "test_r1.N2N7.test_source_missing",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_substitution",
+          "qualified": "test_r1.N2N7.test_source_substitution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_data_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_data_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_method_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_method_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_not_zero",
+          "qualified": "test_r1.N2N7.test_unknown_not_zero",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator",
+          "qualified": "test_r1.N2N7.test_unknown_operator",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dimensional_product",
+          "qualified": "test_r1.Units.test_dimensional_product",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_explicit_basis_conversion",
+          "qualified": "test_r1.Units.test_explicit_basis_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_battery",
+          "qualified": "__main__.Freedom.test_RC01_battery",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC02_EV",
+          "qualified": "__main__.Freedom.test_RC02_EV",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_electrolysis",
+          "qualified": "__main__.Freedom.test_RC03_electrolysis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC04_H2",
+          "qualified": "__main__.Freedom.test_RC04_H2",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_grid",
+          "qualified": "__main__.Freedom.test_RC05_grid",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC06_expansion",
+          "qualified": "__main__.Freedom.test_RC06_expansion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information",
+          "qualified": "__main__.Freedom.test_RC07_information",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I01_reference",
+          "qualified": "__main__.Interface.test_C2_I01_reference",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I02_axis_scope_role",
+          "qualified": "__main__.Interface.test_C2_I02_axis_scope_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I03_method_separate",
+          "qualified": "__main__.Interface.test_C2_I03_method_separate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A01_bool3",
+          "qualified": "__main__.Contract.test_C2_A01_bool3",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A02_ordered_quantification",
+          "qualified": "__main__.Contract.test_C2_A02_ordered_quantification",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A03_guard_and_static_validation",
+          "qualified": "__main__.Contract.test_C2_A03_guard_and_static_validation",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A04_original_fragments",
+          "qualified": "__main__.Contract.test_C2_A04_original_fragments",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A05_unbound_axis_and_authority",
+          "qualified": "__main__.Contract.test_C2_A05_unbound_axis_and_authority",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A06_assumption_gate",
+          "qualified": "__main__.Contract.test_C2_A06_assumption_gate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A07_assumption_false_and_where",
+          "qualified": "__main__.Contract.test_C2_A07_assumption_false_and_where",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B01_ABL09",
+          "qualified": "__main__.Methods.test_C2_B01_ABL09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B02_ABL11",
+          "qualified": "__main__.Methods.test_C2_B02_ABL11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B03_ABL08",
+          "qualified": "__main__.Methods.test_C2_B03_ABL08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B04_ABL06",
+          "qualified": "__main__.Methods.test_C2_B04_ABL06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B05_original_profile_controls",
+          "qualified": "__main__.Methods.test_C2_B05_original_profile_controls",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B06_method_swap",
+          "qualified": "__main__.Methods.test_C2_B06_method_swap",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B07_unpinned_context",
+          "qualified": "__main__.Methods.test_C2_B07_unpinned_context",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B08_EXPOW_native",
+          "qualified": "__main__.Methods.test_C2_B08_EXPOW_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B09_original_profiles_native",
+          "qualified": "__main__.OriginalProfiles.test_C2_B09_original_profiles_native",
+          "actual": "ERROR"
+        },
+        {
+          "id": "test_C2_B10_n7_original_negative",
+          "qualified": "__main__.OriginalProfiles.test_C2_B10_n7_original_negative",
+          "actual": "ERROR"
+        },
+        {
+          "id": "test_C2_B11_disjoint_vs_reuse",
+          "qualified": "__main__.OriginalProfiles.test_C2_B11_disjoint_vs_reuse",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B12_positive_and_exponent_range",
+          "qualified": "__main__.OriginalProfiles.test_C2_B12_positive_and_exponent_range",
+          "actual": "ERROR"
+        },
+        {
+          "id": "test_A_N01",
+          "qualified": "__main__.Foundation.test_A_N01",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N02",
+          "qualified": "__main__.Foundation.test_A_N02",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N03",
+          "qualified": "__main__.Foundation.test_A_N03",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N04",
+          "qualified": "__main__.Foundation.test_A_N04",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N05",
+          "qualified": "__main__.Foundation.test_A_N05",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N06",
+          "qualified": "__main__.Foundation.test_A_N06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N07",
+          "qualified": "__main__.Foundation.test_A_N07",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N08",
+          "qualified": "__main__.Foundation.test_A_N08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N09",
+          "qualified": "__main__.Foundation.test_A_N09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N10",
+          "qualified": "__main__.Foundation.test_A_N10",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N11",
+          "qualified": "__main__.Foundation.test_A_N11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N12",
+          "qualified": "__main__.Foundation.test_A_N12",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N13",
+          "qualified": "__main__.Foundation.test_A_N13",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N14",
+          "qualified": "__main__.Foundation.test_A_N14",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N15",
+          "qualified": "__main__.Foundation.test_A_N15",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N16",
+          "qualified": "__main__.Foundation.test_A_N16",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N17",
+          "qualified": "__main__.Foundation.test_A_N17",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N18",
+          "qualified": "__main__.Foundation.test_A_N18",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N19",
+          "qualified": "__main__.Foundation.test_A_N19",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N20",
+          "qualified": "__main__.Foundation.test_A_N20",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_m2_mapping",
+          "qualified": "__main__.Foundation.test_m2_mapping",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_processes",
+          "qualified": "__main__.Foundation.test_processes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_roundtrip",
+          "qualified": "__main__.Foundation.test_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_static_sum_and_rational",
+          "qualified": "__main__.Foundation.test_static_sum_and_rational",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B01_direct_canonical_admission",
+          "qualified": "__main__.CanonicalFirst.test_B01_direct_canonical_admission",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B02_role_and_quantity_outside_math",
+          "qualified": "__main__.CanonicalFirst.test_B02_role_and_quantity_outside_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B03_ordered_binding",
+          "qualified": "__main__.CanonicalFirst.test_B03_ordered_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B04_alignment",
+          "qualified": "__main__.CanonicalFirst.test_B04_alignment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B05_original_and_audit",
+          "qualified": "__main__.CanonicalFirst.test_B05_original_and_audit",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B06_raw_extension_and_defaults",
+          "qualified": "__main__.CanonicalFirst.test_B06_raw_extension_and_defaults",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B07_explicit_guard_signature",
+          "qualified": "__main__.CanonicalFirst.test_B07_explicit_guard_signature",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B08_RC03_cross_carrier_conversion",
+          "qualified": "__main__.CanonicalFirst.test_B08_RC03_cross_carrier_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B09_RC08_weighted_cost",
+          "qualified": "__main__.CanonicalFirst.test_B09_RC08_weighted_cost",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N01_native_commutativity",
+          "qualified": "__main__.CanonicalFirst.test_N01_native_commutativity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N02_native_not_equivalence",
+          "qualified": "__main__.CanonicalFirst.test_N02_native_not_equivalence",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N03_defaults_and_order",
+          "qualified": "__main__.CanonicalFirst.test_N03_defaults_and_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N04_numeric_preimage_collision",
+          "qualified": "__main__.CanonicalFirst.test_N04_numeric_preimage_collision",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N05_native_conditions",
+          "qualified": "__main__.CanonicalFirst.test_N05_native_conditions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N06_native_relation_and_temporal",
+          "qualified": "__main__.CanonicalFirst.test_N06_native_relation_and_temporal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N07_native_condition_cases",
+          "qualified": "__main__.CanonicalFirst.test_N07_native_condition_cases",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N08_canonical_origin_limit",
+          "qualified": "__main__.CanonicalFirst.test_N08_canonical_origin_limit",
+          "actual": "PASS"
+        }
+      ],
+      "failures": [
+        "2026-11-27T17:08:54.8060731Z foundation.Reject: POWER_POSITIVE_BASE_REQUIRED",
+        "2026-11-27T17:08:54.8076315Z foundation.Reject: POWER_POSITIVE_BASE_REQUIRED",
+        "2026-11-27T17:08:54.8095539Z foundation.Reject: POWER_INTEGER_AFFINE_REQUIRED",
+        "2026-11-27T17:08:54.8096211Z FAILED (errors=3)"
+      ]
+    },
+    {
+      "run_id": 46040116020,
+      "job_id": 140645396629,
+      "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "scope": "final tested specification and implementation",
+      "conclusion": "success",
+      "log": "actual_test_logs/run_46040116020_job_140645396629.log",
+      "test_results": [
+        {
+          "id": "test_A01_all_arithmetic_nodes",
+          "qualified": "__main__.Closure.test_A01_all_arithmetic_nodes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A02_native_roundtrip_and_canonical_as_source",
+          "qualified": "__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A03_exact_admission_before_float",
+          "qualified": "__main__.Closure.test_A03_exact_admission_before_float",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A04_nonzero_bound_domain",
+          "qualified": "__main__.Closure.test_A04_nonzero_bound_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A05_quantity_in_unused_expression",
+          "qualified": "__main__.Closure.test_A05_quantity_in_unused_expression",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C01_conditions_and_refs",
+          "qualified": "__main__.Closure.test_C01_conditions_and_refs",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C02_physical_comparison",
+          "qualified": "__main__.Closure.test_C02_physical_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C03_folded_invalid_condition",
+          "qualified": "__main__.Closure.test_C03_folded_invalid_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C04_explicit_typed_literal",
+          "qualified": "__main__.Closure.test_C04_explicit_typed_literal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C05_cross_axis_comparison",
+          "qualified": "__main__.Closure.test_C05_cross_axis_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C06_assumption_role",
+          "qualified": "__main__.Closure.test_C06_assumption_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C07_bool_guard_no_unknown",
+          "qualified": "__main__.Closure.test_C07_bool_guard_no_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C08_cases_all_regions",
+          "qualified": "__main__.Closure.test_C08_cases_all_regions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C09_case_requires_explicit_else",
+          "qualified": "__main__.Closure.test_C09_case_requires_explicit_else",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C10_scalar_parameter_condition",
+          "qualified": "__main__.Closure.test_C10_scalar_parameter_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C11_dimension_comparison",
+          "qualified": "__main__.Closure.test_C11_dimension_comparison",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C12_native_count",
+          "qualified": "__main__.Closure.test_C12_native_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C13_native_joined_condition",
+          "qualified": "__main__.Closure.test_C13_native_joined_condition",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G01_tamper_and_solver",
+          "qualified": "__main__.Closure.test_G01_tamper_and_solver",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G02_duplicate_source",
+          "qualified": "__main__.Closure.test_G02_duplicate_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G03_unauthorized_authority",
+          "qualified": "__main__.Closure.test_G03_unauthorized_authority",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G04_duplicate_ids",
+          "qualified": "__main__.Closure.test_G04_duplicate_ids",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_G05_process_determinism",
+          "qualified": "__main__.Closure.test_G05_process_determinism",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M01_rc03_conversion",
+          "qualified": "__main__.Closure.test_M01_rc03_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M02_rc08_cost_and_price_basis",
+          "qualified": "__main__.Closure.test_M02_rc08_cost_and_price_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M03_method_and_study_signatures",
+          "qualified": "__main__.Closure.test_M03_method_and_study_signatures",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M04_role_signature_mismatch",
+          "qualified": "__main__.Closure.test_M04_role_signature_mismatch",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M05_data_context_and_exact_identity",
+          "qualified": "__main__.Closure.test_M05_data_context_and_exact_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M06_integer_and_unknown",
+          "qualified": "__main__.Closure.test_M06_integer_and_unknown",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_M07_qualified_method_axes",
+          "qualified": "__main__.Closure.test_M07_qualified_method_axes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R01_lookup_native",
+          "qualified": "__main__.Closure.test_R01_lookup_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R02_group_sum_native",
+          "qualified": "__main__.Closure.test_R02_group_sum_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R03_duplicate_key",
+          "qualified": "__main__.Closure.test_R03_duplicate_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R04_missing_key",
+          "qualified": "__main__.Closure.test_R04_missing_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R05_empty_group",
+          "qualified": "__main__.Closure.test_R05_empty_group",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R06_unknown_coordinate",
+          "qualified": "__main__.Closure.test_R06_unknown_coordinate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_R07_rc05_oriented_net",
+          "qualified": "__main__.Closure.test_R07_rc05_oriented_net",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T01_explicit_shift",
+          "qualified": "__main__.Closure.test_T01_explicit_shift",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T02_implicit_edge_rejected",
+          "qualified": "__main__.Closure.test_T02_implicit_edge_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T03_window_policy",
+          "qualified": "__main__.Closure.test_T03_window_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T04_future_shift_rejected",
+          "qualified": "__main__.Closure.test_T04_future_shift_rejected",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T05_order_changes_bound_identity",
+          "qualified": "__main__.Closure.test_T05_order_changes_bound_identity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T06_explicit_wrap",
+          "qualified": "__main__.Closure.test_T06_explicit_wrap",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_T07_window_beyond_support",
+          "qualified": "__main__.Closure.test_T07_window_beyond_support",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P01_canonical_package_roundtrip",
+          "qualified": "__main__.Package.test_P01_canonical_package_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P02_source_audit_separation",
+          "qualified": "__main__.Package.test_P02_source_audit_separation",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P03_external_contract_client",
+          "qualified": "__main__.Package.test_P03_external_contract_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P04_assumption_not_predicate",
+          "qualified": "__main__.Package.test_P04_assumption_not_predicate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P05_independent_method_client",
+          "qualified": "__main__.Package.test_P05_independent_method_client",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P06_package_tamper",
+          "qualified": "__main__.Package.test_P06_package_tamper",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_P07_different_method_context_same_native_math",
+          "qualified": "__main__.Package.test_P07_different_method_context_same_native_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_power_energy_fragment",
+          "qualified": "test_generality.Fragments.test_RC01_power_energy_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "qualified": "test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_port_connection_fragment",
+          "qualified": "test_generality.Fragments.test_RC05_port_connection_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information_fragment",
+          "qualified": "test_generality.Fragments.test_RC07_information_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC10_variation_fragment",
+          "qualified": "test_generality.Fragments.test_RC10_variation_fragment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_conflict",
+          "qualified": "test_r1.N1R.test_authority_conflict",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_authority_source_audit_not_semantics",
+          "qualified": "test_r1.N1R.test_authority_source_audit_not_semantics",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_capability_vs_service",
+          "qualified": "test_r1.N1R.test_capability_vs_service",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dual_syntax_idempotence_and_source",
+          "qualified": "test_r1.N1R.test_dual_syntax_idempotence_and_source",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_id",
+          "qualified": "test_r1.N1R.test_duplicate_id",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_json_key",
+          "qualified": "test_r1.N1R.test_duplicate_json_key",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_evidence_promotion",
+          "qualified": "test_r1.N1R.test_evidence_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_exact_units_and_no_silent_rounding",
+          "qualified": "test_r1.N1R.test_exact_units_and_no_silent_rounding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_nonboolean",
+          "qualified": "test_r1.N1R.test_guard_nonboolean",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_ref",
+          "qualified": "test_r1.N1R.test_guard_ref",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_typed_but_unexecuted",
+          "qualified": "test_r1.N1R.test_guard_typed_but_unexecuted",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_guard_unknown_not_false",
+          "qualified": "test_r1.N1R.test_guard_unknown_not_false",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_information_refinement",
+          "qualified": "test_r1.N1R.test_information_refinement",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_observable_projection",
+          "qualified": "test_r1.N1R.test_invalid_observable_projection",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_legacy_path",
+          "qualified": "test_r1.N1R.test_legacy_path",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_nested_quantifier_order",
+          "qualified": "test_r1.N1R.test_nested_quantifier_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_scope_escape",
+          "qualified": "test_r1.N1R.test_scope_escape",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unbound_variable",
+          "qualified": "test_r1.N1R.test_unbound_variable",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator_c21_defect_and_reject",
+          "qualified": "test_r1.N1R.test_unknown_operator_c21_defect_and_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unsupported_approval",
+          "qualified": "test_r1.N1R.test_unsupported_approval",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_wrong_index_domain",
+          "qualified": "test_r1.N1R.test_wrong_index_domain",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_auxiliary_binding",
+          "qualified": "test_r1.N2N7.test_auxiliary_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_bad_probability",
+          "qualified": "test_r1.N2N7.test_bad_probability",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_context_content_changed_with_authorized_data",
+          "qualified": "test_r1.N2N7.test_context_content_changed_with_authorized_data",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_data_bytes_changed",
+          "qualified": "test_r1.N2N7.test_data_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_double_count_reject",
+          "qualified": "test_r1.N2N7.test_double_count_reject",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_duplicate_contribution",
+          "qualified": "test_r1.N2N7.test_duplicate_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_integrated_swap_four_runs_oracle_and_hashes",
+          "qualified": "test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_invalid_basis",
+          "qualified": "test_r1.N2N7.test_invalid_basis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_ledger_policy_override",
+          "qualified": "test_r1.N2N7.test_ledger_policy_override",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_method_bytes_changed",
+          "qualified": "test_r1.N2N7.test_method_bytes_changed",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_missing_contribution",
+          "qualified": "test_r1.N2N7.test_missing_contribution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_no_result_promotion",
+          "qualified": "test_r1.N2N7.test_no_result_promotion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_observable_binding",
+          "qualified": "test_r1.N2N7.test_observable_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_period_count",
+          "qualified": "test_r1.N2N7.test_period_count",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_permitted_reuse_separate_policy",
+          "qualified": "test_r1.N2N7.test_permitted_reuse_separate_policy",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_rule_cycle",
+          "qualified": "test_r1.N2N7.test_rule_cycle",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_missing",
+          "qualified": "test_r1.N2N7.test_source_missing",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_source_substitution",
+          "qualified": "test_r1.N2N7.test_source_substitution",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_data_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_data_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unauthorized_method_rehash",
+          "qualified": "test_r1.N2N7.test_unauthorized_method_rehash",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_not_zero",
+          "qualified": "test_r1.N2N7.test_unknown_not_zero",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_unknown_operator",
+          "qualified": "test_r1.N2N7.test_unknown_operator",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_dimensional_product",
+          "qualified": "test_r1.Units.test_dimensional_product",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_explicit_basis_conversion",
+          "qualified": "test_r1.Units.test_explicit_basis_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC01_battery",
+          "qualified": "__main__.Freedom.test_RC01_battery",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC02_EV",
+          "qualified": "__main__.Freedom.test_RC02_EV",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC03_electrolysis",
+          "qualified": "__main__.Freedom.test_RC03_electrolysis",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC04_H2",
+          "qualified": "__main__.Freedom.test_RC04_H2",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC05_grid",
+          "qualified": "__main__.Freedom.test_RC05_grid",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC06_expansion",
+          "qualified": "__main__.Freedom.test_RC06_expansion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_RC07_information",
+          "qualified": "__main__.Freedom.test_RC07_information",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I01_reference",
+          "qualified": "__main__.Interface.test_C2_I01_reference",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I02_axis_scope_role",
+          "qualified": "__main__.Interface.test_C2_I02_axis_scope_role",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_I03_method_separate",
+          "qualified": "__main__.Interface.test_C2_I03_method_separate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A01_bool3",
+          "qualified": "__main__.Contract.test_C2_A01_bool3",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A02_ordered_quantification",
+          "qualified": "__main__.Contract.test_C2_A02_ordered_quantification",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A03_guard_and_static_validation",
+          "qualified": "__main__.Contract.test_C2_A03_guard_and_static_validation",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A04_original_fragments",
+          "qualified": "__main__.Contract.test_C2_A04_original_fragments",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A05_unbound_axis_and_authority",
+          "qualified": "__main__.Contract.test_C2_A05_unbound_axis_and_authority",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A06_assumption_gate",
+          "qualified": "__main__.Contract.test_C2_A06_assumption_gate",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_A07_assumption_false_and_where",
+          "qualified": "__main__.Contract.test_C2_A07_assumption_false_and_where",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B01_ABL09",
+          "qualified": "__main__.Methods.test_C2_B01_ABL09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B02_ABL11",
+          "qualified": "__main__.Methods.test_C2_B02_ABL11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B03_ABL08",
+          "qualified": "__main__.Methods.test_C2_B03_ABL08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B04_ABL06",
+          "qualified": "__main__.Methods.test_C2_B04_ABL06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B05_original_profile_controls",
+          "qualified": "__main__.Methods.test_C2_B05_original_profile_controls",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B06_method_swap",
+          "qualified": "__main__.Methods.test_C2_B06_method_swap",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B07_unpinned_context",
+          "qualified": "__main__.Methods.test_C2_B07_unpinned_context",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B08_EXPOW_native",
+          "qualified": "__main__.Methods.test_C2_B08_EXPOW_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B09_original_profiles_native",
+          "qualified": "__main__.OriginalProfiles.test_C2_B09_original_profiles_native",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B10_n7_original_negative",
+          "qualified": "__main__.OriginalProfiles.test_C2_B10_n7_original_negative",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B11_disjoint_vs_reuse",
+          "qualified": "__main__.OriginalProfiles.test_C2_B11_disjoint_vs_reuse",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_B12_positive_and_exponent_range",
+          "qualified": "__main__.OriginalProfiles.test_C2_B12_positive_and_exponent_range",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_C01_roundtrip",
+          "qualified": "__main__.Integrated.test_C2_C01_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_C02_cross_layer",
+          "qualified": "__main__.Integrated.test_C2_C02_cross_layer",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_C03_no_bypass",
+          "qualified": "__main__.Integrated.test_C2_C03_no_bypass",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_C2_C04_power_shared_clients",
+          "qualified": "__main__.Integrated.test_C2_C04_power_shared_clients",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N01",
+          "qualified": "__main__.Foundation.test_A_N01",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N02",
+          "qualified": "__main__.Foundation.test_A_N02",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N03",
+          "qualified": "__main__.Foundation.test_A_N03",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N04",
+          "qualified": "__main__.Foundation.test_A_N04",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N05",
+          "qualified": "__main__.Foundation.test_A_N05",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N06",
+          "qualified": "__main__.Foundation.test_A_N06",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N07",
+          "qualified": "__main__.Foundation.test_A_N07",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N08",
+          "qualified": "__main__.Foundation.test_A_N08",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N09",
+          "qualified": "__main__.Foundation.test_A_N09",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N10",
+          "qualified": "__main__.Foundation.test_A_N10",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N11",
+          "qualified": "__main__.Foundation.test_A_N11",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N12",
+          "qualified": "__main__.Foundation.test_A_N12",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N13",
+          "qualified": "__main__.Foundation.test_A_N13",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N14",
+          "qualified": "__main__.Foundation.test_A_N14",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N15",
+          "qualified": "__main__.Foundation.test_A_N15",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N16",
+          "qualified": "__main__.Foundation.test_A_N16",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N17",
+          "qualified": "__main__.Foundation.test_A_N17",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N18",
+          "qualified": "__main__.Foundation.test_A_N18",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N19",
+          "qualified": "__main__.Foundation.test_A_N19",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_A_N20",
+          "qualified": "__main__.Foundation.test_A_N20",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_m2_mapping",
+          "qualified": "__main__.Foundation.test_m2_mapping",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_processes",
+          "qualified": "__main__.Foundation.test_processes",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_roundtrip",
+          "qualified": "__main__.Foundation.test_roundtrip",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_static_sum_and_rational",
+          "qualified": "__main__.Foundation.test_static_sum_and_rational",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B01_direct_canonical_admission",
+          "qualified": "__main__.CanonicalFirst.test_B01_direct_canonical_admission",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B02_role_and_quantity_outside_math",
+          "qualified": "__main__.CanonicalFirst.test_B02_role_and_quantity_outside_math",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B03_ordered_binding",
+          "qualified": "__main__.CanonicalFirst.test_B03_ordered_binding",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B04_alignment",
+          "qualified": "__main__.CanonicalFirst.test_B04_alignment",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B05_original_and_audit",
+          "qualified": "__main__.CanonicalFirst.test_B05_original_and_audit",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B06_raw_extension_and_defaults",
+          "qualified": "__main__.CanonicalFirst.test_B06_raw_extension_and_defaults",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B07_explicit_guard_signature",
+          "qualified": "__main__.CanonicalFirst.test_B07_explicit_guard_signature",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B08_RC03_cross_carrier_conversion",
+          "qualified": "__main__.CanonicalFirst.test_B08_RC03_cross_carrier_conversion",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_B09_RC08_weighted_cost",
+          "qualified": "__main__.CanonicalFirst.test_B09_RC08_weighted_cost",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N01_native_commutativity",
+          "qualified": "__main__.CanonicalFirst.test_N01_native_commutativity",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N02_native_not_equivalence",
+          "qualified": "__main__.CanonicalFirst.test_N02_native_not_equivalence",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N03_defaults_and_order",
+          "qualified": "__main__.CanonicalFirst.test_N03_defaults_and_order",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N04_numeric_preimage_collision",
+          "qualified": "__main__.CanonicalFirst.test_N04_numeric_preimage_collision",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N05_native_conditions",
+          "qualified": "__main__.CanonicalFirst.test_N05_native_conditions",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N06_native_relation_and_temporal",
+          "qualified": "__main__.CanonicalFirst.test_N06_native_relation_and_temporal",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N07_native_condition_cases",
+          "qualified": "__main__.CanonicalFirst.test_N07_native_condition_cases",
+          "actual": "PASS"
+        },
+        {
+          "id": "test_N08_canonical_origin_limit",
+          "qualified": "__main__.CanonicalFirst.test_N08_canonical_origin_limit",
+          "actual": "PASS"
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "receipt_paths": [
+    "actual_test_logs/final_c1_comp_results.json",
+    "actual_test_logs/final_c1_comp_ablation.json",
+    "actual_test_logs/final_c2_synthetic_swap.json",
+    "actual_test_logs/final_c2_expow.json",
+    "actual_test_logs/final_c2_original_profile_swaps.json",
+    "actual_test_logs/final_c2_integrated_rc09.json",
+    "actual_test_logs/final_finite_rc.json",
+    "actual_test_logs/final_method_receipts.json",
+    "actual_test_logs/final_c1_corpus_oracles.json",
+    "actual_test_logs/final_c1_m0_partial.json",
+    "actual_test_logs/final_p5_original.json"
+  ],
+  "limitations": [
+    "No duplicate aggregation across overlapping populations or repeat runs",
+    "Negative expected rejection is not positive conformance",
+    "Integrated RC09 receipt PROVED is explicitly BOUNDED_FINITE_SYNTHETIC_OBSERVATIONS; not general/model conformance",
+    "Original full A/B population deferred to C3",
+    "Test scopes incomplete for remaining C2 semantic requirements"
+  ]
+}

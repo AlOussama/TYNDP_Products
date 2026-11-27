@@ -1,0 +1,1 @@
+Final consolidated execution: 46040116020, job 140645396629; 12 WS-B tests passed. See ../../actual_test_logs/run_46040116020_job_140645396629.log and ../../native_regression_results.json. Actual failing runs preserved in root actual_test_logs; original profile and native method receipts under ../method_swap_receipts/.
