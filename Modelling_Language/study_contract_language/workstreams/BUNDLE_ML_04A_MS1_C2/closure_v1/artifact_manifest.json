@@ -1,0 +1,121 @@
+{
+  "schema": "c2-closure-artifact-manifest-0.1",
+  "tested_commit": "e22e47867395ea93b9e5b33b414830d154890695",
+  "tested_closure_blobs": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/README.md",
+      "git_blob": "2b7ac358de45ee2f5e878da460b97ac7f39aeb9e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/__init__.py",
+      "git_blob": "0f5c10a1bab447f76bddc83c2abbc0816e26d273"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/actual_test_logs/first_failure.md",
+      "git_blob": "d81e545948b84ab922a4d8e115099d3574e26008"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/closure_semantics.md",
+      "git_blob": "24441a72477bc58359ae105adeed72125621f37d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/controlled_mathspec_subset.json",
+      "git_blob": "9b5d31de2019394f7068b5e88ad0bb8b35a2490a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/definition.py",
+      "git_blob": "e439f7698c9df88dfac451cad95d8e8fc67b8dc1"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/graph.py",
+      "git_blob": "2fe772af0e19ac1ae5181738bb993d33a290d763"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/identity.py",
+      "git_blob": "7cfed1210feb9499fc47cd865606e79d0d040720"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/interface_changes.md",
+      "git_blob": "5c257ee30dfb779af361d5384d193adf97e61b78"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/ledger.py",
+      "git_blob": "1e06743d65e309f70c71f88ecfae6c8f9fd42fc4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/metadata.py",
+      "git_blob": "4971b02c12aa6e65a683ad5f4272b15597b964ed"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/metamodel.json",
+      "git_blob": "21b79b8711fa1844d8ced2a677d228c8cadbbb0a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/native_test_manifest.json",
+      "git_blob": "f31a802429aeffb61371ea0d762c29dc67eddee5"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/obligations.py",
+      "git_blob": "61ca8814673508da13db9d8dc76f25f73bed4c01"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+      "git_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/r1_reuse.py",
+      "git_blob": "9cd79e7cb4d3fd50eba7158f7238cc8b9e3d6f27"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/requirement_traceability.csv",
+      "git_blob": "a32cd843d7bfe520c905807c09bc5fe5aa368d4a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/runtime.py",
+      "git_blob": "8db2728a512e5665c7449ee7e57e1d1815182a27"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/schema.json",
+      "git_blob": "fe708d534d15e4c9ddf48dd43bb17085ba105652"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/source_manifest.json",
+      "git_blob": "d7a1bf82f6cffca2fe45e1d55c369ed82b336fff"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/test_closure_v1.py",
+      "git_blob": "1d33227b9c656442bc8e93818ca019ca77e1aa81"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/verify_research_manifest.py",
+      "git_blob": "52ccaffffd5c60065d5e6e25810119dad74099d4"
+    }
+  ],
+  "integration_blobs": [
+    {
+      "path": ".github/workflows/research-ms1-c2-closure.yml",
+      "git_blob": "74fe4cb1e4f4b2509410168458c4408853308aa4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/WS_B/methods.py",
+      "git_blob": "a12dee1e918287995ed036744a6d48a2dce43ace"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/interface.py",
+      "git_blob": "be8e15b0a033275f6ef1c328c9a7012c0bd622b5"
+    }
+  ],
+  "new_evidence_files": [
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/native_regression_results.json",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/actual_test_logs/final_native_ci_excerpt.txt",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/actual_test_logs/failure_46043975860.txt",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/actual_test_logs/failure_46044279985.txt",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/blocker_closure_register.json",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/gate_status.json",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/critical_review.md",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/C3_handoff.md",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/interface_changes.md",
+    "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/README.md"
+  ],
+  "note": "Evidence-only descendants may update Markdown and receipts; tested implementation and workflow remain exact."
+}

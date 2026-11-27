@@ -1,0 +1,103 @@
+{
+  "schema": "c2-closure-blockers-0.1",
+  "tested_commit": "e22e47867395ea93b9e5b33b414830d154890695",
+  "blockers": [
+    {
+      "id": "C2-BLK-01",
+      "status": "CLOSED_CONTROLLED_SCOPE",
+      "evidence": [
+        "CL04",
+        "CL16",
+        "CL17",
+        "CL20",
+        "CL23"
+      ],
+      "finding": "Typed qualified StudyFrame, referent/port/observable/variation and source binding, no secondary AST.",
+      "remaining": "Original topology and case-specific typed obligations must be instantiated in C3; no real implementation approval."
+    },
+    {
+      "id": "C2-BLK-02",
+      "status": "CLOSED_CONTROLLED_SCOPE",
+      "evidence": [
+        "CL01",
+        "CL02",
+        "CL03",
+        "CL05",
+        "CL09",
+        "CL10",
+        "CL20",
+        "CL22"
+      ],
+      "finding": "Every previously statically admitted missing finite node is executable; explicit chronology, relations, state endpoints and partitions.",
+      "remaining": "Native unsupported sparse/partitioned shift/calendar semantics are explicitly refused; not silently converted."
+    },
+    {
+      "id": "C2-BLK-03",
+      "status": "CLOSED_CONTROLLED_SCOPE",
+      "evidence": [
+        "CL06",
+        "CL07",
+        "CL08",
+        "CL09",
+        "CL25"
+      ],
+      "finding": "Pointwise scoped A/G, typed guards, nonvacuous service/capability quantifiers, actual response witness and explicit direct conflict rejection.",
+      "remaining": "General overlapping predicate consistency, universal behavioral proof, independent tool evidence not established."
+    },
+    {
+      "id": "C2-BLK-04",
+      "status": "CLOSED_CONTROLLED_SCOPE",
+      "evidence": [
+        "CL11",
+        "CL12",
+        "CL13",
+        "CL18",
+        "CL19",
+        "CL21",
+        "CL24",
+        "C2 original profile swaps"
+      ],
+      "finding": "Versioned study-independent method definitions, explicit dependency DAG, actual numeric and token exogenous rows, same-model pairing when declared, declared project changes, static versus instance separation.",
+      "remaining": "Full original method/case instantiation and declared source completeness versus real-world completeness; owner unresolved."
+    },
+    {
+      "id": "C2-BLK-05",
+      "status": "CLOSED_CONTROLLED_SCOPE",
+      "evidence": [
+        "CL14",
+        "CL24"
+      ],
+      "finding": "N7 coverage reused, coordinate event lineage through slots, actual original P5 narrow projection: four source sample events per model, missing contribution rejected.",
+      "remaining": "Exact P5 discounting-to-output and all frozen original mutation paths C3; no general nonlinear attribution or normative CBA claim."
+    },
+    {
+      "id": "C2-BLK-06",
+      "status": "PARTIAL_EXPLICIT_RESIDUAL",
+      "evidence": [
+        "CL15",
+        "CL17",
+        "CL18",
+        "CL23",
+        "CL25",
+        "CL26",
+        "requirement_traceability.csv"
+      ],
+      "finding": "Versioned definition and instance, separate native/semantic/audit identities and strict reimport; 125 frozen identities classified.",
+      "remaining": "NFR-16/MS-K11: complete original structured path/rule/source diagnostic mapping and independent authoring evidence not demonstrated. R10/NFR-13: approved override semantics not implemented; currently refused, not silently allowed. SLR-40: CL26 is a lower-bound witness not a complete selection proof (membership needs explicit native predicate). Determine/verify whether each residual is required for frozen full paths; no full requirement conformance claim."
+    },
+    {
+      "id": "C2-BLK-07",
+      "status": "VALIDATION_COMPLETE_C3_GATE_PENDING",
+      "evidence": [
+        "run 46046306356/job 140666316682",
+        "CL01–CL26",
+        "26 previous C2 tests",
+        "4140 upstream",
+        "36 P5",
+        "28 derived oracles"
+      ],
+      "finding": "All executed suites passed on exact final code; earlier failures retained; original counts verified.",
+      "remaining": "Formal C3 start requires disposition of BLK-06, not green CI alone."
+    }
+  ]
+}

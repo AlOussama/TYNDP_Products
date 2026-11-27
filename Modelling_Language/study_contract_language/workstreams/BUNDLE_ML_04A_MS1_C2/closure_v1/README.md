@@ -1,2 +1,7 @@
 # Targeted C2 closure — M3 Hybrid
 Research only. Baseline PR #94 commit 415cf8285797a4bd695c5bfe85500753563af547, continuation PR #95. Start with [closure_semantics.md](closure_semantics.md), [metamodel.json](metamodel.json), [schema.json](schema.json), [requirement_traceability.csv](requirement_traceability.csv), [controlled_mathspec_subset.json](controlled_mathspec_subset.json), [native_test_manifest.json](native_test_manifest.json), [source_manifest.json](source_manifest.json) and final gate/evidence records. Actual executable authoring examples are in test_closure_v1.py. All original C2 and earlier files are historical baseline except the two explicitly adapted C2 integration modules. C3 original full paths are not executed here. Do not equate finite evidence with general conformance.
+
+## Final tested continuation
+- [Gate decision](gate_status.json) and [blocker closure register](blocker_closure_register.json)
+- [Actual native results](native_regression_results.json), [critical review](critical_review.md), [conditional C3 handoff](C3_handoff.md)
+- Tested e22e47867395ea93b9e5b33b414830d154890695, CI [46046306356](https://github.com/AlOussama/TYNDP_Products/actions/runs/46046306356). G5 PARTIAL, G7 BLOCKED. No claim of full original conformance or automatic C3 start.

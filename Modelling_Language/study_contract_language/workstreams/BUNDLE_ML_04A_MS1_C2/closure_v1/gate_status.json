@@ -1,0 +1,72 @@
+{
+  "schema": "c2-closure-gates-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "architecture": "M3-HYBRID",
+  "status": "CONTROLLED_LANGUAGE_CLOSURE_VALIDATED; FORMAL_C3_GATE_BLOCKED",
+  "tested_commit": "e22e47867395ea93b9e5b33b414830d154890695",
+  "ci": {
+    "run_id": 46046306356,
+    "job_id": 140666316682,
+    "conclusion": "success"
+  },
+  "gates": [
+    {
+      "id": "C2-G0",
+      "status": "MET",
+      "scope": "source integrity for this controlled research continuation",
+      "reason": "PR94 baseline, exact pinned native mathspec, unchanged original populations and 17 direct reused source blobs checked in CI."
+    },
+    {
+      "id": "C2-G1",
+      "status": "MET",
+      "scope": "controlled external contract semantic language",
+      "reason": "BLK-01/03 plus state/information scope, service witness, typed variation and direct conflict tests. No general behavioral proof."
+    },
+    {
+      "id": "C2-G2",
+      "status": "MET",
+      "scope": "controlled mathematical subset; excluded constructs explicitly refused",
+      "reason": "BLK-02; five prior statically-only nodes now executable, explicit relation/time/domain/type boundaries and pinned native authority."
+    },
+    {
+      "id": "C2-G3",
+      "status": "MET",
+      "scope": "controlled method/study binding",
+      "reason": "BLK-04/05; actual original profile swaps, typed slot graph, exogenous rows, parameter/weight policies, native lineage and output receipts."
+    },
+    {
+      "id": "C2-G4",
+      "status": "MET",
+      "scope": "versioned controlled canonical candidate",
+      "reason": "Definition 0.2/instance 0.2/package 0.3, graph 0.2; metamodel, concrete structural schema, executable precise validators, source/semantic/audit split and actual roundtrip. Not unrestricted semantic normalization."
+    },
+    {
+      "id": "C2-G5",
+      "status": "PARTIAL",
+      "scope": "125 original identities preserved and classified; no full satisfaction claim",
+      "reason": "BLK-06 residual: approved override semantics refused, original complete diagnostic provenance mapping not demonstrated, CL26 lower-bound witness not full selected-value membership. A requirement-preserving disposition for C3 is still needed."
+    },
+    {
+      "id": "C2-G6",
+      "status": "MET",
+      "scope": "actual C2 closure regression",
+      "reason": "26/26 new, 26/26 previous C2, all inherited executed suites green including 4140 upstream; exact 58/116 preserved and not represented as full execution."
+    },
+    {
+      "id": "C2-G7",
+      "status": "BLOCKED",
+      "scope": "formal C3 start",
+      "reason": "G5 not MET; C3 not started, no automatic promotion. Research candidate frozen for focused remaining decision, no broad architecture reopening."
+    }
+  ],
+  "original_population": {
+    "identities": 58,
+    "paths": 116,
+    "full_executed": 0,
+    "traceability": 105,
+    "MS_K": 20
+  },
+  "authority": "OWNER_TBD",
+  "normative_release": false,
+  "C3_started": false
+}
