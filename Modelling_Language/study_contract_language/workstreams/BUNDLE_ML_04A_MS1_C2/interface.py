@@ -35,7 +35,6 @@ def resolve_predicate(package,ref):
 def resolve_method(package,data):
     return _api(package).method_client(package,data)
 def finite_consumer(package,data):
-    leaf=import_package(package)
-    if package_version(package)!=V1:return _api(package).FinitePowerNative(leaf,data)
-    from native_consumer import FiniteNative
-    return FiniteNative(leaf,data)
+    # Versioned extension of the existing finite public-Program consumer.
+    from closure_v1.runtime import consumer
+    return consumer(package,data)

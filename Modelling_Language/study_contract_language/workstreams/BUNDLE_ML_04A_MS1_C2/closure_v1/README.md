@@ -1,0 +1,2 @@
+# Targeted C2 closure — research only
+Baseline PR #94, commit 415cf8285797a4bd695c5bfe85500753563af547. ADR-C1-COMP-01 remains selected. First increment: extend the finite public native Program consumer to all statically admitted temporal/condition nodes (complete dense, unpartitioned scope), qualified metadata and original R1 partition rules. No historical branch or upstream fork. New versioned outer contract/graph and evidence binding follow within C2; C3 not started. Tests are targeted fragments only.
