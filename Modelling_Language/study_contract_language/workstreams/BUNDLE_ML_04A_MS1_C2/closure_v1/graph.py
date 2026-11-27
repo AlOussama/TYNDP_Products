@@ -10,14 +10,14 @@ from closure import need,fields,qualified,exact,digest,text_hash,canon,c1,Reject
 from WS_B.methods import validate as validate_method
 from closure_v1 import metadata as md,obligations as ob,identity
 
-VERSION="c2-closure-study-contract-0.1"
-INPUT="c2-closure-study-input-0.1"
+VERSION="c2-closure-study-contract-0.2"
+INPUT="c2-closure-study-input-0.2"
 def pins(obj):
     # Test/authoring helper only; evaluate requires the external digest.
     return {"schema":"c2-research-trust-0.1","study":obj["study"]["id"],"version":obj["study"]["version"],
             "frame":digest(obj["frame"]),"slots":{x["id"]:digest(x) for x in obj["slots"]},
             "sources":{x["id"]:x["sha256"] for x in obj["sources"]},"disclosures":digest(obj["disclosures"]),
-            "events":digest(obj["events"]),"authority":"OWNER_TBD","publication":"SYNTHETIC"}
+            "events":digest(obj["events"]),"context_data":digest(obj["context_data"]),"reports":digest(obj["reports"]),"authority":"OWNER_TBD","publication":"SYNTHETIC"}
 def trust(obj,expected):
     t=obj["trust"];need(type(expected) is str and digest(t)==expected,"TRUST_PIN_MISMATCH")
     need(t==pins(obj),"TRUST_CONTEXT_MISMATCH")
@@ -141,12 +141,40 @@ def verify_requests(row,bound,slot,source,obligations,policies,boundaries):
         pending.append({"request":k,"subject":r["subject"],"requested_kind":r["kind"],"oracle_ref":r["oracle_ref"],"status":("BLOCKED" if statuses[r["subject"]]=="BLOCKED" else "NOT_APPLICABLE" if statuses[r["subject"]]=="NOT_APPLICABLE" else "FINITE_CHECK_EXECUTED_UNJUDGED") if r["kind"]=="FINITE_OBSERVATION" else "NOT_EXECUTED","observed_status":statuses[r["subject"]] if r["kind"]=="FINITE_OBSERVATION" else None})
     need(seen==subjects,"VERIFICATION_COVERAGE")
     return sorted(pending,key=lambda r:r["request"])
+def context_rows(obj,tables):
+    from itertools import product
+    rows=obj["context_data"];defs=tables["context_fields"];domains=tables["domains"]
+    need(type(rows) is dict and set(rows)==set(defs),"CONTEXT_FIELD_COVERAGE")
+    out={}
+    for k,d in defs.items():
+        seen=set();rr=[]
+        expected=set(product(*(domains[a]["members"] for a in d["axes"])))
+        need(type(rows[k]) is list,"CONTEXT_ROWS")
+        for r in rows[k]:
+            fields(r,("key","value"),"CONTEXT_ROW")
+            need(type(r["key"]) is list and len(r["key"])==len(d["axes"]) and all(type(x) in (str,int) for x in r["key"]),"CONTEXT_COORDINATE")
+            key=tuple(r["key"]);v=r["value"]
+            need(key not in seen and key in expected and type(v) is str and bool(v) and (not d["allowed_values"] or v in d["allowed_values"]),"CONTEXT_COORDINATE_OR_VALUE")
+            seen.add(key);rr.append(r)
+        need(seen==expected,"CONTEXT_SUPPORT_COVERAGE");out[k]=sorted(rr,key=lambda r:r["key"])
+    return out
+
+def report_receipts(obj,tables,source):
+    rows=md.index(obj["reports"]);defs=tables["report_requests"];need(set(rows)==set(defs),"REPORT_COVERAGE")
+    out=[]
+    for k,r in rows.items():
+        fields(r,("id","status","reason","value","source_ref"),"REPORT_RECEIPT_FIELDS")
+        d=defs[k];need(r["status"] in ("NOT_EXECUTED","BLOCKED","NOT_APPLICABLE") and r["value"] is None and type(r["reason"]) is str and bool(r["reason"]),"REPORT_EVIDENCE_PROMOTION")
+        need(r["source_ref"] in source and r["source_ref"] in d["authority_refs"] and d["oracle_ref"] in source,"REPORT_SOURCE")
+        out.append({**r,"declaration":{"value_type":d["value_type"],"declared_unit":d["declared_unit"],"basis":d["basis"]},"conformance":"NOT_PROVED"})
+    return sorted(out,key=lambda r:r["id"])
+
 def evaluate(obj,expected_trust):
-    fields(obj,("schema","study","frame","slots","sources","disclosures","events","trust"),"CLOSURE_FIELDS")
+    fields(obj,("schema","study","frame","slots","sources","disclosures","events","context_data","reports","trust"),"CLOSURE_FIELDS")
     need(obj["schema"]==INPUT,"CLOSURE_VERSION");t=trust(obj,expected_trust)
     tables=md.validate(obj["frame"]);source=sources(obj,tables);disc=disclosures(obj,tables,source)
     slots=md.index(obj["slots"]);need(bool(slots) and set(slots)==set(tables["slots"]),"STUDY_SLOT_COVERAGE")
-    prepared={};producers={};external={};observed={};bound_obs=set()
+    prepared={};producers={};external=context_rows(obj,tables);reports=report_receipts(obj,tables,source);observed={};bound_obs=set()
     global_ids={obj["frame"]["id"],*(k for t in tables.values() for k in t)}
     for r in [*obj["events"],*obj["disclosures"]]:
         need(qualified(r["id"]) and r["id"] not in global_ids,"DUPLICATE_ID");global_ids.add(r["id"])
@@ -173,7 +201,7 @@ def evaluate(obj,expected_trust):
         for sym,r in bind["observables"].items():
             v=values(b,sym);need(r not in observed or observed[r]==v,"SHARED_OBSERVABLE_DRIFT");observed[r]=v;bound_obs.add(r)
         prepared[k]=(row,b,bind)
-    need(set(producers)==set(tables["outputs"]) and set(external)==set(tables["inputs"]) and bound_obs==set(tables["observables"]),"FRAME_BINDING_COVERAGE")
+    need(set(producers)==set(tables["outputs"]) and set(external)==set(tables["inputs"])|set(tables["context_fields"]) and bound_obs==set(tables["observables"]),"FRAME_BINDING_COVERAGE")
     proc={r["slot"]:r for r in tables["processes"].values()};deps={}
     for k,(row,b,bind) in prepared.items():
         actual={producers[ref][0] for ref in bind["upstream"].values()}
@@ -229,12 +257,12 @@ def evaluate(obj,expected_trust):
     need(used_comparisons==set(tables["comparisons"]),"COUNTERFACTUAL_COVERAGE")
     need(event_usage==set(events) and {e for rows in out_lineage.values() for c in rows.values() for e in c}==set(events),"EVENT_COVERAGE")
     sem=digest({"schema":VERSION,"frame":identity.frame(obj["frame"]),"study":{"id":obj["study"]["id"],"version":obj["study"]["version"]},"slots":sem_slots,
-                "events":identity.byid(obj["events"]),"disclosures":identity.byid(obj["disclosures"])})
+                "events":identity.byid(obj["events"]),"disclosures":identity.byid(obj["disclosures"]),"context_data":context_rows(obj,tables),"reports":identity.byid(obj["reports"])})
     negative=any(r["obligations"]["status"]=="FINITE_COUNTEREXAMPLE" or any(p["status"]=="FINITE_COUNTEREXAMPLE" for p in r["policies"]) for r in results.values())
-    blocked=any(r["obligations"]["status"]=="BLOCKED" for r in results.values())
+    blocked=any(r["obligations"]["status"]=="BLOCKED" for r in results.values()) or any(r["status"] in ("BLOCKED","NOT_EXECUTED") for r in reports)
     receipt={"schema":VERSION,"semantic_identity":sem,"study":obj["study"]["id"],"execution_order":order,"slots":results,"outputs":out_values,
              "finite_status":"FINITE_COUNTEREXAMPLE" if negative else "BLOCKED" if blocked else "FINITE_OBSERVATIONS_ONLY",
-             "data_bindings":{k:digest(v) for k,v in {**external,**{k:v for k,v in observed.items() if tables["observables"][k]["projection"]=="IDENTITY"}}.items()},
+             "external_reports":reports,"data_bindings":{k:digest(v) for k,v in {**external,**{k:v for k,v in observed.items() if tables["observables"][k]["projection"]=="IDENTITY"}}.items()},
              "owner":"OWNER_TBD","conformance":"NOT_PROVED","authority_authenticity":"UNVERIFIED","scope":"BOUNDED_NATIVE_RESEARCH"}
     receipt["audit_identity"]=digest({"input_as_received":obj,"receipt":receipt,"trust_root":expected_trust})
     return receipt

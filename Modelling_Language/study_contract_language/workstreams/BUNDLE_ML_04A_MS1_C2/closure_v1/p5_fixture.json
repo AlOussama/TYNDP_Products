@@ -1,0 +1,283 @@
+{
+  "research_kind": "LANGUAGE_BOUNDARY_EXPERIMENT_NOT_CBA_COMPLIANCE",
+  "study": {
+    "id": "STUDY:CBA-DEMO",
+    "study_family": "COST_BENEFIT_ANALYSIS",
+    "language_scope": "GENERAL_CSNF",
+    "study_year": 2030,
+    "reference_case": "R",
+    "project_case": "P",
+    "method_profile": "SYNTHETIC-CBA-PROXY-0.1",
+    "method_profile_version": "0.1",
+    "method_source_status": "RESEARCH_ONLY",
+    "study_boundary": "TWO_SYNTHETIC_AREAS"
+  },
+  "authority": {
+    "owner_state": "OWNER_TBD",
+    "approval_evidence": null,
+    "source_refs": [
+      "SRC:TENE",
+      "SRC:ENTSOE-CBA4",
+      "SRC:ENTSOE-IMP2026-DRAFT",
+      "SRC:EXAMPLE"
+    ],
+    "provenance_revision": "research-r0.1"
+  },
+  "source_ledger": [
+    {
+      "id": "SRC:TENE",
+      "uri": "https://eur-lex.europa.eu/eli/reg/2022/869/oj",
+      "status": "REGULATORY_REFERENCE"
+    },
+    {
+      "id": "SRC:ENTSOE-CBA4",
+      "uri": "https://tyndp.entsoe.eu/resources/guideline-for-cost-benefit-analysis-4.0",
+      "status": "DOCUMENTED_REFERENCE"
+    },
+    {
+      "id": "SRC:ENTSOE-IMP2026-DRAFT",
+      "uri": "https://consultations.entsoe.eu/tyndp/tyndp-2026-cba-imp-public-consultation/",
+      "status": "CONSULTATION_REFERENCE_NOT_APPROVED"
+    },
+    {
+      "id": "SRC:EXAMPLE",
+      "uri": "synthetic:research-fixture",
+      "status": "ILLUSTRATIVE_ONLY"
+    }
+  ],
+  "project": {
+    "id": "P1",
+    "asset_role": "INTERCONNECTOR",
+    "baseline_asset_present": false,
+    "allowed_changes": [
+      "capacity_MW"
+    ],
+    "additional_exogenous_changes": [],
+    "interdependencies_declared": true
+  },
+  "scenarios": [
+    {
+      "id": "S1",
+      "study_year": 2030,
+      "weather_year": "WX-1",
+      "exogenous_digest": "synthetic:exog:s1",
+      "weight": 0.6,
+      "weight_role": "SCENARIO_PROBABILITY",
+      "duration_h": 1,
+      "timezone": "UTC"
+    },
+    {
+      "id": "S2",
+      "study_year": 2030,
+      "weather_year": "WX-2",
+      "exogenous_digest": "synthetic:exog:s2",
+      "weight": 0.4,
+      "weight_role": "SCENARIO_PROBABILITY",
+      "duration_h": 1,
+      "timezone": "UTC"
+    }
+  ],
+  "models": [
+    {
+      "id": "M-A",
+      "generator_identity": "GEN-A",
+      "internal_method": "nodal_angle_dispatch",
+      "variation_disclosed": true,
+      "allowed_under_study": "CONDITIONAL_NOT_OWNER_APPROVED"
+    },
+    {
+      "id": "M-B",
+      "generator_identity": "GEN-B",
+      "internal_method": "aggregated_flow_dispatch",
+      "variation_disclosed": true,
+      "allowed_under_study": "CONDITIONAL_NOT_OWNER_APPROVED"
+    }
+  ],
+  "samples": [
+    {
+      "id": "M-A:S1:R",
+      "model_id": "M-A",
+      "scenario_id": "S1",
+      "case_id": "R",
+      "exogenous_digest": "synthetic:exog:s1",
+      "weather_year": "WX-1",
+      "project_delta_id": null,
+      "operating_cost_proxy_eur_per_year": 1200,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-A:S1:P",
+      "model_id": "M-A",
+      "scenario_id": "S1",
+      "case_id": "P",
+      "exogenous_digest": "synthetic:exog:s1",
+      "weather_year": "WX-1",
+      "project_delta_id": "P1",
+      "operating_cost_proxy_eur_per_year": 1100,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-A:S2:R",
+      "model_id": "M-A",
+      "scenario_id": "S2",
+      "case_id": "R",
+      "exogenous_digest": "synthetic:exog:s2",
+      "weather_year": "WX-2",
+      "project_delta_id": null,
+      "operating_cost_proxy_eur_per_year": 1500,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-A:S2:P",
+      "model_id": "M-A",
+      "scenario_id": "S2",
+      "case_id": "P",
+      "exogenous_digest": "synthetic:exog:s2",
+      "weather_year": "WX-2",
+      "project_delta_id": "P1",
+      "operating_cost_proxy_eur_per_year": 1350,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-B:S1:R",
+      "model_id": "M-B",
+      "scenario_id": "S1",
+      "case_id": "R",
+      "exogenous_digest": "synthetic:exog:s1",
+      "weather_year": "WX-1",
+      "project_delta_id": null,
+      "operating_cost_proxy_eur_per_year": 1220,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-B:S1:P",
+      "model_id": "M-B",
+      "scenario_id": "S1",
+      "case_id": "P",
+      "exogenous_digest": "synthetic:exog:s1",
+      "weather_year": "WX-1",
+      "project_delta_id": "P1",
+      "operating_cost_proxy_eur_per_year": 1120,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-B:S2:R",
+      "model_id": "M-B",
+      "scenario_id": "S2",
+      "case_id": "R",
+      "exogenous_digest": "synthetic:exog:s2",
+      "weather_year": "WX-2",
+      "project_delta_id": null,
+      "operating_cost_proxy_eur_per_year": 1520,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    },
+    {
+      "id": "M-B:S2:P",
+      "model_id": "M-B",
+      "scenario_id": "S2",
+      "case_id": "P",
+      "exogenous_digest": "synthetic:exog:s2",
+      "weather_year": "WX-2",
+      "project_delta_id": "P1",
+      "operating_cost_proxy_eur_per_year": 1410,
+      "unit": "EUR/year",
+      "price_year": 2025,
+      "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT"
+    }
+  ],
+  "observable": {
+    "id": "OPERATING_COST_PROXY",
+    "quantity_kind": "CURRENCY_RATE",
+    "unit": "EUR/year",
+    "price_year": 2025,
+    "price_basis": "real_2025",
+    "value_kind": "COST_PROXY_NOT_SEW",
+    "cba_b1_claim": false,
+    "positive_benefit_sign": "REFERENCE_MINUS_PROJECT",
+    "selection_policy": "SINGLE_SYNTHETIC_SAMPLE",
+    "weather_aggregation": "SCENARIO_PROBABILITY",
+    "double_counting_policy": "NO_OVERLAPPING_COMPONENTS",
+    "additional_indicator_refs": [
+      "SUPPLY_SECURITY",
+      "CLIMATE_ADAPTATION"
+    ]
+  },
+  "additional_indicators": [
+    {
+      "id": "SUPPLY_SECURITY",
+      "unit": "MWh/year",
+      "status": "NOT_EXECUTED",
+      "value": null,
+      "monetization": "NOT_DEFINED"
+    },
+    {
+      "id": "CLIMATE_ADAPTATION",
+      "unit": "qualitative",
+      "status": "NOT_EXECUTED",
+      "value": null,
+      "monetization": "NOT_DEFINED"
+    }
+  ],
+  "comparison": {
+    "pairing": "SAME_MODEL_SAME_SCENARIO",
+    "sign": "REFERENCE_MINUS_PROJECT",
+    "reference": "R",
+    "project": "P",
+    "annual_aggregation": "SCENARIO_PROBABILITY",
+    "decision_threshold_eur": 0,
+    "e4_claim": false
+  },
+  "economics": {
+    "cost_currency": "EUR",
+    "price_year": 2025,
+    "capex_eur": 830,
+    "discount_rate": 0.05,
+    "horizon_years": 10,
+    "capex_scope": "SYNTHETIC_ONCE_AT_T0",
+    "discount_policy": "EXPLICIT_RESEARCH_EXAMPLE"
+  },
+  "evidence": {
+    "role": "REQUEST",
+    "status": "NOT_EXECUTED",
+    "run_id": null,
+    "artifact_digest": null
+  },
+  "physical_interfaces": [
+    {
+      "id": "PORT:GRID",
+      "carrier": "electricity",
+      "physical_kind": "active_power",
+      "unit": "MW",
+      "sign": "INJECTION",
+      "direction": "BIDIRECTIONAL"
+    }
+  ],
+  "information": {
+    "first_stage": {
+      "WX1": 1,
+      "WX2": 1
+    },
+    "decision_before_revelation": true
+  },
+  "sensitivities": {
+    "cases": [
+      "demand_low",
+      "demand_high"
+    ],
+    "status": "SPECIFIED_NOT_EXECUTED"
+  }
+}

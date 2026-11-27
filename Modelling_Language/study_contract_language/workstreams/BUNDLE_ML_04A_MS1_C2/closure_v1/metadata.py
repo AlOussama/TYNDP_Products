@@ -8,7 +8,7 @@ from closure import need,fields,quantity,qualified,exact,digest,Reject
 from closure_v1 import r1_reuse as r1
 
 KINDS=("time","scenario","trace","request","response","component","port","sample","space","event","stage","relation")
-COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes","comparisons","relation_domains")
+COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes","comparisons","relation_domains","context_fields","report_requests")
 def index(rows):
     # The original R1 table validates uniqueness and identifier grammar.
     try:return r1.table(rows)
@@ -69,7 +69,8 @@ def validate(frame):
         typed(a["quantity"]);need(a["quantity"]["direction"] in ("NONE",a["direction"]),"PORT_DIRECTION")
         axes(a["axes"]);authorities(a["authority_refs"])
     for a in referents.values():
-        fields(a,("id","kind","quantity","axes","authority_refs"),"REFERENT_FIELDS")
+        fields(a,("id","kind","quantity","axes","authority_refs")+(("model_id",) if "model_id" in a else ()),"REFERENT_FIELDS")
+        if "model_id" in a:need(a["kind"]=="study_case" and qualified(a["model_id"]),"CASE_MODEL_IDENTITY")
         need(string(a["kind"]),"REFERENT_TYPE");typed(a["quantity"]);axes(a["axes"]);authorities(a["authority_refs"])
     for a in obs.values():
         fields(a,("id","subject","quantity","axes","projection","value_type","authority_refs"),"OBSERVABLE_FIELDS")
@@ -96,6 +97,8 @@ def validate(frame):
         elif a["kind"]=="counterfactual_of":
             need(x in referents and y in referents and referents[x]["axes"]==referents[y]["axes"] and qcompat(referents[x]["quantity"],referents[y]["quantity"]),"COUNTERFACTUAL_RELATION")
         else:need(False,"RELATION_KIND")
+        if a["kind"]=="counterfactual_of" and ("model_id" in referents[x] or "model_id" in referents[y]):
+            need(referents[x].get("model_id")==referents[y].get("model_id") and referents[x].get("model_id") is not None,"CROSS_MODEL_PAIRING_FORBIDDEN")
     for a in tables["variations"].values():
         fields(a,("id","subject","alternatives","disclosure","source_refs"),"VARIATION_FIELDS")
         need(a["subject"] in subjects,"VARIATION_SUBJECT")
@@ -130,6 +133,15 @@ def validate(frame):
     for a in tables["processes"].values():
         fields(a,("id","slot","depends_on","authority_refs"),"PROCESS_FIELDS")
         need(a["slot"] in tables["slots"],"PROCESS_SLOT");refs(a["depends_on"],tables["processes"],"PROCESS_DEPENDENCY",False);authorities(a["authority_refs"])
+    for a in tables["context_fields"].values():
+        fields(a,("id","axes","value_type","allowed_values","authority_refs"),"CONTEXT_FIELD")
+        need(a["value_type"]=="TOKEN","CONTEXT_VALUE_TYPE");axes(a["axes"]);authorities(a["authority_refs"])
+        need(type(a["allowed_values"]) is list and all(string(v) for v in a["allowed_values"]) and len(a["allowed_values"])==len(set(a["allowed_values"])),"CONTEXT_ALLOWED_VALUES")
+    for a in tables["report_requests"].values():
+        fields(a,("id","subject","value_type","declared_unit","basis","oracle_ref","authority_refs"),"REPORT_REQUEST_FIELDS")
+        need(a["subject"]==frame["id"] or a["subject"] in subjects,"REPORT_SUBJECT")
+        need(a["value_type"] in ("QUALITATIVE","QUANTITY") and string(a["basis"]) and (a["declared_unit"] is None if a["value_type"]=="QUALITATIVE" else string(a["declared_unit"])),"REPORT_DECLARATION")
+        authorities(a["authority_refs"]);need(a["oracle_ref"] in auth and auth[a["oracle_ref"]]["role"] in ("SOURCE","PROVENANCE"),"REPORT_ORACLE")
     seen_rel=set()
     for a in tables["comparisons"].values():
         fields(a,("id","relation","exogenous","project","allowed_changes","authority_refs"),"COMPARISON_FIELDS")
@@ -139,8 +151,10 @@ def validate(frame):
         need(type(ex) is dict and bool(ex) and type(pr) is dict and not set(ex)&set(pr),"COUNTERFACTUAL_FIELD_UNIVERSE")
         for field,pair in {**ex,**pr}.items():
             need(string(field),"COUNTERFACTUAL_FIELD");fields(pair,("reference","alternative"),"COUNTERFACTUAL_FIELD")
-            x,y=pair["reference"],pair["alternative"];need(x in inputs and y in inputs,"COUNTERFACTUAL_INPUT")
-            need(inputs[x]["axes"]==inputs[y]["axes"] and inputs[x]["value_type"]==inputs[y]["value_type"] and qcompat(inputs[x]["quantity"],inputs[y]["quantity"]),"COUNTERFACTUAL_SIGNATURE")
+            x,y=pair["reference"],pair["alternative"];cf=tables["context_fields"]
+            need((x in inputs and y in inputs) or (x in cf and y in cf),"COUNTERFACTUAL_INPUT")
+            u,v=(inputs[x],inputs[y]) if x in inputs else (cf[x],cf[y])
+            need(u["axes"]==v["axes"] and u["value_type"]==v["value_type"] and (qcompat(u["quantity"],v["quantity"]) if x in inputs else set(u["allowed_values"])==set(v["allowed_values"])),"COUNTERFACTUAL_SIGNATURE")
         refs(a["allowed_changes"],pr,"PROJECT_CHANGE_SCOPE",False)
     need(seen_rel=={k for k,x in tables["relations"].items() if x["kind"]=="counterfactual_of"},"COUNTERFACTUAL_COVERAGE")
     for a in tables["relation_domains"].values():

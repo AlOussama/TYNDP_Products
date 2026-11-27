@@ -2,7 +2,7 @@
   "schema": "c2-closure-test-manifest-0.1",
   "scope": "Independent authored targeted synthetic controls; not original full A/B paths",
   "test_file": "test_closure_v1.py",
-  "test_count": 23,
+  "test_count": 24,
   "controls": [
     {
       "id": "CL01",
@@ -141,6 +141,12 @@
       "subject": "Model comparison",
       "expected": "Native scenario deltas 0,-1 under tolerance 1; E3 finite only, E4 NOT_PROVED.",
       "oracle": "explicit test assertions; exact rational or native structural check"
+    },
+    {
+      "id": "CL24",
+      "subject": "Original P5 narrow projection: numeric one-year amounts, opaque exogeneity and pending reporting",
+      "expected": "Exact model annual proxies 120/104 EUR for declared one-year period; original non-executed indicators remain blocked; weather/model drift and invented report value refused. Not full original path.",
+      "oracle": "Frozen P5 fixture and analytical exact weighted differences"
     }
   ],
   "preserved_original": {

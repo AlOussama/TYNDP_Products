@@ -8,9 +8,9 @@ from interface import resolve_method
 from WS_B.methods import check_static
 from closure_v1 import graph,metadata as md,obligations as ob,identity,ledger
 
-DEF="c2-closure-definition-0.1"
-INST="c2-closure-instance-0.1"
-PACKAGE="c2-closure-contract-package-0.2"
+DEF="c2-closure-definition-0.2"
+INST="c2-closure-instance-0.2"
+PACKAGE="c2-closure-contract-package-0.3"
 STATIC_FIELDS=("id","package","profile","source_ref","bindings","assertions","policies","states","comparisons","verification","ledger")
 INSTANCE_FIELDS=("id","profile_ref","package_ref","data_status","data","snapshot_digest","case_context","witnesses","contributions","expected_events")
 
@@ -52,7 +52,7 @@ def requirement_design(req,tables,source,prepared):
         need(n["status"] in ("RESEARCH_ASSUMPTION","INFORMATIVE","NORMATIVE_REQUIREMENT_PENDING_OWNER") and n["authority_ref"] in ass[k][1]["authority_refs"],"AUTHORITY_PROMOTION")
         need(n["status"]!="INFORMATIVE" or ass[k][1]["modality"]=="MAY","INFORMATIVE_NOT_OBLIGATION")
     data=md.index(req["data_contracts"])
-    ext={**tables["inputs"],**{k:v for k,v in tables["observables"].items() if v["projection"]=="IDENTITY"}}
+    ext={**tables["inputs"],**tables["context_fields"],**{k:v for k,v in tables["observables"].items() if v["projection"]=="IDENTITY"}}
     need(set(data)==set(ext),"DATA_CONTRACT_COVERAGE")
     for k,r in data.items():
         fields(r,("id","source_ref","license_ref","access_ref","reproducibility","quality","quality_assertions","missing","conversion"),"DATA_CONTRACT_FIELDS")
@@ -65,13 +65,17 @@ def requirement_design(req,tables,source,prepared):
             slot,ar=ass[a];row,bd,_=prepared[slot]
             pred=bd.resolve(ar["predicate"],("PREDICATE","DATA_ASSUMPTION"))
             need(any(row["bindings"][s]["ref"]==k for s in pred["required_symbols"]),"QUALITY_ASSERTION_BINDING")
-        validate_conversion(r["conversion"],ext[k]["quantity"],source)
+        if k in tables["context_fields"]:need(r["conversion"] is None and r["quality"]=="TYPE_AND_COMPLETE_SUPPORT","CONTEXT_NOT_MATHEMATICS")
+        else:validate_conversion(r["conversion"],ext[k]["quantity"],source)
     models=md.index(req["models"]);implementations=set()
     for k,m in models.items():
         fields(m,("id","implementation_ref","source_ref","license_ref","access_ref","observables","variations"),"MODEL_FIELDS")
         need(type(m["implementation_ref"]) is str and bool(m["implementation_ref"]) and m["implementation_ref"] not in implementations,"MODEL_IMPLEMENTATION_ALIAS");implementations.add(m["implementation_ref"])
         for f in ("source_ref","license_ref","access_ref"):source_refs([m[f]],source)
         md.refs(m["observables"],tables["observables"],"MODEL_OBSERVABLE");md.refs(m["variations"],tables["variations"],"MODEL_VARIATION",False)
+    for r in tables["referents"].values():
+        if "model_id" in r:need(r["model_id"] in models,"CASE_MODEL_REFERENCE")
+    for r in tables["report_requests"].values():source_refs([r["oracle_ref"]],source)
     comps=md.index(req["comparisons"])
     for k,r in comps.items():
         fields(r,("id","models","metric_outputs","decision_assertions","tolerances","sensitivity_domains","selection_policy","equivalence_target","oracle_ref","authority_refs"),"MODEL_COMPARISON_FIELDS")
@@ -133,6 +137,10 @@ def validate_conversion(cv,target,source):
         matches=[z for (carrier,_),z in c21.UNITS.items() if carrier==target["carrier"] and cv["source_unit"] in z and target["unit"] in z]
         need(len(matches)==1,"EXPLICIT_CONVERSION_UNSUPPORTED")
         need(exact(cv["factor"])==F(matches[0][cv["source_unit"]])/F(matches[0][target["unit"]]),"CONVERSION_FACTOR")
+    elif cv.get("kind")=="ANNUAL_RATE_TO_PERIOD_AMOUNT":
+        fields(cv,("kind","source_unit","source_basis","period_years","period_ref","source_ref"),"ANNUAL_INTEGRATION_FIELDS")
+        source_refs([cv["source_ref"]],source);source_refs([cv["period_ref"]],source)
+        need(cv["source_unit"]=="EUR/year" and target["unit"]=="EUR" and cv["source_basis"]==target["basis"] and exact(cv["period_years"])>0,"ANNUAL_INTEGRATION_BASIS")
     elif cv.get("kind")=="MONETARY":
         fields(cv,("kind","source_unit","source_basis","registry","registry_digest","rule_id","source_ref"),"MONETARY_CONVERSION_FIELDS")
         source_refs([cv["source_ref"]],source);need(cv["source_unit"]==target["unit"]=="EUR","MONETARY_UNIT")
@@ -148,6 +156,7 @@ def converted_rows(rows,cv,target):
         key=tuple(r["key"]);need(key not in seen,"DUPLICATE_COORDINATE");seen.add(key)
         v=exact(r["value"])
         if cv["kind"]=="UNIT":v=v*exact(cv["factor"])
+        elif cv["kind"]=="ANNUAL_RATE_TO_PERIOD_AMOUNT":v=v*exact(cv["period_years"])
         else:v=F(monetary(str(v),cv["source_basis"],target["basis"],cv["registry"],cv["rule_id"],cv["registry_digest"])["value"])
         out.append({"key":r["key"],"value":str(v)})
     return sorted(out,key=lambda r:r["key"])
@@ -236,7 +245,7 @@ def admit(definition,expected_definition):
 
 def instantiate(definition,definition_pin,instance,instance_pin):
     static=admit(definition,definition_pin)
-    fields(instance,("schema","definition_ref","slots","events","disclosures","data_receipts"),"INSTANCE_FIELDS")
+    fields(instance,("schema","definition_ref","slots","events","disclosures","context_data","reports","data_receipts"),"INSTANCE_FIELDS")
     need(instance["schema"]==INST and digest(instance)==instance_pin and instance["definition_ref"]==static["semantic_identity"],"INSTANCE_PIN")
     rows=md.index(instance["slots"]);defs=md.index(definition["slots"]);need(set(rows)==set(defs),"INSTANCE_SLOT_COVERAGE")
     missing=[]
@@ -249,7 +258,7 @@ def instantiate(definition,definition_pin,instance,instance_pin):
     if missing:
         return {"definition":static,"instance_identity":instance_pin,"status":"BLOCKED","reasons":[{"slot":k,"reason":"MISSING_DATA"} for k in sorted(missing)],"owner":"OWNER_TBD","conformance":"NOT_PROVED"}
     obj={"schema":graph.INPUT,"study":{**definition["study"],"frame_ref":"","slot_refs":{}},"frame":definition["frame"],"slots":[],
-         "sources":definition["sources"],"events":instance["events"],"disclosures":instance["disclosures"],"trust":{}}
+         "sources":definition["sources"],"events":instance["events"],"disclosures":instance["disclosures"],"context_data":instance["context_data"],"reports":instance["reports"],"trust":{}}
     for k,r in rows.items():
         d=defs[k];p=d["profile"];rr=resolve_method(d["package"],r["data"]);ctx=r["case_context"]
         st={"id":definition["study"]["id"],"version":definition["study"]["version"],"owner":"OWNER_TBD","profile_identity":digest(p),"native_study_identity":rr["study_identity"],"data_context_identity":rr["context_receipt"]["context_identity"],"case_context_identity":digest(ctx)}
@@ -264,7 +273,7 @@ def instantiate(definition,definition_pin,instance,instance_pin):
     result=graph.evaluate(obj,digest(obj["trust"]))
     contracts=md.index(definition["requirements"]["data_contracts"]);receipts=md.index(instance["data_receipts"])
     need(set(receipts)==set(contracts)==set(result["data_bindings"]),"DATA_PROVENANCE_COVERAGE")
-    tabs=md.validate(definition["frame"]);ext={**tabs["inputs"],**tabs["observables"]}
+    tabs=md.validate(definition["frame"]);ext={**tabs["inputs"],**tabs["observables"],**tabs["context_fields"]}
     assertions={a["id"]:a for slot in result["slots"].values() for a in slot["obligations"]["assertions"]}
     qualities={}
     for k,r in receipts.items():

@@ -33,6 +33,7 @@ def frame(value):
             if k=="domains" and not r["ordered"]:r["members"]=sorted(r["members"])
             if k=="information_sets":r["partition"]=sorted([sorted(g) for g in r["partition"]])
             if k=="relation_domains":r["rows"]=sorted(r["rows"],key=digest)
+            if k=="context_fields":r["allowed_values"]=sorted(r["allowed_values"])
     return x
 def guard(g):
     x=deepcopy(g)

@@ -4,7 +4,7 @@
   "math_authority": "pinned mathspec public Program/canonical",
   "levels": {
     "Definition": {
-      "version": "c2-closure-definition-0.1",
+      "version": "c2-closure-definition-0.2",
       "fields": [
         "schema",
         "study",
@@ -28,14 +28,16 @@
       ]
     },
     "Instance": {
-      "version": "c2-closure-instance-0.1",
+      "version": "c2-closure-instance-0.2",
       "fields": [
         "schema",
         "definition_ref",
         "slots",
         "events",
         "disclosures",
-        "data_receipts"
+        "data_receipts",
+        "context_data",
+        "reports"
       ],
       "slot": [
         "id",
@@ -51,7 +53,7 @@
       ]
     },
     "Package": {
-      "version": "c2-closure-contract-package-0.2",
+      "version": "c2-closure-contract-package-0.3",
       "fields": [
         "schema",
         "definition",
@@ -79,7 +81,9 @@
       "slots",
       "processes",
       "comparisons",
-      "relation_domains"
+      "relation_domains",
+      "context_fields",
+      "report_requests"
     ]
   },
   "requirements": [

@@ -1,18 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:research:c2-closure-contract-package:0.2",
+  "$id": "urn:research:c2-closure-contract-package:0.3",
   "title": "C2 closure package structural envelope",
   "description": "Outer JSON structure only; exact nested types, native admission, pin/hash/referential checks and evidence are enforced by definition.py and referenced validators.",
   "type": "object",
   "properties": {
     "schema": {
-      "const": "c2-closure-contract-package-0.2"
+      "const": "c2-closure-contract-package-0.3"
     },
     "definition": {
       "type": "object",
       "properties": {
         "schema": {
-          "const": "c2-closure-definition-0.1"
+          "const": "c2-closure-definition-0.2"
         },
         "study": {
           "type": "object",
@@ -155,6 +155,18 @@
               "items": {
                 "type": "object"
               }
+            },
+            "context_fields": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "report_requests": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
             }
           },
           "required": [
@@ -178,7 +190,9 @@
             "slots",
             "processes",
             "comparisons",
-            "relation_domains"
+            "relation_domains",
+            "context_fields",
+            "report_requests"
           ],
           "additionalProperties": false
         },
@@ -300,7 +314,7 @@
           "type": "object",
           "properties": {
             "schema": {
-              "const": "c2-closure-instance-0.1"
+              "const": "c2-closure-instance-0.2"
             },
             "definition_ref": {
               "type": "string",
@@ -378,6 +392,12 @@
             },
             "data_receipts": {
               "type": "array"
+            },
+            "context_data": {
+              "type": "object"
+            },
+            "reports": {
+              "type": "array"
             }
           },
           "required": [
@@ -386,7 +406,9 @@
             "slots",
             "events",
             "disclosures",
-            "data_receipts"
+            "data_receipts",
+            "context_data",
+            "reports"
           ],
           "additionalProperties": false
         },
@@ -411,7 +433,7 @@
       "type": "object",
       "properties": {
         "schema": {
-          "const": "c2-closure-definition-0.1"
+          "const": "c2-closure-definition-0.2"
         },
         "study": {
           "type": "object",
@@ -554,6 +576,18 @@
               "items": {
                 "type": "object"
               }
+            },
+            "context_fields": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "report_requests": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
             }
           },
           "required": [
@@ -577,7 +611,9 @@
             "slots",
             "processes",
             "comparisons",
-            "relation_domains"
+            "relation_domains",
+            "context_fields",
+            "report_requests"
           ],
           "additionalProperties": false
         },
@@ -697,7 +733,7 @@
       "type": "object",
       "properties": {
         "schema": {
-          "const": "c2-closure-instance-0.1"
+          "const": "c2-closure-instance-0.2"
         },
         "definition_ref": {
           "type": "string",
@@ -775,6 +811,12 @@
         },
         "data_receipts": {
           "type": "array"
+        },
+        "context_data": {
+          "type": "object"
+        },
+        "reports": {
+          "type": "array"
         }
       },
       "required": [
@@ -783,7 +825,9 @@
         "slots",
         "events",
         "disclosures",
-        "data_receipts"
+        "data_receipts",
+        "context_data",
+        "reports"
       ],
       "additionalProperties": false
     }

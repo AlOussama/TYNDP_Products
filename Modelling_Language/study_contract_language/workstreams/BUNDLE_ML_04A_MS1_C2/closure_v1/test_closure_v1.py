@@ -169,7 +169,7 @@ def repin(x):
     x["trust"]=graph.pins(x);x["study"]["frame_ref"]=x["trust"]["frame"];x["study"]["slot_refs"]=x["trust"]["slots"]
     return digest(x["trust"])
 def bundle(f,slots,src,events=None):
-    x={"schema":graph.INPUT,"study":{"id":"study:research","version":"0.2","owner":"OWNER_TBD","frame_ref":"","slot_refs":{}},"frame":f,"slots":slots,"sources":src,"disclosures":[],"events":events or [],"trust":{}}
+    x={"schema":graph.INPUT,"study":{"id":"study:research","version":"0.2","owner":"OWNER_TBD","frame_ref":"","slot_refs":{}},"frame":f,"slots":slots,"sources":src,"disclosures":[],"events":events or [],"context_data":{},"reports":[],"trust":{}}
     return x,repin(x)
 def simple_graph(second="b+1",description=None):
     f=frame();src=[source_row("authority:source","fixture:source","synthetic independent oracle specification")]
@@ -294,7 +294,7 @@ def to_definition(x):
             d["ledger"].pop("contributions");d["ledger"]["coverage"]=list(d["ledger"].pop("expected"))
         ds.append(d)
     f=copy.deepcopy(x["frame"]);subjects=[a["id"] for k in ("components","ports","referents") for a in f[k]]
-    ext=[*f["inputs"],*[z for z in f["observables"] if z["projection"]=="IDENTITY"]]
+    ext=[*f["inputs"],*f["context_fields"],*[z for z in f["observables"] if z["projection"]=="IDENTITY"]]
     req={"boundary":{"included":subjects,"environment":[],"space_domains":[],"functional_scopes":["scope:main"],"authority_refs":["authority:source"]},
          "data_contracts":[{"id":a["id"],"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","reproducibility":"PINNED_SNAPSHOT","quality":"TYPE_AND_COMPLETE_SUPPORT","quality_assertions":[],"missing":"BLOCK","conversion":None} for a in ext],
          "process_roles":{r["id"]:"EVALUATION" for r in f["processes"]},
@@ -307,7 +307,7 @@ def to_instance(x,d,dp):
     for r in x["slots"]:
         rows.append({"id":r["id"],"profile_ref":static["method_identities"][r["id"]],"package_ref":identity.mathematics(r["package"]),"data_status":"PRESENT","data":copy.deepcopy(r["data"]),"snapshot_digest":digest(r["data"]),"case_context":copy.deepcopy(r["case_context"]),"witnesses":copy.deepcopy(r["witnesses"]),"contributions":copy.deepcopy(r["ledger"]["contributions"]) if r["ledger"] else [],"expected_events":copy.deepcopy(r["ledger"]["expected"]) if r["ledger"] else {}})
     values=graph.evaluate(x,digest(x["trust"]))["data_bindings"]
-    return {"schema":definition.INST,"definition_ref":static["semantic_identity"],"slots":rows,"events":copy.deepcopy(x["events"]),"disclosures":copy.deepcopy(x["disclosures"]),
+    return {"schema":definition.INST,"definition_ref":static["semantic_identity"],"slots":rows,"events":copy.deepcopy(x["events"]),"disclosures":copy.deepcopy(x["disclosures"]),"context_data":copy.deepcopy(x["context_data"]),"reports":copy.deepcopy(x["reports"]),
             "data_receipts":[{"id":k,"snapshot_identity":v,"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","raw_rows":None} for k,v in values.items()]}
 class DefinitionControls(unittest.TestCase):
     def test_CL17_static_no_data_and_instance_roundtrip(self):
@@ -403,4 +403,75 @@ class FinalControls(unittest.TestCase):
         d["requirements"]["comparisons"][0]["equivalence_target"]="E4"
         dp=digest(d);inst=to_instance(x,d,dp);self.assertEqual(definition.instantiate(d,dp,inst,digest(inst))["comparison_evidence"][0]["status"],"NOT_PROVED")
         print("C2_CLOSURE_MODEL_COMPARISON="+json.dumps(res["comparison_evidence"],sort_keys=True))
+class OriginalProjectionControls(unittest.TestCase):
+    def test_CL24_original_p5_numeric_projection_and_external_context(self):
+        # Original fixture bytes retained from its pinned Git blob. This is a
+        # deliberately narrow semantic projection, not the original full A/B path.
+        p5_text=(Path(__file__).parent/"p5_fixture.json").read_text();p5=json.loads(p5_text)
+        f=frame();src=[source_row("authority:source","fixture:source",p5_text)]
+        labels=[r["id"] for r in p5["scenarios"]]
+        f["domains"]=[{"id":"domain:s","kind":"scenario","members":labels,"ordered":False}]
+        f["scopes"]=[{"id":"scope:main","domains":["domain:s"],"subjects":[]}]
+        money=q("EUR","currency","EUR:real:2025")
+        f["inputs"]=[sig("input:probability",q(),["domain:s"])]
+        models=[];slots=[];contexts={};raw={}
+        for m in p5["models"]:
+            mid=m["id"];key=mid.lower();cases={case:"case:"+key+":"+case for case in ("R","P")}
+            for case,k in cases.items():
+                f["referents"].append({"id":k,"kind":"study_case","model_id":"model:"+key,"quantity":money,"axes":["domain:s"],"authority_refs":["authority:source"]})
+                f["observables"].append(sig("observable:"+key+":"+case,money,["domain:s"],subject=k,projection="IDENTITY"))
+            f["scopes"][0]["subjects"]+=list(cases.values())
+            rel="relation:"+key;f["relations"].append({"id":rel,"kind":"counterfactual_of","from":cases["P"],"to":cases["R"],"authority_refs":["authority:source"]})
+            fields_={}
+            samples={case:[next(x for x in p5["samples"] if x["model_id"]==mid and x["scenario_id"]==s and x["case_id"]==case) for s in labels] for case in ("R","P")}
+            for field in ("exogenous_digest","weather_year"):
+                pair={}
+                for case,side in (("R","reference"),("P","alternative")):
+                    name="context:"+key+":"+case+":"+field;pair[side]=name
+                    f["context_fields"].append({"id":name,"axes":["domain:s"],"value_type":"TOKEN","allowed_values":[],"authority_refs":["authority:source"]})
+                    contexts[name]=[{"key":[r["scenario_id"]],"value":r[field]} for r in samples[case]]
+                fields_[field]=pair
+            policy="comparison:"+key
+            # Explicit project delta token is allowed to change; use a declared
+            # token for absent asset rather than an invented numeric value.
+            pr={}
+            for case,side in (("R","reference"),("P","alternative")):
+                name="context:"+key+":"+case+":project";pr[side]=name
+                f["context_fields"].append({"id":name,"axes":["domain:s"],"value_type":"TOKEN","allowed_values":[],"authority_refs":["authority:source"]})
+                contexts[name]=[{"key":[r["scenario_id"]],"value":r["project_delta_id"] or "NO_PROJECT_DELTA"} for r in samples[case]]
+            f["comparisons"].append({"id":policy,"relation":rel,"exogenous":fields_,"project":{"project_delta":pr},"allowed_changes":["project_delta"],"authority_refs":["authority:source"]})
+            out="output:"+key;f["outputs"].append(sig(out,money,contribution_policy="NOT_REQUIRED"))
+            d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt","prob")},"expressions":{"benefit":"sum((base-alt)*prob, over=s)"}}
+            c=fixture(d,roles={"prob":"INPUT"},quant={"base":money,"alt":money,"benefit":money},domains={"s":labels})
+            # One stated study-year amount: actual original annual rate * 1 year.
+            rows={case:[{"key":[r["scenario_id"]],"value":str(r["operating_cost_proxy_eur_per_year"])} for r in samples[case]] for case in ("R","P")}
+            raw.update({"observable:"+key+":"+case:rr for case,rr in rows.items()})
+            data=dataset({"base":copy.deepcopy(rows["R"]),"alt":copy.deepcopy(rows["P"]),"prob":[{"key":[r["id"]],"value":str(r["weight"])} for r in p5["scenarios"]]})
+            pairid="pair:"+key
+            ds={field:digest(sorted(contexts[pair["reference"]],key=lambda r:r["key"])) for field,pair in fields_.items()}
+            ctx={"pairs":[{"id":pairid,"reference_exogenous":ds,"alternative_exogenous":ds}]}
+            row=make_slot(f,source_for_slot(f,src,key),key,d,c,data,{"ref:base":{"kind":"OBSERVABLE","ref":"observable:"+key+":R"},"ref:alt":{"kind":"OBSERVABLE","ref":"observable:"+key+":P"},"ref:prob":{"kind":"INPUT","ref":"input:probability"},"ref:benefit":{"kind":"OUTPUT","ref":out}},["input:probability"],["observable:"+key+":R","observable:"+key+":P"],[out],["ref:benefit"],comparison_pairs=[{"id":pairid,"reference":"ref:base","alternative":"ref:alt"}],case_context=ctx,weight_roles={"ref:prob":"PROBABILITY"})
+            row["profile"]["probability_rules"]={"ref:prob":"SUM_ONE"};row["comparisons"]=[{"id":pairid,"policy":policy,"source_ref":"authority:source"}];slots.append(row)
+            models.append({"id":"model:"+key,"implementation_ref":m["generator_identity"],"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","observables":["observable:"+key+":R","observable:"+key+":P"],"variations":[]})
+        for r in p5["additional_indicators"]:
+            k="report:"+r["id"];qual=r["unit"]=="qualitative"
+            f["report_requests"].append({"id":k,"subject":f["id"],"value_type":"QUALITATIVE" if qual else "QUANTITY","declared_unit":None if qual else r["unit"],"basis":"ORIGINAL_P5_NOT_MONETIZED","oracle_ref":"authority:source","authority_refs":["authority:source"]})
+        x,_=bundle(f,slots,src);x["context_data"]=contexts;x["reports"]=[{"id":r["id"],"status":"NOT_EXECUTED","reason":"ORIGINAL_P5_INDICATOR_NOT_EXECUTED","value":None,"source_ref":"authority:source"} for r in f["report_requests"]];repin(x)
+        d,dp=to_definition(x);d["requirements"]["models"]=models
+        for r in d["requirements"]["data_contracts"]:
+            if r["id"] in raw:r["conversion"]={"kind":"ANNUAL_RATE_TO_PERIOD_AMOUNT","source_unit":"EUR/year","source_basis":"EUR:real:2025","period_years":"1","period_ref":"authority:source","source_ref":"authority:source"}
+        dp=digest(d);inst=to_instance(x,d,dp)
+        for r in inst["data_receipts"]:
+            if r["id"] in raw:r["raw_rows"]=raw[r["id"]]
+        res=definition.instantiate(d,dp,inst,digest(inst))
+        self.assertEqual(res["graph"]["outputs"],{"output:m-a":[{"key":[],"value":"120"}],"output:m-b":[{"key":[],"value":"104"}]})
+        self.assertEqual(res["status"],"BLOCKED");self.assertEqual(res["conformance"],"NOT_PROVED")
+        self.assertEqual(len(res["graph"]["external_reports"]),2)
+        bad=copy.deepcopy(x);bad["context_data"]["context:m-a:P:weather_year"][0]["value"]="DRIFT"
+        with self.assertRaisesRegex(Reject,"COUNTERFACTUAL_EXOGENEITY"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["frame"]["referents"][1]["model_id"]="model:m-b"
+        with self.assertRaisesRegex(Reject,"CROSS_MODEL_PAIRING_FORBIDDEN"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["reports"][0]["value"]=0
+        with self.assertRaisesRegex(Reject,"REPORT_EVIDENCE_PROMOTION"):graph.evaluate(bad,repin(bad))
+        print("C2_CLOSURE_P5_PROJECTION="+json.dumps({"outputs":res["graph"]["outputs"],"reports":res["graph"]["external_reports"],"status":res["status"],"full_path":False},sort_keys=True))
 if __name__=="__main__":unittest.main(verbosity=2)
