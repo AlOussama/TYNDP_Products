@@ -1,0 +1,7 @@
+# BUNDLE-ML-04A-MS1-C1-COMP
+
+NON-NORMATIVE / RESEARCH ONLY. Frozen PR #88 58f370c7503aa9ee8bfed51021b6b31c93cb6d06, mathspec 5f1464c334c1012cdee2947d4d55b4d1d6bef40a.
+
+Compare derived finite fragments from all ten frozen C1 original reference cases using the same numeric data and independently defined expectations. Keep full original 58/116 denominator. Three separate evidence layers: M0 untouched R1 control; M2 native public Program -> actual untouched R1/C21 predicate validator or actual original R1 profile Engine; M3 native canonical package -> prior C1 static boundary and a bounded test consumer reusing MS1 arithmetic. M3's extra test-only join/cases evaluation is not native execution or a general solver. M2 profile and R1 predicate results have different scopes and must not be added as equal full-chain passes. M0 legacy A/B generated in two new control fragments, not independent A/B authoring. RC01 retains original independent A/B fragment.
+
+Test direct native-to-legacy translation, compare actual exact numerical outputs, include original R1 integrated profile swaps and outer Unknown/service static control. Additional EX08 preintegrated cost amounts are narrower than RC08; EXPOW tests a current M3 restriction and provides counterevidence. No change to prior code, no normative choice, no global minimality claim. Run in pinned CI: python run_comparison.py. Evidence generated only from actual execution.
