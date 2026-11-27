@@ -14,7 +14,7 @@ UNKNOWN_REASONS=("MISSING_DATA","MISSING_EVIDENCE","AUTHORITY_UNRESOLVED","UNSUP
 
 class Bound:
     def __init__(self,package,tables,data):
-        self.leaf=import_package(package);self.program=validate_package_domains(self.leaf,tables)
+        self.leaf=import_package(package);self.program=validate_package_domains(self.leaf,tables,data)
         self.tables=tables;self.package=package
         self.axes={z["id"]:n for n,z in self.leaf["context"]["domains"].items()}
         self.symbols={z["symbol_id"]:z for z in self.leaf["interface"]["symbols"].values()}

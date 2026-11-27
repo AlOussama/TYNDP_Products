@@ -6,7 +6,7 @@ import json
 from closure import digest,native,source_map,semantic_context,c1
 from interface import import_package,package_version
 
-def mathematics(package):
+def _mathematics(package,method_only=False):
     leaf=import_package(package)
     doc=source_map(leaf["native_canonical"]);doc.pop("description",None)
     # Only documented native description fields in admitted sections.
@@ -14,8 +14,13 @@ def mathematics(package):
         for v in doc.get(sec,{}).values():
             if type(v) is dict:v.pop("description",None)
     spec=native(json.dumps(doc));context=semantic_context(spec,leaf["context"])
-    context["study"]["method_ref"]=digest(context["method"])
-    return digest({"projection":"c2-closure-native-semantic-0.1","package_schema":package_version(package),"upstream":leaf["upstream"],"registry":digest(c1.REGISTRY),"canonical":spec.to_yaml(canonical=True),"binding":context})
+    if method_only:
+        context.pop("study")
+        context["domains"]={n:{"id":z["id"]} for n,z in context["domains"].items()}
+    else:context["study"]["method_ref"]=digest(context["method"])
+    return digest({"projection":"c2-closure-method-math-0.1" if method_only else "c2-closure-native-semantic-0.1","package_schema":package_version(package),"upstream":leaf["upstream"],"registry":digest(c1.REGISTRY),"canonical":spec.to_yaml(canonical=True),"binding":context})
+def mathematics(package):return _mathematics(package,False)
+def method_mathematics(package):return _mathematics(package,True)
 def byid(xs):return sorted(xs,key=lambda x:x["id"])
 def frame(value):
     x=deepcopy(value)
@@ -45,8 +50,10 @@ def assertion(a):
 def profile(p,package):
     x=deepcopy(p)
     # Method source bytes are audit; source_ref and version stay semantic.
-    x.pop("source_sha256");x.pop("native_signature");x["native_semantic_identity"]=mathematics(package)
+    x.pop("source_sha256");x.pop("native_signature");x["native_semantic_identity"]=method_mathematics(package)
     x["outputs"]=sorted(x["outputs"]);x["counterfactual_pairs"]=byid(x["counterfactual_pairs"])
     if "output_contract" in x:
         for k in ("external","intermediate"):x["output_contract"][k]=sorted(x["output_contract"][k])
     return x
+
+def method_identity(profile_,package):return digest(profile(profile_,package))

@@ -101,8 +101,9 @@ def validate_bindings(row,bound,slot):
             s=sig[k];ax=s["domain_ids"];need(len(ax)==1,"DURATION_BINDING")
             ch=[r for r in tb["chronologies"].values() if r["domain"]==ax[0]]
             need(len(ch)==1,"DURATION_BINDING")
-            actual=values(bound,k);expected={r["label"]:exact(r["duration_h"]) for r in ch[0]["intervals"]}
-            need(all(exact(x["value"])==expected[x["key"][0]] for x in actual),"DURATION_BINDING")
+            if bound.consumer is not None:
+                actual=values(bound,k);expected={r["label"]:exact(r["duration_h"]) for r in ch[0]["intervals"]}
+                need(all(exact(x["value"])==expected[x["key"][0]] for x in actual),"DURATION_BINDING")
     return {"producers":producer,"upstream":upstream,"observables":observations}
 def comparison(row,bound,binding,source,external):
     tb=bound.tables;spec=md.index(row["comparisons"])
@@ -233,6 +234,7 @@ def evaluate(obj,expected_trust):
     blocked=any(r["obligations"]["status"]=="BLOCKED" for r in results.values())
     receipt={"schema":VERSION,"semantic_identity":sem,"study":obj["study"]["id"],"execution_order":order,"slots":results,"outputs":out_values,
              "finite_status":"FINITE_COUNTEREXAMPLE" if negative else "BLOCKED" if blocked else "FINITE_OBSERVATIONS_ONLY",
+             "data_bindings":{k:digest(v) for k,v in {**external,**observed}.items()},
              "owner":"OWNER_TBD","conformance":"NOT_PROVED","authority_authenticity":"UNVERIFIED","scope":"BOUNDED_NATIVE_RESEARCH"}
     receipt["audit_identity"]=digest({"input_as_received":obj,"receipt":receipt,"trust_root":expected_trust})
     return receipt

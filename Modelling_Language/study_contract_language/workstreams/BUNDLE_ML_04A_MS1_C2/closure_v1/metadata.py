@@ -7,8 +7,8 @@ from itertools import product
 from closure import need,fields,quantity,qualified,exact,digest,Reject
 from closure_v1 import r1_reuse as r1
 
-KINDS=("time","scenario","trace","request","response","component","port","sample","space","event","stage")
-COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes","comparisons")
+KINDS=("time","scenario","trace","request","response","component","port","sample","space","event","stage","relation")
+COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes","comparisons","relation_domains")
 def index(rows):
     # The original R1 table validates uniqueness and identifier grammar.
     try:return r1.table(rows)
@@ -56,8 +56,8 @@ def validate(frame):
         need(a["kind"] in KINDS and type(a["ordered"]) is bool,"DOMAIN_KIND")
         members(a["members"])
         if a["kind"] in ("time","stage"):need(a["ordered"],"CHRONOLOGY_ORDER")
-        if a["kind"] in ("component","port"):
-            refs(a["members"],components if a["kind"]=="component" else ports,"DOMAIN_MEMBER_KIND")
+        if a["kind"] in ("component","port","relation"):
+            refs(a["members"],components if a["kind"]=="component" else ports if a["kind"]=="port" else tables["relations"],"DOMAIN_MEMBER_KIND")
     for a in tables["scopes"].values():
         fields(a,("id","domains","subjects"),"SCOPE_FIELDS");axes(a["domains"]);refs(a["subjects"],subjects,"SCOPE_SUBJECT",False)
     for a in components.values():
@@ -143,10 +143,35 @@ def validate(frame):
             need(inputs[x]["axes"]==inputs[y]["axes"] and inputs[x]["value_type"]==inputs[y]["value_type"] and qcompat(inputs[x]["quantity"],inputs[y]["quantity"]),"COUNTERFACTUAL_SIGNATURE")
         refs(a["allowed_changes"],pr,"PROJECT_CHANGE_SCOPE",False)
     need(seen_rel=={k for k,x in tables["relations"].items() if x["kind"]=="counterfactual_of"},"COUNTERFACTUAL_COVERAGE")
+    for a in tables["relation_domains"].values():
+        fields(a,("id","roles","key","support","rows","topology","authority_refs"),"NATIVE_RELATION_FIELDS")
+        authorities(a["authority_refs"])
+        roles=a["roles"];need(type(roles) is dict and bool(roles) and all(string(k) and v in dom for k,v in roles.items()),"RELATION_COLUMNS")
+        refs(a["key"],roles,"RELATION_KEY")
+        need(a["support"] in ("CARTESIAN","EXPLICIT_TUPLES"),"RELATION_SUPPORT_MODE")
+        rows=a["rows"];need(type(rows) is list and bool(rows),"RELATION_SUPPORT")
+        keys=set()
+        for row in rows:
+            fields(row,tuple(roles),"RELATION_ROW")
+            need(all(row[k] in dom[v]["members"] and type(row[k]) is type(dom[v]["members"][0]) for k,v in roles.items()),"RELATION_COORDINATE")
+            key=tuple(row[k] for k in a["key"]);need(key not in keys,"RELATION_DUPLICATE_KEY");keys.add(key)
+        expected=set(product(*(dom[roles[k]]["members"] for k in a["key"])))
+        need(keys==expected,"RELATION_KEY_COVERAGE")
+        if a["support"]=="EXPLICIT_TUPLES":
+            need(len(a["key"])==1,"EXPLICIT_TUPLE_KEY_REQUIRED")
+            vals=[k for k in roles if k not in a["key"]];need(bool(vals),"EXPLICIT_TUPLE_COLUMNS")
+            need(len({tuple(row[k] for k in sorted(vals)) for row in rows})==len(rows),"EXPLICIT_TUPLE_ALIAS")
+        if a["topology"] is not None:
+            z=a["topology"];fields(z,("edge","from","to"),"TOPOLOGY_BINDING_FIELDS")
+            need(a["key"]==[z["edge"]] and all(k in roles for k in z.values()) and len(set(z.values()))==3,"TOPOLOGY_COLUMNS")
+            need(dom[roles[z["edge"]]]["kind"]=="relation" and all(dom[roles[z[k]]]["kind"]=="port" for k in ("from","to")),"TOPOLOGY_DOMAIN")
+            for row in rows:
+                rel=tables["relations"][row[z["edge"]]]
+                need(rel["kind"]=="connected_to" and rel["from"]==row[z["from"]] and rel["to"]==row[z["to"]],"TOPOLOGY_RELATION_BINDING")
     # The graph validator checks actual dataflow against these explicit declarations.
     need(len({p["slot"] for p in tables["processes"].values()})==len(tables["processes"])==len(tables["slots"]),"PROCESS_COVERAGE")
     return tables
-def validate_package_domains(leaf,tables):
+def validate_package_domains(leaf,tables,data=None):
     from closure import native
     program=native(leaf["native_canonical"]).program
     for name,z in leaf["context"]["domains"].items():
@@ -164,4 +189,12 @@ def validate_package_domains(leaf,tables):
                 need(node.wrap==(ch[0]["mode"]=="CYCLIC"),"CYCLIC_EDGE" if node.wrap else "NONCYCLIC_EDGE")
             for child in mp.children(node):visit(child)
         for exp in program.expressions.values():visit(exp.expression)
+    for n,z in leaf["context"]["relations"].items():
+        a=tables["relation_domains"].get(z["id"])
+        need(a is not None,"NATIVE_RELATION_BINDING")
+        r=program.relations[n]
+        need({k:leaf["context"]["domains"][v]["id"] for k,v in r.columns}==a["roles"] and list(r.key)==a["key"],"RELATION_SIGNATURE")
+        need(any(tables["authorities"][i]["immutable_ref"]==z["source_ref"] for i in a["authority_refs"]),"RELATION_SOURCE_BINDING")
+        if data is not None:
+            need(sorted(data["relations"][n],key=digest)==sorted(a["rows"],key=digest),"RELATION_SUPPORT_BINDING")
     return program
