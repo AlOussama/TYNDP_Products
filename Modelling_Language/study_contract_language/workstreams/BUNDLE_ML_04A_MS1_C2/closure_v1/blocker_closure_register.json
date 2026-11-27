@@ -1,6 +1,6 @@
 {
-  "schema": "c2-closure-blockers-0.1",
-  "tested_commit": "e22e47867395ea93b9e5b33b414830d154890695",
+  "schema": "c2-final-closure-blockers-0.1",
+  "tested_commit": "8a99cc96edc98add28a69b8fa30db7d0dad08947",
   "blockers": [
     {
       "id": "C2-BLK-01",
@@ -72,32 +72,34 @@
     },
     {
       "id": "C2-BLK-06",
-      "status": "PARTIAL_EXPLICIT_RESIDUAL",
+      "status": "CLOSED_CONTROLLED_SCOPE",
       "evidence": [
         "CL15",
         "CL17",
         "CL18",
         "CL23",
-        "CL25",
-        "CL26",
-        "requirement_traceability.csv"
+        "CL25–CL33",
+        "requirement_traceability.csv",
+        "original_diagnostic_contracts.json",
+        "original_diagnostic_results.json"
       ],
-      "finding": "Versioned definition and instance, separate native/semantic/audit identities and strict reimport; 125 frozen identities classified.",
-      "remaining": "NFR-16/MS-K11: complete original structured path/rule/source diagnostic mapping and independent authoring evidence not demonstrated. R10/NFR-13: approved override semantics not implemented; currently refused, not silently allowed. SLR-40: CL26 is a lower-bound witness not a complete selection proof (membership needs explicit native predicate). Determine/verify whether each residual is required for frozen full paths; no full requirement conformance claim."
+      "finding": "Structured candidate diagnostic boundaries with verified source pins where available; internal failures BLOCKED_INTERNAL. All 58 frozen original identities mapped, 18 actual derived C23 edit paths and 30 actual original P5 oracle diagnostic JSONPaths. Explicit independently pinned research-only disjoint overrides preserve native obligations, source and audit identity. Native selection requires membership AND universal ordering over typed declared finite support.",
+      "remaining": "Actual original A/B candidate paths and code-to-original-diagnostic verification are C3; real owner authority/production authorization and independent human diagnostics/usability or unrestricted composition and optimization proof are not asserted."
     },
     {
       "id": "C2-BLK-07",
-      "status": "VALIDATION_COMPLETE_C3_GATE_PENDING",
+      "status": "CLOSED_FOR_C3_RESEARCH_HANDOFF",
       "evidence": [
-        "run 46046306356/job 140666316682",
-        "CL01–CL26",
-        "26 previous C2 tests",
+        "run 46056048896/job 140698674026",
+        "CL01–CL33",
+        "26 prior C2",
         "4140 upstream",
         "36 P5",
-        "28 derived oracles"
+        "28 derived oracles",
+        "18/30 diagnostic path receipts"
       ],
-      "finding": "All executed suites passed on exact final code; earlier failures retained; original counts verified.",
-      "remaining": "Formal C3 start requires disposition of BLK-06, not green CI alone."
+      "finding": "All actually executed native tests passed on exact final implementation; preserved failures and frozen 58/116 denominator. Three BLK-06 residual capabilities implemented and actual evidence recorded.",
+      "remaining": "C3 not executed or started. Full original path materialization and execution remain mandatory, with fail-closed reporting if controlled language proves insufficient."
     }
   ]
 }

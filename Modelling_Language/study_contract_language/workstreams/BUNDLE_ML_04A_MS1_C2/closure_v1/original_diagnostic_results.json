@@ -1,0 +1,1291 @@
+{
+  "schema": "c2-final-original-diagnostics-0.1",
+  "tested_commit": "8a99cc96edc98add28a69b8fa30db7d0dad08947",
+  "run_id": 46056048896,
+  "job_id": 140698674026,
+  "counts": {
+    "originals": 58,
+    "c23_derived": 18,
+    "p5_expected": 30,
+    "original_full_paths": 116,
+    "full_executed": 0
+  },
+  "derived_C23": [
+    {
+      "actual_code": "ENERGY_LEDGER",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-01",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/intake"
+      ],
+      "rule_id": "R07",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "80c5fa2a0d9c89200c545e9b2d37c972deb851fc",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json"
+      }
+    },
+    {
+      "actual_code": "EV_SERVICE",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-02",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/delivered"
+      ],
+      "rule_id": "R09",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "4905c76a34e8750623c9d14ca553b90c5dbf1ba2",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json"
+      }
+    },
+    {
+      "actual_code": "HEATING_VALUE_BASIS",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-03",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/inputs/basis"
+      ],
+      "rule_id": "R06",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "e4ff3ded3ff46658e9492cd08efeae6fbb201fbc",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json"
+      }
+    },
+    {
+      "actual_code": "MASS_UNIT",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-04",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/inventory_unit"
+      ],
+      "rule_id": "R06",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "eb88329f164f6f58167d8dc8ecacd56c21031287",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json"
+      }
+    },
+    {
+      "actual_code": "KVL",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-05",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/flow"
+      ],
+      "rule_id": "R09",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "28bef7e40edd70a13656df0660f63d54844c556d",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json"
+      }
+    },
+    {
+      "actual_code": "INTEGER_MODULE",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-06",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/modules"
+      ],
+      "rule_id": "R00",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "e4bd15debc43e38f3234b295f8b51303659d0f52",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json"
+      }
+    },
+    {
+      "actual_code": "NONANTICIPATIVITY",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-07",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/decision"
+      ],
+      "rule_id": "R07",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "c54d0ef19a06807e23482e478d65b83486b56007",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json"
+      }
+    },
+    {
+      "actual_code": "DUPLICATE_CONTRIBUTION",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-08",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/contributions"
+      ],
+      "rule_id": "R12",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "f3c13c584b1b44b12ce5b1ab876ad0cf2d36c63c",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json"
+      }
+    },
+    {
+      "actual_code": "EXOGENEITY",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-09",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/inputs/project_snapshot"
+      ],
+      "rule_id": "R12",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "d41478599ea0846a3a5486fddc35d11c42e3afee",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json"
+      }
+    },
+    {
+      "actual_code": "E4_UNSUPPORTED",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-10",
+      "original_expected": [
+        "E1_DIFFERENT",
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/e4_claim"
+      ],
+      "rule_id": "R13",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "9898d4be03cefb1b6b1e85a902757d77e7e593d9",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json"
+      }
+    },
+    {
+      "actual_code": "AUTHORITY_DRIFT",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-11",
+      "original_expected": [
+        "E1_DIFFERENT"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/study_frame/authority"
+      ],
+      "rule_id": "R09",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "2bb6c21b9e138df91e54d2aad65bbaaa2865d52e",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-11.json"
+      }
+    },
+    {
+      "actual_code": "SOURCE_LOSS",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-12",
+      "original_expected": [
+        "AUDIT_LOSS"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/inputs/source_ids"
+      ],
+      "rule_id": "R13",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "4c9c3c99df6e1995488e01f1ab78097495e2c237",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-12.json"
+      }
+    },
+    {
+      "actual_code": "EVIDENCE_PROMOTION",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-13",
+      "original_expected": [
+        "FAIL_STATIC"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/evidence_status"
+      ],
+      "rule_id": "R13",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "129c1014acca4d18a2b7b2bf29c5cb7601441b4c",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-13.json"
+      }
+    },
+    {
+      "actual_code": "AMBIGUOUS_ALIAS",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-14",
+      "original_expected": [
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/study_frame/domains/component"
+      ],
+      "rule_id": "R01",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "a026e6584b54e21836b97ef7bb9588f954c494e1",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-14.json"
+      }
+    },
+    {
+      "actual_code": "GUARD_REQUIRED",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-15",
+      "original_expected": [
+        "BLOCKED",
+        "E1_DIFFERENT"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/inputs/guard_present"
+      ],
+      "rule_id": "R05",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "b11c5dca37811e928b85a353d70b482348937f9c",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-15.json"
+      }
+    },
+    {
+      "actual_code": "CARRIER_UNIT",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-16",
+      "original_expected": [
+        "FAIL_STATIC"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/units/flow"
+      ],
+      "rule_id": "R06",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "3d4797008fece83a61ac4d78bd567f7e6a7a9972",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-16.json"
+      }
+    },
+    {
+      "actual_code": "DURATION_REQUIRED",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-17",
+      "original_expected": [
+        "BLOCKED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/inputs/dt"
+      ],
+      "rule_id": "R07",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "ed97b9f93473799091bbb188e30de56d6e1637bb",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-17.json"
+      }
+    },
+    {
+      "actual_code": "KVL",
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED",
+      "id": "MUT-18",
+      "original_expected": [
+        "E4_NOT_PROVED"
+      ],
+      "path_kind": "DERIVED_EDIT_PATH",
+      "paths": [
+        "/synthetic_data/observed/flow"
+      ],
+      "rule_id": "R09",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "source": {
+        "blob": "64d1377cf0a17c315438c6877392dc4bcc3392fb",
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-18.json"
+      }
+    }
+  ],
+  "original_P5": [
+    {
+      "id": "M01",
+      "original_expected": "PAIR_INCOMPLETE",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "DUPLICATE_PAIR_MEMBER",
+          "path": "$.samples[5]"
+        },
+        {
+          "code": "PAIR_INCOMPLETE",
+          "path": "$.samples",
+          "reason": "M-A/S1/P"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M02",
+      "original_expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "EXOGENOUS_SNAPSHOT_DRIFT",
+          "path": "$.samples[1]",
+          "reason": "R/P must reference same scenario input"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M03",
+      "original_expected": "SCENARIO_WEIGHT_INVALID",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "SCENARIO_WEIGHT_INVALID",
+          "path": "$.scenarios[0].weight",
+          "reason": "Nonnegative explicit sample probability required"
+        },
+        {
+          "code": "SCENARIO_WEIGHT_SUM",
+          "path": "$.scenarios",
+          "reason": "Research sample probability weights must total 1"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M04",
+      "original_expected": "SCENARIO_WEIGHT_SUM",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "SCENARIO_WEIGHT_SUM",
+          "path": "$.scenarios",
+          "reason": "Research sample probability weights must total 1"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M05",
+      "original_expected": "OUTPUT_BASIS_MISMATCH",
+      "rule_id": "R06",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "$.samples[0]",
+          "reason": "Unit and price-year must match"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M06",
+      "original_expected": "OUTPUT_BASIS_MISMATCH",
+      "rule_id": "R06",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "$.samples[0]",
+          "reason": "Unit and price-year must match"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M07",
+      "original_expected": "BENEFIT_SIGN_CONVENTION",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "BENEFIT_SIGN_CONVENTION",
+          "path": "$.comparison.sign"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M08",
+      "original_expected": "COST_PROXY_MISLABELED_AS_SEW",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "COST_PROXY_MISLABELED_AS_SEW",
+          "path": "$.observable",
+          "reason": "Operating-cost proxy cannot be asserted as system welfare B1"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M09",
+      "original_expected": "UNSUPPORTED_OWNER_APPROVAL",
+      "rule_id": "R09",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "UNSUPPORTED_OWNER_APPROVAL",
+          "path": "$.authority",
+          "reason": "No implicit owner approval"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M10",
+      "original_expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+      "rule_id": "R13",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "$.evidence",
+          "reason": "Synthetic values are not independent model execution"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M11",
+      "original_expected": "SOURCE_LEDGER_LOSS",
+      "rule_id": "R13",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "SOURCE_LEDGER_LOSS",
+          "path": "$.authority.source_refs",
+          "reason": "Immutable per-source identity required"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M12",
+      "original_expected": "MODEL_VARIATION_NOT_DISCLOSED",
+      "rule_id": "R09",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "MODEL_VARIATION_NOT_DISCLOSED",
+          "path": "$.models[1]",
+          "reason": "Variation is conditional, not automatically authorised"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M13",
+      "original_expected": "PROJECT_SCOPE_DRIFT",
+      "rule_id": "R10",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "$.project",
+          "reason": "Reference and project intervention must remain explicit"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M14",
+      "original_expected": "PROJECT_DELTA_MISASSIGNED",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "$.samples[1]",
+          "reason": "Project intervention must be absent from R"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M15",
+      "original_expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "$.comparison",
+          "reason": "Paired deltas within each model and scenario only"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M16",
+      "original_expected": "TIME_SUPPORT_INVALID",
+      "rule_id": "R07",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "TIME_SUPPORT_INVALID",
+          "path": "$.scenarios[0]",
+          "reason": "Explicit duration and calendar reference required for this sample"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M17",
+      "original_expected": "UNKNOWN_COERCED_TO_NUMBER",
+      "rule_id": "R11",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "UNKNOWN_COERCED_TO_NUMBER",
+          "path": "$.additional_indicators[0]",
+          "reason": "Unknown indicator cannot become zero"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M18",
+      "original_expected": "CARRIER_UNIT_TYPE_MISMATCH",
+      "rule_id": "R06",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "CARRIER_UNIT_TYPE_MISMATCH",
+          "path": "$.physical_interfaces"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M19",
+      "original_expected": "PROJECT_DELTA_MISASSIGNED",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "$.samples[0]",
+          "reason": "Project intervention must be absent from R"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M20",
+      "original_expected": "DISCOUNT_POLICY_INVALID",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "DISCOUNT_POLICY_INVALID",
+          "path": "$.economics"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M21",
+      "original_expected": "INDEPENDENCE_IDENTITY_COLLISION",
+      "rule_id": "R01",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "INDEPENDENCE_IDENTITY_COLLISION",
+          "path": "$.models",
+          "reason": "Distinct generators are an assertion, not proof of independence"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M22",
+      "original_expected": "DISCOUNT_CURRENCY_BASIS",
+      "rule_id": "R06",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "path": "$.economics",
+          "reason": "Cost and observable price basis must agree"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M23",
+      "original_expected": "WEIGHT_ROLE_CONFLATION",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "WEIGHT_ROLE_CONFLATION",
+          "path": "$.scenarios[0].weight_role",
+          "reason": "MC / integration weight is distinct from sample probability"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M24",
+      "original_expected": "OBSERVABLE_SELECTION_UNDEFINED",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "OBSERVABLE_SELECTION_UNDEFINED",
+          "path": "$.observable.selection_policy"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M25",
+      "original_expected": "UNKNOWN_SAMPLE_REFERENCE",
+      "rule_id": "R01",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "UNKNOWN_SAMPLE_REFERENCE",
+          "path": "$.samples[0]",
+          "reason": "Sample refers to unknown model or scenario"
+        },
+        {
+          "code": "PAIR_INCOMPLETE",
+          "path": "$.samples",
+          "reason": "M-A/S1/R"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M26",
+      "original_expected": "CONSULTATION_SOURCE_PROMOTION",
+      "rule_id": "R09",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "CONSULTATION_SOURCE_PROMOTION",
+          "path": "$.source_ledger",
+          "reason": "A consultation is not owner-approved"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M27",
+      "original_expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+      "rule_id": "R10",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "$.study",
+          "reason": "Method/pin/status required"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M28",
+      "original_expected": "KPI_DOUBLE_COUNTING_POLICY",
+      "rule_id": "R12",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "KPI_DOUBLE_COUNTING_POLICY",
+          "path": "$.observable.double_counting_policy"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M29",
+      "original_expected": "STAGE1_INFORMATION_LEAKAGE",
+      "rule_id": "R07",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "STAGE1_INFORMATION_LEAKAGE",
+          "path": "$.information"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    },
+    {
+      "id": "M30",
+      "original_expected": "E4_UNSUPPORTED",
+      "rule_id": "R13",
+      "rule_source": {
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md",
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7"
+      },
+      "source": {
+        "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js",
+        "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+      },
+      "path_kind": "ACTUAL_ORIGINAL_MICRO_ORACLE_JSONPATH",
+      "diagnostics": [
+        {
+          "code": "E4_UNSUPPORTED",
+          "path": "$.comparison.e4_claim",
+          "reason": "Equal KPIs never establish feasible-set equivalence"
+        }
+      ],
+      "candidate_path": null,
+      "full_path": "NOT_EXECUTED"
+    }
+  ],
+  "candidate_examples": [
+    {
+      "code": "METHOD_SOURCE",
+      "conformance": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "path": "/slots/0/profile",
+      "path_kind": "VALIDATION_OBJECT",
+      "reason": "METHOD_SOURCE",
+      "rule_id": "R09",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "schema": "c2-structured-diagnostic-0.1",
+      "source_pins": [
+        {
+          "id": "authority:select",
+          "immutable_ref": "fixture:select",
+          "revision": "1",
+          "sha256": "c7c390d53054abf69d7297fba0fd52412b37fb6117dfb1042bd320a54357ba89"
+        }
+      ],
+      "source_refs": [
+        "authority:select"
+      ],
+      "status": "REJECTED",
+      "subject": "slot:select",
+      "trace": [
+        {
+          "default_rule": "R00",
+          "path": "",
+          "source_pins": [],
+          "source_refs": [],
+          "subject": null
+        },
+        {
+          "default_rule": "R12",
+          "path": "/slots/0/profile",
+          "source_pins": [
+            {
+              "id": "authority:select",
+              "immutable_ref": "fixture:select",
+              "revision": "1",
+              "sha256": "c7c390d53054abf69d7297fba0fd52412b37fb6117dfb1042bd320a54357ba89"
+            }
+          ],
+          "source_refs": [
+            "authority:select"
+          ],
+          "subject": "slot:select"
+        }
+      ]
+    },
+    {
+      "code": "SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED",
+      "conformance": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "path": "/requirements",
+      "path_kind": "VALIDATION_OBJECT",
+      "reason": "SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED",
+      "rule_id": "R12",
+      "rule_source": {
+        "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+        "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+        "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+      },
+      "schema": "c2-structured-diagnostic-0.1",
+      "source_pins": [],
+      "source_refs": [],
+      "status": "REJECTED",
+      "subject": null,
+      "trace": [
+        {
+          "default_rule": "R00",
+          "path": "",
+          "source_pins": [],
+          "source_refs": [],
+          "subject": null
+        },
+        {
+          "default_rule": "R00",
+          "path": "/requirements",
+          "source_pins": [],
+          "source_refs": [],
+          "subject": null
+        }
+      ]
+    }
+  ],
+  "original_candidate_AB_paths_executed": 0
+}
