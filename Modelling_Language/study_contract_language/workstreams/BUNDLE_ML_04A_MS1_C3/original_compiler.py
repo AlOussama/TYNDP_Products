@@ -92,6 +92,8 @@ def compile_rc(x,raw_original):
     ctx=fixture(doc,quant={n:z["quantity"] for n,z in {**params,**expr}.items()},roles={n:z["role"] for n,z in params.items()},
                 domain_rules={n:z["domain_rule"] for n,z in params.items()},domains={n:z["labels"] for n,z in dims.items()},
                 pred_axes={n:z["axes"] for n,z in conditions.items()},conversions=conversions)
+    # Predicate axes use canonical lexical scope order; service binder order remains separately authored.
+    ctx["scope"]["binders"]=sorted(dims)
     ctx["study"]["id"]=d["study_id"]
     ctx["method"]["id"]="method:"+d["reference"]
     ctx["study"]["method_ref"]=digest(ctx["method"])
@@ -211,7 +213,7 @@ def compile_rc(x,raw_original):
     # receipts. A failure here is the original candidate binding diagnostic.
     try:bound=obligations.Bound(package,metadata.validate(f),data)
     except Reject as e:
-        raise CandidateReject(str(e).split(":")[0],["instance","parameters"],"R11",str(e),"NATIVE_DATA_BINDING",str(e)) from e
+        raise CandidateReject(str(e).split(":")[0],["instance","parameters"],"R00" if str(e).startswith("INTEGER_DOMAIN") else "R11",str(e),"NATIVE_DATA_BINDING",str(e)) from e
     witnesses=[]
     for n,z in conditions.items():
         for j,v in enumerate(z.get("witnesses",[])):

@@ -361,7 +361,7 @@
         {
           "kind": "present",
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "study",
             "method_profile"
@@ -370,7 +370,7 @@
         {
           "kind": "present",
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "study",
             "method_profile_version"
@@ -379,7 +379,7 @@
         {
           "kind": "equals",
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "study",
             "method_source_status"
@@ -418,7 +418,7 @@
         {
           "kind": "table_key",
           "code": "SOURCE_LEDGER_LOSS",
-          "rule": "R01",
+          "rule": "R13",
           "table": [
             "source_ledger"
           ],
@@ -429,7 +429,7 @@
         {
           "kind": "references",
           "code": "SOURCE_LEDGER_LOSS",
-          "rule": "R09",
+          "rule": "R13",
           "path": [
             "authority",
             "source_refs"
@@ -456,7 +456,7 @@
         {
           "kind": "equals",
           "code": "PROJECT_SCOPE_DRIFT",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "project",
             "baseline_asset_present"
@@ -466,7 +466,7 @@
         {
           "kind": "equals",
           "code": "PROJECT_SCOPE_DRIFT",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "project",
             "allowed_changes"
@@ -478,7 +478,7 @@
         {
           "kind": "equals",
           "code": "PROJECT_SCOPE_DRIFT",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "project",
             "additional_exogenous_changes"
@@ -488,7 +488,7 @@
         {
           "kind": "equals",
           "code": "PROJECT_SCOPE_DRIFT",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "project",
             "interdependencies_declared"
@@ -498,7 +498,7 @@
         {
           "kind": "present",
           "code": "PROJECT_SCOPE_DRIFT",
-          "rule": "R09",
+          "rule": "R10",
           "path": [
             "project",
             "id"
@@ -575,7 +575,7 @@
         {
           "kind": "table_key",
           "code": "INDEPENDENCE_IDENTITY_COLLISION",
-          "rule": "R13",
+          "rule": "R01",
           "table": [
             "models"
           ],
@@ -599,7 +599,7 @@
         {
           "kind": "row_equals",
           "code": "MODEL_VARIATION_NOT_DISCLOSED",
-          "rule": "R10",
+          "rule": "R09",
           "table": [
             "models"
           ],
@@ -609,7 +609,7 @@
         {
           "kind": "row_equals",
           "code": "MODEL_VARIATION_NOT_DISCLOSED",
-          "rule": "R10",
+          "rule": "R09",
           "table": [
             "models"
           ],
@@ -1107,7 +1107,27 @@
             },
             "duration": {
               "field": "duration_h",
-              "dtype": "float"
+              "dtype": "float",
+              "quantity": {
+                "unit": "h",
+                "carrier": "none",
+                "basis": "NONE",
+                "sign": "NONE",
+                "direction": "NONE",
+                "time_basis": "NONE"
+              }
+            },
+            "zero_duration": {
+              "constant": "0",
+              "dtype": "float",
+              "quantity": {
+                "unit": "h",
+                "carrier": "none",
+                "basis": "NONE",
+                "sign": "NONE",
+                "direction": "NONE",
+                "time_basis": "NONE"
+              }
             }
           },
           "expressions": {
@@ -1134,7 +1154,7 @@
             },
             {
               "name": "duration_positive",
-              "formula": "duration > 0",
+              "formula": "duration > zero_duration",
               "axes": [
                 "s"
               ],
@@ -1211,6 +1231,7 @@
       ]
     },
     "context_scope": [
+      "research_kind",
       "study",
       "authority",
       "source_ledger",

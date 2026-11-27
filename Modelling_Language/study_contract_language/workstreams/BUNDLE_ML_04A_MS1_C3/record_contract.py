@@ -44,8 +44,9 @@ def structural(record,rules):
         def need(ok,p=path,reason="Declared structural obligation violated"):
             if not ok:reject(rule,p,reason)
         if kind=="equals":
-            need(x==rule["equals"] and (x is not None or present(at(record,path,False)) or rule["equals"] is None),
-                 reason="Actual field differs from declared contract value")
+            try:actual=at(record,path);exists=True
+            except (KeyError,IndexError,TypeError):actual=None;exists=False
+            need(exists and actual==rule["equals"],reason="Actual field absent or differs from declared contract value")
         elif kind=="equals_ref":
             need(x==get(record,rule["other"]),reason="Declared context reference differs")
         elif kind=="present":need(present(x),reason="Required explicit field absent or null")
@@ -110,6 +111,9 @@ def native_checks(record,checks):
             if axis:domains[axis]=labels
             rules=spec["conditions"];expr=spec["expressions"]
             for n,p in spec["parameters"].items():
+                if "quantity" in p:quant[n]=p["quantity"]
+                if "constant" in p:
+                    params[n]={"dims":[],"dtype":p["dtype"]};data[n]=scalar(p["constant"]);continue
                 dims=[axis] if axis else []
                 params[n]={"dims":dims,"dtype":p["dtype"]}
                 field=p["field"]
@@ -123,7 +127,7 @@ def native_checks(record,checks):
                 data[n]=rows
         doc={"version":0,"dimensions":{n:{"dtype":"int" if type(v[0]) is int else "str"} for n,v in domains.items()},
              "parameters":params,"expressions":expr,"conditions":{z["name"]:z["formula"] for z in rules}}
-        ctx=fixture(doc,domains=domains,roles={n:"INPUT" for n in params},pred_axes={z["name"]:z["axes"] for z in rules})
+        ctx=fixture(doc,quant=quant,domains=domains,roles={n:"INPUT" for n in params},pred_axes={z["name"]:z["axes"] for z in rules})
         package=export_package(admit(json.dumps(doc,sort_keys=True),ctx))
         imported=import_package(package)
         if export_package(imported)!=package:raise RuntimeError("Native constraint roundtrip drift")
@@ -136,7 +140,19 @@ def native_checks(record,checks):
         for rule in rules:
             name=rule["name"]
             if not actual[name]:
-                reject(rule,path,"Native Program predicate "+name+" is false on the declared finite support","NATIVE_PREDICATE_EVALUATION","FINITE_COUNTEREXAMPLE")
+                predicate=consumer.program.conditions[name]
+                bad=[]
+                for key in product(*(consumer.axes[a] for a in predicate.dims)):
+                    env=dict(zip(predicate.dims,key,strict=True))
+                    if not consumer.cond(predicate.condition.root,env):bad.append(env)
+                target=path
+                if bad and predicate.dims:
+                    if kind=="native_record_equality":target=path+[bad[0][spec["axis"]]]
+                    elif kind=="native_table":
+                        label=bad[0][spec["axis"]];j=labels.index(label)
+                        target=path+[j,rule["field"]]
+                elif kind=="native_scalar" and "field" in rule:target=path+[rule["field"]]
+                reject(rule,target,"Native Program predicate "+name+" is false; violating coordinates="+repr(bad),"NATIVE_PREDICATE_EVALUATION","FINITE_COUNTEREXAMPLE")
         results.append({"path":pointer("definition","method_profile","native_checks",index),
                         "native_identity":imported["native_identity"],"package_identity":digest(package),
                         "data_identity":consumer.receipt["data_identity"],"conditions":actual,"outputs":consumer.outputs(),"roundtrip":True})

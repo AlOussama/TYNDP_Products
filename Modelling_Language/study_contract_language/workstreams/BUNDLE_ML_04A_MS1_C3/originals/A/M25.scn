@@ -57,17 +57,17 @@ study_contract "c3-original-authoring-0.2" {
         }, {
           "kind": "present";
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["study", "method_profile"];
         }, {
           "kind": "present";
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["study", "method_profile_version"];
         }, {
           "kind": "equals";
           "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["study", "method_source_status"];
           "equals": "RESEARCH_ONLY";
         }, {
@@ -90,13 +90,13 @@ study_contract "c3-original-authoring-0.2" {
         }, {
           "kind": "table_key";
           "code": "SOURCE_LEDGER_LOSS";
-          "rule": "R01";
+          "rule": "R13";
           "table": ["source_ledger"];
           "keys": ["id"];
         }, {
           "kind": "references";
           "code": "SOURCE_LEDGER_LOSS";
-          "rule": "R09";
+          "rule": "R13";
           "path": ["authority", "source_refs"];
           "target": ["source_ledger"];
           "key": "id";
@@ -114,31 +114,31 @@ study_contract "c3-original-authoring-0.2" {
         }, {
           "kind": "equals";
           "code": "PROJECT_SCOPE_DRIFT";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["project", "baseline_asset_present"];
           "equals": false;
         }, {
           "kind": "equals";
           "code": "PROJECT_SCOPE_DRIFT";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["project", "allowed_changes"];
           "equals": ["capacity_MW"];
         }, {
           "kind": "equals";
           "code": "PROJECT_SCOPE_DRIFT";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["project", "additional_exogenous_changes"];
           "equals": [];
         }, {
           "kind": "equals";
           "code": "PROJECT_SCOPE_DRIFT";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["project", "interdependencies_declared"];
           "equals": true;
         }, {
           "kind": "present";
           "code": "PROJECT_SCOPE_DRIFT";
-          "rule": "R09";
+          "rule": "R10";
           "path": ["project", "id"];
         }, {
           "kind": "table_key";
@@ -182,7 +182,7 @@ study_contract "c3-original-authoring-0.2" {
         }, {
           "kind": "table_key";
           "code": "INDEPENDENCE_IDENTITY_COLLISION";
-          "rule": "R13";
+          "rule": "R01";
           "table": ["models"];
           "keys": ["generator_identity"];
         }, {
@@ -195,14 +195,14 @@ study_contract "c3-original-authoring-0.2" {
         }, {
           "kind": "row_equals";
           "code": "MODEL_VARIATION_NOT_DISCLOSED";
-          "rule": "R10";
+          "rule": "R09";
           "table": ["models"];
           "field": "variation_disclosed";
           "equals": true;
         }, {
           "kind": "row_equals";
           "code": "MODEL_VARIATION_NOT_DISCLOSED";
-          "rule": "R10";
+          "rule": "R09";
           "table": ["models"];
           "field": "allowed_under_study";
           "equals": "CONDITIONAL_NOT_OWNER_APPROVED";
@@ -501,6 +501,26 @@ study_contract "c3-original-authoring-0.2" {
             "duration": {
               "field": "duration_h";
               "dtype": "float";
+              "quantity": {
+                "unit": "h";
+                "carrier": "none";
+                "basis": "NONE";
+                "sign": "NONE";
+                "direction": "NONE";
+                "time_basis": "NONE";
+              };
+            };
+            "zero_duration": {
+              "constant": "0";
+              "dtype": "float";
+              "quantity": {
+                "unit": "h";
+                "carrier": "none";
+                "basis": "NONE";
+                "sign": "NONE";
+                "direction": "NONE";
+                "time_basis": "NONE";
+              };
             };
           };
           "expressions": {
@@ -522,7 +542,7 @@ study_contract "c3-original-authoring-0.2" {
               "field": "weight";
             }, {
               "name": "duration_positive";
-              "formula": "duration > 0";
+              "formula": "duration > zero_duration";
               "axes": ["s"];
               "code": "TIME_SUPPORT_INVALID";
               "rule": "R07";
@@ -583,7 +603,7 @@ study_contract "c3-original-authoring-0.2" {
           };
         }];
     };
-    "context_scope": ["study", "authority", "source_ledger", "project", "scenarios", "models", "samples", "observable", "additional_indicators", "comparison", "economics", "evidence", "physical_interfaces", "information", "sensitivities"];
+    "context_scope": ["research_kind", "study", "authority", "source_ledger", "project", "scenarios", "models", "samples", "observable", "additional_indicators", "comparison", "economics", "evidence", "physical_interfaces", "information", "sensitivities"];
   }
  instance {
     "id": "M25";
