@@ -5,8 +5,8 @@
   "gates": [
     {
       "id": "C2-G0",
-      "status": "PARTIAL_PENDING_FINAL_EVIDENCE",
-      "reason": "Primary and all explicit pins reverified; actual final native receipt to be attached"
+      "status": "MET",
+      "reason": "Primary C1-COMP and explicit historical PR pins verified; directly reused original source blobs verified; pinned native runtime and hashes verified in successful CI. Indirect inherited pins preserved, not all individually replayed."
     },
     {
       "id": "C2-G1",
@@ -16,12 +16,12 @@
     {
       "id": "C2-G2",
       "status": "PARTIAL",
-      "reason": "Native mathematical authority established and bounded power integration; complete temporal/condition execution and physical context open"
+      "reason": "Sole native mathematical authority and bounded package 0.1–0.3 / boundary 0.4 integration tested; full temporal, information, condition execution and physical context remain open."
     },
     {
       "id": "C2-G3",
       "status": "PARTIAL",
-      "reason": "Actual bounded swaps, source and counterfactual checks; BLK-04/05 remain"
+      "reason": "Four original profiles plus synthetic swap, bounded native ledger, ABL09/11 and identity checks pass; multi-profile, full N2R/N7 context/authority, general lineage and output semantics open."
     },
     {
       "id": "C2-G4",
@@ -36,7 +36,7 @@
     {
       "id": "C2-G6",
       "status": "PARTIAL",
-      "reason": "Native regression executed; final evidence and additional original profile retest pending, scope incomplete"
+      "reason": "All executed native suites successful on tested commit, failures preserved; new test scope does not cover remaining semantic blockers. Full 116 original paths intentionally not counted as C2."
     },
     {
       "id": "C2-G7",
@@ -50,5 +50,11 @@
     "full_executed": 0
   },
   "authority": "OWNER_TBD",
-  "normative_release": false
+  "normative_release": false,
+  "tested_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+  "native_ci": {
+    "run_id": 46040116020,
+    "job_id": 140645396629,
+    "conclusion": "success"
+  }
 }

@@ -1,6 +1,12 @@
 {
   "status": "PARTIAL",
-  "native_tests": "NOT_EXECUTED_AT_COMMIT",
+  "native_tests": {
+    "status": "PASS",
+    "count": 7,
+    "run_id": 46038424853,
+    "job_id": 140639647522,
+    "consolidated_run": 46040116020
+  },
   "formal_scope": "bounded finite predicates and quantifier order",
   "blockers": [
     "R1 outer metadata adapter",
