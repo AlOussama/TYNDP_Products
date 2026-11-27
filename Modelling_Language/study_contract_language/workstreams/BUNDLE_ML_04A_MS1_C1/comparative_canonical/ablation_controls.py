@@ -93,6 +93,6 @@ def main():
     r.append(control("ABL12","Equal fleet total but unmet individual EV deadline",{"both_numeric_outputs":n.outputs(),"M3_service_predicate":False,"M2_legacy_profile_predicate":"NOT_EXECUTED","independent_oracle":reject(lambda:oracles.run(doc),"EV_SERVICE")},"Same finite arithmetic; M2 still needs separate obligation evaluation."))
     # Code metrics are raw inspected source, never equal-scope savings.
     paths=[Path(__file__).parent/"legacy_comparison.py",Path(__file__).parent/"native_consumer.py",ROOT/"canonical_closure"/"closure.py",ROOT/"canonical_closure"/"package_interface.py",R1/"n1r.py",R1/"pinned"/"profile_engine.py"]
-    metrics=[{"path":str(p.relative_to(ROOT.parent)),"nonblank_noncomment_lines":sum(bool(l.strip()) and not l.lstrip().startswith("#") for l in p.read_text().splitlines())} for p in paths]
+    metrics=[{"path":str(p.resolve().relative_to(ROOT.parent.resolve())),"nonblank_noncomment_lines":sum(bool(l.strip()) and not l.lstrip().startswith("#") for l in p.read_text().splitlines())} for p in paths]
     print("C1_COMP_ABLATION="+json.dumps({"schema":"c1-comp-ablation-0.1","controls":r,"source_metrics":metrics,"scope":"12 independent additional control identities; raw file size not equivalent-scope LOC savings"},separators=(",",":")))
 if __name__=="__main__":main()
