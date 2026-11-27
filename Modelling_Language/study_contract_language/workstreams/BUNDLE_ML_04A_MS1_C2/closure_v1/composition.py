@@ -5,6 +5,7 @@ from copy import deepcopy
 from closure import fields,need,qualified,digest,canon,c1,native,source_map
 from interface import import_package,package_version
 from closure_v1 import definition,metadata,identity,graph
+from closure_v1.diagnostics import call as checked,pointer
 
 VERSION="c2-approved-composition-0.1"
 APPROVAL="c2-research-composition-authorization-0.1"
@@ -40,7 +41,7 @@ def _changed(old,new):
         if n in pa.expressions:need(pa.expressions[n]==pb.expressions[n],"OVERRIDE_PROTECTED_OBSERVABLE")
     return changed
 
-def compose(base,base_pin,request,request_pin,authorization,authorization_pin):
+def _compose(base,base_pin,request,request_pin,authorization,authorization_pin):
     original=definition.admit(base,base_pin)
     fields(request,("schema","base_ref","overrides"),"OVERRIDE_REQUEST_FIELDS")
     need(request["schema"]==VERSION and digest(request)==request_pin and request["base_ref"]==base_pin,"OVERRIDE_REQUEST_PIN")
@@ -72,7 +73,7 @@ def compose(base,base_pin,request,request_pin,authorization,authorization_pin):
         allowed={"id","version","native_signature","native_semantic_identity","source_ref","source_sha256"}
         need({x:v for x,v in p.items() if x not in allowed}=={x:v for x,v in q.items() if x not in allowed},"OVERRIDE_PROFILE_POLICY")
         need((p["id"],p["version"])!=(q["id"],q["version"]),"OVERRIDE_METHOD_VERSION")
-        changed=_changed(old,new)
+        changed=checked(pointer("overrides",next(i for i,v in enumerate(request["overrides"]) if v["id"]==k),"replacement"),"R10",r["slot"],[src[a["authority_ref"]]],_changed,old,new)
         need(type(r["allowed_expressions"]) is list and r["allowed_expressions"]==sorted(set(r["allowed_expressions"])) and changed==r["allowed_expressions"],"OVERRIDE_EXPRESSION_SCOPE")
         replacements[r["slot"]]=deepcopy(new)
         receipts.append({"id":k,"slot":r["slot"],"old_ref":digest(old),"new_ref":digest(new),"changed_expressions":changed,"authority_ref":a["authority_ref"],"source_sha256":a["source_sha256"],"decision":a["decision"],"reason":a["reason"]})
@@ -82,6 +83,9 @@ def compose(base,base_pin,request,request_pin,authorization,authorization_pin):
     out={"schema":RECEIPT,"effective_definition":effective,"effective_pin":digest(effective),"base_semantic_identity":original["semantic_identity"],"effective_receipt":result,"precedence":"EXPLICIT_DISJOINT_REPLACEMENT_ONLY","overrides":sorted(receipts,key=lambda r:r["slot"]),"owner":"OWNER_TBD","conformance":"NOT_PROVED","authority_authenticity":"UNVERIFIED","research_only":True}
     out["audit_identity"]=digest({"base_pin":base_pin,"request_pin":request_pin,"authorization_pin":authorization_pin,"receipt":out})
     return out
+
+def compose(base,base_pin,request,request_pin,authorization,authorization_pin):
+    return checked("","R10",None,(),_compose,base,base_pin,request,request_pin,authorization,authorization_pin)
 
 def export(base,base_pin,request,request_pin,authorization,authorization_pin):
     r=compose(base,base_pin,request,request_pin,authorization,authorization_pin)

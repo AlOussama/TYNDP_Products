@@ -193,7 +193,7 @@ def _admit(definition,expected_definition):
         need(row["source_ref"] in source and row["source_ref"] in slot["authority_refs"] and p["source_ref"]==source[row["source_ref"]]["immutable_ref"],"METHOD_SOURCE_AUTHORITY")
         need("ledger" not in p,"USE_VERSIONED_NATIVE_LEDGER")
         path=pointer("slots",next(i for i,s in enumerate(definition["slots"]) if s["id"]==k))
-        sources=[row["source_ref"]]
+        sources=[source[row["source_ref"]]]
         checked(path+"/profile","R12",k,sources,check_static,row["package"],p,source[row["source_ref"]]["content"])
         b=checked(path+"/package","R00",k,sources,ob.Bound,row["package"],tables,None)
         need(b.leaf["context"]["study"]["id"]==s["id"] and b.leaf["context"]["study"]["version"]==s["version"],"STUDY_IDENTITY")

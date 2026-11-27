@@ -619,11 +619,35 @@ class FinalClosure(unittest.TestCase):
         rec=diagnostics.candidate_receipt(definition.admit,bad,digest(bad));self.assertEqual(rec["status"],"REJECTED")
         e=rec["diagnostics"][0]
         self.assertEqual(e["code"],"METHOD_SOURCE");self.assertEqual(e["path"],"/slots/0/profile");self.assertEqual(e["subject"],"slot:select")
-        self.assertEqual(e["rule_id"],"R09");self.assertIn("authority:select",e["source_refs"]);self.assertEqual(e["rule_source"]["blob"],"7e9f506183bdce7a7c76e08fb7a2f316649088b7")
+        self.assertEqual(e["rule_id"],"R09");self.assertIn("authority:select",e["source_refs"]);self.assertEqual(e["source_pins"][0]["sha256"],d["slots"][0]["profile"]["source_sha256"]);self.assertEqual(e["rule_source"]["blob"],"7e9f506183bdce7a7c76e08fb7a2f316649088b7")
         bad=copy.deepcopy(d);bad["requirements"]["comparisons"][0]["decision_assertions"]=["assertion:lower"]
         rec2=diagnostics.candidate_receipt(definition.admit,bad,digest(bad));e2=rec2["diagnostics"][0]
         self.assertEqual(e2["rule_id"],"R12");self.assertEqual(e2["path"],"/requirements")
         self.assertEqual(e2["code"],"SELECTOR_MEMBERSHIP_AND_ORDER_REQUIRED")
         self.assertEqual(diagnostics.pointer("a/b","~x",1),"/a~1b/~0x/1")
         print("C2_FINAL_DIAGNOSTICS="+json.dumps([e,e2],sort_keys=True))
+    def test_CL32_diagnostic_internal_failure_not_rejection(self):
+        def bug():raise KeyError("internal implementation error")
+        r=diagnostics.candidate_receipt(diagnostics.call,"/slots/0","R00","slot:select",(),bug)
+        self.assertEqual(r["status"],"BLOCKED_INTERNAL")
+        self.assertEqual(r["diagnostics"][0]["code"],"VALIDATION_EXCEPTION")
+        self.assertEqual(r["diagnostics"][0]["path_kind"],"VALIDATION_OBJECT")
+        self.assertEqual(r["diagnostics"][0]["source_pins"],[])
+    def test_CL33_disjoint_override_precedence(self):
+        x,p=simple_graph();d,dp=to_definition(x);first,second=d["slots"]
+        # Two explicitly disjoint override requests. Their sequence cannot
+        # alter the effective definition; exact request audit retains order.
+        old=import_package(first["package"]);doc=source_map(old["native_canonical"]);c=copy.deepcopy(old["context"])
+        doc["expressions"]["v"]="a*3";c["method"]["version"]="0.3";c["study"]["method_ref"]=digest(c["method"])
+        pk=pkg(doc,c);n1=copy.deepcopy(first);n1["package"]=pk;n1["profile"].update(version="0.3",native_signature=import_package(pk)["interface"]["method_identity"],native_semantic_identity=old_identities(pk)["semantic"])
+        n2=replacement(second,"b+2")
+        r,rp,a,ap=authorize(d,second,n2);rr,_,aa,_=authorize(d,first,n1,["v"])
+        r["overrides"].append({**rr["overrides"][0],"id":"override:first"});a["approvals"].append({**aa["approvals"][0],"id":"override:first"});a["request_ref"]=digest(r)
+        z=composition.compose(d,dp,r,digest(r),a,digest(a))
+        r2=copy.deepcopy(r);a2=copy.deepcopy(a);r2["overrides"].reverse();a2["approvals"].reverse();a2["request_ref"]=digest(r2)
+        zz=composition.compose(d,dp,r2,digest(r2),a2,digest(a2))
+        self.assertEqual(z["effective_pin"],zz["effective_pin"]);self.assertNotEqual(z["audit_identity"],zz["audit_identity"])
+        y=copy.deepcopy(x);y["slots"][0].update(package=n1["package"],profile=n1["profile"]);y["slots"][1].update(package=n2["package"],profile=n2["profile"]);y["slots"][1]["data"]["parameters"]["b"][0]["value"]=9;repin(y)
+        effective=z["effective_definition"];ep=z["effective_pin"];i=to_instance(y,effective,ep)
+        self.assertEqual(definition.instantiate(effective,ep,i,digest(i))["graph"]["outputs"]["output:result"][0]["value"],"11")
 if __name__=="__main__":unittest.main(verbosity=2)

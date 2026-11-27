@@ -189,9 +189,9 @@ def evaluate(obj,expected_trust):
         src=source[row["source_ref"]];need(p["source_ref"]==src["immutable_ref"] and p["source_sha256"]==src["sha256"],"METHOD_SOURCE")
         need("ledger" not in p,"USE_VERSIONED_NATIVE_LEDGER")
         path=pointer("slots",next(i for i,s in enumerate(obj["slots"]) if s["id"]==k))
-        b=checked(path,"R00",k,[row["source_ref"]],ob.Bound,row["package"],tables,row["data"])
+        b=checked(path,"R00",k,[src],ob.Bound,row["package"],tables,row["data"])
         need(b.leaf["context"]["study"]["id"]==obj["study"]["id"] and b.leaf["context"]["study"]["version"]==obj["study"]["version"],"STUDY_IDENTITY")
-        bind=checked(path+"/bindings","R01",k,[row["source_ref"]],validate_bindings,row,b,slot)
+        bind=checked(path+"/bindings","R01",k,[src],validate_bindings,row,b,slot)
         for n,z in b.leaf["context"]["conversions"].items():
             matches=[x for x in source.values() if x["immutable_ref"]==z["source_ref"] and x["sha256"]==z["source_sha256"] and x["revision"]==z["version"]]
             need(len(matches)==1,"CONVERSION_SOURCE_BINDING")
@@ -220,7 +220,7 @@ def evaluate(obj,expected_trust):
         row,b,bind=prepared[k];slot=tables["slots"][k];src=source[row["source_ref"]]
         for sym,ref in bind["upstream"].items():
             need(values(b,sym)==out_values[ref],"UPSTREAM_RESULT_BINDING")
-        path=pointer("slots",next(i for i,s in enumerate(obj["slots"]) if s["id"]==k));refs_=[row["source_ref"]]
+        path=pointer("slots",next(i for i,s in enumerate(obj["slots"]) if s["id"]==k));refs_=[src]
         used,comp=checked(path+"/case_context","R12",k,refs_,comparison,row,b,bind,source,external)
         need(not used_comparisons&used,"DUPLICATE_COMPARISON_POLICY");used_comparisons|=used
         # Original C2 exact method/profile/weight/range/context validation.
