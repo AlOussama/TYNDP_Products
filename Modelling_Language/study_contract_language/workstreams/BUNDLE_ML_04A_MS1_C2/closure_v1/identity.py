@@ -28,11 +28,19 @@ def frame(value):
             if k=="domains" and not r["ordered"]:r["members"]=sorted(r["members"])
             if k=="information_sets":r["partition"]=sorted([sorted(g) for g in r["partition"]])
     return x
+def guard(g):
+    x=deepcopy(g)
+    if "args" in x:
+        args=[guard(z) for z in x["args"]]
+        if x["op"] in ("AND","OR"):args=sorted(args,key=digest)
+        x["args"]=args
+    return x
 def assertion(a):
     x=deepcopy(a)
     for k in ("assumptions","authority_refs"):x[k]=sorted(x[k])
     for k,v in x["at"].items():x["at"][k]=sorted(v)
-    # Binders are ordered. AND/OR order is conservatively retained.
+    # Quantifier binders are ordered; outer commutative guards are canonicalized.
+    x["guard"]=guard(x["guard"])
     return x
 def profile(p,package):
     x=deepcopy(p)

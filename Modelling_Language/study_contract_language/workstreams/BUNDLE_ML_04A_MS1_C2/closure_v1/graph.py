@@ -127,15 +127,17 @@ def comparison(row,bound,binding,source,external):
         x,y=compare(p["project"]);changed=sorted(f for f in x if x[f]!=y[f]);need(set(changed)<=set(p["allowed_changes"]),"UNAUTHORIZED_PROJECT_CHANGE")
         receipts.append({"pair":k,"policy":p["id"],"exogenous":a,"project_reference":x,"project_alternative":y,"changed":changed,"authority":"RESEARCH_ASSUMPTION","owner":"OWNER_TBD"})
     return used,receipts
-def verify_requests(row,bound,slot,source):
+def verify_requests(row,bound,slot,source,obligations,policies,boundaries):
     subjects={a["id"] for a in row["assertions"] if a["modality"]!="MAY"}|set(slot["outputs"])|{a["id"] for a in row["policies"]}|{a["id"] for a in row["states"]}
     actual=md.index(row["verification"]);seen=set();pending=[]
+    statuses={a["id"]:a["finite_status"] for a in obligations["assertions"]}
+    statuses.update({a["id"]:a["status"] for a in policies+boundaries});statuses.update({k:"FINITE_OUTPUT_COMPUTED" for k in slot["outputs"]})
     for k,r in actual.items():
         fields(r,("id","subject","kind","oracle_ref","status"),"VERIFICATION_FIELDS")
         need(r["subject"] in subjects and r["subject"] not in seen and r["status"]=="NOT_EXECUTED","VERIFICATION_COVERAGE_OR_PROMOTION")
         need(r["oracle_ref"] in source and r["kind"] in ("FINITE_OBSERVATION","BEHAVIORAL","FORMAL_PROOF","TOOL_CONFORMANCE"),"VERIFICATION_REFERENCE")
         seen.add(r["subject"])
-        pending.append({"request":k,"subject":r["subject"],"requested_kind":r["kind"],"oracle_ref":r["oracle_ref"],"status":"FINITE_CHECK_EXECUTED_UNJUDGED" if r["kind"]=="FINITE_OBSERVATION" else "NOT_EXECUTED"})
+        pending.append({"request":k,"subject":r["subject"],"requested_kind":r["kind"],"oracle_ref":r["oracle_ref"],"status":("BLOCKED" if statuses[r["subject"]]=="BLOCKED" else "NOT_APPLICABLE" if statuses[r["subject"]]=="NOT_APPLICABLE" else "FINITE_CHECK_EXECUTED_UNJUDGED") if r["kind"]=="FINITE_OBSERVATION" else "NOT_EXECUTED","observed_status":statuses[r["subject"]] if r["kind"]=="FINITE_OBSERVATION" else None})
     need(seen==subjects,"VERIFICATION_COVERAGE")
     return sorted(pending,key=lambda r:r["request"])
 def evaluate(obj,expected_trust):
@@ -144,10 +146,15 @@ def evaluate(obj,expected_trust):
     tables=md.validate(obj["frame"]);source=sources(obj,tables);disc=disclosures(obj,tables,source)
     slots=md.index(obj["slots"]);need(bool(slots) and set(slots)==set(tables["slots"]),"STUDY_SLOT_COVERAGE")
     prepared={};producers={};external={};observed={};bound_obs=set()
+    global_ids={obj["frame"]["id"],*(k for t in tables.values() for k in t)}
+    for r in [*obj["events"],*obj["disclosures"]]:
+        need(qualified(r["id"]) and r["id"] not in global_ids,"DUPLICATE_ID");global_ids.add(r["id"])
     # Admit and type-check every slot before evaluating any of them.
     for k,row in slots.items():
         fields(row,("id","package","profile","study","source_ref","data","case_context","bindings","assertions","witnesses","policies","states","comparisons","verification","ledger"),"SLOT_INSTANCE_FIELDS")
         slot=tables["slots"][k];p=row["profile"]
+        for r in [*row["assertions"],*row["witnesses"],*row["policies"],*row["states"],*row["verification"],*(row["ledger"]["contributions"] if row["ledger"] is not None else [])]:
+            need(qualified(r["id"]) and r["id"] not in global_ids,"DUPLICATE_ID");global_ids.add(r["id"])
         need(row["source_ref"] in source and row["source_ref"] in slot["authority_refs"],"METHOD_SOURCE_AUTHORITY")
         src=source[row["source_ref"]];need(p["source_ref"]==src["immutable_ref"] and p["source_sha256"]==src["sha256"],"METHOD_SOURCE")
         need("ledger" not in p,"USE_VERSIONED_NATIVE_LEDGER")
@@ -209,8 +216,8 @@ def evaluate(obj,expected_trust):
         for ref,sym in bind["producers"].items():
             out_values[ref]=values(b,sym)
             n=b.symbols[sym]["native_name"];out_lineage[ref]=lr.get(n,{})
-            if tables["outputs"][ref]["contribution_policy"]=="REQUIRED":need(n in lr and bool(lr[n]) and any(lr[n].values()),"CONTRIBUTION_COMPLETENESS")
-        verification=verify_requests(row,b,slot,source)
+            if tables["outputs"][ref]["contribution_policy"]=="REQUIRED":need(n in lr and n in row["ledger"]["expected"] and bool(row["ledger"]["expected"][n]) and any(lr[n].values()),"CONTRIBUTION_COMPLETENESS")
+        verification=verify_requests(row,b,slot,source,obligations,policy,states)
         results[k]={"method":m,"obligations":obligations,"policies":policy,"boundaries":states,"comparisons":comp,
                     "lineage":ledger.receipt(lr),"verification":verification,"data_identity":b.data_identity,"owner":"OWNER_TBD"}
         sem_slots[k]={"math":identity.mathematics(row["package"]),"profile":identity.profile(row["profile"],row["package"]),"data":b.data_identity,
@@ -219,7 +226,7 @@ def evaluate(obj,expected_trust):
                       "case_context":{**row["case_context"],"pairs":identity.byid(row["case_context"]["pairs"])},
                       "verification":identity.byid(row["verification"]),"ledger":ledger.semantic(row["ledger"])}
     need(used_comparisons==set(tables["comparisons"]),"COUNTERFACTUAL_COVERAGE")
-    need(event_usage==set(events),"EVENT_COVERAGE")
+    need(event_usage==set(events) and {e for rows in out_lineage.values() for c in rows.values() for e in c}==set(events),"EVENT_COVERAGE")
     sem=digest({"schema":VERSION,"frame":identity.frame(obj["frame"]),"study":{"id":obj["study"]["id"],"version":obj["study"]["version"]},"slots":sem_slots,
                 "events":identity.byid(obj["events"]),"disclosures":identity.byid(obj["disclosures"])})
     negative=any(r["obligations"]["status"]=="FINITE_COUNTEREXAMPLE" or any(p["status"]=="FINITE_COUNTEREXAMPLE" for p in r["policies"]) for r in results.values())

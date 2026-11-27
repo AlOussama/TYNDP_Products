@@ -17,7 +17,7 @@ class Bound:
         self.leaf=import_package(package);self.program=validate_package_domains(self.leaf,tables)
         self.tables=tables;self.package=package
         self.axes={z["id"]:n for n,z in self.leaf["context"]["domains"].items()}
-        self.symbols={z["id"]:z for z in self.leaf["interface"]["symbols"].values()}
+        self.symbols={z["symbol_id"]:z for z in self.leaf["interface"]["symbols"].values()}
         self.consumer=finite_consumer(package,data) if data is not None else None
         self.data_identity=self.consumer.receipt["data_identity"] if self.consumer else None
     def resolve(self,ref,roles):

@@ -1,0 +1,2 @@
+# First obligation integration failure
+Run 46043975860, job 140658481025, tested commit fc6f891ab42043c50a9fdc2f50c7471501f0377e. Existing C2 regression and first five targeted controls passed. Five new obligation tests failed at the common Bound constructor because the code used z["id"] rather than the actual public signature key z["symbol_id"]. Corrected adapter; no changed scientific expectation. The original run remains available at https://github.com/AlOussama/TYNDP_Products/actions/runs/46043975860.

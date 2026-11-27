@@ -135,4 +135,152 @@ class ObligationControls(unittest.TestCase):
         aa[1]["at"]["domain:t"]=[1]
         with self.assertRaisesRegex(Reject,"BOUNDARY_SCOPE_OR_SYMBOL"):boundaries(b,aa,st)
 
+# Integrated graph fixtures. No CBA/IoSN-specific rule is in the validator.
+from closure import digest,text_hash
+from closure_v1 import graph,identity
+from interface import resolve_method
+from WS_B.methods import identities as old_identities
+def source_row(i,ref,content):
+    return {"id":i,"immutable_ref":ref,"revision":"1","content":content,"sha256":text_hash(content)}
+def sig(id,qty,axes=None,**extra):return {"id":id,"quantity":qty,"axes":axes or [],"value_type":"REAL","authority_refs":["authority:source"],**extra}
+def source_for_slot(f,source_rows,k):
+    src=source_row("authority:"+k,"fixture:"+k,"synthetic method "+k)
+    f["authorities"].append({"id":src["id"],"role":"SOURCE","immutable_ref":src["immutable_ref"],"revision":"1","decision_state":"OWNER_TBD"})
+    source_rows.append(src);return src
+def make_slot(f,src,k,d,c,data,bindings,inputs,obs,outputs,external_symbols,assertions=None,comparison_pairs=None,case_context=None,weight_roles=None,ledger=None,depends=None):
+    c["method"]["id"]="method:"+k;c["study"]["method_ref"]=digest(c["method"])
+    pck=pkg(d,c);r=resolve_method(pck,data);s=r["signature"]
+    prof={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"native_semantic_identity":old_identities(pck)["semantic"],"source_ref":src["immutable_ref"],"source_sha256":src["sha256"],"approval":"RESEARCH_ASSUMPTION",
+          "input_roles":{z["symbol_id"]:(weight_roles or {}).get(z["symbol_id"],"VALUE") for z in s["inputs"]},
+          "axis_roles":{z["id"]:next(a["kind"] if a["kind"] in ("time","scenario") else "sample" for a in f["domains"] if a["id"]==z["id"]) for z in c["domains"].values()},
+          "parameter_ranges":{},"probability_rules":{},"counterfactual_pairs":comparison_pairs or [],"outputs":[z["symbol_id"] for z in s["outputs"]]}
+    if s["outputs"]:prof["output_contract"]={"external":external_symbols,"intermediate":[z["symbol_id"] for z in s["outputs"] if z["symbol_id"] not in external_symbols]}
+    ctx=case_context or {"pairs":[]}
+    st={"id":c["study"]["id"],"version":c["study"]["version"],"profile_identity":digest(prof),"native_study_identity":r["study_identity"],"data_context_identity":r["context_receipt"]["context_identity"],"case_context_identity":digest(ctx),"owner":"OWNER_TBD"}
+    a=assertions or [];verify=[{"id":"verification:"+k+":"+str(i),"subject":v,"kind":"FINITE_OBSERVATION","oracle_ref":"authority:source","status":"NOT_EXECUTED"} for i,v in enumerate([*outputs,*[z["id"] for z in a if z["modality"]!="MAY"]])]
+    f["slots"].append({"id":"slot:"+k,"inputs":inputs,"observables":obs,"outputs":outputs,"scope":"scope:main","authority_refs":[src["id"]]})
+    f["processes"].append({"id":"process:"+k,"slot":"slot:"+k,"depends_on":depends or [],"authority_refs":[src["id"]]})
+    return {"id":"slot:"+k,"package":pck,"profile":prof,"study":st,"source_ref":src["id"],"data":data,"case_context":ctx,"bindings":bindings,"assertions":a,"witnesses":[],"policies":[],"states":[],"comparisons":[],"verification":verify,"ledger":ledger}
+def repin(x):
+    for row in x["slots"]:
+        p=row["profile"];r=resolve_method(row["package"],row["data"])
+        row["study"].update(profile_identity=digest(p),native_study_identity=r["study_identity"],data_context_identity=r["context_receipt"]["context_identity"],case_context_identity=digest(row["case_context"]))
+    x["trust"]=graph.pins(x);x["study"]["frame_ref"]=x["trust"]["frame"];x["study"]["slot_refs"]=x["trust"]["slots"]
+    return digest(x["trust"])
+def bundle(f,slots,src,events=None):
+    x={"schema":graph.INPUT,"study":{"id":"study:research","version":"0.2","owner":"OWNER_TBD","frame_ref":"","slot_refs":{}},"frame":f,"slots":slots,"sources":src,"disclosures":[],"events":events or [],"trust":{}}
+    return x,repin(x)
+def simple_graph(second="b+1",description=None):
+    f=frame();src=[source_row("authority:source","fixture:source","synthetic independent oracle specification")]
+    f["scopes"]=[{"id":"scope:main","domains":[],"subjects":[]}]
+    f["inputs"]=[sig("input:a",q())]
+    f["outputs"]=[sig("output:mid",q(),contribution_policy="NOT_REQUIRED"),sig("output:result",q(),contribution_policy="NOT_REQUIRED")]
+    s1=source_for_slot(f,src,"first");s2=source_for_slot(f,src,"second")
+    a={"version":0,"parameters":{"a":{"dims":[]}},"expressions":{"v":"a*2"}}
+    if description is not None:a["parameters"]["a"]["description"]=description
+    c=fixture(a,roles={"a":"INPUT"});p1=make_slot(f,s1,"first",a,c,dataset({"a":[{"key":[],"value":3}]}),{"ref:a":{"kind":"INPUT","ref":"input:a"},"ref:v":{"kind":"OUTPUT","ref":"output:mid"}},["input:a"],[],["output:mid"],["ref:v"])
+    b={"version":0,"parameters":{"b":{"dims":[]}},"expressions":{"w":second}}
+    c=fixture(b,roles={"b":"INPUT"});p2=make_slot(f,s2,"second",b,c,dataset({"b":[{"key":[],"value":6}]}),{"ref:b":{"kind":"UPSTREAM","ref":"output:mid"},"ref:w":{"kind":"OUTPUT","ref":"output:result"}},["output:mid"],[],["output:result"],["ref:w"],depends=["process:first"])
+    return bundle(f,[p1,p2],src)
+def ledger_graph(second="b*2",mode="DISJOINT"):
+    f=frame();src=[source_row("authority:source","fixture:source","synthetic event catalogue")]
+    f["domains"]=[{"id":"domain:t","kind":"time","members":[0,1],"ordered":True}]
+    f["chronologies"]=[{"id":"chronology:t","domain":"domain:t","mode":"NONCYCLIC","authority_refs":["authority:source"],"intervals":[{"label":i,"start_h":i,"end_h":i+1,"duration_h":1} for i in range(2)]}]
+    f["scopes"]=[{"id":"scope:main","domains":["domain:t"],"subjects":["case:base"]}]
+    money=q("EUR","currency","EUR:real:2025")
+    f["referents"]=[{"id":"case:base","kind":"cost_series","quantity":money,"axes":["domain:t"],"authority_refs":["authority:source"]}]
+    f["observables"]=[sig("observable:a",money,["domain:t"],subject="case:base",projection="IDENTITY")]
+    f["outputs"]=[sig("output:subtotal",money,contribution_policy="REQUIRED"),sig("output:total",money,contribution_policy="REQUIRED")]
+    events=[{"id":"event:"+str(i),"case":"case:base","event_key":"operating_cost","coordinate":{"domain:t":i},"source_ref":"authority:source"} for i in range(2)]
+    ids=[e["id"] for e in events]
+    led1={"bindings":{"a":{"role":"contribution","observable":"observable:a","case":"case:base","data_ref":""}},"key_axes":{"a":["domain:t"]},"contributions":[{"id":"contribution:"+str(i),"series":"a","key":[i],"case":"case:base","observable":"observable:a","event":e["id"]} for i,e in enumerate(events)],"policy":{"v":"DISJOINT"},"global_disjoint":["v"],"expected":{"v":ids}}
+    s1=source_for_slot(f,src,"first");s2=source_for_slot(f,src,"second")
+    a={"version":0,"dimensions":{"t":{"dtype":"int","ordered":True}},"parameters":{"a":{"dims":["t"]}},"expressions":{"v":"sum(a, over=t)"}}
+    c=fixture(a,quant={"a":money,"v":money},domains={"t":[0,1]})
+    p1=make_slot(f,s1,"first",a,c,dataset({"a":series([2,4])}),{"ref:a":{"kind":"OBSERVABLE","ref":"observable:a"},"ref:v":{"kind":"OUTPUT","ref":"output:subtotal"}},[],["observable:a"],["output:subtotal"],["ref:v"],ledger=led1)
+    b={"version":0,"parameters":{"b":{"dims":[]}},"expressions":{"w":second}}
+    c=fixture(b,roles={"b":"INPUT"},quant={"b":money,"w":money})
+    led2={"bindings":{"b":{"role":"auxiliary","observable":"","case":"","data_ref":"ref:b"}},"key_axes":{"b":[]},"contributions":[],"policy":{"w":mode},"global_disjoint":["w"] if mode=="DISJOINT" else [],"expected":{"w":ids}}
+    p2=make_slot(f,s2,"second",b,c,dataset({"b":[{"key":[],"value":6}]}),{"ref:b":{"kind":"UPSTREAM","ref":"output:subtotal"},"ref:w":{"kind":"OUTPUT","ref":"output:total"}},["output:subtotal"],[],["output:total"],["ref:w"],ledger=led2,depends=["process:first"])
+    return bundle(f,[p1,p2],src,events)
+def counterfactual_graph():
+    f=frame();src=[source_row("authority:source","fixture:source","synthetic paired comparison policy")]
+    f["scopes"]=[{"id":"scope:main","domains":[],"subjects":["case:reference","case:alternative"]}]
+    money=q("EUR","currency","EUR:real:2025")
+    for n in ("reference","alternative"):
+        f["referents"].append({"id":"case:"+n,"kind":"study_case","quantity":money,"axes":[],"authority_refs":["authority:source"]})
+        f["observables"].append(sig("observable:"+n,money,subject="case:"+n,projection="IDENTITY"))
+    f["relations"]=[{"id":"relation:pair","kind":"counterfactual_of","from":"case:alternative","to":"case:reference","authority_refs":["authority:source"]}]
+    f["inputs"]=[sig("input:"+n,q()) for n in ("load_ref","load_alt","cap_ref","cap_alt")]
+    f["outputs"]=[sig("output:delta",money,contribution_policy="NOT_REQUIRED")]
+    f["comparisons"]=[{"id":"comparison:policy","relation":"relation:pair","exogenous":{"load":{"reference":"input:load_ref","alternative":"input:load_alt"}},"project":{"capacity":{"reference":"input:cap_ref","alternative":"input:cap_alt"}},"allowed_changes":["capacity"],"authority_refs":["authority:source"]}]
+    s=source_for_slot(f,src,"pair")
+    vals={"base":100,"alt":80,"load_ref":10,"load_alt":10,"cap_ref":2,"cap_alt":3}
+    d={"version":0,"parameters":{n:{"dims":[]} for n in vals},"expressions":{"delta":"base-alt"}}
+    c=fixture(d,roles={n:"INPUT" for n in ("load_ref","load_alt","cap_ref","cap_alt")},quant={n:money for n in ("base","alt","delta")})
+    data=dataset({n:[{"key":[],"value":v}] for n,v in vals.items()})
+    bind={"ref:"+n:{"kind":"INPUT","ref":"input:"+n} for n in ("load_ref","load_alt","cap_ref","cap_alt")}
+    bind.update({"ref:base":{"kind":"OBSERVABLE","ref":"observable:reference"},"ref:alt":{"kind":"OBSERVABLE","ref":"observable:alternative"},"ref:delta":{"kind":"OUTPUT","ref":"output:delta"}})
+    context={"pairs":[{"id":"pair:cost","reference_exogenous":{"load":digest([{"key":[],"value":"10"}])},"alternative_exogenous":{"load":digest([{"key":[],"value":"10"}])}}]}
+    row=make_slot(f,s,"pair",d,c,data,bind,[x["id"] for x in f["inputs"]],["observable:reference","observable:alternative"],["output:delta"],["ref:delta"],comparison_pairs=[{"id":"pair:cost","reference":"ref:base","alternative":"ref:alt"}],case_context=context)
+    row["comparisons"]=[{"id":"pair:cost","policy":"comparison:policy","source_ref":"authority:source"}]
+    return bundle(f,[row],src)
+class GraphControls(unittest.TestCase):
+    def test_CL11_multi_method_graph(self):
+        x,p=simple_graph();r=graph.evaluate(x,p)
+        self.assertEqual(r["execution_order"],["slot:first","slot:second"])
+        self.assertEqual(r["outputs"]["output:result"],[{"key":[],"value":"7"}])
+        self.assertEqual(r["conformance"],"NOT_PROVED")
+        t=graph.export(x,p);self.assertEqual(graph.reimport(t,p)["receipt"],r)
+        print("C2_CLOSURE_GRAPH="+json.dumps(r,sort_keys=True))
+    def test_CL12_graph_drift_and_dependency(self):
+        x,p=simple_graph();bad=copy.deepcopy(x);bad["slots"][1]["data"]["parameters"]["b"][0]["value"]=7
+        with self.assertRaisesRegex(Reject,"TRUST_CONTEXT_MISMATCH"):graph.evaluate(bad,p)
+        with self.assertRaisesRegex(Reject,"UPSTREAM_RESULT_BINDING"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["frame"]["processes"][1]["depends_on"]=[]
+        with self.assertRaisesRegex(Reject,"PROCESS_DEPENDENCY_BINDING"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["slots"][0]["bindings"]["ref:a"]={"kind":"UPSTREAM","ref":"output:result"};bad["frame"]["slots"][0]["inputs"]=["output:result"];bad["frame"]["inputs"]=[]
+        bad["frame"]["processes"][0]["depends_on"]=["process:second"]
+        with self.assertRaisesRegex(Reject,"METHOD_DEPENDENCY_CYCLE"):graph.evaluate(bad,repin(bad))
+    def test_CL13_counterfactual_context(self):
+        x,p=counterfactual_graph();r=graph.evaluate(x,p)
+        self.assertEqual(r["outputs"]["output:delta"][0]["value"],"20")
+        self.assertEqual(r["slots"]["slot:pair"]["comparisons"][0]["changed"],["capacity"])
+        bad=copy.deepcopy(x);bad["frame"]["comparisons"][0]["allowed_changes"]=[]
+        with self.assertRaisesRegex(Reject,"UNAUTHORIZED_PROJECT_CHANGE"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["slots"][0]["data"]["parameters"]["load_alt"][0]["value"]=11
+        with self.assertRaisesRegex(Reject,"COUNTERFACTUAL_EXOGENEITY"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["slots"][0]["case_context"]["pairs"][0]["reference_exogenous"]={"load":"fake"}
+        with self.assertRaisesRegex(Reject,"COUNTERFACTUAL_CONTEXT_CONTENT"):graph.evaluate(bad,repin(bad))
+    def test_CL14_coordinate_ledger_and_cross_slot(self):
+        x,p=ledger_graph();r=graph.evaluate(x,p)
+        self.assertEqual(r["outputs"]["output:total"][0]["value"],"12")
+        self.assertEqual(r["slots"]["slot:second"]["lineage"]["w"][0]["events"],{"event:0":1,"event:1":1})
+        bad=copy.deepcopy(x);bad["slots"][0]["ledger"]["contributions"].pop()
+        with self.assertRaisesRegex(Reject,"MISSING_CONTRIBUTION"):graph.evaluate(bad,repin(bad))
+        bad=copy.deepcopy(x);bad["events"][1]["coordinate"]={"domain:t":0}
+        with self.assertRaisesRegex(Reject,"DUPLICATE_EVENT_IDENTITY"):graph.evaluate(bad,repin(bad))
+        bad,p=ledger_graph("b+b")
+        with self.assertRaisesRegex(Reject,"SEMANTIC_DOUBLE_COUNT"):graph.evaluate(bad,p)
+        good,p=ledger_graph("b+b","ALLOW_REUSE");r=graph.evaluate(good,p)
+        self.assertEqual(r["slots"]["slot:second"]["lineage"]["w"][0]["events"],{"event:0":2,"event:1":2})
+        print("C2_CLOSURE_LEDGER="+json.dumps(r["slots"]["slot:second"]["lineage"],sort_keys=True))
+    def test_CL15_semantic_and_audit_order(self):
+        x,p=ledger_graph();a=graph.evaluate(x,p)
+        y=copy.deepcopy(x);y["slots"].reverse();y["frame"]["outputs"].reverse();y["events"].reverse()
+        first=next(r for r in y["slots"] if r["id"]=="slot:first");first["data"]["parameters"]["a"].reverse();first["ledger"]["contributions"].reverse()
+        b=graph.evaluate(y,repin(y));self.assertEqual(a["semantic_identity"],b["semantic_identity"]);self.assertNotEqual(a["audit_identity"],b["audit_identity"])
+        x,p=simple_graph();a=graph.evaluate(x,p)
+        y,p=simple_graph(description="Only author documentation");b=graph.evaluate(y,p)
+        self.assertEqual(a["semantic_identity"],b["semantic_identity"]);self.assertNotEqual(a["audit_identity"],b["audit_identity"])
+        z,p=simple_graph(second="b+2");self.assertNotEqual(a["semantic_identity"],graph.evaluate(z,p)["semantic_identity"])
+    def test_CL16_evidence_and_variation(self):
+        x,p=ledger_graph();bad=copy.deepcopy(x);bad["slots"][1]["verification"][0]["status"]="PASS"
+        with self.assertRaisesRegex(Reject,"VERIFICATION_COVERAGE_OR_PROMOTION"):graph.evaluate(bad,repin(bad))
+        y=copy.deepcopy(x);y["frame"]["variations"]=[{"id":"variation:formulation","subject":"case:base","alternatives":["energy","soc"],"disclosure":True,"source_refs":["authority:source"]}]
+        with self.assertRaisesRegex(Reject,"VARIATION_DISCLOSURE_COVERAGE"):graph.evaluate(y,repin(y))
+        y["disclosures"]=[{"id":"disclosure:1","variation":"variation:formulation","choice":"soc","source_ref":"authority:source"}]
+        y["slots"][1]["verification"][0]["kind"]="TOOL_CONFORMANCE";r=graph.evaluate(y,repin(y))
+        self.assertEqual(r["slots"]["slot:second"]["verification"][0]["status"],"NOT_EXECUTED")
+        self.assertEqual(r["owner"],"OWNER_TBD")
 if __name__=="__main__":unittest.main(verbosity=2)

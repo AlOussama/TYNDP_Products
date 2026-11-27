@@ -16,13 +16,16 @@ def validate_events(rows,tables,sources):
     out=index(rows);seen=set()
     for k,r in out.items():
         fields(r,("id","case","event_key","coordinate","source_ref"),"EVENT_FIELDS")
-        need(qualified(k) and qualified(r["case"]) and type(r["event_key"]) is str and bool(r["event_key"]) and r["source_ref"] in sources,"EVENT_ID")
+        need(qualified(k) and r["case"] in {**tables["referents"],**tables["ports"]} and type(r["event_key"]) is str and bool(r["event_key"]) and r["source_ref"] in sources,"EVENT_ID")
         coord=r["coordinate"];need(type(coord) is dict and all(a in tables["domains"] and v in tables["domains"][a]["members"] and type(v) is type(tables["domains"][a]["members"][0]) for a,v in coord.items()),"EVENT_COORDINATE")
         key=digest([r["case"],r["event_key"],coord]);need(key not in seen,"DUPLICATE_EVENT_IDENTITY");seen.add(key)
     return out
 def semantic(spec):
     if spec is None:return None
     x=deepcopy(spec);x["contributions"]=sorted(x["contributions"],key=lambda r:r["id"])
+    for r in x["contributions"]:
+        axes=x["key_axes"][r["series"]];r["key"]=[r["key"][axes.index(a)] for a in sorted(axes)]
+    for k,v in x["key_axes"].items():x["key_axes"][k]=sorted(v)
     x["global_disjoint"]=sorted(x["global_disjoint"])
     for k,v in x["expected"].items():x["expected"][k]=sorted(v)
     return x
