@@ -42,7 +42,7 @@ class ClosureControls(unittest.TestCase):
         f=frame();f["components"]=[{"id":"component:a","kind":"storage","authority_refs":["authority:source"]},{"id":"component:b","kind":"network","authority_refs":["authority:source"]}]
         f["ports"]=[{"id":"port:"+n,"component_ref":"component:"+n,"direction":di,"quantity":q("MW","electricity"),"axes":[],"authority_refs":["authority:source"]} for n,di in (("a","OUT"),("b","IN"))]
         f["relations"]=[{"id":"relation:connection","kind":"connected_to","from":"port:a","to":"port:b","authority_refs":["authority:source"]}]
-        f["observables"]=[{"id":"observable:p","subject":"port:a","quantity":q("MW","electricity"),"axes":[],"projection":"IDENTITY","authority_refs":["authority:source"]}]
+        f["observables"]=[{"id":"observable:p","subject":"port:a","quantity":q("MW","electricity"),"axes":[],"projection":"IDENTITY","value_type":"REAL","authority_refs":["authority:source"]}]
         metadata.validate(f)
         bad=copy.deepcopy(f);bad["ports"][1]["quantity"]=q("MW_heat","heat")
         with self.assertRaisesRegex(Reject,"RELATION_TYPE"):metadata.validate(bad)

@@ -8,7 +8,7 @@ from closure import need,fields,quantity,qualified,exact,digest,Reject
 from closure_v1 import r1_reuse as r1
 
 KINDS=("time","scenario","trace","request","response","component","port","sample","space","event","stage")
-COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes")
+COLLECTIONS=("domains","scopes","components","ports","referents","observables","inputs","outputs","relations","authorities","variations","chronologies","information_sets","slots","processes","comparisons")
 def index(rows):
     # The original R1 table validates uniqueness and identifier grammar.
     try:return r1.table(rows)
@@ -72,7 +72,8 @@ def validate(frame):
         fields(a,("id","kind","quantity","axes","authority_refs"),"REFERENT_FIELDS")
         need(string(a["kind"]),"REFERENT_TYPE");typed(a["quantity"]);axes(a["axes"]);authorities(a["authority_refs"])
     for a in obs.values():
-        fields(a,("id","subject","quantity","axes","projection","authority_refs"),"OBSERVABLE_FIELDS")
+        fields(a,("id","subject","quantity","axes","projection","value_type","authority_refs"),"OBSERVABLE_FIELDS")
+        need(a["value_type"] in ("REAL","INTEGER","BOOLEAN"),"VALUE_TYPE")
         need(a["subject"] in {**ports,**referents},"OBSERVABLE_SUBJECT")
         typed(a["quantity"]);axes(a["axes"]);authorities(a["authority_refs"])
         s=subjects[a["subject"]]
@@ -81,7 +82,9 @@ def validate(frame):
             need(qcompat(a["quantity"],s["quantity"]) and a["axes"]==s["axes"],"OBSERVABLE_TYPE")
     for k,t in (("inputs",inputs),("outputs",outputs)):
         for a in t.values():
-            fields(a,("id","quantity","axes","authority_refs"),"SIGNATURE_FIELDS")
+            fields(a,("id","quantity","axes","value_type","authority_refs")+(("contribution_policy",) if k=="outputs" else ()),"SIGNATURE_FIELDS")
+            need(a["value_type"] in ("REAL","INTEGER","BOOLEAN"),"VALUE_TYPE")
+            if k=="outputs":need(a["contribution_policy"] in ("REQUIRED","NOT_REQUIRED"),"CONTRIBUTION_POLICY")
             typed(a["quantity"]);axes(a["axes"]);authorities(a["authority_refs"])
     for a in tables["relations"].values():
         fields(a,("id","kind","from","to","authority_refs"),"RELATION_FIELDS");authorities(a["authority_refs"])
@@ -122,11 +125,24 @@ def validate(frame):
     for (t,s),stages in partitions.items():need(stages==set(dom[t]["members"]),"INFORMATION_STAGE_COVERAGE")
     for a in tables["slots"].values():
         fields(a,("id","inputs","observables","outputs","scope","authority_refs"),"SLOT_FIELDS")
-        refs(a["inputs"],inputs,"SLOT_INPUT",False);refs(a["observables"],obs,"SLOT_OBSERVABLE",False);refs(a["outputs"],outputs,"SLOT_OUTPUT",False)
+        refs(a["inputs"],{**inputs,**outputs},"SLOT_INPUT",False);refs(a["observables"],obs,"SLOT_OBSERVABLE",False);refs(a["outputs"],outputs,"SLOT_OUTPUT",False)
         need(a["scope"] in tables["scopes"],"SLOT_SCOPE");authorities(a["authority_refs"])
     for a in tables["processes"].values():
         fields(a,("id","slot","depends_on","authority_refs"),"PROCESS_FIELDS")
         need(a["slot"] in tables["slots"],"PROCESS_SLOT");refs(a["depends_on"],tables["processes"],"PROCESS_DEPENDENCY",False);authorities(a["authority_refs"])
+    seen_rel=set()
+    for a in tables["comparisons"].values():
+        fields(a,("id","relation","exogenous","project","allowed_changes","authority_refs"),"COMPARISON_FIELDS")
+        rel=tables["relations"].get(a["relation"]);need(rel is not None and rel["kind"]=="counterfactual_of" and a["relation"] not in seen_rel,"COUNTERFACTUAL_RELATION")
+        seen_rel.add(a["relation"]);authorities(a["authority_refs"])
+        ex,pr=a["exogenous"],a["project"]
+        need(type(ex) is dict and bool(ex) and type(pr) is dict and not set(ex)&set(pr),"COUNTERFACTUAL_FIELD_UNIVERSE")
+        for field,pair in {**ex,**pr}.items():
+            need(string(field),"COUNTERFACTUAL_FIELD");fields(pair,("reference","alternative"),"COUNTERFACTUAL_FIELD")
+            x,y=pair["reference"],pair["alternative"];need(x in inputs and y in inputs,"COUNTERFACTUAL_INPUT")
+            need(inputs[x]["axes"]==inputs[y]["axes"] and inputs[x]["value_type"]==inputs[y]["value_type"] and qcompat(inputs[x]["quantity"],inputs[y]["quantity"]),"COUNTERFACTUAL_SIGNATURE")
+        refs(a["allowed_changes"],pr,"PROJECT_CHANGE_SCOPE",False)
+    need(seen_rel=={k for k,x in tables["relations"].items() if x["kind"]=="counterfactual_of"},"COUNTERFACTUAL_COVERAGE")
     # The graph validator checks actual dataflow against these explicit declarations.
     need(len({p["slot"] for p in tables["processes"].values()})==len(tables["processes"])==len(tables["slots"]),"PROCESS_COVERAGE")
     return tables
