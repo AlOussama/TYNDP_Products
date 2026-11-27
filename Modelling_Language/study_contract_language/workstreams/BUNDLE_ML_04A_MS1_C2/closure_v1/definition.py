@@ -50,6 +50,7 @@ def requirement_design(req,tables,source,prepared):
     for k,n in norm.items():
         fields(n,("status","authority_ref"),"NORMATIVITY_FIELDS")
         need(n["status"] in ("RESEARCH_ASSUMPTION","INFORMATIVE","NORMATIVE_REQUIREMENT_PENDING_OWNER") and n["authority_ref"] in ass[k][1]["authority_refs"],"AUTHORITY_PROMOTION")
+        need(n["status"]!="INFORMATIVE" or ass[k][1]["modality"]=="MAY","INFORMATIVE_NOT_OBLIGATION")
     data=md.index(req["data_contracts"])
     ext={**tables["inputs"],**{k:v for k,v in tables["observables"].items() if v["projection"]=="IDENTITY"}}
     need(set(data)==set(ext),"DATA_CONTRACT_COVERAGE")
@@ -88,6 +89,22 @@ def requirement_design(req,tables,source,prepared):
             return digest([z["quantity"],z["axes"],z["value_type"]])
         wanted=sorted(shape(o) for o in first)
         need(all(sorted(shape(o) for o in models[m]["observables"])==wanted for m in r["models"]),"MODEL_PROJECTION_SIGNATURE")
+        # Each metric must depend on declared projections; sensitivity coordinates
+        # must actually occur in a metric. An unrelated true assertion is not a comparison.
+        observed_by_metric=set();metric_dependencies={}
+        for out in r["metric_outputs"]:
+            owner=[(row,bd,bi) for row,bd,bi in prepared.values() if out in bi["producers"]]
+            need(len(owner)==1,"METRIC_PRODUCER");row,bd,bi=owner[0]
+            sym=bi["producers"][out];expr=bd.program.expressions[bd.symbols[sym]["native_name"]].expression
+            names=graph.read_params(expr);deps={obs for k,obs in bi["observables"].items() if bd.symbols[k]["native_name"] in names}
+            need(bool(deps&set(allobs)),"METRIC_MODEL_BINDING");observed_by_metric|=deps;metric_dependencies[out]=(row["id"],sym,names)
+        need(set(allobs)<=observed_by_metric,"METRIC_MODEL_COVERAGE")
+        need(set(r["sensitivity_domains"])<=set().union(*(set(tables["outputs"][o]["axes"]) for o in r["metric_outputs"])),"SENSITIVITY_METRIC_BINDING")
+        for a in r["decision_assertions"]:
+            slot,ar=ass[a];row,bd,bi=prepared[slot]
+            pred=bd.resolve(ar["predicate"],("PREDICATE",))
+            symbols={bd.symbols[k]["native_name"] for k in pred["required_symbols"]}
+            need(any(slot==owner and bool(names) and names<=symbols for owner,sym,names in metric_dependencies.values()),"DECISION_METRIC_BINDING")
         for tol in r["tolerances"]:
             fields(tol,("slot","parameter","metric_output"),"TOLERANCE_FIELDS")
             need(tol["slot"] in prepared and tol["metric_output"] in r["metric_outputs"],"TOLERANCE_REFERENCE")
@@ -262,7 +279,7 @@ def instantiate(definition,definition_pin,instance,instance_pin):
     for c in definition["requirements"]["comparisons"]:
         status="FINITE_OBSERVATIONS_ONLY" if c["equivalence_target"]=="E3" and all(assertions[a]["truth"]=="TRUE" for a in c["decision_assertions"]) else "NOT_PROVED"
         comps.append({"id":c["id"],"requested":c["equivalence_target"],"status":status,"independence":"UNVERIFIED","owner":"OWNER_TBD"})
-    return {"definition":static,"instance_identity":instance_pin,"status":"BLOCKED" if any(v=="BLOCKED" for v in qualities.values()) else "FINITE_COUNTEREXAMPLE" if any(v=="FINITE_REJECTED" for v in qualities.values()) else result["finite_status"],
+    return {"definition":static,"instance_identity":instance_pin,"status":"FINITE_COUNTEREXAMPLE" if result["finite_status"]=="FINITE_COUNTEREXAMPLE" or any(v=="FINITE_REJECTED" for v in qualities.values()) else "BLOCKED" if any(v=="BLOCKED" for v in qualities.values()) else result["finite_status"],
             "graph":result,"data_quality":qualities,"comparison_evidence":comps,"owner":"OWNER_TBD","conformance":"NOT_PROVED"}
 def export(definition,definition_pin,instance=None,instance_pin=None):
     if instance is None:

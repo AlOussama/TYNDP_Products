@@ -196,19 +196,40 @@ def nonanticipativity(bound,policies):
     return sorted(out,key=lambda r:r["id"])
 
 def boundaries(bound,assertions,states):
-    """State-boundary obligation declarations are references to native conditions.
-    No balance equation or target value is supplied by the outer layer."""
+    """State-boundary obligation declarations reference native conditions.
+    A cyclic obligation requires two endpoint equalities and a third native
+    equality between the endpoint symbols; it cannot be a same-stage alias.
+    """
+    import mathspec.program as mp
     specs=validate(bound,assertions);out=[]
+    def equality(a,x,y):
+        root=bound.program.conditions[a["predicate"]["native_name"]].condition.root
+        refs_=(mp.ParameterReference,mp.ExpressionReference)
+        return isinstance(root,mp.ExpressionComparison) and root.op=="==" and isinstance(root.left,refs_) and isinstance(root.right,refs_) and {root.left.name,root.right.name}=={bound.symbols[x]["native_name"],bound.symbols[y]["native_name"]}
+    def unconditional(a):
+        return a["row"]["guard"]=={"truth":"TRUE","reason":None} and not a["row"]["assumptions"]
     for k,r in index(states).items():
-        fields(r,("id","symbol","time_domain","mode","initial","terminal","authority_refs"),"STATE_FIELDS")
+        cyclic=r.get("mode")=="CYCLIC"
+        fields(r,("id","symbol","time_domain","mode","initial","terminal","authority_refs")+(("cycle",) if cyclic else ()),"STATE_FIELDS")
         refs(r["authority_refs"],bound.tables["authorities"],"AUTHORITY_REQUIRED")
         s=bound.symbols.get(r["symbol"]);td=r["time_domain"];need(s is not None and td in s["domain_ids"],"STATE_AXIS")
         ch=[x for x in bound.tables["chronologies"].values() if x["domain"]==td];need(len(ch)==1 and r["mode"]==ch[0]["mode"],"STATE_CHRONOLOGY")
         labels=bound.tables["domains"][td]["members"]
-        if r["mode"]=="NONCYCLIC":need(r["initial"]!=r["terminal"],"BOUNDARY_DISTINCT")
-        else:need(r["initial"]==r["terminal"],"CYCLIC_BOUNDARY_REFERENCE")
-        for name,label in (("initial",labels[0]),("terminal",labels[-1] if r["mode"]=="NONCYCLIC" else labels[0])):
+        need(r["initial"]!=r["terminal"],"BOUNDARY_DISTINCT")
+        endpoints=[]
+        for name,label in (("initial",labels[0]),("terminal",labels[-1])):
             a=specs.get(r[name]);need(a is not None and a["row"]["role"]=="SAFETY_GUARANTEE","BOUNDARY_ASSERTION")
             need(a["row"]["at"].get(td)==[label] and r["symbol"] in a["predicate"]["required_symbols"],"BOUNDARY_SCOPE_OR_SYMBOL")
+            endpoints.append(a)
+        if cyclic:
+            c=r["cycle"];fields(c,("assertion","initial_value","terminal_value"),"CYCLE_FIELDS")
+            x,y=c["initial_value"],c["terminal_value"]
+            need(x!=y and x in bound.symbols and y in bound.symbols,"CYCLE_ENDPOINT_SYMBOL")
+            axes=[a for a in s["domain_ids"] if a!=td]
+            need(all(bound.symbols[z]["domain_ids"]==axes and bound.symbols[z]["quantity"]==s["quantity"] for z in (x,y)),"CYCLE_ENDPOINT_TYPE")
+            a=specs.get(c["assertion"])
+            need(a is not None and a["row"]["role"]=="SAFETY_GUARANTEE" and c["assertion"] not in (r["initial"],r["terminal"]),"CYCLE_ASSERTION")
+            need(all(unconditional(z) for z in [*endpoints,a]) and endpoints[0]["row"]["at"]=={td:[labels[0]]} and endpoints[1]["row"]["at"]=={td:[labels[-1]]} and not a["row"]["at"],"CYCLE_APPLICABILITY")
+            need(equality(endpoints[0],r["symbol"],x) and equality(endpoints[1],r["symbol"],y) and equality(a,x,y),"CYCLE_NATIVE_EQUALITY")
         out.append({"id":k,"status":"BOUND_NATIVE_ASSERTIONS","conformance":"NOT_PROVED"})
     return sorted(out,key=lambda r:r["id"])

@@ -234,7 +234,7 @@ def evaluate(obj,expected_trust):
     blocked=any(r["obligations"]["status"]=="BLOCKED" for r in results.values())
     receipt={"schema":VERSION,"semantic_identity":sem,"study":obj["study"]["id"],"execution_order":order,"slots":results,"outputs":out_values,
              "finite_status":"FINITE_COUNTEREXAMPLE" if negative else "BLOCKED" if blocked else "FINITE_OBSERVATIONS_ONLY",
-             "data_bindings":{k:digest(v) for k,v in {**external,**observed}.items()},
+             "data_bindings":{k:digest(v) for k,v in {**external,**{k:v for k,v in observed.items() if tables["observables"][k]["projection"]=="IDENTITY"}}.items()},
              "owner":"OWNER_TBD","conformance":"NOT_PROVED","authority_authenticity":"UNVERIFIED","scope":"BOUNDED_NATIVE_RESEARCH"}
     receipt["audit_identity"]=digest({"input_as_received":obj,"receipt":receipt,"trust_root":expected_trust})
     return receipt

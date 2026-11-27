@@ -359,4 +359,48 @@ class DefinitionControls(unittest.TestCase):
         self.assertEqual(probability_policy("SUM_ONE"),(1,1))
         self.assertEqual(probability_policy({"kind":"SUM_RANGE","min":"1/2","max":"1","scope":"DECLARED_SUBPROBABILITY"}),(F(1,2),F(1)))
         with self.assertRaisesRegex(Reject,"PROBABILITY_POLICY_RANGE"):probability_policy({"kind":"SUM_RANGE","min":"0","max":"6/5","scope":"DECLARED_SUBPROBABILITY"})
+class FinalControls(unittest.TestCase):
+    def test_CL22_cyclic_endpoint_equality(self):
+        from closure_v1.obligations import Bound,boundaries,evaluate
+        d={"version":0,"dimensions":{"t":{"dtype":"int","ordered":True}},"parameters":{"state":{"dims":["t"]},"start":{"dims":[]},"end":{"dims":[]}},"conditions":{"initial":"state == start","terminal":"state == end","cycle":"start == end"}}
+        c=fixture(d,pred_axes={"initial":["t"],"terminal":["t"],"cycle":[]})
+        p=pkg(d,c);f=ts();f["chronologies"][0]["mode"]="CYCLIC";f["scopes"]=[{"id":"scope:main","domains":["domain:t"],"subjects":[]}]
+        t=metadata.validate(f)
+        data=dataset({"state":series([1,2,1]),"start":[{"key":[],"value":1}],"end":[{"key":[],"value":1}]})
+        b=Bound(p,t,data)
+        a=[assertion(p,"assertion:"+n,n,["domain:t"],["time"],at={"domain:t":[v]}) for n,v in (("initial",0),("terminal",2))]
+        a.append(assertion(p,"assertion:cycle","cycle",[],[]))
+        st=[{"id":"state:ledger","symbol":"ref:state","time_domain":"domain:t","mode":"CYCLIC","initial":"assertion:initial","terminal":"assertion:terminal","cycle":{"assertion":"assertion:cycle","initial_value":"ref:start","terminal_value":"ref:end"},"authority_refs":["authority:source"]}]
+        boundaries(b,a,st);self.assertEqual(evaluate(b,a,[])["status"],"FINITE_OBSERVATIONS_ONLY")
+        bad=copy.deepcopy(st);bad[0]["terminal"]="assertion:initial"
+        with self.assertRaisesRegex(Reject,"BOUNDARY_DISTINCT"):boundaries(b,a,bad)
+        data["parameters"]["state"][-1]["value"]=3;data["parameters"]["end"][0]["value"]=3
+        self.assertEqual(evaluate(Bound(p,t,data),a,[])["status"],"FINITE_COUNTEREXAMPLE")
+    def test_CL23_model_comparison_native_metric(self):
+        f=frame();src=[source_row("authority:source","fixture:source","synthetic comparison oracle")]
+        f["domains"]=[{"id":"domain:s","kind":"scenario","members":["a","b"],"ordered":False}]
+        f["scopes"]=[{"id":"scope:main","domains":["domain:s"],"subjects":["case:a","case:b"]}]
+        for n in ("a","b"):
+            f["referents"].append({"id":"case:"+n,"kind":"study_case","quantity":q(),"axes":["domain:s"],"authority_refs":["authority:source"]})
+            f["observables"].append(sig("observable:"+n,q(),["domain:s"],subject="case:"+n,projection="IDENTITY"))
+        f["outputs"]=[sig("output:delta",q(),["domain:s"],contribution_policy="NOT_REQUIRED")]
+        src1=source_for_slot(f,src,"compare")
+        d={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{"a":{"dims":["s"]},"b":{"dims":["s"]},"tol":{"dims":[]}},"expressions":{"delta":"a-b"},"conditions":{"ok":"delta <= tol and delta >= -tol"}}
+        c=fixture(d,roles={"tol":"METHOD_PARAMETER"},domains={"s":["a","b"]},pred_axes={"ok":["s"]})
+        a=assertion(pkg(d,c),"assertion:compare","ok",["domain:s"],["scenario"])
+        data=dataset({"a":[{"key":["a"],"value":2},{"key":["b"],"value":3}],"b":[{"key":["a"],"value":2},{"key":["b"],"value":4}],"tol":[{"key":[],"value":1}]})
+        bindings={"ref:a":{"kind":"OBSERVABLE","ref":"observable:a"},"ref:b":{"kind":"OBSERVABLE","ref":"observable:b"},"ref:tol":{"kind":"PARAMETER","ref":"ref:tol"},"ref:delta":{"kind":"OUTPUT","ref":"output:delta"}}
+        row=make_slot(f,src1,"compare",d,c,data,bindings,[],["observable:a","observable:b"],["output:delta"],["ref:delta"],assertions=[a])
+        row["profile"]["parameter_ranges"]={"ref:tol":{"min":"0","max":"2"}}
+        x,p=bundle(f,[row],src)
+        d,dp=to_definition(x)
+        req=d["requirements"];req["models"]=[{"id":"model:"+n,"implementation_ref":"impl:"+n,"source_ref":"authority:source","license_ref":"authority:source","access_ref":"authority:source","observables":["observable:"+n],"variations":[]} for n in ("a","b")]
+        req["comparisons"]=[{"id":"comparison:models","models":["model:a","model:b"],"metric_outputs":["output:delta"],"decision_assertions":["assertion:compare"],"tolerances":[{"slot":"slot:compare","parameter":"ref:tol","metric_output":"output:delta"}],"sensitivity_domains":["domain:s"],"selection_policy":"ALL_ADMISSIBLE","equivalence_target":"E3","oracle_ref":"authority:source","authority_refs":["authority:source"]}]
+        dp=digest(d);inst=to_instance(x,d,dp);res=definition.instantiate(d,dp,inst,digest(inst))
+        self.assertEqual(res["comparison_evidence"][0]["status"],"FINITE_OBSERVATIONS_ONLY")
+        self.assertEqual(res["graph"]["outputs"]["output:delta"],[{"key":["a"],"value":"0"},{"key":["b"],"value":"-1"}])
+        self.assertEqual(res["conformance"],"NOT_PROVED")
+        d["requirements"]["comparisons"][0]["equivalence_target"]="E4"
+        dp=digest(d);inst=to_instance(x,d,dp);self.assertEqual(definition.instantiate(d,dp,inst,digest(inst))["comparison_evidence"][0]["status"],"NOT_PROVED")
+        print("C2_CLOSURE_MODEL_COMPARISON="+json.dumps(res["comparison_evidence"],sort_keys=True))
 if __name__=="__main__":unittest.main(verbosity=2)
