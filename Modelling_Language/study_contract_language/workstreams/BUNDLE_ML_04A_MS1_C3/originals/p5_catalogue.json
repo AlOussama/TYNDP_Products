@@ -1,0 +1,282 @@
+{
+  "schema": "c3-p5-candidate-catalogue-0.2",
+  "source_population": 30,
+  "representations": 60,
+  "source_pairs": [
+    {
+      "id": "M01",
+      "A": "originals/A/M01.scn",
+      "B": "originals/B/M01.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M02",
+      "A": "originals/A/M02.scn",
+      "B": "originals/B/M02.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M03",
+      "A": "originals/A/M03.scn",
+      "B": "originals/B/M03.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M04",
+      "A": "originals/A/M04.scn",
+      "B": "originals/B/M04.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M05",
+      "A": "originals/A/M05.scn",
+      "B": "originals/B/M05.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M06",
+      "A": "originals/A/M06.scn",
+      "B": "originals/B/M06.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M07",
+      "A": "originals/A/M07.scn",
+      "B": "originals/B/M07.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M08",
+      "A": "originals/A/M08.scn",
+      "B": "originals/B/M08.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M09",
+      "A": "originals/A/M09.scn",
+      "B": "originals/B/M09.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M10",
+      "A": "originals/A/M10.scn",
+      "B": "originals/B/M10.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M11",
+      "A": "originals/A/M11.scn",
+      "B": "originals/B/M11.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M12",
+      "A": "originals/A/M12.scn",
+      "B": "originals/B/M12.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M13",
+      "A": "originals/A/M13.scn",
+      "B": "originals/B/M13.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M14",
+      "A": "originals/A/M14.scn",
+      "B": "originals/B/M14.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M15",
+      "A": "originals/A/M15.scn",
+      "B": "originals/B/M15.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M16",
+      "A": "originals/A/M16.scn",
+      "B": "originals/B/M16.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M17",
+      "A": "originals/A/M17.scn",
+      "B": "originals/B/M17.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M18",
+      "A": "originals/A/M18.scn",
+      "B": "originals/B/M18.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M19",
+      "A": "originals/A/M19.scn",
+      "B": "originals/B/M19.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M20",
+      "A": "originals/A/M20.scn",
+      "B": "originals/B/M20.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M21",
+      "A": "originals/A/M21.scn",
+      "B": "originals/B/M21.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M22",
+      "A": "originals/A/M22.scn",
+      "B": "originals/B/M22.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M23",
+      "A": "originals/A/M23.scn",
+      "B": "originals/B/M23.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M24",
+      "A": "originals/A/M24.scn",
+      "B": "originals/B/M24.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M25",
+      "A": "originals/A/M25.scn",
+      "B": "originals/B/M25.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M26",
+      "A": "originals/A/M26.scn",
+      "B": "originals/B/M26.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M27",
+      "A": "originals/A/M27.scn",
+      "B": "originals/B/M27.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M28",
+      "A": "originals/A/M28.scn",
+      "B": "originals/B/M28.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M29",
+      "A": "originals/A/M29.scn",
+      "B": "originals/B/M29.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    },
+    {
+      "id": "M30",
+      "A": "originals/A/M30.scn",
+      "B": "originals/B/M30.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json",
+        "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0"
+      }
+    }
+  ],
+  "method": "Explicit configured structural obligations and native mathematical checks; full authored candidate context; separate valid P5-BASE control excluded from original denominator. Exact independent oracle mutation fidelity checked in CI.",
+  "oracle_pin": {
+    "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+  }
+}

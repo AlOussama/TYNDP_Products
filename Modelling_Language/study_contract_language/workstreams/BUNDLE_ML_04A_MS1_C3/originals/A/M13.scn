@@ -1,0 +1,836 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "P5";
+    "study_id": "study:p5";
+    "reference": "P5";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json";
+      "blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0";
+    };
+    "method_profile": {
+      "schema": "c3-record-method-profile-0.1";
+      "id": "SYNTHETIC-CBA-PROXY-0.1";
+      "version": "0.1";
+      "governance": "RESEARCH_ONLY";
+      "reference": "R";
+      "alternative": "P";
+      "weight_role": "PROBABILITY";
+      "currency_basis": "EUR:real:2025";
+      "annual_rate_to_period": {
+        "unit": "EUR/year";
+        "period_years": "1";
+        "target_unit": "EUR";
+      };
+      "contribution_policy": "DISJOINT";
+      "annual_source": "sum((base-alt)*prob, over=s)";
+      "discount_factor_source": "sum((1 + rate)**(-year), over=y)";
+      "npv_source": "annual * factor - capex";
+      "rate_guard": "rate >= 0 and rate < 1";
+      "decision_threshold_ref": ["comparison", "decision_threshold_eur"];
+      "decision_sign_policy": "THREE_WAY_THRESHOLD";
+      "discount_year_policy": "END_OF_YEAR_1_TO_HORIZON";
+      "capex_policy": "ONCE_AT_T0";
+      "comparison_policy": "SAME_MODEL_SAME_SCENARIO";
+      "selection_policy": "SINGLE_SYNTHETIC_SAMPLE";
+      "independence": "DECLARED_NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "external_indicators": "NOT_EXECUTED";
+      "rules": [{
+          "kind": "equals";
+          "code": "RESEARCH_SCOPE";
+          "rule": "R09";
+          "path": ["research_kind"];
+          "equals": "LANGUAGE_BOUNDARY_EXPERIMENT_NOT_CBA_COMPLIANCE";
+        }, {
+          "kind": "equals";
+          "code": "CORE_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["study", "language_scope"];
+          "equals": "GENERAL_CSNF";
+        }, {
+          "kind": "present";
+          "code": "STUDY_ID_REQUIRED";
+          "rule": "R09";
+          "path": ["study", "id"];
+        }, {
+          "kind": "present";
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
+          "rule": "R09";
+          "path": ["study", "method_profile"];
+        }, {
+          "kind": "present";
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
+          "rule": "R09";
+          "path": ["study", "method_profile_version"];
+        }, {
+          "kind": "equals";
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE";
+          "rule": "R09";
+          "path": ["study", "method_source_status"];
+          "equals": "RESEARCH_ONLY";
+        }, {
+          "kind": "equals";
+          "code": "UNSUPPORTED_OWNER_APPROVAL";
+          "rule": "R09";
+          "path": ["authority", "owner_state"];
+          "equals": "OWNER_TBD";
+        }, {
+          "kind": "equals";
+          "code": "UNSUPPORTED_OWNER_APPROVAL";
+          "rule": "R09";
+          "path": ["authority", "approval_evidence"];
+          "equals": null;
+        }, {
+          "kind": "present";
+          "code": "PROVENANCE_REVISION_MISSING";
+          "rule": "R09";
+          "path": ["authority", "provenance_revision"];
+        }, {
+          "kind": "table_key";
+          "code": "SOURCE_LEDGER_LOSS";
+          "rule": "R01";
+          "table": ["source_ledger"];
+          "keys": ["id"];
+        }, {
+          "kind": "references";
+          "code": "SOURCE_LEDGER_LOSS";
+          "rule": "R09";
+          "path": ["authority", "source_refs"];
+          "target": ["source_ledger"];
+          "key": "id";
+          "nonempty": true;
+        }, {
+          "kind": "selected_row_equals";
+          "code": "CONSULTATION_SOURCE_PROMOTION";
+          "rule": "R09";
+          "table": ["source_ledger"];
+          "selector": {
+            "id": "SRC:ENTSOE-IMP2026-DRAFT";
+          };
+          "field": "status";
+          "equals": "CONSULTATION_REFERENCE_NOT_APPROVED";
+        }, {
+          "kind": "equals";
+          "code": "PROJECT_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["project", "baseline_asset_present"];
+          "equals": false;
+        }, {
+          "kind": "equals";
+          "code": "PROJECT_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["project", "allowed_changes"];
+          "equals": ["capacity_MW"];
+        }, {
+          "kind": "equals";
+          "code": "PROJECT_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["project", "additional_exogenous_changes"];
+          "equals": [];
+        }, {
+          "kind": "equals";
+          "code": "PROJECT_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["project", "interdependencies_declared"];
+          "equals": true;
+        }, {
+          "kind": "present";
+          "code": "PROJECT_SCOPE_DRIFT";
+          "rule": "R09";
+          "path": ["project", "id"];
+        }, {
+          "kind": "table_key";
+          "code": "SCENARIO_ID_INVALID";
+          "rule": "R01";
+          "table": ["scenarios"];
+          "keys": ["id"];
+        }, {
+          "kind": "exact_keys";
+          "code": "SCENARIO_POPULATION";
+          "rule": "R01";
+          "table": ["scenarios"];
+          "key": "id";
+          "values": ["S1", "S2"];
+        }, {
+          "kind": "row_equals";
+          "code": "WEIGHT_ROLE_CONFLATION";
+          "rule": "R12";
+          "table": ["scenarios"];
+          "field": "weight_role";
+          "equals": "SCENARIO_PROBABILITY";
+        }, {
+          "kind": "row_equals";
+          "code": "TIME_SUPPORT_INVALID";
+          "rule": "R07";
+          "table": ["scenarios"];
+          "field": "timezone";
+          "equals": "UTC";
+        }, {
+          "kind": "row_present";
+          "code": "SCENARIO_PROVENANCE";
+          "rule": "R07";
+          "table": ["scenarios"];
+          "fields": ["weather_year", "exogenous_digest", "study_year"];
+        }, {
+          "kind": "table_key";
+          "code": "MODEL_ID_INVALID";
+          "rule": "R01";
+          "table": ["models"];
+          "keys": ["id"];
+        }, {
+          "kind": "table_key";
+          "code": "INDEPENDENCE_IDENTITY_COLLISION";
+          "rule": "R13";
+          "table": ["models"];
+          "keys": ["generator_identity"];
+        }, {
+          "kind": "exact_keys";
+          "code": "MODEL_POPULATION";
+          "rule": "R01";
+          "table": ["models"];
+          "key": "id";
+          "values": ["M-A", "M-B"];
+        }, {
+          "kind": "row_equals";
+          "code": "MODEL_VARIATION_NOT_DISCLOSED";
+          "rule": "R10";
+          "table": ["models"];
+          "field": "variation_disclosed";
+          "equals": true;
+        }, {
+          "kind": "row_equals";
+          "code": "MODEL_VARIATION_NOT_DISCLOSED";
+          "rule": "R10";
+          "table": ["models"];
+          "field": "allowed_under_study";
+          "equals": "CONDITIONAL_NOT_OWNER_APPROVED";
+        }, {
+          "kind": "row_present";
+          "code": "MODEL_GENERATOR_ID_MISSING";
+          "rule": "R13";
+          "table": ["models"];
+          "fields": ["generator_identity", "internal_method"];
+        }, {
+          "kind": "foreign_key";
+          "code": "UNKNOWN_SAMPLE_REFERENCE";
+          "rule": "R01";
+          "table": ["samples"];
+          "field": "model_id";
+          "target": ["models"];
+          "target_key": "id";
+        }, {
+          "kind": "foreign_key";
+          "code": "UNKNOWN_SAMPLE_REFERENCE";
+          "rule": "R01";
+          "table": ["samples"];
+          "field": "scenario_id";
+          "target": ["scenarios"];
+          "target_key": "id";
+        }, {
+          "kind": "product_coverage";
+          "code": "PAIR_INCOMPLETE";
+          "rule": "R12";
+          "table": ["samples"];
+          "keys": ["model_id", "scenario_id", "case_id"];
+          "domains": [{
+              "table": ["models"];
+              "key": "id";
+            }, {
+              "table": ["scenarios"];
+              "key": "id";
+            }, {
+              "values": ["R", "P"];
+            }];
+        }, {
+          "kind": "table_key";
+          "code": "DUPLICATE_SAMPLE_ID";
+          "rule": "R01";
+          "table": ["samples"];
+          "keys": ["id"];
+        }, {
+          "kind": "join_equals";
+          "code": "EXOGENOUS_SNAPSHOT_DRIFT";
+          "rule": "R12";
+          "table": ["samples"];
+          "key": "scenario_id";
+          "target": ["scenarios"];
+          "target_key": "id";
+          "fields": ["exogenous_digest", "weather_year"];
+        }, {
+          "kind": "selected_row_equals";
+          "code": "PROJECT_DELTA_MISASSIGNED";
+          "rule": "R12";
+          "table": ["samples"];
+          "selector": {
+            "case_id": "R";
+          };
+          "field": "project_delta_id";
+          "equals": null;
+        }, {
+          "kind": "selected_row_ref_equals";
+          "code": "PROJECT_DELTA_MISASSIGNED";
+          "rule": "R12";
+          "table": ["samples"];
+          "selector": {
+            "case_id": "P";
+          };
+          "field": "project_delta_id";
+          "other": ["project", "id"];
+        }, {
+          "kind": "row_ref_equals";
+          "code": "OUTPUT_BASIS_MISMATCH";
+          "rule": "R06";
+          "table": ["samples"];
+          "field": "unit";
+          "other": ["observable", "unit"];
+        }, {
+          "kind": "row_ref_equals";
+          "code": "OUTPUT_BASIS_MISMATCH";
+          "rule": "R06";
+          "table": ["samples"];
+          "field": "price_year";
+          "other": ["observable", "price_year"];
+        }, {
+          "kind": "row_equals";
+          "code": "RESULT_PROVENANCE_PROMOTED";
+          "rule": "R13";
+          "table": ["samples"];
+          "field": "origin";
+          "equals": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "kind": "equals";
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN";
+          "rule": "R12";
+          "path": ["comparison", "pairing"];
+          "equals": "SAME_MODEL_SAME_SCENARIO";
+        }, {
+          "kind": "equals";
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN";
+          "rule": "R12";
+          "path": ["comparison", "reference"];
+          "equals": "R";
+        }, {
+          "kind": "equals";
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN";
+          "rule": "R12";
+          "path": ["comparison", "project"];
+          "equals": "P";
+        }, {
+          "kind": "equals";
+          "code": "BENEFIT_SIGN_CONVENTION";
+          "rule": "R12";
+          "path": ["comparison", "sign"];
+          "equals": "REFERENCE_MINUS_PROJECT";
+        }, {
+          "kind": "equals";
+          "code": "BENEFIT_SIGN_CONVENTION";
+          "rule": "R12";
+          "path": ["observable", "positive_benefit_sign"];
+          "equals": "REFERENCE_MINUS_PROJECT";
+        }, {
+          "kind": "equals";
+          "code": "AGGREGATION_ROLE_MISMATCH";
+          "rule": "R12";
+          "path": ["comparison", "annual_aggregation"];
+          "equals": "SCENARIO_PROBABILITY";
+        }, {
+          "kind": "equals";
+          "code": "AGGREGATION_ROLE_MISMATCH";
+          "rule": "R12";
+          "path": ["observable", "weather_aggregation"];
+          "equals": "SCENARIO_PROBABILITY";
+        }, {
+          "kind": "equals";
+          "code": "COST_PROXY_MISLABELED_AS_SEW";
+          "rule": "R12";
+          "path": ["observable", "value_kind"];
+          "equals": "COST_PROXY_NOT_SEW";
+        }, {
+          "kind": "equals";
+          "code": "COST_PROXY_MISLABELED_AS_SEW";
+          "rule": "R12";
+          "path": ["observable", "cba_b1_claim"];
+          "equals": false;
+        }, {
+          "kind": "present";
+          "code": "OBSERVABLE_SELECTION_UNDEFINED";
+          "rule": "R12";
+          "path": ["observable", "selection_policy"];
+        }, {
+          "kind": "equals";
+          "code": "KPI_DOUBLE_COUNTING_POLICY";
+          "rule": "R12";
+          "path": ["observable", "double_counting_policy"];
+          "equals": "NO_OVERLAPPING_COMPONENTS";
+        }, {
+          "kind": "equals";
+          "code": "KPI_PRICE_BASIS_MISSING";
+          "rule": "R06";
+          "path": ["observable", "price_basis"];
+          "equals": "real_2025";
+        }, {
+          "kind": "equals";
+          "code": "OUTPUT_BASIS_MISMATCH";
+          "rule": "R06";
+          "path": ["observable", "unit"];
+          "equals": "EUR/year";
+        }, {
+          "kind": "exact_keys";
+          "code": "NON_MONETIZED_INDICATORS_MISSING";
+          "rule": "R13";
+          "table": ["additional_indicators"];
+          "key": "id";
+          "values": ["SUPPLY_SECURITY", "CLIMATE_ADAPTATION"];
+        }, {
+          "kind": "row_equals";
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED";
+          "rule": "R13";
+          "table": ["additional_indicators"];
+          "field": "status";
+          "equals": "NOT_EXECUTED";
+        }, {
+          "kind": "row_equals";
+          "code": "UNKNOWN_COERCED_TO_NUMBER";
+          "rule": "R11";
+          "table": ["additional_indicators"];
+          "field": "value";
+          "equals": null;
+        }, {
+          "kind": "row_equals";
+          "code": "KPI_PRICE_BASIS_MISSING";
+          "rule": "R12";
+          "table": ["additional_indicators"];
+          "field": "monetization";
+          "equals": "NOT_DEFINED";
+        }, {
+          "kind": "equals";
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED";
+          "rule": "R13";
+          "path": ["evidence", "status"];
+          "equals": "NOT_EXECUTED";
+        }, {
+          "kind": "equals";
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED";
+          "rule": "R13";
+          "path": ["evidence", "role"];
+          "equals": "REQUEST";
+        }, {
+          "kind": "equals";
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED";
+          "rule": "R13";
+          "path": ["evidence", "run_id"];
+          "equals": null;
+        }, {
+          "kind": "equals";
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED";
+          "rule": "R13";
+          "path": ["evidence", "artifact_digest"];
+          "equals": null;
+        }, {
+          "kind": "equals";
+          "code": "E4_UNSUPPORTED";
+          "rule": "R13";
+          "path": ["comparison", "e4_claim"];
+          "equals": false;
+        }, {
+          "kind": "equals";
+          "code": "DISCOUNT_CURRENCY_BASIS";
+          "rule": "R06";
+          "path": ["economics", "cost_currency"];
+          "equals": "EUR";
+        }, {
+          "kind": "equals_ref";
+          "code": "DISCOUNT_CURRENCY_BASIS";
+          "rule": "R06";
+          "path": ["economics", "price_year"];
+          "other": ["observable", "price_year"];
+        }, {
+          "kind": "equals";
+          "code": "KPI_DOUBLE_COUNTING_POLICY";
+          "rule": "R12";
+          "path": ["economics", "capex_scope"];
+          "equals": "SYNTHETIC_ONCE_AT_T0";
+        }, {
+          "kind": "present";
+          "code": "DISCOUNT_POLICY_INVALID";
+          "rule": "R12";
+          "path": ["economics", "discount_policy"];
+        }, {
+          "kind": "quantity_registry";
+          "code": "CARRIER_UNIT_TYPE_MISMATCH";
+          "rule": "R06";
+          "table": ["physical_interfaces"];
+          "carrier": "carrier";
+          "unit": "unit";
+          "kind_field": "physical_kind";
+          "admitted": {
+            "electricity": {
+              "kind": "active_power";
+              "units": ["MW", "kW"];
+            };
+            "hydrogen": {
+              "kind": "mass_flow";
+              "units": ["kg/h", "kg/s"];
+            };
+          };
+        }, {
+          "kind": "equals";
+          "code": "STAGE1_INFORMATION_LEAKAGE";
+          "rule": "R07";
+          "path": ["information", "decision_before_revelation"];
+          "equals": true;
+        }, {
+          "kind": "equals";
+          "code": "SENSITIVITY_EXECUTION_PROMOTION";
+          "rule": "R13";
+          "path": ["sensitivities", "status"];
+          "equals": "SPECIFIED_NOT_EXECUTED";
+        }];
+      "native_checks": [{
+          "kind": "native_table";
+          "table": ["scenarios"];
+          "axis": "s";
+          "key": "id";
+          "parameters": {
+            "weight": {
+              "field": "weight";
+              "dtype": "float";
+            };
+            "duration": {
+              "field": "duration_h";
+              "dtype": "float";
+            };
+          };
+          "expressions": {
+            "weight_sum": "sum(weight, over=s)";
+          };
+          "conditions": [{
+              "name": "probability_present";
+              "formula": "weight >= 0";
+              "axes": ["s"];
+              "code": "SCENARIO_WEIGHT_INVALID";
+              "rule": "R12";
+              "field": "weight";
+            }, {
+              "name": "probability_total";
+              "formula": "weight_sum == 1";
+              "axes": [];
+              "code": "SCENARIO_WEIGHT_SUM";
+              "rule": "R12";
+              "field": "weight";
+            }, {
+              "name": "duration_positive";
+              "formula": "duration > 0";
+              "axes": ["s"];
+              "code": "TIME_SUPPORT_INVALID";
+              "rule": "R07";
+              "field": "duration_h";
+            }];
+        }, {
+          "kind": "native_scalar";
+          "path": ["economics"];
+          "parameters": {
+            "rate": {
+              "field": "discount_rate";
+              "dtype": "float";
+            };
+            "horizon": {
+              "field": "horizon_years";
+              "dtype": "int";
+            };
+            "capex": {
+              "field": "capex_eur";
+              "dtype": "float";
+            };
+          };
+          "expressions": {
+
+          };
+          "conditions": [{
+              "name": "rate_valid";
+              "formula": "rate >= 0 and rate < 1";
+              "axes": [];
+              "code": "DISCOUNT_POLICY_INVALID";
+              "rule": "R12";
+              "field": "discount_rate";
+            }, {
+              "name": "horizon_valid";
+              "formula": "horizon > 0";
+              "axes": [];
+              "code": "DISCOUNT_POLICY_INVALID";
+              "rule": "R12";
+              "field": "horizon_years";
+            }, {
+              "name": "capex_valid";
+              "formula": "capex >= 0";
+              "axes": [];
+              "code": "CAPEX_INVALID";
+              "rule": "R12";
+              "field": "capex_eur";
+            }];
+        }, {
+          "kind": "native_record_equality";
+          "path": ["information", "first_stage"];
+          "axis": "s";
+          "condition": {
+            "name": "same_information_decision";
+            "formula": "decision == common";
+            "axes": ["s"];
+            "code": "STAGE1_INFORMATION_LEAKAGE";
+            "rule": "R07";
+          };
+        }];
+    };
+    "context_scope": ["study", "authority", "source_ledger", "project", "scenarios", "models", "samples", "observable", "additional_indicators", "comparison", "economics", "evidence", "physical_interfaces", "information", "sensitivities"];
+  }
+ instance {
+    "id": "M13";
+    "record": {
+      "research_kind": "LANGUAGE_BOUNDARY_EXPERIMENT_NOT_CBA_COMPLIANCE";
+      "study": {
+        "id": "STUDY:CBA-DEMO";
+        "study_family": "COST_BENEFIT_ANALYSIS";
+        "language_scope": "GENERAL_CSNF";
+        "study_year": 2030;
+        "reference_case": "R";
+        "project_case": "P";
+        "method_profile": "SYNTHETIC-CBA-PROXY-0.1";
+        "method_profile_version": "0.1";
+        "method_source_status": "RESEARCH_ONLY";
+        "study_boundary": "TWO_SYNTHETIC_AREAS";
+      };
+      "authority": {
+        "owner_state": "OWNER_TBD";
+        "approval_evidence": null;
+        "source_refs": ["SRC:TENE", "SRC:ENTSOE-CBA4", "SRC:ENTSOE-IMP2026-DRAFT", "SRC:EXAMPLE"];
+        "provenance_revision": "research-r0.1";
+      };
+      "source_ledger": [{
+          "id": "SRC:TENE";
+          "uri": "https://eur-lex.europa.eu/eli/reg/2022/869/oj";
+          "status": "REGULATORY_REFERENCE";
+        }, {
+          "id": "SRC:ENTSOE-CBA4";
+          "uri": "https://tyndp.entsoe.eu/resources/guideline-for-cost-benefit-analysis-4.0";
+          "status": "DOCUMENTED_REFERENCE";
+        }, {
+          "id": "SRC:ENTSOE-IMP2026-DRAFT";
+          "uri": "https://consultations.entsoe.eu/tyndp/tyndp-2026-cba-imp-public-consultation/";
+          "status": "CONSULTATION_REFERENCE_NOT_APPROVED";
+        }, {
+          "id": "SRC:EXAMPLE";
+          "uri": "synthetic:research-fixture";
+          "status": "ILLUSTRATIVE_ONLY";
+        }];
+      "project": {
+        "id": "P1";
+        "asset_role": "INTERCONNECTOR";
+        "baseline_asset_present": false;
+        "allowed_changes": ["capacity_MW"];
+        "additional_exogenous_changes": ["demand"];
+        "interdependencies_declared": true;
+      };
+      "scenarios": [{
+          "id": "S1";
+          "study_year": 2030;
+          "weather_year": "WX-1";
+          "exogenous_digest": "synthetic:exog:s1";
+          "weight": "0.6";
+          "weight_role": "SCENARIO_PROBABILITY";
+          "duration_h": 1;
+          "timezone": "UTC";
+        }, {
+          "id": "S2";
+          "study_year": 2030;
+          "weather_year": "WX-2";
+          "exogenous_digest": "synthetic:exog:s2";
+          "weight": "0.4";
+          "weight_role": "SCENARIO_PROBABILITY";
+          "duration_h": 1;
+          "timezone": "UTC";
+        }];
+      "models": [{
+          "id": "M-A";
+          "generator_identity": "GEN-A";
+          "internal_method": "nodal_angle_dispatch";
+          "variation_disclosed": true;
+          "allowed_under_study": "CONDITIONAL_NOT_OWNER_APPROVED";
+        }, {
+          "id": "M-B";
+          "generator_identity": "GEN-B";
+          "internal_method": "aggregated_flow_dispatch";
+          "variation_disclosed": true;
+          "allowed_under_study": "CONDITIONAL_NOT_OWNER_APPROVED";
+        }];
+      "samples": [{
+          "id": "M-A:S1:R";
+          "model_id": "M-A";
+          "scenario_id": "S1";
+          "case_id": "R";
+          "exogenous_digest": "synthetic:exog:s1";
+          "weather_year": "WX-1";
+          "project_delta_id": null;
+          "operating_cost_proxy_eur_per_year": 1200;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-A:S1:P";
+          "model_id": "M-A";
+          "scenario_id": "S1";
+          "case_id": "P";
+          "exogenous_digest": "synthetic:exog:s1";
+          "weather_year": "WX-1";
+          "project_delta_id": "P1";
+          "operating_cost_proxy_eur_per_year": 1100;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-A:S2:R";
+          "model_id": "M-A";
+          "scenario_id": "S2";
+          "case_id": "R";
+          "exogenous_digest": "synthetic:exog:s2";
+          "weather_year": "WX-2";
+          "project_delta_id": null;
+          "operating_cost_proxy_eur_per_year": 1500;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-A:S2:P";
+          "model_id": "M-A";
+          "scenario_id": "S2";
+          "case_id": "P";
+          "exogenous_digest": "synthetic:exog:s2";
+          "weather_year": "WX-2";
+          "project_delta_id": "P1";
+          "operating_cost_proxy_eur_per_year": 1350;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-B:S1:R";
+          "model_id": "M-B";
+          "scenario_id": "S1";
+          "case_id": "R";
+          "exogenous_digest": "synthetic:exog:s1";
+          "weather_year": "WX-1";
+          "project_delta_id": null;
+          "operating_cost_proxy_eur_per_year": 1220;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-B:S1:P";
+          "model_id": "M-B";
+          "scenario_id": "S1";
+          "case_id": "P";
+          "exogenous_digest": "synthetic:exog:s1";
+          "weather_year": "WX-1";
+          "project_delta_id": "P1";
+          "operating_cost_proxy_eur_per_year": 1120;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-B:S2:R";
+          "model_id": "M-B";
+          "scenario_id": "S2";
+          "case_id": "R";
+          "exogenous_digest": "synthetic:exog:s2";
+          "weather_year": "WX-2";
+          "project_delta_id": null;
+          "operating_cost_proxy_eur_per_year": 1520;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }, {
+          "id": "M-B:S2:P";
+          "model_id": "M-B";
+          "scenario_id": "S2";
+          "case_id": "P";
+          "exogenous_digest": "synthetic:exog:s2";
+          "weather_year": "WX-2";
+          "project_delta_id": "P1";
+          "operating_cost_proxy_eur_per_year": 1410;
+          "unit": "EUR/year";
+          "price_year": 2025;
+          "origin": "SYNTHETIC_FIXTURE_NOT_MODEL_RESULT";
+        }];
+      "observable": {
+        "id": "OPERATING_COST_PROXY";
+        "quantity_kind": "CURRENCY_RATE";
+        "unit": "EUR/year";
+        "price_year": 2025;
+        "price_basis": "real_2025";
+        "value_kind": "COST_PROXY_NOT_SEW";
+        "cba_b1_claim": false;
+        "positive_benefit_sign": "REFERENCE_MINUS_PROJECT";
+        "selection_policy": "SINGLE_SYNTHETIC_SAMPLE";
+        "weather_aggregation": "SCENARIO_PROBABILITY";
+        "double_counting_policy": "NO_OVERLAPPING_COMPONENTS";
+        "additional_indicator_refs": ["SUPPLY_SECURITY", "CLIMATE_ADAPTATION"];
+      };
+      "additional_indicators": [{
+          "id": "SUPPLY_SECURITY";
+          "unit": "MWh/year";
+          "status": "NOT_EXECUTED";
+          "value": null;
+          "monetization": "NOT_DEFINED";
+        }, {
+          "id": "CLIMATE_ADAPTATION";
+          "unit": "qualitative";
+          "status": "NOT_EXECUTED";
+          "value": null;
+          "monetization": "NOT_DEFINED";
+        }];
+      "comparison": {
+        "pairing": "SAME_MODEL_SAME_SCENARIO";
+        "sign": "REFERENCE_MINUS_PROJECT";
+        "reference": "R";
+        "project": "P";
+        "annual_aggregation": "SCENARIO_PROBABILITY";
+        "decision_threshold_eur": 0;
+        "e4_claim": false;
+      };
+      "economics": {
+        "cost_currency": "EUR";
+        "price_year": 2025;
+        "capex_eur": 830;
+        "discount_rate": "0.05";
+        "horizon_years": 10;
+        "capex_scope": "SYNTHETIC_ONCE_AT_T0";
+        "discount_policy": "EXPLICIT_RESEARCH_EXAMPLE";
+      };
+      "evidence": {
+        "role": "REQUEST";
+        "status": "NOT_EXECUTED";
+        "run_id": null;
+        "artifact_digest": null;
+      };
+      "physical_interfaces": [{
+          "id": "PORT:GRID";
+          "carrier": "electricity";
+          "physical_kind": "active_power";
+          "unit": "MW";
+          "sign": "INJECTION";
+          "direction": "BIDIRECTIONAL";
+        }];
+      "information": {
+        "first_stage": {
+          "WX1": 1;
+          "WX2": 1;
+        };
+        "decision_before_revelation": true;
+      };
+      "sensitivities": {
+        "cases": ["demand_low", "demand_high"];
+        "status": "SPECIFIED_NOT_EXECUTED";
+      };
+    };
+  }
+}
