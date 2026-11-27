@@ -85,7 +85,17 @@ def template(case):
     id=case["id"];c=case["context"]
     if id=="RC01":
         path=ROOT/"WS_B_original_reference_corpus"/"syntax_B"/"RC01.partial.json"
-        return json.loads(path.read_text())
+        d=json.loads(path.read_text())
+        # Fixed-duration specialization must prove its boundary, not simply
+        # substitute the previously accepted legacy fixture for current input.
+        sy=case["context"]["symbols"];data=case["data"]["parameters"]
+        for n in ("p","e"):
+            r=next(x for x in d["referents"] if x["id"]==sy[n]["id"])
+            q=sy[n]["quantity"];old=r["quantity"]
+            need(sy[n]["role"]=="OBSERVABLE" and (q["carrier"],q["unit"],q["sign"],q["basis"])==(old["carrier"],old["unit"],old["sign"],old.get("basis","NONE")),"LEGACY_RC01_QUANTITY_OR_ROLE")
+            need(r["axes"]==[case["context"]["domains"][x]["id"] for x in sorted(case["doc"]["parameters"][n]["dims"])],"LEGACY_RC01_AXES")
+            need(len(data[n])==1 and data[n][0]["key"]==d["frame"]["domains"][0]["members"] and F(data[n][0]["value"])==F(old["value"]),"LEGACY_RC01_DATA_SPECIALIZATION")
+        return d
     # General skeleton for direct comparison fragments. Static representative
     # quantity values are not an evaluation of data series.
     d={k:[] for k in n1r.c21.COLLECTIONS}

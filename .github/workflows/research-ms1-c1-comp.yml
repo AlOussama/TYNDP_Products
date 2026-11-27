@@ -45,6 +45,10 @@ jobs:
         run: |
           pixi run --locked -e py313 python --version
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/run_comparison.py
+      - name: Controlled semantic ablation and falsification probes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/ablation_controls.py
       - name: Unchanged canonical closure regressions
         if: always()
         working-directory: mathspec-src
