@@ -1,0 +1,36 @@
+2026-11-27T22:11:01.0972673Z Ran 44 tests in 0.741s
+2026-11-27T22:11:01.0973045Z OK
+2026-11-27T22:11:01.5723034Z Ran 7 tests in 0.214s
+2026-11-27T22:11:01.5723218Z OK
+2026-11-27T22:11:01.8664005Z Ran 50 tests in 0.143s
+2026-11-27T22:11:01.8664172Z OK
+2026-11-27T22:11:01.9093156Z Ran 7 tests in 0.002s
+2026-11-27T22:11:01.9093318Z OK
+2026-11-27T22:11:02.3041837Z Ran 3 tests in 0.098s
+2026-11-27T22:11:02.3042199Z OK
+2026-11-27T22:11:04.6973022Z Ran 7 tests in 2.132s
+2026-11-27T22:11:04.6973197Z OK
+2026-11-27T22:11:05.9592751Z Ran 8 tests in 0.987s
+2026-11-27T22:11:05.9592989Z OK
+2026-11-27T22:11:07.4658983Z Ran 4 tests in 1.230s
+2026-11-27T22:11:07.4659157Z OK
+2026-11-27T22:11:09.9096138Z Ran 4 tests in 2.178s
+2026-11-27T22:11:09.9096314Z OK
+2026-11-27T22:11:24.0638930Z Ran 33 tests in 13.836s
+2026-11-27T22:11:24.0639159Z OK
+2026-11-27T22:11:24.8060674Z Ran 24 tests in 0.469s
+2026-11-27T22:11:24.8061036Z OK
+2026-11-27T22:11:25.1677969Z Ran 17 tests in 0.097s
+2026-11-27T22:11:25.1678173Z OK
+2026-11-27T22:11:25.8924741Z C1_ORIGINAL_PATHS=0/116
+2026-11-27T22:12:07.1405441Z 4140 passed, 47 skipped in 40.67s
+2026-11-27T22:12:12.1848279Z C3_POPULATION_AUDIT={"executed_full": 0, "identities": 58, "materialized_full": 0, "paths": 116, "requirements": 125, "scope": "POPULATION_INTEGRITY_ONLY", "status": "PASS"}
+2026-11-27T22:12:15.5144554Z C3_AUTHORING_CONTROL={"rows": [{"definition_pin": "6810025ae54af8cf0ecead0c2b8583bd857272b2468e3d54b5b30836a459724c", "diagnostics": [], "general_conformance": "NOT_PROVED", "graph_audit_identity": "f07846370a71b8a6401a738e1473a775dd78c3de72543d83d11c4a941d19ac5c", "graph_semantic_identity": "de617cb4fb01bd19fc64f1a75fad9cb3638542652616f346c15bca85801a539f", "instance_pin": "3b273b215f3b5771ebe6ee725e22b33819138105cd9cd38ba54306a92263df0b", "owner": "OWNER_TBD", "package_sha256": "dddb768d0e2e6f4ac3c965440a7679e74cae96c68a66afc06a2b33d2d2afdcb3", "representation_audit_identity": "e16a034435a5c03c5dfbfbca5f6c179171c6e1f4fd9190dea35cc117a211f20a", "schema": "c3-path-receipt-0.1", "semantic_identity": "9f109346abe087799bb06144d995ecc7f371e61c25ee7e710a76fee191b55c2d", "source_pin": "ae41b0a4420610c3da99ac49140d3c953580a3126afd9ca1b4d278020819ed98", "source_sha256": "ae41b0a4420610c3da99ac49140d3c953580a3126afd9ca1b4d278020819ed98", "stage": "NATIVE_ADMISSION_BINDING_NORMALIZATION_ROUNDTRIP", "status": "RETURNED", "syntax": "A"}, {"definition_pin": "6810025ae54af8cf0ecead0c2b8583bd857272b2468e3d54b5b30836a459724c", "diagnostics": [], "general_conformance": "NOT_PROVED", "graph_audit_identity": "f07846370a71b8a6401a738e1473a775dd78c3de72543d83d11c4a941d19ac5c", "graph_semantic_identity": "de617cb4fb01bd19fc64f1a75fad9cb3638542652616f346c15bca85801a539f", "instance_pin": "3b273b215f3b5771ebe6ee725e22b33819138105cd9cd38ba54306a92263df0b", "owner": "OWNER_TBD", "package_sha256": "dddb768d0e2e6f4ac3c965440a7679e74cae96c68a66afc06a2b33d2d2afdcb3", "representation_audit_identity": "8bc030803f0736c70f13e964de08bcba696561a422be2fc8cfe38ac5b054632a", "schema": "c3-path-receipt-0.1", "semantic_identity": "9f109346abe087799bb06144d995ecc7f371e61c25ee7e710a76fee191b55c2d", "source_pin": "93ebfc653beb812f30987ea28872f540222e82178de1bb623acff72885fa23b8", "source_sha256": "93ebfc653beb812f30987ea28872f540222e82178de1bb623acff72885fa23b8", "stage": "NATIVE_ADMISSION_BINDING_NORMALIZATION_ROUNDTRIP", "status": "RETURNED", "syntax": "B"}], "scope": "SYNTHETIC_CONTROL_NOT_ORIGINAL"}
+2026-11-27T22:12:15.5159760Z Ran 2 tests in 3.076s
+2026-11-27T22:12:15.5160017Z OK
+2026-11-27T22:12:15.9812378Z C3_P5_DISCOUNT_PROJECTION={"comparison_tolerance_eur": 1e-09, "fixture_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513", "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2", "owner": "OWNER_TBD", "rows": [{"annual_exact": "120", "data_sha256": "2e30442088445aece15eb56a39f2a364eb1ba8691a834b284371128c1724bdd2", "decision": 1, "model": "M-A", "native_source_sha256": "03b9f021ef2cc4bf5f790eaf1c1360155937dcefa74ed487d526f9f474ed2af1", "npv_exact": "537137711925190/5559960326067", "oracle": {"decision_sign": 1, "illustrative_annual_cost_saving_eur": 120, "illustrative_npv_proxy_eur": 96.60819150217742}, "package_sha256": "73fe185106072109674ba5b7015fba6378bc52119457b238e8121c1ea1351d2e", "roundtrip": true}, {"annual_exact": "104", "data_sha256": "ef0764719f9ac640cd05c66d656cbc6a575d916865f29cc961afe039c207b356", "decision": -1, "model": "M-B", "native_source_sha256": "03b9f021ef2cc4bf5f790eaf1c1360155937dcefa74ed487d526f9f474ed2af1", "npv_exact": "-449348777248750/16679880978201", "oracle": {"decision_sign": -1, "illustrative_annual_cost_saving_eur": 104, "illustrative_npv_proxy_eur": -26.939567364779577}, "package_sha256": "73fe185106072109674ba5b7015fba6378bc52119457b238e8121c1ea1351d2e", "roundtrip": true}], "scope": "NUMERICAL_PROJECTION_NOT_ORIGINAL_AB"}
+
+Corpus exit job:
+2026-11-27T22:10:51.3467830Z C3_POPULATION_AUDIT={"executed_full": 0, "identities": 58, "materialized_full": 0, "paths": 116, "requirements": 125, "scope": "POPULATION_INTEGRITY_ONLY", "status": "PASS"}
+2026-11-27T22:10:51.3477945Z C3-G1/G2 NOT_MET: 0/116 full paths; original corpus closure refused
+2026-11-27T22:10:51.3516094Z ##[error]Process completed with exit code 1.

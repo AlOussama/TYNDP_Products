@@ -155,6 +155,14 @@ jobs:
         if: always()
         working-directory: mathspec-src
         run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_native_discount_projection.py /tmp/c3-p5-oracle.json
+      - name: C3 extended original P5 graph with discount and capex contribution lineage (control)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_graph_projection.py /tmp/c3-p5-oracle.json
+      - name: C3 RC01 native signed-to-unsigned boundary probe (not original path)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/rc01_sign_gap_probe.py
   original-corpus-exit:
     if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c3-original-integration'
     runs-on: ubuntu-24.04
