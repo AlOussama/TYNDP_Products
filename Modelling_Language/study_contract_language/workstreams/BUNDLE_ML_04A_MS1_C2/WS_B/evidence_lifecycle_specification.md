@@ -1,0 +1,2 @@
+# Evidence lifecycle
+REQUESTED -> EXECUTED_UNJUDGED -> evaluated result under explicit scope. A finite numeric receipt never promotes OWNER_TBD, actual model conformance, source authenticity, independent review or normative approval. Reject tampered package or mismatched context before any arithmetic. Numeric output, source evidence, authority and scientific verification are separate. A failed validation is a rejection, not an accepted scientific claim. Independent original corpus oracles retained by reference; original A/B integration belongs to C3.

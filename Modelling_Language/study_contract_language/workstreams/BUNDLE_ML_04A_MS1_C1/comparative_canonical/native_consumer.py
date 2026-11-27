@@ -24,7 +24,9 @@ def compare(a,b,op):
     raise Unsupported("COMPARISON:"+op)
 class FiniteNative(Consumer):
     def __init__(self,leaf,data):
-        self.receipt=bind_data(leaf,data)
+        self._initialize(leaf,data,bind_data)
+    def _initialize(self,leaf,data,binder):
+        self.receipt=binder(leaf,data)
         self.program=native(leaf["native_canonical"]).program
         c=leaf["context"];self.axes={n:z["labels"] for n,z in c["domains"].items()}
         self.declarations={n:{"axes":list(p.dims)} for n,p in self.program.parameters.items()}
