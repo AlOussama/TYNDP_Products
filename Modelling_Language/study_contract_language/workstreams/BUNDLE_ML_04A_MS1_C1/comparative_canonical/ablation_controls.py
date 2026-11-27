@@ -29,8 +29,7 @@ def main():
     cc={c["id"]:c for c in cases()};r=[]
     # 1. Native math alone is not a physical contract.
     a=copy.deepcopy(cc["RC01"]);x=open_(a);b=copy.deepcopy(a)
-    b["context"]["symbols"]["e"]["quantity"]["unit"]="kg"
-    b["context"]["symbols"]["e"]["quantity"]["carrier"]="hydrogen"
+    b["context"]["symbols"]["e"]["quantity"]={**b["context"]["symbols"]["e"]["quantity"],"unit":"kg","carrier":"hydrogen"}
     assert ms.to_spec(a["doc"]).to_yaml(canonical=True)==ms.to_spec(b["doc"]).to_yaml(canonical=True)
     m3=reject(lambda:open_(b),"COMPARISON_TYPE")
     m2=reject(lambda:map_predicates(b,prog(b)),"LEGACY_RC01_QUANTITY_OR_ROLE")
