@@ -1,0 +1,327 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "RC";
+    "study_id": "study:RC03";
+    "reference": "RC03";
+    "question": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION";
+      "proof_policy": "NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "process_role": "EVALUATION";
+      "data_policy": "PINNED_SNAPSHOT";
+      "missing_data": "BLOCK";
+      "authority_status": "RESEARCH_ONLY";
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE";
+    };
+    "original_obligations": "eta=m*h/P if P>0; 3/5<=eta<=4/5; zero output when input zero under synthetic envelope; basis explicitly LHV";
+    "original_assumptions": "P=30 MW; m=600 kg/h; h=1/30 MWh/kg synthetic LHV; envelope 3/5..4/5";
+    "original_typed_symbols": "P: electricity consumption MW; m: hydrogen kg/h; h: MWh/kg LHV; eta: dimensionless";
+    "original_interfaces": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit";
+    "variants": [{
+        "id": "constant_eta";
+        "projection": "m * LHV = P * eta";
+      }, {
+        "id": "piecewise";
+        "projection": "Segment weights produce observed P and m";
+      }];
+    "proof_obligation": "E5 conditional; nonlinearity allowed by contract";
+    "domains": {
+      "t": {
+        "labels": ["t0"];
+        "kind": "stage";
+        "ordered": true;
+      };
+    };
+    "parameters": {
+      "power": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "POSITIVE";
+        "subject": "port:electric";
+        "source_path": ["synthetic_data", "inputs", "power"];
+      };
+      "flow": {
+        "dims": ["t"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "kg/h";
+          "carrier": "hydrogen";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "NONNEGATIVE";
+        "subject": "port:hydrogen";
+        "source_path": ["synthetic_data", "observed", "flow"];
+      };
+      "lhv": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MWh_H2_LHV/kg";
+          "carrier": "conversion";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "METHOD_PARAMETER";
+        "domain_rule": "POSITIVE";
+        "range": {
+          "min": "1/1000";
+          "max": "1000";
+        };
+        "source_path": ["synthetic_data", "inputs", "lhv"];
+      };
+      "lo": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "LHV_ratio";
+          "carrier": "conversion";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "METHOD_PARAMETER";
+        "domain_rule": "POSITIVE";
+        "range": {
+          "min": "1/1000";
+          "max": "1000";
+        };
+        "source_path": ["synthetic_data", "inputs", "eta_min"];
+      };
+      "hi": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "LHV_ratio";
+          "carrier": "conversion";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "METHOD_PARAMETER";
+        "domain_rule": "POSITIVE";
+        "range": {
+          "min": "1/1000";
+          "max": "1000";
+        };
+        "source_path": ["synthetic_data", "inputs", "eta_max"];
+      };
+    };
+    "expressions": {
+      "hydrogen_power": {
+        "formula": "flow*lhv";
+        "quantity": {
+          "unit": "MW_H2_LHV";
+          "carrier": "hydrogen";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "eta": {
+        "formula": "hydrogen_power/power";
+        "quantity": {
+          "unit": "LHV_ratio";
+          "carrier": "conversion";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "lower": {
+        "formula": "power*lo";
+        "quantity": {
+          "unit": "MW_H2_LHV";
+          "carrier": "hydrogen";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "upper": {
+        "formula": "power*hi";
+        "quantity": {
+          "unit": "MW_H2_LHV";
+          "carrier": "hydrogen";
+          "basis": "LHV";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+    };
+    "conditions": {
+      "efficiency_envelope": {
+        "formula": "hydrogen_power >= lower and hydrogen_power <= upper";
+        "axes": ["t"];
+        "role": "SAFETY_GUARANTEE";
+      };
+    };
+    "components": [{
+        "id": "component:electrolyser";
+        "kind": "conversion";
+      }];
+    "ports": [{
+        "id": "port:electric";
+        "component_ref": "component:electrolyser";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "IN";
+        "axes": ["domain:t"];
+      }, {
+        "id": "port:hydrogen";
+        "component_ref": "component:electrolyser";
+        "quantity": {
+          "unit": "kg/h";
+          "carrier": "hydrogen";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "OUT";
+        "axes": ["domain:t"];
+      }];
+    "relations": [];
+    "chronologies": [];
+    "information_sets": [];
+    "policies": [];
+    "native_relations": {
+
+    };
+    "relation_domains": [];
+    "checks": [{
+        "kind": "equals";
+        "path": ["synthetic_data", "inputs", "basis"];
+        "equals": "LHV";
+        "rule": "R06";
+        "code": "HEATING_VALUE_BASIS";
+      }, {
+        "kind": "equals";
+        "path": ["synthetic_data", "units", "flow"];
+        "equals": "kg/h";
+        "rule": "R06";
+        "code": "CARRIER_UNIT";
+      }];
+    "transfers": {
+
+    };
+    "ledgers": [];
+    "comparison": null;
+    "models": [];
+    "report_requests": [];
+    "projection_notes": ["Finite positive-power envelope; zero-input obligation not exercised by this sample. No global nonlinear proof."];
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC03/contract.json";
+      "blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4";
+    };
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json";
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE";
+    };
+  }
+ instance {
+    "id": "MUT-03";
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1";
+      "id": "RC03";
+      "governance": "NON-NORMATIVE / RESEARCH ONLY";
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28";
+        "ms1_draft_blob": "24ca75520688e6ec81841bb52cbbeadd8933b339";
+      };
+      "study_frame": {
+        "id": "study:RC03";
+        "question": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit";
+        "domains": {
+          "interval": ["t0"];
+          "ports": ["electric", "H2"];
+        };
+        "authority": "OWNER_TBD";
+        "method": "method:RC03:synthetic-0.1";
+        "study_profile": "profile:RC03:synthetic-0.1";
+        "evidence": "REQUEST_NOT_EXECUTED";
+      };
+      "typed_symbols": "P: electricity consumption MW; m: hydrogen kg/h; h: MWh/kg LHV; eta: dimensionless";
+      "component_interfaces": "electricity consumption MW and H2 mass production kg/h; LHV/HHV explicit";
+      "assumptions": "P=30 MW; m=600 kg/h; h=1/30 MWh/kg synthetic LHV; envelope 3/5..4/5";
+      "external_obligations": "eta=m*h/P if P>0; 3/5<=eta<=4/5; zero output when input zero under synthetic envelope; basis explicitly LHV";
+      "observables": "electricity port, H2 port, h basis, eta";
+      "synthetic_data": {
+        "domains": {
+          "interval": ["t0"];
+          "ports": ["electric", "H2"];
+        };
+        "inputs": {
+          "power": "30";
+          "lhv": "1/30";
+          "eta_min": "3/5";
+          "eta_max": "4/5";
+          "basis": null;
+        };
+        "units": {
+          "power": "MW electricity consumption";
+          "lhv": "MWh_H2_LHV/kg";
+          "flow": "kg/h";
+        };
+        "observed": {
+          "flow": "600";
+        };
+        "variants": [{
+            "id": "constant_eta";
+            "projection": "m * LHV = P * eta";
+          }, {
+            "id": "piecewise";
+            "projection": "Segment weights produce observed P and m";
+          }];
+        "limit": "One operating point; no general nonlinear feasible-set equivalence.";
+      };
+      "proof_obligation": "E5 conditional; nonlinearity allowed by contract";
+    };
+    "parameters": {
+      "power": ["30"];
+      "flow": ["600"];
+      "lhv": "1/30";
+      "lo": "3/5";
+      "hi": "4/5";
+    };
+    "relation_rows": {
+
+    };
+    "raw_transfers": {
+
+    };
+    "observed_contributions": [];
+    "comparison": null;
+    "models": [];
+    "external_reports": [];
+  }
+}

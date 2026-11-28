@@ -17,7 +17,7 @@ def information(dom,infos):
     for a in infos.values():
         need(a.get('time_domain') in dom and a.get('scenario_domain') in dom,'INFORMATION_DOMAIN')
     for a in infos.values():
-        fields(a,('id','time_domain','stage','scenario_domain','partition'));td=dom[a['time_domain']];sd=dom[a['scenario_domain']];need(td['kind']=='time' and sd['kind']=='scenario' and a['stage'] in td['members'],'INFORMATION_DOMAIN');need(type(a['partition']) is list and all(bool(unique_members(group)) for group in a['partition']),'INFORMATION_PARTITION');flat=[v for group in a['partition'] for v in group];need(len(flat)==len(set(flat)) and set(flat)==set(sd['members']),'INFORMATION_PARTITION')
+        fields(a,('id','time_domain','stage','scenario_domain','partition'));td=dom[a['time_domain']];sd=dom[a['scenario_domain']];need(td['kind'] in ('time','stage') and sd['kind']=='scenario' and a['stage'] in td['members'],'INFORMATION_DOMAIN');need(type(a['partition']) is list and all(bool(unique_members(group)) for group in a['partition']),'INFORMATION_PARTITION');flat=[v for group in a['partition'] for v in group];need(len(flat)==len(set(flat)) and set(flat)==set(sd['members']),'INFORMATION_PARTITION')
     for a in infos.values():
         for b in infos.values():
             if a['time_domain']==b['time_domain'] and a['scenario_domain']==b['scenario_domain']:

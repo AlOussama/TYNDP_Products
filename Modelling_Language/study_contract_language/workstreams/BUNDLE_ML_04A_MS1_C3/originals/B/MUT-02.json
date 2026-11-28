@@ -1,0 +1,462 @@
+{
+  "schema": "c3-original-authoring-0.2",
+  "instance": {
+    "id": "MUT-02",
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1",
+      "id": "RC02",
+      "governance": "NON-NORMATIVE / RESEARCH ONLY",
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "ms1_draft_blob": "93a84aae192aa926b10cb94a3f570c7f060a0a76"
+      },
+      "study_frame": {
+        "id": "study:RC02",
+        "question": "individuelle Abfahrtsenergie/Anschlussfenster, V2G nur bei expliziter Erlaubnis",
+        "domains": {
+          "vehicle": [
+            "EV1",
+            "EV2"
+          ],
+          "interval": [
+            "t0",
+            "t1"
+          ]
+        },
+        "authority": "OWNER_TBD",
+        "method": "method:RC02:synthetic-0.1",
+        "study_profile": "profile:RC02:synthetic-0.1",
+        "evidence": "REQUEST_NOT_EXECUTED"
+      },
+      "typed_symbols": "vehicle: finite ID; t: interval; availability[v,t]: Bool3; delivered[v,t]: kWh; required[v]: kWh; departure[v]: time",
+      "component_interfaces": "individuelle Abfahrtsenergie/Anschlussfenster, V2G nur bei expliziter Erlaubnis",
+      "assumptions": "EV1,EV2 departure requirements 4,6 kWh; available before deadline; delivered totals 4,6; V2G not permitted absent authority",
+      "external_obligations": "forall v, sum delivered before departure >= required[v]; zero outside connection window; no negative charging absent V2G permission",
+      "observables": "individual deadline energy, availability, V2G authority",
+      "synthetic_data": {
+        "domains": {
+          "vehicle": [
+            "EV1",
+            "EV2"
+          ],
+          "interval": [
+            "t0",
+            "t1"
+          ]
+        },
+        "inputs": {
+          "required": [
+            "4",
+            "6"
+          ],
+          "connected": [
+            [
+              true,
+              false
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          "departure": [
+            1,
+            2
+          ],
+          "v2g_authority": false
+        },
+        "units": {
+          "required": "kWh",
+          "delivered": "kWh"
+        },
+        "observed": {
+          "delivered": [
+            [
+              "5",
+              "0"
+            ],
+            [
+              "2",
+              "3"
+            ]
+          ]
+        },
+        "variants": [
+          {
+            "id": "individual",
+            "projection": "Per-vehicle interval energy"
+          },
+          {
+            "id": "aggregate",
+            "projection": "Fleet schedule plus allocation witness for each EV"
+          }
+        ],
+        "limit": "One declared request; no universal service or capability guarantee."
+      },
+      "proof_obligation": "E5 conditional; service universally not proved"
+    },
+    "parameters": {
+      "delivered": [
+        "1/200",
+        "1/500",
+        "0",
+        "3/1000"
+      ],
+      "connected": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "eligible": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "required": [
+        "1/250",
+        "3/500"
+      ],
+      "zero": "0",
+      "v2g": 0
+    },
+    "relation_rows": {},
+    "raw_transfers": {
+      "delivered": [
+        "5",
+        "2",
+        "0",
+        "3"
+      ],
+      "required": [
+        "4",
+        "6"
+      ]
+    },
+    "observed_contributions": [],
+    "comparison": null,
+    "models": [],
+    "external_reports": []
+  },
+  "definition": {
+    "schema": "c3-authored-native-contract-0.2",
+    "family": "RC",
+    "study_id": "study:RC02",
+    "reference": "RC02",
+    "question": "individuelle Abfahrtsenergie/Anschlussfenster, V2G nur bei expliziter Erlaubnis",
+    "governance": "NON-NORMATIVE / RESEARCH ONLY",
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION",
+      "proof_policy": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "process_role": "EVALUATION",
+      "data_policy": "PINNED_SNAPSHOT",
+      "missing_data": "BLOCK",
+      "authority_status": "RESEARCH_ONLY",
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE"
+    },
+    "original_obligations": "forall v, sum delivered before departure >= required[v]; zero outside connection window; no negative charging absent V2G permission",
+    "original_assumptions": "EV1,EV2 departure requirements 4,6 kWh; available before deadline; delivered totals 4,6; V2G not permitted absent authority",
+    "original_typed_symbols": "vehicle: finite ID; t: interval; availability[v,t]: Bool3; delivered[v,t]: kWh; required[v]: kWh; departure[v]: time",
+    "original_interfaces": "individuelle Abfahrtsenergie/Anschlussfenster, V2G nur bei expliziter Erlaubnis",
+    "variants": [
+      {
+        "id": "individual",
+        "projection": "Per-vehicle interval energy"
+      },
+      {
+        "id": "aggregate",
+        "projection": "Fleet schedule plus allocation witness for each EV"
+      }
+    ],
+    "proof_obligation": "E5 conditional; service universally not proved",
+    "domains": {
+      "t": {
+        "labels": [
+          "t0",
+          "t1"
+        ],
+        "kind": "stage",
+        "ordered": true
+      },
+      "v": {
+        "labels": [
+          "EV1",
+          "EV2"
+        ],
+        "kind": "request",
+        "ordered": false
+      },
+      "r": {
+        "labels": [
+          "observed_schedule"
+        ],
+        "kind": "response",
+        "ordered": false
+      }
+    },
+    "parameters": {
+      "delivered": {
+        "dims": [
+          "r",
+          "t",
+          "v"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "delivered"
+        ]
+      },
+      "connected": {
+        "dims": [
+          "r",
+          "t",
+          "v"
+        ],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "connected"
+        ]
+      },
+      "eligible": {
+        "dims": [
+          "r",
+          "t",
+          "v"
+        ],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "departure"
+        ]
+      },
+      "required": {
+        "dims": [
+          "r",
+          "v"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "required"
+        ]
+      },
+      "zero": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT"
+      },
+      "v2g": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "v2g_authority"
+        ]
+      }
+    },
+    "expressions": {
+      "received": {
+        "formula": "sum(delivered*eligible, over=t)",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "fleet_total": {
+        "formula": "sum(sum(received, over=v), over=r)",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "outside_connection": {
+        "formula": "delivered*(1-connected)",
+        "quantity": {
+          "unit": "MWh",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      }
+    },
+    "conditions": {
+      "connection_window": {
+        "formula": "outside_connection == zero",
+        "axes": [
+          "r",
+          "t",
+          "v"
+        ],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "nonnegative_charging": {
+        "formula": "delivered >= zero",
+        "axes": [
+          "r",
+          "t",
+          "v"
+        ],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "service": {
+        "formula": "received >= required",
+        "axes": [
+          "r",
+          "v"
+        ],
+        "role": "SERVICE_GUARANTEE",
+        "binder_order": [
+          "v",
+          "r"
+        ],
+        "witnesses": [
+          {
+            "key": [
+              "EV1"
+            ],
+            "response": "observed_schedule"
+          },
+          {
+            "key": [
+              "EV2"
+            ],
+            "response": "observed_schedule"
+          }
+        ]
+      }
+    },
+    "components": [
+      {
+        "id": "component:fleet",
+        "kind": "EV_fleet"
+      }
+    ],
+    "ports": [],
+    "relations": [],
+    "chronologies": [],
+    "information_sets": [],
+    "policies": [],
+    "native_relations": {},
+    "relation_domains": [],
+    "checks": [
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "v2g_authority"
+        ],
+        "equals": false,
+        "rule": "R09",
+        "code": "V2G_UNAUTHORIZED"
+      }
+    ],
+    "transfers": {
+      "delivered": {
+        "kind": "UNIT",
+        "source_unit": "kWh",
+        "source_basis": "NONE",
+        "factor": "1/1000"
+      },
+      "required": {
+        "kind": "UNIT",
+        "source_unit": "kWh",
+        "source_basis": "NONE",
+        "factor": "1/1000"
+      }
+    },
+    "ledgers": [],
+    "comparison": null,
+    "models": [],
+    "report_requests": [],
+    "projection_notes": [
+      "Discrete connection/departure stages; no physical durations inferred. Actual per-vehicle schedule witness."
+    ],
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC02/contract.json",
+      "blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075"
+    },
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json",
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+    }
+  }
+}

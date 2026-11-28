@@ -1,0 +1,753 @@
+{
+  "schema": "c3-blockers-0.1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "confirmed": [
+    {
+      "id": "C3-B01",
+      "scope": "Outer M3 A/B admission seam",
+      "status": "CLOSED_BOUNDED",
+      "evidence": "C3_AUTHORING_CONTROL, both successful native CI runs",
+      "limit": "New versioned structural A envelope, not historical independently authored full original cases",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "116 committed authored A/B sources"
+      }
+    },
+    {
+      "id": "C3-B02",
+      "scope": "P5 native discount and decision signs",
+      "status": "CLOSED_BOUNDED",
+      "evidence": "C3_P5_DISCOUNT_PROJECTION",
+      "limit": "Original P5 numerical projection only",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "Actual P5-BASE native decision threshold, exact discounted results"
+      }
+    },
+    {
+      "id": "C3-B03",
+      "scope": "P5 native contribution propagation and one-off CAPEX",
+      "status": "CLOSED_BOUNDED",
+      "evidence": "C3_P5_GRAPH_PROJECTION",
+      "limit": "Generated control A/B, status BLOCKED preserved for unexecuted external reports; original 30 mutation A/B paths still absent",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "Actual P5-BASE A/B full graph and native discount contribution lineage"
+      }
+    },
+    {
+      "id": "C3-B04",
+      "scope": "RC01 signed grid flow to unsigned stock quantity",
+      "status": "CLOSED_BOUNDED",
+      "evidence": {
+        "actual_reason": "EXPRESSION_TYPE:intake",
+        "candidate_object": "expression:intake",
+        "candidate_stage": "NATIVE_ADMISSION",
+        "fixture_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+        "interpretation": "Numeric negation is not an explicit signed-flow to unsigned stock semantic conversion; no historical E1 verdict claimed.",
+        "native_source_sha256": "da259c9a62529438a10614e5ba2b767f92ddba494d5bbc51a5f8e9025839cdeb",
+        "scope": "NATIVE_ADMISSION_PROBE_NOT_ORIGINAL_AB",
+        "signed_control": [
+          "1"
+        ]
+      },
+      "required": "Explicit source-authorized sign/convention conversion checked on the native expression, with negative and roundtrip controls; do not strip sign or redefine physical types",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "C3_SIGN_CONVERSION and actual RC01 A/B + MUT-01, MUT-11, MUT-14, MUT-17"
+      }
+    }
+  ],
+  "static_review": [
+    {
+      "id": "C3-B05",
+      "scope": "RC07 ordered decision stages without physical durations",
+      "status": "CLOSED_BOUNDED",
+      "evidence": "C2 closure_v1/r1_reuse.py information() requires time kind; metadata.py time domains require explicit positive-duration chronology. RC07 source declares stage order, not elapsed hours.",
+      "required": "Check stage-domain information policy without fabricating physical time intervals; minimal versioned addition only if native candidate confirms gap.",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "C3_STAGE_INFORMATION and RC07/MUT-07/MUT-15"
+      }
+    },
+    {
+      "id": "C3-B06",
+      "scope": "Standalone authoring import bootstrap",
+      "status": "CLOSED_BOUNDED",
+      "evidence": "authoring.evaluate imports closure from inherited C2 interface path; CI entry points initialize interface via test_closure_v1 first.",
+      "required": "Explicit bootstrap and independent import smoke test before public standalone API; tested integrated entry points remain successful.",
+      "final_evidence": {
+        "run": 46086101815,
+        "job": 140795911203,
+        "receipt": "actual_original_results_46086101815.json",
+        "scope": "test_targeted_c3 standalone authoring import and actual source runner"
+      }
+    }
+  ],
+  "original_materialization": {
+    "status": "CLOSED_BOUNDED",
+    "missing_identities": 0,
+    "missing_full_paths": 0,
+    "rows": [
+      {
+        "id": "RC01",
+        "family": "RC",
+        "original_reason": "signed conditional energy ledger, efficiency and terminal authority",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC02",
+        "family": "RC",
+        "original_reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC03",
+        "family": "RC",
+        "original_reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC04",
+        "family": "RC",
+        "original_reason": "mass inventory recursion, loss and heating-value basis",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC05",
+        "family": "RC",
+        "original_reason": "topology-aware incidence/cycle relations and KVL",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC06",
+        "family": "RC",
+        "original_reason": "integer domain, lead time, investment option and cost obligations",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC07",
+        "family": "RC",
+        "original_reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC08",
+        "family": "RC",
+        "original_reason": "weighted cost contribution uniqueness, price basis and typed method output",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC09",
+        "family": "RC",
+        "original_reason": "counterfactual exogeneity, method context and authority",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "RC10",
+        "family": "RC",
+        "original_reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-01",
+        "family": "C23",
+        "original_reason": "signed conditional energy ledger, efficiency and terminal authority",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-02",
+        "family": "C23",
+        "original_reason": "vehicle-specific departure, connection windows, capability/service and request witnesses",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-03",
+        "family": "C23",
+        "original_reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-04",
+        "family": "C23",
+        "original_reason": "mass inventory recursion, loss and heating-value basis",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-05",
+        "family": "C23",
+        "original_reason": "topology-aware incidence/cycle relations and KVL",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-06",
+        "family": "C23",
+        "original_reason": "integer domain, lead time, investment option and cost obligations",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-07",
+        "family": "C23",
+        "original_reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-08",
+        "family": "C23",
+        "original_reason": "weighted cost contribution uniqueness, price basis and typed method output",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-09",
+        "family": "C23",
+        "original_reason": "counterfactual exogeneity, method context and authority",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-10",
+        "family": "C23",
+        "original_reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-11",
+        "family": "C23",
+        "original_reason": "signed conditional energy ledger, efficiency and terminal authority",
+        "original_expected": [
+          "E1_DIFFERENT"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-12",
+        "family": "C23",
+        "original_reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+        "original_expected": [
+          "AUDIT_LOSS"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-13",
+        "family": "C23",
+        "original_reason": "independent evidence lifecycle and claim/equivalence proof obligations",
+        "original_expected": [
+          "FAIL_STATIC"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-14",
+        "family": "C23",
+        "original_reason": "signed conditional energy ledger, efficiency and terminal authority",
+        "original_expected": [
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-15",
+        "family": "C23",
+        "original_reason": "complete pairwise information-domain nonanticipativity and temporal scope",
+        "original_expected": [
+          "BLOCKED",
+          "E1_DIFFERENT"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-16",
+        "family": "C23",
+        "original_reason": "cross-carrier typed arithmetic and explicit heating value conversion",
+        "original_expected": [
+          "FAIL_STATIC"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-17",
+        "family": "C23",
+        "original_reason": "signed conditional energy ledger, efficiency and terminal authority",
+        "original_expected": [
+          "BLOCKED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "MUT-18",
+        "family": "C23",
+        "original_reason": "topology-aware incidence/cycle relations and KVL",
+        "original_expected": [
+          "E4_NOT_PROVED"
+        ],
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M01",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "PAIR_INCOMPLETE",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M02",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "EXOGENOUS_SNAPSHOT_DRIFT",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M03",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "SCENARIO_WEIGHT_INVALID",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M04",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "SCENARIO_WEIGHT_SUM",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M05",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "OUTPUT_BASIS_MISMATCH",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M06",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "OUTPUT_BASIS_MISMATCH",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M07",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "BENEFIT_SIGN_CONVENTION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M08",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "COST_PROXY_MISLABELED_AS_SEW",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M09",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "UNSUPPORTED_OWNER_APPROVAL",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M10",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "EVIDENCE_PROMOTION_UNSUPPORTED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M11",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "SOURCE_LEDGER_LOSS",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M12",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "MODEL_VARIATION_NOT_DISCLOSED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M13",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "PROJECT_SCOPE_DRIFT",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M14",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M15",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M16",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "TIME_SUPPORT_INVALID",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M17",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "UNKNOWN_COERCED_TO_NUMBER",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M18",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "CARRIER_UNIT_TYPE_MISMATCH",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M19",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M20",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "DISCOUNT_POLICY_INVALID",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M21",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "INDEPENDENCE_IDENTITY_COLLISION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M22",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "DISCOUNT_CURRENCY_BASIS",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M23",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "WEIGHT_ROLE_CONFLATION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M24",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "OBSERVABLE_SELECTION_UNDEFINED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M25",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "UNKNOWN_SAMPLE_REFERENCE",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M26",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "CONSULTATION_SOURCE_PROMOTION",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M27",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M28",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "KPI_DOUBLE_COUNTING_POLICY",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M29",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "STAGE1_INFORMATION_LEAKAGE",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      },
+      {
+        "id": "M30",
+        "family": "P5",
+        "original_reason": "P5 original micro-oracle cannot substitute for full language representation",
+        "original_expected": "E4_UNSUPPORTED",
+        "full_A": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "full_B": "EXECUTED_EXPECTATION_ACCOUNTED_FOR",
+        "scope": "Exact inherited reason; not a new confirmed validator rejection",
+        "evidence": "actual_original_results_46086101815.json"
+      }
+    ]
+  },
+  "observed_integration_failures": [
+    {
+      "run": 46085116639,
+      "reason": "52/116 accounted; EV scope order and P5 context key",
+      "status": "FIXED_AND_RETESTED"
+    },
+    {
+      "run": 46085465492,
+      "reason": "116/116 native; corpus exit variable shadowing",
+      "status": "FIXED_AND_RETESTED"
+    },
+    {
+      "run": 46085703619,
+      "reason": "Missing diagnostic tuple field",
+      "status": "FIXED_AND_RETESTED"
+    },
+    {
+      "run": 46085848033,
+      "reason": "Same diagnostic tuple defect before correction",
+      "status": "FIXED_AND_RETESTED"
+    }
+  ]
+}

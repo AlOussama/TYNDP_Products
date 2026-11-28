@@ -1,0 +1,517 @@
+{
+  "schema": "c3-original-authoring-0.2",
+  "instance": {
+    "id": "MUT-06",
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1",
+      "id": "RC06",
+      "governance": "NON-NORMATIVE / RESEARCH ONLY",
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "ms1_draft_blob": "532fdb2c51afa797a4f3560e8d0a17172c2a1f6a"
+      },
+      "study_frame": {
+        "id": "study:RC06",
+        "question": "admissible expansion choices, lead time, modularity if specified, capex",
+        "domains": {
+          "site": [
+            "s"
+          ],
+          "stage": [
+            0,
+            1,
+            2
+          ],
+          "option": [
+            "module"
+          ]
+        },
+        "authority": "OWNER_TBD",
+        "method": "method:RC06:synthetic-0.1",
+        "study_profile": "profile:RC06:synthetic-0.1",
+        "evidence": "REQUEST_NOT_EXECUTED"
+      },
+      "typed_symbols": "n: count integer; module_capacity MW; invest/commission time; lead_time periods; capex currency basis",
+      "component_interfaces": "admissible expansion choices, lead time, modularity if specified, capex",
+      "assumptions": "n=1; 100 MW/module; invest t=0; lead=2 periods; commission t=2; capex=100 EUR real2025/module synthetic",
+      "external_obligations": "n belongs to admissible integer choices; installed=n*module_capacity only after lead time; cost=n*capex",
+      "observables": "option ID, module count, timing, capacity, cost",
+      "synthetic_data": {
+        "domains": {
+          "site": [
+            "s"
+          ],
+          "stage": [
+            0,
+            1,
+            2
+          ],
+          "option": [
+            "module"
+          ]
+        },
+        "inputs": {
+          "module_capacity": "100",
+          "capex": "100",
+          "invest_time": 0,
+          "lead_time": 2,
+          "max_modules": 3,
+          "price_basis": "EUR:real:2025"
+        },
+        "units": {
+          "module_capacity": "MW/module",
+          "capex": "EUR/module"
+        },
+        "observed": {
+          "modules": "3/10",
+          "commission": 2,
+          "capacity": [
+            "0",
+            "0",
+            "100"
+          ],
+          "cost": "100"
+        },
+        "variants": [
+          {
+            "id": "integer_count",
+            "projection": "n integer, capacity n*module_capacity"
+          },
+          {
+            "id": "binary_slots",
+            "projection": "sum of three binary module options",
+            "slots": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "limit": "Discrete required research scope; continuous approximation not approved."
+      },
+      "proof_obligation": "E5 conditional on approximation permission"
+    },
+    "parameters": {
+      "n": "3/10",
+      "size": "100",
+      "capex": "100",
+      "maxn": 3,
+      "invest": 0,
+      "lead": 2,
+      "commission_obs": 2,
+      "capacity_obs": [
+        "0",
+        "0",
+        "100"
+      ],
+      "cost_obs": "100",
+      "zero_capacity": "0",
+      "slots": [
+        1,
+        0,
+        0
+      ]
+    },
+    "relation_rows": {},
+    "raw_transfers": {},
+    "observed_contributions": [],
+    "comparison": null,
+    "models": [],
+    "external_reports": []
+  },
+  "definition": {
+    "schema": "c3-authored-native-contract-0.2",
+    "family": "RC",
+    "study_id": "study:RC06",
+    "reference": "RC06",
+    "question": "admissible expansion choices, lead time, modularity if specified, capex",
+    "governance": "NON-NORMATIVE / RESEARCH ONLY",
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION",
+      "proof_policy": "NOT_PROVED",
+      "owner": "OWNER_TBD",
+      "process_role": "EVALUATION",
+      "data_policy": "PINNED_SNAPSHOT",
+      "missing_data": "BLOCK",
+      "authority_status": "RESEARCH_ONLY",
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE"
+    },
+    "original_obligations": "n belongs to admissible integer choices; installed=n*module_capacity only after lead time; cost=n*capex",
+    "original_assumptions": "n=1; 100 MW/module; invest t=0; lead=2 periods; commission t=2; capex=100 EUR real2025/module synthetic",
+    "original_typed_symbols": "n: count integer; module_capacity MW; invest/commission time; lead_time periods; capex currency basis",
+    "original_interfaces": "admissible expansion choices, lead time, modularity if specified, capex",
+    "variants": [
+      {
+        "id": "integer_count",
+        "projection": "n integer, capacity n*module_capacity"
+      },
+      {
+        "id": "binary_slots",
+        "projection": "sum of three binary module options",
+        "slots": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "proof_obligation": "E5 conditional on approximation permission",
+    "domains": {
+      "stage": {
+        "labels": [
+          0,
+          1,
+          2
+        ],
+        "kind": "stage",
+        "ordered": true
+      },
+      "option": {
+        "labels": [
+          0,
+          1,
+          2
+        ],
+        "kind": "sample",
+        "ordered": false
+      }
+    },
+    "parameters": {
+      "n": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "module",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "NONNEGATIVE",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "modules"
+        ]
+      },
+      "size": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MW/module",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "module_capacity"
+        ]
+      },
+      "capex": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "EUR/module",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "capex"
+        ]
+      },
+      "maxn": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "module",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "max_modules"
+        ]
+      },
+      "invest": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "invest_time"
+        ]
+      },
+      "lead": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "inputs",
+          "lead_time"
+        ]
+      },
+      "commission_obs": {
+        "dims": [],
+        "dtype": "int",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "commission"
+        ]
+      },
+      "capacity_obs": {
+        "dims": [
+          "stage"
+        ],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MW",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "capacity"
+        ]
+      },
+      "cost_obs": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "EUR",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "observed",
+          "cost"
+        ]
+      },
+      "zero_capacity": {
+        "dims": [],
+        "dtype": "float",
+        "quantity": {
+          "unit": "MW",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "INPUT",
+        "domain_rule": "ANY_EXACT"
+      },
+      "slots": {
+        "dims": [
+          "option"
+        ],
+        "dtype": "int",
+        "quantity": {
+          "unit": "module",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        },
+        "role": "OBSERVABLE",
+        "domain_rule": "ANY_EXACT",
+        "source_path": [
+          "synthetic_data",
+          "variants",
+          1,
+          "slots"
+        ]
+      }
+    },
+    "expressions": {
+      "commission": {
+        "formula": "invest+lead",
+        "quantity": {
+          "unit": "1",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "capacity": {
+        "formula": {
+          "dims": [
+            "stage"
+          ],
+          "cases": {
+            "commissioned": {
+              "when": "stage >= 2",
+              "expression": "n*size"
+            }
+          },
+          "otherwise": "zero_capacity"
+        },
+        "quantity": {
+          "unit": "MW",
+          "carrier": "electricity",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "cost": {
+        "formula": "n*capex",
+        "quantity": {
+          "unit": "EUR",
+          "carrier": "currency",
+          "basis": "EUR:real:2025",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      },
+      "count_binary": {
+        "formula": "sum(slots, over=option)",
+        "quantity": {
+          "unit": "module",
+          "carrier": "none",
+          "basis": "NONE",
+          "sign": "NONE",
+          "direction": "NONE",
+          "time_basis": "NONE"
+        }
+      }
+    },
+    "conditions": {
+      "lead_time": {
+        "formula": "commission == commission_obs",
+        "axes": [],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "module_bound": {
+        "formula": "n <= maxn",
+        "axes": [],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "capacity_ok": {
+        "formula": "capacity == capacity_obs",
+        "axes": [
+          "stage"
+        ],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "investment_cost": {
+        "formula": "cost == cost_obs",
+        "axes": [],
+        "role": "SAFETY_GUARANTEE"
+      },
+      "binary_projection": {
+        "formula": "count_binary == n",
+        "axes": [],
+        "role": "SAFETY_GUARANTEE"
+      }
+    },
+    "components": [
+      {
+        "id": "component:site",
+        "kind": "expansion_site"
+      }
+    ],
+    "ports": [],
+    "relations": [],
+    "chronologies": [],
+    "information_sets": [],
+    "policies": [],
+    "native_relations": {},
+    "relation_domains": [],
+    "checks": [
+      {
+        "kind": "equals",
+        "path": [
+          "synthetic_data",
+          "inputs",
+          "price_basis"
+        ],
+        "equals": "EUR:real:2025",
+        "rule": "R06",
+        "code": "PRICE_BASIS"
+      }
+    ],
+    "transfers": {},
+    "ledgers": [],
+    "comparison": null,
+    "models": [],
+    "report_requests": [],
+    "projection_notes": [],
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC06/contract.json",
+      "blob": "0fc0d49569e04876d01364c56342cb6183fc496c"
+    },
+    "mutation_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json",
+      "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+    }
+  }
+}

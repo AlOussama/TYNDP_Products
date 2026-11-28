@@ -1,0 +1,379 @@
+{
+  "schema": "c3-original-source-catalogue-0.2",
+  "source_population": 28,
+  "representations": 56,
+  "authoring": "Authored per-case native definitions and complete source records; two materialized structural encodings from one research design. No claim of independent human authorship. Actual source execution accounted for in final receipt; expected rejects remain rejects.",
+  "source_pairs": [
+    {
+      "id": "RC01",
+      "reference": "RC01",
+      "A": "originals/A/RC01.scn",
+      "B": "originals/B/RC01.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+        "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC02",
+      "reference": "RC02",
+      "A": "originals/A/RC02.scn",
+      "B": "originals/B/RC02.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC02/contract.json",
+        "blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC03",
+      "reference": "RC03",
+      "A": "originals/A/RC03.scn",
+      "B": "originals/B/RC03.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC03/contract.json",
+        "blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC04",
+      "reference": "RC04",
+      "A": "originals/A/RC04.scn",
+      "B": "originals/B/RC04.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC04/contract.json",
+        "blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC05",
+      "reference": "RC05",
+      "A": "originals/A/RC05.scn",
+      "B": "originals/B/RC05.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC05/contract.json",
+        "blob": "25354add54c05cc90bd273415e79dd0071ba9ab4"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC06",
+      "reference": "RC06",
+      "A": "originals/A/RC06.scn",
+      "B": "originals/B/RC06.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC06/contract.json",
+        "blob": "0fc0d49569e04876d01364c56342cb6183fc496c"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC07",
+      "reference": "RC07",
+      "A": "originals/A/RC07.scn",
+      "B": "originals/B/RC07.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC07/contract.json",
+        "blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC08",
+      "reference": "RC08",
+      "A": "originals/A/RC08.scn",
+      "B": "originals/B/RC08.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC08/contract.json",
+        "blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC09",
+      "reference": "RC09",
+      "A": "originals/A/RC09.scn",
+      "B": "originals/B/RC09.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC09/contract.json",
+        "blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf"
+      },
+      "mutation": null
+    },
+    {
+      "id": "RC10",
+      "reference": "RC10",
+      "A": "originals/A/RC10.scn",
+      "B": "originals/B/RC10.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+        "blob": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+      },
+      "mutation": null
+    },
+    {
+      "id": "MUT-01",
+      "reference": "RC01",
+      "A": "originals/A/MUT-01.scn",
+      "B": "originals/B/MUT-01.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+        "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-02",
+      "reference": "RC02",
+      "A": "originals/A/MUT-02.scn",
+      "B": "originals/B/MUT-02.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC02/contract.json",
+        "blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-03",
+      "reference": "RC03",
+      "A": "originals/A/MUT-03.scn",
+      "B": "originals/B/MUT-03.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC03/contract.json",
+        "blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-04",
+      "reference": "RC04",
+      "A": "originals/A/MUT-04.scn",
+      "B": "originals/B/MUT-04.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC04/contract.json",
+        "blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-05",
+      "reference": "RC05",
+      "A": "originals/A/MUT-05.scn",
+      "B": "originals/B/MUT-05.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC05/contract.json",
+        "blob": "25354add54c05cc90bd273415e79dd0071ba9ab4"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-06",
+      "reference": "RC06",
+      "A": "originals/A/MUT-06.scn",
+      "B": "originals/B/MUT-06.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC06/contract.json",
+        "blob": "0fc0d49569e04876d01364c56342cb6183fc496c"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-07",
+      "reference": "RC07",
+      "A": "originals/A/MUT-07.scn",
+      "B": "originals/B/MUT-07.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC07/contract.json",
+        "blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-08",
+      "reference": "RC08",
+      "A": "originals/A/MUT-08.scn",
+      "B": "originals/B/MUT-08.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC08/contract.json",
+        "blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-09",
+      "reference": "RC09",
+      "A": "originals/A/MUT-09.scn",
+      "B": "originals/B/MUT-09.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC09/contract.json",
+        "blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-10",
+      "reference": "RC10",
+      "A": "originals/A/MUT-10.scn",
+      "B": "originals/B/MUT-10.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+        "blob": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-11",
+      "reference": "RC01",
+      "A": "originals/A/MUT-11.scn",
+      "B": "originals/B/MUT-11.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+        "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-11.json",
+        "scope": "ORIGINAL_NORMATIVITY_CHANGE_NOT_DERIVED_APPROVAL_EDIT"
+      }
+    },
+    {
+      "id": "MUT-12",
+      "reference": "RC10",
+      "A": "originals/A/MUT-12.scn",
+      "B": "originals/B/MUT-12.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+        "blob": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-12.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-13",
+      "reference": "RC10",
+      "A": "originals/A/MUT-13.scn",
+      "B": "originals/B/MUT-13.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC10/contract.json",
+        "blob": "e775b67b54eaddd596d366860f75ec82b4806c4c"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-13.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-14",
+      "reference": "RC01",
+      "A": "originals/A/MUT-14.scn",
+      "B": "originals/B/MUT-14.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+        "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-14.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-15",
+      "reference": "RC07",
+      "A": "originals/A/MUT-15.scn",
+      "B": "originals/B/MUT-15.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC07/contract.json",
+        "blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-15.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-16",
+      "reference": "RC03",
+      "A": "originals/A/MUT-16.scn",
+      "B": "originals/B/MUT-16.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC03/contract.json",
+        "blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-16.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-17",
+      "reference": "RC01",
+      "A": "originals/A/MUT-17.scn",
+      "B": "originals/B/MUT-17.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC01/contract.json",
+        "blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-17.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    },
+    {
+      "id": "MUT-18",
+      "reference": "RC05",
+      "A": "originals/A/MUT-18.scn",
+      "B": "originals/B/MUT-18.json",
+      "source": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC05/contract.json",
+        "blob": "25354add54c05cc90bd273415e79dd0071ba9ab4"
+      },
+      "mutation": {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-18.json",
+        "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
+      }
+    }
+  ],
+  "final_execution": {
+    "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+    "run": 46086101815,
+    "native_job": 140795911203,
+    "source_population": 28,
+    "representations": 56,
+    "all_expected_accounted_for": true,
+    "receipt": "actual_original_results_46086101815.json"
+  }
+}

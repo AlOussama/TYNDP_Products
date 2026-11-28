@@ -1,0 +1,486 @@
+study_contract "c3-original-authoring-0.2" {
+ definition {
+    "schema": "c3-authored-native-contract-0.2";
+    "family": "RC";
+    "study_id": "study:RC05";
+    "reference": "RC05";
+    "question": "lossless DC assumption; KCL AND KVL; branches/buses distinct, oriented flows";
+    "governance": "NON-NORMATIVE / RESEARCH ONLY";
+    "metadata": {
+      "normativity": "RESEARCH_ASSUMPTION";
+      "proof_policy": "NOT_PROVED";
+      "owner": "OWNER_TBD";
+      "process_role": "EVALUATION";
+      "data_policy": "PINNED_SNAPSHOT";
+      "missing_data": "BLOCK";
+      "authority_status": "RESEARCH_ONLY";
+      "topology_scope": "EXPLICIT_OR_NOT_APPLICABLE";
+    };
+    "original_obligations": "A*f=p; C*diag(x)*f=0; branch limit if declared; reference angle only internal";
+    "original_assumptions": "branches 1->2,2->3,3->1; f=[2,1,-3] MW; x=[1,1,1] synthetic angle/MW; p=[5,-1,-4] MW; lossless DC";
+    "original_typed_symbols": "bus and branch IDs distinct; f[branch]: MW oriented; x[branch]: consistent DC reactance coefficient; p[bus]: MW; A,C incidence matrices";
+    "original_interfaces": "lossless DC assumption; KCL AND KVL; branches/buses distinct, oriented flows";
+    "variants": [{
+        "id": "angles";
+        "projection": "theta_from-theta_to=x*f";
+        "theta": ["2", "0", "-1"];
+      }, {
+        "id": "cycle";
+        "projection": "A*f=p and C*diag(x)*f=0";
+      }];
+    "proof_obligation": "E4 needs separate topological/reactance proof";
+    "domains": {
+      "bus": {
+        "labels": ["b1", "b2", "b3"];
+        "kind": "space";
+        "ordered": false;
+      };
+      "branch": {
+        "labels": ["e12", "e23", "e31"];
+        "kind": "sample";
+        "ordered": false;
+      };
+    };
+    "parameters": {
+      "flow": {
+        "dims": ["branch"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "observed", "flow"];
+      };
+      "injection": {
+        "dims": ["bus"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "injection"];
+      };
+      "x": {
+        "dims": ["branch"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "reactance"];
+      };
+      "cycle_coeff": {
+        "dims": ["branch"];
+        "dtype": "int";
+        "quantity": {
+          "unit": "1";
+          "carrier": "none";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "inputs", "cycle"];
+      };
+      "zero": {
+        "dims": [];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "INPUT";
+        "domain_rule": "ANY_EXACT";
+      };
+      "theta": {
+        "dims": ["bus"];
+        "dtype": "float";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "role": "OBSERVABLE";
+        "domain_rule": "ANY_EXACT";
+        "source_path": ["synthetic_data", "variants", 0, "theta"];
+      };
+    };
+    "expressions": {
+      "nodal": {
+        "formula": "sum(flow, over=branch, by=sending[bus])-sum(flow, over=branch, by=receiving[bus])";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "cycle": {
+        "formula": "sum(flow*x*cycle_coeff, over=branch)";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "angle_drop": {
+        "formula": "at(theta, by=sending[bus])-at(theta, by=receiving[bus])";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+      "reactance_flow": {
+        "formula": "flow*x";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+      };
+    };
+    "conditions": {
+      "kcl": {
+        "formula": "nodal == injection";
+        "axes": ["bus"];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "kvl": {
+        "formula": "cycle == zero";
+        "axes": [];
+        "role": "SAFETY_GUARANTEE";
+      };
+      "angle_projection": {
+        "formula": "angle_drop == reactance_flow";
+        "axes": ["branch"];
+        "role": "SAFETY_GUARANTEE";
+      };
+    };
+    "components": [{
+        "id": "component:b1";
+        "kind": "bus";
+      }, {
+        "id": "component:b2";
+        "kind": "bus";
+      }, {
+        "id": "component:b3";
+        "kind": "bus";
+      }, {
+        "id": "component:e12";
+        "kind": "branch";
+      }, {
+        "id": "component:e23";
+        "kind": "branch";
+      }, {
+        "id": "component:e31";
+        "kind": "branch";
+      }];
+    "ports": [{
+        "id": "port:e12:from";
+        "component_ref": "component:b1";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }, {
+        "id": "port:e12:to";
+        "component_ref": "component:b2";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }, {
+        "id": "port:e23:from";
+        "component_ref": "component:b2";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }, {
+        "id": "port:e23:to";
+        "component_ref": "component:b3";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }, {
+        "id": "port:e31:from";
+        "component_ref": "component:b3";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }, {
+        "id": "port:e31:to";
+        "component_ref": "component:b1";
+        "quantity": {
+          "unit": "MW";
+          "carrier": "electricity";
+          "basis": "NONE";
+          "sign": "NONE";
+          "direction": "NONE";
+          "time_basis": "NONE";
+        };
+        "direction": "BIDIRECTIONAL";
+        "axes": [];
+      }];
+    "relations": [{
+        "id": "relation:e12";
+        "kind": "connected_to";
+        "from": "port:e12:from";
+        "to": "port:e12:to";
+      }, {
+        "id": "relation:e23";
+        "kind": "connected_to";
+        "from": "port:e23:from";
+        "to": "port:e23:to";
+      }, {
+        "id": "relation:e31";
+        "kind": "connected_to";
+        "from": "port:e31:from";
+        "to": "port:e31:to";
+      }];
+    "chronologies": [];
+    "information_sets": [];
+    "policies": [];
+    "native_relations": {
+      "sending": {
+        "key": "branch";
+        "values": "bus";
+      };
+      "receiving": {
+        "key": "branch";
+        "values": "bus";
+      };
+    };
+    "relation_domains": [{
+        "id": "relation:sending";
+        "roles": {
+          "branch": "domain:branch";
+          "bus": "domain:bus";
+        };
+        "key": ["branch"];
+        "support": "CARTESIAN";
+        "rows": [{
+            "branch": "e12";
+            "bus": "b1";
+          }, {
+            "branch": "e23";
+            "bus": "b2";
+          }, {
+            "branch": "e31";
+            "bus": "b3";
+          }];
+        "topology": null;
+      }, {
+        "id": "relation:receiving";
+        "roles": {
+          "branch": "domain:branch";
+          "bus": "domain:bus";
+        };
+        "key": ["branch"];
+        "support": "CARTESIAN";
+        "rows": [{
+            "branch": "e12";
+            "bus": "b2";
+          }, {
+            "branch": "e23";
+            "bus": "b3";
+          }, {
+            "branch": "e31";
+            "bus": "b1";
+          }];
+        "topology": null;
+      }];
+    "checks": [];
+    "transfers": {
+
+    };
+    "ledgers": [];
+    "comparison": null;
+    "models": [];
+    "report_requests": [{
+        "id": "report:e4_proof";
+        "subject": "frame:research";
+        "value_type": "QUALITATIVE";
+        "declared_unit": null;
+        "basis": "E4_FORMAL_PROOF";
+      }];
+    "projection_notes": ["Synthetic unit-coefficient triangle: angle coordinate normalized in MW-equivalent units; explicit topology and both KCL and KVL. General E4 not proved."];
+    "original_source": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/reference_cases/RC05/contract.json";
+      "blob": "25354add54c05cc90bd273415e79dd0071ba9ab4";
+    };
+  }
+ instance {
+    "id": "RC05";
+    "record": {
+      "schema": "c1-original-scientific-fixture-0.1";
+      "id": "RC05";
+      "governance": "NON-NORMATIVE / RESEARCH ONLY";
+      "source": {
+        "golden_blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28";
+        "ms1_draft_blob": "cb6a913b603cd3a2a92f2c6993c80b0f56664059";
+      };
+      "study_frame": {
+        "id": "study:RC05";
+        "question": "lossless DC assumption; KCL AND KVL; branches/buses distinct, oriented flows";
+        "domains": {
+          "bus": ["b1", "b2", "b3"];
+          "branch": ["e12", "e23", "e31"];
+        };
+        "authority": "OWNER_TBD";
+        "method": "method:RC05:synthetic-0.1";
+        "study_profile": "profile:RC05:synthetic-0.1";
+        "evidence": "REQUEST_NOT_EXECUTED";
+      };
+      "typed_symbols": "bus and branch IDs distinct; f[branch]: MW oriented; x[branch]: consistent DC reactance coefficient; p[bus]: MW; A,C incidence matrices";
+      "component_interfaces": "lossless DC assumption; KCL AND KVL; branches/buses distinct, oriented flows";
+      "assumptions": "branches 1->2,2->3,3->1; f=[2,1,-3] MW; x=[1,1,1] synthetic angle/MW; p=[5,-1,-4] MW; lossless DC";
+      "external_obligations": "A*f=p; C*diag(x)*f=0; branch limit if declared; reference angle only internal";
+      "observables": "branch flows/orientation, nodal injections, cycle residuals";
+      "synthetic_data": {
+        "domains": {
+          "bus": ["b1", "b2", "b3"];
+          "branch": ["e12", "e23", "e31"];
+        };
+        "inputs": {
+          "orientation": [[0, 1], [1, 2], [2, 0]];
+          "reactance": ["1", "1", "1"];
+          "injection": ["5", "-1", "-4"];
+          "cycle": [1, 1, 1];
+        };
+        "units": {
+          "flow": "MW";
+          "injection": "MW";
+          "reactance": "synthetic angle/MW";
+        };
+        "observed": {
+          "flow": ["2", "1", "-3"];
+        };
+        "variants": [{
+            "id": "angles";
+            "projection": "theta_from-theta_to=x*f";
+            "theta": ["2", "0", "-1"];
+          }, {
+            "id": "cycle";
+            "projection": "A*f=p and C*diag(x)*f=0";
+          }];
+        "limit": "Connected lossless triangular DC fixture; no AC or arbitrary topology proof.";
+      };
+      "proof_obligation": "E4 needs separate topological/reactance proof";
+    };
+    "parameters": {
+      "flow": ["2", "1", "-3"];
+      "injection": ["5", "-1", "-4"];
+      "x": ["1", "1", "1"];
+      "cycle_coeff": [1, 1, 1];
+      "zero": "0";
+      "theta": ["2", "0", "-1"];
+    };
+    "relation_rows": {
+      "sending": [{
+          "branch": "e12";
+          "bus": "b1";
+        }, {
+          "branch": "e23";
+          "bus": "b2";
+        }, {
+          "branch": "e31";
+          "bus": "b3";
+        }];
+      "receiving": [{
+          "branch": "e12";
+          "bus": "b2";
+        }, {
+          "branch": "e23";
+          "bus": "b3";
+        }, {
+          "branch": "e31";
+          "bus": "b1";
+        }];
+    };
+    "raw_transfers": {
+
+    };
+    "observed_contributions": [];
+    "comparison": null;
+    "models": [];
+    "external_reports": [{
+        "id": "report:e4_proof";
+        "status": "NOT_EXECUTED";
+        "reason": "FORMAL_PROOF_NOT_EXECUTED";
+        "value": null;
+        "source_ref": "authority:source";
+      }];
+  }
+}
