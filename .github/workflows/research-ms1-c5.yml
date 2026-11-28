@@ -68,6 +68,7 @@ jobs:
           git -C .. merge-base --is-ancestor d4e11fcac0c4741535609b85b438416061a85ca2 HEAD
           openssl version
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_r1.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/r1_test_log.txt
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/r1_experiments.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/r1_experiment_log.txt
       - name: Independent structural schema validation
         run: |
           set -euo pipefail
