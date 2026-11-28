@@ -6,17 +6,23 @@
     {
       "id": 140837708404,
       "name": "native",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 140837708655,
       "name": "c5-native",
       "status": "completed",
       "conclusion": "success"
+    },
+    {
+      "id": 140838568940,
+      "name": "original-corpus-exit",
+      "status": "completed",
+      "conclusion": "success"
     }
   ],
-  "exact_latest_combined_success": false,
+  "exact_latest_combined_success": true,
   "native_tested_commit": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
   "native_checkout": "220ac6c3527769c585848956cd9b8668a8ac6755",
   "native_tree": "5a23b7d3aa2d50789f8639404841f2eeb2c47525",
@@ -311,9 +317,9 @@
     "expires_at": "2027-02-26T02:40:46Z"
   },
   "historical": {
-    "run": 46098815953,
-    "job": 140836319375,
-    "url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46098815953/job/140836319375",
+    "run": 46099253452,
+    "job": 140837708404,
+    "url": "https://github.com/AlOussama/TYNDP_Products/actions/runs/46099253452/job/140837708404",
     "original_summary": {
       "internal_failures": 0,
       "original_rules_matched": 116,
@@ -343,7 +349,7 @@
       }
     },
     "upstream_log": [
-      "2026-11-28T02:36:43.7027881Z 4140 passed, 47 skipped in 40.70s"
+      "2026-11-28T02:42:13.9262364Z 4140 passed, 47 skipped in 40.16s"
     ]
   },
   "earlier_fully_green": {

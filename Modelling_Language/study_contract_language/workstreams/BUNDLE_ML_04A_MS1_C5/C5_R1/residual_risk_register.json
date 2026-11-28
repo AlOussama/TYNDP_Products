@@ -27,12 +27,6 @@
       "id": "R1-RISK-05",
       "severity": "LIMITATION",
       "issue": "Historical 125 identities individually retained and reviewed; inherited partial limits and NOT_PROVED conformance remain; no universal requirement satisfaction."
-    },
-    {
-      "id": "R1-RISK-06",
-      "severity": "RELEASE_BLOCKER",
-      "gate": "C5-G9",
-      "issue": "Exact latest combined run 46099253452 not fully confirmed at recording time; prior fully green commit 58c4270 and latest observed native job 140837708655 are distinguished."
     }
   ]
 }

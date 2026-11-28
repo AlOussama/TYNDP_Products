@@ -7,7 +7,7 @@
   "implementation_tree": "5a23b7d3aa2d50789f8639404841f2eeb2c47525",
   "evidence_for_c5_r1": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
   "latest_workflow": 46099253452,
-  "exact_latest_combined_success": false,
+  "exact_latest_combined_success": true,
   "gates": [
     {
       "id": "C5-G0",
@@ -75,8 +75,8 @@
     {
       "id": "C5-G9",
       "name": "Native Regression",
-      "status": "PARTIAL",
-      "evidence": "Earlier exact combined run 46098815953 successful; latest candidate run 46099253452 not yet confirmed fully successful at evidence capture. Do not promote earlier result to latest tree.",
+      "status": "MET",
+      "evidence": "Exact latest implementation CI all three jobs successful; 30 R1 and 20 C5 tests, 116/116 original paths, zero C4 diff, upstream 4140 pass/47 skip.",
       "previous_c5_status": "PARTIAL"
     },
     {
