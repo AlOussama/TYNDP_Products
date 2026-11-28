@@ -133,7 +133,7 @@ def observed_diagnostic(row,doc,r,baselines):
         evidence=next((a for a in r["result"]["policies"] if a["status"]=="FINITE_COUNTEREXAMPLE"),None)
         if evidence is None:return
         index=next(j for j,a in enumerate(doc["definition"]["policies"]) if a["id"]==evidence["id"])
-        code,path,rule,reason="FINITE_COUNTEREXAMPLE","/definition/policies/"+str(index),"Native information policy has violating coordinates"
+        code,path,rule,reason="FINITE_COUNTEREXAMPLE","/definition/policies/"+str(index),"R07","Native information policy has violating coordinates"
     elif oid=="MUT-11":
         base=baselines[("RC01",r["syntax"])]
         if base["status"]!="RETURNED":return
@@ -141,7 +141,7 @@ def observed_diagnostic(row,doc,r,baselines):
         if a["lowered_normativity"]==b["lowered_normativity"] or a["semantic_identity"]==b["semantic_identity"]:return
         evidence={"base":a["lowered_normativity"],"candidate":b["lowered_normativity"],
                   "base_semantic_identity":a["semantic_identity"],"candidate_semantic_identity":b["semantic_identity"]}
-        code,path,rule,reason="E1_DIFFERENT","/definition/metadata/normativity","Admitted canonical requirement normativity and semantic identity differ"
+        code,path,rule,reason="E1_DIFFERENT","/definition/metadata/normativity","R09","Admitted canonical requirement normativity and semantic identity differ"
     else:return
     r["diagnostics"].append({"schema":"c3-actual-diagnostic-0.1","status":"OBSERVED","code":code,
         "candidate_path":path,"path_kind":"DECODED_CANDIDATE_OBJECT","rule_id":rule,"rule_source":RULE_SOURCE,
