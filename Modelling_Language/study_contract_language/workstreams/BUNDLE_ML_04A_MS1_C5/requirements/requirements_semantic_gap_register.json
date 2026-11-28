@@ -1,0 +1,17 @@
+[
+  {
+    "id": "REQ-G1",
+    "status": "PARTIAL",
+    "gap": "Scope refinement only exact same scope; no hierarchy/subsumption proof"
+  },
+  {
+    "id": "REQ-G2",
+    "status": "PARTIAL",
+    "gap": "Source classification and authority refs do not authenticate owner or normative claims"
+  },
+  {
+    "id": "REQ-G3",
+    "status": "PARTIAL",
+    "gap": "No completeness proof of decomposition; DAG establishes trace not logical entailment"
+  }
+]

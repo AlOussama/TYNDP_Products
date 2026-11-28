@@ -1,0 +1,2 @@
+# Limits
+C5 exact-scope traceability is not refinement entailment. External review not verified. Native numeric criterion dependency limited to expression comparisons in one slot. Finite comparison support is not universal completeness. Overall conformance NOT_PROVED. No productive backend certification, full CBA, actual owner authorization, general equivalence, or human authoring study. C4 residual limits retained.

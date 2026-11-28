@@ -28,7 +28,7 @@ def test(id,kind,requirements,metric,criterion,method):
             "coverage":"ALL_DECLARED_SUPPORT" if kind=="VERIFICATION" else "EXTERNAL_SCOPE",
             "evidence":"COMPUTED_NATIVE_RECEIPT" if kind=="VERIFICATION" else "EXTERNAL_REVIEW_RECEIPT"}
 
-def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None,formula="base-alt",method_version="0.2"):
+def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None,formula="base-alt",method_version="0.2",costs=None,implementation="fixture:external_model"):
     f=frame();f["question"]="Synthetic paired project/reference cost comparison; no CBA compliance claim."
     source=[source_row(SOURCE,"fixture:source","Synthetic research requirement: identical exogenous inputs; only explicit project asset change; benefit reference cost minus project cost; scientific review pending.")]
     f["domains"]=[{"id":"domain:s","kind":"scenario","members":SCENARIOS,"ordered":False}]
@@ -55,7 +55,8 @@ def build(numeric=False,guard=None,condition="benefit == expected",quant_expecte
     f["outputs"]=[sig("output:benefit",money,["domain:s"],contribution_policy="NOT_REQUIRED")]
     f["report_requests"]=[{"id":"report:scientific_review","subject":f["id"],"value_type":"QUALITATIVE","declared_unit":None,"basis":"SYNTHETIC_RESEARCH_ONLY","oracle_ref":SOURCE,"authority_refs":[SOURCE]}]
     doc={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt")},"expressions":{"benefit":formula}}
-    params={"base":row([100,130]),"alt":row([85,110])}
+    costs=costs or ([100,130],[85,110])
+    params={"base":row(costs[0]),"alt":row(costs[1])}
     quant={"base":money,"alt":money,"benefit":money};roles={};inputs=[]
     binds={"ref:base":{"kind":"OBSERVABLE","ref":"observable:R"},"ref:alt":{"kind":"OBSERVABLE","ref":"observable:P"},"ref:benefit":{"kind":"OUTPUT","ref":"output:benefit"}}
     if numeric:
@@ -82,7 +83,7 @@ def build(numeric=False,guard=None,condition="benefit == expected",quant_expecte
     x["reports"]=[{"id":"report:scientific_review","status":"NOT_EXECUTED","reason":"NO_INDEPENDENT_REVIEW","value":None,"source_ref":SOURCE}]
     repin(x)
     b,bp=to_definition(x)
-    b["requirements"]["models"]=[{"id":"model:synthetic","implementation_ref":"fixture:external_model","source_ref":SOURCE,"license_ref":SOURCE,"access_ref":SOURCE,"observables":["observable:R","observable:P"],"variations":[]}]
+    b["requirements"]["models"]=[{"id":"model:synthetic","implementation_ref":implementation,"source_ref":SOURCE,"license_ref":SOURCE,"access_ref":SOURCE,"observables":["observable:R","observable:P"],"variations":[]}]
     bp=digest(b);bi=to_instance(x,b,bp)
     d={"schema":DEF,"base":b,
        "requirements":[requirement(STUDY,"STUDY","Benefit must arise from a methodologically consistent pair.",[],["report:scientific_review"],[METRIC,"metric:review"]),

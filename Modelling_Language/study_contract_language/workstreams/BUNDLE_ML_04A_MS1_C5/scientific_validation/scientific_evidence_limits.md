@@ -1,0 +1,2 @@
+# Evidence limits
+Synthetic deterministic examples, same design A/B, authored expected oracles, AI-assisted review not person-independent audit. Explicit external review is not executed. Evidence pinning ensures identity not scientific truth or source authority. Historical C4 pass/fail must be distinguished from C5 regression. C4 original requirements are retained; no automatic upgrade of individual coverage. All new tests must be observed in native CI. No normative release or CBA compliance.

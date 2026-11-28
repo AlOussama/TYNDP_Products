@@ -121,6 +121,26 @@ class C5(unittest.TestCase):
         with self.assertRaisesRegex(Reject,"C5_CANONICAL_TAMPER"):reimport(canonical+" ",dp,ip)
         swapped=copy.deepcopy(d);swapped["requirements"].reverse();swapped["metrics"].reverse();swapped["tests"].reverse()
         self.assertEqual(admit(swapped,digest(swapped))["semantic_identity"],admit(d,dp)["semantic_identity"])
+    def test_vt24_vt25_projected_model_formulations(self):
+        # Independent finite dispatch formulations; not real solver integrations.
+        demand=[10,13]; reference_cap=0; project_cap=3
+        def enumerate_cost(d,cap):
+            return min(5*x+10*(d-x) for x in range(min(d,cap)+1))
+        def analytical_cost(d,cap):
+            return 10*d-5*min(d,cap)
+        for model,cost in (("integer_dispatch",enumerate_cost),("merit_order",analytical_cost)):
+            costs=([cost(x,reference_cap) for x in demand],[cost(x,project_cap) for x in demand])
+            d,i=build(numeric=True,expected=[15,15],costs=costs,implementation="fixture:"+model)
+            r=run(d,i)
+            self.assertEqual(r["tests"]["test:benchmark"]["verdict"],"PASS",r)
+            self.assertEqual(r["tests"][TEST]["verdict"],"PASS",r)
+        # Relaxing cheap capacity beyond authorized project capacity changes the
+        # observable benefit and fails the externally declared benchmark.
+        costs=([10*x for x in demand],[5*x for x in demand])
+        d,i=build(numeric=True,expected=[15,15],costs=costs,implementation="fixture:invalid_relaxation")
+        r=run(d,i);self.assertEqual(r["tests"]["test:benchmark"]["verdict"],"FAIL",r)
+        self.assertEqual(r["tests"][TEST]["verdict"],"PASS",r)
+        print("C5_MODEL_FREEDOM=2 accepted finite projections;1 rejected benchmark;no universal equivalence")
     def test_vt26_qualitative_review(self):
         self.assertEqual(run(self.d,self.i)["tests"][REVIEW]["diagnostic"]["reason"],"EXTERNAL_REVIEW_NOT_VERIFIED")
     def test_vt27_migration(self):
@@ -148,6 +168,27 @@ class C5(unittest.TestCase):
             d=copy.deepcopy(self.d);del d["tests"][0][key]
             with self.assertRaises(Reject):admit(d,digest(d))
             print("C5_ABLATION="+key+":REJECTED")
+    def test_maintenance_metric_criterion_and_reuse(self):
+        d,i=build(numeric=True)
+        a=copy.deepcopy(d["metrics"][-1]);a["id"]="metric:benchmark2"
+        d["metrics"].append(a)
+        d["requirements"][-1]["metric_refs"].append(a["id"])
+        z=copy.deepcopy(d["tests"][-1]);z["id"]="test:benchmark2";z["metric"]=a["id"];d["tests"].append(z)
+        i["requested_tests"].append(z["id"]);rebind(d,i)
+        self.assertEqual(run(d,i)["tests"][z["id"]]["verdict"],"PASS")
+        print("C5_CHANGE=metric_reuse:2_new_records,2_ref_updates,1_definition_ref_update;0_base_or_validator_edits")
+        relaxed,ri=build(numeric=True,condition="benefit <= expected",expected=[15,21])
+        exact,ei=build(numeric=True,expected=[15,21])
+        self.assertEqual(run(relaxed,ri)["tests"]["test:benchmark"]["verdict"],"PASS")
+        self.assertEqual(run(exact,ei)["tests"]["test:benchmark"]["verdict"],"FAIL")
+        self.assertEqual(relaxed["tests"],exact["tests"])
+        self.assertEqual(relaxed["requirements"],exact["requirements"])
+        print("C5_CHANGE=criterion:one_native_condition,derived_repinning;0_outer_requirement_or_test_edits")
+        old=run(relaxed,ri);relaxed["requirements"][0]["statement"]+=" Revised research wording."
+        rebind(relaxed,ri);new=run(relaxed,ri)
+        self.assertEqual(old["native_receipt"],new["native_receipt"])
+        self.assertNotEqual(old["definition_pin"],new["definition_pin"])
+        print("C5_CHANGE=semantic_wording:1_requirement_field,1_definition_ref_update;0_native_math_edits")
     def test_maintenance_add_requirement_and_test(self):
         d,i=self.d,self.i
         before=admit(d,digest(d))["semantic_identity"]

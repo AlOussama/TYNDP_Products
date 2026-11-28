@@ -1,0 +1,108 @@
+{
+  "schema": "c5-vmodel-metamodel-0.1",
+  "status": "RESEARCH_CANDIDATE",
+  "base": {
+    "commit": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
+    "reference": "../../BUNDLE_ML_04A_MS1_C4/final_metamodel.json"
+  },
+  "math_authority": "energy-models/mathspec@5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "classes": {
+    "Requirement": {
+      "fields": [
+        "id",
+        "version",
+        "level",
+        "statement",
+        "source_ref",
+        "source_kind",
+        "authority_ref",
+        "scope",
+        "required",
+        "parents",
+        "targets",
+        "metric_refs"
+      ],
+      "relations": {
+        "parents": "Requirement DAG; root STUDY",
+        "targets": "C4 typed target",
+        "metric_refs": "Metric"
+      }
+    },
+    "Metric": {
+      "fields": [
+        "id",
+        "version",
+        "role",
+        "meaning",
+        "target",
+        "source_ref"
+      ],
+      "relations": {
+        "target": "C4 output, assertion, comparison or report"
+      }
+    },
+    "TestSpecification": {
+      "fields": [
+        "id",
+        "version",
+        "kind",
+        "objective",
+        "requirements",
+        "metric",
+        "criterion",
+        "scope",
+        "oracle_ref",
+        "method",
+        "coverage",
+        "evidence"
+      ],
+      "relations": {
+        "requirements": "Requirement",
+        "metric": "Metric",
+        "criterion": "C4 target",
+        "oracle_ref": "C4 source",
+        "scope": "C4 scope"
+      }
+    },
+    "Claim": {
+      "fields": [
+        "id",
+        "version",
+        "test",
+        "test_version",
+        "definition_pin",
+        "base_instance_pin",
+        "verdict",
+        "source_ref"
+      ],
+      "relations": {
+        "test": "TestSpecification",
+        "source_ref": "C4 source"
+      }
+    },
+    "ComputedEvidence": {
+      "identity": "digest of record",
+      "provenance": "definition/instance/method/data pins and actual receipt"
+    },
+    "Assessment": {
+      "states": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "INCONCLUSIVE",
+        "NOT_EXECUTED",
+        "NOT_APPLICABLE"
+      ],
+      "scope": "FINITE_ONLY"
+    }
+  },
+  "identities": [
+    "definition semantic",
+    "definition exact",
+    "instance exact",
+    "native method",
+    "computed evidence",
+    "authoring audit"
+  ],
+  "validation": "vmodel.check_design / instantiate / export / reimport / compose_method"
+}

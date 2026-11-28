@@ -1,0 +1,6 @@
+Construct,C4 substitute,Need,Counterexample,Limitation
+Requirement,C4 design and assertion,Stable independent identity and parent DAG,missing requirement ref or cycle,No entailment
+Metric,C4 native output or predicate,Role separation,study metric bound as verification,No new math
+TestSpecification,C4 verification request,Explicit criterion and trace,missing target coverage or orphan test,Bounded methods
+ComputedEvidence,C4 receipt,Versioned test root binding,positive claim with no execution,Authenticity unverified
+Assessment,C4 finite status,Separate execution and requirement status,unknown applicability or missing evidence,Finite only

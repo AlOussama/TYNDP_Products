@@ -1,0 +1,13 @@
+{
+  "fields": [
+    "id",
+    "version",
+    "role",
+    "meaning",
+    "target",
+    "source_ref"
+  ],
+  "relations": {
+    "target": "C4 output, assertion, comparison or report"
+  }
+}

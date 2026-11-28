@@ -1,0 +1,23 @@
+{
+  "fields": [
+    "id",
+    "version",
+    "kind",
+    "objective",
+    "requirements",
+    "metric",
+    "criterion",
+    "scope",
+    "oracle_ref",
+    "method",
+    "coverage",
+    "evidence"
+  ],
+  "relations": {
+    "requirements": "Requirement",
+    "metric": "Metric",
+    "criterion": "C4 target",
+    "oracle_ref": "C4 source",
+    "scope": "C4 scope"
+  }
+}

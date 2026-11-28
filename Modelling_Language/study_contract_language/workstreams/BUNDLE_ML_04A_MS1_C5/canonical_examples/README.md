@@ -1,0 +1,1 @@
+Native CI emits A/B and canonical packages for the nine reference variants. Exact content SHA-256 and actual outcomes are in evidence receipts, artifact c5-native-reference-packages (see workflow artifact listing). No manually authored expected receipt is substituted.
