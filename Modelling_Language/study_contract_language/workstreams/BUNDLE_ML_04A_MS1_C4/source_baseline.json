@@ -466,5 +466,20 @@
     "C3 result is not C4 regression; direct native SHA256 verification and transitive source history remain CI tasks",
     "C3 audit reads changed coverage and requirement CSV",
     "C3 catalogue changes are descriptive only by field comparison; no source files changed"
-  ]
+  ],
+  "additional_pin_observations": {
+    "C1_PR89_head": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+    "C2_PR96_head": "e8a0ee3b7057a1e93afebb1f83b79fd19620446b",
+    "C2_run": 46056048896,
+    "C2_run_conclusion": "success",
+    "mathspec_commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+    "mathspec_tree": "635a594392e990e2e22393d408cc5b307704cda0",
+    "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+    "lock_blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+    "p5_commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+    "p5_tree": "e42579325860f70de1bab86d9a1e79869d0715ce",
+    "p5_oracle": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+    "p5_fixture": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+    "scope": "Git object IDs checked by connector; additional SHA256 checks in actual C4 CI; full transitive historical manifest review not claimed"
+  }
 }

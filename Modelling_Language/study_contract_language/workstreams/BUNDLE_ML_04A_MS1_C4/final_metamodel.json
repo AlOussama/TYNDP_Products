@@ -1,0 +1,158 @@
+{
+  "schema": "c2-closure-metamodel-0.2",
+  "status": "RESEARCH_CANDIDATE",
+  "math_authority": "pinned mathspec public Program/canonical",
+  "levels": {
+    "Definition": {
+      "version": "c2-closure-definition-0.2",
+      "fields": [
+        "schema",
+        "study",
+        "frame",
+        "slots",
+        "sources",
+        "requirements"
+      ],
+      "slot": [
+        "id",
+        "package",
+        "profile",
+        "source_ref",
+        "bindings",
+        "assertions",
+        "policies",
+        "states",
+        "comparisons",
+        "verification",
+        "ledger"
+      ]
+    },
+    "Instance": {
+      "version": "c2-closure-instance-0.2",
+      "fields": [
+        "schema",
+        "definition_ref",
+        "slots",
+        "events",
+        "disclosures",
+        "data_receipts",
+        "context_data",
+        "reports"
+      ],
+      "slot": [
+        "id",
+        "profile_ref",
+        "package_ref",
+        "data_status",
+        "data",
+        "snapshot_digest",
+        "case_context",
+        "witnesses",
+        "contributions",
+        "expected_events"
+      ]
+    },
+    "Package": {
+      "version": "c2-closure-contract-package-0.3",
+      "fields": [
+        "schema",
+        "definition",
+        "instance",
+        "receipt"
+      ]
+    },
+    "Composition": {
+      "version": "c2-approved-composition-0.1",
+      "fields": [
+        "schema",
+        "base_ref",
+        "overrides"
+      ],
+      "authorization": {
+        "version": "c2-research-composition-authorization-0.1",
+        "fields": [
+          "schema",
+          "base_ref",
+          "request_ref",
+          "approvals",
+          "decision_scope"
+        ]
+      },
+      "package": "c2-approved-composition-package-0.1",
+      "scope": "Exact research-authorized disjoint method slot replacement; no normative owner decision"
+    },
+    "Diagnostic": {
+      "version": "c2-structured-diagnostic-0.1",
+      "fields": [
+        "schema",
+        "code",
+        "path",
+        "path_kind",
+        "rule_id",
+        "rule_source",
+        "subject",
+        "source_refs",
+        "source_pins",
+        "trace",
+        "reason",
+        "status",
+        "owner",
+        "conformance"
+      ],
+      "path_kind": "VALIDATION_OBJECT"
+    }
+  },
+  "frame": {
+    "version": "c2-study-frame-0.1",
+    "collections": [
+      "domains",
+      "scopes",
+      "components",
+      "ports",
+      "referents",
+      "observables",
+      "inputs",
+      "outputs",
+      "relations",
+      "authorities",
+      "variations",
+      "chronologies",
+      "information_sets",
+      "slots",
+      "processes",
+      "comparisons",
+      "relation_domains",
+      "context_fields",
+      "report_requests"
+    ]
+  },
+  "requirements": [
+    "boundary",
+    "data_contracts",
+    "process_roles",
+    "normativity",
+    "models",
+    "comparisons",
+    "time_policies"
+  ],
+  "roles": [
+    "ContractFrame",
+    "Referent",
+    "TypedRelation",
+    "NativePredicate",
+    "ScopedAssertion",
+    "ObservableDefinition",
+    "VariationPolicy",
+    "EvidenceRequest/Receipt",
+    "AuthorityRecord"
+  ],
+  "identity": {
+    "method": "native mathematics + method definition excluding study and bound labels",
+    "definition": "semantic projection of typed outer frame and native leaf",
+    "instance": "pinned source/data/witness/receipt input",
+    "audit": "complete exact received representations and source/evidence roots"
+  },
+  "reference_validation": "metadata.py, obligations.py, graph.py, definition.py, composition.py, selection.py, diagnostics.py",
+  "note": "Structural schema alone is not semantic admission; exact validators authoritative.",
+  "selector": "Existing native condition references: equality with EXISTS candidate binder, order with FORALL all axes; same selected and candidate symbols, typed signature, scope; no new math AST"
+}

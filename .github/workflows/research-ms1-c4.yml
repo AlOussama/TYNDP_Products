@@ -178,6 +178,12 @@ jobs:
       - name: C4 independent analytical proxy replay
         if: always()
         run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/analytical_experiments.js
+      - name: C4 exact projected formulation controls
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/exact_formulation_controls.js
+      - name: C4 compare actual native receipts to frozen C3
+        if: always()
+        run: python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/compare_native_results.py /tmp/c3-original-results.json
       - name: C4 candidate falsification and dependency check
         if: always()
         working-directory: mathspec-src
