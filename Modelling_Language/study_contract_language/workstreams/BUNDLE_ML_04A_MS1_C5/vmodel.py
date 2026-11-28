@@ -13,6 +13,7 @@ from authoring import decode,emit_control
 from closure import digest,canon,need,fields,qualified
 from closure_v1 import definition,diagnostics
 from closure_v1 import metadata as md
+from interface import resolve_predicate
 
 DEF="c5-vmodel-definition-0.1"
 INST="c5-vmodel-instance-0.1"
@@ -40,7 +41,7 @@ def targets(base):
     out={}
     for slot in base["slots"]:
         for a in slot["assertions"]:
-            if a["modality"]!="MAY" and a["role"] not in ("DATA_ASSUMPTION","ENVIRONMENT_ASSUMPTION"):
+            if a["modality"]!="MAY" and a["role"] not in ("DATA_ASSUMPTION","ENVIRONMENT_ASSUMPTION","TECHNICAL_ASSUMPTION"):
                 out[a["id"]]={"kind":"ASSERTION","scope":a["scope"],"slot":slot["id"],"record":a}
         for c in slot["comparisons"]:
             row=next(z for z in f["comparisons"] if z["id"]==c["policy"])
@@ -60,9 +61,9 @@ def check_design(d,dp):
     tabs=md.validate(b["frame"])
     source={r["id"]:r for r in b["sources"]}
     targs=targets(b)
-    req=index(d["requirements"],("id","version","level","statement","source_ref","source_kind","authority_ref","scope","required","parents","targets"),"C5_REQUIREMENT")
+    req=index(d["requirements"],("id","version","level","statement","source_ref","source_kind","authority_ref","scope","required","parents","targets","metric_refs"),"C5_REQUIREMENT")
     met=index(d["metrics"],("id","version","role","meaning","target","source_ref"),"C5_METRIC")
-    tests=index(d["tests"],("id","version","kind","objective","requirements","metric","scope","oracle_ref","method","evidence"),"C5_TEST")
+    tests=index(d["tests"],("id","version","kind","objective","requirements","metric","criterion","scope","oracle_ref","method","coverage","evidence"),"C5_TEST")
     ids=set(req)|set(met)|set(tests)
     need(len(ids)==len(req)+len(met)+len(tests) and not ids.intersection({k for t in tabs.values() for k in t}|set(targs)|set(source)|{b["study"]["id"],b["frame"]["id"]}),"C5_ID_COLLISION")
     for k,r in req.items():
@@ -71,6 +72,8 @@ def check_design(d,dp):
         need(r["scope"] in tabs["scopes"],"C5_REQUIREMENT_SCOPE")
         refs(r["parents"],req,"C5_PARENT",r["level"]=="STUDY")
         refs(r["targets"],targs,"C5_REQUIREMENT_TARGET",r["level"]=="STUDY")
+        refs(r["metric_refs"],met,"C5_REQUIREMENT_METRICS",not r["required"])
+        need(all(met[x]["role"] in (("STUDY","VALIDATION") if r["level"]=="STUDY" else ("VERIFICATION",)) for x in r["metric_refs"]),"C5_REQUIREMENT_METRIC_ROLE")
         need(r["level"]!="STUDY" or not r["parents"],"C5_STUDY_PARENT")
         need(all(targs[t]["scope"] in (None,r["scope"]) for t in r["targets"]),"C5_TARGET_SCOPE")
         need(all(req[p]["scope"]==r["scope"] for p in r["parents"]),"C5_REFINEMENT_SCOPE")
@@ -82,12 +85,21 @@ def check_design(d,dp):
     for k,m in met.items():
         need(nonempty(m["meaning"]) and m["source_ref"] in source and m["target"] in targs,"C5_METRIC_REFERENCE")
         kind=targs[m["target"]]["kind"]
-        need((m["role"],kind) in {("STUDY","OUTPUT"),("VERIFICATION","ASSERTION"),("VERIFICATION","COMPARISON"),("VALIDATION","REPORT")},"C5_METRIC_ROLE")
+        need((m["role"],kind) in {("STUDY","OUTPUT"),("VERIFICATION","ASSERTION"),("VERIFICATION","COMPARISON"),("VERIFICATION","OUTPUT"),("VALIDATION","REPORT")},"C5_METRIC_ROLE")
     coverage={k:set() for k in req}
     for k,t in tests.items():
         refs(t["requirements"],req,"C5_TEST_REQUIREMENTS")
         need(nonempty(t["objective"]) and t["metric"] in met and t["oracle_ref"] in source and t["scope"] in tabs["scopes"],"C5_TEST_REFERENCE")
-        m=met[t["metric"]];target=targs[m["target"]]
+        m=met[t["metric"]];need(t["criterion"] in targs,"C5_CRITERION_REFERENCE");target=targs[t["criterion"]]
+        metric_target=targs[m["target"]]
+        need(t["coverage"]==("ALL_DECLARED_SUPPORT" if t["kind"]=="VERIFICATION" else "EXTERNAL_SCOPE"),"C5_COVERAGE_POLICY")
+        if metric_target["kind"]=="OUTPUT":
+            need(target["kind"]=="ASSERTION" and target["slot"]==metric_target["slot"],"C5_METRIC_CRITERION_BINDING")
+            row=next(z for z in b["slots"] if z["id"]==target["slot"])
+            symbols=[k for k,v in row["bindings"].items() if v["kind"]=="OUTPUT" and v["ref"]==m["target"]]
+            p=resolve_predicate(row["package"],target["record"]["predicate"])
+            need(len(symbols)==1 and symbols[0] in p["required_symbols"],"C5_METRIC_CRITERION_DEPENDENCY")
+        else:need(t["criterion"]==m["target"],"C5_METRIC_CRITERION_BINDING")
         need(t["evidence"]=="COMPUTED_NATIVE_RECEIPT" if t["kind"]=="VERIFICATION" else t["evidence"]=="EXTERNAL_REVIEW_RECEIPT","C5_TEST_EVIDENCE_ROLE")
         need((t["kind"],m["role"],target["kind"],t["method"]) in {
             ("VERIFICATION","VERIFICATION","ASSERTION","NATIVE_ASSERTION"),
@@ -97,15 +109,15 @@ def check_design(d,dp):
         for r in t["requirements"]:
             a=req[r]
             need(a["scope"]==t["scope"] and ((a["level"]=="SYSTEM" and t["kind"]=="VERIFICATION") or (a["level"]=="STUDY" and t["kind"]=="VALIDATION")),"C5_TEST_LEVEL_SCOPE")
-            need(m["target"] in a["targets"],"C5_TEST_TARGET")
-            coverage[r].add(m["target"])
+            need(t["criterion"] in a["targets"] and m["id"] in a["metric_refs"],"C5_TEST_TARGET")
+            coverage[r].add(t["criterion"])
     for k,r in req.items():
         if r["required"]:
             need(bool(r["targets"]) and coverage[k]==set(r["targets"]),"C5_REQUIREMENT_TEST_COVERAGE")
     # No orphan verification/validation metric or test.
     need({t["metric"] for t in tests.values()}=={k for k,m in met.items() if m["role"]!="STUDY"},"C5_METRIC_TEST_COVERAGE")
     sem={"schema":DEF,"base_semantic":static["semantic_identity"],
-         "requirements":[{**r,"parents":sorted(r["parents"]),"targets":sorted(r["targets"])} for _,r in sorted(req.items())],
+         "requirements":[{**r,"parents":sorted(r["parents"]),"targets":sorted(r["targets"]),"metric_refs":sorted(r["metric_refs"])} for _,r in sorted(req.items())],
          "metrics":[r for _,r in sorted(met.items())],
          "tests":[{**r,"requirements":sorted(r["requirements"])} for _,r in sorted(tests.items())]}
     return static,req,met,tests,targs,digest(sem)
@@ -124,10 +136,12 @@ def comparison_support(base,i,target):
         for side in ("reference","alternative"):
             k=pair[side];axes=contexts[k]["axes"]
             expected=set(product(*(dims[a] for a in axes)))
-            actual=i["context_data"].get(k)
+            actual=i.get("context_data",{}).get(k) if type(i.get("context_data")) is dict else None
             if type(actual) is not list:
                 fields_[k]={"expected":len(expected),"observed":None,"complete":False,"identity":None}
                 continue
+            if any(type(r) is not dict or set(r)!={"key","value"} or type(r["key"]) is not list or any(type(v) not in (str,int) for v in r["key"]) or type(r["value"]) is not str for r in actual):
+                fields_[k]={"expected":len(expected),"observed":None,"complete":False,"identity":None};continue
             keys=[tuple(r["key"]) for r in actual]
             complete=set(keys)==expected and len(keys)==len(expected)
             fields_[k]={"expected":len(expected),"observed":len(keys),"complete":complete,
@@ -186,24 +200,28 @@ def instantiate(d,dp,i,ip):
     # The outer pinned roots commit to the nested bytes. Derived inner pins
     # do not confer independent authority or normative approval.
     native=diagnostics.candidate_receipt(definition.instantiate,base,bd,b,bi)
+    if native["status"]=="BLOCKED_INTERNAL":raise RuntimeError("C5_NATIVE_INTERNAL:"+str(native["diagnostics"]))
     claims=index(i["claims"],("id","version","test","test_version","definition_pin","base_instance_pin","verdict","source_ref"),"C5_DECLARED_EVIDENCE")
     for r in claims.values():
         need(r["test"] in tests and r["test_version"]==tests[r["test"]]["version"] and r["definition_pin"]==dp and r["base_instance_pin"]==bi and r["source_ref"] in {s["id"] for s in base["sources"]} and r["verdict"] in ("PASS","FAIL","INCONCLUSIVE"),"C5_DECLARED_EVIDENCE_BINDING")
     result={};evidences=[]
     for k,t in sorted(tests.items()):
-        m=met[t["metric"]];target=targs[m["target"]];record=None
+        m=met[t["metric"]];target=targs[t["criterion"]];record=None
         c=[r for r in claims.values() if r["test"]==k]
         if k not in i["requested_tests"]:
             status,app,execution="NOT_EXECUTED","UNKNOWN","NOT_EXECUTED";reason={"reason":"TEST_NOT_REQUESTED"}
         else:
             status,app,observed,reason=result_for(t,target,native,base,b)
+            if targs[m["target"]]["kind"]=="OUTPUT":
+                observed["metric_value"]=(native.get("result") or {}).get("graph",{}).get("outputs",{}).get(m["target"])
+                if status=="PASS" and observed["metric_value"] is None:status="BLOCKED";reason={"reason":"MISSING_METRIC_OUTPUT"}
             execution="NOT_EXECUTED" if t["kind"]=="VALIDATION" else "BLOCKED" if status=="BLOCKED" else "EXECUTED"
             if t["kind"]=="VERIFICATION":
                 record={"test":k,"test_version":t["version"],"requirement_refs":sorted(t["requirements"]),
-                        "metric":m["id"],"metric_version":m["version"],"oracle_ref":t["oracle_ref"],"subject":m["target"],
+                        "metric":m["id"],"metric_version":m["version"],"oracle_ref":t["oracle_ref"],"subject":t["criterion"],"metric_target":m["target"],"expected":"DECLARED_CRITERION_SATISFIED",
                         "definition_pin":dp,"instance_pin":ip,"base_definition_pin":bd,"base_instance_pin":bi,
                         "method_identities":static["method_identities"],"run_id":i["run_id"],"execution":execution,
-                        "applicability":app,"observed":observed,"observed_verdict":status,"diagnostic":reason,
+                        "applicability":app,"observed":observed,"data_identities":(native.get("result") or {}).get("graph",{}).get("data_bindings",{}),"observed_verdict":status,"diagnostic":reason,
                         "kind":"COMPUTED_NATIVE_RECEIPT","independence":"UNVERIFIED","scope":"FINITE_DECLARED_SUPPORT"}
                 record={"id":"evidence:"+digest(record),**record}
                 evidences.append(record)
