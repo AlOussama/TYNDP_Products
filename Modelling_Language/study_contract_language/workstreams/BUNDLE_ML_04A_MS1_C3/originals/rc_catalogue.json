@@ -2,7 +2,7 @@
   "schema": "c3-original-source-catalogue-0.2",
   "source_population": 28,
   "representations": 56,
-  "authoring": "Authored per-case native definitions and complete source records; two materialized structural encodings from one research design. No claim of independent human authorship. Native admission pending.",
+  "authoring": "Authored per-case native definitions and complete source records; two materialized structural encodings from one research design. No claim of independent human authorship. Actual source execution accounted for in final receipt; expected rejects remain rejects.",
   "source_pairs": [
     {
       "id": "RC01",
@@ -366,5 +366,14 @@
         "scope": "FROZEN_DERIVED_EDIT_MATERIALIZED_IN_CANDIDATE"
       }
     }
-  ]
+  ],
+  "final_execution": {
+    "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+    "run": 46086101815,
+    "native_job": 140795911203,
+    "source_population": 28,
+    "representations": 56,
+    "all_expected_accounted_for": true,
+    "receipt": "actual_original_results_46086101815.json"
+  }
 }

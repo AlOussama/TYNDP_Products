@@ -1,51 +1,72 @@
 {
-  "schema": "c3-gate-status-0.2",
+  "schema": "c3-gate-status-0.3",
   "governance": "NON-NORMATIVE / RESEARCH ONLY",
-  "decision": "NOT_READY_FOR_C4",
-  "tested_commit": "018735e919c641e0d9fe1e6c3a5ae0583d1d54bc",
+  "decision": "READY_FOR_C4_RESEARCH_ONLY",
+  "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
   "ci": {
-    "run": 46075294159,
-    "native_job": 140761500569,
+    "run": 46086101815,
+    "native_job": 140795911203,
     "native": "success",
-    "corpus_job": 140761500848,
-    "corpus": "failure"
+    "corpus_job": 140796632158,
+    "corpus": "success"
   },
   "gates": {
     "G0": {
       "status": "MET",
-      "scope": "Verified C2 parent and source pins; repeated actual pinned CI checks"
+      "scope": "Frozen C2 parent and source pins verified, original oracles and catalogue unchanged; pinned native CI"
     },
     "G1": {
-      "status": "NOT_MET",
-      "full_materialized": 0,
-      "target": 116,
-      "inventory_verified": 116
+      "status": "MET",
+      "identities": 58,
+      "full_materialized": 116,
+      "scope": "Two actual authored encodings of a single contract design; not independent human authoring"
     },
     "G2": {
-      "status": "NOT_MET",
-      "full_executed": 0,
-      "target": 116,
-      "independent_oracle_identities_replayed": 58
+      "status": "MET",
+      "internal_failures": 0,
+      "original_rules_matched": 116,
+      "p5_control_passed": true,
+      "pairs_accounted_for": 58,
+      "paths_accounted_for": 116,
+      "paths_attempted": 116,
+      "rejected": 84,
+      "returned": 32,
+      "source_files": 116,
+      "scope": "Full committed-source candidate chain; expected rejection stops at actual failing admission/binding/guard stage"
     },
     "G3": {
-      "status": "NOT_MET",
-      "partial": "58 original identity oracles replayed; 28/28 analytical, 30/30 P5 negative, six additional P5 positive controls; no original candidate A/B diagnostics"
+      "status": "MET",
+      "original_rule_matched": 116,
+      "actual_negative_diagnostic_paths": 96,
+      "independent_oracle_identities": 58,
+      "scope": "Exact frozen original expectations and rule sources; actual candidate paths; separate analytical and JS oracle receipts"
     },
     "G4": {
-      "status": "NOT_MET",
-      "partial": "Two actual native A/B control pairs passed; same definition and graph semantics/canonical package, distinct raw source and representation audit identities; no original path roundtrip"
+      "status": "MET",
+      "pairs": 58,
+      "returned_pairs": 16,
+      "rejected_pairs": 42,
+      "scope": "Equal structural identity, distinct source/audit identity; admitted pairs exact native and graph roundtrip; rejected pairs matching actual diagnostics; no roundtrip claim for rejected packages"
     },
     "G5": {
-      "status": "NOT_MET",
-      "partial": "125 exact requirement identities preserved; full path evidence absent"
+      "status": "MET",
+      "requirements": 125,
+      "direct_bounded_original_evidence": 110,
+      "inherited_only": 10,
+      "explicit_deferred": 5,
+      "scope": "All 105 original and 20 MS-K rows retained; evidence or explicit inherited/deferred limit, no universal conformance claim"
     },
     "G6": {
-      "status": "NOT_MET",
-      "partial": "Native regression job successful, 33+26 C2 controls, full inherited suite and 4140 upstream pass/47 skip; internal review recorded; full original corpus exit intentionally fails"
+      "status": "MET",
+      "upstream_passed": 4140,
+      "upstream_skipped": 47,
+      "final_C2_controls": 33,
+      "prior_C2_controls": 26,
+      "scope": "Both final jobs successful, full inherited regressions, targeted C3 checks and internal critical review; earlier actual failures archived"
     },
     "G7": {
-      "status": "NOT_MET",
-      "scope": "C4 HOLD; C3 completion prerequisites absent"
+      "status": "MET",
+      "scope": "Pinned C4 handoff prepared only; C4 execution not started"
     }
   },
   "normative": false,

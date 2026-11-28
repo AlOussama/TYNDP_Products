@@ -1,0 +1,23 @@
+2026-11-28T00:06:41.8907091Z Ran 44 tests in 0.576s
+2026-11-28T00:06:42.2808917Z Ran 7 tests in 0.170s
+2026-11-28T00:06:42.5096200Z Ran 50 tests in 0.130s
+2026-11-28T00:06:42.5445133Z Ran 7 tests in 0.002s
+2026-11-28T00:06:42.8804409Z Ran 3 tests in 0.078s
+2026-11-28T00:06:44.8071941Z Ran 7 tests in 1.706s
+2026-11-28T00:06:45.8771242Z Ran 8 tests in 0.829s
+2026-11-28T00:06:47.0864266Z Ran 4 tests in 0.980s
+2026-11-28T00:06:49.0581403Z Ran 4 tests in 1.749s
+2026-11-28T00:07:00.1447723Z Ran 33 tests in 10.821s
+2026-11-28T00:07:00.7631233Z Ran 24 tests in 0.383s
+2026-11-28T00:07:01.0557857Z Ran 17 tests in 0.077s
+2026-11-28T00:07:33.5931697Z 4140 passed, 47 skipped in 31.30s
+2026-11-28T00:07:35.1977054Z C3_POPULATION_AUDIT={"identities": 58, "paths": 116, "recorded_executed": 0, "recorded_materialized": 0, "requirements": 125, "scope": "POPULATION_INTEGRITY_ONLY", "status": "PASS"}
+2026-11-28T00:07:35.1977523Z C3_COMMITTED_SOURCE_POPULATION={"source_files": 116, "target": 116}
+2026-11-28T00:07:37.8473509Z Ran 2 tests in 2.430s
+2026-11-28T00:07:44.9856186Z Ran 3 tests in 0.633s
+2026-11-28T00:07:44.9856766Z C3_DERIVED_RATIO={"eta": "2/3", "typed": "LHV_ratio", "authority": "native Program"}
+2026-11-28T00:07:44.9857080Z C3_SIGN_CONVERSION={"intake": [{"key": [], "value": "1"}], "scope": "CHARGING_ONLY", "original_paths": 0}
+2026-11-28T00:07:44.9857459Z C3_STAGE_INFORMATION={"valid": "FINITE_OBSERVED_TRUE", "counterexample": "FINITE_COUNTEREXAMPLE", "physical_durations": 0}
+2026-11-28T00:08:54.8510506Z C3_ORIGINAL_SUMMARY={"internal_failures":0,"original_rules_matched":116,"p5_control_passed":true,"pairs_accounted_for":58,"paths_accounted_for":116,"paths_attempted":116,"rejected":84,"returned":32,"source_files":116}
+2026-11-28T00:09:09.0634377Z C3_POPULATION_AUDIT={"identities": 58, "paths": 116, "recorded_executed": 0, "recorded_materialized": 0, "requirements": 125, "scope": "POPULATION_INTEGRITY_ONLY", "status": "PASS"}
+2026-11-28T00:09:09.0635312Z C3_COMMITTED_SOURCE_POPULATION={"source_files": 116, "target": 116}

@@ -1,0 +1,1234 @@
+{
+  "schema": "c3-mathematical-physical-traceability-0.1",
+  "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+  "run": 46086101815,
+  "job": 140795911203,
+  "authority": "Pinned native mathspec canonical/public Program; no secondary mathematical AST",
+  "rows": [
+    {
+      "id": "RC01",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC01.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC01.json",
+      "actual_finite_observations": {
+        "final": "19/10",
+        "intake": "1",
+        "loss": "1/10"
+      },
+      "outputs": {
+        "output:final": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "19/10"
+          }
+        ],
+        "output:intake": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "1"
+          }
+        ],
+        "output:loss": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "1/10"
+          }
+        ],
+        "output:soc_projection": [
+          {
+            "key": [],
+            "value": "19/10"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:efficiency_range",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:energy_equivalent",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:intake_balance",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:port_range",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:soc_equivalent",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:stock_balance",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_RESEARCH_PENDING",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:terminal_owner",
+          "reason": "AUTHORITY_UNRESOLVED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "canonical_package": "4949d6c46349e4a5b88e380b201e1964d2d93bc4e549148a91ecdb764695d4da",
+      "native_identity": "cf558c92a8230c7b1da0708a4464997e328d173e300e8dbcd469eff14b27bb4c",
+      "definition_pin": "3da0de945a86550c058d0f20b6a841e0e0d2c2b014db1b2c4ed272115b04bfd2",
+      "instance_pin": "cd8d74acba1215838ecc0348c3426c985abf67def769a7f7822a8c0cd139ef88",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC02",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC02.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC02.json",
+      "actual_finite_observations": {
+        "fleet": "10",
+        "individual": [
+          "4",
+          "6"
+        ]
+      },
+      "outputs": {
+        "output:fleet_total": [
+          {
+            "key": [],
+            "value": "1/100"
+          }
+        ],
+        "output:outside_connection": [
+          {
+            "key": [
+              "observed_schedule",
+              "t0",
+              "EV1"
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              "observed_schedule",
+              "t0",
+              "EV2"
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              "observed_schedule",
+              "t1",
+              "EV1"
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              "observed_schedule",
+              "t1",
+              "EV2"
+            ],
+            "value": "0"
+          }
+        ],
+        "output:received": [
+          {
+            "key": [
+              "observed_schedule",
+              "EV1"
+            ],
+            "value": "1/250"
+          },
+          {
+            "key": [
+              "observed_schedule",
+              "EV2"
+            ],
+            "value": "3/500"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:connection_window",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:nonnegative_charging",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": 2,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:service",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "51ac33395cba89e549f9ccb4b0636862413f26dbfdfb793a7709c0aae280af22",
+      "native_identity": "e46757ee3f6d53eea5e67b127cfaa2d1f20edce67a7834eb7158173fd2dc444a",
+      "definition_pin": "01199af16505a108588a5d53fa1f82ed3a7e3309486b232b08ba96446ef566b1",
+      "instance_pin": "42fe23fa97e7862bb25e3f50328bfa3a44c4571d8badbe53eb508236939cb68f",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC03",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC03.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC03.json",
+      "actual_finite_observations": {
+        "eta": "2/3",
+        "hydrogen_power": "20"
+      },
+      "outputs": {
+        "output:eta": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "2/3"
+          }
+        ],
+        "output:hydrogen_power": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "20"
+          }
+        ],
+        "output:lower": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "18"
+          }
+        ],
+        "output:upper": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "24"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:efficiency_envelope",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "da9d77f80ff2d745d2e346505d02d5bf959aec1c256501a19842d94f8e50aa62",
+      "native_identity": "6ec267867b08efb91208366f3b7dba95c3fc6b9f92bc10cb8dc5017f8eb50935",
+      "definition_pin": "9f2bd4c30bb3e92bea9d9dca8267d5e7c6049bbeae2a38b6a52bd084608c9020",
+      "instance_pin": "278ce8d56e9dcc9804d3701dc15ef1f4a763b94b4b85e4133a084080bfc8b66c",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC04",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC04.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC04.json",
+      "actual_finite_observations": {
+        "converted_energy": "109/30",
+        "final": "109"
+      },
+      "outputs": {
+        "output:converted_energy": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "109/30"
+          }
+        ],
+        "output:final": [
+          {
+            "key": [
+              "t0"
+            ],
+            "value": "109"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:mass_ledger",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "9b3fece738628d21fc57f9ccec4f5d7e4c349608b1dd89f9d32bf52c156b617c",
+      "native_identity": "2334d935f880264312259de8a0ba1104185d0efad472ce4e46ab246cf69ee83e",
+      "definition_pin": "85b615754c80646e83b297eb230f05694e9176bde271b3c7538675c41cacb300",
+      "instance_pin": "654797d489f38436a7ee6440d62cf503fb6f5bb961a500852e3169c7933424ab",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC05",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC05.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC05.json",
+      "actual_finite_observations": {
+        "cycle": "0",
+        "nodal": [
+          "5",
+          "-1",
+          "-4"
+        ]
+      },
+      "outputs": {
+        "output:angle_drop": [
+          {
+            "key": [
+              "e12"
+            ],
+            "value": "2"
+          },
+          {
+            "key": [
+              "e23"
+            ],
+            "value": "1"
+          },
+          {
+            "key": [
+              "e31"
+            ],
+            "value": "-3"
+          }
+        ],
+        "output:cycle": [
+          {
+            "key": [],
+            "value": "0"
+          }
+        ],
+        "output:nodal": [
+          {
+            "key": [
+              "b1"
+            ],
+            "value": "5"
+          },
+          {
+            "key": [
+              "b2"
+            ],
+            "value": "-1"
+          },
+          {
+            "key": [
+              "b3"
+            ],
+            "value": "-4"
+          }
+        ],
+        "output:reactance_flow": [
+          {
+            "key": [
+              "e12"
+            ],
+            "value": "2"
+          },
+          {
+            "key": [
+              "e23"
+            ],
+            "value": "1"
+          },
+          {
+            "key": [
+              "e31"
+            ],
+            "value": "-3"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:angle_projection",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:kcl",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:kvl",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "E4_FORMAL_PROOF",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:e4_proof",
+          "reason": "FORMAL_PROOF_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "canonical_package": "d636678b82ce48433cdad99d42c04114eed7a7c06cdbe00fb15d63d87e58fd41",
+      "native_identity": "bdbeb810bfc30ac06bfdb321fb23b6f7cce4991e472808cac7a8c1dd58bbbd01",
+      "definition_pin": "11e89693b0dfcc84c2362d0812b796df5315b781fd336a3ac3ce7d5b3cc4847c",
+      "instance_pin": "111661e41a233d74c46f9880608533f2b099b9d73d378cea6c474d87e8fedc60",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC06",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC06.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC06.json",
+      "actual_finite_observations": {
+        "capacity": [
+          "0",
+          "0",
+          "100"
+        ],
+        "commission": 2,
+        "cost": "100",
+        "modules": "1"
+      },
+      "outputs": {
+        "output:capacity": [
+          {
+            "key": [
+              0
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              1
+            ],
+            "value": "0"
+          },
+          {
+            "key": [
+              2
+            ],
+            "value": "100"
+          }
+        ],
+        "output:commission": [
+          {
+            "key": [],
+            "value": "2"
+          }
+        ],
+        "output:cost": [
+          {
+            "key": [],
+            "value": "100"
+          }
+        ],
+        "output:count_binary": [
+          {
+            "key": [],
+            "value": "1"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:binary_projection",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:capacity_ok",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:investment_cost",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:lead_time",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:module_bound",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "12f01581388ec4f450a14d735e08375334b2cb90dd6c663718f61e033cf93569",
+      "native_identity": "b86b37fe10930b93d1630ba950bb1985e9b7dc1333b24ddacf7997a5b36a69a5",
+      "definition_pin": "960fdc4aa3400a7a6e2a50725808b8333ee15084cef1c332718868e4f734b575",
+      "instance_pin": "8f1aac43908978a12b52e21c258e21f3b759b00086552cf469975e13e901ab43",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC07",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC07.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC07.json",
+      "actual_finite_observations": {
+        "after_revelation_may_differ": true,
+        "pre_revelation_equal": true
+      },
+      "outputs": {
+        "output:decision_projection": [
+          {
+            "key": [
+              "s1",
+              "t0"
+            ],
+            "value": "10"
+          },
+          {
+            "key": [
+              "s1",
+              "t1"
+            ],
+            "value": "12"
+          },
+          {
+            "key": [
+              "s2",
+              "t0"
+            ],
+            "value": "10"
+          },
+          {
+            "key": [
+              "s2",
+              "t1"
+            ],
+            "value": "8"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [],
+        "conformance": "NOT_PROVED",
+        "status": "NOT_APPLICABLE"
+      },
+      "policies": [
+        {
+          "conformance": "NOT_PROVED",
+          "id": "policy:nonanticipativity",
+          "status": "FINITE_OBSERVED_TRUE",
+          "violations": []
+        }
+      ],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "e321159077bb2920a0566171de78ab4afd747ef059b11834ee6c2233c0661ec6",
+      "native_identity": "d646fd6b09c4ab79ab40b2af21c915307fdc7ae83003bef867a3ad7af44526ce",
+      "definition_pin": "606d84d6aa795ff41105b6965d2a2aa6b45597f92387503e9ceca492f47c610d",
+      "instance_pin": "432b45b377fcaa3775f7dba1251a23d95c7ebac214b198dd09b3b333f015ef33",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC08",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC08.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC08.json",
+      "actual_finite_observations": {
+        "kpi": "170"
+      },
+      "outputs": {
+        "output:total": [
+          {
+            "key": [],
+            "value": "170"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:kpi",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [],
+      "canonical_package": "c6bc008a0fa194f15e9c8a0e1bfa3bf2d10184b9ef1267774e48fc7c5bad0a6b",
+      "native_identity": "e25533878155d7807ed1d5fd5bc3b290dde40b6774b409a666910fc15b2d8dc0",
+      "definition_pin": "1664ddae514b4be0fec9516ade66c38efb936e77887cb4ebcb1038c653c46d76",
+      "instance_pin": "a196288aed7e47ca4d5e7577d97c899a9a546f68c690628a0ef2c6e38d58bf9b",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC09",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC09.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC09.json",
+      "actual_finite_observations": {
+        "annual": "120",
+        "discounted": "1200/11",
+        "owner": "OWNER_TBD"
+      },
+      "outputs": {
+        "output:annual": [
+          {
+            "key": [],
+            "value": "120"
+          }
+        ],
+        "output:discounted": [
+          {
+            "key": [],
+            "value": "1200/11"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:annual_value",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:discount_binding",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          },
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:discounted_value",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [],
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_RESEARCH_PENDING",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:method_owner",
+          "reason": "AUTHORITY_UNRESOLVED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "canonical_package": "e580ab043fac9c63d89455a7f51450b90bdff85fe5648fc916766822cce5a7d4",
+      "native_identity": "5578290f78b766476fd4511bbc972e96c6db6ce8acb75929661ff239090de4a1",
+      "definition_pin": "cbff3631548cab038b7ab9a79df9f482e89fd940e674d2e8bff8a668da04ca46",
+      "instance_pin": "0900c253f8b1f09a9414690b59b5f5660dbb217c35ed9c74aa0a9a3e822f6e7c",
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "id": "RC10",
+      "source_A": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC10.scn",
+      "source_B": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC10.json",
+      "actual_finite_observations": {
+        "e4": "NOT_PROVED",
+        "e5": "NOT_ASSESSED",
+        "finite_agreement": true
+      },
+      "outputs": {
+        "output:delta": [
+          {
+            "key": [],
+            "value": "0"
+          }
+        ]
+      },
+      "obligations": {
+        "assertions": [
+          {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_OBSERVED_TRUE",
+            "id": "assertion:agreement",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "TRUE"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "owner": "OWNER_TBD",
+        "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+        "status": "FINITE_OBSERVATIONS_ONLY"
+      },
+      "policies": [],
+      "comparison": [
+        {
+          "id": "comparison:models",
+          "independence": "UNVERIFIED",
+          "owner": "OWNER_TBD",
+          "requested": "E4",
+          "status": "NOT_PROVED"
+        }
+      ],
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_RESEARCH_PENDING",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:independent_evidence",
+          "reason": "MISSING_EVIDENCE",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "canonical_package": "24d41c26088ebd4f2fef7b710ecbff7ff19a52be817d318c4afca88770aa4b84",
+      "native_identity": "93d4eacf2394b2fa494dec02b636d9712828fea5199414731d18a231addc25b2",
+      "definition_pin": "2844a86ca6cba4d13318a7c15ba7ef26ce1c60e82998647002575d3da6abf2d8",
+      "instance_pin": "144022cac033a7840add3885b9c094e1a5205b4eecb3906049ca3192262ec541",
+      "conformance": "NOT_PROVED"
+    }
+  ],
+  "p5_controls": [
+    {
+      "syntax": "A",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/A/P5-BASE.scn",
+      "outputs": {
+        "output:m-a": [
+          {
+            "key": [],
+            "value": "120"
+          }
+        ],
+        "output:m-a:npv": [
+          {
+            "key": [],
+            "value": "537137711925190/5559960326067"
+          }
+        ],
+        "output:m-b": [
+          {
+            "key": [],
+            "value": "104"
+          }
+        ],
+        "output:m-b:npv": [
+          {
+            "key": [],
+            "value": "-449348777248750/16679880978201"
+          }
+        ]
+      },
+      "lineage": {
+        "slot:m-a": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-a:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-A:CAPEX_T0": 1,
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-B:CAPEX_T0": 1,
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        }
+      },
+      "native_decision_context": {
+        "M-A": {
+          "conditions": {
+            "negative": false,
+            "neutral": false,
+            "positive": true
+          },
+          "data_sha256": "4fdb8a6934b3590ed143f5d097ad4d4216f08893aad7fce58380f4e1315f6be2",
+          "decision_sign": 1,
+          "margin": "537137711925190/5559960326067",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "537137711925190/5559960326067",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-a:npv"
+        },
+        "M-B": {
+          "conditions": {
+            "negative": true,
+            "neutral": false,
+            "positive": false
+          },
+          "data_sha256": "bb765d167a51d467d740b8813c52f152480050cda82297a9cf3da9256e510bf9",
+          "decision_sign": -1,
+          "margin": "-449348777248750/16679880978201",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "-449348777248750/16679880978201",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-b:npv"
+        }
+      },
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:CLIMATE_ADAPTATION",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        },
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": "MWh/year",
+            "value_type": "QUANTITY"
+          },
+          "id": "report:SUPPLY_SECURITY",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "conformance": "NOT_PROVED"
+    },
+    {
+      "syntax": "B",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/B/P5-BASE.json",
+      "outputs": {
+        "output:m-a": [
+          {
+            "key": [],
+            "value": "120"
+          }
+        ],
+        "output:m-a:npv": [
+          {
+            "key": [],
+            "value": "537137711925190/5559960326067"
+          }
+        ],
+        "output:m-b": [
+          {
+            "key": [],
+            "value": "104"
+          }
+        ],
+        "output:m-b:npv": [
+          {
+            "key": [],
+            "value": "-449348777248750/16679880978201"
+          }
+        ]
+      },
+      "lineage": {
+        "slot:m-a": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-a:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-A:CAPEX_T0": 1,
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-B:CAPEX_T0": 1,
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        }
+      },
+      "native_decision_context": {
+        "M-A": {
+          "conditions": {
+            "negative": false,
+            "neutral": false,
+            "positive": true
+          },
+          "data_sha256": "4fdb8a6934b3590ed143f5d097ad4d4216f08893aad7fce58380f4e1315f6be2",
+          "decision_sign": 1,
+          "margin": "537137711925190/5559960326067",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "537137711925190/5559960326067",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-a:npv"
+        },
+        "M-B": {
+          "conditions": {
+            "negative": true,
+            "neutral": false,
+            "positive": false
+          },
+          "data_sha256": "bb765d167a51d467d740b8813c52f152480050cda82297a9cf3da9256e510bf9",
+          "decision_sign": -1,
+          "margin": "-449348777248750/16679880978201",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "-449348777248750/16679880978201",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-b:npv"
+        }
+      },
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:CLIMATE_ADAPTATION",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        },
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": "MWh/year",
+            "value_type": "QUANTITY"
+          },
+          "id": "report:SUPPLY_SECURITY",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "conformance": "NOT_PROVED"
+    }
+  ]
+}

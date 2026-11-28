@@ -1,22 +1,34 @@
 {
-  "schema": "c3-artifact-manifest-0.1",
-  "tested_commit": "018735e919c641e0d9fe1e6c3a5ae0583d1d54bc",
-  "tested_tree": "671fdf682c7883677d2758f2da98fcd236251401",
-  "run": 46075294159,
-  "native_job": 140761500569,
-  "corpus_job": 140761500848,
+  "schema": "c3-artifact-manifest-0.3",
+  "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+  "tested_tree": "569d1f0aaaaa440366e452ed9a2fd337cd15b0a8",
+  "run": 46086101815,
+  "native_job": 140795911203,
+  "corpus_job": 140796632158,
   "tested_blobs": [
     {
       "path": ".github/workflows/research-ms1-c3.yml",
-      "git_blob": "febddd7130d6a5ce6adb538923ccb5d41ebeba7b"
+      "git_blob": "5943997ccf91473e221ab25026309ef526782015"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "git_blob": "12f0317bf4964ca0c39ee3d38e8e1c73d4a58c2e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/definition.py",
+      "git_blob": "bf05fbc63bc4e42530514b583b5ced37d574870d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/r1_reuse.py",
+      "git_blob": "ddf8e8bc353953eaed968c09ba99d8f9bdabfd49"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/C4_handoff.md",
-      "git_blob": "7e6d7846096f944c0a694f933966dda21a563f55"
+      "git_blob": "4dddcef536cb638304be846517d6907c20f791de"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/README.md",
-      "git_blob": "1c2dec614bfb5d35e781d068a8592bb6bf2c03d7"
+      "git_blob": "635cddb38ebe0e3d05f5d33f5e90dbe8c8d0757f"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_ci_46074993754.json",
@@ -27,28 +39,548 @@
       "git_blob": "361b4edadd273797c41630425214069340845cd9"
     },
     {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_ci_46075294159.json",
+      "git_blob": "a94545f4c35ba6b2dfd999c552f904a4278a8c72"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_ci_46075294159_excerpt.txt",
+      "git_blob": "280e88c13898b93406316b1311d63411402b5218"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_attempt_46085116639.json",
+      "git_blob": "c19c903eb50ad86615b5c46d23835b28d22dca5e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_attempt_46085465492.json",
+      "git_blob": "352425d69561f2d7ef54328aaa112020bf764778"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_attempt_46085703619.json",
+      "git_blob": "58cf49d23dc869cb87866cd41b611a887d4504bc"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/artifact_manifest.json",
+      "git_blob": "5dc4b293f1c1064fd66199b76fd5f2775b6775c7"
+    },
+    {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/audit_originals.py",
-      "git_blob": "e664d056b6f3ed03890abddd87fcd127546159e3"
+      "git_blob": "31af35851635e61e3af78e40cbaf96a284a8ee00"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/authoring.py",
-      "git_blob": "58308153153652bd0f30c81dfa8b25f95687eddc"
+      "git_blob": "210ac204ce6e09087a1f782cce55f35703963474"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/blocker_register.json",
+      "git_blob": "8ec58bcfa41e41083c1d801dbfd5cc86fc85b358"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/A/P5-BASE.scn",
+      "git_blob": "f5aa943a39c59807800ef8ea75710824740ba9c3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/B/P5-BASE.json",
+      "git_blob": "c630de4cfb8581260c78c11964c3f78d6ab3c07c"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/critical_review.md",
-      "git_blob": "afc6ceabd7482eb39de903c0f0ac8e79b5d24268"
+      "git_blob": "ce2846bc1bcde3933f100ee7d4895559adc970c5"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/gate_status.json",
-      "git_blob": "4de199c97ea2f6bdab74fd73a5841dab45177a5a"
+      "git_blob": "9cb4e9ab470fad7e25b30797acd48654d783d66e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/independent_p5_replay.js",
+      "git_blob": "29080a24f5e4aa461dc39975a06217fe555cab6a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_compiler.py",
+      "git_blob": "d16c561027c9abf76cad4257948d0dff1d36a423"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_p5.py",
+      "git_blob": "ca9c706e5a705a720b57f1894022ea2bd9ccfc8f"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_path_coverage.json",
-      "git_blob": "9032b12bf949d0aa10db4c0889c10d391cec5025"
+      "git_blob": "d2306cd396342f3b512eb9c73f7877c676810c4f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M01.scn",
+      "git_blob": "8da122b7986074dc66db21939299a1a236e61df9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M02.scn",
+      "git_blob": "5b6e73cffe200390b8c7e9ad8498c8e3a292c3b5"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M03.scn",
+      "git_blob": "c810e2f0170a17946ddebabd0da64248a300c18e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M04.scn",
+      "git_blob": "f9c5b00bb58c0416550f45445c2e34d70cc53783"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M05.scn",
+      "git_blob": "cc9df098116a3516a5f978b88ae47b7339461eff"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M06.scn",
+      "git_blob": "66124830bfb5586235796d66cf08fbcd73678448"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M07.scn",
+      "git_blob": "ec5800743f6352cd8066f0530edd39988b53e02c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M08.scn",
+      "git_blob": "404b32653c28e11b3eed28b44e9fdcb1d16ce979"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M09.scn",
+      "git_blob": "7b767048fea73eea01008a42f542952f751edf20"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M10.scn",
+      "git_blob": "f05bf56480c3d9072c3d679661f7607fa4415e41"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M11.scn",
+      "git_blob": "46bfea32ff136f861c3a55ba585f86132fa0222d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M12.scn",
+      "git_blob": "fe3d21b478a6d7ca70663a89aff271892c489a9c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M13.scn",
+      "git_blob": "8518cc1053d87f7fa2ef44bd3cf0d5a8415e1c77"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M14.scn",
+      "git_blob": "d5f6dba70608207e64ab7b69f1fe8210592ab0ba"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M15.scn",
+      "git_blob": "7f84a8a3fffbb373e5d79cb66543ec4731baf278"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M16.scn",
+      "git_blob": "4aa4d4b2315a0598acc5cd9dab1f2907b9b54614"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M17.scn",
+      "git_blob": "842bbab59e316a68f052b59e1e9fb7ab8d0c1d22"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M18.scn",
+      "git_blob": "0aeb0772502647295a45a3fe9bc6fc82db993b4d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M19.scn",
+      "git_blob": "1e86f2b198388d7c0bf5572c8237eb7afdf46e38"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M20.scn",
+      "git_blob": "5f287e750ea945da9a9d44652c860d99351deab8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M21.scn",
+      "git_blob": "2d73e878c7e2d987e4729e2a5b5fe58167f3a461"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M22.scn",
+      "git_blob": "e345d0650d1ae19abf00d582dd506ae0775b1be9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M23.scn",
+      "git_blob": "00fa6baa255eb4e97f24f90ba67097632d488221"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M24.scn",
+      "git_blob": "4629ab384f73b6c28f89647ea7883679e600a48a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M25.scn",
+      "git_blob": "86989cfd399f9682fd964dd5512d59dfae27f826"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M26.scn",
+      "git_blob": "ae8353dbec967067501944549f56c13b413ea018"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M27.scn",
+      "git_blob": "11637e4e38bfac6b8a93d4176f703d70fc81eaf3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M28.scn",
+      "git_blob": "90fe43f7ecf6efff5eaa985f770a54e4e330b78d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M29.scn",
+      "git_blob": "e4ce4e6a32db33aef1a673c03ad32be2312f67dc"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M30.scn",
+      "git_blob": "ee443821a91d917e83f4f46567632251131ab0fc"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-01.scn",
+      "git_blob": "7e4b1083e8654cab586f563996f281b36c7f1232"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-02.scn",
+      "git_blob": "e1038e8b67313dbaab58fb70ec5385bb3278645f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-03.scn",
+      "git_blob": "a4a78df1c72e2061eba6c85d4f0523c91135a794"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-04.scn",
+      "git_blob": "a3850128bae46ba9dfc234dad0da8afa6bf25d39"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-05.scn",
+      "git_blob": "f61f28679e4bfe1af8935ddda39d63ebb973f449"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-06.scn",
+      "git_blob": "1fef72dcc648b1dd50edc5a39c5015d1b93b9d02"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-07.scn",
+      "git_blob": "929dc3e900ade0512ffd01357ef75c01d7a6a3b1"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-08.scn",
+      "git_blob": "f5306dfd6b42f3cd6247ce25f52df2f25b1efcc5"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-09.scn",
+      "git_blob": "df0607a289d0b7bd45865f03c9a11246ee5de7ea"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-10.scn",
+      "git_blob": "78a1f8ed1d5a848ad70580e6bcda163e8a7fdf1e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-11.scn",
+      "git_blob": "096bbe0187b4441676addef7cec640098f101b9b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-12.scn",
+      "git_blob": "b1c2d660e9c8c4dfcd93d73d3dbc54d68217523b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-13.scn",
+      "git_blob": "bbae5838414827f2e3ac6d89ad0c7652ee3b0a29"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-14.scn",
+      "git_blob": "5f7b900cf162328900a74b162f9d665f7b60d502"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-15.scn",
+      "git_blob": "6f01efad56d7d1a7c64d66608bf9b710eb93daee"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-16.scn",
+      "git_blob": "4b88144ce051cd1f219aa609dca0da492d09e09a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-17.scn",
+      "git_blob": "48d26dedf480141622876ea09516bfe4df449623"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-18.scn",
+      "git_blob": "2d7da6fbd9583b49ca75cb9fd6721680813a0c19"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC01.scn",
+      "git_blob": "12a2498b18881e27691db51a511efa1b0edcc51e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC02.scn",
+      "git_blob": "7b7745e8a2d686c82fc63d4e78809ed389af453b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC03.scn",
+      "git_blob": "2acf49646b26c6d3c18ee272dac21e1c87635c2a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC04.scn",
+      "git_blob": "1a9027ce8bd33662e648c83672ae34a715b24554"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC05.scn",
+      "git_blob": "b607c58cf092b5133aaa82b9b5bd1438ea85eaa4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC06.scn",
+      "git_blob": "3458752bf2c377c6c2919e55ff6d4b2540f1480f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC07.scn",
+      "git_blob": "48a3892a8c038c1319db7983b18a16a4b0eb728c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC08.scn",
+      "git_blob": "61cac8fde7e039efb347cadfea9bcab8efad8520"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC09.scn",
+      "git_blob": "c2532a5a72610cba41864d86172987628d72a392"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC10.scn",
+      "git_blob": "9da478e25da8fb971238b55bc9b8b7ed7d79920c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M01.json",
+      "git_blob": "8158a261ca6e58667aa8b95f0fe0b72ab25b77e4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M02.json",
+      "git_blob": "63235c932eb1be319465b02f2823ea8c2075665a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M03.json",
+      "git_blob": "249d5dee9813e43d5806bec3f2ef843ff9a0a555"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M04.json",
+      "git_blob": "41f4f7f8c6d3f5199078e1a15f9272c9a20cdad8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M05.json",
+      "git_blob": "7c8fb412afb00c0e8dd2d07631c6ffbb6ed856d8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M06.json",
+      "git_blob": "3bad2b9921179a960a91f8b36f7621f13e4feb38"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M07.json",
+      "git_blob": "397c8686c889f6b61094b1f4136fe525e1e63d29"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M08.json",
+      "git_blob": "bae36ee35c3fcef6e8671a19f9f8e73169d4c7df"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M09.json",
+      "git_blob": "7300db05e811e0ba093b6be208fc06c609813433"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M10.json",
+      "git_blob": "ec03732912688f8cb74fc2749bd0786baa88933c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M11.json",
+      "git_blob": "9e5cc1dd18db4f0ce2d7c5481d58faca04072f53"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M12.json",
+      "git_blob": "a9241b0169841cfbc6081821bd3106aefae35420"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M13.json",
+      "git_blob": "6acd3aec25cd866053ca24a42a2020a872c0c215"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M14.json",
+      "git_blob": "3703387eef42711802c21525567bca17c700781c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M15.json",
+      "git_blob": "41144bb7389ac7b0ecbda9c08a378a8c93764b25"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M16.json",
+      "git_blob": "09649f26771d48529ddf5d128fee35761616db25"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M17.json",
+      "git_blob": "2d657728b3eb599ba7159a380dc67c08172962c3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M18.json",
+      "git_blob": "da0041dbbf4ea65f22e5e9332ff30f0ad072aea9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M19.json",
+      "git_blob": "2bb1f30da6cdeb55c3f622e6a2fb1a296d37cc78"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M20.json",
+      "git_blob": "d2bc0f48bc53c33142287ac790b7ddfb1d87f074"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M21.json",
+      "git_blob": "b8f31bfe9d077d2d966d503eb24e5436a7630c8d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M22.json",
+      "git_blob": "e9eaa482472bfc8ee013de499dec79e33790683d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M23.json",
+      "git_blob": "511567cb522ac95cb61841b6edfe3fad49667fb0"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M24.json",
+      "git_blob": "dd9e3c5fd5781faf22b428296163c0b7da332ce8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M25.json",
+      "git_blob": "d4a07e48b7cf7988d35d17f868d2bfc97003dd2c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M26.json",
+      "git_blob": "2ab9a84176543e9f493355df64a0b3561c2b20e7"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M27.json",
+      "git_blob": "d1562f528ebcced85061be72e389949386dc4f10"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M28.json",
+      "git_blob": "c6d3180a5d93d6f3777423efe691ce6134930256"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M29.json",
+      "git_blob": "aa0703213de31303eab3b411513ac572beba346f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M30.json",
+      "git_blob": "6f941cb444713398903108c4b80ce25f91780c91"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-01.json",
+      "git_blob": "c0aa46dfed381887c640a0bf2d5c57d9c772ef63"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-02.json",
+      "git_blob": "51396a9da965878bc46a7997ca96dae0d8a0ed61"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-03.json",
+      "git_blob": "212dbab34d9de86ebacae39f56eb0d929bbc7093"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-04.json",
+      "git_blob": "cdf328a6cebb8eeb729f4a4f66b41fc5c72001dd"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-05.json",
+      "git_blob": "e181a5330864101073e767725f93ad0798d6969d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-06.json",
+      "git_blob": "05f502c287fd7bb6786164f7149c9b4a930940c5"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-07.json",
+      "git_blob": "d733421507abe768ebda4127246d8221d1101f9d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-08.json",
+      "git_blob": "fff92d77a74dfe19cd044d88abc21d88ccf85794"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-09.json",
+      "git_blob": "ae4082200e745867a34f66a0ce5fd5bc2490865e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-10.json",
+      "git_blob": "a35d866685884a222e7ccc5b17a9fb1455c5495d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-11.json",
+      "git_blob": "48765303bf77445e0af60dbb1ae5ecf8387f07b8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-12.json",
+      "git_blob": "725c6c49189496e85c47da4799ee8d5912bcfdc3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-13.json",
+      "git_blob": "0d941fae30e4dce8567b69965a75370f3433122c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-14.json",
+      "git_blob": "998c0ab52d56fd183299297bf5f40f1f900ad4df"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-15.json",
+      "git_blob": "50d673a3f57ad4ddc80730adbc67839f0fa7aca3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-16.json",
+      "git_blob": "5784a8b4494f41a8c6f213341fc7ff6a283bc298"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-17.json",
+      "git_blob": "677b8ec8de6f6c28cdadbb2aae1c657501fea905"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-18.json",
+      "git_blob": "7c95ce1bd96ad814d24a38fc7f3297b4b83acff3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC01.json",
+      "git_blob": "893d82237387afcf0658decedbe39761bac2dfc9"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC02.json",
+      "git_blob": "e4c2d0477c69fe8b613b77e19614a1abdbb41239"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC03.json",
+      "git_blob": "e866c301b872c6a3d4d5f4664ebd6bdc9f029059"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC04.json",
+      "git_blob": "c47a786da13e2de3650f4eef705c631537095958"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC05.json",
+      "git_blob": "7637b7252df26c173a0ff35dec892bff620c2d45"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC06.json",
+      "git_blob": "eb499f8ea773645ee5ebb14dc4fd592da1388c1d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC07.json",
+      "git_blob": "754e56629d6944b3876a13e3fcbe2b3690642875"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC08.json",
+      "git_blob": "223963c9fc163537a769f58f08d1b70c35d9df2d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC09.json",
+      "git_blob": "6c68e32599d590cf5322fd5660b5614ea1bbf35c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC10.json",
+      "git_blob": "58c522b1e2cc13c6ea61d24fddc684ac4dfe6fff"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/p5_catalogue.json",
+      "git_blob": "90301836dd767c86e0bb08c975dde8aef3888e3b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/rc_catalogue.json",
+      "git_blob": "69874fc9cf766de22a1b18169040ae025a094f9f"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_graph_projection.py",
-      "git_blob": "064dfffeaa0ae73cda16bf54447dbb81f5a56d32"
+      "git_blob": "6a3b2576bc58852f6f8f38dc563d2fe558447a0c"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_native_discount_projection.py",
@@ -59,18 +591,32 @@
       "git_blob": "ee33a3c792e8af78f2c0e0ef3df9842a35805219"
     },
     {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/record_contract.py",
+      "git_blob": "43f87481009a578f3e38dc8a4a700e9a615cdf2a"
+    },
+    {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/requirement_coverage.csv",
       "git_blob": "c36256643d6203a1b48a035f3e1835582e76c31a"
     },
     {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/run_originals.py",
+      "git_blob": "840e794a02cef432af65f7fb106192c2853dcc54"
+    },
+    {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/source_baseline.json",
-      "git_blob": "5e1dd9897faa56b646383ed21e7511cfa59f319f"
+      "git_blob": "5f5820ab1a031dfc981296fb0f446f28ac4bbead"
     },
     {
       "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_authoring.py",
       "git_blob": "71050170189a0c961804cd3d4f2707833b006cea"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_targeted_c3.py",
+      "git_blob": "9a81e481fe76e4f997cde45b9ef1c6e41d4c7cb8"
     }
   ],
-  "evidence_only_update": "This manifest is generated after CI; final descendant changes only documentation/evidence, not runtime or workflow. Verify new HEAD via PR metadata.",
-  "scope": "NOT READY FOR C4"
+  "original_candidate_sources": 116,
+  "receipt": "actual_original_results_46086101815.json",
+  "evidence_only_update": "Descendant adds/updates observed evidence, matrices and handoff, not tested runtime, workflow or candidate source bytes. Resolve exact descendant HEAD via PR #97 and compare to tested SHA.",
+  "scope": "READY_FOR_C4_RESEARCH_ONLY"
 }

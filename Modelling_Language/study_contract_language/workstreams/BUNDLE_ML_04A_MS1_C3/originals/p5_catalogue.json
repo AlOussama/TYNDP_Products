@@ -278,5 +278,14 @@
   "oracle_pin": {
     "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
     "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2"
+  },
+  "final_execution": {
+    "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+    "run": 46086101815,
+    "native_job": 140795911203,
+    "source_population": 30,
+    "representations": 60,
+    "all_expected_accounted_for": true,
+    "receipt": "actual_original_results_46086101815.json"
   }
 }

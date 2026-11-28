@@ -43,11 +43,13 @@
   },
   "analytic_oracle_blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
   "c3_native_ci": {
-    "tested_commit": "018735e919c641e0d9fe1e6c3a5ae0583d1d54bc",
-    "run": 46075294159,
-    "job": 140761500569,
+    "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+    "run": 46086101815,
+    "job": 140795911203,
     "conclusion": "success",
-    "full_corpus_job": 140761500848,
-    "full_corpus_conclusion": "failure"
+    "full_corpus_job": 140796632158,
+    "full_corpus_conclusion": "success",
+    "original_paths_accounted_for": 116,
+    "original_pairs": 58
   }
 }
