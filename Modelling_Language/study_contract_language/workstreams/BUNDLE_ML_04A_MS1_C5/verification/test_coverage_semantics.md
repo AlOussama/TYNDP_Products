@@ -1,0 +1,2 @@
+# Coverage
+Comparison coverage enumerates the Cartesian support of every declared context field, checks unique keys, completeness and receipt data identities. Numeric assertions reuse the C4 finite fold; a PASS requires observed TRUE without reasons or missing witnesses. Conditional subsets, guard reasons and unresolved witnesses are conservative INCONCLUSIVE. Missing comparison data is BLOCKED. Unknown applicability is never silently N/A. Full domain coverage does not prove completeness of the declared domain relative to the actual study.

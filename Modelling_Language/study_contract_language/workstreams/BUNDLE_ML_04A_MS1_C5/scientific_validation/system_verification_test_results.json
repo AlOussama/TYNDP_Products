@@ -1,0 +1,624 @@
+{
+  "run": 46091934392,
+  "job": 140814603843,
+  "tested_commit": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
+  "tested_tree": "849f0d3b63194893f664924fdcc350d52d91a72b",
+  "checkout": "0e4ced2da1628d6a56b3dc6a9d2c7dabda50f68e",
+  "observed_methods": 20,
+  "passing_methods": 20,
+  "errors": [],
+  "result": "SUCCESS",
+  "latest_run": {
+    "run": 46091934392,
+    "job": 140814603843,
+    "job_status": "completed",
+    "job_conclusion": "success",
+    "execution_step": {
+      "name": "Execute native C5 VT and ablation controls",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7
+    }
+  },
+  "methods": [
+    {
+      "method": "test_controlled_ablation",
+      "status": "PASS",
+      "line": "2026-11-28T01:12:57.9134357Z test_controlled_ablation (__main__.C5.test_controlled_ablation) ... ok"
+    },
+    {
+      "method": "test_maintenance_add_requirement_and_test",
+      "status": "PASS",
+      "line": "2026-11-28T01:12:58.2490665Z test_maintenance_add_requirement_and_test (__main__.C5.test_maintenance_add_requirement_and_test) ... ok"
+    },
+    {
+      "method": "test_maintenance_metric_criterion_and_reuse",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:01.1095770Z test_maintenance_metric_criterion_and_reuse (__main__.C5.test_maintenance_metric_criterion_and_reuse) ... ok"
+    },
+    {
+      "method": "test_metric_unrelated_criterion_rejected",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:01.4726010Z test_metric_unrelated_criterion_rejected (__main__.C5.test_metric_unrelated_criterion_rejected) ... ok"
+    },
+    {
+      "method": "test_vt01_vt02_requirements_and_tests",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:01.7159629Z test_vt01_vt02_requirements_and_tests (__main__.C5.test_vt01_vt02_requirements_and_tests) ... ok"
+    },
+    {
+      "method": "test_vt03_multiple_requirements_and_tests",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:01.9590890Z test_vt03_multiple_requirements_and_tests (__main__.C5.test_vt03_multiple_requirements_and_tests) ... ok"
+    },
+    {
+      "method": "test_vt04_references_and_cycles",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:02.1050900Z test_vt04_references_and_cycles (__main__.C5.test_vt04_references_and_cycles) ... ok"
+    },
+    {
+      "method": "test_vt05_vt06_roles_native_metric",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:02.3483735Z test_vt05_vt06_roles_native_metric (__main__.C5.test_vt05_vt06_roles_native_metric) ... ok"
+    },
+    {
+      "method": "test_vt07_vt08_incompatible_types",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:02.3512827Z test_vt07_vt08_incompatible_types (__main__.C5.test_vt07_vt08_incompatible_types) ... ok"
+    },
+    {
+      "method": "test_vt09_vt10_native_benchmark",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:07.1337274Z test_vt09_vt10_native_benchmark (__main__.C5.test_vt09_vt10_native_benchmark) ... ok"
+    },
+    {
+      "method": "test_vt11_vt12_applicability",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:08.4850894Z test_vt11_vt12_applicability (__main__.C5.test_vt11_vt12_applicability) ... ok"
+    },
+    {
+      "method": "test_vt13_vt14_missing_support",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:08.9297756Z test_vt13_vt14_missing_support (__main__.C5.test_vt13_vt14_missing_support) ... ok"
+    },
+    {
+      "method": "test_vt15_vt16_native_pass_fail",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:11.2087547Z test_vt15_vt16_native_pass_fail (__main__.C5.test_vt15_vt16_native_pass_fail) ... ok"
+    },
+    {
+      "method": "test_vt17_vt18_evidence",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:12.0152067Z test_vt17_vt18_evidence (__main__.C5.test_vt17_vt18_evidence) ... ok"
+    },
+    {
+      "method": "test_vt19_vt20_vt21_method_composition",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:13.1850403Z test_vt19_vt20_vt21_method_composition (__main__.C5.test_vt19_vt20_vt21_method_composition) ... ok"
+    },
+    {
+      "method": "test_vt22_vt23_canonical_and_pin_integrity",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:14.8799898Z test_vt22_vt23_canonical_and_pin_integrity (__main__.C5.test_vt22_vt23_canonical_and_pin_integrity) ... ok"
+    },
+    {
+      "method": "test_vt24_vt25_projected_model_formulations",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:16.8995348Z test_vt24_vt25_projected_model_formulations (__main__.C5.test_vt24_vt25_projected_model_formulations) ... ok"
+    },
+    {
+      "method": "test_vt26_qualitative_review",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:17.0934673Z test_vt26_qualitative_review (__main__.C5.test_vt26_qualitative_review) ... ok"
+    },
+    {
+      "method": "test_vt27_migration",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:17.2877112Z test_vt27_migration (__main__.C5.test_vt27_migration) ... ok"
+    },
+    {
+      "method": "test_vt28_integrated_nine_variants",
+      "status": "PASS",
+      "line": "2026-11-28T01:13:26.2410960Z test_vt28_integrated_nine_variants (__main__.C5.test_vt28_integrated_nine_variants) ... C5_ABLATION=requirements:REJECTED"
+    }
+  ],
+  "variants": [
+    {
+      "A_source": "aeaf347b0cc5af52eca67fd884c9243a87b09fbab7338a8afacde60ddf6998b1",
+      "B_source": "f1c7e5b79a2496f8a67917bf26cfd8df18dfba0aaebf41838d74d635ce1d03ab",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:775bada872511e87c0f38f6e881772ee06d7cf16d53b736a65d8bd26c0d8e8f4",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "FINITE_NATIVE_COMPARISON_SATISFIED"
+        },
+        "execution": "EXECUTED",
+        "verdict": "PASS"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "PASS",
+      "instance_pin": "7750b7898b5e585d15c4a308f71ebca8c43472ed16cf33e70efaecc29073ca93",
+      "math_only": null,
+      "name": "consistent",
+      "native": "RETURNED",
+      "package_sha256": "07db1ad299cbf87020ac1c32ba26cf9149d4c823911f23a338962354bca0d16d",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "PASS",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "475967f802b63422e6a05972edaa94a85eb0d889db8e2663365cf2bb061afc30",
+      "B_source": "d6f64431ebd789aa0f46c213f23434e24d7ae7963042068c7eac72ace75c1b95",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:0cc4896e55e39b90683b1d92bb377c6b2e209b0db51b19508854f8ad4fba21e6",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "ATTRIBUTABLE_NATIVE_COUNTEREXAMPLE"
+        },
+        "execution": "EXECUTED",
+        "verdict": "FAIL"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "FAIL",
+      "instance_pin": "9a288c86df9235524017d444ff4d371b23f95ec58f8a000cd774416128f1de51",
+      "math_only": null,
+      "name": "weather",
+      "native": "REJECTED",
+      "package_sha256": "8d93637769eff1c69804fc6840f4677be64a5325ac6b21a2a66d9b69ffd57d12",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "FAIL",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "16d102d916e4f280355d5fad78d04570a9108a6ad89d134efc4b6bdb26eddbc9",
+      "B_source": "f0a88aebf3fb6538ee446b66ec66898cca4bfe6e99b55dc99074ee0a0b88911d",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:f9d1a93c191c07bf379d2f9e7d49b81d4066840edca3c92502fa4f3ac25729e1",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "ATTRIBUTABLE_NATIVE_COUNTEREXAMPLE"
+        },
+        "execution": "EXECUTED",
+        "verdict": "FAIL"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "FAIL",
+      "instance_pin": "9686caf435bde828c57e69cc38cb85fb5c19148ddc4ba8c22f60894e9855403f",
+      "math_only": null,
+      "name": "demand",
+      "native": "REJECTED",
+      "package_sha256": "f0477d46f396a0169103a3495d6ce4c5cb7128262a2fb376fde67a06cc371ecb",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "FAIL",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "b6f3af867069bbd86c42057ab3c813a9d77f070d99118c3e67d1bf7813f393b6",
+      "B_source": "b413dc4f14596711945578d9f174f28801d3425d5f5c7e7be7a7cb1dcc11a933",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:140d7fdf8afca610cdf18b18314a62ba093605b27a9d99d114a809ee420f03e8",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "INCOMPLETE_COMPARISON_SUPPORT"
+        },
+        "execution": "BLOCKED",
+        "verdict": "BLOCKED"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "BLOCKED",
+      "instance_pin": "a2820b34af7dacf505fe6c49534cf99f292acff06ae8db05993ad9aa2ca87a58",
+      "math_only": null,
+      "name": "missing_scenario",
+      "native": "REJECTED",
+      "package_sha256": "fea895c77abdb7da33106c3d17f8e64cf4f988a060b0cde84f3ea28cf1df9236",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "BLOCKED",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "e6713524672925f17920901bbe87ec02e65ec96aa6b35cf5ec93526a62d96e82",
+      "B_source": "7dce24bead2ec0362528cc0ff2a7a4ef1aaa26468ed1ec472d7017cc8a14fe56",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:91395067e4ede37c6b73f64621625d650c863104119cb787997843abbd6dfcfd",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "FINITE_NATIVE_COMPARISON_SATISFIED"
+        },
+        "execution": "EXECUTED",
+        "verdict": "PASS"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "PASS",
+      "instance_pin": "90944742ef7759fc61dcfdca13766aba4bca0bd22c032e30c970cc311365c988",
+      "math_only": null,
+      "name": "allowed_project",
+      "native": "RETURNED",
+      "package_sha256": "6fcc7690d27d905227372f830104c821a42f87b934ae6e6d32c42d0491bdc188",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "PASS",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "8f472a6c3c98b715734d68ae69e8a666bff5e75669893451d989557c31b57f25",
+      "B_source": "48e9b4be125ccf7d8f600095a9c08be89303117d3bf1fe03e462f2563ac0254a",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:4a39dc95880aba73ed43a2a3a45c3f7506bc52d19597eedc7ee5a67aee85d324",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "ATTRIBUTABLE_NATIVE_COUNTEREXAMPLE"
+        },
+        "execution": "EXECUTED",
+        "verdict": "FAIL"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "FAIL",
+      "instance_pin": "251844d13ef52f787ac0f8239bcd8e87f0acbbf3e7e741324c7943e6add8d32a",
+      "math_only": null,
+      "name": "extra_network",
+      "native": "REJECTED",
+      "package_sha256": "710b89656bdfcf77a7d3d3a823036b2403190bab19132bf1cd65c589b883262f",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "FAIL",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "7639776f7800c910930eb23112682f828534a60e20528a4bb8f88951d1dd4509",
+      "B_source": "141487659dc5b8f66b73d3634ec7956be03a798de846855bd9290df8522d0047",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:ac0f58eace2063504f0ec42285da6958993f285f39267e613f9a5d04e263d828",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "ATTRIBUTABLE_NATIVE_COUNTEREXAMPLE"
+        },
+        "execution": "EXECUTED",
+        "verdict": "FAIL"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "FAIL",
+      "instance_pin": "76b38d970f8cc72f50643aed6314b388ff9333ce5df0ab80a5a91fb71572627c",
+      "math_only": null,
+      "name": "price_basis",
+      "native": "REJECTED",
+      "package_sha256": "450466480645ace594efa8a2bf15d81ca3f53aa4aa2dbaf28a85aedb7735d4a9",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "FAIL",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "8d778e43fee08b096d9acafbdf421d486cfff7d55812e82085f1a6a6e231a280",
+      "B_source": "8734589f53dbe8f15af56b571b75f4cfc44ff5dfc4b4ab5420dff2ee53c82947",
+      "actual": {
+        "applicability": "UNKNOWN",
+        "computed_evidence": null,
+        "declared_evidence": [
+          "claim:one"
+        ],
+        "diagnostic": {
+          "reason": "TEST_NOT_REQUESTED"
+        },
+        "execution": "NOT_EXECUTED",
+        "verdict": "NOT_EXECUTED"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "NOT_EXECUTED",
+      "instance_pin": "eb203a334599916dabe0d846bb20ce89c8cc0f8da2b7439d06a0b75595c048b3",
+      "math_only": null,
+      "name": "missing_evidence",
+      "native": "RETURNED",
+      "package_sha256": "4fe5d75f1f88aadd62799c55147097f35d8a4442c2824582413d28d1427e6a7f",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "NOT_EXECUTED",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    },
+    {
+      "A_source": "861a54458c602a0093bf90a35cae5364b57e722f0fd758483c3585a933f0b216",
+      "B_source": "57678599f7a7e128da1542b026ae84b545027012323a02fa6ad2924f5751ef66",
+      "actual": {
+        "applicability": "TRUE",
+        "computed_evidence": "evidence:c5fdce418abcff633d9340b294b047e1b4d863ce181f9af1176bc573c7234045",
+        "declared_evidence": [],
+        "diagnostic": {
+          "reason": "ATTRIBUTABLE_NATIVE_COUNTEREXAMPLE"
+        },
+        "execution": "EXECUTED",
+        "verdict": "FAIL"
+      },
+      "definition_pin": "e362f24e559e95138b07cb0d576f15568410c0ba366d48d821a5180bccb56920",
+      "expected": "FAIL",
+      "instance_pin": "074ac81d8696e6eb6ca1e34584e0e7fa591ba4746fa66ac671a78708ced13db1",
+      "math_only": [
+        "15",
+        "20"
+      ],
+      "name": "math_correct_invalid",
+      "native": "REJECTED",
+      "package_sha256": "7a4ea3503603d935b0683a02673e64f6ce613b5d88fa4498dfeb69758b9aaae9",
+      "requirement": {
+        "required": true,
+        "scope": "FINITE_ONLY",
+        "status": "FAIL",
+        "test_refs": [
+          "test:compare"
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Grouped unit tests are finite controls, not proofs of complete requirement satisfaction.",
+    "VT07/VT08 negative tests currently accept any semantic Reject; diagnostic precision needs tightening.",
+    "Study validation external review remains not executed."
+  ],
+  "groups": [
+    {
+      "id": "VT01",
+      "test_method": "test_vt01_vt02_requirements_and_tests",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT02",
+      "test_method": "test_vt01_vt02_requirements_and_tests",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT03",
+      "test_method": "test_vt03_multiple_requirements_and_tests",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT04",
+      "test_method": "test_vt04_references_and_cycles",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT05",
+      "test_method": "test_vt05_vt06_roles_native_metric",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT06",
+      "test_method": "test_vt05_vt06_roles_native_metric",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT07",
+      "test_method": "test_vt07_vt08_incompatible_types",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT08",
+      "test_method": "test_vt07_vt08_incompatible_types",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT09",
+      "test_method": "test_vt09_vt10_native_benchmark",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT10",
+      "test_method": "test_vt09_vt10_native_benchmark",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT11",
+      "test_method": "test_vt11_vt12_applicability",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT12",
+      "test_method": "test_vt11_vt12_applicability",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT13",
+      "test_method": "test_vt13_vt14_missing_support",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT14",
+      "test_method": "test_vt13_vt14_missing_support",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT15",
+      "test_method": "test_vt15_vt16_native_pass_fail",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT16",
+      "test_method": "test_vt15_vt16_native_pass_fail",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT17",
+      "test_method": "test_vt17_vt18_evidence",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT18",
+      "test_method": "test_vt17_vt18_evidence",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT19",
+      "test_method": "test_vt19_vt20_vt21_method_composition",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT20",
+      "test_method": "test_vt19_vt20_vt21_method_composition",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT21",
+      "test_method": "test_vt19_vt20_vt21_method_composition",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT22",
+      "test_method": "test_vt22_vt23_canonical_and_pin_integrity",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT23",
+      "test_method": "test_vt22_vt23_canonical_and_pin_integrity",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT24",
+      "test_method": "test_vt24_vt25_projected_model_formulations",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT25",
+      "test_method": "test_vt24_vt25_projected_model_formulations",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT26",
+      "test_method": "test_vt26_qualitative_review",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT27",
+      "test_method": "test_vt27_migration",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    {
+      "id": "VT28",
+      "test_method": "test_vt28_integrated_nine_variants",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    }
+  ]
+}

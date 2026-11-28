@@ -1,0 +1,2 @@
+# BUNDLE-ML-04A-MS1-C5 — C5-R1 research candidate 0.2
+**NON-NORMATIVE / RESEARCH ONLY; OWNER_TBD. Option C — remaining release blockers; no v1.0.** M3-Hybrid, C4 native mathspec unchanged. See [R1 report](C5_R1/final_research_closure_report.md), [gates](C5_R1/gate_status.json), [actual evidence](C5_R1/native_regression_results.json), [specification](specification/final_general_study_contract_language_specification.md), [handoff](handoff/BUNDLE_ML_04B_HANDOFF.md). Original C5.0.1 evidence preserved. PR #99 draft; no automatic 04B.

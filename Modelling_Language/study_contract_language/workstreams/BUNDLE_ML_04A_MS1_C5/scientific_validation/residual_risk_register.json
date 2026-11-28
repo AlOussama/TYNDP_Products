@@ -1,0 +1,38 @@
+[
+  {
+    "id": "R-C5-1",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "risk": "Complete semantic coverage of system tests and trace refinement not proven"
+  },
+  {
+    "id": "R-C5-2",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "risk": "External oracle/review authenticity and actual execution not implemented"
+  },
+  {
+    "id": "R-C5-3",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "risk": "Minimality and maintainability controls limited to chosen profile"
+  },
+  {
+    "id": "R-C5-4",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "risk": "Independent human authoring absent"
+  },
+  {
+    "id": "R-C5-5",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "risk": "Historical individual 125 identity reassessment incomplete; native replay needed"
+  },
+  {
+    "id": "R-C5-6",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "risk": "Finite model projection cannot establish universal equivalence"
+  }
+]

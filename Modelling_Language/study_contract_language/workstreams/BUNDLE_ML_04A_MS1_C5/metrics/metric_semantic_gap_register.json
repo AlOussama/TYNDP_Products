@@ -1,0 +1,12 @@
+[
+  {
+    "id": "MET-G1",
+    "status": "PARTIAL",
+    "gap": "General cross-slot numerical criterion dependency not supported; same-slot native expression comparison only"
+  },
+  {
+    "id": "MET-G2",
+    "status": "PARTIAL",
+    "gap": "No independent qualitative review or uncertainty/probabilistic oracle verification"
+  }
+]

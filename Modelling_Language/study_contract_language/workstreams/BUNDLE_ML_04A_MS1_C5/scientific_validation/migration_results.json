@@ -1,0 +1,11 @@
+{
+  "control": {
+    "id": "VT27",
+    "test_method": "test_vt27_migration",
+    "execution": "PASS",
+    "scope": "BOUNDED_FINITE_CONTROL",
+    "run": 46091934392,
+    "job": 140814603843
+  },
+  "scope": "Explicit wrap of unchanged C4 definition/instance with authored C5 registries; no inferred stakeholder requirements, no bulk migration claim"
+}

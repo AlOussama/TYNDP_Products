@@ -1,0 +1,1 @@
+Native CI emits A/B and canonical packages for the nine reference variants. Exact content SHA-256 and actual outcomes are in evidence receipts. CI artifact name: c5-native-execution. Initial actual archive: https://github.com/AlOussama/TYNDP_Products/actions/runs/46091488209/artifacts/15242005458 . No manually authored expected receipt is substituted.

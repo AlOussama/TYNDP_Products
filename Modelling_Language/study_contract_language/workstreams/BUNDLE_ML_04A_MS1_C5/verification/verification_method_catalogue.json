@@ -1,0 +1,24 @@
+[
+  {
+    "method": "NATIVE_ASSERTION",
+    "target": "ASSERTION",
+    "engine": "C4 scoped native predicate finite fold",
+    "coverage": "ALL_DECLARED_SUPPORT",
+    "evidence": "COMPUTED_NATIVE_RECEIPT"
+  },
+  {
+    "method": "NATIVE_COMPARISON",
+    "target": "COMPARISON",
+    "engine": "C4 counterfactual graph",
+    "coverage": "ALL_DECLARED_SUPPORT",
+    "evidence": "COMPUTED_NATIVE_RECEIPT"
+  },
+  {
+    "method": "EXTERNAL_REVIEW",
+    "target": "REPORT",
+    "engine": "not executed",
+    "coverage": "EXTERNAL_SCOPE",
+    "evidence": "EXTERNAL_REVIEW_RECEIPT",
+    "limit": "No authenticated external review mechanism"
+  }
+]

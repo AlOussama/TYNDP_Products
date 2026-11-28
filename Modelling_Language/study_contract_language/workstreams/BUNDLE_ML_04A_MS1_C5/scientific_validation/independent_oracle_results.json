@@ -1,0 +1,41 @@
+{
+  "historical": {
+    "job": 140813186263,
+    "p5_replay": "{\"identities\":30,\"passed\":30,\"baseline\":36,\"total\":36}",
+    "original_replay": {
+      "internal_failures": 0,
+      "original_rules_matched": 116,
+      "p5_control_passed": true,
+      "pairs_accounted_for": 58,
+      "paths_accounted_for": 116,
+      "paths_attempted": 116,
+      "rejected": 84,
+      "returned": 32,
+      "source_files": 116
+    }
+  },
+  "new_projection_control": {
+    "run": 46091934392,
+    "job": 140814603843,
+    "VT24": {
+      "id": "VT24",
+      "test_method": "test_vt24_vt25_projected_model_formulations",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    "VT25": {
+      "id": "VT25",
+      "test_method": "test_vt24_vt25_projected_model_formulations",
+      "execution": "PASS",
+      "scope": "BOUNDED_FINITE_CONTROL",
+      "run": 46091934392,
+      "job": 140814603843
+    },
+    "log": [
+      "2 accepted finite projections;1 rejected benchmark;no universal equivalence"
+    ],
+    "limit": "Two separately formulated finite calculations authored in same research effort, not independent human oracle review"
+  }
+}

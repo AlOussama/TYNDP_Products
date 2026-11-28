@@ -1,0 +1,278 @@
+{
+  "run": 46099253452,
+  "job": 140837708655,
+  "tested_commit": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
+  "tests": [
+    {
+      "id": "R1-01",
+      "method": "test_r1_01_migration_preserves_legacy",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-02",
+      "method": "test_r1_02_per_requirement_metric_coverage",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-03",
+      "method": "test_r1_03_orphan_metric_and_normativity",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-04",
+      "method": "test_r1_04_scope_refinement_external_report",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-05",
+      "method": "test_r1_05_scope_axis_and_decomposition",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-06",
+      "method": "test_r1_06_signed_external_positive",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-07",
+      "method": "test_r1_07_external_negative_and_unsupported_claim",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-08",
+      "method": "test_r1_08_tamper_signature",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-09",
+      "method": "test_r1_09_stale_coverage_and_artifact",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-10",
+      "method": "test_r1_10_multi_reviewer_conflict",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-11",
+      "method": "test_r1_11_no_role_or_key_alias",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-12",
+      "method": "test_r1_12_required_child_failure_dominates",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-13",
+      "method": "test_r1_13_native_counterexample_not_erased",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-14",
+      "method": "test_r1_14_cross_slot_dependency",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-15",
+      "method": "test_r1_15_explicit_input_and_precondition",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-16",
+      "method": "test_r1_16_native_point_coverage",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-17",
+      "method": "test_r1_17_native_policy",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-18",
+      "method": "test_r1_18_native_state",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-19",
+      "method": "test_r1_19_native_data_quality",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-20",
+      "method": "test_r1_20_precise_native_types",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-21",
+      "method": "test_r1_21_roundtrip_signed_and_order",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-22",
+      "method": "test_r1_22_nine_native_cba_variants",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-23",
+      "method": "test_r1_23_metamodel_schema",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-24",
+      "method": "test_r1_24_requirement_dependency_and_cycle",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-25",
+      "method": "test_r1_25_explicit_test_applicability",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-26",
+      "method": "test_r1_26_context_data_quality",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-27",
+      "method": "test_r1_27_requirement_revision_authorization",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-28",
+      "method": "test_r1_28_original_normativity_migration",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-29",
+      "method": "test_r1_29_duplicate_evidence_id",
+      "status": "PASS",
+      "job": 140837708655
+    },
+    {
+      "id": "R1-30",
+      "method": "test_r1_30_native_quality_dependency_coverage",
+      "status": "PASS",
+      "job": 140837708655
+    }
+  ],
+  "c5_methods": 20,
+  "variants": [
+    {
+      "actual": "PASS",
+      "expected": "PASS",
+      "id": "consistent",
+      "overall": "NOT_PROVED",
+      "package_sha256": "40f047ce7151ec40c4621473012718ce21f3548f66fc4fe5f124d4d8578db47d"
+    },
+    {
+      "actual": "FAIL",
+      "expected": "FAIL",
+      "id": "weather",
+      "overall": "NOT_PROVED",
+      "package_sha256": "2ed41730123a70977af95bee9b174aba452df307000de0830431e5028d9ea5f0"
+    },
+    {
+      "actual": "FAIL",
+      "expected": "FAIL",
+      "id": "demand",
+      "overall": "NOT_PROVED",
+      "package_sha256": "b84aff6450cf3b2cb330c91de5bbfbad562024d4b33c8bb544880573c9a7d878"
+    },
+    {
+      "actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "id": "missing_scenario",
+      "overall": "NOT_PROVED",
+      "package_sha256": "e83a3248a11dff1badc718670fec4d1d57b6bb7e221639245810d7d04c7a65ea"
+    },
+    {
+      "actual": "PASS",
+      "expected": "PASS",
+      "id": "allowed_project",
+      "overall": "NOT_PROVED",
+      "package_sha256": "ea0aa2d8a4303ba1484c16d8312f85ed5c0f144e30cad3cf6314009874b46d2e"
+    },
+    {
+      "actual": "FAIL",
+      "expected": "FAIL",
+      "id": "extra_network",
+      "overall": "NOT_PROVED",
+      "package_sha256": "04582ab52c3afb08fe7900f78343e776f6beb6879d00e249092c6132ddf13c39"
+    },
+    {
+      "actual": "FAIL",
+      "expected": "FAIL",
+      "id": "price_basis",
+      "overall": "NOT_PROVED",
+      "package_sha256": "4276ac9681d84230ad03adad9b86e9737cad2eef60670a5f5852ba27bd27ff91"
+    },
+    {
+      "actual": "NOT_EXECUTED",
+      "expected": "NOT_EXECUTED",
+      "id": "missing_evidence",
+      "overall": "NOT_PROVED",
+      "package_sha256": "0e53cda27206c11bc231790f5b23166e9416f3b9f0a20ed6e789acd233c4c6b2"
+    },
+    {
+      "actual": "FAIL",
+      "expected": "FAIL",
+      "id": "math_correct_invalid",
+      "overall": "NOT_PROVED",
+      "package_sha256": "91f8f45066c4f353a0adb13b8932de9bba3fdcaf2cbbf21fdd48bfb0190bed7a"
+    }
+  ],
+  "structural_controls": [
+    {
+      "file": "schema-valid-r1.json",
+      "valid": true,
+      "expected": true,
+      "jsonschema": "4.23.0"
+    },
+    {
+      "file": "schema-valid-c5.json",
+      "valid": true,
+      "expected": true,
+      "jsonschema": "4.23.0"
+    },
+    {
+      "file": "schema-invalid-r1.json",
+      "valid": false,
+      "expected": false,
+      "jsonschema": "4.23.0"
+    }
+  ],
+  "legacy": {
+    "variants": 9,
+    "hash_fields_per_variant": 5,
+    "mismatches": 0
+  }
+}

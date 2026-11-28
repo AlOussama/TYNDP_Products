@@ -1,0 +1,5 @@
+Role,C4 reusable construct,C5 semantic addition,reason
+Study requirement,StudyFrame and authority,Versioned requirement and level,Identity and validation link
+System requirement,ScopedAssertion and comparison,Versioned requirement and parents,Explicit derivation independent of assertion
+Requirement allocation,C4 scope and target,targets and metric_refs,Traceable allocation
+Evidence,Native verification receipt,Computed evidence reference,Bind test and requirement roots

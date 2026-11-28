@@ -1,0 +1,160 @@
+{
+  "schema": "c5-vmodel-metamodel-0.2",
+  "status": "RESEARCH_CANDIDATE",
+  "base": {
+    "commit": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
+    "reference": "../../BUNDLE_ML_04A_MS1_C4/final_metamodel.json"
+  },
+  "math_authority": "energy-models/mathspec@5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "classes": {
+    "Requirement": {
+      "fields": [
+        "id",
+        "version",
+        "level",
+        "statement",
+        "source_ref",
+        "source_kind",
+        "authority_ref",
+        "scope",
+        "required",
+        "parents",
+        "targets",
+        "metric_refs",
+        "normativity",
+        "refinement_policy",
+        "depends_on"
+      ],
+      "relations": {
+        "parents": "Acyclic derivation and equal-axis subject containment; declared complete subject coverage when selected; aggregate local and required descendant outcomes.",
+        "targets": "C4 typed target",
+        "metric_refs": "Metric",
+        "depends_on": "Distinct requirement dependency; prerequisite must PASS; reject cycles across assessment edges"
+      }
+    },
+    "Metric": {
+      "fields": [
+        "id",
+        "version",
+        "role",
+        "meaning",
+        "target",
+        "source_ref"
+      ],
+      "relations": {
+        "target": "C4 output, assertion, comparison or report"
+      }
+    },
+    "TestSpecification": {
+      "fields": [
+        "id",
+        "version",
+        "kind",
+        "objective",
+        "requirements",
+        "metric",
+        "criterion",
+        "scope",
+        "oracle_ref",
+        "method",
+        "coverage",
+        "evidence",
+        "input_refs",
+        "preconditions",
+        "procedure_ref",
+        "reviewer_refs",
+        "applicability"
+      ],
+      "relations": {
+        "requirements": "Requirement",
+        "metric": "Native output/predicate/data quality/policy/state or external report; actual typed upstream dependency",
+        "criterion": "C4 target",
+        "oracle_ref": "C4 source",
+        "scope": "C4 scope",
+        "applicability": "Existing native C4 guard or explicit constant with reason; whole-test mixed/unknown inconclusive; never implicit N/A"
+      }
+    },
+    "Claim": {
+      "fields": [
+        "id",
+        "version",
+        "test",
+        "test_version",
+        "definition_pin",
+        "base_instance_pin",
+        "verdict",
+        "source_ref"
+      ],
+      "relations": {
+        "test": "TestSpecification",
+        "source_ref": "C4 source"
+      }
+    },
+    "ComputedEvidence": {
+      "identity": "digest of record",
+      "provenance": "definition/instance/method/data pins and actual receipt"
+    },
+    "Assessment": {
+      "states": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "INCONCLUSIVE",
+        "NOT_EXECUTED",
+        "NOT_APPLICABLE"
+      ],
+      "scope": "FINITE_AND_EXPLICIT_EXTERNAL_ATTESTATION_ONLY"
+    },
+    "Attestation": {
+      "fields": [
+        "id",
+        "version",
+        "payload",
+        "signature"
+      ],
+      "payload": [
+        "test",
+        "test_version",
+        "definition_pin",
+        "base_instance_pin",
+        "run_id",
+        "reviewer_ref",
+        "method_identities",
+        "criterion",
+        "verdict",
+        "observed",
+        "artifact",
+        "artifact_sha256",
+        "coverage",
+        "data_identities"
+      ],
+      "verification": "Ed25519 exact canonical payload against definition-pinned PROVENANCE key; signer independence unverified"
+    },
+    "RevisionAuthorization": {
+      "fields": [
+        "schema",
+        "base_ref",
+        "proposed_ref",
+        "changes",
+        "authority_ref",
+        "source_sha256",
+        "decision",
+        "reason"
+      ],
+      "semantics": "Exact externally pinned authorization for outer records only; version bump on changed existing record; protected base; no owner approval"
+    }
+  },
+  "identities": [
+    "definition semantic",
+    "definition exact",
+    "instance exact",
+    "native method",
+    "computed evidence",
+    "authoring audit"
+  ],
+  "validation": "vmodel.check_design / instantiate / export / reimport / compose_method",
+  "compatibility": {
+    "legacy": "0.1 unchanged",
+    "new": "0.2 explicit migration and new evidence roots"
+  }
+}

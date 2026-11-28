@@ -1,0 +1,11 @@
+{
+  "run": 46091934392,
+  "job": 140814603843,
+  "actual": [
+    "criterion:REJECTED",
+    "metric:REJECTED",
+    "coverage:REJECTED",
+    "oracle_ref:REJECTED"
+  ],
+  "scope": "Field necessity for chosen profile, not global minimality"
+}

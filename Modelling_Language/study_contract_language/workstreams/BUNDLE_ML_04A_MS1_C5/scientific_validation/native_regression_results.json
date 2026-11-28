@@ -1,0 +1,46 @@
+{
+  "run": 46091488209,
+  "job": 140813186263,
+  "commit": "979dafbdc95116f19c1e654a9bd1afb9c49eb62e",
+  "tree": "eabf6025c3057fa3b8172395008194600f23a0c1",
+  "checkout": "b203a631966589e17acf60b6204ba97e2b4c2eb7",
+  "job_result": "SUCCESS",
+  "upstream": {
+    "passed": 4140,
+    "skipped": 47
+  },
+  "original": {
+    "internal_failures": 0,
+    "original_rules_matched": 116,
+    "p5_control_passed": true,
+    "pairs_accounted_for": 58,
+    "paths_accounted_for": 116,
+    "paths_attempted": 116,
+    "rejected": 84,
+    "returned": 32,
+    "source_files": 116
+  },
+  "comparison": {
+    "rows_compared": 116,
+    "pairs": 58,
+    "p5_controls": 2,
+    "diff": [],
+    "counts": {
+      "source_files": 116,
+      "paths_attempted": 116,
+      "paths_accounted_for": 116,
+      "pairs_accounted_for": 58,
+      "original_rules_matched": 116,
+      "internal_failures": 0,
+      "returned": 32,
+      "rejected": 84,
+      "p5_control_passed": true
+    }
+  },
+  "scope": "Historical replay on first C5 implementation; later C5-only changes do not replace exact latest-head combined CI evidence.",
+  "exit_job": {
+    "id": 140814142829,
+    "result": "FAILURE",
+    "reason": "C5-specific job failed; historical native job succeeded."
+  }
+}

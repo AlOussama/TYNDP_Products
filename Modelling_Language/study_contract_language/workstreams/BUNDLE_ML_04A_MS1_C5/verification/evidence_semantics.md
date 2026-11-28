@@ -1,0 +1,2 @@
+# Evidence
+Computed evidence contains exact test/metric versions, requirement refs, subject, oracle ref, definition/instance/base roots, native method identities, run ID, coverage, actual receipt/diagnostic and observed verdict. Digest addresses exact evidence record. C4 native output/data bindings and diagnostic retained. Declaration claims are separated, pinned to test version and definition/base-instance roots; source must resolve, but authenticity remains UNVERIFIED. Independent confirmation is outside implemented profile. No general system proof from finite execution.

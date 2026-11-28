@@ -1,0 +1,21 @@
+{
+  "fields": [
+    "id",
+    "version",
+    "level",
+    "statement",
+    "source_ref",
+    "source_kind",
+    "authority_ref",
+    "scope",
+    "required",
+    "parents",
+    "targets",
+    "metric_refs"
+  ],
+  "relations": {
+    "parents": "Requirement DAG; root STUDY",
+    "targets": "C4 typed target",
+    "metric_refs": "Metric"
+  }
+}

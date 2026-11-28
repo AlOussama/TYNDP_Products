@@ -1,0 +1,7 @@
+{
+  "status": "INHERITED_WITH_BOUNDED_C5_CONSUMER",
+  "source": "../../BUNDLE_ML_04A_MS1_C4/supported_mathspec_subset.json",
+  "commit": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
+  "mathspec": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "c5_addition": "none; numeric criterion dependency uses public Program ExpressionComparison/ExpressionReference traversal; unsupported dependency structure conservatively rejected"
+}
