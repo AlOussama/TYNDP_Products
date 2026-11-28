@@ -117,6 +117,37 @@ def observed_counterexample(r,assertion):
     return any(z["id"]=="assertion:"+assertion and z["truth"]=="FALSE" for z in r["result"]["obligations"]["assertions"])
 def codes(r):return [x["code"] for x in r.get("diagnostics",[])]
 def rejected(r,allowed):return r["status"]=="REJECTED" and bool(set(codes(r))&set(allowed))
+def observed_diagnostic(row,doc,r,baselines):
+    """Derive diagnostics only from returned, independently executed candidate evidence.
+    These are actual authored source object paths; they are not oracle JSONPaths."""
+    if row["family"]!="C23" or r["status"]!="RETURNED":return
+    oid=row["id"]
+    mapping={"MUT-01":("intake_balance","R07"),"MUT-02":("service","R09"),
+             "MUT-05":("kvl","R09"),"MUT-18":("kvl","R09")}
+    if oid in mapping:
+        name,rule=mapping[oid]
+        if not observed_counterexample(r,name):return
+        evidence=next(a for a in r["result"]["obligations"]["assertions"] if a["id"]=="assertion:"+name)
+        code,path,reason="FINITE_COUNTEREXAMPLE","/definition/conditions/"+name,"Native evaluated assertion is FALSE"
+    elif oid=="MUT-07":
+        evidence=next((a for a in r["result"]["policies"] if a["status"]=="FINITE_COUNTEREXAMPLE"),None)
+        if evidence is None:return
+        index=next(j for j,a in enumerate(doc["definition"]["policies"]) if a["id"]==evidence["id"])
+        code,path,rule,reason="FINITE_COUNTEREXAMPLE","/definition/policies/"+str(index),"Native information policy has violating coordinates"
+    elif oid=="MUT-11":
+        base=baselines[("RC01",r["syntax"])]
+        if base["status"]!="RETURNED":return
+        a,b=base["result"],r["result"]
+        if a["lowered_normativity"]==b["lowered_normativity"] or a["semantic_identity"]==b["semantic_identity"]:return
+        evidence={"base":a["lowered_normativity"],"candidate":b["lowered_normativity"],
+                  "base_semantic_identity":a["semantic_identity"],"candidate_semantic_identity":b["semantic_identity"]}
+        code,path,rule,reason="E1_DIFFERENT","/definition/metadata/normativity","Admitted canonical requirement normativity and semantic identity differ"
+    else:return
+    r["diagnostics"].append({"schema":"c3-actual-diagnostic-0.1","status":"OBSERVED","code":code,
+        "candidate_path":path,"path_kind":"DECODED_CANDIDATE_OBJECT","rule_id":rule,"rule_source":RULE_SOURCE,
+        "reason":reason,"stage":"NATIVE_RETURNED_EVIDENCE","native_evidence":evidence,"owner":"OWNER_TBD","conformance":"NOT_PROVED",
+        "candidate_source_path":r["source_path"],"candidate_source_sha256":r["source_sha256"],"original_source_blob":r["original_source_blob"]})
+
 def assess(row,doc,r,baselines,analytical,p5):
     """Original expectation assessment is independent of candidate validation.
     BLOCKED denotes refusal of a positive research claim; actual finite
@@ -159,7 +190,7 @@ def assess(row,doc,r,baselines,analytical,p5):
     elif a=="MUT-10" and rejected(r,["E4_UNSUPPORTED"]):v="BLOCKED"
     elif a=="MUT-11" and r["status"]=="RETURNED":
         base=baselines[("RC01",r["syntax"])]
-        if base["status"]=="RETURNED" and base["result"]["semantic_identity"]!=r["result"]["semantic_identity"] and doc["definition"]["metadata"]["normativity"]=="NORMATIVE_REQUIREMENT_PENDING_OWNER":v="E1_DIFFERENT"
+        if base["status"]=="RETURNED" and base["result"]["semantic_identity"]!=r["result"]["semantic_identity"] and base["result"]["lowered_normativity"]!=r["result"]["lowered_normativity"] and doc["definition"]["metadata"]["normativity"]=="NORMATIVE_REQUIREMENT_PENDING_OWNER":v="E1_DIFFERENT"
         receipt["mapping_note"]="Original normativity mutation is valid pending-owner normativity, separate from the C1 derived invalid APPROVED edit."
     elif a=="MUT-12" and rejected(r,["SOURCE_LOSS"]):v="AUDIT_LOSS"
     elif a=="MUT-13" and rejected(r,["EVIDENCE_PROMOTION"]):v="FAIL_STATIC"
@@ -198,13 +229,30 @@ def main(p5_path,output_path):
     p5=read(p5_path);manifest=read(C1/"frozen_original_test_manifest.json")
     if blob((C1/"frozen_original_test_manifest.json").read_bytes())!="ca75ee61c1fe1cdab15bb2287e04a41cf34430d9":raise RuntimeError("Original catalogue pin drift")
     originals=manifest["originals"];assert len(originals)==58
+    contract_path=C2/"original_diagnostic_contracts.json"
+    if blob(contract_path.read_bytes())!="2d9321293450511d7bafdd6b8b2ffa7fe0f7b814":raise RuntimeError("Frozen diagnostic contract drift")
+    frozen_diagnostics={d["id"]:d for d in read(contract_path)["originals"]}
     analytical=analytical_receipts()
     rows=[];base={};pairs_out=[]
     for original in originals:
         path_results=[]
         for syntax in ("A","B"):
             doc,r=execute(original["id"],syntax)
-            r["family"]=original["family"];r["rc"]=original["rc"];r["assessment"]=assess(original,doc,r,base,analytical,p5)
+            r["family"]=original["family"];r["rc"]=original["rc"]
+            contract=frozen_diagnostics[original["id"]]
+            r["original_diagnostic_contract"]=contract
+            catalogue=(REPO/contract["catalogue"]["path"]).read_bytes()
+            if blob(catalogue)!=contract["catalogue"]["blob"]:raise RuntimeError("Frozen original source catalogue drift")
+            r["original_catalogue_sha256"]=sha(catalogue)
+            if "derived_mutation" in contract:
+                mutation=(REPO/contract["derived_mutation"]["path"]).read_bytes()
+                if blob(mutation)!=contract["derived_mutation"]["blob"]:raise RuntimeError("Frozen mutation recipe drift")
+                r["derived_mutation_sha256"]=sha(mutation)
+            if doc is not None:observed_diagnostic(original,doc,r,base)
+            r["assessment"]=assess(original,doc,r,base,analytical,p5)
+            rule_ok=original["family"]=="RC" or any(z["rule_id"]==contract["rule_id"] and z.get("candidate_source_sha256")==r.get("source_sha256") for z in r["diagnostics"])
+            r["assessment"]["original_rule_matched"]=rule_ok
+            if not rule_ok:r["assessment"].update(accounted_for=False,reason="ORIGINAL_DIAGNOSTIC_RULE_NOT_MATCHED")
             if original["family"]=="RC":base[(original["id"],syntax)]=r
             path_results.append(r);rows.append(r)
             print("C3_ORIGINAL_PATH="+stable(r),flush=True)
@@ -213,6 +261,7 @@ def main(p5_path,output_path):
     control,control_ok=p5_control(p5)
     counts={"source_files":sum(z["full_source"] for z in rows),"paths_attempted":len(rows),
             "paths_accounted_for":sum(z["assessment"]["accounted_for"] for z in rows),"pairs_accounted_for":sum(z["accounted_for"] for z in pairs_out),
+            "original_rules_matched":sum(z["assessment"]["original_rule_matched"] for z in rows),
             "internal_failures":sum(z["status"]=="BLOCKED_INTERNAL" for z in rows),"returned":sum(z["status"]=="RETURNED" for z in rows),"rejected":sum(z["status"]=="REJECTED" for z in rows),
             "p5_control_passed":control_ok}
     result={"schema":"c3-original-corpus-results-0.2","counts":counts,"rows":rows,"pairs":pairs_out,"p5_baseline_controls":control,

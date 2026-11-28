@@ -250,7 +250,7 @@
           "guard_present"
         ],
         "equals": true,
-        "rule": "R09",
+        "rule": "R05",
         "code": "GUARD_REQUIRED"
       }
     ],

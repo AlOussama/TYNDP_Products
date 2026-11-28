@@ -249,7 +249,7 @@
           "source:A",
           "source:B"
         ],
-        "rule": "R09",
+        "rule": "R13",
         "code": "SOURCE_LOSS"
       },
       {

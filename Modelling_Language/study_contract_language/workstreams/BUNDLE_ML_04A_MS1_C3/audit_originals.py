@@ -26,19 +26,19 @@ def main():
     for k,row in r.items():
         assert all(row[field]==value for field,value in a[k].items()),k
         assert row["oracle_contract"]==dm[k[0]],k
-        assert row["c3_representation_status"]=="NOT_MATERIALIZED_FULL",k
-        assert row["c3_execution_status"]=="NOT_EXECUTED" and row["candidate_result"] is None,k
-    assert c["full_materialized"]==c["full_executed"]==0
+        assert row["c3_representation_status"] in ("NOT_MATERIALIZED_FULL","MATERIALIZED_FULL"),k
+        if row["c3_execution_status"]=="NOT_EXECUTED":assert row["candidate_result"] is None,k
+        else:assert row["candidate_result"] is not None,k
     with (C2/"requirement_traceability.csv").open(newline="") as f:old=list(csv.DictReader(f))
     with (HERE/"requirement_coverage.csv").open(newline="") as f:new=list(csv.DictReader(f))
     assert len(old)==len(new)==125 and len({x["identity"] for x in new})==125
     for a,b in zip(old,new,strict=True):
         assert all(b[k]==v for k,v in a.items())
-        assert b["C3_full_original_evidence"]=="NOT_EXECUTED"
-    print("C3_POPULATION_AUDIT="+json.dumps({"identities":58,"paths":116,"materialized_full":0,
-          "executed_full":0,"requirements":125,"scope":"POPULATION_INTEGRITY_ONLY","status":"PASS"},sort_keys=True))
-    # Historic partial receipt is unchanged; committed source population
-    # is verified separately. Full execution is decided by run_originals.py.
+        assert b["C3_full_original_evidence"]
+    print("C3_POPULATION_AUDIT="+json.dumps({"identities":58,"paths":116,"recorded_materialized":c["full_materialized"],
+          "recorded_executed":c["full_executed"],"requirements":125,"scope":"POPULATION_INTEGRITY_ONLY","status":"PASS"},sort_keys=True))
+    # Historical or observed evidence is separate from fresh CI execution.
+    # Full execution is decided by run_originals.py.
     actual={(r["id"],s) for r in m["originals"] for s in ("A","B")
             if (HERE/"originals"/s/(r["id"]+(".scn" if s=="A" else ".json"))).is_file()}
     print("C3_COMMITTED_SOURCE_POPULATION="+json.dumps({"source_files":len(actual),"target":116}))

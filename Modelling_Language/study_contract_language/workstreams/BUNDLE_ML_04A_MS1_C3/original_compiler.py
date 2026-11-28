@@ -235,5 +235,5 @@ def compile_rc(x,raw_original):
             "graph_audit_identity":result["graph"]["audit_identity"],"package_sha256":sha256(canonical.encode()).hexdigest(),"definition_pin":dp,"instance_pin":ip,
             "outputs":result["graph"]["outputs"],"obligations":result["graph"]["slots"]["slot:main"]["obligations"],"policies":result["graph"]["slots"]["slot:main"]["policies"],
             "lineage":result["graph"]["slots"]["slot:main"]["lineage"],"comparison_evidence":result["comparison_evidence"],"external_reports":result["graph"]["external_reports"],
-            "structural_checks":structural_receipts,"native_identity":leaf["native_identity"],"native_package_sha256":sha256(package.encode()).hexdigest(),"roundtrip":True,
+            "structural_checks":structural_receipts,"lowered_normativity":native_d["requirements"]["normativity"],"native_identity":leaf["native_identity"],"native_package_sha256":sha256(package.encode()).hexdigest(),"roundtrip":True,
             "conformance":"NOT_PROVED","owner":"OWNER_TBD"}

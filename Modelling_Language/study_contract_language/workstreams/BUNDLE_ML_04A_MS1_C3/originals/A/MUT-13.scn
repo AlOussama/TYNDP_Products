@@ -101,7 +101,7 @@ study_contract "c3-original-authoring-0.2" {
         "kind": "exact_population";
         "path": ["synthetic_data", "inputs", "source_ids"];
         "values": ["source:A", "source:B"];
-        "rule": "R09";
+        "rule": "R13";
         "code": "SOURCE_LOSS";
       }, {
         "kind": "unique";
