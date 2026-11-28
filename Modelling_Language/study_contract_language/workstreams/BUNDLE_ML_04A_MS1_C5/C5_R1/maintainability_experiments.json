@@ -1,0 +1,418 @@
+{
+  "run": 46099253452,
+  "job": 140837708655,
+  "summary": {
+    "nine_groups": 9,
+    "actual_records": 10,
+    "matched_cases": 3,
+    "full_global_minimality": false,
+    "independent_human_authoring": false
+  },
+  "measurements": [
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "617f7fdb5c13a4c5fcf1628504a4588ba08f621dcdc2731c4220a9c05ef30272",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "add requirement record",
+        "link requirement in existing test",
+        "increment test version",
+        "authorize exact revision"
+      ],
+      "base_definition_leaf_changes": 0,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "328ffab96a5de4294d3bf27696b31117de2d18e11db379562d3fcd8ae07e8f76",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 25206,
+      "canonical_definition_bytes_before": 24715,
+      "changed_metrics": [],
+      "changed_requirements": [
+        "requirement:new"
+      ],
+      "changed_tests": [
+        "test:compare"
+      ],
+      "definition_leaf_changes": 17,
+      "elapsed_seconds": 1.504,
+      "id": "M01_ADD_REQUIREMENT",
+      "instance_leaf_changes": 1,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "76436c1b57ca00002c773635cf22052f0ef8e9db24bb8c71218426a9c34d0b8c",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "add metric record",
+        "link metric in requirement",
+        "increment requirement version",
+        "add test",
+        "request test",
+        "authorize exact revision"
+      ],
+      "base_definition_leaf_changes": 0,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "328ffab96a5de4294d3bf27696b31117de2d18e11db379562d3fcd8ae07e8f76",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 25635,
+      "canonical_definition_bytes_before": 24715,
+      "changed_metrics": [
+        "metric:new"
+      ],
+      "changed_requirements": [
+        "requirement:pair"
+      ],
+      "changed_tests": [
+        "test:new"
+      ],
+      "definition_leaf_changes": 39,
+      "elapsed_seconds": 1.5064,
+      "id": "M02_ADD_METRIC",
+      "instance_leaf_changes": 2,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "2f980baca74eaeb3851cb6a285d80f0556dd82541e171d7c93dda1bd53304ea1",
+        "method_identities": {
+          "slot:benefit": "b1715e5da42f7f2b5319164e9019dd8bbacd9528ea65887a0cf03b69446c46ec"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "edit one native condition; regenerate package/pins"
+      ],
+      "base_definition_leaf_changes": 2,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "328ffab96a5de4294d3bf27696b31117de2d18e11db379562d3fcd8ae07e8f76",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "FAIL",
+        "test": "FAIL"
+      },
+      "canonical_definition_bytes_after": 24715,
+      "canonical_definition_bytes_before": 24715,
+      "changed_metrics": [],
+      "changed_requirements": [],
+      "changed_tests": [],
+      "definition_leaf_changes": 2,
+      "elapsed_seconds": 2.3495,
+      "id": "M03_CHANGE_CRITERION",
+      "instance_leaf_changes": 4,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "b7b80961c00697e76d1543a88ee280539926cac675e9bc515c270e7f58cf8d1b",
+        "method_identities": {
+          "slot:benefit": "641966a43847fc0b4419fb12ba4dcf7812583034f32b44c8c682de1d7f5a0bc1"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "change one native expression",
+        "change method version",
+        "explicit composition request",
+        "explicit research authorization"
+      ],
+      "base_definition_leaf_changes": 4,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "14199f19836e1592efc8d4e212920697c0d7be367fa19d72cc71bc4d9dd6da41",
+        "method_identities": {
+          "slot:benefit": "4147274784e086456ff2a60dc7081509beca1fdcec5f558aeb121338e1d2be9b"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 20458,
+      "canonical_definition_bytes_before": 20440,
+      "changed_metrics": [],
+      "changed_requirements": [],
+      "changed_tests": [],
+      "definition_leaf_changes": 4,
+      "elapsed_seconds": 1.7094,
+      "id": "M04_SWAP_METHOD",
+      "instance_leaf_changes": 4,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "d4e9850db7a0694ce3e6f6262158489acf338d1a062161c05c6bd99908563bbb",
+        "method_identities": {
+          "slot:state": "74c5d8e3dd5b103fbce621101b703223194abf0bbaed7fbd69f23332e47f4065"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "add requirement",
+        "add test referring to existing state contract",
+        "request test",
+        "authorize exact revision"
+      ],
+      "base_definition_leaf_changes": 0,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "b436bc9590f9b7d46771c9659010817145a98465a5082ffe82116cbe3d8e1cea",
+        "method_identities": {
+          "slot:state": "74c5d8e3dd5b103fbce621101b703223194abf0bbaed7fbd69f23332e47f4065"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 19087,
+      "canonical_definition_bytes_before": 18113,
+      "changed_metrics": [],
+      "changed_requirements": [
+        "requirement:state-reuse"
+      ],
+      "changed_tests": [
+        "test:state-reuse"
+      ],
+      "definition_leaf_changes": 36,
+      "elapsed_seconds": 2.2805,
+      "id": "M05_REUSE_COMPONENT_STATE_CONTRACT",
+      "instance_leaf_changes": 2,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "40718fbea508774bf2369bfeb691ba460c3345ca0b6b87e841413eae55deb3b8",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "add test record reusing criterion/metric",
+        "request test",
+        "authorize exact revision"
+      ],
+      "base_definition_leaf_changes": 0,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "328ffab96a5de4294d3bf27696b31117de2d18e11db379562d3fcd8ae07e8f76",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 25466,
+      "canonical_definition_bytes_before": 24715,
+      "changed_metrics": [],
+      "changed_requirements": [],
+      "changed_tests": [
+        "test:another"
+      ],
+      "definition_leaf_changes": 31,
+      "elapsed_seconds": 1.5031,
+      "id": "M06_ADD_SYSTEM_TEST",
+      "instance_leaf_changes": 2,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "b7b80961c00697e76d1543a88ee280539926cac675e9bc515c270e7f58cf8d1b",
+        "method_identities": {
+          "slot:benefit": "641966a43847fc0b4419fb12ba4dcf7812583034f32b44c8c682de1d7f5a0bc1"
+        },
+        "requirement": "PASS",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "rebind instance roots",
+        "obtain fresh signed evidence; prior evidence rejected"
+      ],
+      "base_definition_leaf_changes": 4,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "14199f19836e1592efc8d4e212920697c0d7be367fa19d72cc71bc4d9dd6da41",
+        "method_identities": {
+          "slot:benefit": "4147274784e086456ff2a60dc7081509beca1fdcec5f558aeb121338e1d2be9b"
+        },
+        "requirement": "PASS",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 20458,
+      "canonical_definition_bytes_before": 20440,
+      "changed_metrics": [],
+      "changed_requirements": [],
+      "changed_tests": [],
+      "definition_leaf_changes": 4,
+      "elapsed_seconds": 2.2981,
+      "id": "M07_REBIND_TRACE_AND_EVIDENCE_AFTER_METHOD_CHANGE",
+      "instance_leaf_changes": 9,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "14199f19836e1592efc8d4e212920697c0d7be367fa19d72cc71bc4d9dd6da41",
+        "method_identities": {
+          "slot:benefit": "4147274784e086456ff2a60dc7081509beca1fdcec5f558aeb121338e1d2be9b"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "explicit reviewer source",
+        "run versioned migration; generated records/pins"
+      ],
+      "base_definition_leaf_changes": 10,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "60972dacf8e4975dbf7257afcd66b77e59439ac4a24ed693c1244d3208dba38d",
+        "method_identities": {
+          "slot:benefit": "4147274784e086456ff2a60dc7081509beca1fdcec5f558aeb121338e1d2be9b"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 20440,
+      "canonical_definition_bytes_before": 19259,
+      "changed_metrics": [],
+      "changed_requirements": [
+        "requirement:benefit",
+        "requirement:pair"
+      ],
+      "changed_tests": [
+        "test:compare",
+        "test:validate"
+      ],
+      "definition_leaf_changes": 42,
+      "elapsed_seconds": 0.892,
+      "id": "M08_WIRE_MIGRATION",
+      "instance_leaf_changes": 4,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "cda99c9f5ece495eb3452d7f7eb3fde3988251838da90b4d5af3c39c49b131f7",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "edit one requirement statement",
+        "increment requirement version",
+        "authorize exact revision"
+      ],
+      "base_definition_leaf_changes": 0,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "328ffab96a5de4294d3bf27696b31117de2d18e11db379562d3fcd8ae07e8f76",
+        "method_identities": {
+          "slot:benefit": "e1466061373d2a8948afdadd03e6610da6df735efb4a2f345fb927848da3fd72"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 24744,
+      "canonical_definition_bytes_before": 24715,
+      "changed_metrics": [],
+      "changed_requirements": [
+        "requirement:benefit"
+      ],
+      "changed_tests": [],
+      "definition_leaf_changes": 2,
+      "elapsed_seconds": 1.5019,
+      "id": "M09A_WORDING_WITHOUT_MATH",
+      "instance_leaf_changes": 1,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    },
+    {
+      "after": {
+        "conformance": "NOT_PROVED",
+        "definition": "b7b80961c00697e76d1543a88ee280539926cac675e9bc515c270e7f58cf8d1b",
+        "method_identities": {
+          "slot:benefit": "641966a43847fc0b4419fb12ba4dcf7812583034f32b44c8c682de1d7f5a0bc1"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "authored_edit_operations": [
+        "authorized native expression/version change"
+      ],
+      "base_definition_leaf_changes": 4,
+      "before": {
+        "conformance": "NOT_PROVED",
+        "definition": "14199f19836e1592efc8d4e212920697c0d7be367fa19d72cc71bc4d9dd6da41",
+        "method_identities": {
+          "slot:benefit": "4147274784e086456ff2a60dc7081509beca1fdcec5f558aeb121338e1d2be9b"
+        },
+        "requirement": "NOT_EXECUTED",
+        "test": "PASS"
+      },
+      "canonical_definition_bytes_after": 20458,
+      "canonical_definition_bytes_before": 20440,
+      "changed_metrics": [],
+      "changed_requirements": [],
+      "changed_tests": [],
+      "definition_leaf_changes": 4,
+      "elapsed_seconds": 1.7003,
+      "id": "M09B_MATH_WITHOUT_WORDING",
+      "instance_leaf_changes": 4,
+      "language_code_changes": 0,
+      "limit": "Controlled authored object changes; machine time is not human authoring effort.",
+      "logical_artefacts_changed": 2
+    }
+  ],
+  "claim": "Controlled technical edit operations and measured changes only; not human authoring effort."
+}

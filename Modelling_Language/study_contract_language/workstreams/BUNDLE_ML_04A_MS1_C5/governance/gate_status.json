@@ -3,91 +3,103 @@
   "owner": "OWNER_TBD",
   "decision": "OPTION_C_TARGETED_TECHNICAL_CLOSURE_REQUIRED",
   "release": "NOT_RELEASED",
+  "implementation": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
+  "implementation_tree": "5a23b7d3aa2d50789f8639404841f2eeb2c47525",
+  "evidence_for_c5_r1": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
+  "latest_workflow": 46099253452,
+  "exact_latest_combined_success": false,
   "gates": [
     {
       "id": "C5-G0",
       "name": "Baseline Integrity",
       "status": "MET",
-      "evidence": "CI verified exact C4 trees, ancestor pins, 27 blob pins, pinned mathspec tree; historical replay success."
+      "evidence": "Exact C5/C4 baseline, source population and mathspec pin checks passed in CI; original gate identities retained.",
+      "previous_c5_status": "MET"
     },
     {
       "id": "C5-G1",
       "name": "Requirements Semantic Closure",
-      "status": "PARTIAL",
-      "evidence": "Explicit versioned registries and native trace controls; exact scope only, no arbitrary refinement or decomposition completeness."
+      "status": "MET",
+      "evidence": "R1-02/03/04/05/12/24/27/28: typed requirement relations, explicit normativity, subject refinement with equal axes, coverage and governed revisions; no general logical entailment claim.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G2",
       "name": "Metrics Semantic Closure",
-      "status": "PARTIAL",
-      "evidence": "Typed output, native comparison, assertion, method composition controls; same-slot numerical dependency; broad negative diagnostic tests; quantitative scope limited."
+      "status": "MET",
+      "evidence": "R1-02/14/20/22 and existing VT: role-specific metric coverage, actual typed cross-slot dependency, exact unit/price mismatch diagnostics, native acceptance.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G3",
       "name": "System Test Semantic Closure",
-      "status": "PARTIAL",
-      "evidence": "Three reusable methods, finite support, inherited input/precondition bindings; no independently executable external oracles or broader test method contracts."
+      "status": "MET",
+      "evidence": "Seven methods, explicit inputs/preconditions/applicability and coverage, C4 native policy/state/quality and external signed procedure; R1-30 native quality dependency controls passed. No production external executor or unbounded proof.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G4",
       "name": "Evidence & Assessment Closure",
-      "status": "PARTIAL",
-      "evidence": "Native computed receipts, claims and applicability tested; external review/authenticity not established; trace aggregation bounded."
+      "status": "MET",
+      "evidence": "R1-06–13/21/25/29: signed pinned evidence, freshness/scope/data/identity and conflicts, required-child aggregation, N/A cannot imply validation; independent human authority unverified.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G5",
       "name": "Native Mathematical Integrity",
       "status": "MET",
-      "evidence": "C4 native Program authority unchanged; no competing AST; pinned upstream mathspec 4140 pass, 47 skipped."
+      "evidence": "No new mathematical primitive; unchanged C4 mathspec authority and upstream suite observed passing in historical job.",
+      "previous_c5_status": "MET"
     },
     {
       "id": "C5-G6",
       "name": "Canonical Integration",
       "status": "MET",
-      "evidence": "Within admitted C5 structural fragment, native A/B roundtrip, pins, recomputed receipt and versioned identities observed; no general semantic equivalence."
+      "evidence": "R1-01/21/23: dual-version structural schema, pinned A/B canonical roundtrip, signed receipt, 45 exact legacy hashes; no universal E2–E5 proof.",
+      "previous_c5_status": "MET"
     },
     {
       "id": "C5-G7",
       "name": "Minimality & Reuse",
       "status": "PARTIAL",
-      "evidence": "Five ablations; no matched-scope alternate implementation or global minimality proof."
+      "evidence": "Actual restricted matched-scope comparison for two obligations (3 cases), controlled positive/negative R1 tests and necessity/reuse inventory. Full equal-scope alternate architecture and broad comparative minimality not established; no global minimum claimed. Do not waive original gate.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G8",
       "name": "Maintainability & Migration",
-      "status": "PARTIAL",
-      "evidence": "Controlled edits, method exchange and explicit migration; not all 9 experiments independently measured; no independent human authoring."
+      "status": "MET",
+      "evidence": "9 independent controlled task groups / 10 measurement records, governed changes, method exchange, stale-evidence rejection, 0 code edits within tasks and 45 legacy hashes. No empirical human effort claim.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G9",
       "name": "Native Regression",
       "status": "PARTIAL",
-      "evidence": "20 grouped C5 test methods passed; historical replay succeeded on earlier C5 commit. Latest combined exact-tree workflow exit not established at recording time."
+      "evidence": "Earlier exact combined run 46098815953 successful; latest candidate run 46099253452 not yet confirmed fully successful at evidence capture. Do not promote earlier result to latest tree.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G10",
       "name": "Integrated CBA Reference Demonstration",
       "status": "MET",
-      "evidence": "Nine positive/negative/incomplete cases each executed A/B, exact canonical match, native receipts and evidence; synthetic not full CBA."
+      "evidence": "9 CBA reference variants migrated and executed native A/B with expected outcomes; synthetic, not full methodology.",
+      "previous_c5_status": "MET"
     },
     {
       "id": "C5-G11",
       "name": "Final Specification",
-      "status": "PARTIAL",
-      "evidence": "Consolidated candidate specification, grammar, metamodel, structural schema and limits; consistency not fully demonstrated and candidate not final release."
+      "status": "MET",
+      "evidence": "Consolidated specification with exact C4 inheritance, dual-version metamodel/schema and independently executed structural checks; candidate is not a normative release.",
+      "previous_c5_status": "PARTIAL"
     },
     {
       "id": "C5-G12",
       "name": "Critical Scientific Review",
-      "status": "PARTIAL",
-      "evidence": "Separate critical review and risk register; AI internal not person-independent audit; residual material gaps."
+      "status": "MET",
+      "evidence": "Separate critical assessment, actual adversarial controls and residual-risk register; AI-authored, not person-independent audit; residual release blockers retained.",
+      "previous_c5_status": "PARTIAL"
     }
   ],
-  "implementation": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
-  "evidence_for_c5": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
-  "c5_run": 46091934392,
-  "c5_job": 140814603843,
-  "historical_run": 46091488209,
-  "historical_job": 140813186263,
-  "limitations": "No scope reduction used to mark partially satisfied material gates MET."
+  "limitations": "No scope reduction used to mark original gates MET. Candidate 0.2 is not v1.0 or regulatory approval."
 }

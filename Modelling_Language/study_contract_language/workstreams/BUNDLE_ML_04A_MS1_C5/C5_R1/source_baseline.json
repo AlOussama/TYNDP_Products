@@ -1,0 +1,120 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "owner": "OWNER_TBD",
+  "c5_evidence_head": "d4e11fcac0c4741535609b85b438416061a85ca2",
+  "c5_tree": "a622698a7a778922c945ad831fac2b656b04fed9",
+  "c5_implementation": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
+  "c5_implementation_tree": "849f0d3b63194893f664924fdcc350d52d91a72b",
+  "c5_ci": [
+    46091934392,
+    46092079434
+  ],
+  "c4_head": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
+  "mathspec": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "mathspec_tree": "635a594392e990e2e22393d408cc5b307704cda0",
+  "candidate": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
+  "tree": "5a23b7d3aa2d50789f8639404841f2eeb2c47525",
+  "comparison": {
+    "repository_full_name": "AlOussama/TYNDP_Products",
+    "base": "d4e11fcac0c4741535609b85b438416061a85ca2",
+    "head": "dca19ea1fcae14df7ff31bf8436e9fd49e5c0564",
+    "status": "ahead",
+    "ahead_by": 7,
+    "behind_by": 0,
+    "total_commits": 7,
+    "too_large": null,
+    "base_commit": {
+      "sha": "d4e11fcac0c4741535609b85b438416061a85ca2",
+      "url": "https://api.github.com/repos/AlOussama/TYNDP_Products/commits/d4e11fcac0c4741535609b85b438416061a85ca2",
+      "html_url": "https://github.com/AlOussama/TYNDP_Products/commit/d4e11fcac0c4741535609b85b438416061a85ca2"
+    },
+    "merge_base_commit": {
+      "sha": "d4e11fcac0c4741535609b85b438416061a85ca2",
+      "url": "https://api.github.com/repos/AlOussama/TYNDP_Products/commits/d4e11fcac0c4741535609b85b438416061a85ca2",
+      "html_url": "https://github.com/AlOussama/TYNDP_Products/commit/d4e11fcac0c4741535609b85b438416061a85ca2"
+    },
+    "files": [
+      {
+        "filename": ".github/workflows/research-ms1-c5.yml",
+        "status": "modified",
+        "additions": 15,
+        "deletions": 0,
+        "changes": 15,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/C5_R1/README.md",
+        "status": "added",
+        "additions": 2,
+        "deletions": 0,
+        "changes": 2,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/r1_semantics.py",
+        "status": "added",
+        "additions": 398,
+        "deletions": 0,
+        "changes": 398,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/specification/final_general_study_contract_language_specification.md",
+        "status": "modified",
+        "additions": 23,
+        "deletions": 19,
+        "changes": 42,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/specification/final_metamodel.json",
+        "status": "modified",
+        "additions": 61,
+        "deletions": 9,
+        "changes": 70,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/specification/final_schema.json",
+        "status": "modified",
+        "additions": 1524,
+        "deletions": 551,
+        "changes": 2075,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/r1_experiments.py",
+        "status": "added",
+        "additions": 165,
+        "deletions": 0,
+        "changes": 165,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_r1.py",
+        "status": "added",
+        "additions": 330,
+        "deletions": 0,
+        "changes": 330,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/validate_r1_schema.py",
+        "status": "added",
+        "additions": 14,
+        "deletions": 0,
+        "changes": 14,
+        "previous_filename": null
+      },
+      {
+        "filename": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/vmodel.py",
+        "status": "modified",
+        "additions": 125,
+        "deletions": 27,
+        "changes": 152,
+        "previous_filename": null
+      }
+    ]
+  },
+  "prior_source_pins": "../source_baseline.json"
+}

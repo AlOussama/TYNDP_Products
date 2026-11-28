@@ -1,0 +1,10 @@
+# Separate critical scientific assessment — C5-R1
+AI-authored critical review, not independent human audit. Review of original gate identities, actual evidence, negative controls and unresolved scope.
+
+Findings: original exact-scope trace gap corrected by named-axis/subject containment and optional union coverage. Missing per-requirement metric and missing study-validation input are actual counterexamples to unchanged C5. Typed cross-slot criterion uses native references, not textual formula matching. Native data/state/policy checks consume C4 results; state binding alone cannot establish truth. Signed evidence proves exact pinned key/bytes, not reviewer independence or correctness. Guard FALSE and UNKNOWN are not PASS; parent N/A cannot manufacture validation. Test-suite PASS is expected control result, not model conformance. All 125 original requirements retained with unchanged historical evidence limits; 111 identities receive specifically mapped additional bounded controls, other rows retain historical replay only. No claim of individual universal closure.
+
+The first new CI job 140835144972 failed due to missing jsonschema; corrected isolated pinned schema validation. Later counterchecks added dependency cycles, authorized revision, normativity mapping, context quality, and no N/A-to-validation promotion. Latest candidate adds native quality assertion dependency coverage; actual test status in native_regression_results.json.
+
+Minimality: reuse inventory and native adversarial tests justify the selected additions; restricted matched-scope sidecar comparator agrees on two coverage obligations. This does not establish a full-scope alternative implementation or broad equal-scope minimality. Retain G7 PARTIAL. No claim of globally minimum DSL, independent human effort, real tool integration, or external regulatory validation.
+
+Decision: Option C. No v1.0, no automatic 04B. Preserve candidate 0.2 and existing architecture; address explicit remaining release blocker(s) rather than reopening architecture. See gate_status.json and residual_risk_register.json.

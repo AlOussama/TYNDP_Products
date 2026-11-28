@@ -1,0 +1,37 @@
+{
+  "run": 46099253452,
+  "job": 140837708655,
+  "cases": [
+    {
+      "C5_plus_sidecar": "ACCEPT",
+      "C5_unchanged": "ACCEPT",
+      "R1_in_canonical_root": true,
+      "R1_integrated": "ACCEPT",
+      "case": "valid",
+      "expected": "ACCEPT",
+      "scope": "Two exact coverage obligations, not full architecture",
+      "sidecar_in_canonical_root": false
+    },
+    {
+      "C5_plus_sidecar": "REJECT",
+      "C5_unchanged": "ACCEPT",
+      "R1_in_canonical_root": true,
+      "R1_integrated": "REJECT",
+      "case": "missing_per_requirement_metric",
+      "expected": "REJECT",
+      "scope": "Two exact coverage obligations, not full architecture",
+      "sidecar_in_canonical_root": false
+    },
+    {
+      "C5_plus_sidecar": "REJECT",
+      "C5_unchanged": "ACCEPT",
+      "R1_in_canonical_root": true,
+      "R1_integrated": "REJECT",
+      "case": "missing_study_metric_validation_input",
+      "expected": "REJECT",
+      "scope": "Two exact coverage obligations, not full architecture",
+      "sidecar_in_canonical_root": false
+    }
+  ],
+  "scope": "Matched two coverage obligations only; no full equivalent competing implementation or global minimality proof."
+}

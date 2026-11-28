@@ -1,0 +1,38 @@
+{
+  "owner": "OWNER_TBD",
+  "risks": [
+    {
+      "id": "R1-RISK-01",
+      "severity": "RELEASE_BLOCKER",
+      "gate": "C5-G7",
+      "issue": "Full matched-scope alternative not implemented/executed; two obligations and three cases only.",
+      "next": "Pin equivalent outer semantics and execute same population including scope/trace/coverage/evidence/migration; compare necessary construct and edit-operation costs. No new architecture decision or unbounded global-minimum proof assumed."
+    },
+    {
+      "id": "R1-RISK-02",
+      "severity": "LIMITATION",
+      "issue": "Finite declared support, whole-test mixed guard conservative, no arbitrary axis projection or logical entailment."
+    },
+    {
+      "id": "R1-RISK-03",
+      "severity": "EXTERNAL_EVIDENCE",
+      "issue": "Synthetic signers and definition-pinned key verify integrity, not real reviewer credentials, independence or owner approval."
+    },
+    {
+      "id": "R1-RISK-04",
+      "severity": "EMPIRICAL",
+      "issue": "No independent human authoring or real PyPSA/AntARES/Sienna integration or multi-model robustness experiment."
+    },
+    {
+      "id": "R1-RISK-05",
+      "severity": "LIMITATION",
+      "issue": "Historical 125 identities individually retained and reviewed; inherited partial limits and NOT_PROVED conformance remain; no universal requirement satisfaction."
+    },
+    {
+      "id": "R1-RISK-06",
+      "severity": "RELEASE_BLOCKER",
+      "gate": "C5-G9",
+      "issue": "Exact latest combined run 46099253452 not fully confirmed at recording time; prior fully green commit 58c4270 and latest observed native job 140837708655 are distinguished."
+    }
+  ]
+}
