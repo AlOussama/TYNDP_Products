@@ -1,0 +1,12 @@
+ID,Requirement,Status,Evidence target,Limit
+VM-01,Stable study and system requirement identity,IMPLEMENTED_PENDING_TEST,VT01 VT03 VT04,Exact scope only
+VM-02,Study metric and verification metric roles,IMPLEMENTED_PENDING_TEST,VT05 VT06,Native output or Boolean target
+VM-03,Typed metric and native criterion binding,IMPLEMENTED_PENDING_TEST,VT07 VT08 VT09 VT10,Restricted native subset
+VM-04,System test coverage and applicability,IMPLEMENTED_PENDING_TEST,VT11 VT12 VT13 VT14,Finite declared support
+VM-05,Execution and assessment distinction,IMPLEMENTED_PENDING_TEST,VT15 VT16 VT17 VT18,No general conformity
+VM-06,Method exchangeability and authorization,NOT_EXECUTED,VT19 VT20 VT21,C4 composition inherited; C5 explicit change trace not yet tested
+VM-07,Canonical identity and representation,IMPLEMENTED_PENDING_TEST,VT22 VT23,C4 native authority unchanged
+VM-08,Modelling freedom,NOT_EXECUTED,VT24 VT25,Historical analytical controls only until rerun
+VM-09,Qualitative review reference,IMPLEMENTED_PENDING_TEST,VT26,External review not performed
+VM-10,Migration,IMPLEMENTED_PENDING_TEST,VT27,Explicit profile composition only
+VM-11,CBA integrated reference,IMPLEMENTED_PENDING_TEST,VT28,Nine synthetic variants

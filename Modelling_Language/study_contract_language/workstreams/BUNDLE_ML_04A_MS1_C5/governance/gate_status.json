@@ -1,0 +1,71 @@
+{
+  "decision": "C_TARGETED_TECHNICAL_CLOSURE_REQUIRED",
+  "release": "NOT_RELEASED",
+  "gates": [
+    {
+      "id": "C5-G0",
+      "status": "PARTIAL",
+      "reason": "Connector verified commit and PR identities; tree verification pending CI"
+    },
+    {
+      "id": "C5-G1",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G2",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G3",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G4",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G5",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G6",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G7",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G8",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G9",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G10",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G11",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    },
+    {
+      "id": "C5-G12",
+      "status": "PARTIAL",
+      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+    }
+  ]
+}

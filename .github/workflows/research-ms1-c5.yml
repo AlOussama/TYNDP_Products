@@ -1,0 +1,263 @@
+name: C5 V-model semantic closure and historical regression
+on:
+  pull_request:
+    branches: [research/bundle-ml-04a-ms1-c4-final-language-readiness]
+    paths:
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/**'
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/**'
+      - 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/**'
+      - '.github/workflows/research-ms1-c5.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  c5-native:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c5-v-model-semantic-closure'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify C5 exact C4 base and source pins
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          echo "C5_HEAD=$HEAD_COMMIT"
+          echo "C5_CHECKOUT=$(git rev-parse HEAD)"
+          echo "C5_TREE=$(git rev-parse HEAD^{tree})"
+          test "$(git rev-parse "$HEAD_COMMIT^{tree}")" = "$(git rev-parse HEAD^{tree})"
+          test "$(git rev-parse 6920aade2f6b7517a49e8c9c3a21843c9e71fd9b^{tree})" = 22375e89d2d69b4b192d47cb32d341a1348eec60
+          test "$(git rev-parse d1624692c3f15dfbdbb1fca654048dd96435dd82^{tree})" = b14f1a2bb58e55933e373bbdeba434e7c959b398
+          test "$(git rev-parse 6920aade2f6b7517a49e8c9c3a21843c9e71fd9b^)" = d1624692c3f15dfbdbb1fca654048dd96435dd82
+          git merge-base --is-ancestor 6920aade2f6b7517a49e8c9c3a21843c9e71fd9b HEAD
+          for pin in 9435ac2db07df4313b942f11c09f8268bc0206a5 e8a0ee3b7057a1e93afebb1f83b79fd19620446b 4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef; do git merge-base --is-ancestor "$pin" HEAD; done
+          python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/verify_baseline.py
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: energy-models/mathspec
+          ref: 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          path: mathspec-src
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify native mathspec exact commit and tree
+        working-directory: mathspec-src
+        run: |
+          test "$(git rev-parse HEAD)" = 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          test "$(git rev-parse HEAD^{tree})" = 635a594392e990e2e22393d408cc5b307704cda0
+          echo '4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2  pixi.lock' | sha256sum -c -
+      - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94
+        with:
+          manifest-path: mathspec-src/pixi.toml
+          environments: py313
+          locked: true
+          cache: false
+      - name: Execute native C5 VT and ablation controls
+        working-directory: mathspec-src
+        run: |
+          set -euo pipefail
+          mkdir -p ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_c5.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/native_test_log.txt
+      - name: Upload actual C5 authored variants, canonical packages and native logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c5-native-execution
+          path: Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/
+          if-no-files-found: warn
+  native:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c5-v-model-semantic-closure'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: energy-models/mathspec
+          ref: 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          path: mathspec-src
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify pinned mathspec and original R1 validator
+        working-directory: mathspec-src
+        run: |
+          test "$(git rev-parse HEAD)" = 5f1464c334c1012cdee2947d4d55b4d1d6bef40a
+          test "$(git rev-parse HEAD^{tree})" = 635a594392e990e2e22393d408cc5b307704cda0
+          echo '4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2  pixi.lock' | sha256sum -c -
+          echo 'e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093  src/mathspec/_canonical.py' | sha256sum -c -
+          test "$(git hash-object src/mathspec/_canonical.py)" = a8487b60f03839fc622834ffcaf76e1f9c99f6e9
+          test "$(git hash-object pixi.lock)" = dcf89e3e6b3794a1ae79d00a07978ceaec37daba
+          cd ..
+          test "$(git hash-object Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/../BUNDLE_ML_04A_R1/pinned/csnf_validator.py)" = 5201bda3c0a611d27e2bc335bbfebc191f252ec7
+      - name: Verify C2 frozen source and unchanged original populations
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor de7cbec5b9465cee2e89437d4128cb7b0a728fd9 HEAD
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json')" = 12adb68a3f76c105661a771150bc9548ca7d9a5a
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv')" = 351dc88d2f9eb3a49fa9f561e9ff15419c768a2a
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv')" = 81dc87d54e36baf10c773b55cdecb314a4a0df8b
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv')" = a4d67079a8e8ed1f5cd9101a1027767ee715b85f
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv')" = b70ebae3212e4e712751b28432bb3fac08d98cb6
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json')" = ca75ee61c1fe1cdab15bb2287e04a41cf34430d9
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py')" = 4ecf322c5522721dd463f0c6a465d982a94f2c22
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/dependency_manifest.json')" = 7d06b62cc8f2731399cf3f11c0edc600fc77d137
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/original_regression_manifest.json')" = 7ed73cf1080d7443141ee48f715cbc5cf200fb30
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/requirement_coverage_matrix.csv')" = 33c51cafe94475c7e97aa36fb2d15fb9b7f14db9
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json')" = 39ace6db99f2e030cfb717db56c0f7907daf7da8
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n1r.py')" = 005f8fc0172c71eb1b2d7110b0e2cbc921921d6b
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n2r.py')" = d9a4863498a5d8c1687c751d6b043b0e34dbdc13
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n7.py')" = b9234f4d3f32463cb675d22d5b153a0ab83d7114
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py')" = 5201bda3c0a611d27e2bc335bbfebc191f252ec7
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py')" = d98289b3e07d6ba9377a5698d273ff5c88327179
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/units_r1.py')" = 0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f
+          test "$(git hash-object 'Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/p5_fixture.json')" = 8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0
+          python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/verify_research_manifest.py
+      - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94
+        with:
+          manifest-path: mathspec-src/pixi.toml
+          environments: py313
+          locked: true
+          cache: false
+      - name: Actual same-fixture comparative experiment
+        working-directory: mathspec-src
+        run: |
+          pixi run --locked -e py313 python --version
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/run_comparison.py
+      - name: Controlled semantic ablation and falsification probes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/comparative_canonical/ablation_controls.py
+      - name: Unchanged canonical closure regressions
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_closure.py
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_closure/test_package_interface.py
+      - name: Original R1 tests
+        if: always()
+        run: |
+          cd Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/../BUNDLE_ML_04A_R1
+          ../BUNDLE_ML_04A_MS1/native_mathspec_experiments/run_r1.sh
+      - name: C2 shared and workstream tests
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          set -euo pipefail
+          pixi run --locked -e py313 python -c "import sys; assert sys.version_info[:3]==(3,13,15); print(sys.version)"
+          for f in test_interface.py WS_A/test_contract.py WS_B/test_methods.py WS_B/test_original_profiles.py test_integrated.py; do
+            if test -f ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/$f; then pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/$f; fi
+          done
+      - name: Targeted C2 closure validation
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          set -euo pipefail
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/test_closure_v1.py
+      - name: Original foundation and MS1 probes and method pairs
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/tests/test_foundation.py
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/canonical_first_experiment/test_canonical_first.py
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/native_mathspec_experiments/native_probe.py
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1/architecture_prototypes/experiment.py
+      - name: Frozen independent analytical reference corpus (not full A/B paths)
+        if: always()
+        working-directory: mathspec-src
+        run: |
+          test "$(git -C .. hash-object Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py)" = 4ecf322c5522721dd463f0c6a465d982a94f2c22
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/regression_runner/run.py --output /tmp/c2-oracle.json
+      - name: Original diagnostic source and C23 actual derived path verification
+        if: always()
+        run: python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/verify_original_diagnostics.py /tmp/c2-oracle.json
+      - name: Full pinned upstream mathspec suite after integration seam changes
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 pytest -q
+      - name: Original P5 pinned oracle
+        if: always()
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: eaea6dd99b736f2560866abda722cde78b908bce
+          path: p5-src
+          persist-credentials: false
+      - name: P5 domain oracle not full-chain
+        if: always()
+        working-directory: p5-src
+        run: |
+          test "$(git rev-parse HEAD)" = eaea6dd99b736f2560866abda722cde78b908bce
+          test "$(git hash-object Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js)" = ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2
+          node -e 'const r=require("./Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js").runSuite();console.log("P5_ORIGINAL="+JSON.stringify(r));if(r.passed!==r.total)process.exit(1)'
+      - name: Actual original P5 diagnostic paths (not full A/B)
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/verify_p5_diagnostics.js p5-src/Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js
+      - name: C3 population integrity and exact parent
+        if: always()
+        run: |
+          git merge-base --is-ancestor e8a0ee3b7057a1e93afebb1f83b79fd19620446b HEAD
+          python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/audit_originals.py
+      - name: C3 native A/B structural integration controls (not original paths)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_authoring.py
+      - name: C3 original P5 independent numeric oracle receipt
+        if: always()
+        run: |
+          node -e 'const fs=require("fs"),r=require("./p5-src/Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js").runSuite();fs.writeFileSync("/tmp/c3-p5-oracle.json",JSON.stringify(r));if(r.passed!==r.total)process.exit(1)'
+      - name: C3 native P5 discount and decision projection (not original paths)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_native_discount_projection.py /tmp/c3-p5-oracle.json
+      - name: C3 extended original P5 graph with discount and capex contribution lineage (control)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/p5_graph_projection.py /tmp/c3-p5-oracle.json
+      - name: C3 RC01 native signed-to-unsigned boundary probe (not original path)
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/rc01_sign_gap_probe.py
+      - name: C3 targeted sign conversion, stage information and derived ratio
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/test_targeted_c3.py
+      - name: C3 unchanged independent P5 original mutation replay
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/independent_p5_replay.js p5-src/Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js /tmp/c3-full-p5-oracle.json
+      - name: C3 actual 116 committed original candidate paths
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/run_originals.py /tmp/c3-full-p5-oracle.json /tmp/c3-original-results.json
+      - name: C4 independent analytical proxy replay
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/analytical_experiments.js
+      - name: C4 exact projected formulation controls
+        if: always()
+        run: node Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/exact_formulation_controls.js
+      - name: C4 compare actual native receipts to frozen C3
+        if: always()
+        run: python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/compare_native_results.py /tmp/c3-original-results.json
+      - name: C4 candidate falsification and dependency check
+        if: always()
+        working-directory: mathspec-src
+        run: pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/test_c4_controls.py
+  original-corpus-exit:
+    needs: [native, c5-native]
+    if: always() && (github.event_name == 'workflow_dispatch' || github.head_ref == 'research/bundle-ml-04a-ms1-c5-v-model-semantic-closure')
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Require actual original corpus native job and committed source population
+        env:
+          NATIVE_RESULT: ${{ needs.native.result }}
+          C5_RESULT: ${{ needs.c5-native.result }}
+        run: |
+          python3 Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/audit_originals.py --require-sources
+          test "$NATIVE_RESULT" = success
+          test "$C5_RESULT" = success

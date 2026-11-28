@@ -1,0 +1,159 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "owner": "OWNER_TBD",
+  "c4_head": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
+  "c4_tree_expected": "22375e89d2d69b4b192d47cb32d341a1348eec60",
+  "c4_tested_commit": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+  "c4_tested_tree_expected": "b14f1a2bb58e55933e373bbdeba434e7c959b398",
+  "mathspec": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+  "mathspec_tree_expected": "635a594392e990e2e22393d408cc5b307704cda0",
+  "historical_prs": {
+    "89": "9435ac2db07df4313b942f11c09f8268bc0206a5",
+    "96": "e8a0ee3b7057a1e93afebb1f83b79fd19620446b",
+    "97": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+    "98": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b"
+  },
+  "ancestor_comparisons": [
+    {
+      "phase": "C1",
+      "ahead": 47,
+      "behind": 0
+    },
+    {
+      "phase": "C2",
+      "ahead": 18,
+      "behind": 0
+    },
+    {
+      "phase": "C3",
+      "ahead": 5,
+      "behind": 0
+    },
+    {
+      "phase": "C4 tested",
+      "ahead": 1,
+      "behind": 0
+    }
+  ],
+  "c4_ci": {
+    "run": 46087812255,
+    "native_job": 140801422477,
+    "exit_job": 140802432464,
+    "status": "SUCCESS_CONFIRMED_BY_JOB_API"
+  },
+  "c4_artifacts": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_study_contract_language_specification.md",
+      "blob": "dbf6d211f1f78296bab57edb63ac814eeeb9291c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/formal_semantics.md",
+      "blob": "ccd70edc4b734d910a51fc14f75405fa0d81ae62"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/canonical_normal_form_specification.md",
+      "blob": "952531a551fb0c465069f15daf3ea52e668c0c13"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_metamodel.json",
+      "blob": "dc89c4c0d26cf7ad56f16fda298e5f75c4b0c65f"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_schema.json",
+      "blob": "fe708d534d15e4c9ddf48dd43bb17085ba105652"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/supported_mathspec_subset.json",
+      "blob": "9b5d31de2019394f7068b5e88ad0bb8b35a2490a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/normalization_rules.md",
+      "blob": "a6a768156938bc91ec96914a2d75797e4d5f9df3"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/extension_and_composition_policy.md",
+      "blob": "c01d1d74067207fd2b033e9777c2314e97c29a54"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_requirement_coverage.csv",
+      "blob": "cbe2b18785c94506f9989ace0c8ba004e8ff713e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_architecture_decision.md",
+      "blob": "2f93ce7bd181099c527b2b2d9b9bee302dbcce09"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/architecture_comparison_final.csv",
+      "blob": "bd7928361fcdba234f04d70b42cc7d7c36051226"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/language_construct_inventory.csv",
+      "blob": "1fea3ed2ff988c89f22b77e6fb026e6a29240bb2"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/redundancy_final_register.csv",
+      "blob": "603cffb18815748cf2ec895bc37da43a06f9373b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/minimality_metrics.json",
+      "blob": "c7461cc87e16df5a344b783c21b5d78dfdb67a11"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/maintainability_experiments.json",
+      "blob": "6e3dddd6bda5ca45cc30e26a599242c97b26a50a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/authoring_usability_assessment.md",
+      "blob": "f62b396b94a2a8f71507895948b736142625c1ad"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/migration_effort_results.json",
+      "blob": "04828080f6c9b2bd2606781b614642e7779ebc5e"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/equivalence_E1_E5_assessment.md",
+      "blob": "99a39604d0c82490acb13f2fdcaf4e8dfcc3407b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/modelling_freedom_report.md",
+      "blob": "dccd2e90f3dac837909252b8e02be24ab7f864da"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/multi_model_robustness_assessment.md",
+      "blob": "16a55ad1ef6fc522e97b36fa8a2d02ef185dc27d"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_native_regression_results.json",
+      "blob": "a3e96ae31f7cddbf2c868aa41d0e51c3369778df"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/scientific_evidence_limits.md",
+      "blob": "9ae608a034d0f142875692dfc979f884e5e95587"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/language_limitations.md",
+      "blob": "39b2acca9265095036d9d8a28c3abb0669d67382"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/residual_risk_register.json",
+      "blob": "fa35a6a789d7dfb748c84b688b3f12c2dca8d1f4"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/gate_status.json",
+      "blob": "e5bf94a3c9e244554449db502ad5ff8d9f9262be"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/critical_review.md",
+      "blob": "6999310aa275736a8bdcaa2f93165b67906c3a1a"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C4/final_research_closure_report.md",
+      "blob": "8e6abc5f993212d0b2e194ab3c3603eb59860afb"
+    }
+  ],
+  "limits": [
+    "Commit API does not expose Git tree objects; exact tree verification required in CI.",
+    "No direct local Git checkout; network resolution blocked.",
+    "C4 historical results are not C5 regression evidence."
+  ]
+}
