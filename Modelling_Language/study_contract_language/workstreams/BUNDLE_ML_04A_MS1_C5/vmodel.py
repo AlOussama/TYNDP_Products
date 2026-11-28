@@ -13,6 +13,9 @@ from authoring import decode,emit_control
 from closure import digest,canon,need,fields,qualified
 from closure_v1 import definition,diagnostics
 from closure_v1 import metadata as md
+from closure_v1.obligations import Bound
+from closure_v1 import composition
+import mathspec.program as mp
 from interface import resolve_predicate
 
 DEF="c5-vmodel-definition-0.1"
@@ -98,7 +101,16 @@ def check_design(d,dp):
             row=next(z for z in b["slots"] if z["id"]==target["slot"])
             symbols=[k for k,v in row["bindings"].items() if v["kind"]=="OUTPUT" and v["ref"]==m["target"]]
             p=resolve_predicate(row["package"],target["record"]["predicate"])
-            need(len(symbols)==1 and symbols[0] in p["required_symbols"],"C5_METRIC_CRITERION_DEPENDENCY")
+            # required_symbols reports underlying parameter reads; a derived output
+            # is represented as ExpressionReference in the public native Program.
+            bound=Bound(row["package"],tabs,None)
+            def reads_output(cond,name):
+                if isinstance(cond,mp.ExpressionComparison):
+                    return any(isinstance(n,mp.ExpressionReference) and n.name==name
+                               for n in mp.walk(cond.left,cond.right))
+                return any(reads_output(child,name) for child in mp.condition_children(cond))
+            root=bound.program.conditions[p["native_name"]].condition.root
+            need(len(symbols)==1 and reads_output(root,bound.symbols[symbols[0]]["native_name"]),"C5_METRIC_CRITERION_DEPENDENCY")
         else:need(t["criterion"]==m["target"],"C5_METRIC_CRITERION_BINDING")
         need(t["evidence"]=="COMPUTED_NATIVE_RECEIPT" if t["kind"]=="VERIFICATION" else t["evidence"]=="EXTERNAL_REVIEW_RECEIPT","C5_TEST_EVIDENCE_ROLE")
         need((t["kind"],m["role"],target["kind"],t["method"]) in {
@@ -263,3 +275,16 @@ def evaluate_source(raw,syntax,source_pin,dp,ip):
     r=reimport(text,dp,ip)["receipt"]
     return {"receipt":r,"package_sha256":sha256(text.encode()).hexdigest(),"source_sha256":source_pin,
             "audit_identity":digest({"source":source_pin,"syntax":syntax,"definition":dp,"instance":ip,"canonical":sha256(text.encode()).hexdigest()})}
+
+def compose_method(d,dp,request,request_pin,authorization,authorization_pin):
+    """Explicit approved research replacement; no implicit authorization.
+    Existing external test design remains immutable; new definition and evidence roots required."""
+    old=admit(d,dp)
+    receipt=composition.compose(d["base"],digest(d["base"]),request,request_pin,authorization,authorization_pin)
+    effective=deepcopy(d);effective["base"]=receipt["effective_definition"]
+    new=admit(effective,digest(effective))
+    return {"definition":effective,"definition_pin":digest(effective),
+            "old_semantic_identity":old["semantic_identity"],"semantic_identity":new["semantic_identity"],
+            "composition_receipt":receipt,"retained_requirements":sorted(r["id"] for r in d["requirements"]),
+            "retained_tests":sorted(t["id"] for t in d["tests"]),"evidence_policy":"REEXECUTE_NEW_ROOT",
+            "owner":"OWNER_TBD","conformance":"NOT_PROVED"}

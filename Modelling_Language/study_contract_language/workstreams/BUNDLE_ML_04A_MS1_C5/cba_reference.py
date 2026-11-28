@@ -28,7 +28,7 @@ def test(id,kind,requirements,metric,criterion,method):
             "coverage":"ALL_DECLARED_SUPPORT" if kind=="VERIFICATION" else "EXTERNAL_SCOPE",
             "evidence":"COMPUTED_NATIVE_RECEIPT" if kind=="VERIFICATION" else "EXTERNAL_REVIEW_RECEIPT"}
 
-def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None):
+def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None,formula="base-alt",method_version="0.2"):
     f=frame();f["question"]="Synthetic paired project/reference cost comparison; no CBA compliance claim."
     source=[source_row(SOURCE,"fixture:source","Synthetic research requirement: identical exogenous inputs; only explicit project asset change; benefit reference cost minus project cost; scientific review pending.")]
     f["domains"]=[{"id":"domain:s","kind":"scenario","members":SCENARIOS,"ordered":False}]
@@ -54,7 +54,7 @@ def build(numeric=False,guard=None,condition="benefit == expected",quant_expecte
     f["comparisons"]=[{"id":"comparison:pair","relation":"relation:pair","exogenous":exog,"project":projects,"allowed_changes":["asset"],"authority_refs":[SOURCE]}]
     f["outputs"]=[sig("output:benefit",money,["domain:s"],contribution_policy="NOT_REQUIRED")]
     f["report_requests"]=[{"id":"report:scientific_review","subject":f["id"],"value_type":"QUALITATIVE","declared_unit":None,"basis":"SYNTHETIC_RESEARCH_ONLY","oracle_ref":SOURCE,"authority_refs":[SOURCE]}]
-    doc={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt")},"expressions":{"benefit":"base-alt"}}
+    doc={"version":0,"dimensions":{"s":{"dtype":"str"}},"parameters":{n:{"dims":["s"]} for n in ("base","alt")},"expressions":{"benefit":formula}}
     params={"base":row([100,130]),"alt":row([85,110])}
     quant={"base":money,"alt":money,"benefit":money};roles={};inputs=[]
     binds={"ref:base":{"kind":"OBSERVABLE","ref":"observable:R"},"ref:alt":{"kind":"OBSERVABLE","ref":"observable:P"},"ref:benefit":{"kind":"OUTPUT","ref":"output:benefit"}}
@@ -66,6 +66,8 @@ def build(numeric=False,guard=None,condition="benefit == expected",quant_expecte
         f["inputs"]=[sig("input:expected",quant["expected"],["domain:s"])]
         inputs=["input:expected"];binds["ref:expected"]={"kind":"INPUT","ref":"input:expected"}
     c=fixture(doc,quant=quant,roles=roles,domains={"s":SCENARIOS},pred_axes={"within":["s"]} if numeric else {})
+    c["method"]["version"]=method_version
+    c["study"]["method_ref"]=digest(c["method"])
     hashes={field:digest(ctxt[pair["reference"]]) for field,pair in exog.items()}
     slot=make_slot(f,source_for_slot(f,source,"benefit"),"benefit",doc,c,dataset(params),binds,
         inputs,["observable:R","observable:P"],["output:benefit"],["ref:benefit"],

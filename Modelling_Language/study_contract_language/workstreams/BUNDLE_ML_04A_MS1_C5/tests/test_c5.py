@@ -4,7 +4,7 @@ from pathlib import Path
 from hashlib import sha256
 HERE=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(HERE))
-from vmodel import admit,instantiate,export,reimport,evaluate_source,emit_control,digest,DEF
+from vmodel import admit,instantiate,export,reimport,evaluate_source,emit_control,digest,DEF,compose_method
 from closure import Reject
 from cba_reference import (build,variant,claim,rebind,math_only,requirement,metric,test,TEST,REVIEW,SYSTEM,STUDY,METRIC)
 
@@ -84,6 +84,32 @@ class C5(unittest.TestCase):
         self.assertEqual(run(self.d,self.i)["tests"][TEST]["verdict"],"INCONCLUSIVE")
         self.i["claims"]=[claim(self.d,self.i,"PASS",version="stale")]
         with self.assertRaisesRegex(Reject,"C5_DECLARED_EVIDENCE_BINDING"):run(self.d,self.i)
+    def test_vt19_vt20_vt21_method_composition(self):
+        from closure_v1 import composition
+        d,i=self.d,self.i
+        new,ni=build(formula="base-alt+base",method_version="0.3")
+        oldslot=d["base"]["slots"][0];newslot=new["base"]["slots"][0]
+        bp=digest(d["base"])
+        req={"schema":composition.VERSION,"base_ref":bp,"overrides":[{"id":"override:one","slot":oldslot["id"],"expected_old":digest(oldslot),"replacement":newslot,"allowed_expressions":["benefit"]}]}
+        rp=digest(req)
+        auth={"schema":composition.APPROVAL,"base_ref":bp,"request_ref":rp,"decision_scope":"NON_NORMATIVE_RESEARCH_ONLY","approvals":[{"id":"override:one","slot":oldslot["id"],"old_ref":digest(oldslot),"new_ref":digest(newslot),"allowed_expressions":["benefit"],"authority_ref":oldslot["source_ref"],"source_sha256":oldslot["profile"]["source_sha256"],"decision":"APPROVED_RESEARCH_OVERRIDE","reason":"Synthetic method exchange control"}]}
+        with self.assertRaises(Reject):
+            compose_method(d,digest(d),req,rp,auth,"0"*64)
+        res=compose_method(d,digest(d),req,rp,auth,digest(auth))
+        effective=res["definition"]
+        self.assertEqual(effective,new)
+        self.assertEqual(effective["requirements"],d["requirements"])
+        self.assertEqual(effective["tests"],d["tests"])
+        with self.assertRaisesRegex(Reject,"C5_INSTANCE_PIN"):run(effective,i)
+        n=run(effective,ni);o=run(d,i)
+        self.assertEqual(n["requirements"][SYSTEM]["status"],"PASS")
+        self.assertEqual([x["value"] for x in n["study_metrics"][METRIC]["value"]],["115","150"])
+        self.assertNotEqual(o["evidence"][0]["id"],n["evidence"][0]["id"])
+        ni["claims"]=[claim(d,i,"PASS")]
+        with self.assertRaisesRegex(Reject,"C5_DECLARED_EVIDENCE_BINDING"):run(effective,ni)
+    def test_metric_unrelated_criterion_rejected(self):
+        with self.assertRaisesRegex(Reject,"C5_METRIC_CRITERION_DEPENDENCY"):
+            build(numeric=True,condition="base == expected")
     def test_vt22_vt23_canonical_and_pin_integrity(self):
         d,i=self.d,self.i;dp,ip=digest(d),digest(i);canonical=export(d,dp,i,ip)
         self.assertEqual(reimport(canonical,dp,ip)["receipt"],run(d,i))
