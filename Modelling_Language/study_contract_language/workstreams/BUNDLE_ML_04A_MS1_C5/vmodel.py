@@ -256,14 +256,14 @@ def instantiate(d,dp,i,ip):
                 observed["metric_value"]=(native.get("result") or {}).get("graph",{}).get("outputs",{}).get(m["target"])
                 if status=="PASS" and observed["metric_value"] is None:status="BLOCKED";reason={"reason":"MISSING_METRIC_OUTPUT"}
             execution=("BLOCKED" if status=="BLOCKED" else "NOT_EXECUTED" if status=="NOT_EXECUTED" and not observed else "EXECUTED") if advanced else ("NOT_EXECUTED" if t["kind"]=="VALIDATION" else "BLOCKED" if status=="BLOCKED" else "EXECUTED")
-            if t["kind"]=="VERIFICATION" or (advanced and observed.get("verified_attestations")):
+            if (t["kind"]=="VERIFICATION" and (not advanced or t["method"] not in r1.EXTERNAL)) or (advanced and observed.get("verified_attestations")):
                 record={"test":k,"test_version":t["version"],"requirement_refs":sorted(t["requirements"]),
                         "metric":m["id"],"metric_version":m["version"],"oracle_ref":t["oracle_ref"],"subject":t["criterion"],"metric_target":m["target"],"expected":"DECLARED_CRITERION_SATISFIED",
                         "definition_pin":dp,"instance_pin":ip,"base_definition_pin":bd,"base_instance_pin":bi,
                         "method_identities":static["method_identities"],"run_id":i["run_id"],"execution":execution,
                         "applicability":app,"observed":observed,"data_identities":(native.get("result") or {}).get("graph",{}).get("data_bindings",{}),"observed_verdict":status,"diagnostic":reason,
                         "kind":("VERIFIED_PINNED_EXTERNAL_ATTESTATION" if advanced and t["method"] in r1.EXTERNAL else "COMPUTED_NATIVE_RECEIPT"),"independence":"UNVERIFIED","scope":"FINITE_DECLARED_SUPPORT"}
-                if advanced:record["input_identities"]=r1.native_inputs(t,native);record["procedure_ref"]=t["procedure_ref"]
+                if advanced:record["input_identities"]=r1.native_inputs(t,native);record["procedure_ref"]=t["procedure_ref"];record["coverage_policy"]=t["coverage"]
                 record={"id":"evidence:"+digest(record),**record}
                 evidences.append(record)
             if (status in ("PASS","FAIL") and any(z["verdict"]!=status for z in c)) or len({z["verdict"] for z in c})>1:

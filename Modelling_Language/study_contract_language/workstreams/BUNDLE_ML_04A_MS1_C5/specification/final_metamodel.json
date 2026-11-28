@@ -1,5 +1,5 @@
 {
-  "schema": "c5-vmodel-metamodel-0.1",
+  "schema": "c5-vmodel-metamodel-0.2",
   "status": "RESEARCH_CANDIDATE",
   "base": {
     "commit": "6920aade2f6b7517a49e8c9c3a21843c9e71fd9b",
@@ -20,10 +20,12 @@
         "required",
         "parents",
         "targets",
-        "metric_refs"
+        "metric_refs",
+        "normativity",
+        "refinement_policy"
       ],
       "relations": {
-        "parents": "Requirement DAG; root STUDY",
+        "parents": "Acyclic derivation and equal-axis subject containment; declared complete subject coverage when selected; aggregate local and required descendant outcomes.",
         "targets": "C4 typed target",
         "metric_refs": "Metric"
       }
@@ -54,11 +56,15 @@
         "oracle_ref",
         "method",
         "coverage",
-        "evidence"
+        "evidence",
+        "input_refs",
+        "preconditions",
+        "procedure_ref",
+        "reviewer_refs"
       ],
       "relations": {
         "requirements": "Requirement",
-        "metric": "Metric",
+        "metric": "Native output/predicate/data quality/policy/state or external report; actual typed upstream dependency",
         "criterion": "C4 target",
         "oracle_ref": "C4 source",
         "scope": "C4 scope"
@@ -93,7 +99,32 @@
         "NOT_EXECUTED",
         "NOT_APPLICABLE"
       ],
-      "scope": "FINITE_ONLY"
+      "scope": "FINITE_AND_EXPLICIT_EXTERNAL_ATTESTATION_ONLY"
+    },
+    "Attestation": {
+      "fields": [
+        "id",
+        "version",
+        "payload",
+        "signature"
+      ],
+      "payload": [
+        "test",
+        "test_version",
+        "definition_pin",
+        "base_instance_pin",
+        "run_id",
+        "reviewer_ref",
+        "method_identities",
+        "criterion",
+        "verdict",
+        "observed",
+        "artifact",
+        "artifact_sha256",
+        "coverage",
+        "data_identities"
+      ],
+      "verification": "Ed25519 exact canonical payload against definition-pinned PROVENANCE key; signer independence unverified"
     }
   },
   "identities": [
@@ -104,5 +135,9 @@
     "computed evidence",
     "authoring audit"
   ],
-  "validation": "vmodel.check_design / instantiate / export / reimport / compose_method"
+  "validation": "vmodel.check_design / instantiate / export / reimport / compose_method",
+  "compatibility": {
+    "legacy": "0.1 unchanged",
+    "new": "0.2 explicit migration and new evidence roots"
+  }
 }

@@ -60,6 +60,15 @@ jobs:
           set -euo pipefail
           mkdir -p ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_c5.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/native_test_log.txt
+      - name: C5-R1 baseline pins, structural schema validator and targeted native controls
+        working-directory: mathspec-src
+        run: |
+          set -euo pipefail
+          test "$(git -C .. rev-parse d4e11fcac0c4741535609b85b438416061a85ca2^{tree})" = a622698a7a778922c945ad831fac2b656b04fed9
+          git -C .. merge-base --is-ancestor d4e11fcac0c4741535609b85b438416061a85ca2 HEAD
+          openssl version
+          pixi run --locked -e py313 python -c "import jsonschema; print(jsonschema.__file__)"
+          pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_r1.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/r1_test_log.txt
       - name: Upload actual C5 authored variants, canonical packages and native logs
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

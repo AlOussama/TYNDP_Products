@@ -1,208 +1,324 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:research:c5-vmodel-package:0.1",
-  "title": "C5 V-model candidate structural schema",
-  "description": "Static shape only. vmodel.py and pinned C4 validators enforce semantic constraints; no schema-only certification.",
-  "type": "object",
-  "properties": {
-    "schema": {
-      "const": "c5-vmodel-package-0.1"
-    },
-    "definition": {
+  "$id": "urn:research:study-contract:c5-r1:0.2",
+  "title": "General Study Contract Language C5 / C5-R1 structural package",
+  "description": "Two preserved versioned branches; semantic validation, reference resolution and native mathematics are mandatory.",
+  "oneOf": [
+    {
+      "title": "C5 V-model candidate structural schema",
+      "description": "Static shape only. vmodel.py and pinned C4 validators enforce semantic constraints; no schema-only certification.",
       "type": "object",
       "properties": {
         "schema": {
-          "const": "c5-vmodel-definition-0.1"
+          "const": "c5-vmodel-package-0.1"
         },
-        "base": {
+        "definition": {
           "type": "object",
           "properties": {
             "schema": {
-              "const": "c2-closure-definition-0.2"
+              "const": "c5-vmodel-definition-0.1"
             },
-            "study": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "version": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "owner": {
-                  "const": "OWNER_TBD"
-                }
-              },
-              "required": [
-                "id",
-                "version",
-                "owner"
-              ],
-              "additionalProperties": false
-            },
-            "frame": {
+            "base": {
               "type": "object",
               "properties": {
                 "schema": {
-                  "const": "c2-study-frame-0.1"
+                  "const": "c2-closure-definition-0.2"
                 },
-                "id": {
-                  "type": "string",
-                  "minLength": 1
+                "study": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "owner": {
+                      "const": "OWNER_TBD"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version",
+                    "owner"
+                  ],
+                  "additionalProperties": false
                 },
-                "version": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "question": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "domains": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "scopes": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "components": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "ports": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "referents": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "observables": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "inputs": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "outputs": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "relations": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "authorities": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "variations": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "chronologies": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "information_sets": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
+                "frame": {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "const": "c2-study-frame-0.1"
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "question": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "components": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "ports": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "referents": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "observables": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "inputs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "outputs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "relations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "authorities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "variations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "chronologies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "information_sets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "slots": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "processes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "comparisons": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "relation_domains": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "context_fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "report_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema",
+                    "id",
+                    "version",
+                    "question",
+                    "domains",
+                    "scopes",
+                    "components",
+                    "ports",
+                    "referents",
+                    "observables",
+                    "inputs",
+                    "outputs",
+                    "relations",
+                    "authorities",
+                    "variations",
+                    "chronologies",
+                    "information_sets",
+                    "slots",
+                    "processes",
+                    "comparisons",
+                    "relation_domains",
+                    "context_fields",
+                    "report_requests"
+                  ],
+                  "additionalProperties": false
                 },
                 "slots": {
                   "type": "array",
                   "items": {
-                    "type": "object"
-                  }
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "package": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "profile": {
+                        "type": "object"
+                      },
+                      "source_ref": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "bindings": {
+                        "type": "object"
+                      },
+                      "assertions": {
+                        "type": "array"
+                      },
+                      "policies": {
+                        "type": "array"
+                      },
+                      "states": {
+                        "type": "array"
+                      },
+                      "comparisons": {
+                        "type": "array"
+                      },
+                      "verification": {
+                        "type": "array"
+                      },
+                      "ledger": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "package",
+                      "profile",
+                      "source_ref",
+                      "bindings",
+                      "assertions",
+                      "policies",
+                      "states",
+                      "comparisons",
+                      "verification",
+                      "ledger"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
                 },
-                "processes": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
+                "sources": {
+                  "type": "array"
                 },
-                "comparisons": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "relation_domains": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "context_fields": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "report_requests": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
+                "requirements": {
+                  "type": "object",
+                  "properties": {
+                    "boundary": {
+                      "type": "object"
+                    },
+                    "data_contracts": {
+                      "type": "array"
+                    },
+                    "process_roles": {
+                      "type": "object"
+                    },
+                    "normativity": {
+                      "type": "object"
+                    },
+                    "models": {
+                      "type": "array"
+                    },
+                    "comparisons": {
+                      "type": "array"
+                    },
+                    "time_policies": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "boundary",
+                    "data_contracts",
+                    "process_roles",
+                    "normativity",
+                    "models",
+                    "comparisons",
+                    "time_policies"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
                 "schema",
-                "id",
-                "version",
-                "question",
-                "domains",
-                "scopes",
-                "components",
-                "ports",
-                "referents",
-                "observables",
-                "inputs",
-                "outputs",
-                "relations",
-                "authorities",
-                "variations",
-                "chronologies",
-                "information_sets",
+                "study",
+                "frame",
                 "slots",
-                "processes",
-                "comparisons",
-                "relation_domains",
-                "context_fields",
-                "report_requests"
+                "sources",
+                "requirements"
               ],
               "additionalProperties": false
             },
-            "slots": {
+            "requirements": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -211,349 +327,1036 @@
                     "type": "string",
                     "minLength": 1
                   },
-                  "package": {
+                  "version": {
                     "type": "string",
                     "minLength": 1
                   },
-                  "profile": {
-                    "type": "object"
+                  "level": {
+                    "enum": [
+                      "STUDY",
+                      "SYSTEM"
+                    ]
+                  },
+                  "statement": {
+                    "type": "string",
+                    "minLength": 1
                   },
                   "source_ref": {
                     "type": "string",
                     "minLength": 1
                   },
-                  "bindings": {
-                    "type": "object"
+                  "source_kind": {
+                    "enum": [
+                      "ORIGINAL_SOURCE",
+                      "RESEARCH_REQUIREMENT"
+                    ]
                   },
-                  "assertions": {
-                    "type": "array"
+                  "authority_ref": {
+                    "type": "string",
+                    "minLength": 1
                   },
-                  "policies": {
-                    "type": "array"
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1
                   },
-                  "states": {
-                    "type": "array"
+                  "required": {
+                    "type": "boolean"
                   },
-                  "comparisons": {
-                    "type": "array"
+                  "parents": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
                   },
-                  "verification": {
-                    "type": "array"
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
                   },
-                  "ledger": {
-                    "type": [
-                      "object",
-                      "null"
+                  "metric_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "level",
+                  "statement",
+                  "source_ref",
+                  "source_kind",
+                  "authority_ref",
+                  "scope",
+                  "required",
+                  "parents",
+                  "targets",
+                  "metric_refs"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "role": {
+                    "enum": [
+                      "STUDY",
+                      "VERIFICATION",
+                      "VALIDATION"
+                    ]
+                  },
+                  "meaning": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "role",
+                  "meaning",
+                  "target",
+                  "source_ref"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            },
+            "tests": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "kind": {
+                    "enum": [
+                      "VERIFICATION",
+                      "VALIDATION"
+                    ]
+                  },
+                  "objective": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "requirements": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "metric": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "criterion": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "oracle_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "method": {
+                    "enum": [
+                      "NATIVE_ASSERTION",
+                      "NATIVE_COMPARISON",
+                      "EXTERNAL_REVIEW"
+                    ]
+                  },
+                  "coverage": {
+                    "enum": [
+                      "ALL_DECLARED_SUPPORT",
+                      "EXTERNAL_SCOPE"
+                    ]
+                  },
+                  "evidence": {
+                    "enum": [
+                      "COMPUTED_NATIVE_RECEIPT",
+                      "EXTERNAL_REVIEW_RECEIPT"
                     ]
                   }
                 },
                 "required": [
                   "id",
-                  "package",
-                  "profile",
-                  "source_ref",
-                  "bindings",
-                  "assertions",
-                  "policies",
-                  "states",
-                  "comparisons",
-                  "verification",
-                  "ledger"
+                  "version",
+                  "kind",
+                  "objective",
+                  "requirements",
+                  "metric",
+                  "criterion",
+                  "scope",
+                  "oracle_ref",
+                  "method",
+                  "coverage",
+                  "evidence"
                 ],
                 "additionalProperties": false
               },
-              "minItems": 1
-            },
-            "sources": {
-              "type": "array"
-            },
-            "requirements": {
-              "type": "object",
-              "properties": {
-                "boundary": {
-                  "type": "object"
-                },
-                "data_contracts": {
-                  "type": "array"
-                },
-                "process_roles": {
-                  "type": "object"
-                },
-                "normativity": {
-                  "type": "object"
-                },
-                "models": {
-                  "type": "array"
-                },
-                "comparisons": {
-                  "type": "array"
-                },
-                "time_policies": {
-                  "type": "array"
-                }
-              },
-              "required": [
-                "boundary",
-                "data_contracts",
-                "process_roles",
-                "normativity",
-                "models",
-                "comparisons",
-                "time_policies"
-              ],
-              "additionalProperties": false
+              "uniqueItems": true
             }
           },
           "required": [
             "schema",
-            "study",
-            "frame",
-            "slots",
-            "sources",
-            "requirements"
+            "base",
+            "requirements",
+            "metrics",
+            "tests"
           ],
           "additionalProperties": false
         },
-        "requirements": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "level": {
-                "enum": [
-                  "STUDY",
-                  "SYSTEM"
-                ]
-              },
-              "statement": {
-                "type": "string",
-                "minLength": 1
-              },
-              "source_ref": {
-                "type": "string",
-                "minLength": 1
-              },
-              "source_kind": {
-                "enum": [
-                  "ORIGINAL_SOURCE",
-                  "RESEARCH_REQUIREMENT"
-                ]
-              },
-              "authority_ref": {
-                "type": "string",
-                "minLength": 1
-              },
-              "scope": {
-                "type": "string",
-                "minLength": 1
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "parents": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "uniqueItems": true
-              },
-              "targets": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "uniqueItems": true
-              },
-              "metric_refs": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "uniqueItems": true
-              }
+        "instance": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c5-vmodel-instance-0.1"
             },
-            "required": [
-              "id",
-              "version",
-              "level",
-              "statement",
-              "source_ref",
-              "source_kind",
-              "authority_ref",
-              "scope",
-              "required",
-              "parents",
-              "targets",
-              "metric_refs"
-            ],
-            "additionalProperties": false
+            "definition_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "base": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "const": "c2-closure-instance-0.2"
+                    },
+                    "definition_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "slots": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "profile_ref": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "package_ref": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "data_status": {
+                            "enum": [
+                              "PRESENT",
+                              "MISSING_DATA"
+                            ]
+                          },
+                          "data": {
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "snapshot_digest": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "case_context": {
+                            "type": "object"
+                          },
+                          "witnesses": {
+                            "type": "array"
+                          },
+                          "contributions": {
+                            "type": "array"
+                          },
+                          "expected_events": {
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "profile_ref",
+                          "package_ref",
+                          "data_status",
+                          "data",
+                          "snapshot_digest",
+                          "case_context",
+                          "witnesses",
+                          "contributions",
+                          "expected_events"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1
+                    },
+                    "events": {
+                      "type": "array"
+                    },
+                    "disclosures": {
+                      "type": "array"
+                    },
+                    "data_receipts": {
+                      "type": "array"
+                    },
+                    "context_data": {
+                      "type": "object"
+                    },
+                    "reports": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "schema",
+                    "definition_ref",
+                    "slots",
+                    "events",
+                    "disclosures",
+                    "data_receipts",
+                    "context_data",
+                    "reports"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "requested_tests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "run_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "claims": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "test": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "test_version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "definition_pin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "base_instance_pin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verdict": {
+                    "enum": [
+                      "PASS",
+                      "FAIL",
+                      "INCONCLUSIVE"
+                    ]
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "test",
+                  "test_version",
+                  "definition_pin",
+                  "base_instance_pin",
+                  "verdict",
+                  "source_ref"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            }
           },
-          "uniqueItems": true
+          "required": [
+            "schema",
+            "definition_ref",
+            "base",
+            "requested_tests",
+            "run_id",
+            "claims"
+          ],
+          "additionalProperties": false
         },
-        "metrics": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "role": {
-                "enum": [
-                  "STUDY",
-                  "VERIFICATION",
-                  "VALIDATION"
-                ]
-              },
-              "meaning": {
-                "type": "string",
-                "minLength": 1
-              },
-              "target": {
-                "type": "string",
-                "minLength": 1
-              },
-              "source_ref": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "id",
-              "version",
-              "role",
-              "meaning",
-              "target",
-              "source_ref"
-            ],
-            "additionalProperties": false
-          },
-          "uniqueItems": true
-        },
-        "tests": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "kind": {
-                "enum": [
-                  "VERIFICATION",
-                  "VALIDATION"
-                ]
-              },
-              "objective": {
-                "type": "string",
-                "minLength": 1
-              },
-              "requirements": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "uniqueItems": true
-              },
-              "metric": {
-                "type": "string",
-                "minLength": 1
-              },
-              "criterion": {
-                "type": "string",
-                "minLength": 1
-              },
-              "scope": {
-                "type": "string",
-                "minLength": 1
-              },
-              "oracle_ref": {
-                "type": "string",
-                "minLength": 1
-              },
-              "method": {
-                "enum": [
-                  "NATIVE_ASSERTION",
-                  "NATIVE_COMPARISON",
-                  "EXTERNAL_REVIEW"
-                ]
-              },
-              "coverage": {
-                "enum": [
-                  "ALL_DECLARED_SUPPORT",
-                  "EXTERNAL_SCOPE"
-                ]
-              },
-              "evidence": {
-                "enum": [
-                  "COMPUTED_NATIVE_RECEIPT",
-                  "EXTERNAL_REVIEW_RECEIPT"
-                ]
-              }
-            },
-            "required": [
-              "id",
-              "version",
-              "kind",
-              "objective",
-              "requirements",
-              "metric",
-              "criterion",
-              "scope",
-              "oracle_ref",
-              "method",
-              "coverage",
-              "evidence"
-            ],
-            "additionalProperties": false
-          },
-          "uniqueItems": true
+        "receipt": {
+          "type": "object"
         }
       },
       "required": [
         "schema",
-        "base",
-        "requirements",
-        "metrics",
-        "tests"
+        "definition",
+        "instance",
+        "receipt"
       ],
       "additionalProperties": false
     },
-    "instance": {
+    {
+      "title": "C5-R1 0.2 package",
+      "description": "Static shape only. vmodel.py and pinned C4 validators enforce semantic constraints; no schema-only certification.",
       "type": "object",
       "properties": {
         "schema": {
-          "const": "c5-vmodel-instance-0.1"
+          "const": "c5-vmodel-package-0.2"
         },
-        "definition_ref": {
-          "type": "string",
-          "minLength": 1
+        "definition": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c5-vmodel-definition-0.2"
+            },
+            "base": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "const": "c2-closure-definition-0.2"
+                },
+                "study": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "owner": {
+                      "const": "OWNER_TBD"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version",
+                    "owner"
+                  ],
+                  "additionalProperties": false
+                },
+                "frame": {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "const": "c2-study-frame-0.1"
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "question": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "components": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "ports": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "referents": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "observables": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "inputs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "outputs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "relations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "authorities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "variations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "chronologies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "information_sets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "slots": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "processes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "comparisons": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "relation_domains": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "context_fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "report_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema",
+                    "id",
+                    "version",
+                    "question",
+                    "domains",
+                    "scopes",
+                    "components",
+                    "ports",
+                    "referents",
+                    "observables",
+                    "inputs",
+                    "outputs",
+                    "relations",
+                    "authorities",
+                    "variations",
+                    "chronologies",
+                    "information_sets",
+                    "slots",
+                    "processes",
+                    "comparisons",
+                    "relation_domains",
+                    "context_fields",
+                    "report_requests"
+                  ],
+                  "additionalProperties": false
+                },
+                "slots": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "package": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "profile": {
+                        "type": "object"
+                      },
+                      "source_ref": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "bindings": {
+                        "type": "object"
+                      },
+                      "assertions": {
+                        "type": "array"
+                      },
+                      "policies": {
+                        "type": "array"
+                      },
+                      "states": {
+                        "type": "array"
+                      },
+                      "comparisons": {
+                        "type": "array"
+                      },
+                      "verification": {
+                        "type": "array"
+                      },
+                      "ledger": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "package",
+                      "profile",
+                      "source_ref",
+                      "bindings",
+                      "assertions",
+                      "policies",
+                      "states",
+                      "comparisons",
+                      "verification",
+                      "ledger"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "sources": {
+                  "type": "array"
+                },
+                "requirements": {
+                  "type": "object",
+                  "properties": {
+                    "boundary": {
+                      "type": "object"
+                    },
+                    "data_contracts": {
+                      "type": "array"
+                    },
+                    "process_roles": {
+                      "type": "object"
+                    },
+                    "normativity": {
+                      "type": "object"
+                    },
+                    "models": {
+                      "type": "array"
+                    },
+                    "comparisons": {
+                      "type": "array"
+                    },
+                    "time_policies": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "boundary",
+                    "data_contracts",
+                    "process_roles",
+                    "normativity",
+                    "models",
+                    "comparisons",
+                    "time_policies"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "schema",
+                "study",
+                "frame",
+                "slots",
+                "sources",
+                "requirements"
+              ],
+              "additionalProperties": false
+            },
+            "requirements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "level": {
+                    "enum": [
+                      "STUDY",
+                      "SYSTEM"
+                    ]
+                  },
+                  "statement": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_kind": {
+                    "enum": [
+                      "ORIGINAL_SOURCE",
+                      "RESEARCH_REQUIREMENT"
+                    ]
+                  },
+                  "authority_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "parents": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "metric_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "normativity": {
+                    "enum": [
+                      "RESEARCH_ASSUMPTION",
+                      "INFORMATIVE",
+                      "NORMATIVE_REQUIREMENT_PENDING_OWNER"
+                    ]
+                  },
+                  "refinement_policy": {
+                    "enum": [
+                      "DIRECT_AND_CHILDREN",
+                      "COMPLETE_SUBJECT_COVERAGE"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "level",
+                  "statement",
+                  "source_ref",
+                  "source_kind",
+                  "authority_ref",
+                  "scope",
+                  "required",
+                  "parents",
+                  "targets",
+                  "metric_refs",
+                  "normativity",
+                  "refinement_policy"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "role": {
+                    "enum": [
+                      "STUDY",
+                      "VERIFICATION",
+                      "VALIDATION"
+                    ]
+                  },
+                  "meaning": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "role",
+                  "meaning",
+                  "target",
+                  "source_ref"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            },
+            "tests": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "kind": {
+                    "enum": [
+                      "VERIFICATION",
+                      "VALIDATION"
+                    ]
+                  },
+                  "objective": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "requirements": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "metric": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "criterion": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "oracle_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "method": {
+                    "enum": [
+                      "NATIVE_ASSERTION",
+                      "NATIVE_COMPARISON",
+                      "EXTERNAL_REVIEW",
+                      "NATIVE_POLICY",
+                      "NATIVE_STATE",
+                      "NATIVE_DATA_QUALITY",
+                      "EXTERNAL_PROCEDURE"
+                    ]
+                  },
+                  "coverage": {
+                    "enum": [
+                      "ALL_DECLARED_SUPPORT",
+                      "EXTERNAL_SCOPE"
+                    ]
+                  },
+                  "evidence": {
+                    "enum": [
+                      "COMPUTED_NATIVE_RECEIPT",
+                      "EXTERNAL_REVIEW_RECEIPT"
+                    ]
+                  },
+                  "input_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "preconditions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "procedure_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reviewer_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "kind",
+                  "objective",
+                  "requirements",
+                  "metric",
+                  "criterion",
+                  "scope",
+                  "oracle_ref",
+                  "method",
+                  "coverage",
+                  "evidence",
+                  "input_refs",
+                  "preconditions",
+                  "procedure_ref",
+                  "reviewer_refs"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "schema",
+            "base",
+            "requirements",
+            "metrics",
+            "tests"
+          ],
+          "additionalProperties": false
         },
-        "base": {
-          "oneOf": [
-            {
+        "instance": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c5-vmodel-instance-0.2"
+            },
+            "definition_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "base": {
               "type": "object",
               "properties": {
                 "schema": {
@@ -655,100 +1458,241 @@
               ],
               "additionalProperties": false
             },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "requested_tests": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "uniqueItems": true
-        },
-        "run_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "claims": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
+            "requested_tests": {
+              "type": "array",
+              "items": {
                 "type": "string",
                 "minLength": 1
               },
-              "version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "test": {
-                "type": "string",
-                "minLength": 1
-              },
-              "test_version": {
-                "type": "string",
-                "minLength": 1
-              },
-              "definition_pin": {
-                "type": "string",
-                "minLength": 1
-              },
-              "base_instance_pin": {
-                "type": "string",
-                "minLength": 1
-              },
-              "verdict": {
-                "enum": [
-                  "PASS",
-                  "FAIL",
-                  "INCONCLUSIVE"
-                ]
-              },
-              "source_ref": {
-                "type": "string",
-                "minLength": 1
-              }
+              "uniqueItems": true
             },
-            "required": [
-              "id",
-              "version",
-              "test",
-              "test_version",
-              "definition_pin",
-              "base_instance_pin",
-              "verdict",
-              "source_ref"
-            ],
-            "additionalProperties": false
+            "run_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "claims": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "test": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "test_version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "definition_pin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "base_instance_pin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verdict": {
+                    "enum": [
+                      "PASS",
+                      "FAIL",
+                      "INCONCLUSIVE"
+                    ]
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "test",
+                  "test_version",
+                  "definition_pin",
+                  "base_instance_pin",
+                  "verdict",
+                  "source_ref"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            },
+            "attestations": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "test": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "test_version": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "definition_pin": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "base_instance_pin": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "run_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "reviewer_ref": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "method_identities": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      },
+                      "criterion": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "verdict": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "INCONCLUSIVE"
+                        ]
+                      },
+                      "observed": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "artifact": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 1000000
+                      },
+                      "artifact_sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "coverage": {
+                        "type": "object",
+                        "properties": {
+                          "domains": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "array",
+                              "items": {
+                                "type": [
+                                  "integer",
+                                  "string"
+                                ]
+                              },
+                              "uniqueItems": true
+                            }
+                          },
+                          "subjects": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [
+                          "domains",
+                          "subjects"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "data_identities": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      }
+                    },
+                    "required": [
+                      "test",
+                      "test_version",
+                      "definition_pin",
+                      "base_instance_pin",
+                      "run_id",
+                      "reviewer_ref",
+                      "method_identities",
+                      "criterion",
+                      "verdict",
+                      "observed",
+                      "artifact",
+                      "artifact_sha256",
+                      "coverage",
+                      "data_identities"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "signature": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{128}$"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "payload",
+                  "signature"
+                ],
+                "additionalProperties": false
+              }
+            }
           },
-          "uniqueItems": true
+          "required": [
+            "schema",
+            "definition_ref",
+            "base",
+            "requested_tests",
+            "run_id",
+            "claims",
+            "attestations"
+          ],
+          "additionalProperties": false
+        },
+        "receipt": {
+          "type": "object"
         }
       },
       "required": [
         "schema",
-        "definition_ref",
-        "base",
-        "requested_tests",
-        "run_id",
-        "claims"
+        "definition",
+        "instance",
+        "receipt"
       ],
       "additionalProperties": false
-    },
-    "receipt": {
-      "type": "object"
     }
-  },
-  "required": [
-    "schema",
-    "definition",
-    "instance",
-    "receipt"
   ],
-  "additionalProperties": false,
   "$defs": {
     "definition": {
       "type": "object",

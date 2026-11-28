@@ -8,7 +8,7 @@ from hashlib import sha256
 from itertools import product
 from pathlib import Path
 from tempfile import TemporaryDirectory
-import subprocess
+import subprocess,base64,binascii
 import mathspec.program as mp
 from closure import digest,canon,need,fields,qualified
 from closure_v1 import obligations as ob
@@ -109,17 +109,28 @@ def input_population(base,target):
     if target["kind"]=="DATA_QUALITY":out.add(target["record"]["id"])
     return out
 
+def key_fingerprint(text):
+    need(type(text) is str and len(text)<=8192,"R1_REVIEWER_PUBLIC_KEY")
+    lines=text.strip().splitlines()
+    need(len(lines)>=3 and lines[0]=="-----BEGIN PUBLIC KEY-----" and lines[-1]=="-----END PUBLIC KEY-----","R1_REVIEWER_PUBLIC_KEY")
+    try:der=base64.b64decode("".join(lines[1:-1]),validate=True)
+    except (ValueError,binascii.Error):need(False,"R1_REVIEWER_PUBLIC_KEY")
+    need(len(der)==44 and der.startswith(bytes.fromhex("302a300506032b6570032100")),"R1_REVIEWER_ED25519_KEY")
+    return sha256(der).hexdigest()
+
 def validate_test(t,target,m,metric_target,base,tabs,source,targs):
     refs=lambda xs,universe: type(xs) is list and all(type(x) is str and x in universe for x in xs) and len(xs)==len(set(xs))
     universe={x["id"] for n in ("inputs","observables","outputs","context_fields") for x in base["frame"][n]}
     need(refs(t["input_refs"],universe),"R1_TEST_INPUT_REFERENCE")
     need(refs(t["preconditions"],{k for k,x in targs.items() if x["kind"]=="ASSERTION"}),"R1_PRECONDITION_REFERENCE")
-    need(all(contains(tabs,t["scope"],targs[x]["scope"]) for x in t["preconditions"]),"R1_PRECONDITION_SCOPE")
+    need(all(contains(tabs,targs[x]["scope"],t["scope"]) for x in t["preconditions"]),"R1_PRECONDITION_SCOPE")
     need(t["criterion"] not in t["preconditions"],"R1_SELF_PRECONDITION")
     need(t["procedure_ref"] in source,"R1_PROCEDURE_REFERENCE")
     if t["method"] in NATIVE:
         wanted=input_population(base,target)
-        need(wanted is not None and set(t["input_refs"])==wanted,"R1_TEST_INPUT_COVERAGE")
+        need(wanted is not None,"R1_TEST_INPUT_COVERAGE")
+        wanted.update(x for p in t["preconditions"] for x in input_population(base,targs[p]))
+        need(set(t["input_refs"])==wanted,"R1_TEST_INPUT_COVERAGE")
         need(not t["reviewer_refs"],"R1_NATIVE_REVIEWER")
         need(t["coverage"]=="ALL_DECLARED_SUPPORT" and t["evidence"]=="COMPUTED_NATIVE_RECEIPT","R1_NATIVE_EVIDENCE_ROLE")
     else:
@@ -129,8 +140,13 @@ def validate_test(t,target,m,metric_target,base,tabs,source,targs):
         # A separate pinned key, not the method source, oracle or model source.
         forbidden={t["oracle_ref"],t["procedure_ref"],*([s["source_ref"] for s in base["slots"]]),*([x["source_ref"] for x in base["requirements"]["models"]])}
         need(not set(t["reviewer_refs"])&forbidden,"R1_REVIEWER_ROLE_COLLISION")
+        need(target["record"]["oracle_ref"]==t["oracle_ref"],"R1_REPORT_ORACLE")
+        need(target["record"]["subject"]==base["frame"]["id"] or target["record"]["subject"] in tabs["scopes"][t["scope"]]["subjects"],"R1_REPORT_SCOPE")
+        fingerprints=[]
         for r in t["reviewer_refs"]:
-            need(source[r]["content"].startswith("-----BEGIN PUBLIC KEY-----") and len(source[r]["content"])<=8192,"R1_REVIEWER_PUBLIC_KEY")
+            need(tabs["authorities"][r]["role"]=="PROVENANCE","R1_REVIEWER_AUTHORITY_ROLE")
+            fingerprints.append(key_fingerprint(source[r]["content"]))
+        need(len(fingerprints)==len(set(fingerprints)),"R1_DUPLICATE_REVIEWER_KEY")
     need(target["scope"] is None or t["scope"]==target["scope"],"R1_TEST_TARGET_SCOPE")
 
 def mandatory_coverage(req,met,tests,targs,tabs):
@@ -140,6 +156,7 @@ def mandatory_coverage(req,met,tests,targs,tabs):
         nonstudy={x for x in r["metric_refs"] if met[x]["role"]!="STUDY"}
         need({t["metric"] for t in linked}==nonstudy,"R1_REQUIREMENT_METRIC_COVERAGE")
         study_targets={met[x]["target"] for x in r["metric_refs"] if met[x]["role"]=="STUDY"}
+        need(all(contains(tabs,r["scope"],targs[x]["scope"]) for x in study_targets),"R1_STUDY_METRIC_SCOPE")
         need(study_targets<=set().union(*(set(t["input_refs"]) for t in linked)),"R1_STUDY_METRIC_VALIDATION_COVERAGE")
         # Each mandatory requirement scope must be covered by its declared tests,
         # not merely by their IDs. A report test binds its own explicit scope.
@@ -195,7 +212,7 @@ def verify_attestations(d,dp,i,static,tests,tabs,native):
 
 def external_result(t,verified,native):
     inputs=native_inputs(t,native)
-    if len(inputs)!=len(t["input_refs"]):
+    if not graph_of(native) or len(inputs)!=len(t["input_refs"]):
         return "BLOCKED","UNKNOWN",{},{"reason":"R1_EXTERNAL_INPUTS_MISSING"}
     rs=verified.get(t["id"],[])
     if not rs:return "NOT_EXECUTED","UNKNOWN",{},{"reason":"EXTERNAL_REVIEW_NOT_VERIFIED"}
@@ -221,6 +238,18 @@ def native_extra_result(target,native):
         hit=[x for x in g["slots"][target["slot"]][field] if x["id"]==k]
         need(len(hit)==1,"R1_NATIVE_TARGET_RECEIPT")
         receipt=hit[0];status=receipt["status"]
+        if kind=="STATE":
+            # C4 boundary receipt validates binding, NOT satisfaction. Read
+            # actual evaluated endpoint/cycle assertions from the same slot.
+            st=target["record"];ids=[st["initial"],st["terminal"]]+([st["cycle"]["assertion"]] if st["mode"]=="CYCLIC" else [])
+            actual={a["id"]:a for a in g["slots"][target["slot"]]["obligations"]["assertions"]}
+            need(all(a in actual for a in ids),"R1_STATE_ASSERTION_RECEIPT")
+            checks=[actual[a] for a in ids];truth=[a["truth"] for a in checks]
+            receipt={"boundary_binding":receipt,"assertions":checks}
+            if status!="BOUND_NATIVE_ASSERTIONS":status="BLOCKED"
+            elif "FALSE" in truth:status="FINITE_COUNTEREXAMPLE"
+            elif all(x=="TRUE" for x in truth):status="FINITE_OBSERVED_TRUE"
+            else:status="BLOCKED"
         mapped={"FINITE_OBSERVED_TRUE":"PASS","FINITE_COUNTEREXAMPLE":"FAIL","BLOCKED":"BLOCKED","NOT_APPLICABLE":"NOT_EXECUTED"}
     return mapped.get(status,"INCONCLUSIVE"),"FALSE" if status=="NOT_APPLICABLE" else "UNKNOWN" if status in (None,"BLOCKED") else "TRUE",{"native_target":receipt},{"reason":"R1_NATIVE_TARGET_ASSESSMENT"}
 
@@ -233,13 +262,15 @@ def assertion_support(base,i,tabs,target,native):
     a=target["record"];r=next(x for x in base["slots"] if x["id"]==target["slot"])
     ir=next(x for x in i["slots"] if x["id"]==target["slot"])
     if a["role"] not in ("SAFETY_GUARANTEE","PROHIBITED_BEHAVIOUR"):return None
-    axes=[b["axis"] for b in a["binders"]];members=[a["at"].get(ax,tabs["domains"][ax]["members"]) for ax in axes]
+    axes=[b["axis"] for b in a["binders"]];members=[tabs["domains"][ax]["members"] for ax in axes]
     count=1
     for m in members:count*=len(m)
     if count>MAX_POINT_REPLAYS:return {"complete":False,"expected":count,"reason":"R1_POINT_REPLAY_LIMIT"}
     bd=ob.Bound(r["package"],tabs,ir["data"])
     points=[]
     for key in product(*members):
+        if any(ax in a["at"] and val not in a["at"][ax] for ax,val in zip(axes,key,strict=True)):
+            points.append({"key":list(key),"truth":None,"reasons":["OUTSIDE_DECLARED_SCOPE"]});continue
         specs=deepcopy(r["assertions"]);z=next(x for x in specs if x["id"]==a["id"])
         z["at"]={ax:[v] for ax,v in zip(axes,key,strict=True)}
         rr=ob.evaluate(bd,specs,ir["witnesses"]);hit=next(x for x in rr["assertions"] if x["id"]==a["id"])
@@ -251,6 +282,8 @@ def assertion_support(base,i,tabs,target,native):
 def improve_assertion(status,app,evidence,reason,base,i,tabs,target,native):
     support=assertion_support(base,i,tabs,target,native)
     if support is None:return status,app,evidence,reason
+    # An observed native counterexample cannot be erased by replay limits.
+    if status=="FAIL" and not support["complete"]:evidence["coverage"]=support;return status,app,evidence,reason
     evidence["coverage"]=support
     if not support["complete"]:return "INCONCLUSIVE","UNKNOWN",evidence,{"reason":"R1_INCOMPLETE_POINT_COVERAGE"}
     if any(x["truth"]=="FALSE" for x in support["points"]):return "FAIL","TRUE",evidence,{"reason":"R1_NATIVE_POINT_COUNTEREXAMPLE"}
