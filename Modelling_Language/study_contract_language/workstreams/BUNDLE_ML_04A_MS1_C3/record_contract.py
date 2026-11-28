@@ -8,7 +8,7 @@ from itertools import product
 from fractions import Fraction
 from closure import digest,Reject
 from closure_v1.diagnostics import RULE_SOURCE,pointer
-from test_closure import fixture,q,dataset,scalar
+from research_assembly import fixture,q,dataset,scalar
 from package_interface import export_package
 from closure import admit
 from interface import finite_consumer,import_package
