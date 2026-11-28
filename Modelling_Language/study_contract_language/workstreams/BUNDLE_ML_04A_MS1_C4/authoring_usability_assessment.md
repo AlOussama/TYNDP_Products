@@ -1,0 +1,6 @@
+# Authoring usability (proxy only)
+
+K17/MS-K17: existing A/B forms share a semantic design; source footprint is a reproducible proxy only, not a usability experiment with independent authors. Explicit task definitions for future isolated authoring: storage charge/discharge and terminal state; EV vehicle deadline and request witness; H2 inventory and fixed heating basis; method replacement with identical input/output types and changed cost method. See authoring_source_metrics.json. A/B byte counts include complete source records, native math and metadata; compare within each pair only. Native expression fragments are not equivalent in scope to the outer contract; no reduction percentage across them. Diagnostics from C3 locate decoded object paths, not precise authored spans. No empirical task time, independent human author or user study.
+
+## Executed C4 proxy
+CI 46087812255, native job 140801422477, original-corpus-exit 140802432464. Four same-design emitted A/B roundtrips passed (RC01 12062/17640, RC02 7724/11413, RC04 7888/11420, RC08 7137/10437 source lengths). These are emitted representations, not original source footprint or independent author tasks. Independent human authoring, time, error rates and usability remain UNASSESSED; not a successful empirical test.

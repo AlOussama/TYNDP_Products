@@ -1,0 +1,307 @@
+{
+  "schema": "C4-artifact-manifest-1",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "tested_implementation": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+  "verified_tested_tree": "b14f1a2bb58e55933e373bbdeba434e7c959b398",
+  "successful_run": 46087812255,
+  "artifact_count_excluding_self": 59,
+  "manifest_self_excluded_to_avoid_recursion": true,
+  "required_files_missing": [],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "git_blob": "35be2b87ddd1d364be8a25f5f98f92a6e4064551",
+      "bytes": 946
+    },
+    {
+      "path": "actual_test_logs/ablation_replay.json",
+      "git_blob": "721c075ec17d7101405a465cf744bbbe65ff16bb",
+      "bytes": 5885
+    },
+    {
+      "path": "actual_test_logs/analytical_proxy_results.json",
+      "git_blob": "1353817a834b02fa0507a50a72698bb4cf6914a3",
+      "bytes": 3003
+    },
+    {
+      "path": "actual_test_logs/architecture_comparison_replay.json",
+      "git_blob": "cbc4db721956ca3829932c510e3092f5a6900956",
+      "bytes": 56223
+    },
+    {
+      "path": "actual_test_logs/before_after.json",
+      "git_blob": "a7b3125e42d7b41df4c03a93b05baad2e668358d",
+      "bytes": 344
+    },
+    {
+      "path": "actual_test_logs/exact_formulation_controls.json",
+      "git_blob": "73583c5d934d9b5904dd8ad86b81b1f6bf4784f3",
+      "bytes": 8475
+    },
+    {
+      "path": "actual_test_logs/migration_replay.json",
+      "git_blob": "54a13878bc69fe8956a01aa74dfe7071302090e6",
+      "bytes": 15237
+    },
+    {
+      "path": "actual_test_logs/native_selected_log_lines.txt",
+      "git_blob": "7b3c1fb61aa6f68dce7f27bf25fdeaf17e0be46b",
+      "bytes": 28360
+    },
+    {
+      "path": "actual_test_logs/original_paths_01.json",
+      "git_blob": "ae7e02d99dafcdd209edf9d9aac6ff2dcabb1f42",
+      "bytes": 135830
+    },
+    {
+      "path": "actual_test_logs/original_paths_02.json",
+      "git_blob": "038e8667bcf2e597d897c86cea32941dd904c6ef",
+      "bytes": 127776
+    },
+    {
+      "path": "actual_test_logs/original_paths_03.json",
+      "git_blob": "96e5d2bed7879eacdb898c7870052691aaf1779e",
+      "bytes": 112772
+    },
+    {
+      "path": "actual_test_logs/original_paths_04.json",
+      "git_blob": "cc06c693a2716e924aa973ed9eccfe256ad6b165",
+      "bytes": 95218
+    },
+    {
+      "path": "actual_test_logs/original_paths_05.json",
+      "git_blob": "b27d3a7a5a2b37a48b3fc12b019f9cfc08866e3a",
+      "bytes": 95036
+    },
+    {
+      "path": "actual_test_logs/original_paths_06.json",
+      "git_blob": "34a23f2bec28282909ec1513a64ebd64614d8b39",
+      "bytes": 76212
+    },
+    {
+      "path": "actual_test_logs/p5_base_controls.json",
+      "git_blob": "60ff90538e2f8a56e064179320e3177ad4b366e0",
+      "bytes": 47518
+    },
+    {
+      "path": "actual_test_logs/p5_original_oracle_replay.json",
+      "git_blob": "2ff3a78db4991909ab07654513d198b849bc6f4e",
+      "bytes": 7501
+    },
+    {
+      "path": "analytical_experiments.js",
+      "git_blob": "bcb68f3b201000b3ce3aa10cd2a156597ccd61ec",
+      "bytes": 2820
+    },
+    {
+      "path": "architecture_comparison_final.csv",
+      "git_blob": "bd7928361fcdba234f04d70b42cc7d7c36051226",
+      "bytes": 2605
+    },
+    {
+      "path": "architecture_source_inventory_part1.json",
+      "git_blob": "9709a1cd4849dac3b256db97ebd38735e995bdbb",
+      "bytes": 7652
+    },
+    {
+      "path": "architecture_source_inventory_part2.json",
+      "git_blob": "00d4ea5dc2cfe5e68dcc03ed15550ae665858508",
+      "bytes": 13907
+    },
+    {
+      "path": "architecture_source_inventory_part3.json",
+      "git_blob": "9a3958443105fee37c6b17f8bb93351c8cb73c50",
+      "bytes": 3446
+    },
+    {
+      "path": "authoring_source_metrics.json",
+      "git_blob": "6924963c5361165840cc3bccc40cd17aa7e88167",
+      "bytes": 3216
+    },
+    {
+      "path": "authoring_usability_assessment.md",
+      "git_blob": "f62b396b94a2a8f71507895948b736142625c1ad",
+      "bytes": 1287
+    },
+    {
+      "path": "canonical_normal_form_specification.md",
+      "git_blob": "952531a551fb0c465069f15daf3ea52e668c0c13",
+      "bytes": 2669
+    },
+    {
+      "path": "compare_native_results.py",
+      "git_blob": "76587a0d01298affeb9939dbb2794b7eb4a89ccd",
+      "bytes": 1301
+    },
+    {
+      "path": "controlled_removal_report.md",
+      "git_blob": "570b1c95e15cfab052ef32bb4dc03e323a77cb38",
+      "bytes": 1339
+    },
+    {
+      "path": "critical_review.md",
+      "git_blob": "6999310aa275736a8bdcaa2f93165b67906c3a1a",
+      "bytes": 1177
+    },
+    {
+      "path": "equivalence_E1_E5_assessment.md",
+      "git_blob": "99a39604d0c82490acb13f2fdcaf4e8dfcc3407b",
+      "bytes": 6786
+    },
+    {
+      "path": "exact_formulation_controls.js",
+      "git_blob": "673e127e15869a44dda26e5b79702516950aaa0c",
+      "bytes": 2582
+    },
+    {
+      "path": "extension_and_composition_policy.md",
+      "git_blob": "c01d1d74067207fd2b033e9777c2314e97c29a54",
+      "bytes": 2496
+    },
+    {
+      "path": "final_architecture_decision.md",
+      "git_blob": "2f93ce7bd181099c527b2b2d9b9bee302dbcce09",
+      "bytes": 966
+    },
+    {
+      "path": "final_metamodel.json",
+      "git_blob": "dc89c4c0d26cf7ad56f16fda298e5f75c4b0c65f",
+      "bytes": 3876
+    },
+    {
+      "path": "final_native_regression_results.json",
+      "git_blob": "a3e96ae31f7cddbf2c868aa41d0e51c3369778df",
+      "bytes": 8518
+    },
+    {
+      "path": "final_requirement_coverage.csv",
+      "git_blob": "cbe2b18785c94506f9989ace0c8ba004e8ff713e",
+      "bytes": 118657
+    },
+    {
+      "path": "final_research_closure_report.md",
+      "git_blob": "8e6abc5f993212d0b2e194ab3c3603eb59860afb",
+      "bytes": 3391
+    },
+    {
+      "path": "final_schema.json",
+      "git_blob": "fe708d534d15e4c9ddf48dd43bb17085ba105652",
+      "bytes": 20604
+    },
+    {
+      "path": "final_scientific_scorecard.csv",
+      "git_blob": "9fbe0bf88c8174956dce7953f099bd2c9fe8a2a1",
+      "bytes": 4206
+    },
+    {
+      "path": "final_study_contract_language_specification.md",
+      "git_blob": "dbf6d211f1f78296bab57edb63ac814eeeb9291c",
+      "bytes": 14725
+    },
+    {
+      "path": "formal_semantics.md",
+      "git_blob": "ccd70edc4b734d910a51fc14f75405fa0d81ae62",
+      "bytes": 21139
+    },
+    {
+      "path": "gate_status.json",
+      "git_blob": "e5bf94a3c9e244554449db502ad5ff8d9f9262be",
+      "bytes": 2091
+    },
+    {
+      "path": "language_construct_inventory.csv",
+      "git_blob": "1fea3ed2ff988c89f22b77e6fb026e6a29240bb2",
+      "bytes": 1881
+    },
+    {
+      "path": "language_limitations.md",
+      "git_blob": "39b2acca9265095036d9d8a28c3abb0669d67382",
+      "bytes": 1202
+    },
+    {
+      "path": "maintainability_experiments.json",
+      "git_blob": "6e3dddd6bda5ca45cc30e26a599242c97b26a50a",
+      "bytes": 2213
+    },
+    {
+      "path": "mathspec_reuse_matrix.csv",
+      "git_blob": "d47c42aad9130af3e77f60fb2ee87a01296998ee",
+      "bytes": 1126
+    },
+    {
+      "path": "migration_effort_results.json",
+      "git_blob": "04828080f6c9b2bd2606781b614642e7779ebc5e",
+      "bytes": 43139
+    },
+    {
+      "path": "minimality_metrics.json",
+      "git_blob": "c7461cc87e16df5a344b783c21b5d78dfdb67a11",
+      "bytes": 7823
+    },
+    {
+      "path": "modelling_freedom_report.md",
+      "git_blob": "dccd2e90f3dac837909252b8e02be24ab7f864da",
+      "bytes": 1015
+    },
+    {
+      "path": "multi_model_robustness_assessment.md",
+      "git_blob": "16a55ad1ef6fc522e97b36fa8a2d02ef185dc27d",
+      "bytes": 683
+    },
+    {
+      "path": "normalization_rules.md",
+      "git_blob": "a6a768156938bc91ec96914a2d75797e4d5f9df3",
+      "bytes": 6379
+    },
+    {
+      "path": "original_path_coverage.json",
+      "git_blob": "7e18bffdf4bad0738cc8f6a624a3e0d6ce99aa52",
+      "bytes": 229245
+    },
+    {
+      "path": "redundancy_final_register.csv",
+      "git_blob": "603cffb18815748cf2ec895bc37da43a06f9373b",
+      "bytes": 1711
+    },
+    {
+      "path": "reference_library/IoSN_reference_study.md",
+      "git_blob": "769b1a385be794fdd016b5f3a5c565c414fc6146",
+      "bytes": 1735
+    },
+    {
+      "path": "reference_library/README.md",
+      "git_blob": "84dd80deaead699da7d438de5b8a73bc01fa0bab",
+      "bytes": 3589
+    },
+    {
+      "path": "residual_risk_register.json",
+      "git_blob": "fa35a6a789d7dfb748c84b688b3f12c2dca8d1f4",
+      "bytes": 1623
+    },
+    {
+      "path": "scientific_evidence_limits.md",
+      "git_blob": "9ae608a034d0f142875692dfc979f884e5e95587",
+      "bytes": 910
+    },
+    {
+      "path": "scientific_validation_report.md",
+      "git_blob": "dcaf6eaeee0316a26a12492da25f0dc5f9cb4144",
+      "bytes": 1877
+    },
+    {
+      "path": "source_baseline.json",
+      "git_blob": "73a038c2a7b4d9be479f6a8232d3d4323e095a22",
+      "bytes": 20023
+    },
+    {
+      "path": "supported_mathspec_subset.json",
+      "git_blob": "9b5d31de2019394f7068b5e88ad0bb8b35a2490a",
+      "bytes": 16753
+    },
+    {
+      "path": "test_c4_controls.py",
+      "git_blob": "00e9d89f456de48bae81697510323176cd64e38c",
+      "bytes": 4690
+    }
+  ]
+}

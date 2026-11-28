@@ -1,0 +1,4 @@
+# Evidence limits
+C3 finite research data and authority unresolved. No human audit, independent human authoring, real model conformity, general equivalence proof, normative methodology approval, full IoSN or productive tool integration. 47 upstream skips separate. C4 proxies are independent of candidate/oracle code but not native executions. Final HEAD audit inputs changed; repeat full CI. C3 assessment harness uses case-ID verdict mapping; investigate falsification without changing frozen oracle.
+
+Final actual CI replay resolves changed C3 audit input concern within tested scope. C23 case-specific assessment remains in harness; isolated adapter now binds source hash and ID and rejects tampering. No source-specific mapping removed from historical corpus. No claim independent authors or generalized source adapter. Full transitive historical source audit beyond checked pins remains not established.

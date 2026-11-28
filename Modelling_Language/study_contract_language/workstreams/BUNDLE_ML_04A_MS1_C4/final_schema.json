@@ -1,0 +1,835 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:research:c2-closure-contract-package:0.3",
+  "title": "C2 closure package structural envelope",
+  "description": "Outer JSON structure only; exact nested types, native admission, pin/hash/referential checks and evidence are enforced by definition.py and referenced validators.",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "c2-closure-contract-package-0.3"
+    },
+    "definition": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "c2-closure-definition-0.2"
+        },
+        "study": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "owner": {
+              "const": "OWNER_TBD"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "owner"
+          ],
+          "additionalProperties": false
+        },
+        "frame": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c2-study-frame-0.1"
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "ports": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "referents": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "observables": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "relations": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "authorities": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "variations": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "chronologies": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "information_sets": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "processes": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "comparisons": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "relation_domains": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "context_fields": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "report_requests": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "schema",
+            "id",
+            "version",
+            "question",
+            "domains",
+            "scopes",
+            "components",
+            "ports",
+            "referents",
+            "observables",
+            "inputs",
+            "outputs",
+            "relations",
+            "authorities",
+            "variations",
+            "chronologies",
+            "information_sets",
+            "slots",
+            "processes",
+            "comparisons",
+            "relation_domains",
+            "context_fields",
+            "report_requests"
+          ],
+          "additionalProperties": false
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "package": {
+                "type": "string",
+                "minLength": 1
+              },
+              "profile": {
+                "type": "object"
+              },
+              "source_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "bindings": {
+                "type": "object"
+              },
+              "assertions": {
+                "type": "array"
+              },
+              "policies": {
+                "type": "array"
+              },
+              "states": {
+                "type": "array"
+              },
+              "comparisons": {
+                "type": "array"
+              },
+              "verification": {
+                "type": "array"
+              },
+              "ledger": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "package",
+              "profile",
+              "source_ref",
+              "bindings",
+              "assertions",
+              "policies",
+              "states",
+              "comparisons",
+              "verification",
+              "ledger"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "sources": {
+          "type": "array"
+        },
+        "requirements": {
+          "type": "object",
+          "properties": {
+            "boundary": {
+              "type": "object"
+            },
+            "data_contracts": {
+              "type": "array"
+            },
+            "process_roles": {
+              "type": "object"
+            },
+            "normativity": {
+              "type": "object"
+            },
+            "models": {
+              "type": "array"
+            },
+            "comparisons": {
+              "type": "array"
+            },
+            "time_policies": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "boundary",
+            "data_contracts",
+            "process_roles",
+            "normativity",
+            "models",
+            "comparisons",
+            "time_policies"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema",
+        "study",
+        "frame",
+        "slots",
+        "sources",
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "instance": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c2-closure-instance-0.2"
+            },
+            "definition_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "profile_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "package_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "data_status": {
+                    "enum": [
+                      "PRESENT",
+                      "MISSING_DATA"
+                    ]
+                  },
+                  "data": {
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "snapshot_digest": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "case_context": {
+                    "type": "object"
+                  },
+                  "witnesses": {
+                    "type": "array"
+                  },
+                  "contributions": {
+                    "type": "array"
+                  },
+                  "expected_events": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "id",
+                  "profile_ref",
+                  "package_ref",
+                  "data_status",
+                  "data",
+                  "snapshot_digest",
+                  "case_context",
+                  "witnesses",
+                  "contributions",
+                  "expected_events"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "events": {
+              "type": "array"
+            },
+            "disclosures": {
+              "type": "array"
+            },
+            "data_receipts": {
+              "type": "array"
+            },
+            "context_data": {
+              "type": "object"
+            },
+            "reports": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "schema",
+            "definition_ref",
+            "slots",
+            "events",
+            "disclosures",
+            "data_receipts",
+            "context_data",
+            "reports"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receipt": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "definition",
+    "instance",
+    "receipt"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "definition": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "c2-closure-definition-0.2"
+        },
+        "study": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "owner": {
+              "const": "OWNER_TBD"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "owner"
+          ],
+          "additionalProperties": false
+        },
+        "frame": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "const": "c2-study-frame-0.1"
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "ports": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "referents": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "observables": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "relations": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "authorities": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "variations": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "chronologies": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "information_sets": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "processes": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "comparisons": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "relation_domains": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "context_fields": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "report_requests": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "schema",
+            "id",
+            "version",
+            "question",
+            "domains",
+            "scopes",
+            "components",
+            "ports",
+            "referents",
+            "observables",
+            "inputs",
+            "outputs",
+            "relations",
+            "authorities",
+            "variations",
+            "chronologies",
+            "information_sets",
+            "slots",
+            "processes",
+            "comparisons",
+            "relation_domains",
+            "context_fields",
+            "report_requests"
+          ],
+          "additionalProperties": false
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "package": {
+                "type": "string",
+                "minLength": 1
+              },
+              "profile": {
+                "type": "object"
+              },
+              "source_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "bindings": {
+                "type": "object"
+              },
+              "assertions": {
+                "type": "array"
+              },
+              "policies": {
+                "type": "array"
+              },
+              "states": {
+                "type": "array"
+              },
+              "comparisons": {
+                "type": "array"
+              },
+              "verification": {
+                "type": "array"
+              },
+              "ledger": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "package",
+              "profile",
+              "source_ref",
+              "bindings",
+              "assertions",
+              "policies",
+              "states",
+              "comparisons",
+              "verification",
+              "ledger"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "sources": {
+          "type": "array"
+        },
+        "requirements": {
+          "type": "object",
+          "properties": {
+            "boundary": {
+              "type": "object"
+            },
+            "data_contracts": {
+              "type": "array"
+            },
+            "process_roles": {
+              "type": "object"
+            },
+            "normativity": {
+              "type": "object"
+            },
+            "models": {
+              "type": "array"
+            },
+            "comparisons": {
+              "type": "array"
+            },
+            "time_policies": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "boundary",
+            "data_contracts",
+            "process_roles",
+            "normativity",
+            "models",
+            "comparisons",
+            "time_policies"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema",
+        "study",
+        "frame",
+        "slots",
+        "sources",
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "instance": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "c2-closure-instance-0.2"
+        },
+        "definition_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "profile_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "package_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "data_status": {
+                "enum": [
+                  "PRESENT",
+                  "MISSING_DATA"
+                ]
+              },
+              "data": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "snapshot_digest": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "case_context": {
+                "type": "object"
+              },
+              "witnesses": {
+                "type": "array"
+              },
+              "contributions": {
+                "type": "array"
+              },
+              "expected_events": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "id",
+              "profile_ref",
+              "package_ref",
+              "data_status",
+              "data",
+              "snapshot_digest",
+              "case_context",
+              "witnesses",
+              "contributions",
+              "expected_events"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "events": {
+          "type": "array"
+        },
+        "disclosures": {
+          "type": "array"
+        },
+        "data_receipts": {
+          "type": "array"
+        },
+        "context_data": {
+          "type": "object"
+        },
+        "reports": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema",
+        "definition_ref",
+        "slots",
+        "events",
+        "disclosures",
+        "data_receipts",
+        "context_data",
+        "reports"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

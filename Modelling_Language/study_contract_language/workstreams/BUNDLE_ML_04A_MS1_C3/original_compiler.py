@@ -10,11 +10,12 @@ ROOT=Path(__file__).resolve().parents[1]
 C2=ROOT/"BUNDLE_ML_04A_MS1_C2"
 sys.path.insert(0,str(C2));import interface
 sys.path.insert(0,str(C2/"closure_v1"))
-from test_closure_v1 import frame,source_row,sig,assertion,fixture,q,dataset,digest,old_identities
+from research_assembly import frame,source_row,sig,assertion,fixture,q,dataset,digest,old_identities
 from closure import admit,Reject,need,text_hash
 from package_interface import export_package
 from closure_v1 import definition,metadata,obligations,graph,identity,diagnostics
 from record_contract import structural,at,CandidateReject
+from original_record_binding import source_binding
 
 REPO=ROOT.parents[2]
 AUTH=["authority:source"]
@@ -25,50 +26,11 @@ def rows(dims,domains,values):
     vals=values if dims else [values]
     need(type(vals) is list and len(vals)==len(keys),"AUTHORED_DATA_SUPPORT")
     return [{"key":list(k),"value":v} for k,v in zip(keys,vals,strict=True)]
-def values_norm(v):
-    if type(v) is list:return [values_norm(x) for x in v]
-    if v is None or type(v) is bool:return v
-    try:return str(Fraction(v))
-    except (ValueError,TypeError,ZeroDivisionError):return v
-def source_binding(d,i):
-    # Independent of the oracle: declared source paths must actually bind
-    # the authored data, including explicit source-specific coordinate maps.
-    r=i["record"];rc=d["reference"];p=d["parameters"];actual=i["parameters"]
-    if rc=="RC02":
-        s=r["synthetic_data"];v=s["domains"]["vehicle"];t=s["domains"]["interval"]
-        x=s["inputs"];o=s["observed"]
-        raw=[o["delivered"][j][k] for k in range(len(t)) for j in range(len(v))]
-        need(values_norm(i["raw_transfers"]["delivered"])==values_norm(raw),"SOURCE_DATA_BINDING:delivered")
-        need(values_norm(i["raw_transfers"]["required"])==values_norm(x["required"]),"SOURCE_DATA_BINDING:required")
-        need(actual["connected"]==[int(x["connected"][j][k]) for k in range(len(t)) for j in range(len(v))],"SOURCE_DATA_BINDING:connected")
-        need(actual["eligible"]==[int(x["connected"][j][k] and k<x["departure"][j]) for k in range(len(t)) for j in range(len(v))],"SOURCE_DATA_BINDING:eligible")
-    if rc=="RC07":
-        s=r["synthetic_data"];x=s["observed"]["decision"]
-        need(values_norm(actual["decision"])==values_norm([x[k][j] for j in range(len(s["domains"]["scenario"])) for k in range(len(s["domains"]["stage"]))]),"SOURCE_DATA_BINDING:decision")
-    if rc=="RC05":
-        s=r["synthetic_data"];bs=s["domains"]["bus"];ls=s["domains"]["branch"]
-        for n,side in (("sending",0),("receiving",1)):
-            need(i["relation_rows"][n]==[{"branch":b,"bus":bs[s["inputs"]["orientation"][j][side]]} for j,b in enumerate(ls)],"SOURCE_RELATION_BINDING")
-    for n,z in p.items():
-        path=z.get("source_path")
-        if path is None or (rc=="RC02" and n in ("delivered","required","connected","eligible")) or (rc=="RC07" and n=="decision"):continue
-        raw=at(r,path)
-        if n in i["raw_transfers"]:
-            raw_values=i["raw_transfers"][n];want=raw if type(raw) is list else [raw]
-            need(values_norm(raw_values)==values_norm(want),"SOURCE_RAW_DATA_BINDING:"+n);continue
-        if type(raw) is bool:raw=int(raw)
-        if z["dims"] and type(raw) is not list:raw=[raw]
-        need(values_norm(actual[n])==values_norm(raw),"SOURCE_DATA_BINDING:"+n)
-    if d["ledgers"]:
-        need(i["observed_contributions"]==[r["synthetic_data"]["observed"]["contributions"]],"SOURCE_CONTRIBUTION_BINDING")
-    if d["comparison"] is not None:
-        x=r["synthetic_data"]["inputs"];c=i["comparison"]
-        need(c["reference_context"]==x["reference_snapshot"] and c["alternative_context"]==x["project_snapshot"] and c["project_delta"]==x["project_delta"],"SOURCE_CONTEXT_BINDING")
 
 def compile_rc(x,raw_original):
     d,i=x["definition"],x["instance"];rec=i["record"];source=d["original_source"]
     structural_receipts=structural(rec,d["checks"])
-    source_binding(d,i)
+    source_binding(d,i,raw_original)
     # Native mathematical authoring data are read from this actual source,
     # never from a case-ID branch or expected-result catalogue.
     dims=d["domains"];params=d["parameters"];expr=d["expressions"];conditions=d["conditions"]

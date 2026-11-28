@@ -1,0 +1,1634 @@
+{
+  "schema": "c1-comp-receipt-0.1",
+  "scope": "Derived mathematical fragments, not original full contract paths",
+  "python": "3.13.15",
+  "original_population": {
+    "identities": 58,
+    "AB_paths": 116,
+    "full_paths_executed": 0,
+    "traceability": 105
+  },
+  "counts": {
+    "primary_fragments": 10,
+    "M0_static_controls": 3,
+    "M2_legacy_predicate_static": 3,
+    "M2_legacy_profile_numeric": 2,
+    "M3_static_and_finite": 10,
+    "matched_numeric_M2_M3": 2,
+    "matched_legacy_M0_M2": 3
+  },
+  "cases": [
+    {
+      "id": "RC01",
+      "scope": "Signed grid exchange only; terminal/efficiency ledger outside comparison. R1 fixed duration specialization uses the original 0.5 h frame.",
+      "fixture_identity": "9bef28fbfec278be0a00b294b54074068d62245a9406739ac5f32be67c44870c",
+      "independent_original_oracle": {
+        "intake": "1",
+        "final": "19/10",
+        "loss": "1/10"
+      },
+      "M0": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "4524843b6e504a3f0dbf31b218ea3c4e3406e607b23febe41c19512826a05340",
+          "audit_digest": "fc9e6cf442e3200e70b97b7b1f7817c4cad18f79930eeaacc2b334bdbb4c73c2",
+          "full_path": false
+        }
+      },
+      "M2_predicate": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "4524843b6e504a3f0dbf31b218ea3c4e3406e607b23febe41c19512826a05340",
+          "audit_digest": "fc9e6cf442e3200e70b97b7b1f7817c4cad18f79930eeaacc2b334bdbb4c73c2",
+          "mapped_nodes": [
+            "ExpressionComparison",
+            "ExpressionReference",
+            "Multiply",
+            "ParameterReference"
+          ],
+          "specializations": [
+            "Native dt parameter specialized to original frame duration:t0 = 0.5 h"
+          ],
+          "body": {
+            "exchange_ok": {
+              "op": "forall",
+              "var": "t",
+              "domain": {
+                "kind": "time",
+                "ref": "domain:t"
+              },
+              "body": {
+                "op": "compare",
+                "cmp": "eq",
+                "lhs": {
+                  "op": "integrate",
+                  "duration_ref": "duration:t0",
+                  "expr": {
+                    "op": "measure",
+                    "ref": "ref:p",
+                    "indices": [
+                      {
+                        "op": "var",
+                        "name": "t"
+                      }
+                    ]
+                  }
+                },
+                "rhs": {
+                  "op": "measure",
+                  "ref": "ref:e",
+                  "indices": [
+                    {
+                      "op": "var",
+                      "name": "t"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "contract": {
+            "frame": {
+              "id": "study:RC01",
+              "schema": "C20-research-r1",
+              "ruleset": "CSNF-R0",
+              "registry": "energy-r1",
+              "question": "RC01 signed grid exchange fragment",
+              "time": {
+                "id": "duration:t0",
+                "duration": "0.5",
+                "duration_unit": "h"
+              },
+              "domains": [
+                {
+                  "id": "domain:t",
+                  "kind": "time",
+                  "members": [
+                    "t0"
+                  ]
+                }
+              ],
+              "scopes": [
+                {
+                  "id": "scope:t",
+                  "domains": [
+                    "domain:t"
+                  ]
+                }
+              ],
+              "guards": [],
+              "information_sets": [],
+              "data_inputs": [],
+              "method_slots": []
+            },
+            "referents": [
+              {
+                "id": "ref:p",
+                "kind": "entity",
+                "type": "electricity.active_power",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "active_power",
+                  "unit": "MW",
+                  "value": "-2",
+                  "sign": "INJECTION"
+                },
+                "axes": [
+                  "domain:t"
+                ]
+              },
+              {
+                "id": "ref:e",
+                "kind": "entity",
+                "type": "electricity.energy",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "energy",
+                  "unit": "MWh",
+                  "value": "-1",
+                  "sign": "INJECTION"
+                },
+                "axes": [
+                  "domain:t"
+                ]
+              }
+            ],
+            "relations": [],
+            "predicates": [
+              {
+                "id": "pred:exchange",
+                "expr": {
+                  "op": "forall",
+                  "var": "t",
+                  "domain": {
+                    "kind": "time",
+                    "ref": "domain:t"
+                  },
+                  "body": {
+                    "op": "compare",
+                    "cmp": "eq",
+                    "lhs": {
+                      "op": "integrate",
+                      "duration_ref": "duration:t0",
+                      "expr": {
+                        "op": "measure",
+                        "ref": "ref:p",
+                        "indices": [
+                          {
+                            "op": "var",
+                            "name": "t"
+                          }
+                        ]
+                      }
+                    },
+                    "rhs": {
+                      "op": "measure",
+                      "ref": "ref:e",
+                      "indices": [
+                        {
+                          "op": "var",
+                          "name": "t"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "assertions": [
+              {
+                "id": "assert:exchange",
+                "modality": "REQUIRED",
+                "semantic_role": "SAFETY_GUARANTEE",
+                "predicate_ref": "pred:exchange",
+                "scope": "scope:t",
+                "guard": true,
+                "authority_refs": [
+                  "source:rc01"
+                ],
+                "decision_state": "OWNER_TBD"
+              }
+            ],
+            "observables": [],
+            "variations": [],
+            "evidences": [
+              {
+                "id": "evidence:exchange",
+                "role": "REQUEST",
+                "subject_ref": "assert:exchange",
+                "status": "NOT_EXECUTED",
+                "oracle": "research:RC01-partial"
+              }
+            ],
+            "authorities": [
+              {
+                "id": "source:rc01",
+                "role": "SOURCE",
+                "immutable_ref": "git:2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+                "revision": "c1-research-0.1",
+                "decision_state": "OWNER_TBD"
+              }
+            ]
+          },
+          "full_path": false
+        }
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "BASIS"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "exchange": [
+              "-1"
+            ]
+          },
+          "conditions": {
+            "exchange_ok": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "exchange_ok": false
+            },
+            "expected_false": "exchange_ok"
+          },
+          "native_identity": "4598eea2cfdad4a292a3ffc66ecbc08d055ba6e9cc03ac3e0332fac3db3704e8",
+          "semantic_identity": "ef1073da5fe4e02b6c1574da83afa2dba85feae9ae38b4c75b39c8257d170dfe",
+          "audit_identity": "ba1bd3b31887cffd5ae331c066a36fb333cacb9a09f19e07eba9a12503479c0d",
+          "package_bytes": 7607,
+          "native_canonical_bytes": 180,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "e02f14b5893d3254d0d75b4d81c94f7b6c35489a1eb850e250348b14d382e8fa",
+            "data_audit_identity": "e02f14b5893d3254d0d75b4d81c94f7b6c35489a1eb850e250348b14d382e8fa",
+            "leaf_identity": "ef1073da5fe4e02b6c1574da83afa2dba85feae9ae38b4c75b39c8257d170dfe",
+            "method_identity": "aa5823eab8a086034cc1060ba6fe1fc75853dd5514c060ecdfdcc1c711d6f3ba",
+            "study_identity": "bb2bf4392d5935596abec718e1c77a518f215d14d49581d2df17b2f24c606903",
+            "context_identity": "f04d2d21ea1e06fb5832d645d93766054dfb915dea24a22e49855999fb024011",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      }
+    },
+    {
+      "id": "RC02",
+      "scope": "Exact explicit kWh to MWh conversion (1/1000); eligibility derived from original connection/departure. Finite service, not forall-request capability.",
+      "fixture_identity": "8b816b0ada3e99fb9335511480c1c0f420d166cc0ca565de403abfa75077c2e6",
+      "independent_original_oracle": {
+        "individual": [
+          "4",
+          "6"
+        ],
+        "fleet": "10"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Sum"
+      },
+      "M2_profile": {
+        "status": "EXECUTED",
+        "result": {
+          "outputs": {
+            "outside": [
+              "0",
+              "0"
+            ],
+            "received": [
+              "1/250",
+              "3/500"
+            ]
+          },
+          "mapped_nodes": [
+            "Add",
+            "Constant",
+            "Multiply",
+            "Negate",
+            "ParameterReference",
+            "Sum"
+          ],
+          "generated_bindings": [
+            {
+              "id": "__unity_interval",
+              "reason": "Unweighted algebraic sum; explicit unity reduction, not physical duration."
+            }
+          ],
+          "mapped_rules": {
+            "outside": {
+              "expr": {
+                "op": "weighted_sum",
+                "expr": {
+                  "op": "mul",
+                  "lhs": {
+                    "op": "input",
+                    "id": "delivered"
+                  },
+                  "rhs": {
+                    "op": "add",
+                    "lhs": {
+                      "op": "literal",
+                      "value": "1",
+                      "unit": "1"
+                    },
+                    "rhs": {
+                      "op": "mul",
+                      "lhs": {
+                        "op": "literal",
+                        "value": "-1",
+                        "unit": "1"
+                      },
+                      "rhs": {
+                        "op": "input",
+                        "id": "eligible"
+                      }
+                    }
+                  }
+                },
+                "axis": "interval",
+                "weight": "__unity_interval"
+              },
+              "unit": "MWh",
+              "basis": "",
+              "axes": [
+                "vehicle"
+              ]
+            },
+            "received": {
+              "expr": {
+                "op": "weighted_sum",
+                "expr": {
+                  "op": "mul",
+                  "lhs": {
+                    "op": "input",
+                    "id": "delivered"
+                  },
+                  "rhs": {
+                    "op": "input",
+                    "id": "eligible"
+                  }
+                },
+                "axis": "interval",
+                "weight": "__unity_interval"
+              },
+              "unit": "MWh",
+              "basis": "",
+              "axes": [
+                "vehicle"
+              ]
+            }
+          },
+          "stage": "ORIGINAL_R1_PROFILE_ENGINE_ONLY",
+          "owner": "OWNER_TBD",
+          "method_parameter_specializations": {},
+          "negative_numeric": {
+            "status": "EXECUTED",
+            "result": {
+              "outside": [
+                "0",
+                "0"
+              ],
+              "received": [
+                "1/200",
+                "1/200"
+              ]
+            }
+          }
+        }
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "outside": [
+              "0",
+              "0"
+            ],
+            "received": [
+              "1/250",
+              "3/500"
+            ]
+          },
+          "conditions": {
+            "service": true,
+            "window_ok": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "service": false,
+              "window_ok": true
+            },
+            "expected_false": "service"
+          },
+          "native_identity": "ba24c375d81c724f625914fef48aa7bb402c5a168f52635c8e84475c14a9c442",
+          "semantic_identity": "f502032e23dfcf34aea7b4378372db00ff467e1adcfe78bba4ffa8567ba0c4ec",
+          "audit_identity": "6c1545d80fd8371288987db696fe76d9856663d8e891f5655863d8e863c11220",
+          "package_bytes": 11237,
+          "native_canonical_bytes": 416,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "9e6b0545accca050b30e1e1966b5bbf037dabb950f014fa4fa7dd2338f966927",
+            "data_audit_identity": "10c7d11f2658aace7f73fe6ab3f965048039a9dafcecbc727f6d7609cc5aa3a4",
+            "leaf_identity": "f502032e23dfcf34aea7b4378372db00ff467e1adcfe78bba4ffa8567ba0c4ec",
+            "method_identity": "aabdda4b57669c0d446ef66cdb537f9805494dcddca4d8dc84eed6055a87f699",
+            "study_identity": "5c9cb57830da48e5c707458e87671efcabd7920b666fb9515fb2385da69f23cf",
+            "context_identity": "3d89805e322eb8a5d12a2123b9a0ba00b76f2a39b205a5b73be5a8151be159b3",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "same_numeric_outputs": true
+    },
+    {
+      "id": "RC03",
+      "scope": "Original synthetic heating value and efficiency envelope; extra finite negative excessive flow.",
+      "fixture_identity": "0bc81c23257fe1eed377ccd4d559db5f37d5db89a6ecbf4791fff22ea5a49eaf",
+      "independent_original_oracle": {
+        "hydrogen_power": "20",
+        "eta": "2/3"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Multiply"
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "PROFILE_PARAMETER_TYPE:h"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "chemical": [
+              "20"
+            ],
+            "lower": [
+              "18"
+            ],
+            "upper": [
+              "24"
+            ]
+          },
+          "conditions": {
+            "high_ok": true,
+            "low_ok": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "high_ok": false,
+              "low_ok": true
+            },
+            "expected_false": "high_ok"
+          },
+          "native_identity": "43534c5017a063c78e77441b503726e7aa51628120de511c22ef408eca84459b",
+          "semantic_identity": "3f673b4aa2b9e616b59ccff9c8c0474a0bbcf455fc4ea688548af06bbbae2ec8",
+          "audit_identity": "f7c090a263a4ff2e55ce26b35708d819ee4b87c6b559ccf40cb4c2e62023da0c",
+          "package_bytes": 14226,
+          "native_canonical_bytes": 290,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "4d4b1b8f53cc59f5b0ac6b11300a26dd48ebbbac59d57bbf33b8e34dcab10fb7",
+            "data_audit_identity": "4d4b1b8f53cc59f5b0ac6b11300a26dd48ebbbac59d57bbf33b8e34dcab10fb7",
+            "leaf_identity": "3f673b4aa2b9e616b59ccff9c8c0474a0bbcf455fc4ea688548af06bbbae2ec8",
+            "method_identity": "a6188033f71119473ef313819b7ceb0cd9cea1233416d24bd0b31fe4a3c55258",
+            "study_identity": "1753617566a38fbcb0bfabe03b21c7de71f55990fa2459a6f7687a6a7c46cbfa",
+            "context_identity": "bfd0a1b9cecb19c0582866f63689f5f5db5d39c0d1930ca97f33d46a5d128171",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      }
+    },
+    {
+      "id": "RC04",
+      "scope": "Single-interval mass ledger; not general temporal recursion or basis conversion.",
+      "fixture_identity": "4ce648cf0b22c9e30a03e6ba63f3b62c6065f8e7d75bce869ecc1185e200bcfa",
+      "independent_original_oracle": {
+        "final": "109",
+        "converted_energy": "109/30"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Add"
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "BASIS"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "stock": [
+              "109"
+            ]
+          },
+          "conditions": {
+            "ledger": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "ledger": false
+            },
+            "expected_false": "ledger"
+          },
+          "native_identity": "d4e4c54dc068cad533d5dabe7bde12ba30574df572a52541dd639b0206b5b3db",
+          "semantic_identity": "ed61a17b7049bd233aa74ac3aca44e304c487cff63f58fa64730ae460b41a05f",
+          "audit_identity": "b8a33a266dd3f57206fff9deda5a7a05467565ea01f51b83d40e921a8494a21d",
+          "package_bytes": 11237,
+          "native_canonical_bytes": 302,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "230e554a057e65b97079b012d2c410bd651910d7e051ae09b07d8f8d810463bf",
+            "data_audit_identity": "230e554a057e65b97079b012d2c410bd651910d7e051ae09b07d8f8d810463bf",
+            "leaf_identity": "ed61a17b7049bd233aa74ac3aca44e304c487cff63f58fa64730ae460b41a05f",
+            "method_identity": "490f3dea4a9cdf8877a4bb5ef69e4dba564cb136e5ed7126cabeb9262a069637",
+            "study_identity": "539fe354e2b2180c9f9722be9c8f459aef5527016468cdcbc389960eeb5a9f08",
+            "context_identity": "2f20120cb197ff349c2947f8357df92e8d225087fc9cf5febe9cd979d3e30098",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      }
+    },
+    {
+      "id": "RC05",
+      "scope": "Equal-coefficient triangle. x is explicitly normalized dimensionless coefficient; not arbitrary physical reactance. KCL-preserving KVL counterexample.",
+      "fixture_identity": "d798ea467b53dbcdcf10add15edb48106862d854c094c7f28c48d3644f4bd7d0",
+      "independent_original_oracle": {
+        "nodal": [
+          "5",
+          "-1",
+          "-4"
+        ],
+        "cycle": "0"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Add"
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "PROFILE_UNWEIGHTED_NON_TIME_SUM"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "cycle": [
+              "0"
+            ],
+            "net": [
+              "5",
+              "-1",
+              "-4"
+            ]
+          },
+          "conditions": {
+            "kcl": true,
+            "kvl": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "kcl": true,
+              "kvl": false
+            },
+            "expected_false": "kvl"
+          },
+          "native_identity": "7171923a96cea23828e926fd031ae4d234d9600309d4876e26a51da047271ae8",
+          "semantic_identity": "41a5b3ef9504caf7e989d9b26f87f98369df0918f63b00bb95b8a299c141abf3",
+          "audit_identity": "5d7192d07905a989b372aa5c3f524f84aea2a5e43d8caa8f0be5f029989f4473",
+          "package_bytes": 11367,
+          "native_canonical_bytes": 449,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "eecbcc166aad209f098e16e7531cdd0ea7f9b549f1231f2decf92bc388f19c34",
+            "data_audit_identity": "eecbcc166aad209f098e16e7531cdd0ea7f9b549f1231f2decf92bc388f19c34",
+            "leaf_identity": "41a5b3ef9504caf7e989d9b26f87f98369df0918f63b00bb95b8a299c141abf3",
+            "method_identity": "485adaa31535b050ee07b8d694871b63665e4f2d2fb9ce504916ec0d58588509",
+            "study_identity": "0a06c02b5aaa386d579a04bf3c35fe75db7d77fb58d27db02d9037943c6836de",
+            "context_identity": "77b0b2ddebedca6f67d2e898a7610d004664f9a9673f0e79c738f5aaf567cd57",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      }
+    },
+    {
+      "id": "RC06",
+      "scope": "Finite commission date specialized from original lead time; integer data and typed discrete capacity/cost.",
+      "fixture_identity": "c4c2dfa6b2f546495274c7ae3927529e9e25ff7c7a0162cc9c73ed7dbd675901",
+      "independent_original_oracle": {
+        "modules": "1",
+        "commission": 2,
+        "capacity": [
+          "0",
+          "0",
+          "100"
+        ],
+        "cost": "100"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Cases"
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "PROFILE_NODE_UNMAPPED:Cases"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "capacity": [
+              "0",
+              "0",
+              "100"
+            ],
+            "cost": [
+              "100"
+            ]
+          },
+          "conditions": {
+            "capacity_ok": true,
+            "cost_ok": true,
+            "module_limit": true
+          },
+          "negative": {
+            "kind": "DATA_DOMAIN_REJECTION",
+            "diagnostic": "INTEGER_DOMAIN"
+          },
+          "native_identity": "e6aae2baddbbd85b31ff20c2fd9409dd201251140825c342a14e1df1bd120d4f",
+          "semantic_identity": "2e72fd0fa820abb67bbd853cd38e583931cd503e56301f866818ff2ccf3a4c30",
+          "audit_identity": "aaf877750838baa80dcc56af5ed3fbf8af813af2db7bb248b1ecde79ca7b5b37",
+          "package_bytes": 15004,
+          "native_canonical_bytes": 538,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "1f22f24a11a78a92ae9845945d448d869231f967b3d39b5b4056363765231bf2",
+            "data_audit_identity": "88dc1da547a8b4c8af8c088150fb16ac245ebbccdc2bf1266a799b910e757f10",
+            "leaf_identity": "2e72fd0fa820abb67bbd853cd38e583931cd503e56301f866818ff2ccf3a4c30",
+            "method_identity": "fb7ceb1299b457fb4483708959133b8b72f200781dddbc47e35f7568c8ebed4d",
+            "study_identity": "6ff8cb15a161fd8c2e4a3b6f51348c89ceb46544ec54ad489a62ca62ab5cdf04",
+            "context_identity": "e662f6bfc3f5a883b2cf53e5b09c1bebe39394f7ee93190410e42b1cb7045eb0",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      }
+    },
+    {
+      "id": "RC07",
+      "scope": "Explicit pre-revelation pair projection; full information-partition and quantifier semantics not evaluated.",
+      "fixture_identity": "5ef12a2c6d93a4065c650f32bc5ba096bb26c9339a762bfa9c147808a3ed3cd0",
+      "independent_original_oracle": {
+        "pre_revelation_equal": true,
+        "after_revelation_may_differ": true
+      },
+      "M0": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "19cb88659cf913dcaf3794c077bbe54fcbd0ad36d1ae5c81d2bbad54390a38cd",
+          "audit_digest": "9d9e23030dfd2b85bda37d3fda5587c16af958f858fbec5408b827428ff458dc",
+          "full_path": false
+        }
+      },
+      "M2_predicate": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "19cb88659cf913dcaf3794c077bbe54fcbd0ad36d1ae5c81d2bbad54390a38cd",
+          "audit_digest": "9d9e23030dfd2b85bda37d3fda5587c16af958f858fbec5408b827428ff458dc",
+          "mapped_nodes": [
+            "ExpressionComparison",
+            "ParameterReference"
+          ],
+          "specializations": [],
+          "body": {
+            "nonanticipativity": {
+              "op": "forall",
+              "var": "t",
+              "domain": {
+                "kind": "time",
+                "ref": "domain:t"
+              },
+              "body": {
+                "op": "compare",
+                "cmp": "eq",
+                "lhs": {
+                  "op": "measure",
+                  "ref": "ref:a",
+                  "indices": [
+                    {
+                      "op": "var",
+                      "name": "t"
+                    }
+                  ]
+                },
+                "rhs": {
+                  "op": "measure",
+                  "ref": "ref:b",
+                  "indices": [
+                    {
+                      "op": "var",
+                      "name": "t"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "contract": {
+            "referents": [
+              {
+                "id": "ref:a",
+                "kind": "entity",
+                "type": "electricity.active_power",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "active_power",
+                  "unit": "MW",
+                  "value": "0",
+                  "sign": "NONE"
+                },
+                "axes": [
+                  "domain:t"
+                ]
+              },
+              {
+                "id": "ref:b",
+                "kind": "entity",
+                "type": "electricity.active_power",
+                "quantity": {
+                  "carrier": "electricity",
+                  "kind": "active_power",
+                  "unit": "MW",
+                  "value": "0",
+                  "sign": "NONE"
+                },
+                "axes": [
+                  "domain:t"
+                ]
+              }
+            ],
+            "relations": [],
+            "predicates": [
+              {
+                "id": "pred:nonanticipativity",
+                "expr": {
+                  "op": "forall",
+                  "var": "t",
+                  "domain": {
+                    "kind": "time",
+                    "ref": "domain:t"
+                  },
+                  "body": {
+                    "op": "compare",
+                    "cmp": "eq",
+                    "lhs": {
+                      "op": "measure",
+                      "ref": "ref:a",
+                      "indices": [
+                        {
+                          "op": "var",
+                          "name": "t"
+                        }
+                      ]
+                    },
+                    "rhs": {
+                      "op": "measure",
+                      "ref": "ref:b",
+                      "indices": [
+                        {
+                          "op": "var",
+                          "name": "t"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "assertions": [
+              {
+                "id": "assert:nonanticipativity",
+                "modality": "REQUIRED",
+                "semantic_role": "SAFETY_GUARANTEE",
+                "predicate_ref": "pred:nonanticipativity",
+                "scope": "scope:research",
+                "guard": true,
+                "authority_refs": [
+                  "source:comparison"
+                ],
+                "decision_state": "OWNER_TBD"
+              }
+            ],
+            "observables": [],
+            "variations": [],
+            "evidences": [
+              {
+                "id": "evidence:nonanticipativity",
+                "role": "REQUEST",
+                "subject_ref": "assert:nonanticipativity",
+                "status": "NOT_EXECUTED",
+                "oracle": "research:static-only"
+              }
+            ],
+            "authorities": [
+              {
+                "id": "source:comparison",
+                "role": "SOURCE",
+                "immutable_ref": "fixture:RC07",
+                "revision": "1",
+                "decision_state": "OWNER_TBD"
+              }
+            ],
+            "frame": {
+              "id": "study:RC07",
+              "schema": "C20-research-r1",
+              "ruleset": "CSNF-R0",
+              "registry": "energy-r1",
+              "question": "Comparative direct observable fragment RC07",
+              "time": {
+                "id": "duration:research",
+                "duration": "1",
+                "duration_unit": "h"
+              },
+              "domains": [
+                {
+                  "id": "domain:t",
+                  "kind": "time",
+                  "members": [
+                    "t0"
+                  ]
+                }
+              ],
+              "scopes": [
+                {
+                  "id": "scope:research",
+                  "domains": [
+                    "domain:t"
+                  ]
+                }
+              ],
+              "guards": [],
+              "information_sets": [],
+              "data_inputs": [],
+              "method_slots": []
+            }
+          },
+          "full_path": false
+        }
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_PROFILE_OUTPUT"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {},
+          "conditions": {
+            "nonanticipativity": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "nonanticipativity": false
+            },
+            "expected_false": "nonanticipativity"
+          },
+          "native_identity": "a06e86b5ea02d9d6d8dde8b248dd36dd7b3a5690f5dac86cb717bbdddb279d49",
+          "semantic_identity": "4a4a3a65aef70858fabc45d099ad05e6b2115d58c61aae1b47c8448294e0a4d4",
+          "audit_identity": "a9795f6a043fb387a34750c93719a6d4557546f47a7887e20bf9703e16e88ef5",
+          "package_bytes": 5254,
+          "native_canonical_bytes": 130,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "8d4dc2a2e9423b8a986443c360bb59300a720e0c90004b8071b138906d5a76a4",
+            "data_audit_identity": "8d4dc2a2e9423b8a986443c360bb59300a720e0c90004b8071b138906d5a76a4",
+            "leaf_identity": "4a4a3a65aef70858fabc45d099ad05e6b2115d58c61aae1b47c8448294e0a4d4",
+            "method_identity": "4f3b5c6a038edf744889d0f3a3c5f3e0f96a180c82333a529b1237436949896f",
+            "study_identity": "a0d734798437c2d9763230e6b8cff01ee167ab9834ebfa0a62863b3da0e710a3",
+            "context_identity": "adabd67f53a124050fed74e56fa1c875ca7da68568869d3480ea4ad6133e1b26",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      }
+    },
+    {
+      "id": "RC08",
+      "scope": "Physical rate × duration, exact cost; contribution-event deduplication remains outer contract.",
+      "fixture_identity": "313be06d02e7a0cad9b6e9d9f98de07641871e49132751ab33789f86f12d1832",
+      "independent_original_oracle": {
+        "kpi": "170"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Add"
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "BASIS"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "total": [
+              "170"
+            ]
+          },
+          "conditions": {
+            "kpi": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "kpi": false
+            },
+            "expected_false": "kpi"
+          },
+          "native_identity": "919134c8d18f6af360d549ff35249b07318d170e990efad00f7cbf38f0e674e4",
+          "semantic_identity": "e9cf916778c9fa222de68d0ff5ee7dd5ee4f0e41a87365ff7967efb2a27ab33e",
+          "audit_identity": "bda5dc18f6463867ac858a31bd72c3b17a4535cbaeb47bb0f22307e8ddc8b9e8",
+          "package_bytes": 11059,
+          "native_canonical_bytes": 300,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "c8f2b96964eb5b8d48f79e741e8f74df0f2658364d506c6652954e33ee895a3d",
+            "data_audit_identity": "c8f2b96964eb5b8d48f79e741e8f74df0f2658364d506c6652954e33ee895a3d",
+            "leaf_identity": "e9cf916778c9fa222de68d0ff5ee7dd5ee4f0e41a87365ff7967efb2a27ab33e",
+            "method_identity": "33f00128dc3bd9367408a4a039f503f90db405bb0405699e6866c71b42552282",
+            "study_identity": "ec22f5c1633e9a630eb091e1ab02eb529fda23880ca5f9781c1389eedcff9598",
+            "context_identity": "b0abb57b2fedbf45f999b849fcdf0780c18e27518718b86ecc8875bc97a06071",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      }
+    },
+    {
+      "id": "RC09",
+      "scope": "Finite cost proxy; exact discount factor derived from original 1/10 rate. Pair/exogeneity remains outer context, not validated by arithmetic.",
+      "fixture_identity": "f35cf9e2d7a04e157916fd16c690b056873ec3153b58c164e3ec81610376821b",
+      "independent_original_oracle": {
+        "annual": "120",
+        "discounted": "1200/11",
+        "owner": "OWNER_TBD"
+      },
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "LEGACY_PREDICATE_EXPRESSION:Divide"
+      },
+      "M2_profile": {
+        "status": "EXECUTED",
+        "result": {
+          "outputs": {
+            "annual": [
+              "120"
+            ],
+            "discounted": [
+              "1200/11"
+            ]
+          },
+          "mapped_nodes": [
+            "Add",
+            "Divide",
+            "ExpressionReference",
+            "Negate",
+            "ParameterReference",
+            "Sum"
+          ],
+          "generated_bindings": [],
+          "mapped_rules": {
+            "annual": {
+              "expr": {
+                "op": "weighted_sum",
+                "expr": {
+                  "op": "add",
+                  "lhs": {
+                    "op": "input",
+                    "id": "baseline"
+                  },
+                  "rhs": {
+                    "op": "mul",
+                    "lhs": {
+                      "op": "literal",
+                      "value": "-1",
+                      "unit": "1"
+                    },
+                    "rhs": {
+                      "op": "input",
+                      "id": "project"
+                    }
+                  }
+                },
+                "axis": "s",
+                "weight": "weight"
+              },
+              "unit": "EUR",
+              "basis": "EUR:real:2025",
+              "axes": []
+            },
+            "discounted": {
+              "expr": {
+                "op": "div",
+                "lhs": {
+                  "op": "rule",
+                  "id": "annual"
+                },
+                "rhs": {
+                  "op": "param",
+                  "id": "factor"
+                }
+              },
+              "unit": "EUR",
+              "basis": "EUR:real:2025",
+              "axes": []
+            }
+          },
+          "stage": "ORIGINAL_R1_PROFILE_ENGINE_ONLY",
+          "owner": "OWNER_TBD",
+          "method_parameter_specializations": {
+            "factor": {
+              "unit": "1",
+              "min": "11/10",
+              "max": "11/10"
+            }
+          },
+          "negative_numeric": {
+            "status": "EXECUTED",
+            "result": {
+              "annual": [
+                "120"
+              ],
+              "discounted": [
+                "1200/11"
+              ]
+            }
+          }
+        }
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "annual": [
+              "120"
+            ],
+            "discounted": [
+              "1200/11"
+            ]
+          },
+          "conditions": {
+            "result_ok": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "result_ok": false
+            },
+            "expected_false": "result_ok"
+          },
+          "native_identity": "e68e206dc41d3a5f20ec3d68587fa1f600baefbc2448c44650d72934915be56b",
+          "semantic_identity": "e4286d8b75c82ddae0553d028cf0e9fdfcfb71b334b1322eebe8d9f63ce14237",
+          "audit_identity": "4344caff2640f66b9214cb104df45e2c3089a912e26110c7d4c31e2c3949a7f5",
+          "package_bytes": 11436,
+          "native_canonical_bytes": 300,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+            "data_audit_identity": "b4567ca614d53212b8dfcbe224af5ea51c19bc2f5199f50b1a0949dadcf30ca6",
+            "leaf_identity": "e4286d8b75c82ddae0553d028cf0e9fdfcfb71b334b1322eebe8d9f63ce14237",
+            "method_identity": "c9fdb4715b611dd1ce88ac4230875d66ca71ecf6eb213a070d90af92370b89dc",
+            "study_identity": "06b512bb2bd2ea8746686935557881b352b2e4bc2d61499d03978952c93d3222",
+            "context_identity": "154fb69332873b158547094c7c5b020a46a4f6530173423a1f36a087676e0239",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "same_numeric_outputs": true
+    },
+    {
+      "id": "RC10",
+      "scope": "Scalar agreement only; no E4/E5 promotion or proof of independent models.",
+      "fixture_identity": "2f55cc6f007835dc77c81fa8de31f25de8947da2cfbdd26441b96ba91e0c5ae1",
+      "independent_original_oracle": {
+        "finite_agreement": true,
+        "e4": "NOT_PROVED",
+        "e5": "NOT_ASSESSED"
+      },
+      "M0": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "d515398074bae073a090c47dbf5e82d4ef5c20b39e37496496d1a2c65b027e2c",
+          "audit_digest": "96c52a9e65ebe3d1eba3d3e567a1e464a46bcee859a2ff3570e9732c7c14b12e",
+          "full_path": false
+        }
+      },
+      "M2_predicate": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "R1_C21_STATIC_ONLY",
+          "status": "BLOCKED",
+          "blocked": [
+            "OWNER_UNRESOLVED"
+          ],
+          "semantic_digest": "d515398074bae073a090c47dbf5e82d4ef5c20b39e37496496d1a2c65b027e2c",
+          "audit_digest": "96c52a9e65ebe3d1eba3d3e567a1e464a46bcee859a2ff3570e9732c7c14b12e",
+          "mapped_nodes": [
+            "ExpressionComparison",
+            "ParameterReference"
+          ],
+          "specializations": [],
+          "body": {
+            "agree": {
+              "op": "compare",
+              "cmp": "eq",
+              "lhs": {
+                "op": "measure",
+                "ref": "ref:a",
+                "indices": []
+              },
+              "rhs": {
+                "op": "measure",
+                "ref": "ref:b",
+                "indices": []
+              }
+            }
+          },
+          "contract": {
+            "referents": [
+              {
+                "id": "ref:a",
+                "kind": "entity",
+                "type": "currency.cost",
+                "quantity": {
+                  "carrier": "currency",
+                  "kind": "cost",
+                  "unit": "EUR",
+                  "value": "0",
+                  "sign": "NONE",
+                  "basis": "EUR:real:2025"
+                },
+                "axes": []
+              },
+              {
+                "id": "ref:b",
+                "kind": "entity",
+                "type": "currency.cost",
+                "quantity": {
+                  "carrier": "currency",
+                  "kind": "cost",
+                  "unit": "EUR",
+                  "value": "0",
+                  "sign": "NONE",
+                  "basis": "EUR:real:2025"
+                },
+                "axes": []
+              }
+            ],
+            "relations": [],
+            "predicates": [
+              {
+                "id": "pred:agree",
+                "expr": {
+                  "op": "compare",
+                  "cmp": "eq",
+                  "lhs": {
+                    "op": "measure",
+                    "ref": "ref:a",
+                    "indices": []
+                  },
+                  "rhs": {
+                    "op": "measure",
+                    "ref": "ref:b",
+                    "indices": []
+                  }
+                }
+              }
+            ],
+            "assertions": [
+              {
+                "id": "assert:agree",
+                "modality": "REQUIRED",
+                "semantic_role": "SAFETY_GUARANTEE",
+                "predicate_ref": "pred:agree",
+                "scope": "scope:research",
+                "guard": true,
+                "authority_refs": [
+                  "source:comparison"
+                ],
+                "decision_state": "OWNER_TBD"
+              }
+            ],
+            "observables": [],
+            "variations": [],
+            "evidences": [
+              {
+                "id": "evidence:agree",
+                "role": "REQUEST",
+                "subject_ref": "assert:agree",
+                "status": "NOT_EXECUTED",
+                "oracle": "research:static-only"
+              }
+            ],
+            "authorities": [
+              {
+                "id": "source:comparison",
+                "role": "SOURCE",
+                "immutable_ref": "fixture:RC10",
+                "revision": "1",
+                "decision_state": "OWNER_TBD"
+              }
+            ],
+            "frame": {
+              "id": "study:RC10",
+              "schema": "C20-research-r1",
+              "ruleset": "CSNF-R0",
+              "registry": "energy-r1",
+              "question": "Comparative direct observable fragment RC10",
+              "time": {
+                "id": "duration:research",
+                "duration": "1",
+                "duration_unit": "h"
+              },
+              "domains": [],
+              "scopes": [
+                {
+                  "id": "scope:research",
+                  "domains": []
+                }
+              ],
+              "guards": [],
+              "information_sets": [],
+              "data_inputs": [],
+              "method_slots": []
+            }
+          },
+          "full_path": false
+        }
+      },
+      "M2_profile": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_PROFILE_OUTPUT"
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {},
+          "conditions": {
+            "agree": true
+          },
+          "negative": {
+            "kind": "FINITE_PREDICATE",
+            "conditions": {
+              "agree": false
+            },
+            "expected_false": "agree"
+          },
+          "native_identity": "fb5efcf26dabe01804f869b098424da967e6dc8da4cb007a9db98fc03b29dc77",
+          "semantic_identity": "95b4278b093d3cb461ec79a4ad8250ac75a48109d40d02fae5b955030805b3ef",
+          "audit_identity": "ddb3144c52b2cdbb1f21945a1a65683b8f181a7e578322c015f0b11c8f8ee93a",
+          "package_bytes": 4893,
+          "native_canonical_bytes": 83,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "252880cb65a3a11d7642a2b3b5d81d90681d32aefe58ae0b829ca5d47c2954c2",
+            "data_audit_identity": "252880cb65a3a11d7642a2b3b5d81d90681d32aefe58ae0b829ca5d47c2954c2",
+            "leaf_identity": "95b4278b093d3cb461ec79a4ad8250ac75a48109d40d02fae5b955030805b3ef",
+            "method_identity": "d3a51b0613af6a8839bf96408c6e7f0f543ac7f710b3bb17ebc1234ae23b779b",
+            "study_identity": "f77467c21ffb1e538c6ac19fe947654b0d6e79127cf3afe5832e1073b7879b42",
+            "context_identity": "6a7d7b0498ce21196278521497fc6ce13fa6180e35c38d45295a86c704b14b09",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      }
+    },
+    {
+      "id": "EX08",
+      "scope": "Explicitly preintegrated EUR amounts; narrower alternative, not original RC08 physical contract.",
+      "fixture_identity": "1139d32139bd12e4b0d40ef6bb9b563c20e0559e6fb6643e211dc913988c12f1",
+      "independent_original_oracle": null,
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_LEGACY_PREDICATE"
+      },
+      "M2_profile": {
+        "status": "EXECUTED",
+        "result": {
+          "outputs": {
+            "total": [
+              "170"
+            ]
+          },
+          "mapped_nodes": [
+            "Add",
+            "ParameterReference",
+            "Sum"
+          ],
+          "generated_bindings": [
+            {
+              "id": "__unity_t",
+              "reason": "Unweighted algebraic sum; explicit unity reduction, not physical duration."
+            }
+          ],
+          "mapped_rules": {
+            "total": {
+              "expr": {
+                "op": "add",
+                "lhs": {
+                  "op": "weighted_sum",
+                  "expr": {
+                    "op": "input",
+                    "id": "amount"
+                  },
+                  "axis": "t",
+                  "weight": "__unity_t"
+                },
+                "rhs": {
+                  "op": "input",
+                  "id": "capex"
+                }
+              },
+              "unit": "EUR",
+              "basis": "EUR:real:2025",
+              "axes": []
+            }
+          },
+          "stage": "ORIGINAL_R1_PROFILE_ENGINE_ONLY",
+          "owner": "OWNER_TBD",
+          "method_parameter_specializations": {}
+        }
+      },
+      "M3": {
+        "status": "EXECUTED",
+        "result": {
+          "stage": "CANONICAL_STATIC_AND_BOUNDED_FINITE_CONSUMER",
+          "outputs": {
+            "total": [
+              "170"
+            ]
+          },
+          "conditions": {},
+          "negative": null,
+          "native_identity": "5303c18058fe11f944873946b762c996fade83c8992c83aaaa8b6a07f0354a7a",
+          "semantic_identity": "e0305a6aa4addd8ee4af18f79a36ecbd6f1b289844066947d8745a8654d5621d",
+          "audit_identity": "6bcb2cc550e31a46fb70d48cec7ce7ee677367cc38aee2b08674a273eb713e76",
+          "package_bytes": 6223,
+          "native_canonical_bytes": 159,
+          "data_receipt": {
+            "schema": "canonical-first-research-0.2",
+            "stage": "FINITE_INPUT_SUPPORT_ONLY",
+            "data_identity": "641981b4ced82c905ab0b173b7f6c9625546c6dbaaf33eb44de935f99953303a",
+            "data_audit_identity": "641981b4ced82c905ab0b173b7f6c9625546c6dbaaf33eb44de935f99953303a",
+            "leaf_identity": "e0305a6aa4addd8ee4af18f79a36ecbd6f1b289844066947d8745a8654d5621d",
+            "method_identity": "9fcd151b55b937db39cf8e77b84338d0a90d8b2ce4bd54f80f465470765143f9",
+            "study_identity": "5c73d4a7baeb2bde8668a890ed44bb7191b9458f133fd0c9951fd81a8eab99f8",
+            "context_identity": "ca27f980792cf37d87153ec9c49ce7897ab9937232ce6e37803e1fe53b8bdae2",
+            "owner": "OWNER_TBD",
+            "predicate_verdict": "NOT_EXECUTED",
+            "scientific_claim": "NONE"
+          },
+          "full_path": false
+        }
+      },
+      "same_numeric_outputs": true
+    },
+    {
+      "id": "EXPOW",
+      "scope": "Counterexample to current M3 admission: data-dependent integer exponent, exact R1 profile support.",
+      "fixture_identity": "3725dbdfa39edf8d887dcac607eaeda4a4f49afd9a047859ee3495c31458161f",
+      "independent_original_oracle": null,
+      "M0": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_INDEPENDENT_LEGACY_CONTROL_FOR_THIS_FRAGMENT"
+      },
+      "M2_predicate": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "NO_LEGACY_PREDICATE"
+      },
+      "M2_profile": {
+        "status": "EXECUTED",
+        "result": {
+          "outputs": {
+            "v": [
+              "11/10",
+              "121/100"
+            ]
+          },
+          "mapped_nodes": [
+            "ParameterReference",
+            "Power"
+          ],
+          "generated_bindings": [],
+          "mapped_rules": {
+            "v": {
+              "expr": {
+                "op": "pow",
+                "lhs": {
+                  "op": "input",
+                  "id": "base"
+                },
+                "rhs": {
+                  "op": "input",
+                  "id": "n"
+                }
+              },
+              "unit": "1",
+              "basis": "",
+              "axes": [
+                "t"
+              ]
+            }
+          },
+          "stage": "ORIGINAL_R1_PROFILE_ENGINE_ONLY",
+          "owner": "OWNER_TBD",
+          "method_parameter_specializations": {}
+        }
+      },
+      "M3": {
+        "status": "UNSUPPORTED_OR_REJECTED",
+        "diagnostic": "POWER_DOMAIN"
+      }
+    }
+  ],
+  "controls": {
+    "profile_swaps": [
+      {
+        "timing": "begin",
+        "M0_R1_A": "415/11",
+        "M0_R1_B": "415/11",
+        "MS1_native_consumer": "415/11",
+        "expected": "415/11",
+        "same": true,
+        "R1_integrated_result_receipt": {
+          "run_id": "run:db91da3b3ee80a382d5a915505bacd9e53bf14df0fdf566fd717c779418e575a",
+          "source_digest": "e8210fc996399cdae231738dee9f9a8b4bb4206c89708d8ede5227cfddaf6d7c",
+          "syntax": "A",
+          "verification_scope": "FINITE_SYNTHETIC_PROFILE_EVALUATION",
+          "result_status": "EXECUTED_UNJUDGED",
+          "contract_request_status": "NOT_EXECUTED"
+        },
+        "R1_audit_digest": "d0fe4fe40ded45072b4a243246ea0d21bc776334da58467604024731beec73d9",
+        "M3_scope": "MS1 finite mathematical control; not current canonical package method governance",
+        "method_blob_sha256": "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d"
+      },
+      {
+        "timing": "end",
+        "M0_R1_A": "4150/121",
+        "M0_R1_B": "4150/121",
+        "MS1_native_consumer": "4150/121",
+        "expected": "4150/121",
+        "same": true,
+        "R1_integrated_result_receipt": {
+          "run_id": "run:d2efdce83deb5444f8d2675237499f2185d6dc2f9396bc996f3f7a6e606ddb33",
+          "source_digest": "e8210fc996399cdae231738dee9f9a8b4bb4206c89708d8ede5227cfddaf6d7c",
+          "syntax": "A",
+          "verification_scope": "FINITE_SYNTHETIC_PROFILE_EVALUATION",
+          "result_status": "EXECUTED_UNJUDGED",
+          "contract_request_status": "NOT_EXECUTED"
+        },
+        "R1_audit_digest": "c3acb4d2c724ea9fe4a94f781e530b3502a6093fc39eeaf675e8c94266ed6049",
+        "M3_scope": "MS1 finite mathematical control; not current canonical package method governance",
+        "method_blob_sha256": "207fb0c06065f637872bcfef0a71ac349969d727b2a28b22e75d64faa2e92e7e"
+      }
+    ],
+    "outer_semantics_control": {
+      "M0_R1": "BLOCKED",
+      "blocked": [
+        "COUNTERFACTUAL_CONTEXT_REQUIRES_PROFILE",
+        "OWNER_UNRESOLVED",
+        "SERVICE_BEHAVIOURAL_EVIDENCE_REQUIRED",
+        "UNKNOWN_GUARD"
+      ],
+      "M3": "C2_REQUIRED; no A/G or Bool3 execution",
+      "scope": "static declaration, no service conformance"
+    }
+  },
+  "limitations": [
+    "M2 and M3 different maturity; supported legacy mapping not a proof of intrinsic architecture limits.",
+    "R1 predicate static is not numeric conformance; R1 profile math is not full CSNF contract.",
+    "M3 finite consumer reuses MS1 arithmetic and limited test-only join/cases checks, not native execution or complete model conformance.",
+    "No independent human audit; no full M0/M2/M3 equal-scope performance or ablation."
+  ]
+}

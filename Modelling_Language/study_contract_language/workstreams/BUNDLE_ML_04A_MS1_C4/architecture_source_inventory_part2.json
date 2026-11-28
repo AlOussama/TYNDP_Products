@@ -1,0 +1,460 @@
+{
+  "scope": "C2 native interfaces and outer validators; literal source census, not complete system call graph",
+  "commit": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+  "modules": [
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/interface.py",
+      "blob": "be8e15b0a033275f6ef1c328c9a7012c0bd622b5",
+      "nonblank_non_comment_lines": 39,
+      "functions": 7,
+      "classes": 0,
+      "imports": [
+        "from pathlib import Path",
+        "import sys",
+        "import package_interface as old",
+        "from closure import need,fields,c1",
+        "from WS_B import affine_boundary",
+        "from WS_B import power_boundary",
+        "from closure_v1.runtime import consumer"
+      ],
+      "function_names": [
+        "package_version",
+        "_api",
+        "import_package",
+        "predicate_client",
+        "resolve_predicate",
+        "resolve_method",
+        "finite_consumer"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/canonical.py",
+      "blob": "614cc970ddf53e6a29d88f5400d601d4860f3380",
+      "nonblank_non_comment_lines": 49,
+      "functions": 4,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from interface import import_package",
+        "from closure import fields,need,canon,digest,c1",
+        "from WS_A.contract import evaluate_group",
+        "from WS_B.methods import validate,identities"
+      ],
+      "function_names": [
+        "semantic_contract",
+        "evaluate",
+        "export",
+        "reimport"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/WS_A/contract.py",
+      "blob": "c8ab460c36d8cc2a2bb35221d4acfa89d3d142ef",
+      "nonblank_non_comment_lines": 90,
+      "functions": 5,
+      "classes": 0,
+      "imports": [
+        "import sys",
+        "from pathlib import Path",
+        "from itertools import product",
+        "from interface import resolve_predicate,import_package,finite_consumer",
+        "from closure import need,fields"
+      ],
+      "function_names": [
+        "not3",
+        "fold3",
+        "evaluate",
+        "walk",
+        "evaluate_group"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/WS_B/methods.py",
+      "blob": "a12dee1e918287995ed036744a6d48a2dce43ace",
+      "nonblank_non_comment_lines": 116,
+      "functions": 5,
+      "classes": 0,
+      "imports": [
+        "import sys,json",
+        "from pathlib import Path",
+        "from interface import resolve_method,import_package,package_version,finite_consumer,V1",
+        "from closure import need,fields,digest,native,source_map,semantic_context,text_hash",
+        "from closure import c1",
+        "from legacy_comparison import map_predicates",
+        "from profile_engine import rational",
+        "from WS_B.native_ledger import check as check_ledger"
+      ],
+      "function_names": [
+        "identities",
+        "migrate_with_audit",
+        "probability_policy",
+        "check_static",
+        "validate"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/WS_B/native_ledger.py",
+      "blob": "e740180d9e119de472bf8efb9ed0a3645ad854ff",
+      "nonblank_non_comment_lines": 67,
+      "functions": 3,
+      "classes": 0,
+      "imports": [
+        "from collections import Counter",
+        "from types import SimpleNamespace",
+        "import mathspec.program as mp",
+        "from closure import fields,need,Reject",
+        "from n7 import contribution_table,ident,unique"
+      ],
+      "function_names": [
+        "check",
+        "rule",
+        "walk"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/WS_B/affine_boundary.py",
+      "blob": "00cc1723bb380169006457aebbe68edde0b2d4af",
+      "nonblank_non_comment_lines": 66,
+      "functions": 13,
+      "classes": 2,
+      "imports": [
+        "import mathspec.program as mp",
+        "from fractions import Fraction",
+        "from closure import _admit,constant,need",
+        "from WS_B import power_boundary as old"
+      ],
+      "function_names": [
+        "exact_constant",
+        "exponent_policy",
+        "bounds",
+        "nonnegative",
+        "base_positive",
+        "expr",
+        "admit",
+        "reimport",
+        "bind_data",
+        "export_package",
+        "import_package",
+        "method_client",
+        "__init__"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/WS_B/power_boundary.py",
+      "blob": "c647a17d1f01023fed48fe7b7c460da1a44ae5d1",
+      "nonblank_non_comment_lines": 72,
+      "functions": 16,
+      "classes": 2,
+      "imports": [
+        "from copy import deepcopy",
+        "import mathspec.program as mp",
+        "from closure import (Checked,need,fields,native,constant,DIMLESS,digest,canon,c1,",
+        "from native_consumer import FiniteNative"
+      ],
+      "function_names": [
+        "__init__",
+        "base_positive",
+        "exponent_policy",
+        "expr",
+        "admit",
+        "_reimport",
+        "reimport",
+        "_bind_power_data",
+        "bind_data",
+        "_export_package",
+        "export_package",
+        "_import_package",
+        "import_package",
+        "_method_client",
+        "method_client",
+        "__init__"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/metadata.py",
+      "blob": "4971b02c12aa6e65a683ad5f4272b15597b964ed",
+      "nonblank_non_comment_lines": 206,
+      "functions": 12,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from fractions import Fraction as F",
+        "from itertools import product",
+        "from closure import need,fields,quantity,qualified,exact,digest,Reject",
+        "from closure_v1 import r1_reuse as r1",
+        "from closure import native",
+        "import mathspec.program as mp"
+      ],
+      "function_names": [
+        "index",
+        "string",
+        "members",
+        "refs",
+        "qcompat",
+        "legacy_quantity",
+        "validate",
+        "authorities",
+        "axes",
+        "typed",
+        "validate_package_domains",
+        "visit"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/obligations.py",
+      "blob": "61ca8814673508da13db9d8dc76f25f73bed4c01",
+      "nonblank_non_comment_lines": 232,
+      "functions": 15,
+      "classes": 1,
+      "imports": [
+        "from itertools import product",
+        "from closure import fields,need,qualified,digest,Reject",
+        "from interface import import_package,resolve_predicate,finite_consumer",
+        "from WS_A.contract import TRUTH,not3,fold3,ROLES",
+        "from closure_v1.metadata import index,refs,validate_package_domains",
+        "import mathspec.program as mp"
+      ],
+      "function_names": [
+        "__init__",
+        "resolve",
+        "at",
+        "guard_refs",
+        "guard",
+        "table",
+        "validate",
+        "evaluate",
+        "point",
+        "fold",
+        "walk",
+        "nonanticipativity",
+        "boundaries",
+        "equality",
+        "unconditional"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/definition.py",
+      "blob": "bf05fbc63bc4e42530514b583b5ced37d574870d",
+      "nonblank_non_comment_lines": 330,
+      "functions": 12,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from fractions import Fraction as F",
+        "from closure import need,fields,qualified,exact,digest,text_hash,canon,c1",
+        "from interface import resolve_method",
+        "from WS_B.methods import check_static",
+        "from closure_v1 import graph,metadata as md,obligations as ob,identity,ledger",
+        "from closure_v1.diagnostics import call as checked,pointer,scope as diagnostic_scope",
+        "from closure_v1.selection import validate as validate_selector",
+        "from closure_v1.selection import native_pair",
+        "from closure_v1.r1_reuse import c21,monetary",
+        "from closure import quantity",
+        "from closure_v1.r1_reuse import monetary"
+      ],
+      "function_names": [
+        "ledger_static",
+        "source_refs",
+        "requirement_design",
+        "shape",
+        "validate_conversion",
+        "converted_rows",
+        "_admit",
+        "admit",
+        "_instantiate",
+        "instantiate",
+        "export",
+        "reimport"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/graph.py",
+      "blob": "81bfa119617c635b8b72ad6c4d71373968fded17",
+      "nonblank_non_comment_lines": 268,
+      "functions": 17,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from fractions import Fraction as F",
+        "from collections import defaultdict",
+        "from pathlib import Path",
+        "import mathspec.program as mp",
+        "from closure import need,fields,qualified,exact,digest,text_hash,canon,c1,Reject",
+        "from WS_B.methods import validate as validate_method",
+        "from closure_v1 import metadata as md,obligations as ob,identity",
+        "from closure_v1.diagnostics import call as checked,pointer",
+        "from itertools import product",
+        "from closure_v1 import ledger"
+      ],
+      "function_names": [
+        "pins",
+        "trust",
+        "sources",
+        "disclosures",
+        "value_type",
+        "signature",
+        "values",
+        "read_params",
+        "validate_bindings",
+        "comparison",
+        "compare",
+        "verify_requests",
+        "context_rows",
+        "report_receipts",
+        "evaluate",
+        "export",
+        "reimport"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/identity.py",
+      "blob": "7cfed1210feb9499fc47cd865606e79d0d040720",
+      "nonblank_non_comment_lines": 58,
+      "functions": 9,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "import json",
+        "from closure import digest,native,source_map,semantic_context,c1",
+        "from interface import import_package,package_version"
+      ],
+      "function_names": [
+        "_mathematics",
+        "mathematics",
+        "method_mathematics",
+        "byid",
+        "frame",
+        "guard",
+        "assertion",
+        "profile",
+        "method_identity"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/ledger.py",
+      "blob": "1e06743d65e309f70c71f88ecfae6c8f9fd42fc4",
+      "nonblank_non_comment_lines": 119,
+      "functions": 10,
+      "classes": 0,
+      "imports": [
+        "from collections import Counter",
+        "from types import SimpleNamespace",
+        "from itertools import product",
+        "from copy import deepcopy",
+        "import mathspec.program as mp",
+        "from closure import fields,need,qualified,digest,Reject",
+        "from closure_v1.metadata import index",
+        "from closure_v1.r1_reuse import ident",
+        "from n7 import contribution_table"
+      ],
+      "function_names": [
+        "validate_events",
+        "semantic",
+        "receipt",
+        "evaluate",
+        "total",
+        "envkey",
+        "rule",
+        "has_atoms",
+        "joined",
+        "walk"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/runtime.py",
+      "blob": "8db2728a512e5665c7449ee7e57e1d1815182a27",
+      "nonblank_non_comment_lines": 57,
+      "functions": 5,
+      "classes": 1,
+      "imports": [
+        "from fractions import Fraction as F",
+        "import mathspec.program as mp",
+        "from native_consumer import FiniteNative, Q, compare, coords",
+        "from closure import need, native, Checked",
+        "from interface import import_package, package_version, _api, V1, V2"
+      ],
+      "function_names": [
+        "__init__",
+        "neighbors",
+        "expr",
+        "cond",
+        "consumer"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/selection.py",
+      "blob": "a5aab63ae2851eb398d03985a8fb2ad56237bd4a",
+      "nonblank_non_comment_lines": 48,
+      "functions": 2,
+      "classes": 0,
+      "imports": [
+        "import mathspec.program as mp",
+        "from closure import need",
+        "from closure_v1 import obligations as ob"
+      ],
+      "function_names": [
+        "native_pair",
+        "validate"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/composition.py",
+      "blob": "d391f464099d689872480c1ca03cc48abe4fd8da",
+      "nonblank_non_comment_lines": 82,
+      "functions": 5,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from closure import fields,need,qualified,digest,canon,c1,native,source_map",
+        "from interface import import_package,package_version",
+        "from closure_v1 import definition,metadata,identity,graph",
+        "from closure_v1.diagnostics import call as checked,pointer"
+      ],
+      "function_names": [
+        "_changed",
+        "_compose",
+        "compose",
+        "export",
+        "reimport"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/diagnostics.py",
+      "blob": "fb5c0e12b163cdc82fe930bcbdf1588b6df7bf6f",
+      "nonblank_non_comment_lines": 56,
+      "functions": 6,
+      "classes": 1,
+      "imports": [
+        "from contextlib import contextmanager",
+        "from contextvars import ContextVar",
+        "from copy import deepcopy",
+        "from closure import Reject,digest,need,text_hash"
+      ],
+      "function_names": [
+        "pointer",
+        "__init__",
+        "rule_for",
+        "scope",
+        "call",
+        "candidate_receipt"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/closure_v1/r1_reuse.py",
+      "blob": "ddf8e8bc353953eaed968c09ba99d8f9bdabfd49",
+      "nonblank_non_comment_lines": 25,
+      "functions": 2,
+      "classes": 0,
+      "imports": [
+        "from pathlib import Path",
+        "import sys",
+        "from n1r import table,unique,ident,quantity as old_quantity,need,fields,c21,pins",
+        "from units_r1 import monetary"
+      ],
+      "function_names": [
+        "unique_members",
+        "information"
+      ]
+    }
+  ]
+}

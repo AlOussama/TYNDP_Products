@@ -1,0 +1,236 @@
+{
+  "status": "SCOPED_MEASUREMENT_COMPLETE_GLOBAL_MINIMALITY_NOT_PROVED",
+  "method": "Nonblank non-comment physical lines (includes docstrings); regex function/class/import statements; per selected source module; no AST count or complete comparable architecture LOC claim",
+  "modules": [
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+      "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "characters": 12116,
+      "nonblank_non_comment_lines": 205,
+      "functions": 13,
+      "classes": 1,
+      "import_statements": 5
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "blob": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "characters": 9744,
+      "nonblank_non_comment_lines": 104,
+      "functions": 16,
+      "classes": 4,
+      "import_statements": 5
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+      "blob": "e7e7976bda1d939ce79df7b7f72a19b58aedfbab",
+      "characters": 12541,
+      "nonblank_non_comment_lines": 167,
+      "functions": 12,
+      "classes": 1,
+      "import_statements": 8
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1/architecture_prototypes/adapter.py",
+      "blob": "384530beb13ef96bad6b4165013aaa27944d880f",
+      "characters": 9654,
+      "nonblank_non_comment_lines": 179,
+      "functions": 22,
+      "classes": 3,
+      "import_statements": 8
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "blob": "12f0317bf4964ca0c39ee3d38e8e1c73d4a58c2e",
+      "characters": 24291,
+      "nonblank_non_comment_lines": 359,
+      "functions": 30,
+      "classes": 2,
+      "import_statements": 12
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+      "blob": "79de642a99f82850330384dbb9605ace79f3443f",
+      "characters": 3739,
+      "nonblank_non_comment_lines": 56,
+      "functions": 5,
+      "classes": 0,
+      "import_statements": 2
+    }
+  ],
+  "prior_same_fixture_comparison": {
+    "source": "BUNDLE_ML_04A_MS1_C1/comparative_canonical_evidence/comparison_results.json",
+    "counts": {
+      "primary_fragments": 10,
+      "M0_static_controls": 3,
+      "M2_legacy_predicate_static": 3,
+      "M2_legacy_profile_numeric": 2,
+      "M3_static_and_finite": 10,
+      "matched_numeric_M2_M3": 2,
+      "matched_legacy_M0_M2": 3
+    },
+    "common": [
+      {
+        "id": "RC01",
+        "scope": "Signed grid exchange only; terminal/efficiency ledger outside comparison. R1 fixed duration specialization uses the original 0.5 h frame.",
+        "legacy_equal": {
+          "semantic": true,
+          "audit": true
+        },
+        "same_numeric_outputs": false,
+        "M0": "EXECUTED",
+        "M2_predicate": "EXECUTED",
+        "M2_profile": "UNSUPPORTED_OR_REJECTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": [
+          "ExpressionComparison",
+          "ExpressionReference",
+          "Multiply",
+          "ParameterReference"
+        ]
+      },
+      {
+        "id": "RC02",
+        "scope": "Exact explicit kWh to MWh conversion (1/1000); eligibility derived from original connection/departure. Finite service, not forall-request capability.",
+        "legacy_equal": false,
+        "same_numeric_outputs": true,
+        "M0": "UNSUPPORTED_OR_REJECTED",
+        "M2_predicate": "UNSUPPORTED_OR_REJECTED",
+        "M2_profile": "EXECUTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": []
+      },
+      {
+        "id": "RC07",
+        "scope": "Explicit pre-revelation pair projection; full information-partition and quantifier semantics not evaluated.",
+        "legacy_equal": {
+          "semantic": true,
+          "audit": true
+        },
+        "same_numeric_outputs": false,
+        "M0": "EXECUTED",
+        "M2_predicate": "EXECUTED",
+        "M2_profile": "UNSUPPORTED_OR_REJECTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": [
+          "ExpressionComparison",
+          "ParameterReference"
+        ]
+      },
+      {
+        "id": "RC09",
+        "scope": "Finite cost proxy; exact discount factor derived from original 1/10 rate. Pair/exogeneity remains outer context, not validated by arithmetic.",
+        "legacy_equal": false,
+        "same_numeric_outputs": true,
+        "M0": "UNSUPPORTED_OR_REJECTED",
+        "M2_predicate": "UNSUPPORTED_OR_REJECTED",
+        "M2_profile": "EXECUTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": []
+      },
+      {
+        "id": "RC10",
+        "scope": "Scalar agreement only; no E4/E5 promotion or proof of independent models.",
+        "legacy_equal": {
+          "semantic": true,
+          "audit": true
+        },
+        "same_numeric_outputs": false,
+        "M0": "EXECUTED",
+        "M2_predicate": "EXECUTED",
+        "M2_profile": "UNSUPPORTED_OR_REJECTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": [
+          "ExpressionComparison",
+          "ParameterReference"
+        ]
+      },
+      {
+        "id": "EX08",
+        "scope": "Explicitly preintegrated EUR amounts; narrower alternative, not original RC08 physical contract.",
+        "legacy_equal": false,
+        "same_numeric_outputs": true,
+        "M0": "UNSUPPORTED_OR_REJECTED",
+        "M2_predicate": "UNSUPPORTED_OR_REJECTED",
+        "M2_profile": "EXECUTED",
+        "M3": "EXECUTED",
+        "mapped_nodes": []
+      }
+    ],
+    "profile_swaps": [
+      {
+        "timing": "begin",
+        "legacy": "415/11",
+        "native": "415/11",
+        "same": true
+      },
+      {
+        "timing": "end",
+        "legacy": "4150/121",
+        "native": "4150/121",
+        "same": true
+      }
+    ]
+  },
+  "unknown": [
+    "complete active transitive code census",
+    "grammar production counts",
+    "AST node counts for same complete semantic scope",
+    "total adapter burden",
+    "independent human effort"
+  ],
+  "scope": "C1 common static 3 (RC01/07/10); common numeric M2/M3 2 (RC02/09); EX08 additional narrower control; not identical full architecture scope",
+  "actual_replay": {
+    "run": 46087812255,
+    "counts": {
+      "primary_fragments": 10,
+      "M0_static_controls": 3,
+      "M2_legacy_predicate_static": 3,
+      "M2_legacy_profile_numeric": 2,
+      "M3_static_and_finite": 10,
+      "matched_numeric_M2_M3": 2,
+      "matched_legacy_M0_M2": 3
+    },
+    "source_metrics": [
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+        "nonblank_noncomment_lines": 167
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/native_consumer.py",
+        "nonblank_noncomment_lines": 76
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+        "nonblank_noncomment_lines": 359
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+        "nonblank_noncomment_lines": 56
+      },
+      {
+        "path": "BUNDLE_ML_04A_R1/n1r.py",
+        "nonblank_noncomment_lines": 159
+      },
+      {
+        "path": "BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+        "nonblank_noncomment_lines": 104
+      }
+    ]
+  },
+  "consolidation": {
+    "affected_nonblank_noncomment_lines_before": 627,
+    "after": 1,
+    "delta": 94,
+    "direct_test_import_modules_before": 4,
+    "after_test_import_modules": 0,
+    "duplicated_slot_builders_before": 2,
+    "independent_math_authority_count": 1,
+    "native_exact_receipt_differences": 0
+  },
+  "extended_inventories": [
+    "architecture_source_inventory_part1.json",
+    "architecture_source_inventory_part2.json",
+    "architecture_source_inventory_part3.json"
+  ],
+  "interpretation": "M3 direct reuse avoids target mathematical rewrite, but no universal minimality or same-coverage whole-system LOC comparison. M0/M2/M3 common static projections only RC01/07/10; numeric common M2/M3 only RC02/09."
+}

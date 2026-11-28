@@ -1,0 +1,3194 @@
+{
+  "run": 46087812255,
+  "job": 140801422477,
+  "rows": [
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "ENERGY_LEDGER",
+          "expected": "ENERGY_LEDGER",
+          "family": "C23",
+          "fixture_sha256": "16782038acd57bf99e6484f2b3bdfbf6ddf0f6cf5a25b84599f263cb77dc3100",
+          "id": "MUT-01",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "8d097f09f4e29fe6c55f5f88852dbdedab703b155979bc8aee8af3f9e0a11a22",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "16782038acd57bf99e6484f2b3bdfbf6ddf0f6cf5a25b84599f263cb77dc3100",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/intake_balance",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-01.scn",
+          "candidate_source_sha256": "fc70a1873b252bfc14d6429ba4688ea4fc1e31e11835f2fe033252fc69acd092",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:intake_balance",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-01",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/0/mutation"
+        },
+        "derived_mutation": {
+          "blob": "80c5fa2a0d9c89200c545e9b2d37c972deb851fc",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-01",
+        "family": "C23",
+        "id": "MUT-01",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC01",
+        "rule_id": "R07",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_source_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+      "owner": "OWNER_TBD",
+      "rc": "RC01",
+      "representation_audit_identity": "7f6d94343f3b7317e48d0be9f29e550bcd60391b20ead664c6b34bfbff38c0eb",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "aca8fae2bd010c3a26ff2b7e886a6331d24abb99b4c5d686551c8007e1ced272",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:terminal_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "f8d154ab82546dc53e0a74f85c7f6945e35799534ca303577e42d729f525c46d",
+        "graph_semantic_identity": "a3a51bb017c6e293f8ab96830ffd525e313ee3a8ae648deff51dadec038fff24",
+        "instance_pin": "1de4e558b93393bc3b822c6b2bd6d9a0d3111600ca238ad4a75fb27bb4f7f190",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:energy_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:intake_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:port_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:soc_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:stock_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "cf558c92a8230c7b1da0708a4464997e328d173e300e8dbcd469eff14b27bb4c",
+        "native_package_sha256": "7fc633b45159455aa8cb0f12d8f296c50c31e2b760692dd300ee4bd7a0dfc663",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:energy_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:intake_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:port_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:soc_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:stock_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "19/10"
+            }
+          ],
+          "output:intake": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1"
+            }
+          ],
+          "output:loss": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1/10"
+            }
+          ],
+          "output:soc_projection": [
+            {
+              "key": [],
+              "value": "19/10"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "6f73f1cb84f48eeb3bdd97ec836c65cb0cf8cba6be559f91a3fb02d007925f12",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "642b573d76feaf597caad8a21ff5f79a54029b64d52d02e79a38673e7705361d",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "AMBIGUOUS_ALIAS",
+            "path": "/instance/record/study_frame/domains/component",
+            "rule_id": "R01",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "DURATION_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/dt",
+            "rule_id": "R07",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/study_frame/authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "7e4b1083e8654cab586f563996f281b36c7f1232",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-01.scn",
+      "source_sha256": "fc70a1873b252bfc14d6429ba4688ea4fc1e31e11835f2fe033252fc69acd092",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "ENERGY_LEDGER",
+          "expected": "ENERGY_LEDGER",
+          "family": "C23",
+          "fixture_sha256": "16782038acd57bf99e6484f2b3bdfbf6ddf0f6cf5a25b84599f263cb77dc3100",
+          "id": "MUT-01",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "8d097f09f4e29fe6c55f5f88852dbdedab703b155979bc8aee8af3f9e0a11a22",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "16782038acd57bf99e6484f2b3bdfbf6ddf0f6cf5a25b84599f263cb77dc3100",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/intake_balance",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-01.json",
+          "candidate_source_sha256": "4a05fed988d2623690ba60800b85e578b2ab4881f79c31b07999894d50efff64",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:intake_balance",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-01",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/0/mutation"
+        },
+        "derived_mutation": {
+          "blob": "80c5fa2a0d9c89200c545e9b2d37c972deb851fc",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-01.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-01",
+        "family": "C23",
+        "id": "MUT-01",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC01",
+        "rule_id": "R07",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_source_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+      "owner": "OWNER_TBD",
+      "rc": "RC01",
+      "representation_audit_identity": "adc240b7d1dbb4c0a65069e6703ae5d780ad13ad631a4218a177e3e04f5d04dd",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "aca8fae2bd010c3a26ff2b7e886a6331d24abb99b4c5d686551c8007e1ced272",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:terminal_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "f8d154ab82546dc53e0a74f85c7f6945e35799534ca303577e42d729f525c46d",
+        "graph_semantic_identity": "a3a51bb017c6e293f8ab96830ffd525e313ee3a8ae648deff51dadec038fff24",
+        "instance_pin": "1de4e558b93393bc3b822c6b2bd6d9a0d3111600ca238ad4a75fb27bb4f7f190",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:energy_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:intake_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:port_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:soc_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:stock_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "cf558c92a8230c7b1da0708a4464997e328d173e300e8dbcd469eff14b27bb4c",
+        "native_package_sha256": "7fc633b45159455aa8cb0f12d8f296c50c31e2b760692dd300ee4bd7a0dfc663",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:energy_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:intake_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:port_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:soc_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:stock_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "19/10"
+            }
+          ],
+          "output:intake": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1"
+            }
+          ],
+          "output:loss": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1/10"
+            }
+          ],
+          "output:soc_projection": [
+            {
+              "key": [],
+              "value": "19/10"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "6f73f1cb84f48eeb3bdd97ec836c65cb0cf8cba6be559f91a3fb02d007925f12",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "642b573d76feaf597caad8a21ff5f79a54029b64d52d02e79a38673e7705361d",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "AMBIGUOUS_ALIAS",
+            "path": "/instance/record/study_frame/domains/component",
+            "rule_id": "R01",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "DURATION_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/dt",
+            "rule_id": "R07",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/study_frame/authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "c0aa46dfed381887c640a0bf2d5c57d9c772ef63",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-01.json",
+      "source_sha256": "4a05fed988d2623690ba60800b85e578b2ab4881f79c31b07999894d50efff64",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "EV_SERVICE",
+          "expected": "EV_SERVICE",
+          "family": "C23",
+          "fixture_sha256": "18858877e5d6cd3ae972df23d4b53a601dcef380e0c52d8a15ceb09d95655b56",
+          "id": "MUT-02",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "7da0eb6bd372f4436f40279b298e2d2cc8faf669eac778c42ec072048da4e700",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "18858877e5d6cd3ae972df23d4b53a601dcef380e0c52d8a15ceb09d95655b56",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/service",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-02.scn",
+          "candidate_source_sha256": "04b7afdbcf8450b7223dbd7995be12a93cb7de6ecff77637bdfba285a4c6b7ef",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": 2,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:service",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R09",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-02",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/1/mutation"
+        },
+        "derived_mutation": {
+          "blob": "4905c76a34e8750623c9d14ca553b90c5dbf1ba2",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-02",
+        "family": "C23",
+        "id": "MUT-02",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC02",
+        "rule_id": "R09",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+      "original_source_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+      "owner": "OWNER_TBD",
+      "rc": "RC02",
+      "representation_audit_identity": "23e9e6374c7a2246aea958821b0bb8955dc7265972bd7ad2051cb8be1beba9eb",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "15d59c555250ebbcfbe99b094cc382aaae34a971630cb8255c32252e0de3cf84",
+        "external_reports": [],
+        "graph_audit_identity": "8f39bb89879f74f5b4b8d6be92286cfe2f67e6a8cfd1452a39bb2b1d37a4e646",
+        "graph_semantic_identity": "32b216aeea6e8aac2984d9877b3d221fe704edae5fa28405bf82cd24b0541b28",
+        "instance_pin": "e69522181f70c6f5f2ecaacd6771e2312c47f03ccbbc81fd30385aa113f79e12",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:connection_window": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:nonnegative_charging": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:service": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e46757ee3f6d53eea5e67b127cfaa2d1f20edce67a7834eb7158173fd2dc444a",
+        "native_package_sha256": "6228e582b3c51015edeecb42fc2af2ef9e00bffbbc6d4def4f6c8392ffaaf373",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:connection_window",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:nonnegative_charging",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": 2,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:service",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:fleet_total": [
+            {
+              "key": [],
+              "value": "1/100"
+            }
+          ],
+          "output:outside_connection": [
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV2"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV2"
+              ],
+              "value": "0"
+            }
+          ],
+          "output:received": [
+            {
+              "key": [
+                "observed_schedule",
+                "EV1"
+              ],
+              "value": "1/200"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "EV2"
+              ],
+              "value": "1/200"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "fdcdc19c9ea7fb90c3db36ba6476f824bbd3e76523f48156ad072a608b5ed1ea",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "e23c3a7270a52a2d4ba34b1e64cf00e76851f073fffab00a7bc56a9036b1993a",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "V2G_UNAUTHORIZED",
+            "path": "/instance/record/synthetic_data/inputs/v2g_authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "e1038e8b67313dbaab58fb70ec5385bb3278645f",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-02.scn",
+      "source_sha256": "04b7afdbcf8450b7223dbd7995be12a93cb7de6ecff77637bdfba285a4c6b7ef",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "EV_SERVICE",
+          "expected": "EV_SERVICE",
+          "family": "C23",
+          "fixture_sha256": "18858877e5d6cd3ae972df23d4b53a601dcef380e0c52d8a15ceb09d95655b56",
+          "id": "MUT-02",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "7da0eb6bd372f4436f40279b298e2d2cc8faf669eac778c42ec072048da4e700",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "18858877e5d6cd3ae972df23d4b53a601dcef380e0c52d8a15ceb09d95655b56",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/service",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-02.json",
+          "candidate_source_sha256": "1b3d09d499a6bd7e6651c169ba04d34de902f0098e449d627f1adde94186ea25",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": 2,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:service",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R09",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-02",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/1/mutation"
+        },
+        "derived_mutation": {
+          "blob": "4905c76a34e8750623c9d14ca553b90c5dbf1ba2",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-02.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-02",
+        "family": "C23",
+        "id": "MUT-02",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC02",
+        "rule_id": "R09",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+      "original_source_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+      "owner": "OWNER_TBD",
+      "rc": "RC02",
+      "representation_audit_identity": "b71e365ffabfdeafef060cdda5b1661d7a5da79656c74e2a788f56d9845884c0",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "15d59c555250ebbcfbe99b094cc382aaae34a971630cb8255c32252e0de3cf84",
+        "external_reports": [],
+        "graph_audit_identity": "8f39bb89879f74f5b4b8d6be92286cfe2f67e6a8cfd1452a39bb2b1d37a4e646",
+        "graph_semantic_identity": "32b216aeea6e8aac2984d9877b3d221fe704edae5fa28405bf82cd24b0541b28",
+        "instance_pin": "e69522181f70c6f5f2ecaacd6771e2312c47f03ccbbc81fd30385aa113f79e12",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:connection_window": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:nonnegative_charging": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:service": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e46757ee3f6d53eea5e67b127cfaa2d1f20edce67a7834eb7158173fd2dc444a",
+        "native_package_sha256": "6228e582b3c51015edeecb42fc2af2ef9e00bffbbc6d4def4f6c8392ffaaf373",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:connection_window",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:nonnegative_charging",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": 2,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:service",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:fleet_total": [
+            {
+              "key": [],
+              "value": "1/100"
+            }
+          ],
+          "output:outside_connection": [
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV2"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV2"
+              ],
+              "value": "0"
+            }
+          ],
+          "output:received": [
+            {
+              "key": [
+                "observed_schedule",
+                "EV1"
+              ],
+              "value": "1/200"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "EV2"
+              ],
+              "value": "1/200"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "fdcdc19c9ea7fb90c3db36ba6476f824bbd3e76523f48156ad072a608b5ed1ea",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "e23c3a7270a52a2d4ba34b1e64cf00e76851f073fffab00a7bc56a9036b1993a",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "V2G_UNAUTHORIZED",
+            "path": "/instance/record/synthetic_data/inputs/v2g_authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "51396a9da965878bc46a7997ca96dae0d8a0ed61",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-02.json",
+      "source_sha256": "1b3d09d499a6bd7e6651c169ba04d34de902f0098e449d627f1adde94186ea25",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "HEATING_VALUE_BASIS",
+          "expected": "HEATING_VALUE_BASIS",
+          "family": "C23",
+          "fixture_sha256": "75325d1e74c01452dda69911d36ef476ca68db27befa6acf62e6d828ae7606e4",
+          "id": "MUT-03",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "68236404f7ccd631ae6bc8a1a28f89747f6ef197db608c605be4ad07e5441683",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "75325d1e74c01452dda69911d36ef476ca68db27befa6acf62e6d828ae7606e4",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/inputs/basis",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-03.scn",
+          "candidate_source_sha256": "e6f0efd5d2447b9e4ed5b0bb618da5aee8ed705021643069dcb2fba3610a873c",
+          "code": "HEATING_VALUE_BASIS",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-03",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/2/mutation"
+        },
+        "derived_mutation": {
+          "blob": "e4ff3ded3ff46658e9492cd08efeae6fbb201fbc",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-03",
+        "family": "C23",
+        "id": "MUT-03",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC03",
+        "rule_id": "R06",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_source_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+      "owner": "OWNER_TBD",
+      "rc": "RC03",
+      "representation_audit_identity": "ce5701daadf53cdec044df0d1eeb6f02742f7af96ecba96c9ec07d9a5b7f7fa6",
+      "source_blob": "a4a78df1c72e2061eba6c85d4f0523c91135a794",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-03.scn",
+      "source_sha256": "e6f0efd5d2447b9e4ed5b0bb618da5aee8ed705021643069dcb2fba3610a873c",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "HEATING_VALUE_BASIS",
+          "expected": "HEATING_VALUE_BASIS",
+          "family": "C23",
+          "fixture_sha256": "75325d1e74c01452dda69911d36ef476ca68db27befa6acf62e6d828ae7606e4",
+          "id": "MUT-03",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "68236404f7ccd631ae6bc8a1a28f89747f6ef197db608c605be4ad07e5441683",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "75325d1e74c01452dda69911d36ef476ca68db27befa6acf62e6d828ae7606e4",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/inputs/basis",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-03.json",
+          "candidate_source_sha256": "3cb50a4868df63d5dcf61729a016289a5484fbfcde388341c33db09265fb4da1",
+          "code": "HEATING_VALUE_BASIS",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-03",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/2/mutation"
+        },
+        "derived_mutation": {
+          "blob": "e4ff3ded3ff46658e9492cd08efeae6fbb201fbc",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-03.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-03",
+        "family": "C23",
+        "id": "MUT-03",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC03",
+        "rule_id": "R06",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_source_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+      "owner": "OWNER_TBD",
+      "rc": "RC03",
+      "representation_audit_identity": "56c55c9c1c88c42013b9ea69b448f9b071938ac21cd6fa2b1ff7036244987453",
+      "source_blob": "212dbab34d9de86ebacae39f56eb0d929bbc7093",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-03.json",
+      "source_sha256": "3cb50a4868df63d5dcf61729a016289a5484fbfcde388341c33db09265fb4da1",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "MASS_UNIT",
+          "expected": "MASS_UNIT",
+          "family": "C23",
+          "fixture_sha256": "83112aacb1caa04c7b0c465343feebff75294e6c5cd54115f910689bae6af59f",
+          "id": "MUT-04",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "fbe2d141e916ee383a5ba1c72e2a7d9bb4f2235bb27755d0d9c91324fec42867",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "83112aacb1caa04c7b0c465343feebff75294e6c5cd54115f910689bae6af59f",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/observed/inventory_unit",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-04.scn",
+          "candidate_source_sha256": "cae40ffc4b50bb640c8230d087bf424e7cf7136569b348143db7f0da62da3ed6",
+          "code": "MASS_UNIT",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-04",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/3/mutation"
+        },
+        "derived_mutation": {
+          "blob": "eb88329f164f6f58167d8dc8ecacd56c21031287",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-04",
+        "family": "C23",
+        "id": "MUT-04",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC04",
+        "rule_id": "R06",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_source_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+      "owner": "OWNER_TBD",
+      "rc": "RC04",
+      "representation_audit_identity": "eb567ca50ea7f9bed4863a856b8caf1d43c1c058eb20696ad1bea5d83051dee6",
+      "source_blob": "a3850128bae46ba9dfc234dad0da8afa6bf25d39",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-04.scn",
+      "source_sha256": "cae40ffc4b50bb640c8230d087bf424e7cf7136569b348143db7f0da62da3ed6",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "MASS_UNIT",
+          "expected": "MASS_UNIT",
+          "family": "C23",
+          "fixture_sha256": "83112aacb1caa04c7b0c465343feebff75294e6c5cd54115f910689bae6af59f",
+          "id": "MUT-04",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "fbe2d141e916ee383a5ba1c72e2a7d9bb4f2235bb27755d0d9c91324fec42867",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "83112aacb1caa04c7b0c465343feebff75294e6c5cd54115f910689bae6af59f",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/observed/inventory_unit",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-04.json",
+          "candidate_source_sha256": "4962e9d659c5c1fb7dd5d870b884405d387ecba38879dac52a05c82e5939d5b4",
+          "code": "MASS_UNIT",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-04",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/3/mutation"
+        },
+        "derived_mutation": {
+          "blob": "eb88329f164f6f58167d8dc8ecacd56c21031287",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-04.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-04",
+        "family": "C23",
+        "id": "MUT-04",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC04",
+        "rule_id": "R06",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_source_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+      "owner": "OWNER_TBD",
+      "rc": "RC04",
+      "representation_audit_identity": "322428ce6c337ecedc3322827852f3c3b45b8b481980ae5969535aeff3d2fafd",
+      "source_blob": "cdf328a6cebb8eeb729f4a4f66b41fc5c72001dd",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-04.json",
+      "source_sha256": "4962e9d659c5c1fb7dd5d870b884405d387ecba38879dac52a05c82e5939d5b4",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "KVL",
+          "expected": "KVL",
+          "family": "C23",
+          "fixture_sha256": "c09b2436ad96936cc5ebec2341ffb26af5194ec240db56a1db57c681ce124029",
+          "id": "MUT-05",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "640327f04bc93371546b2337389caf1c3799a420bc00c623b9282092e2e19659",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "c09b2436ad96936cc5ebec2341ffb26af5194ec240db56a1db57c681ce124029",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/kvl",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-05.scn",
+          "candidate_source_sha256": "c310905c2f15121787ba0e6f9b0a4767a0c47aa87b67070f93bb9328275297b9",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:kvl",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R09",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-05",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/4/mutation"
+        },
+        "derived_mutation": {
+          "blob": "28bef7e40edd70a13656df0660f63d54844c556d",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-05",
+        "family": "C23",
+        "id": "MUT-05",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC05",
+        "rule_id": "R09",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+      "original_source_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+      "owner": "OWNER_TBD",
+      "rc": "RC05",
+      "representation_audit_identity": "ad4004318ce866b9e091261b1ff261b81b38c6bd9a27701f69a2e499ebd2c701",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "0f1c680f51f6d513ffcf818ed03c67d068ff3f90432c4f8dff45be5d63b06d5d",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "E4_FORMAL_PROOF",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:e4_proof",
+            "reason": "FORMAL_PROOF_NOT_EXECUTED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "3537bf1241fad42d845a7e70714737e7d8905bef4de2bdf76bc99cf7c91aee14",
+        "graph_semantic_identity": "55fb94bc01ade82d1d5133588179dcd6fb9f5102907a39d4892ab1a737b99bba",
+        "instance_pin": "9365db4c3746f22616472a9bb6c5eb8798fd4a34ac66b0893a845b36981bc784",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:angle_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kcl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kvl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "bdbeb810bfc30ac06bfdb321fb23b6f7cce4991e472808cac7a8c1dd58bbbd01",
+        "native_package_sha256": "3a4d4d48f5f5d669ff2f97c76d1260dcddfa013f71b0ce45f4915565a9bd1420",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:angle_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kcl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:kvl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:angle_drop": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ],
+          "output:cycle": [
+            {
+              "key": [],
+              "value": "3"
+            }
+          ],
+          "output:nodal": [
+            {
+              "key": [
+                "b1"
+              ],
+              "value": "5"
+            },
+            {
+              "key": [
+                "b2"
+              ],
+              "value": "-1"
+            },
+            {
+              "key": [
+                "b3"
+              ],
+              "value": "-4"
+            }
+          ],
+          "output:reactance_flow": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "3"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-2"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "607de65802fd1695c9d4d75a73a1d589a3b8b3103db5810510c1cf9bbaba356b",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "ecd96dcd64520cee9612a89fc0c9c5f28241fafe4706f4a6495722c08b0df4ba",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": []
+      },
+      "source_blob": "f61f28679e4bfe1af8935ddda39d63ebb973f449",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-05.scn",
+      "source_sha256": "c310905c2f15121787ba0e6f9b0a4767a0c47aa87b67070f93bb9328275297b9",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "KVL",
+          "expected": "KVL",
+          "family": "C23",
+          "fixture_sha256": "c09b2436ad96936cc5ebec2341ffb26af5194ec240db56a1db57c681ce124029",
+          "id": "MUT-05",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "640327f04bc93371546b2337389caf1c3799a420bc00c623b9282092e2e19659",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "c09b2436ad96936cc5ebec2341ffb26af5194ec240db56a1db57c681ce124029",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/conditions/kvl",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-05.json",
+          "candidate_source_sha256": "2690e58a639e3ef744c9373f829df1a72faab49a9ad996ca306c1c9cd6801e4a",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "applicable_requests": null,
+            "conformance": "NOT_PROVED",
+            "finite_status": "FINITE_COUNTEREXAMPLE",
+            "id": "assertion:kvl",
+            "missing_witnesses": [],
+            "owner": "OWNER_TBD",
+            "reasons": [],
+            "truth": "FALSE"
+          },
+          "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native evaluated assertion is FALSE",
+          "rule_id": "R09",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-05",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/4/mutation"
+        },
+        "derived_mutation": {
+          "blob": "28bef7e40edd70a13656df0660f63d54844c556d",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-05.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-05",
+        "family": "C23",
+        "id": "MUT-05",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC05",
+        "rule_id": "R09",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+      "original_source_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+      "owner": "OWNER_TBD",
+      "rc": "RC05",
+      "representation_audit_identity": "b1d0a9bc29757377f27f0fd5ee17d5b0631535410d7d9ff88958317109b672fb",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "0f1c680f51f6d513ffcf818ed03c67d068ff3f90432c4f8dff45be5d63b06d5d",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "E4_FORMAL_PROOF",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:e4_proof",
+            "reason": "FORMAL_PROOF_NOT_EXECUTED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "3537bf1241fad42d845a7e70714737e7d8905bef4de2bdf76bc99cf7c91aee14",
+        "graph_semantic_identity": "55fb94bc01ade82d1d5133588179dcd6fb9f5102907a39d4892ab1a737b99bba",
+        "instance_pin": "9365db4c3746f22616472a9bb6c5eb8798fd4a34ac66b0893a845b36981bc784",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:angle_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kcl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kvl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "bdbeb810bfc30ac06bfdb321fb23b6f7cce4991e472808cac7a8c1dd58bbbd01",
+        "native_package_sha256": "3a4d4d48f5f5d669ff2f97c76d1260dcddfa013f71b0ce45f4915565a9bd1420",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:angle_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kcl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_COUNTEREXAMPLE",
+              "id": "assertion:kvl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "FALSE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_COUNTEREXAMPLE"
+        },
+        "outputs": {
+          "output:angle_drop": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ],
+          "output:cycle": [
+            {
+              "key": [],
+              "value": "3"
+            }
+          ],
+          "output:nodal": [
+            {
+              "key": [
+                "b1"
+              ],
+              "value": "5"
+            },
+            {
+              "key": [
+                "b2"
+              ],
+              "value": "-1"
+            },
+            {
+              "key": [
+                "b3"
+              ],
+              "value": "-4"
+            }
+          ],
+          "output:reactance_flow": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "3"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-2"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "607de65802fd1695c9d4d75a73a1d589a3b8b3103db5810510c1cf9bbaba356b",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "ecd96dcd64520cee9612a89fc0c9c5f28241fafe4706f4a6495722c08b0df4ba",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": []
+      },
+      "source_blob": "e181a5330864101073e767725f93ad0798d6969d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-05.json",
+      "source_sha256": "2690e58a639e3ef744c9373f829df1a72faab49a9ad996ca306c1c9cd6801e4a",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "INTEGER_MODULE",
+          "expected": "INTEGER_MODULE",
+          "family": "C23",
+          "fixture_sha256": "ff67e69cb330c821c14b9501f1e09cc80a3e94024be3389498ac01c8137449e0",
+          "id": "MUT-06",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "37fe7955c048babfedc9add811d3f1b0907d94c021d19ef7815f072ca8a43d89",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "ff67e69cb330c821c14b9501f1e09cc80a3e94024be3389498ac01c8137449e0",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/parameters",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-06.scn",
+          "candidate_source_sha256": "a4e5f8eb30839a045c66160cef8fbe89226c29be80ab66c1ef37740bbcd357ee",
+          "code": "INTEGER_DOMAIN",
+          "conformance": "NOT_PROVED",
+          "native_code": "INTEGER_DOMAIN",
+          "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "INTEGER_DOMAIN",
+          "rule_id": "R00",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_DATA_BINDING",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-06",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/5/mutation"
+        },
+        "derived_mutation": {
+          "blob": "e4bd15debc43e38f3234b295f8b51303659d0f52",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-06",
+        "family": "C23",
+        "id": "MUT-06",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC06",
+        "rule_id": "R00",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+      "original_source_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+      "owner": "OWNER_TBD",
+      "rc": "RC06",
+      "representation_audit_identity": "e3959ee32b7e65c5e809e151584a7cef78b8771f01f675877ef9f6ef4cf62ea9",
+      "source_blob": "1fef72dcc648b1dd50edc5a39c5015d1b93b9d02",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-06.scn",
+      "source_sha256": "a4e5f8eb30839a045c66160cef8fbe89226c29be80ab66c1ef37740bbcd357ee",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "INTEGER_MODULE",
+          "expected": "INTEGER_MODULE",
+          "family": "C23",
+          "fixture_sha256": "ff67e69cb330c821c14b9501f1e09cc80a3e94024be3389498ac01c8137449e0",
+          "id": "MUT-06",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "37fe7955c048babfedc9add811d3f1b0907d94c021d19ef7815f072ca8a43d89",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "ff67e69cb330c821c14b9501f1e09cc80a3e94024be3389498ac01c8137449e0",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/parameters",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-06.json",
+          "candidate_source_sha256": "95c95751e51c7f22fd498c3d3870435c3b9c541a929ccd90a172799890012127",
+          "code": "INTEGER_DOMAIN",
+          "conformance": "NOT_PROVED",
+          "native_code": "INTEGER_DOMAIN",
+          "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "INTEGER_DOMAIN",
+          "rule_id": "R00",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_DATA_BINDING",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-06",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/5/mutation"
+        },
+        "derived_mutation": {
+          "blob": "e4bd15debc43e38f3234b295f8b51303659d0f52",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-06.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-06",
+        "family": "C23",
+        "id": "MUT-06",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC06",
+        "rule_id": "R00",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+      "original_source_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+      "owner": "OWNER_TBD",
+      "rc": "RC06",
+      "representation_audit_identity": "7e7f43d1bb843b2f67362d559dc6b387ca001d8c3044ed1bdc875387d4490abf",
+      "source_blob": "05f502c287fd7bb6786164f7149c9b4a930940c5",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-06.json",
+      "source_sha256": "95c95751e51c7f22fd498c3d3870435c3b9c541a929ccd90a172799890012127",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "NONANTICIPATIVITY",
+          "expected": "NONANTICIPATIVITY",
+          "family": "C23",
+          "fixture_sha256": "dd02b230427899cfc022104ca42bb05712a24fbd33f20af657df57182f6627d5",
+          "id": "MUT-07",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "4cd8c1437409a6f9b8f999b2caae43e64686be4128ba85a43e3e188e4904b733",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "dd02b230427899cfc022104ca42bb05712a24fbd33f20af657df57182f6627d5",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/policies/0",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-07.scn",
+          "candidate_source_sha256": "5f4817bcde1ab2241fe9b300aaf39f1824d942ed12bde6d005a61afca82cf957",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_COUNTEREXAMPLE",
+            "violations": [
+              {
+                "group": [
+                  "s1",
+                  "s2"
+                ],
+                "other": [],
+                "stage": "t0"
+              }
+            ]
+          },
+          "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native information policy has violating coordinates",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-07",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/6/mutation"
+        },
+        "derived_mutation": {
+          "blob": "c54d0ef19a06807e23482e478d65b83486b56007",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-07",
+        "family": "C23",
+        "id": "MUT-07",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC07",
+        "rule_id": "R07",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+      "original_source_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+      "owner": "OWNER_TBD",
+      "rc": "RC07",
+      "representation_audit_identity": "83e7dd6c63d3a7f132f1a246d61bd999428f4e31a5e044710dff80c22f53d8fe",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "a5f3cba03f22df73ccbff70cbfe2715e40a1b84f83ed18a278c38d47604aa25c",
+        "external_reports": [],
+        "graph_audit_identity": "d5a88ede0be2604ee1a105d86e046f8e571c7504970c3c9bf40ba476cb86dda4",
+        "graph_semantic_identity": "d7a78284010b18a2f3b8a1e6a23d029bb120da20856722ddf37fd7f84c8994f8",
+        "instance_pin": "0aa6a1fdb5627db1548fd8fc155d43048616bc2be0f24dfe89b84c33b53f8836",
+        "lineage": {},
+        "lowered_normativity": {},
+        "native_identity": "d646fd6b09c4ab79ab40b2af21c915307fdc7ae83003bef867a3ad7af44526ce",
+        "native_package_sha256": "72bd7d56c4d515b0363382d2b82746a4fafe6fffa39e035e1083af158143341f",
+        "obligations": {
+          "assertions": [],
+          "conformance": "NOT_PROVED",
+          "status": "NOT_APPLICABLE"
+        },
+        "outputs": {
+          "output:decision_projection": [
+            {
+              "key": [
+                "s1",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s1",
+                "t1"
+              ],
+              "value": "12"
+            },
+            {
+              "key": [
+                "s2",
+                "t0"
+              ],
+              "value": "11"
+            },
+            {
+              "key": [
+                "s2",
+                "t1"
+              ],
+              "value": "8"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "a2665dde0f96f819f79dccac1dd482fe9a7456c15237b307ee830300445b5ae3",
+        "policies": [
+          {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_COUNTEREXAMPLE",
+            "violations": [
+              {
+                "group": [
+                  "s1",
+                  "s2"
+                ],
+                "other": [],
+                "stage": "t0"
+              }
+            ]
+          }
+        ],
+        "roundtrip": true,
+        "semantic_identity": "f4b2a756f32e3862c82061175882c184e7b13bc5287706c3fde2a0876608c34c",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "GUARD_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/guard_present",
+            "rule_id": "R05",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "929dc3e900ade0512ffd01357ef75c01d7a6a3b1",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-07.scn",
+      "source_sha256": "5f4817bcde1ab2241fe9b300aaf39f1824d942ed12bde6d005a61afca82cf957",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "NONANTICIPATIVITY",
+          "expected": "NONANTICIPATIVITY",
+          "family": "C23",
+          "fixture_sha256": "dd02b230427899cfc022104ca42bb05712a24fbd33f20af657df57182f6627d5",
+          "id": "MUT-07",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "4cd8c1437409a6f9b8f999b2caae43e64686be4128ba85a43e3e188e4904b733",
+      "candidate_status": "FINITE_COUNTEREXAMPLE",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "dd02b230427899cfc022104ca42bb05712a24fbd33f20af657df57182f6627d5",
+      "diagnostics": [
+        {
+          "candidate_path": "/definition/policies/0",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-07.json",
+          "candidate_source_sha256": "a17222bcc6799e7cfc8e6172d4c6bb02430c275bc42af6284e9775bc25201202",
+          "code": "FINITE_COUNTEREXAMPLE",
+          "conformance": "NOT_PROVED",
+          "native_evidence": {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_COUNTEREXAMPLE",
+            "violations": [
+              {
+                "group": [
+                  "s1",
+                  "s2"
+                ],
+                "other": [],
+                "stage": "t0"
+              }
+            ]
+          },
+          "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native information policy has violating coordinates",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_RETURNED_EVIDENCE",
+          "status": "OBSERVED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-07",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/6/mutation"
+        },
+        "derived_mutation": {
+          "blob": "c54d0ef19a06807e23482e478d65b83486b56007",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-07.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-07",
+        "family": "C23",
+        "id": "MUT-07",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC07",
+        "rule_id": "R07",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+      "original_source_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+      "owner": "OWNER_TBD",
+      "rc": "RC07",
+      "representation_audit_identity": "b7e505535fd96ef702f4ceafbc114a7263a81be14652d42e047eaee948912e7c",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "a5f3cba03f22df73ccbff70cbfe2715e40a1b84f83ed18a278c38d47604aa25c",
+        "external_reports": [],
+        "graph_audit_identity": "d5a88ede0be2604ee1a105d86e046f8e571c7504970c3c9bf40ba476cb86dda4",
+        "graph_semantic_identity": "d7a78284010b18a2f3b8a1e6a23d029bb120da20856722ddf37fd7f84c8994f8",
+        "instance_pin": "0aa6a1fdb5627db1548fd8fc155d43048616bc2be0f24dfe89b84c33b53f8836",
+        "lineage": {},
+        "lowered_normativity": {},
+        "native_identity": "d646fd6b09c4ab79ab40b2af21c915307fdc7ae83003bef867a3ad7af44526ce",
+        "native_package_sha256": "72bd7d56c4d515b0363382d2b82746a4fafe6fffa39e035e1083af158143341f",
+        "obligations": {
+          "assertions": [],
+          "conformance": "NOT_PROVED",
+          "status": "NOT_APPLICABLE"
+        },
+        "outputs": {
+          "output:decision_projection": [
+            {
+              "key": [
+                "s1",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s1",
+                "t1"
+              ],
+              "value": "12"
+            },
+            {
+              "key": [
+                "s2",
+                "t0"
+              ],
+              "value": "11"
+            },
+            {
+              "key": [
+                "s2",
+                "t1"
+              ],
+              "value": "8"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "a2665dde0f96f819f79dccac1dd482fe9a7456c15237b307ee830300445b5ae3",
+        "policies": [
+          {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_COUNTEREXAMPLE",
+            "violations": [
+              {
+                "group": [
+                  "s1",
+                  "s2"
+                ],
+                "other": [],
+                "stage": "t0"
+              }
+            ]
+          }
+        ],
+        "roundtrip": true,
+        "semantic_identity": "f4b2a756f32e3862c82061175882c184e7b13bc5287706c3fde2a0876608c34c",
+        "status": "FINITE_COUNTEREXAMPLE",
+        "structural_checks": [
+          {
+            "code": "GUARD_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/guard_present",
+            "rule_id": "R05",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "d733421507abe768ebda4127246d8221d1101f9d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-07.json",
+      "source_sha256": "a17222bcc6799e7cfc8e6172d4c6bb02430c275bc42af6284e9775bc25201202",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "DUPLICATE_CONTRIBUTION",
+          "expected": "DUPLICATE_CONTRIBUTION",
+          "family": "C23",
+          "fixture_sha256": "034f43be1bbc6bb1ba8c0feed4a5bcd914c27b5e9b326cf52f97f26ea1233ba2",
+          "id": "MUT-08",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "5d671d17686ed57c942586bb1af8880edadc738d41687289f79e7fb5d5213c78",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "034f43be1bbc6bb1ba8c0feed4a5bcd914c27b5e9b326cf52f97f26ea1233ba2",
+      "diagnostics": [
+        {
+          "candidate_path": "/slots/0/ledger",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-08.scn",
+          "candidate_source_sha256": "28fb1855042ebf3f6de6220b2cae13e4c2c90b6bf71ea8abae9a87420fdd362d",
+          "code": "N7_CONTRIBUTION",
+          "conformance": "NOT_PROVED",
+          "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+          "owner": "OWNER_TBD",
+          "path": "/slots/0/ledger",
+          "path_kind": "LOWERED_C2_VALIDATION_OBJECT",
+          "reason": "N7_CONTRIBUTION:DUPLICATE_CONTRIBUTION",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c2-structured-diagnostic-0.1",
+          "source_pins": [
+            {
+              "id": "authority:method",
+              "immutable_ref": "candidate-method:5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8",
+              "revision": "1",
+              "sha256": "5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8"
+            }
+          ],
+          "source_refs": [
+            "authority:method"
+          ],
+          "status": "REJECTED",
+          "subject": "slot:main",
+          "trace": [
+            {
+              "default_rule": "R00",
+              "path": "",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R00",
+              "path": "/slots",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R12",
+              "path": "/slots/0/ledger",
+              "source_pins": [
+                {
+                  "id": "authority:method",
+                  "immutable_ref": "candidate-method:5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8",
+                  "revision": "1",
+                  "sha256": "5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8"
+                }
+              ],
+              "source_refs": [
+                "authority:method"
+              ],
+              "subject": "slot:main"
+            }
+          ]
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-08",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/7/mutation"
+        },
+        "derived_mutation": {
+          "blob": "f3c13c584b1b44b12ce5b1ab876ad0cf2d36c63c",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-08",
+        "family": "C23",
+        "id": "MUT-08",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC08",
+        "rule_id": "R12",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_source_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+      "owner": "OWNER_TBD",
+      "rc": "RC08",
+      "representation_audit_identity": "32a19dca484469db7321cee5c329155ff228932bed1ab11c28693ff22f73fcfc",
+      "source_blob": "f5306dfd6b42f3cd6247ce25f52df2f25b1efcc5",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-08.scn",
+      "source_sha256": "28fb1855042ebf3f6de6220b2cae13e4c2c90b6bf71ea8abae9a87420fdd362d",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "DUPLICATE_CONTRIBUTION",
+          "expected": "DUPLICATE_CONTRIBUTION",
+          "family": "C23",
+          "fixture_sha256": "034f43be1bbc6bb1ba8c0feed4a5bcd914c27b5e9b326cf52f97f26ea1233ba2",
+          "id": "MUT-08",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "5d671d17686ed57c942586bb1af8880edadc738d41687289f79e7fb5d5213c78",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "034f43be1bbc6bb1ba8c0feed4a5bcd914c27b5e9b326cf52f97f26ea1233ba2",
+      "diagnostics": [
+        {
+          "candidate_path": "/slots/0/ledger",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-08.json",
+          "candidate_source_sha256": "97ef1b7c1d900b5f467827150ad5028eb61ee86ca08d221c95007ae26d560819",
+          "code": "N7_CONTRIBUTION",
+          "conformance": "NOT_PROVED",
+          "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+          "owner": "OWNER_TBD",
+          "path": "/slots/0/ledger",
+          "path_kind": "LOWERED_C2_VALIDATION_OBJECT",
+          "reason": "N7_CONTRIBUTION:DUPLICATE_CONTRIBUTION",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c2-structured-diagnostic-0.1",
+          "source_pins": [
+            {
+              "id": "authority:method",
+              "immutable_ref": "candidate-method:5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8",
+              "revision": "1",
+              "sha256": "5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8"
+            }
+          ],
+          "source_refs": [
+            "authority:method"
+          ],
+          "status": "REJECTED",
+          "subject": "slot:main",
+          "trace": [
+            {
+              "default_rule": "R00",
+              "path": "",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R00",
+              "path": "/slots",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R12",
+              "path": "/slots/0/ledger",
+              "source_pins": [
+                {
+                  "id": "authority:method",
+                  "immutable_ref": "candidate-method:5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8",
+                  "revision": "1",
+                  "sha256": "5773335a0d6149a04d1a6eef57d808d7451e4f96cf47b66ed931158c61f017f8"
+                }
+              ],
+              "source_refs": [
+                "authority:method"
+              ],
+              "subject": "slot:main"
+            }
+          ]
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-08",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/7/mutation"
+        },
+        "derived_mutation": {
+          "blob": "f3c13c584b1b44b12ce5b1ab876ad0cf2d36c63c",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-08.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-08",
+        "family": "C23",
+        "id": "MUT-08",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC08",
+        "rule_id": "R12",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_source_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+      "owner": "OWNER_TBD",
+      "rc": "RC08",
+      "representation_audit_identity": "d9c4923baeca3e0b4c2731d3847636ec4171942bcc6323030f36834bcfef2ec2",
+      "source_blob": "fff92d77a74dfe19cd044d88abc21d88ccf85794",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-08.json",
+      "source_sha256": "97ef1b7c1d900b5f467827150ad5028eb61ee86ca08d221c95007ae26d560819",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "EXOGENEITY",
+          "expected": "EXOGENEITY",
+          "family": "C23",
+          "fixture_sha256": "3c92b13115667c54d343950a76cc1b4d1a1b7af84f9644d82e02b7c06bff2004",
+          "id": "MUT-09",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "c7dc293ae6367aff56c0ce7a6b5c0c157fc43da539c08acce837a0adf6ca2b13",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "3c92b13115667c54d343950a76cc1b4d1a1b7af84f9644d82e02b7c06bff2004",
+      "diagnostics": [
+        {
+          "candidate_path": "/slots/0/case_context",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-09.scn",
+          "candidate_source_sha256": "0985b1eefcaf7b3c343fa148f235eb81b6deecd8c5675120d1a32855b450fa9b",
+          "code": "COUNTERFACTUAL_EXOGENEITY",
+          "conformance": "NOT_PROVED",
+          "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+          "owner": "OWNER_TBD",
+          "path": "/slots/0/case_context",
+          "path_kind": "LOWERED_C2_VALIDATION_OBJECT",
+          "reason": "COUNTERFACTUAL_EXOGENEITY",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c2-structured-diagnostic-0.1",
+          "source_pins": [
+            {
+              "id": "authority:method",
+              "immutable_ref": "candidate-method:5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93",
+              "revision": "1",
+              "sha256": "5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93"
+            }
+          ],
+          "source_refs": [
+            "authority:method"
+          ],
+          "status": "REJECTED",
+          "subject": "slot:main",
+          "trace": [
+            {
+              "default_rule": "R00",
+              "path": "",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R00",
+              "path": "/slots",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R12",
+              "path": "/slots/0/case_context",
+              "source_pins": [
+                {
+                  "id": "authority:method",
+                  "immutable_ref": "candidate-method:5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93",
+                  "revision": "1",
+                  "sha256": "5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93"
+                }
+              ],
+              "source_refs": [
+                "authority:method"
+              ],
+              "subject": "slot:main"
+            }
+          ]
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-09",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/8/mutation"
+        },
+        "derived_mutation": {
+          "blob": "d41478599ea0846a3a5486fddc35d11c42e3afee",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-09",
+        "family": "C23",
+        "id": "MUT-09",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC09",
+        "rule_id": "R12",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+      "original_source_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+      "owner": "OWNER_TBD",
+      "rc": "RC09",
+      "representation_audit_identity": "5e33e45cdfeeb7a29411e5803a2342cf4d6d5467eca634b8b27c852e2c908365",
+      "source_blob": "df0607a289d0b7bd45865f03c9a11246ee5de7ea",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-09.scn",
+      "source_sha256": "0985b1eefcaf7b3c343fa148f235eb81b6deecd8c5675120d1a32855b450fa9b",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "EXOGENEITY",
+          "expected": "EXOGENEITY",
+          "family": "C23",
+          "fixture_sha256": "3c92b13115667c54d343950a76cc1b4d1a1b7af84f9644d82e02b7c06bff2004",
+          "id": "MUT-09",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "c7dc293ae6367aff56c0ce7a6b5c0c157fc43da539c08acce837a0adf6ca2b13",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "3c92b13115667c54d343950a76cc1b4d1a1b7af84f9644d82e02b7c06bff2004",
+      "diagnostics": [
+        {
+          "candidate_path": "/slots/0/case_context",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-09.json",
+          "candidate_source_sha256": "c7bc15a0fbb1d1c2a2df884d6b2129770c1e2c9f39123218e75b1a15850df6a9",
+          "code": "COUNTERFACTUAL_EXOGENEITY",
+          "conformance": "NOT_PROVED",
+          "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+          "owner": "OWNER_TBD",
+          "path": "/slots/0/case_context",
+          "path_kind": "LOWERED_C2_VALIDATION_OBJECT",
+          "reason": "COUNTERFACTUAL_EXOGENEITY",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c2-structured-diagnostic-0.1",
+          "source_pins": [
+            {
+              "id": "authority:method",
+              "immutable_ref": "candidate-method:5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93",
+              "revision": "1",
+              "sha256": "5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93"
+            }
+          ],
+          "source_refs": [
+            "authority:method"
+          ],
+          "status": "REJECTED",
+          "subject": "slot:main",
+          "trace": [
+            {
+              "default_rule": "R00",
+              "path": "",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R00",
+              "path": "/slots",
+              "source_pins": [],
+              "source_refs": [],
+              "subject": null
+            },
+            {
+              "default_rule": "R12",
+              "path": "/slots/0/case_context",
+              "source_pins": [
+                {
+                  "id": "authority:method",
+                  "immutable_ref": "candidate-method:5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93",
+                  "revision": "1",
+                  "sha256": "5455fe90da41587df396ea30b1f9471799175a8934d66983bde54eb9008c7f93"
+                }
+              ],
+              "source_refs": [
+                "authority:method"
+              ],
+              "subject": "slot:main"
+            }
+          ]
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-09",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/8/mutation"
+        },
+        "derived_mutation": {
+          "blob": "d41478599ea0846a3a5486fddc35d11c42e3afee",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-09.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-09",
+        "family": "C23",
+        "id": "MUT-09",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC09",
+        "rule_id": "R12",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+      "original_source_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+      "owner": "OWNER_TBD",
+      "rc": "RC09",
+      "representation_audit_identity": "3f60fd6a88fbecc69114747f90d468656c6c62e036c4abac1b593dbb86e8fd4a",
+      "source_blob": "ae4082200e745867a34f66a0ce5fd5bc2490865e",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-09.json",
+      "source_sha256": "c7bc15a0fbb1d1c2a2df884d6b2129770c1e2c9f39123218e75b1a15850df6a9",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "E4_UNSUPPORTED",
+          "expected": "E4_UNSUPPORTED",
+          "family": "C23",
+          "fixture_sha256": "a25abc463d0f61ffea1fa609b94ab2ae94c8f92609a6ddbe1f90c970bb00f734",
+          "id": "MUT-10",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "76a8d164c1b5941676bb4030840b5263d8d243046010d2b2426762a5feb15d61",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "a25abc463d0f61ffea1fa609b94ab2ae94c8f92609a6ddbe1f90c970bb00f734",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/observed/e4_claim",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-10.scn",
+          "candidate_source_sha256": "377e6e0c5022c33a8fa1aec875c21c9d5d6cd9044372a0a29dcf85519fa6ffb8",
+          "code": "E4_UNSUPPORTED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R13",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-10",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/9/mutation"
+        },
+        "derived_mutation": {
+          "blob": "9898d4be03cefb1b6b1e85a902757d77e7e593d9",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-10",
+        "family": "C23",
+        "id": "MUT-10",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC10",
+        "rule_id": "R13",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_source_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+      "owner": "OWNER_TBD",
+      "rc": "RC10",
+      "representation_audit_identity": "8e377f422c3665c6b6d1d76a1f1f7cc730682b87f6a7241074e23025cad0ed94",
+      "source_blob": "78a1f8ed1d5a848ad70580e6bcda163e8a7fdf1e",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/MUT-10.scn",
+      "source_sha256": "377e6e0c5022c33a8fa1aec875c21c9d5d6cd9044372a0a29dcf85519fa6ffb8",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "BLOCKED",
+        "independent_oracle": {
+          "actual": "E4_UNSUPPORTED",
+          "expected": "E4_UNSUPPORTED",
+          "family": "C23",
+          "fixture_sha256": "a25abc463d0f61ffea1fa609b94ab2ae94c8f92609a6ddbe1f90c970bb00f734",
+          "id": "MUT-10",
+          "original_expected": [
+            "E1_DIFFERENT",
+            "BLOCKED"
+          ],
+          "scope": "Original E1/AUDIT verdict NOT evaluated",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "original_rule_matched": true,
+        "scope": "Actual native candidate evidence or actual structural diagnostic, separately mapped to original C23 verdict"
+      },
+      "authored_structural_identity": "76a8d164c1b5941676bb4030840b5263d8d243046010d2b2426762a5feb15d61",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "derived_mutation_sha256": "a25abc463d0f61ffea1fa609b94ab2ae94c8f92609a6ddbe1f90c970bb00f734",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/synthetic_data/observed/e4_claim",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-10.json",
+          "candidate_source_sha256": "cb9af5f423558cd3d588bdfd1ff664c267fb481c8ae93551ed48b4a3ee4c7c0c",
+          "code": "E4_UNSUPPORTED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R13",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "C23",
+      "full_source": true,
+      "id": "MUT-10",
+      "original_catalogue_sha256": "11a4402ab927ca92bc20ef2c70f9fbadbdd73a030507c55a0a30be06498c4fcb",
+      "original_diagnostic_contract": {
+        "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "71b48ce7627eb8417a0ab906d465c519dffa415f",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/c23_mutation_cases.json",
+          "pointer": "/cases/9/mutation"
+        },
+        "derived_mutation": {
+          "blob": "9898d4be03cefb1b6b1e85a902757d77e7e593d9",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/original_c23_mutations/MUT-10.json"
+        },
+        "expected": [
+          "E1_DIFFERENT",
+          "BLOCKED"
+        ],
+        "expected_catalogue_identity": "MUT-10",
+        "family": "C23",
+        "id": "MUT-10",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC10",
+        "rule_id": "R13",
+        "scope": "DERIVED_EDIT_PATH_NOT_ORIGINAL_AB_PATH"
+      },
+      "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_source_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+      "owner": "OWNER_TBD",
+      "rc": "RC10",
+      "representation_audit_identity": "30feac069f8674ce9ab9b4a1f2eb4956dca186fe3eb91d5cb032aeb48e92b3ae",
+      "source_blob": "a35d866685884a222e7ccc5b17a9fb1455c5495d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/MUT-10.json",
+      "source_sha256": "cb9af5f423558cd3d588bdfd1ff664c267fb481c8ae93551ed48b4a3ee4c7c0c",
+      "stage_receipts": {},
+      "status": "REJECTED",
+      "syntax": "B"
+    }
+  ]
+}

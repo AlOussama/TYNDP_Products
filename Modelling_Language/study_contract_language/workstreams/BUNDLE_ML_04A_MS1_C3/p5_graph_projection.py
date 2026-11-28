@@ -9,28 +9,16 @@ from hashlib import sha256
 ROOT=Path(__file__).resolve().parents[1]
 C2=ROOT/"BUNDLE_ML_04A_MS1_C2"
 sys.path.insert(0,str(C2/"closure_v1"));sys.path.insert(0,str(C2))
-from test_closure_v1 import (frame,source_row,sig,source_for_slot,make_slot,bundle,repin,
+from research_assembly import (frame,source_row,sig,source_for_slot,make_slot,bundle,repin,
     to_definition,to_instance,assertion,fixture,q,dataset,pkg,digest,resolve_method,old_identities)
-from test_closure import scalar
+from research_assembly import scalar
 from interface import finite_consumer
 from WS_B import affine_boundary
 from closure_v1 import definition
 from authoring import emit_control,evaluate
 
 def make_slot_affine(f,src,k,d,c,data,bindings,inputs,obs,outputs,external_symbols,assertions=None,comparison_pairs=None,case_context=None,weight_roles=None,ledger=None,depends=None):
-    c["method"]["id"]="method:"+k;c["study"]["method_ref"]=digest(c["method"])
-    pck=affine_boundary.export_package(affine_boundary.admit(json.dumps(d),c));r=resolve_method(pck,data);s=r["signature"]
-    prof={"id":s["id"],"version":s["version"],"native_signature":r["method_signature_identity"],"native_semantic_identity":old_identities(pck)["semantic"],"source_ref":src["immutable_ref"],"source_sha256":src["sha256"],"approval":"RESEARCH_ASSUMPTION",
-          "input_roles":{z["symbol_id"]:(weight_roles or {}).get(z["symbol_id"],"VALUE") for z in s["inputs"]},
-          "axis_roles":{z["id"]:next(a["kind"] if a["kind"] in ("time","scenario") else "sample" for a in f["domains"] if a["id"]==z["id"]) for z in c["domains"].values()},
-          "parameter_ranges":{},"probability_rules":{},"counterfactual_pairs":comparison_pairs or [],"outputs":[z["symbol_id"] for z in s["outputs"]]}
-    if s["outputs"]:prof["output_contract"]={"external":external_symbols,"intermediate":[z["symbol_id"] for z in s["outputs"] if z["symbol_id"] not in external_symbols]}
-    ctx=case_context or {"pairs":[]}
-    st={"id":c["study"]["id"],"version":c["study"]["version"],"profile_identity":digest(prof),"native_study_identity":r["study_identity"],"data_context_identity":r["context_receipt"]["context_identity"],"case_context_identity":digest(ctx),"owner":"OWNER_TBD"}
-    a=assertions or [];verify=[{"id":"verification:"+k+":"+str(i),"subject":v,"kind":"FINITE_OBSERVATION","oracle_ref":"authority:source","status":"NOT_EXECUTED"} for i,v in enumerate([*outputs,*[z["id"] for z in a if z["modality"]!="MAY"]])]
-    f["slots"].append({"id":"slot:"+k,"inputs":inputs,"observables":obs,"outputs":outputs,"scope":"scope:main","authority_refs":[src["id"]]})
-    f["processes"].append({"id":"process:"+k,"slot":"slot:"+k,"depends_on":depends or [],"authority_refs":[src["id"]]})
-    return {"id":"slot:"+k,"package":pck,"profile":prof,"study":st,"source_ref":src["id"],"data":data,"case_context":ctx,"bindings":bindings,"assertions":a,"witnesses":[],"policies":[],"states":[],"comparisons":[],"verification":verify,"ledger":ledger}
+    return make_slot(f,src,k,d,c,data,bindings,inputs,obs,outputs,external_symbols,assertions,comparison_pairs,case_context,weight_roles,ledger,depends,package_builder=lambda d,c: affine_boundary.export_package(affine_boundary.admit(json.dumps(d),c)))
 
 def build(p5_override=None, authored_method=None, authored_source=None):
     # Original fixture bytes retained from its pinned Git blob. This is a

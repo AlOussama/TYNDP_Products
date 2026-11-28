@@ -4,7 +4,7 @@ The original JS oracle is never imported or called by the candidate.
 import json,copy
 from hashlib import sha256
 from closure import digest,admit,Reject
-from test_closure import fixture,q,dataset,scalar
+from research_assembly import fixture,q,dataset,scalar
 from package_interface import export_package
 from WS_B import affine_boundary
 from interface import import_package,finite_consumer

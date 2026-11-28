@@ -1,0 +1,13 @@
+# Canonical Semantic Normal Form — C4.0 research profile
+## Versions retained
+- Native mathspec commit 5f1464c334c1012cdee2947d4d55b4d1d6bef40a; mathematical packages 0.1–0.3 (versioned existing boundary).
+- c2-study-frame-0.1; c2-closure-definition-0.2; c2-closure-instance-0.2; c2-closure-contract-package-0.3.
+- c3-authoring-0.1; c2-approved-composition-0.1; c2-research-composition-authorization-0.1; c2-approved-composition-package-0.1; c2-structured-diagnostic-0.1.
+No incompatible schema change. C4.0 is a document/profile release identifier.
+
+## Construction and identity
+Let S be native admitted source, P=canonical_native(S), T the typed interface and M the method definition. Let D be the outer definition, I its bound instance. Native package bytes are preserved; math identity is the digest of the pinned canonical/native representation and its typed admission interface under the existing identity function. Method identity is the existing method projection of native mathematics and profile, excluding concrete study identity and bound domain labels as defined by C2; these labels are not discarded from mathematical binding/instance identities. Semantic definition identity is digest of the classified outer projection and native leaf identities under fixed schema, registry and rules. Source identity is a separate immutable ref/bytes/hash; audit identity additionally preserves exact representations and authority/source/evidence roots. Separate assertions with different authority must not be collapsed. Definition and instance roots are external expected pins, not self-authorization.
+
+The deterministic pipeline resolves typed refs, validates physical types and scopes, admits native canonical math, normalizes only known unordered collections, preserves ordered axes and multiplicity, validates method graph and obligations, binds input/receipt roots, and constructs package. Reimport checks the supplied roots and recomputes the receipt; mismatch rejects. Semantic equality is bounded to this projection; E1 does not prove general E2–E5.
+
+Composition request and authorization are separate typed identities, exact base, old/new slot hashes and permitted expression names. The effective definition must be re-admitted; changed instance binds are required. Diagnostic records preserve rule source, path kind, subject, source pins and reason. Original C19 rules are retained verbatim; actual support is limited to evidenced native and outer projection. Compatibility is exact by version/pin; unsupported legacy forms fail closed. M0/M2 are migration aids, never co-authoritative canonical mathematics. No unrestricted backwards compatibility.

@@ -1,0 +1,2026 @@
+{
+  "run": 46087812255,
+  "job": 140801422477,
+  "rows": [
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_SCOPE_DRIFT",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_SCOPE_DRIFT",
+              "path": "$.project",
+              "reason": "Reference and project intervention must remain explicit"
+            }
+          ],
+          "expected": "PROJECT_SCOPE_DRIFT",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_SCOPE_DRIFT",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "dca81a58b9e2bd9a240f624591ee267aa6956a823af4d8a8fe33b903d931d081",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/project/additional_exogenous_changes",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M13.scn",
+          "candidate_source_sha256": "f7542c090f025fbbb2bac3c73f07c66b2ea0e6604eb49d55f0eaa12adfed0f32",
+          "code": "PROJECT_SCOPE_DRIFT",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R10",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M13",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/12"
+        },
+        "expected": "PROJECT_SCOPE_DRIFT",
+        "expected_catalogue_identity": "M13",
+        "family": "P5",
+        "id": "M13",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R10",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "c638775daa65862c9d898243f40c730c2dc1b3fc946c519f0dbb2e5563d2db83",
+      "source_blob": "8518cc1053d87f7fa2ef44bd3cf0d5a8415e1c77",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M13.scn",
+      "source_sha256": "f7542c090f025fbbb2bac3c73f07c66b2ea0e6604eb49d55f0eaa12adfed0f32",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_SCOPE_DRIFT",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_SCOPE_DRIFT",
+              "path": "$.project",
+              "reason": "Reference and project intervention must remain explicit"
+            }
+          ],
+          "expected": "PROJECT_SCOPE_DRIFT",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_SCOPE_DRIFT",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "dca81a58b9e2bd9a240f624591ee267aa6956a823af4d8a8fe33b903d931d081",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/project/additional_exogenous_changes",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M13.json",
+          "candidate_source_sha256": "24ca404ccf5bd2d629d83bded5050adc701922d6ba248e2b02378847696eaf63",
+          "code": "PROJECT_SCOPE_DRIFT",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R10",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M13",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/12"
+        },
+        "expected": "PROJECT_SCOPE_DRIFT",
+        "expected_catalogue_identity": "M13",
+        "family": "P5",
+        "id": "M13",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R10",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "b0998fbbf0ed4b8d18779c30da13d971e1fc9374934c46a1c9ca77715fc0a29e",
+      "source_blob": "6acd3aec25cd866053ca24a42a2020a872c0c215",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M13.json",
+      "source_sha256": "24ca404ccf5bd2d629d83bded5050adc701922d6ba248e2b02378847696eaf63",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_DELTA_MISASSIGNED",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_DELTA_MISASSIGNED",
+              "path": "$.samples[1]",
+              "reason": "Project intervention must be absent from R"
+            }
+          ],
+          "expected": "PROJECT_DELTA_MISASSIGNED",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "9413cc035f0d57a92c040081a1b5881ca35b0466bc2fc92f376a35baa1d9e89a",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/samples/1/project_delta_id",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M14.scn",
+          "candidate_source_sha256": "f5dcc6f6c6ee709d709797134ec21056ad197ba947866fb182d83104ca9a5d65",
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M14",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/13"
+        },
+        "expected": "PROJECT_DELTA_MISASSIGNED",
+        "expected_catalogue_identity": "M14",
+        "family": "P5",
+        "id": "M14",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "e15e4099e3aa7d65102c13e8c1cf05b3a34c8c9b3fd7edf09d16cace412fb416",
+      "source_blob": "d5f6dba70608207e64ab7b69f1fe8210592ab0ba",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M14.scn",
+      "source_sha256": "f5dcc6f6c6ee709d709797134ec21056ad197ba947866fb182d83104ca9a5d65",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_DELTA_MISASSIGNED",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_DELTA_MISASSIGNED",
+              "path": "$.samples[1]",
+              "reason": "Project intervention must be absent from R"
+            }
+          ],
+          "expected": "PROJECT_DELTA_MISASSIGNED",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "9413cc035f0d57a92c040081a1b5881ca35b0466bc2fc92f376a35baa1d9e89a",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/samples/1/project_delta_id",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M14.json",
+          "candidate_source_sha256": "04f813c087a734c634c248e325cfb4a1e5d15dbd8253dbdff541016882ab1948",
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M14",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/13"
+        },
+        "expected": "PROJECT_DELTA_MISASSIGNED",
+        "expected_catalogue_identity": "M14",
+        "family": "P5",
+        "id": "M14",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "0d4c430b863454e3ade405ce3ded3d135ba2918b670842566539ad68bf823cba",
+      "source_blob": "3703387eef42711802c21525567bca17c700781c",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M14.json",
+      "source_sha256": "04f813c087a734c634c248e325cfb4a1e5d15dbd8253dbdff541016882ab1948",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+              "path": "$.comparison",
+              "reason": "Paired deltas within each model and scenario only"
+            }
+          ],
+          "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "2442a3dbf449c8f5ad02a9136230dab7489b09a6c9861d15f178d8617c320926",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/comparison/pairing",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M15.scn",
+          "candidate_source_sha256": "ebaebbb9ad7d9db1100ff395beeff95798760e983e98824b82fbcd37d41544ad",
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M15",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/14"
+        },
+        "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "expected_catalogue_identity": "M15",
+        "family": "P5",
+        "id": "M15",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "4ccc3fb4471e7e96941fc3bda30987a74cce664781611b405952326cbabe0c80",
+      "source_blob": "7f84a8a3fffbb373e5d79cb66543ec4731baf278",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M15.scn",
+      "source_sha256": "ebaebbb9ad7d9db1100ff395beeff95798760e983e98824b82fbcd37d41544ad",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+              "path": "$.comparison",
+              "reason": "Paired deltas within each model and scenario only"
+            }
+          ],
+          "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "2442a3dbf449c8f5ad02a9136230dab7489b09a6c9861d15f178d8617c320926",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/comparison/pairing",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M15.json",
+          "candidate_source_sha256": "40a41316d83ff3e1160e827705a72fdcb9806057b3dfb032be500a4380f8221f",
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M15",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/14"
+        },
+        "expected": "CROSS_MODEL_PAIRING_FORBIDDEN",
+        "expected_catalogue_identity": "M15",
+        "family": "P5",
+        "id": "M15",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "c3d0a7adad812ade8a8b1c03259112d0a70c02c8da11c895a79c732d1c59d4e3",
+      "source_blob": "41144bb7389ac7b0ecbda9c08a378a8c93764b25",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M15.json",
+      "source_sha256": "40a41316d83ff3e1160e827705a72fdcb9806057b3dfb032be500a4380f8221f",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "TIME_SUPPORT_INVALID",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "TIME_SUPPORT_INVALID",
+              "path": "$.scenarios[0]",
+              "reason": "Explicit duration and calendar reference required for this sample"
+            }
+          ],
+          "expected": "TIME_SUPPORT_INVALID",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "TIME_SUPPORT_INVALID",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "7cd7aa1f30cd8376734d4a83116e96fa8d4f37030ecb3f07139e2a871046cd47",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/scenarios/0/duration_h",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M16.scn",
+          "candidate_source_sha256": "d6eda4d4fe773ecce9dc341b2cc9c0a4a5f32204ae1229b4eaed9faa8e9bd322",
+          "code": "TIME_SUPPORT_INVALID",
+          "conformance": "NOT_PROVED",
+          "native_code": "FINITE_COUNTEREXAMPLE",
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native Program predicate duration_positive is false; violating coordinates=[{'s': 'S1'}]",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_PREDICATE_EVALUATION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M16",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/15"
+        },
+        "expected": "TIME_SUPPORT_INVALID",
+        "expected_catalogue_identity": "M16",
+        "family": "P5",
+        "id": "M16",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "0a458597a43094e47ea6c34d6d9ada2b1725fedc43379a17a7dae3744171b22b",
+      "source_blob": "4aa4d4b2315a0598acc5cd9dab1f2907b9b54614",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M16.scn",
+      "source_sha256": "d6eda4d4fe773ecce9dc341b2cc9c0a4a5f32204ae1229b4eaed9faa8e9bd322",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ],
+        "structural_admission_count": 67
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "TIME_SUPPORT_INVALID",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "TIME_SUPPORT_INVALID",
+              "path": "$.scenarios[0]",
+              "reason": "Explicit duration and calendar reference required for this sample"
+            }
+          ],
+          "expected": "TIME_SUPPORT_INVALID",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "TIME_SUPPORT_INVALID",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "7cd7aa1f30cd8376734d4a83116e96fa8d4f37030ecb3f07139e2a871046cd47",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/scenarios/0/duration_h",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M16.json",
+          "candidate_source_sha256": "545e33b908bc72c40e5b0d4a3f8a64c3a35a8698bc0f11ea82a73e8a6fdf1450",
+          "code": "TIME_SUPPORT_INVALID",
+          "conformance": "NOT_PROVED",
+          "native_code": "FINITE_COUNTEREXAMPLE",
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native Program predicate duration_positive is false; violating coordinates=[{'s': 'S1'}]",
+          "rule_id": "R07",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_PREDICATE_EVALUATION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M16",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/15"
+        },
+        "expected": "TIME_SUPPORT_INVALID",
+        "expected_catalogue_identity": "M16",
+        "family": "P5",
+        "id": "M16",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "533b4cf34a07aee3eadf19aa2b405586c84831da53913a0b99a1586c4d18c778",
+      "source_blob": "09649f26771d48529ddf5d128fee35761616db25",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M16.json",
+      "source_sha256": "545e33b908bc72c40e5b0d4a3f8a64c3a35a8698bc0f11ea82a73e8a6fdf1450",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ],
+        "structural_admission_count": 67
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "UNKNOWN_COERCED_TO_NUMBER",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "UNKNOWN_COERCED_TO_NUMBER",
+              "path": "$.additional_indicators[0]",
+              "reason": "Unknown indicator cannot become zero"
+            }
+          ],
+          "expected": "UNKNOWN_COERCED_TO_NUMBER",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "UNKNOWN_COERCED_TO_NUMBER",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "5787e247d135b5344b3a42c9e0bcf830d10f9b477bc18b38c5145e89347f20e8",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/additional_indicators/0/value",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M17.scn",
+          "candidate_source_sha256": "a624f9e63f9da763d0063280af043f00560fec9130a7cbfd6a88509906fdef75",
+          "code": "UNKNOWN_COERCED_TO_NUMBER",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R11",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M17",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/16"
+        },
+        "expected": "UNKNOWN_COERCED_TO_NUMBER",
+        "expected_catalogue_identity": "M17",
+        "family": "P5",
+        "id": "M17",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R11",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "9ba0d551310814f9a578711efacb733897b63b8215fd93eb9a85050b4f6f3990",
+      "source_blob": "842bbab59e316a68f052b59e1e9fb7ab8d0c1d22",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M17.scn",
+      "source_sha256": "a624f9e63f9da763d0063280af043f00560fec9130a7cbfd6a88509906fdef75",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "UNKNOWN_COERCED_TO_NUMBER",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "UNKNOWN_COERCED_TO_NUMBER",
+              "path": "$.additional_indicators[0]",
+              "reason": "Unknown indicator cannot become zero"
+            }
+          ],
+          "expected": "UNKNOWN_COERCED_TO_NUMBER",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "UNKNOWN_COERCED_TO_NUMBER",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "5787e247d135b5344b3a42c9e0bcf830d10f9b477bc18b38c5145e89347f20e8",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/additional_indicators/0/value",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M17.json",
+          "candidate_source_sha256": "352e77b8dca5f2e04aa1e5e0f4aca7f25ae4ce4a9d92a11bf3914b7d2378ee1a",
+          "code": "UNKNOWN_COERCED_TO_NUMBER",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R11",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M17",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/16"
+        },
+        "expected": "UNKNOWN_COERCED_TO_NUMBER",
+        "expected_catalogue_identity": "M17",
+        "family": "P5",
+        "id": "M17",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R11",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "fe1227d994b79588f4d58c348391ab445c5bd5d08970d3631ff944f4f70b37aa",
+      "source_blob": "2d657728b3eb599ba7159a380dc67c08172962c3",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M17.json",
+      "source_sha256": "352e77b8dca5f2e04aa1e5e0f4aca7f25ae4ce4a9d92a11bf3914b7d2378ee1a",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "CARRIER_UNIT_TYPE_MISMATCH",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "CARRIER_UNIT_TYPE_MISMATCH",
+              "path": "$.physical_interfaces"
+            }
+          ],
+          "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "CARRIER_UNIT_TYPE_MISMATCH",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "877d8469e317eacfae106f6fc6ee758c4e676ab57c219749f670b3c2c8fe1a60",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/physical_interfaces/0",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M18.scn",
+          "candidate_source_sha256": "6914dc054ef2d63fd7a71730fb1928c4a15369db3d481465114404e486abd980",
+          "code": "CARRIER_UNIT_TYPE_MISMATCH",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Carrier, physical kind and unit signature incompatible",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M18",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/17"
+        },
+        "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+        "expected_catalogue_identity": "M18",
+        "family": "P5",
+        "id": "M18",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "8473a26d31ce62149ce17093b1e8aac99be3185e90b98ccda724db3c7a33b22d",
+      "source_blob": "0aeb0772502647295a45a3fe9bc6fc82db993b4d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M18.scn",
+      "source_sha256": "6914dc054ef2d63fd7a71730fb1928c4a15369db3d481465114404e486abd980",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "CARRIER_UNIT_TYPE_MISMATCH",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "CARRIER_UNIT_TYPE_MISMATCH",
+              "path": "$.physical_interfaces"
+            }
+          ],
+          "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "CARRIER_UNIT_TYPE_MISMATCH",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "877d8469e317eacfae106f6fc6ee758c4e676ab57c219749f670b3c2c8fe1a60",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/physical_interfaces/0",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M18.json",
+          "candidate_source_sha256": "398d5ca04cfad2a4536663ce565df49f240e333b1c261014699fe5d4a766e444",
+          "code": "CARRIER_UNIT_TYPE_MISMATCH",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Carrier, physical kind and unit signature incompatible",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M18",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/17"
+        },
+        "expected": "CARRIER_UNIT_TYPE_MISMATCH",
+        "expected_catalogue_identity": "M18",
+        "family": "P5",
+        "id": "M18",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "9a82637ecd680171961ef39b1b3bf55ec76f9d654a81008932e558cc6b411f8b",
+      "source_blob": "da0041dbbf4ea65f22e5e9332ff30f0ad072aea9",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M18.json",
+      "source_sha256": "398d5ca04cfad2a4536663ce565df49f240e333b1c261014699fe5d4a766e444",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_DELTA_MISASSIGNED",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_DELTA_MISASSIGNED",
+              "path": "$.samples[0]",
+              "reason": "Project intervention must be absent from R"
+            }
+          ],
+          "expected": "PROJECT_DELTA_MISASSIGNED",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "feedc045b5492e613819b13bd08be39c2d7c943e2e155a057312502e7fdbd538",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/samples/0/project_delta_id",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M19.scn",
+          "candidate_source_sha256": "54260ef1458fdc7a005b3ee4730c1112cddec4bd04ce86355c9308a6a5da1bd1",
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M19",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/18"
+        },
+        "expected": "PROJECT_DELTA_MISASSIGNED",
+        "expected_catalogue_identity": "M19",
+        "family": "P5",
+        "id": "M19",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "da2eef7c6244fadc91e88280bf2f1c03dda8a5e49b8e1f9dd386248073d21881",
+      "source_blob": "1e86f2b198388d7c0bf5572c8237eb7afdf46e38",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M19.scn",
+      "source_sha256": "54260ef1458fdc7a005b3ee4730c1112cddec4bd04ce86355c9308a6a5da1bd1",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "PROJECT_DELTA_MISASSIGNED",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "PROJECT_DELTA_MISASSIGNED",
+              "path": "$.samples[0]",
+              "reason": "Project intervention must be absent from R"
+            }
+          ],
+          "expected": "PROJECT_DELTA_MISASSIGNED",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "PROJECT_DELTA_MISASSIGNED",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "feedc045b5492e613819b13bd08be39c2d7c943e2e155a057312502e7fdbd538",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/samples/0/project_delta_id",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M19.json",
+          "candidate_source_sha256": "327564ccd28b004a55254740eb4c173a5818d359ea6733f5a22ed4654f613080",
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual row violates declared field contract",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M19",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/18"
+        },
+        "expected": "PROJECT_DELTA_MISASSIGNED",
+        "expected_catalogue_identity": "M19",
+        "family": "P5",
+        "id": "M19",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "9836fc72ec0e01be2a3103a814ef03e73ce732c953c6e3384462f312e1f6eba5",
+      "source_blob": "2bb1f30da6cdeb55c3f622e6a2fb1a296d37cc78",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M19.json",
+      "source_sha256": "327564ccd28b004a55254740eb4c173a5818d359ea6733f5a22ed4654f613080",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "DISCOUNT_POLICY_INVALID",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "DISCOUNT_POLICY_INVALID",
+              "path": "$.economics"
+            }
+          ],
+          "expected": "DISCOUNT_POLICY_INVALID",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "DISCOUNT_POLICY_INVALID",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "c18233f577953894b06f3c240eaa7c9aad563dba379c69e132e7e1a5d0dd9a90",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/economics/discount_rate",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M20.scn",
+          "candidate_source_sha256": "78793c23a84bfbb0022837b56b3082091eff5cbe56ee6fa0955c346af74b5876",
+          "code": "DISCOUNT_POLICY_INVALID",
+          "conformance": "NOT_PROVED",
+          "native_code": "FINITE_COUNTEREXAMPLE",
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native Program predicate rate_valid is false; violating coordinates=[{}]",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_PREDICATE_EVALUATION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M20",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/19"
+        },
+        "expected": "DISCOUNT_POLICY_INVALID",
+        "expected_catalogue_identity": "M20",
+        "family": "P5",
+        "id": "M20",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "3d5b4b2c12e3d87103ef042714c46cd8a5923d571019192e8605f3686c7cba18",
+      "source_blob": "5f287e750ea945da9a9d44652c860d99351deab8",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M20.scn",
+      "source_sha256": "78793c23a84bfbb0022837b56b3082091eff5cbe56ee6fa0955c346af74b5876",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ],
+        "structural_admission_count": 67
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "DISCOUNT_POLICY_INVALID",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "DISCOUNT_POLICY_INVALID",
+              "path": "$.economics"
+            }
+          ],
+          "expected": "DISCOUNT_POLICY_INVALID",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "DISCOUNT_POLICY_INVALID",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "c18233f577953894b06f3c240eaa7c9aad563dba379c69e132e7e1a5d0dd9a90",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/economics/discount_rate",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M20.json",
+          "candidate_source_sha256": "fe65cfdc44485b9088969f72601cf728c539172144d1bebc549490b3e1c4e79f",
+          "code": "DISCOUNT_POLICY_INVALID",
+          "conformance": "NOT_PROVED",
+          "native_code": "FINITE_COUNTEREXAMPLE",
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Native Program predicate rate_valid is false; violating coordinates=[{}]",
+          "rule_id": "R12",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "NATIVE_PREDICATE_EVALUATION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M20",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/19"
+        },
+        "expected": "DISCOUNT_POLICY_INVALID",
+        "expected_catalogue_identity": "M20",
+        "family": "P5",
+        "id": "M20",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "6f11517a4f3521773938e23e615a1df9b0cd57ff49a0e34a50ce4ea2a05a05b0",
+      "source_blob": "d2bc0f48bc53c33142287ac790b7ddfb1d87f074",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M20.json",
+      "source_sha256": "fe65cfdc44485b9088969f72601cf728c539172144d1bebc549490b3e1c4e79f",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ],
+        "structural_admission_count": 67
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "INDEPENDENCE_IDENTITY_COLLISION",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "INDEPENDENCE_IDENTITY_COLLISION",
+              "path": "$.models",
+              "reason": "Distinct generators are an assertion, not proof of independence"
+            }
+          ],
+          "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "INDEPENDENCE_IDENTITY_COLLISION",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "f5f9834f7a8d8074941271aeb5be5e64b49d1942373e2c6bc069b2a997c37791",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/models",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M21.scn",
+          "candidate_source_sha256": "787b388538b51fde89a0eb0345f644da7533e7c5b753df5468ebb4eb30e2d4f0",
+          "code": "INDEPENDENCE_IDENTITY_COLLISION",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Nonunique or missing table key",
+          "rule_id": "R01",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M21",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/20"
+        },
+        "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+        "expected_catalogue_identity": "M21",
+        "family": "P5",
+        "id": "M21",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R01",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "964e8eb4ab299867756d428d1844f166d5c2a962f9a31c2413237789a137221b",
+      "source_blob": "2d73e878c7e2d987e4729e2a5b5fe58167f3a461",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M21.scn",
+      "source_sha256": "787b388538b51fde89a0eb0345f644da7533e7c5b753df5468ebb4eb30e2d4f0",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "INDEPENDENCE_IDENTITY_COLLISION",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "INDEPENDENCE_IDENTITY_COLLISION",
+              "path": "$.models",
+              "reason": "Distinct generators are an assertion, not proof of independence"
+            }
+          ],
+          "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "INDEPENDENCE_IDENTITY_COLLISION",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "f5f9834f7a8d8074941271aeb5be5e64b49d1942373e2c6bc069b2a997c37791",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/models",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M21.json",
+          "candidate_source_sha256": "8cb1208b3c4d451e193e9510ec836d10afb2875f786598598ee23f0b96ab0096",
+          "code": "INDEPENDENCE_IDENTITY_COLLISION",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Nonunique or missing table key",
+          "rule_id": "R01",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M21",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/20"
+        },
+        "expected": "INDEPENDENCE_IDENTITY_COLLISION",
+        "expected_catalogue_identity": "M21",
+        "family": "P5",
+        "id": "M21",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R01",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "6b0f7d2b45f76e4a64e18ccfcaf6bafb714d8eb0100ec0e67935b4948505c943",
+      "source_blob": "b8f31bfe9d077d2d966d503eb24e5436a7630c8d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M21.json",
+      "source_sha256": "8cb1208b3c4d451e193e9510ec836d10afb2875f786598598ee23f0b96ab0096",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "DISCOUNT_CURRENCY_BASIS",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "DISCOUNT_CURRENCY_BASIS",
+              "path": "$.economics",
+              "reason": "Cost and observable price basis must agree"
+            }
+          ],
+          "expected": "DISCOUNT_CURRENCY_BASIS",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "DISCOUNT_CURRENCY_BASIS",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "2ffb51b2756c78643208766cd4a3e19b51e183b3d9975ee3138311887f7142df",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/economics/cost_currency",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M22.scn",
+          "candidate_source_sha256": "200c0b3097834b2fa982138279e6ae69774f4b7f942f8746a55b09d3f85135a8",
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M22",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/21"
+        },
+        "expected": "DISCOUNT_CURRENCY_BASIS",
+        "expected_catalogue_identity": "M22",
+        "family": "P5",
+        "id": "M22",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "dbe1e440f102862e9e47a86e5f15d29f41624c4f31c51e980fda222ee536343d",
+      "source_blob": "e345d0650d1ae19abf00d582dd506ae0775b1be9",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/M22.scn",
+      "source_sha256": "200c0b3097834b2fa982138279e6ae69774f4b7f942f8746a55b09d3f85135a8",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_original_verdict": "DISCOUNT_CURRENCY_BASIS",
+        "independent_oracle": {
+          "diagnostics": [
+            {
+              "code": "DISCOUNT_CURRENCY_BASIS",
+              "path": "$.economics",
+              "reason": "Cost and observable price basis must agree"
+            }
+          ],
+          "expected": "DISCOUNT_CURRENCY_BASIS",
+          "status": "FAIL_STATIC_FRAGMENT"
+        },
+        "original_expected": "DISCOUNT_CURRENCY_BASIS",
+        "original_rule_matched": true,
+        "scope": "Actual candidate static/typed/finite rejection, no post-rejection graph evaluation"
+      },
+      "authored_structural_identity": "2ffb51b2756c78643208766cd4a3e19b51e183b3d9975ee3138311887f7142df",
+      "candidate_status": "REJECTED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [
+        {
+          "candidate_path": "/instance/record/economics/cost_currency",
+          "candidate_source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M22.json",
+          "candidate_source_sha256": "430ba3fd60c15d4c710c356f3f758af0e4cf09e956e93afbdac4bfc88a1ab2bf",
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "conformance": "NOT_PROVED",
+          "native_code": null,
+          "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+          "owner": "OWNER_TBD",
+          "path_kind": "DECODED_CANDIDATE_OBJECT",
+          "reason": "Actual field absent or differs from declared contract value",
+          "rule_id": "R06",
+          "rule_source": {
+            "blob": "7e9f506183bdce7a7c76e08fb7a2f316649088b7",
+            "commit": "2f0297b754e3a96a2523a34d3af98782b26181f3",
+            "path": "Modelling_Language/study_contract_language/workstreams/ML_C19_canonical_normal_form_research/07_normalization_rules.md"
+          },
+          "schema": "c3-actual-diagnostic-0.1",
+          "stage": "STRUCTURAL_ADMISSION",
+          "status": "REJECTED"
+        }
+      ],
+      "family": "P5",
+      "full_source": true,
+      "id": "M22",
+      "original_catalogue_sha256": "46d6c86aaf32855781a7a81e672065cb561f40f00c83a93e9cf322eb56c9b00f",
+      "original_diagnostic_contract": {
+        "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "643c5a01b154c9f0f1355a5206ac93fb7cd50945",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/p5_negative_case_manifest.json",
+          "pointer": "/21"
+        },
+        "expected": "DISCOUNT_CURRENCY_BASIS",
+        "expected_catalogue_identity": "M22",
+        "family": "P5",
+        "id": "M22",
+        "oracle": {
+          "blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+          "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+          "path": "Modelling_Language/study_contract_language/workstreams/ML_C24_P5_cba_general_language_stress/tools/cba_stress_oracle.js"
+        },
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_MICRO_ORACLE_PATH_NOT_CANDIDATE_AB_PATH"
+      },
+      "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+      "owner": "OWNER_TBD",
+      "rc": "",
+      "representation_audit_identity": "3c068af221ef0e5be4daf5e2b75f79e49c0eca344f4e5278b73f86c732547f39",
+      "source_blob": "e9eaa482472bfc8ee013de499dec79e33790683d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/M22.json",
+      "source_sha256": "430ba3fd60c15d4c710c356f3f758af0e4cf09e956e93afbdac4bfc88a1ab2bf",
+      "stage_receipts": {
+        "static_native_packages": [
+          {
+            "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+            "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+            "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+            "roundtrip": true
+          },
+          {
+            "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+            "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+            "roundtrip": true
+          }
+        ]
+      },
+      "status": "REJECTED",
+      "syntax": "B"
+    }
+  ]
+}

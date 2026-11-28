@@ -1,0 +1,282 @@
+{
+  "status": "SUCCESS",
+  "tested_implementation_commit": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+  "tested_tree": "b14f1a2bb58e55933e373bbdeba434e7c959b398",
+  "actual_checkout_merge_commit": "f31886cffeef233e80669f4c48870ff0cf1ba776",
+  "base": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+  "first_successful_run": 46087533409,
+  "final_run": 46087812255,
+  "jobs": [
+    {
+      "id": 140801422477,
+      "name": "native",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify pinned mathspec and original R1 validator",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify C2 frozen source and unchanged original populations",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual same-fixture comparative experiment",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Controlled semantic ablation and falsification probes",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Unchanged canonical closure regressions",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Original R1 tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C2 shared and workstream tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Targeted C2 closure validation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Original foundation and MS1 probes and method pairs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Frozen independent analytical reference corpus (not full A/B paths)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Original diagnostic source and C23 actual derived path verification",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Full pinned upstream mathspec suite after integration seam changes",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Original P5 pinned oracle",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "P5 domain oracle not full-chain",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual original P5 diagnostic paths (not full A/B)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 population integrity and exact parent",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 native A/B structural integration controls (not original paths)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 original P5 independent numeric oracle receipt",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 native P5 discount and decision projection (not original paths)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 extended original P5 graph with discount and capex contribution lineage (control)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 RC01 native signed-to-unsigned boundary probe (not original path)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 targeted sign conversion, stage information and derived ratio",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 unchanged independent P5 original mutation replay",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C3 actual 116 committed original candidate paths",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C4 independent analytical proxy replay",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C4 exact projected formulation controls",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C4 compare actual native receipts to frozen C3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "C4 candidate falsification and dependency check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Original P5 pinned oracle",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 140802432464,
+      "name": "original-corpus-exit",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require actual original corpus native job and committed source population",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "native_mathspec": {
+    "passed": 4140,
+    "skipped": 47,
+    "skips_count_as_pass": false
+  },
+  "original_paths": {
+    "internal_failures": 0,
+    "original_rules_matched": 116,
+    "p5_control_passed": true,
+    "pairs_accounted_for": 58,
+    "paths_accounted_for": 116,
+    "paths_attempted": 116,
+    "rejected": 84,
+    "returned": 32,
+    "source_files": 116
+  },
+  "before_after": {
+    "rows_compared": 116,
+    "pairs": 58,
+    "p5_controls": 2,
+    "diff": [],
+    "counts": {
+      "source_files": 116,
+      "paths_attempted": 116,
+      "paths_accounted_for": 116,
+      "pairs_accounted_for": 58,
+      "original_rules_matched": 116,
+      "internal_failures": 0,
+      "returned": 32,
+      "rejected": 84,
+      "p5_control_passed": true
+    }
+  },
+  "required_populations": {
+    "original_identities": 58,
+    "original_AB": 116,
+    "original_pairs": 58,
+    "C2_final": 33,
+    "C2_previous": 26,
+    "R1": 57,
+    "independent_analytical": 28,
+    "original_P5": 36,
+    "original_P5_passed": 36,
+    "original_diagnostic_contracts": 48,
+    "new_C4_native": 9
+  },
+  "evidence": "Actual job-log extracted receipts; see actual_test_logs. Original expectation matching is not full conformance."
+}

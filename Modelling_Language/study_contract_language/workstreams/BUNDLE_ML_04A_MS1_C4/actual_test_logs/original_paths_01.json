@@ -1,0 +1,3706 @@
+{
+  "run": 46087812255,
+  "job": 140801422477,
+  "rows": [
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "final": "19/10",
+          "intake": "1",
+          "loss": "1/10"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "final": "19/10",
+            "intake": "1",
+            "loss": "1/10"
+          },
+          "expected": {
+            "final": "19/10",
+            "intake": "1",
+            "loss": "1/10"
+          },
+          "family": "RC",
+          "fixture_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+          "id": "RC01",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "408f209876f091001fbf3eded19fd59dddfd4441476809632457b0d41f2f518b",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC01",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC01",
+        "family": "RC",
+        "id": "RC01",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC01",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_source_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+      "owner": "OWNER_TBD",
+      "rc": "RC01",
+      "representation_audit_identity": "80e2c393c0d5eb23356dda69deb7cc5cd85532d67a394339be8b630ec6f8e530",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "3da0de945a86550c058d0f20b6a841e0e0d2c2b014db1b2c4ed272115b04bfd2",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:terminal_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "16bd892f61a11dca9b2fe729de0bd9a2c8d87fa63f78dbd6e733e81589262bb6",
+        "graph_semantic_identity": "87ed7a35b6338c8399895d2b1a6b900dc75ee24ecf523b4ee2ab0b5ae96e3b60",
+        "instance_pin": "cd8d74acba1215838ecc0348c3426c985abf67def769a7f7822a8c0cd139ef88",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:energy_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:intake_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:port_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:soc_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:stock_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "cf558c92a8230c7b1da0708a4464997e328d173e300e8dbcd469eff14b27bb4c",
+        "native_package_sha256": "a96b9357f41dc64e51340053c9e908129c81c4d84fdfbbcb6bf74d691361caa1",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:energy_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:intake_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:port_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:soc_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:stock_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "19/10"
+            }
+          ],
+          "output:intake": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1"
+            }
+          ],
+          "output:loss": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1/10"
+            }
+          ],
+          "output:soc_projection": [
+            {
+              "key": [],
+              "value": "19/10"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "4949d6c46349e4a5b88e380b201e1964d2d93bc4e549148a91ecdb764695d4da",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "e2057eb0975460797b3279ccb236c5c5a568ce3756cf526c05540f1b7904f62f",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "AMBIGUOUS_ALIAS",
+            "path": "/instance/record/study_frame/domains/component",
+            "rule_id": "R01",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "DURATION_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/dt",
+            "rule_id": "R07",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/study_frame/authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "12a2498b18881e27691db51a511efa1b0edcc51e",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC01.scn",
+      "source_sha256": "b6d9aa173b650fe7b67ed63a1e91dd023a3a31b5c2d9cb34ff316ff9dfce1474",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "final": "19/10",
+          "intake": "1",
+          "loss": "1/10"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "final": "19/10",
+            "intake": "1",
+            "loss": "1/10"
+          },
+          "expected": {
+            "final": "19/10",
+            "intake": "1",
+            "loss": "1/10"
+          },
+          "family": "RC",
+          "fixture_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+          "id": "RC01",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "408f209876f091001fbf3eded19fd59dddfd4441476809632457b0d41f2f518b",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC01",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC01",
+        "family": "RC",
+        "id": "RC01",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC01",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "7135ca77e2a89f4bcac015a073cd2524d7a8df4f",
+      "original_source_sha256": "9a8d47cc0e46bf7b770610d9d02e61bbdb0bfaba73d07ada59625937a9fd1994",
+      "owner": "OWNER_TBD",
+      "rc": "RC01",
+      "representation_audit_identity": "1fc825c86462eed368b431af68ff460cc3d9fa9fda7056da35d57302acc1bb87",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "3da0de945a86550c058d0f20b6a841e0e0d2c2b014db1b2c4ed272115b04bfd2",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:terminal_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "16bd892f61a11dca9b2fe729de0bd9a2c8d87fa63f78dbd6e733e81589262bb6",
+        "graph_semantic_identity": "87ed7a35b6338c8399895d2b1a6b900dc75ee24ecf523b4ee2ab0b5ae96e3b60",
+        "instance_pin": "cd8d74acba1215838ecc0348c3426c985abf67def769a7f7822a8c0cd139ef88",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:energy_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:intake_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:port_range": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:soc_equivalent": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:stock_balance": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "cf558c92a8230c7b1da0708a4464997e328d173e300e8dbcd469eff14b27bb4c",
+        "native_package_sha256": "a96b9357f41dc64e51340053c9e908129c81c4d84fdfbbcb6bf74d691361caa1",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:energy_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:intake_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:port_range",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:soc_equivalent",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:stock_balance",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "19/10"
+            }
+          ],
+          "output:intake": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1"
+            }
+          ],
+          "output:loss": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "1/10"
+            }
+          ],
+          "output:soc_projection": [
+            {
+              "key": [],
+              "value": "19/10"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "4949d6c46349e4a5b88e380b201e1964d2d93bc4e549148a91ecdb764695d4da",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "e2057eb0975460797b3279ccb236c5c5a568ce3756cf526c05540f1b7904f62f",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "AMBIGUOUS_ALIAS",
+            "path": "/instance/record/study_frame/domains/component",
+            "rule_id": "R01",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "DURATION_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/dt",
+            "rule_id": "R07",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/study_frame/authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "893d82237387afcf0658decedbe39761bac2dfc9",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC01.json",
+      "source_sha256": "37eba23b06c52d2a280a7d09ae5b5e30628c78e4676d586024f1991b4abba012",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "fleet": "10",
+          "individual": [
+            "4",
+            "6"
+          ]
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "fleet": "10",
+            "individual": [
+              "4",
+              "6"
+            ]
+          },
+          "expected": {
+            "fleet": "10",
+            "individual": [
+              "4",
+              "6"
+            ]
+          },
+          "family": "RC",
+          "fixture_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+          "id": "RC02",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "3a9fd8b06a47fbd49028b7f3f7762535589418650d8eae87886d74abd9cee3ff",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC02",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC02",
+        "family": "RC",
+        "id": "RC02",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC02",
+        "rule_id": "R09",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+      "original_source_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+      "owner": "OWNER_TBD",
+      "rc": "RC02",
+      "representation_audit_identity": "7f5815a56849fc5c4d199152d2315f4754a2ebfc30f52f9f9dee514c47a9e693",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "01199af16505a108588a5d53fa1f82ed3a7e3309486b232b08ba96446ef566b1",
+        "external_reports": [],
+        "graph_audit_identity": "6b27d998a923a44be1614989dc41e2151598f217f6a3477834a8cc50ff1b45fa",
+        "graph_semantic_identity": "19560383610c74d6afb1fec91833563ebc606f7f13d745927fed1a875eb2f00c",
+        "instance_pin": "42fe23fa97e7862bb25e3f50328bfa3a44c4571d8badbe53eb508236939cb68f",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:connection_window": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:nonnegative_charging": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:service": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e46757ee3f6d53eea5e67b127cfaa2d1f20edce67a7834eb7158173fd2dc444a",
+        "native_package_sha256": "edbd1a2727083d48a1e15e56c096f3ef8ac73f8a47b3bfd76cf9de714a42d520",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:connection_window",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:nonnegative_charging",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": 2,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:service",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:fleet_total": [
+            {
+              "key": [],
+              "value": "1/100"
+            }
+          ],
+          "output:outside_connection": [
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV2"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV2"
+              ],
+              "value": "0"
+            }
+          ],
+          "output:received": [
+            {
+              "key": [
+                "observed_schedule",
+                "EV1"
+              ],
+              "value": "1/250"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "EV2"
+              ],
+              "value": "3/500"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "51ac33395cba89e549f9ccb4b0636862413f26dbfdfb793a7709c0aae280af22",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "386290907cd6014f2732327523f19c46fa17a5808998ba60ae6ffd1e6b8d7d46",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "V2G_UNAUTHORIZED",
+            "path": "/instance/record/synthetic_data/inputs/v2g_authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "7b7745e8a2d686c82fc63d4e78809ed389af453b",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC02.scn",
+      "source_sha256": "b549159592d5124089e76fd6d0e61daf00a8d1f0e05b74686c325eab43e2e5fe",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "fleet": "10",
+          "individual": [
+            "4",
+            "6"
+          ]
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "fleet": "10",
+            "individual": [
+              "4",
+              "6"
+            ]
+          },
+          "expected": {
+            "fleet": "10",
+            "individual": [
+              "4",
+              "6"
+            ]
+          },
+          "family": "RC",
+          "fixture_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+          "id": "RC02",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "3a9fd8b06a47fbd49028b7f3f7762535589418650d8eae87886d74abd9cee3ff",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC02",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC02",
+        "family": "RC",
+        "id": "RC02",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC02",
+        "rule_id": "R09",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "b716c949c5c21aaa43b8f6f657f5a01a1a188075",
+      "original_source_sha256": "75819b9cadcc96e68db76dff6d319ced1fe017f7908d6a0eb4eaad1ec9636498",
+      "owner": "OWNER_TBD",
+      "rc": "RC02",
+      "representation_audit_identity": "36b5b8bf6794954af42d1938f77cb3c720ab387364f8d53d00ec22876362c9dc",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "01199af16505a108588a5d53fa1f82ed3a7e3309486b232b08ba96446ef566b1",
+        "external_reports": [],
+        "graph_audit_identity": "6b27d998a923a44be1614989dc41e2151598f217f6a3477834a8cc50ff1b45fa",
+        "graph_semantic_identity": "19560383610c74d6afb1fec91833563ebc606f7f13d745927fed1a875eb2f00c",
+        "instance_pin": "42fe23fa97e7862bb25e3f50328bfa3a44c4571d8badbe53eb508236939cb68f",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:connection_window": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:nonnegative_charging": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:service": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e46757ee3f6d53eea5e67b127cfaa2d1f20edce67a7834eb7158173fd2dc444a",
+        "native_package_sha256": "edbd1a2727083d48a1e15e56c096f3ef8ac73f8a47b3bfd76cf9de714a42d520",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:connection_window",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:nonnegative_charging",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": 2,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:service",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:fleet_total": [
+            {
+              "key": [],
+              "value": "1/100"
+            }
+          ],
+          "output:outside_connection": [
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t0",
+                "EV2"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV1"
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "t1",
+                "EV2"
+              ],
+              "value": "0"
+            }
+          ],
+          "output:received": [
+            {
+              "key": [
+                "observed_schedule",
+                "EV1"
+              ],
+              "value": "1/250"
+            },
+            {
+              "key": [
+                "observed_schedule",
+                "EV2"
+              ],
+              "value": "3/500"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "51ac33395cba89e549f9ccb4b0636862413f26dbfdfb793a7709c0aae280af22",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "386290907cd6014f2732327523f19c46fa17a5808998ba60ae6ffd1e6b8d7d46",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "V2G_UNAUTHORIZED",
+            "path": "/instance/record/synthetic_data/inputs/v2g_authority",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "e4c2d0477c69fe8b613b77e19614a1abdbb41239",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC02.json",
+      "source_sha256": "b407792ec188940db668081162edab99bd7c4571e5084bc7a8f511814cbcbe37",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "eta": "2/3",
+          "hydrogen_power": "20"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "eta": "2/3",
+            "hydrogen_power": "20"
+          },
+          "expected": {
+            "eta": "2/3",
+            "hydrogen_power": "20"
+          },
+          "family": "RC",
+          "fixture_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+          "id": "RC03",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "b42b2f71f16948ce4dbd0516ba5d7ca353eb85cf7bdea94f66bc6cdb46c161f2",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC03",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC03",
+        "family": "RC",
+        "id": "RC03",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC03",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_source_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+      "owner": "OWNER_TBD",
+      "rc": "RC03",
+      "representation_audit_identity": "ae1175d8b950969124f82585781e40b2da456d9828beb05bc7b49016ee9c606e",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "9f2bd4c30bb3e92bea9d9dca8267d5e7c6049bbeae2a38b6a52bd084608c9020",
+        "external_reports": [],
+        "graph_audit_identity": "ab790e4b676666d2ecea1e2bfb4b77d12c96c448b796776feddab5579f856885",
+        "graph_semantic_identity": "a9fd830d78fe4822e57087f3eb450c626c2eaa67ea9c66105e90a67758bf119b",
+        "instance_pin": "278ce8d56e9dcc9804d3701dc15ef1f4a763b94b4b85e4133a084080bfc8b66c",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_envelope": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "6ec267867b08efb91208366f3b7dba95c3fc6b9f92bc10cb8dc5017f8eb50935",
+        "native_package_sha256": "c9b13ae6cb447abbe2d18722e5a63050ee87f2ead5f271d76e626f03796ca1ab",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_envelope",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:eta": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "2/3"
+            }
+          ],
+          "output:hydrogen_power": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "20"
+            }
+          ],
+          "output:lower": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "18"
+            }
+          ],
+          "output:upper": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "24"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "da9d77f80ff2d745d2e346505d02d5bf959aec1c256501a19842d94f8e50aa62",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "3d6780a019ac04ddc939da9b4b9c4b384c98a03150a7d961472649179344ee72",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "CARRIER_UNIT",
+            "path": "/instance/record/synthetic_data/units/flow",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "2acf49646b26c6d3c18ee272dac21e1c87635c2a",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC03.scn",
+      "source_sha256": "449be8c574d2db470d4d1f726f578a1af7aae1d14de55272f529a770cdecff1b",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "eta": "2/3",
+          "hydrogen_power": "20"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "eta": "2/3",
+            "hydrogen_power": "20"
+          },
+          "expected": {
+            "eta": "2/3",
+            "hydrogen_power": "20"
+          },
+          "family": "RC",
+          "fixture_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+          "id": "RC03",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "b42b2f71f16948ce4dbd0516ba5d7ca353eb85cf7bdea94f66bc6cdb46c161f2",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC03",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC03",
+        "family": "RC",
+        "id": "RC03",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC03",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "617e545a51f3b5f66f815129271b1d2eefcc1fb4",
+      "original_source_sha256": "798b900fe54d946f7744347c98639fc3a425837869cf5db7a0dd39f155bd544f",
+      "owner": "OWNER_TBD",
+      "rc": "RC03",
+      "representation_audit_identity": "66dcdb049b23653585f9ebb1f58823aa914f138cbc5e2b95020ed09e452c7232",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "9f2bd4c30bb3e92bea9d9dca8267d5e7c6049bbeae2a38b6a52bd084608c9020",
+        "external_reports": [],
+        "graph_audit_identity": "ab790e4b676666d2ecea1e2bfb4b77d12c96c448b796776feddab5579f856885",
+        "graph_semantic_identity": "a9fd830d78fe4822e57087f3eb450c626c2eaa67ea9c66105e90a67758bf119b",
+        "instance_pin": "278ce8d56e9dcc9804d3701dc15ef1f4a763b94b4b85e4133a084080bfc8b66c",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:efficiency_envelope": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "6ec267867b08efb91208366f3b7dba95c3fc6b9f92bc10cb8dc5017f8eb50935",
+        "native_package_sha256": "c9b13ae6cb447abbe2d18722e5a63050ee87f2ead5f271d76e626f03796ca1ab",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:efficiency_envelope",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:eta": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "2/3"
+            }
+          ],
+          "output:hydrogen_power": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "20"
+            }
+          ],
+          "output:lower": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "18"
+            }
+          ],
+          "output:upper": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "24"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "da9d77f80ff2d745d2e346505d02d5bf959aec1c256501a19842d94f8e50aa62",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "3d6780a019ac04ddc939da9b4b9c4b384c98a03150a7d961472649179344ee72",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "CARRIER_UNIT",
+            "path": "/instance/record/synthetic_data/units/flow",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "e866c301b872c6a3d4d5f4664ebd6bdc9f029059",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC03.json",
+      "source_sha256": "4e4825ecde740b9d88c329979901b4f5a6bca65f8ccd1b684ed859256087aeb2",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "converted_energy": "109/30",
+          "final": "109"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "converted_energy": "109/30",
+            "final": "109"
+          },
+          "expected": {
+            "converted_energy": "109/30",
+            "final": "109"
+          },
+          "family": "RC",
+          "fixture_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+          "id": "RC04",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "9844501bbf71a8b2d538029b3ba8c67a5da921adcf19ec54c91fd73fcb78cde7",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC04",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC04",
+        "family": "RC",
+        "id": "RC04",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC04",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_source_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+      "owner": "OWNER_TBD",
+      "rc": "RC04",
+      "representation_audit_identity": "7cefa6c9773171e83a4f3857d4e865a1a2b620d7d0da291e9a5b0c9fb129fa27",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "85b615754c80646e83b297eb230f05694e9176bde271b3c7538675c41cacb300",
+        "external_reports": [],
+        "graph_audit_identity": "4b7ec80629bd51d8855d301f3e84260f10b691f8fe996acb0582f95c064b4cad",
+        "graph_semantic_identity": "eb34bb9caa0735407fd7583c7b2f8a4ab75460fc143259b62fe4232cb6f39559",
+        "instance_pin": "654797d489f38436a7ee6440d62cf503fb6f5bb961a500852e3169c7933424ab",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:mass_ledger": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "2334d935f880264312259de8a0ba1104185d0efad472ce4e46ab246cf69ee83e",
+        "native_package_sha256": "2559b08bdf0905b630c1daac47d9ca91faf38441432aca9fc138421cec69c5a5",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:mass_ledger",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:converted_energy": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "109/30"
+            }
+          ],
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "109"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "9b3fece738628d21fc57f9ccec4f5d7e4c349608b1dd89f9d32bf52c156b617c",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "bce1c0f5e143023d4fdbefc39ccd8ad9cabf56f9a624737b35ed80338c1bade8",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "MASS_UNIT",
+            "path": "/instance/record/synthetic_data/observed/inventory_unit",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/observed/energy_basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "1a9027ce8bd33662e648c83672ae34a715b24554",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC04.scn",
+      "source_sha256": "8647e98da9b84c0fc26adbced4a96ca6e363d3d69e6e9dbe0b18cf3da106d494",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "converted_energy": "109/30",
+          "final": "109"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "converted_energy": "109/30",
+            "final": "109"
+          },
+          "expected": {
+            "converted_energy": "109/30",
+            "final": "109"
+          },
+          "family": "RC",
+          "fixture_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+          "id": "RC04",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "9844501bbf71a8b2d538029b3ba8c67a5da921adcf19ec54c91fd73fcb78cde7",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC04",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC04",
+        "family": "RC",
+        "id": "RC04",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC04",
+        "rule_id": "R06",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "ee401d0c1da56137c45d0f58e9bd14b2680dee2c",
+      "original_source_sha256": "ae29789a6080ee3c19ad77e18a9a08d9fe95be4174c17e964406f1be65dc6cfe",
+      "owner": "OWNER_TBD",
+      "rc": "RC04",
+      "representation_audit_identity": "b836c48dafe8189eefb7f3aff687620702496610dcf179eab4030f3f7556f21f",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "85b615754c80646e83b297eb230f05694e9176bde271b3c7538675c41cacb300",
+        "external_reports": [],
+        "graph_audit_identity": "4b7ec80629bd51d8855d301f3e84260f10b691f8fe996acb0582f95c064b4cad",
+        "graph_semantic_identity": "eb34bb9caa0735407fd7583c7b2f8a4ab75460fc143259b62fe4232cb6f39559",
+        "instance_pin": "654797d489f38436a7ee6440d62cf503fb6f5bb961a500852e3169c7933424ab",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:mass_ledger": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "2334d935f880264312259de8a0ba1104185d0efad472ce4e46ab246cf69ee83e",
+        "native_package_sha256": "2559b08bdf0905b630c1daac47d9ca91faf38441432aca9fc138421cec69c5a5",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:mass_ledger",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:converted_energy": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "109/30"
+            }
+          ],
+          "output:final": [
+            {
+              "key": [
+                "t0"
+              ],
+              "value": "109"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "9b3fece738628d21fc57f9ccec4f5d7e4c349608b1dd89f9d32bf52c156b617c",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "bce1c0f5e143023d4fdbefc39ccd8ad9cabf56f9a624737b35ed80338c1bade8",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "MASS_UNIT",
+            "path": "/instance/record/synthetic_data/observed/inventory_unit",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/observed/energy_basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "HEATING_VALUE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "c47a786da13e2de3650f4eef705c631537095958",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC04.json",
+      "source_sha256": "c70ca49b6c5ea1f9a80b2c29e04db465c345aaf058493792ad1d002e4056ea08",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "cycle": "0",
+          "nodal": [
+            "5",
+            "-1",
+            "-4"
+          ]
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "cycle": "0",
+            "nodal": [
+              "5",
+              "-1",
+              "-4"
+            ]
+          },
+          "expected": {
+            "cycle": "0",
+            "nodal": [
+              "5",
+              "-1",
+              "-4"
+            ]
+          },
+          "family": "RC",
+          "fixture_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+          "id": "RC05",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "790b0cbe4c75559b556a45339ba4d66cac36e41079d37dbf78f610b1c591aada",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC05",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC05",
+        "family": "RC",
+        "id": "RC05",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC05",
+        "rule_id": "R08",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+      "original_source_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+      "owner": "OWNER_TBD",
+      "rc": "RC05",
+      "representation_audit_identity": "4a09a26ae95b8f5c079a397ba0b9f75d7bf22cedfd310fafca123670c7f7edb1",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "11e89693b0dfcc84c2362d0812b796df5315b781fd336a3ac3ce7d5b3cc4847c",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "E4_FORMAL_PROOF",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:e4_proof",
+            "reason": "FORMAL_PROOF_NOT_EXECUTED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "2203bd4c3fe724a253362ce8e413fae75817e97ab7439496267bdf19c44437f0",
+        "graph_semantic_identity": "afdaf4127790c57e3dfe43fea172701bbdbd22f5d8fa706be94d4e5bb46f5c15",
+        "instance_pin": "111661e41a233d74c46f9880608533f2b099b9d73d378cea6c474d87e8fedc60",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:angle_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kcl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kvl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "bdbeb810bfc30ac06bfdb321fb23b6f7cce4991e472808cac7a8c1dd58bbbd01",
+        "native_package_sha256": "9b418ff8d27ef574b32f4615c9dd86846d626fb8d9c3fecf9c481cd9732833e0",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:angle_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kcl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kvl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:angle_drop": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ],
+          "output:cycle": [
+            {
+              "key": [],
+              "value": "0"
+            }
+          ],
+          "output:nodal": [
+            {
+              "key": [
+                "b1"
+              ],
+              "value": "5"
+            },
+            {
+              "key": [
+                "b2"
+              ],
+              "value": "-1"
+            },
+            {
+              "key": [
+                "b3"
+              ],
+              "value": "-4"
+            }
+          ],
+          "output:reactance_flow": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "d636678b82ce48433cdad99d42c04114eed7a7c06cdbe00fb15d63d87e58fd41",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "c456379ac6e589046e5d198286d66cb1d63465805a3cc1fcc99daa6d757f5c5f",
+        "status": "BLOCKED",
+        "structural_checks": []
+      },
+      "source_blob": "b607c58cf092b5133aaa82b9b5bd1438ea85eaa4",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC05.scn",
+      "source_sha256": "2ee12a6c12908b404526e08f19e30e1414e5a21e646ed33a02a6cd1e8302fc5a",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "cycle": "0",
+          "nodal": [
+            "5",
+            "-1",
+            "-4"
+          ]
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "cycle": "0",
+            "nodal": [
+              "5",
+              "-1",
+              "-4"
+            ]
+          },
+          "expected": {
+            "cycle": "0",
+            "nodal": [
+              "5",
+              "-1",
+              "-4"
+            ]
+          },
+          "family": "RC",
+          "fixture_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+          "id": "RC05",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "790b0cbe4c75559b556a45339ba4d66cac36e41079d37dbf78f610b1c591aada",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC05",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC05",
+        "family": "RC",
+        "id": "RC05",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC05",
+        "rule_id": "R08",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "25354add54c05cc90bd273415e79dd0071ba9ab4",
+      "original_source_sha256": "d25c7bde859f1aa501315de1596800aa89684c352e63a7aa12bd1e440fb99ffa",
+      "owner": "OWNER_TBD",
+      "rc": "RC05",
+      "representation_audit_identity": "aac8290303a586becfdc804832b44f61ff204248722c53c6bf8c6e27cb40be88",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "11e89693b0dfcc84c2362d0812b796df5315b781fd336a3ac3ce7d5b3cc4847c",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "E4_FORMAL_PROOF",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:e4_proof",
+            "reason": "FORMAL_PROOF_NOT_EXECUTED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "2203bd4c3fe724a253362ce8e413fae75817e97ab7439496267bdf19c44437f0",
+        "graph_semantic_identity": "afdaf4127790c57e3dfe43fea172701bbdbd22f5d8fa706be94d4e5bb46f5c15",
+        "instance_pin": "111661e41a233d74c46f9880608533f2b099b9d73d378cea6c474d87e8fedc60",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:angle_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kcl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:kvl": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "bdbeb810bfc30ac06bfdb321fb23b6f7cce4991e472808cac7a8c1dd58bbbd01",
+        "native_package_sha256": "9b418ff8d27ef574b32f4615c9dd86846d626fb8d9c3fecf9c481cd9732833e0",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:angle_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kcl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kvl",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:angle_drop": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ],
+          "output:cycle": [
+            {
+              "key": [],
+              "value": "0"
+            }
+          ],
+          "output:nodal": [
+            {
+              "key": [
+                "b1"
+              ],
+              "value": "5"
+            },
+            {
+              "key": [
+                "b2"
+              ],
+              "value": "-1"
+            },
+            {
+              "key": [
+                "b3"
+              ],
+              "value": "-4"
+            }
+          ],
+          "output:reactance_flow": [
+            {
+              "key": [
+                "e12"
+              ],
+              "value": "2"
+            },
+            {
+              "key": [
+                "e23"
+              ],
+              "value": "1"
+            },
+            {
+              "key": [
+                "e31"
+              ],
+              "value": "-3"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "d636678b82ce48433cdad99d42c04114eed7a7c06cdbe00fb15d63d87e58fd41",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "c456379ac6e589046e5d198286d66cb1d63465805a3cc1fcc99daa6d757f5c5f",
+        "status": "BLOCKED",
+        "structural_checks": []
+      },
+      "source_blob": "7637b7252df26c173a0ff35dec892bff620c2d45",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC05.json",
+      "source_sha256": "42b52c801389c8eb83509d52084b0ce73101384aa6458d9c306b0a32a5726f2b",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "capacity": [
+            "0",
+            "0",
+            "100"
+          ],
+          "commission": 2,
+          "cost": "100",
+          "modules": "1"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "capacity": [
+              "0",
+              "0",
+              "100"
+            ],
+            "commission": 2,
+            "cost": "100",
+            "modules": "1"
+          },
+          "expected": {
+            "capacity": [
+              "0",
+              "0",
+              "100"
+            ],
+            "commission": 2,
+            "cost": "100",
+            "modules": "1"
+          },
+          "family": "RC",
+          "fixture_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+          "id": "RC06",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "47c3e6eaa7931564773fb8d8ca993c6009075a07393c786108d24073b9a1d81b",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC06",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC06",
+        "family": "RC",
+        "id": "RC06",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC06",
+        "rule_id": "R00",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+      "original_source_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+      "owner": "OWNER_TBD",
+      "rc": "RC06",
+      "representation_audit_identity": "167c465ac961078941e26978b301e23c4348a7dc9518d75be881946e55b733c5",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "960fdc4aa3400a7a6e2a50725808b8333ee15084cef1c332718868e4f734b575",
+        "external_reports": [],
+        "graph_audit_identity": "5d01e97bc6fbf0f080786232d9d0c3281a6754670944f2ca266e6d5b8c282191",
+        "graph_semantic_identity": "42ca5e2ac823a561ec48b6c4257d5589debfc828f54b8a6702a3a3fe209bfc1c",
+        "instance_pin": "8f1aac43908978a12b52e21c258e21f3b759b00086552cf469975e13e901ab43",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:binary_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:capacity_ok": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:investment_cost": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:lead_time": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:module_bound": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "b86b37fe10930b93d1630ba950bb1985e9b7dc1333b24ddacf7997a5b36a69a5",
+        "native_package_sha256": "7997f8ef5380c6dd2d83f4636c4169f6922b0af34869a5d6928e1ab2a31f66c7",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:binary_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:capacity_ok",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:investment_cost",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:lead_time",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:module_bound",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:capacity": [
+            {
+              "key": [
+                0
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                1
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                2
+              ],
+              "value": "100"
+            }
+          ],
+          "output:commission": [
+            {
+              "key": [],
+              "value": "2"
+            }
+          ],
+          "output:cost": [
+            {
+              "key": [],
+              "value": "100"
+            }
+          ],
+          "output:count_binary": [
+            {
+              "key": [],
+              "value": "1"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "12f01581388ec4f450a14d735e08375334b2cb90dd6c663718f61e033cf93569",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "fd482549769a099623ada7a890d192984f6a48c1dd093a5fe9b7d0451e964646",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/price_basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "3458752bf2c377c6c2919e55ff6d4b2540f1480f",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC06.scn",
+      "source_sha256": "e290a1d0ae0887bca813f37c4d4abdb734e723ae97c774888768381d80da56c5",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "capacity": [
+            "0",
+            "0",
+            "100"
+          ],
+          "commission": 2,
+          "cost": "100",
+          "modules": "1"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "capacity": [
+              "0",
+              "0",
+              "100"
+            ],
+            "commission": 2,
+            "cost": "100",
+            "modules": "1"
+          },
+          "expected": {
+            "capacity": [
+              "0",
+              "0",
+              "100"
+            ],
+            "commission": 2,
+            "cost": "100",
+            "modules": "1"
+          },
+          "family": "RC",
+          "fixture_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+          "id": "RC06",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "47c3e6eaa7931564773fb8d8ca993c6009075a07393c786108d24073b9a1d81b",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC06",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC06",
+        "family": "RC",
+        "id": "RC06",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC06",
+        "rule_id": "R00",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "0fc0d49569e04876d01364c56342cb6183fc496c",
+      "original_source_sha256": "72f4c654c2bb59b02a80769d7f98cf7f03364a531af727803da0be3703b2e8f0",
+      "owner": "OWNER_TBD",
+      "rc": "RC06",
+      "representation_audit_identity": "c8cd9097c168828fc000516980d063dfa6ae39f977c3994987c2ee1d95e6d65e",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "960fdc4aa3400a7a6e2a50725808b8333ee15084cef1c332718868e4f734b575",
+        "external_reports": [],
+        "graph_audit_identity": "5d01e97bc6fbf0f080786232d9d0c3281a6754670944f2ca266e6d5b8c282191",
+        "graph_semantic_identity": "42ca5e2ac823a561ec48b6c4257d5589debfc828f54b8a6702a3a3fe209bfc1c",
+        "instance_pin": "8f1aac43908978a12b52e21c258e21f3b759b00086552cf469975e13e901ab43",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:binary_projection": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:capacity_ok": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:investment_cost": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:lead_time": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:module_bound": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "b86b37fe10930b93d1630ba950bb1985e9b7dc1333b24ddacf7997a5b36a69a5",
+        "native_package_sha256": "7997f8ef5380c6dd2d83f4636c4169f6922b0af34869a5d6928e1ab2a31f66c7",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:binary_projection",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:capacity_ok",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:investment_cost",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:lead_time",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:module_bound",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:capacity": [
+            {
+              "key": [
+                0
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                1
+              ],
+              "value": "0"
+            },
+            {
+              "key": [
+                2
+              ],
+              "value": "100"
+            }
+          ],
+          "output:commission": [
+            {
+              "key": [],
+              "value": "2"
+            }
+          ],
+          "output:cost": [
+            {
+              "key": [],
+              "value": "100"
+            }
+          ],
+          "output:count_binary": [
+            {
+              "key": [],
+              "value": "1"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "12f01581388ec4f450a14d735e08375334b2cb90dd6c663718f61e033cf93569",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "fd482549769a099623ada7a890d192984f6a48c1dd093a5fe9b7d0451e964646",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/price_basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "eb499f8ea773645ee5ebb14dc4fd592da1388c1d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC06.json",
+      "source_sha256": "6d46237e600a9a60da812e35cc6f68f3bc856b025a387a38e31e68681e6239b6",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "after_revelation_may_differ": true,
+          "pre_revelation_equal": true
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "after_revelation_may_differ": true,
+            "pre_revelation_equal": true
+          },
+          "expected": {
+            "after_revelation_may_differ": true,
+            "pre_revelation_equal": true
+          },
+          "family": "RC",
+          "fixture_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+          "id": "RC07",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "7d020bf59ba23d89b25b831acc9563b8c763d39fd3b06656f11276a4ea164ea3",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC07",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC07",
+        "family": "RC",
+        "id": "RC07",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC07",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+      "original_source_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+      "owner": "OWNER_TBD",
+      "rc": "RC07",
+      "representation_audit_identity": "f585a69c38077de180d842e83ec9e187bfea1d8b300ae5d8e9932cd5f5698fd4",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "606d84d6aa795ff41105b6965d2a2aa6b45597f92387503e9ceca492f47c610d",
+        "external_reports": [],
+        "graph_audit_identity": "6dbb0ab05ae0cd5d2d621c8ae610168edf6ee1f91a834caad5eac2952e078dc1",
+        "graph_semantic_identity": "63812ddfca5738ccdee4d0d9cad05ca14b9e06e2e2fbe23624cc99fb3f5aa847",
+        "instance_pin": "432b45b377fcaa3775f7dba1251a23d95c7ebac214b198dd09b3b333f015ef33",
+        "lineage": {},
+        "lowered_normativity": {},
+        "native_identity": "d646fd6b09c4ab79ab40b2af21c915307fdc7ae83003bef867a3ad7af44526ce",
+        "native_package_sha256": "47a86a0b4eb283e53959e70c20bc45ea47918326ce6e1f9b8c43bf3f491fcf1f",
+        "obligations": {
+          "assertions": [],
+          "conformance": "NOT_PROVED",
+          "status": "NOT_APPLICABLE"
+        },
+        "outputs": {
+          "output:decision_projection": [
+            {
+              "key": [
+                "s1",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s1",
+                "t1"
+              ],
+              "value": "12"
+            },
+            {
+              "key": [
+                "s2",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s2",
+                "t1"
+              ],
+              "value": "8"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "e321159077bb2920a0566171de78ab4afd747ef059b11834ee6c2233c0661ec6",
+        "policies": [
+          {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_OBSERVED_TRUE",
+            "violations": []
+          }
+        ],
+        "roundtrip": true,
+        "semantic_identity": "9b3ef401dddb7b0dae2a986e257ffe65d655c58870e374bf869564558ae904ba",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "GUARD_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/guard_present",
+            "rule_id": "R05",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "48a3892a8c038c1319db7983b18a16a4b0eb728c",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC07.scn",
+      "source_sha256": "f1a489bf70e92534a80f31b4ffe3dc3235311a8402091981d6f9d3e26629c3ef",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "after_revelation_may_differ": true,
+          "pre_revelation_equal": true
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "after_revelation_may_differ": true,
+            "pre_revelation_equal": true
+          },
+          "expected": {
+            "after_revelation_may_differ": true,
+            "pre_revelation_equal": true
+          },
+          "family": "RC",
+          "fixture_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+          "id": "RC07",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "7d020bf59ba23d89b25b831acc9563b8c763d39fd3b06656f11276a4ea164ea3",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC07",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC07",
+        "family": "RC",
+        "id": "RC07",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC07",
+        "rule_id": "R07",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "244e952c7cdd26b1e357f3db17e3652f1709ae2a",
+      "original_source_sha256": "87ad46502dfed7a0f0293549a92346d65c686a2647302b199b4fdb738d984930",
+      "owner": "OWNER_TBD",
+      "rc": "RC07",
+      "representation_audit_identity": "10c260f0676ca517c2b00e52bb823f0a168065b51859bf4e425cbd3206e45391",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "606d84d6aa795ff41105b6965d2a2aa6b45597f92387503e9ceca492f47c610d",
+        "external_reports": [],
+        "graph_audit_identity": "6dbb0ab05ae0cd5d2d621c8ae610168edf6ee1f91a834caad5eac2952e078dc1",
+        "graph_semantic_identity": "63812ddfca5738ccdee4d0d9cad05ca14b9e06e2e2fbe23624cc99fb3f5aa847",
+        "instance_pin": "432b45b377fcaa3775f7dba1251a23d95c7ebac214b198dd09b3b333f015ef33",
+        "lineage": {},
+        "lowered_normativity": {},
+        "native_identity": "d646fd6b09c4ab79ab40b2af21c915307fdc7ae83003bef867a3ad7af44526ce",
+        "native_package_sha256": "47a86a0b4eb283e53959e70c20bc45ea47918326ce6e1f9b8c43bf3f491fcf1f",
+        "obligations": {
+          "assertions": [],
+          "conformance": "NOT_PROVED",
+          "status": "NOT_APPLICABLE"
+        },
+        "outputs": {
+          "output:decision_projection": [
+            {
+              "key": [
+                "s1",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s1",
+                "t1"
+              ],
+              "value": "12"
+            },
+            {
+              "key": [
+                "s2",
+                "t0"
+              ],
+              "value": "10"
+            },
+            {
+              "key": [
+                "s2",
+                "t1"
+              ],
+              "value": "8"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "e321159077bb2920a0566171de78ab4afd747ef059b11834ee6c2233c0661ec6",
+        "policies": [
+          {
+            "conformance": "NOT_PROVED",
+            "id": "policy:nonanticipativity",
+            "status": "FINITE_OBSERVED_TRUE",
+            "violations": []
+          }
+        ],
+        "roundtrip": true,
+        "semantic_identity": "9b3ef401dddb7b0dae2a986e257ffe65d655c58870e374bf869564558ae904ba",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "GUARD_REQUIRED",
+            "path": "/instance/record/synthetic_data/inputs/guard_present",
+            "rule_id": "R05",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "754e56629d6944b3876a13e3fcbe2b3690642875",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC07.json",
+      "source_sha256": "fbea80fdd55915293c48cbaea4561ff7a3dedec746d0dd2344119267731079b6",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "kpi": "170"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "kpi": "170"
+          },
+          "expected": {
+            "kpi": "170"
+          },
+          "family": "RC",
+          "fixture_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+          "id": "RC08",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "693fcf87e7824b74b4a931d2a27149c4429c20e08d60df611be0068b9edb95ed",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC08",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC08",
+        "family": "RC",
+        "id": "RC08",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC08",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_source_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+      "owner": "OWNER_TBD",
+      "rc": "RC08",
+      "representation_audit_identity": "6b0e9d73fe97a26b889050f1a399aaedd573e60739406f950db1969f456d130c",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "1664ddae514b4be0fec9516ade66c38efb936e77887cb4ebcb1038c653c46d76",
+        "external_reports": [],
+        "graph_audit_identity": "fdfbf9a802c6197dd950938d89f0b313c3d202a9f71daba14f66d964edf8a7fb",
+        "graph_semantic_identity": "ceefbce3c90fc7e5d6f3af2f0a70f62ec387f747134a49ec5e047f8a613ab2f0",
+        "instance_pin": "a196288aed7e47ca4d5e7577d97c899a9a546f68c690628a0ef2c6e38d58bf9b",
+        "lineage": {
+          "total": [
+            {
+              "events": {
+                "event:capex0": 1,
+                "event:opex0": 1,
+                "event:opex1": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "lowered_normativity": {
+          "assertion:kpi": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e25533878155d7807ed1d5fd5bc3b290dde40b6774b409a666910fc15b2d8dc0",
+        "native_package_sha256": "64781c83fc9178772382457db897efd76cb00d6f8734bdca9bbc41410f4c5487",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kpi",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:total": [
+            {
+              "key": [],
+              "value": "170"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "c6bc008a0fa194f15e9c8a0e1bfa3bf2d10184b9ef1267774e48fc7c5bad0a6b",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "efa365faff2865048a3dc54ccefc25dcdd36c86c8114dd17628e26c3e300f9f1",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "61cac8fde7e039efb347cadfea9bcab8efad8520",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC08.scn",
+      "source_sha256": "ee7e19d4253386135f79296d0b375516a450b359c7b45e3bea59ffeed9a99c7d",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "kpi": "170"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "kpi": "170"
+          },
+          "expected": {
+            "kpi": "170"
+          },
+          "family": "RC",
+          "fixture_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+          "id": "RC08",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "693fcf87e7824b74b4a931d2a27149c4429c20e08d60df611be0068b9edb95ed",
+      "candidate_status": "FINITE_OBSERVATIONS_ONLY",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC08",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC08",
+        "family": "RC",
+        "id": "RC08",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC08",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "9b2e69652b5a16634a23cc29ffe03578f3ac65cd",
+      "original_source_sha256": "cc7d66c93adee43466126fd1af0210065abd0913bbff69a2e9d0215690520d04",
+      "owner": "OWNER_TBD",
+      "rc": "RC08",
+      "representation_audit_identity": "d7ead31d71d4c2e2c02fa9de53c92836ee0bd22f387f2c0ec532f4a95900bc2d",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "1664ddae514b4be0fec9516ade66c38efb936e77887cb4ebcb1038c653c46d76",
+        "external_reports": [],
+        "graph_audit_identity": "fdfbf9a802c6197dd950938d89f0b313c3d202a9f71daba14f66d964edf8a7fb",
+        "graph_semantic_identity": "ceefbce3c90fc7e5d6f3af2f0a70f62ec387f747134a49ec5e047f8a613ab2f0",
+        "instance_pin": "a196288aed7e47ca4d5e7577d97c899a9a546f68c690628a0ef2c6e38d58bf9b",
+        "lineage": {
+          "total": [
+            {
+              "events": {
+                "event:capex0": 1,
+                "event:opex0": 1,
+                "event:opex1": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "lowered_normativity": {
+          "assertion:kpi": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "e25533878155d7807ed1d5fd5bc3b290dde40b6774b409a666910fc15b2d8dc0",
+        "native_package_sha256": "64781c83fc9178772382457db897efd76cb00d6f8734bdca9bbc41410f4c5487",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:kpi",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:total": [
+            {
+              "key": [],
+              "value": "170"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "c6bc008a0fa194f15e9c8a0e1bfa3bf2d10184b9ef1267774e48fc7c5bad0a6b",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "efa365faff2865048a3dc54ccefc25dcdd36c86c8114dd17628e26c3e300f9f1",
+        "status": "FINITE_OBSERVATIONS_ONLY",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "223963c9fc163537a769f58f08d1b70c35d9df2d",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC08.json",
+      "source_sha256": "04b4479efc83d1b64921fed48bdffe60a246d657d83a7d677fa858d23fee818e",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "annual": "120",
+          "discounted": "1200/11",
+          "owner": "OWNER_TBD"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "annual": "120",
+            "discounted": "1200/11",
+            "owner": "OWNER_TBD"
+          },
+          "expected": {
+            "annual": "120",
+            "discounted": "1200/11",
+            "owner": "OWNER_TBD"
+          },
+          "family": "RC",
+          "fixture_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+          "id": "RC09",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "280e526827ec6099c801a701e0f064bf0c45552513281b9bcd49445aaf6b4a60",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC09",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC09",
+        "family": "RC",
+        "id": "RC09",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC09",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+      "original_source_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+      "owner": "OWNER_TBD",
+      "rc": "RC09",
+      "representation_audit_identity": "396fb62097b1fa2bcb0cfa75b0b33c8b40c82d258661c98e17cd146be70a19fb",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "cbff3631548cab038b7ab9a79df9f482e89fd940e674d2e8bff8a668da04ca46",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:method_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "c8712a64612e0f0e78a9193efddea2a9588443f6d67116d058e4ab2effeeddf3",
+        "graph_semantic_identity": "97706ccd6b378d18eb2e32f3b384190dcef913f720a9c6fbf4ae0c8f046cff0d",
+        "instance_pin": "0900c253f8b1f09a9414690b59b5f5660dbb217c35ed9c74aa0a9a3e822f6e7c",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:annual_value": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:discount_binding": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:discounted_value": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "5578290f78b766476fd4511bbc972e96c6db6ce8acb75929661ff239090de4a1",
+        "native_package_sha256": "ad9007f1cec7d8bf1c983e03f1454bb341ae7b6f96f9b8bd9add4d5b3e297131",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:annual_value",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:discount_binding",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:discounted_value",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:annual": [
+            {
+              "key": [],
+              "value": "120"
+            }
+          ],
+          "output:discounted": [
+            {
+              "key": [],
+              "value": "1200/11"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "e580ab043fac9c63d89455a7f51450b90bdff85fe5648fc916766822cce5a7d4",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "030f2782db452b169b79478c6a651b2ce70b41362166a653dffd5c29ab747579",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/synthetic_data/inputs/owner",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "c2532a5a72610cba41864d86172987628d72a392",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC09.scn",
+      "source_sha256": "b990c69f66279fc734f2de336ef7282f451954c28f0357e6175f82d02bf64d87",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "annual": "120",
+          "discounted": "1200/11",
+          "owner": "OWNER_TBD"
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "annual": "120",
+            "discounted": "1200/11",
+            "owner": "OWNER_TBD"
+          },
+          "expected": {
+            "annual": "120",
+            "discounted": "1200/11",
+            "owner": "OWNER_TBD"
+          },
+          "family": "RC",
+          "fixture_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+          "id": "RC09",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "280e526827ec6099c801a701e0f064bf0c45552513281b9bcd49445aaf6b4a60",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC09",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC09",
+        "family": "RC",
+        "id": "RC09",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC09",
+        "rule_id": "R12",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "9785e1ef50f0ee29bf494d2248db16a4337fcddf",
+      "original_source_sha256": "1ceb9f2524a575fb1cf0dd9b73eea7f29d895cdce4be51538a8f036941f9b099",
+      "owner": "OWNER_TBD",
+      "rc": "RC09",
+      "representation_audit_identity": "b8ca45f31ed1c4485033b84ad58c91e3bc1805c2f49b47aecb04fbd44b3223cc",
+      "result": {
+        "comparison_evidence": [],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "cbff3631548cab038b7ab9a79df9f482e89fd940e674d2e8bff8a668da04ca46",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:method_owner",
+            "reason": "AUTHORITY_UNRESOLVED",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "c8712a64612e0f0e78a9193efddea2a9588443f6d67116d058e4ab2effeeddf3",
+        "graph_semantic_identity": "97706ccd6b378d18eb2e32f3b384190dcef913f720a9c6fbf4ae0c8f046cff0d",
+        "instance_pin": "0900c253f8b1f09a9414690b59b5f5660dbb217c35ed9c74aa0a9a3e822f6e7c",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:annual_value": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:discount_binding": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          },
+          "assertion:discounted_value": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "5578290f78b766476fd4511bbc972e96c6db6ce8acb75929661ff239090de4a1",
+        "native_package_sha256": "ad9007f1cec7d8bf1c983e03f1454bb341ae7b6f96f9b8bd9add4d5b3e297131",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:annual_value",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:discount_binding",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            },
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:discounted_value",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:annual": [
+            {
+              "key": [],
+              "value": "120"
+            }
+          ],
+          "output:discounted": [
+            {
+              "key": [],
+              "value": "1200/11"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "e580ab043fac9c63d89455a7f51450b90bdff85fe5648fc916766822cce5a7d4",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "030f2782db452b169b79478c6a651b2ce70b41362166a653dffd5c29ab747579",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "PRICE_BASIS",
+            "path": "/instance/record/synthetic_data/inputs/basis",
+            "rule_id": "R06",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "AUTHORITY_PROMOTION",
+            "path": "/instance/record/synthetic_data/inputs/owner",
+            "rule_id": "R09",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "6c68e32599d590cf5322fd5660b5614ea1bbf35c",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC09.json",
+      "source_sha256": "59f71664ddab14c913eef0a507b0162654e9e18c8b2553fce01336b7fbd2e2b3",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "e4": "NOT_PROVED",
+          "e5": "NOT_ASSESSED",
+          "finite_agreement": true
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "e4": "NOT_PROVED",
+            "e5": "NOT_ASSESSED",
+            "finite_agreement": true
+          },
+          "expected": {
+            "e4": "NOT_PROVED",
+            "e5": "NOT_ASSESSED",
+            "finite_agreement": true
+          },
+          "family": "RC",
+          "fixture_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+          "id": "RC10",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "58305e446dc1f5a5e4bafb3005d5333b6317925662890c3f4747aee94a66eba3",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC10",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC10",
+        "family": "RC",
+        "id": "RC10",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC10",
+        "rule_id": "R13",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_source_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+      "owner": "OWNER_TBD",
+      "rc": "RC10",
+      "representation_audit_identity": "3c1c0742cad1aefa0812bdac812609aba092c96f1f657560c19f2fa6f6a78c70",
+      "result": {
+        "comparison_evidence": [
+          {
+            "id": "comparison:models",
+            "independence": "UNVERIFIED",
+            "owner": "OWNER_TBD",
+            "requested": "E4",
+            "status": "NOT_PROVED"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "2844a86ca6cba4d13318a7c15ba7ef26ce1c60e82998647002575d3da6abf2d8",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:independent_evidence",
+            "reason": "MISSING_EVIDENCE",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "2f122384abb95bbed51734393933c4a073fa1fbd11ece29a50a4040a77cb5b41",
+        "graph_semantic_identity": "03cbf3b5e38ebed3f3ab5ed9487f37b6daac68a7bea6db9f2ade028e15b1dd30",
+        "instance_pin": "144022cac033a7840add3885b9c094e1a5205b4eecb3906049ca3192262ec541",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:agreement": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "93d4eacf2394b2fa494dec02b636d9712828fea5199414731d18a231addc25b2",
+        "native_package_sha256": "ed8acf656219fb738a1217990bd8756df7e8ba4c6c568b496b6df1c2a5246951",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:agreement",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:delta": [
+            {
+              "key": [],
+              "value": "0"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "24d41c26088ebd4f2fef7b710ecbff7ff19a52be817d318c4afca88770aa4b84",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "0d9010ce294ca98998679e23bbe58b538187db6db5815da7e6147f2bcb1f566a",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "SOURCE_LOSS",
+            "path": "/instance/record/synthetic_data/inputs/source_ids",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "INDEPENDENCE_IDENTITY_COLLISION",
+            "path": "/instance/record/synthetic_data/inputs/generator_ids",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "VARIATION_DISCLOSURE",
+            "path": "/instance/record/synthetic_data/inputs/variation_disclosed",
+            "rule_id": "R10",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "EVIDENCE_PROMOTION",
+            "path": "/instance/record/synthetic_data/observed/evidence_role",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "EVIDENCE_PROMOTION",
+            "path": "/instance/record/synthetic_data/observed/evidence_status",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "E4_UNSUPPORTED",
+            "path": "/instance/record/synthetic_data/observed/e4_claim",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "9da478e25da8fb971238b55bc9b8b7ed7d79920c",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/A/RC10.scn",
+      "source_sha256": "5877982171108d37855edbc036d047fba9a0146586559428ff5dceaaae9788e1",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "A"
+    },
+    {
+      "assessment": {
+        "accounted_for": true,
+        "actual_finite_observations": {
+          "e4": "NOT_PROVED",
+          "e5": "NOT_ASSESSED",
+          "finite_agreement": true
+        },
+        "actual_original_verdict": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "independent_oracle": {
+          "actual": {
+            "e4": "NOT_PROVED",
+            "e5": "NOT_ASSESSED",
+            "finite_agreement": true
+          },
+          "expected": {
+            "e4": "NOT_PROVED",
+            "e5": "NOT_ASSESSED",
+            "finite_agreement": true
+          },
+          "family": "RC",
+          "fixture_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+          "id": "RC10",
+          "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+          "scope": "No full contract verdict",
+          "stage": "DERIVED_FINITE_ORACLE",
+          "status": "PASS"
+        },
+        "original_expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "original_rule_matched": true,
+        "scope": "Finite authored obligations; original conceptual expectation retained; owner and proof not promoted"
+      },
+      "authored_structural_identity": "58305e446dc1f5a5e4bafb3005d5333b6317925662890c3f4747aee94a66eba3",
+      "candidate_status": "BLOCKED",
+      "conformance": "NOT_PROVED",
+      "diagnostics": [],
+      "family": "RC",
+      "full_source": true,
+      "id": "RC10",
+      "original_catalogue_sha256": "ee73597f484689025bc0e4cba45fc94bc4b5d14751d015fdf46408e77606ee5e",
+      "original_diagnostic_contract": {
+        "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+        "candidate_path": null,
+        "catalogue": {
+          "blob": "2ad5351ebc7a6e0111e3dc4a0e0fecb72fe46b28",
+          "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/golden_cases.json",
+          "pointer": null
+        },
+        "expected": "CONCEPTUAL_VALID_PENDING_FORMALISATION",
+        "expected_catalogue_identity": "RC10",
+        "family": "RC",
+        "id": "RC10",
+        "original_full_paths": "NOT_EXECUTED",
+        "rc": "RC10",
+        "rule_id": "R13",
+        "scope": "ORIGINAL_CONCEPTUAL_EXPECTATION"
+      },
+      "original_source_blob": "e775b67b54eaddd596d366860f75ec82b4806c4c",
+      "original_source_sha256": "694b7abb0e7507ef9d9654a40ca9ec98eb07e8d507953a433353c294f687f2d3",
+      "owner": "OWNER_TBD",
+      "rc": "RC10",
+      "representation_audit_identity": "db9f34d06c88805e96514f351a6f08f15f693a4fd16ed0f3c7a01f6ce7cfbdee",
+      "result": {
+        "comparison_evidence": [
+          {
+            "id": "comparison:models",
+            "independence": "UNVERIFIED",
+            "owner": "OWNER_TBD",
+            "requested": "E4",
+            "status": "NOT_PROVED"
+          }
+        ],
+        "conformance": "NOT_PROVED",
+        "definition_pin": "2844a86ca6cba4d13318a7c15ba7ef26ce1c60e82998647002575d3da6abf2d8",
+        "external_reports": [
+          {
+            "conformance": "NOT_PROVED",
+            "declaration": {
+              "basis": "ORIGINAL_RESEARCH_PENDING",
+              "declared_unit": null,
+              "value_type": "QUALITATIVE"
+            },
+            "id": "report:independent_evidence",
+            "reason": "MISSING_EVIDENCE",
+            "source_ref": "authority:source",
+            "status": "NOT_EXECUTED",
+            "value": null
+          }
+        ],
+        "graph_audit_identity": "2f122384abb95bbed51734393933c4a073fa1fbd11ece29a50a4040a77cb5b41",
+        "graph_semantic_identity": "03cbf3b5e38ebed3f3ab5ed9487f37b6daac68a7bea6db9f2ade028e15b1dd30",
+        "instance_pin": "144022cac033a7840add3885b9c094e1a5205b4eecb3906049ca3192262ec541",
+        "lineage": {},
+        "lowered_normativity": {
+          "assertion:agreement": {
+            "authority_ref": "authority:source",
+            "status": "RESEARCH_ASSUMPTION"
+          }
+        },
+        "native_identity": "93d4eacf2394b2fa494dec02b636d9712828fea5199414731d18a231addc25b2",
+        "native_package_sha256": "ed8acf656219fb738a1217990bd8756df7e8ba4c6c568b496b6df1c2a5246951",
+        "obligations": {
+          "assertions": [
+            {
+              "applicable_requests": null,
+              "conformance": "NOT_PROVED",
+              "finite_status": "FINITE_OBSERVED_TRUE",
+              "id": "assertion:agreement",
+              "missing_witnesses": [],
+              "owner": "OWNER_TBD",
+              "reasons": [],
+              "truth": "TRUE"
+            }
+          ],
+          "conformance": "NOT_PROVED",
+          "owner": "OWNER_TBD",
+          "scope": "FINITE_DECLARED_SUPPORT_AND_WITNESSES_ONLY",
+          "status": "FINITE_OBSERVATIONS_ONLY"
+        },
+        "outputs": {
+          "output:delta": [
+            {
+              "key": [],
+              "value": "0"
+            }
+          ]
+        },
+        "owner": "OWNER_TBD",
+        "package_sha256": "24d41c26088ebd4f2fef7b710ecbff7ff19a52be817d318c4afca88770aa4b84",
+        "policies": [],
+        "roundtrip": true,
+        "semantic_identity": "0d9010ce294ca98998679e23bbe58b538187db6db5815da7e6147f2bcb1f566a",
+        "status": "BLOCKED",
+        "structural_checks": [
+          {
+            "code": "SOURCE_LOSS",
+            "path": "/instance/record/synthetic_data/inputs/source_ids",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "INDEPENDENCE_IDENTITY_COLLISION",
+            "path": "/instance/record/synthetic_data/inputs/generator_ids",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "VARIATION_DISCLOSURE",
+            "path": "/instance/record/synthetic_data/inputs/variation_disclosed",
+            "rule_id": "R10",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "EVIDENCE_PROMOTION",
+            "path": "/instance/record/synthetic_data/observed/evidence_role",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "EVIDENCE_PROMOTION",
+            "path": "/instance/record/synthetic_data/observed/evidence_status",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          },
+          {
+            "code": "E4_UNSUPPORTED",
+            "path": "/instance/record/synthetic_data/observed/e4_claim",
+            "rule_id": "R13",
+            "status": "SATISFIED"
+          }
+        ]
+      },
+      "source_blob": "58c522b1e2cc13c6ea61d24fddc684ac4dfe6fff",
+      "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/B/RC10.json",
+      "source_sha256": "12f1cf75f0e95322ac84a4bf0c276d9624e40632fd70d84f7a254df66ad87de4",
+      "stage_receipts": {},
+      "status": "RETURNED",
+      "syntax": "B"
+    }
+  ]
+}
