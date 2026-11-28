@@ -299,7 +299,8 @@ def instantiate(d,dp,i,ip):
         for k,r in study_metrics.items():
             linked=[z for z in req.values() if k in z["metric_refs"] and z["level"]=="STUDY" and z["required"]]
             r["validation_assessments"]={z["id"]:assessments[z["id"]]["status"] for z in linked}
-            r["status"]="COMPUTED_WITH_PINNED_VALIDATION_ATTESTATION" if r["value"] is not None and linked and all(assessments[z["id"]]["status"]=="PASS" for z in linked) else r["status"]
+            validated=all(any(z["id"] in t["requirements"] and t["kind"]=="VALIDATION" and r["output"] in t["input_refs"] and result[t["id"]]["verdict"]=="PASS" and result[t["id"]]["computed_evidence"] is not None for t in tests.values()) for z in linked)
+            r["status"]="COMPUTED_WITH_PINNED_VALIDATION_ATTESTATION" if r["value"] is not None and linked and validated and all(assessments[z["id"]]["status"]=="PASS" for z in linked) else r["status"]
     return {"schema":r1.PACKAGE if advanced else PACKAGE,"definition_semantic_identity":semantic,"definition_pin":dp,"instance_pin":ip,
             "native_receipt":native,"study_metrics":study_metrics,"tests":result,"requirements":assessments,"evidence":evidences,
             "declared_evidence":list(claims.values()),"contract_conformance":"NOT_PROVED","owner":"OWNER_TBD"}

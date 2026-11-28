@@ -66,13 +66,19 @@ def exchange(ctl):
     else:raise AssertionError("unauthorized method exchange")
     return d,i,n,ni
 
+def governed_revision(d,n):
+    changes=r1.revision_changes(d,n);src=next(x for x in d["base"]["sources"] if x["id"]==SOURCE)
+    a={"schema":"c5-r1-revision-authorization-0.1","base_ref":digest(d),"proposed_ref":digest(n),"changes":changes,"authority_ref":SOURCE,"source_sha256":src["sha256"],"decision":"APPROVED_RESEARCH_REVISION","reason":"Controlled synthetic change"}
+    receipt=vm.revise_requirements(d,digest(d),n,digest(n),a,digest(a));check(receipt["changes"]==changes,"revision receipt drift")
+    return receipt
+
 def tasks(ctl):
     start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i))
-    a=copy.deepcopy(n["requirements"][1]);a["id"]="requirement:new";n["requirements"].append(a);n["tests"][0]["requirements"].append(a["id"]);reb(n,ni)
-    measure("M01_ADD_REQUIREMENT",(d,i),(n,ni),["add requirement record","link requirement in existing test"],(TEST,TEST),"PASS","PASS",start)
+    a=copy.deepcopy(n["requirements"][1]);a["id"]="requirement:new";n["requirements"].append(a);n["tests"][0]["requirements"].append(a["id"]);n["tests"][0]["version"]="2";reb(n,ni);governed_revision(d,n)
+    measure("M01_ADD_REQUIREMENT",(d,i),(n,ni),["add requirement record","link requirement in existing test","increment test version","authorize exact revision"],(TEST,TEST),"PASS","PASS",start)
 
-    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));t=copy.deepcopy(n["tests"][0]);m=next(x for x in n["metrics"] if x["id"]==t["metric"]);m=copy.deepcopy(m);m["id"]="metric:new";n["metrics"].append(m);n["requirements"][1]["metric_refs"].append(m["id"]);t.update(id="test:new",metric=m["id"]);n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni)
-    measure("M02_ADD_METRIC",(d,i),(n,ni),["add metric record","link metric in requirement","add test","request test"],(TEST,t["id"]),"PASS","PASS",start)
+    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));t=copy.deepcopy(n["tests"][0]);m=next(x for x in n["metrics"] if x["id"]==t["metric"]);m=copy.deepcopy(m);m["id"]="metric:new";n["metrics"].append(m);n["requirements"][1]["metric_refs"].append(m["id"]);n["requirements"][1]["version"]="2";t.update(id="test:new",metric=m["id"]);n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni);governed_revision(d,n)
+    measure("M02_ADD_METRIC",(d,i),(n,ni),["add metric record","link metric in requirement","increment requirement version","add test","request test","authorize exact revision"],(TEST,t["id"]),"PASS","PASS",start)
 
     start=time.monotonic();d,i,_=ctl.migrate(*build(numeric=True,expected=[15,21]));n,ni,_=ctl.migrate(*build(numeric=True,condition="benefit <= expected",expected=[15,21]));check(d["requirements"]==n["requirements"] and d["tests"]==n["tests"],"criterion change touched outer records")
     measure("M03_CHANGE_CRITERION",(d,i),(n,ni),["edit one native condition; regenerate package/pins"],("test:benchmark","test:benchmark"),"FAIL","PASS",start)
@@ -81,11 +87,11 @@ def tasks(ctl):
     measure("M04_SWAP_METHOD",(d,i),(n,ni),["change one native expression","change method version","explicit composition request","explicit research authorization"],(TEST,TEST),"PASS","PASS",start)
     check(run(n,ni)["study_metrics"][METRIC]["value"]==[{"key":["s1"],"value":"115"},{"key":["s2"],"value":"150"}],"method result unexpected")
 
-    start=time.monotonic();d,i=ctl.independent_native("state");n,ni=copy.deepcopy((d,i));a=copy.deepcopy(n["requirements"][-1]);a["id"]="requirement:state-reuse";n["requirements"].append(a);t=copy.deepcopy(n["tests"][-1]);t.update(id="test:state-reuse",requirements=[a["id"]]);n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni);check(n["base"]==d["base"],"contract reuse edited base")
-    measure("M05_REUSE_COMPONENT_STATE_CONTRACT",(d,i),(n,ni),["add requirement","add test referring to existing state contract","request test"],("test:state","test:state-reuse"),"PASS","PASS",start)
+    start=time.monotonic();d,i=ctl.independent_native("state");n,ni=copy.deepcopy((d,i));a=copy.deepcopy(n["requirements"][-1]);a["id"]="requirement:state-reuse";n["requirements"].append(a);t=copy.deepcopy(n["tests"][-1]);t.update(id="test:state-reuse",requirements=[a["id"]]);n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni);governed_revision(d,n);check(n["base"]==d["base"],"contract reuse edited base")
+    measure("M05_REUSE_COMPONENT_STATE_CONTRACT",(d,i),(n,ni),["add requirement","add test referring to existing state contract","request test","authorize exact revision"],("test:state","test:state-reuse"),"PASS","PASS",start)
 
-    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));t=copy.deepcopy(n["tests"][0]);t["id"]="test:another";n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni)
-    measure("M06_ADD_SYSTEM_TEST",(d,i),(n,ni),["add test record reusing criterion/metric","request test"],(TEST,t["id"]),"PASS","PASS",start)
+    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));t=copy.deepcopy(n["tests"][0]);t["id"]="test:another";n["tests"].append(t);ni["requested_tests"].append(t["id"]);reb(n,ni);governed_revision(d,n)
+    measure("M06_ADD_SYSTEM_TEST",(d,i),(n,ni),["add test record reusing criterion/metric","request test","authorize exact revision"],(TEST,t["id"]),"PASS","PASS",start)
 
     start=time.monotonic();d,i,n,ni=exchange(ctl);i["attestations"]=[ctl.sign(d,i)];old=copy.deepcopy(ni);old["attestations"]=copy.deepcopy(i["attestations"])
     try:run(n,old)
@@ -98,9 +104,9 @@ def tasks(ctl):
     start=time.monotonic();d,i=build();n,ni,receipt=ctl.migrate(d,i);check(receipt["previous_definition_pin"]==digest(d),"migration provenance")
     measure("M08_WIRE_MIGRATION",(d,i),(n,ni),["explicit reviewer source","run versioned migration; generated records/pins"],(TEST,TEST),"PASS","PASS",start)
 
-    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));n["requirements"][0]["statement"]+=" Clarified synthetic purpose.";reb(n,ni)
+    start=time.monotonic();d,i,_=ctl.migrate();n,ni=copy.deepcopy((d,i));n["requirements"][0]["statement"]+=" Clarified synthetic purpose.";n["requirements"][0]["version"]="2";reb(n,ni);governed_revision(d,n)
     check(d["base"]==n["base"],"wording edit changed native")
-    measure("M09A_WORDING_WITHOUT_MATH",(d,i),(n,ni),["edit one requirement statement"],(TEST,TEST),"PASS","PASS",start)
+    measure("M09A_WORDING_WITHOUT_MATH",(d,i),(n,ni),["edit one requirement statement","increment requirement version","authorize exact revision"],(TEST,TEST),"PASS","PASS",start)
     start=time.monotonic();d,i,n,ni=exchange(ctl);check(d["requirements"]==n["requirements"] and d["tests"]==n["tests"],"math edit changed trace")
     measure("M09B_MATH_WITHOUT_WORDING",(d,i),(n,ni),["authorized native expression/version change"],(TEST,TEST),"PASS","PASS",start)
 

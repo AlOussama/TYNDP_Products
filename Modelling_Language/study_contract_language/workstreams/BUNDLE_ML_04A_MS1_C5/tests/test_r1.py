@@ -282,6 +282,8 @@ class R1(unittest.TestCase):
         d,i,_=self.migrate();t=next(x for x in d["tests"] if x["id"]==REVIEW)
         t["applicability"]={"slot":None,"guard":{"truth":"FALSE","reason":None}};reb(d,i)
         rr=run(d,i);self.assertEqual(rr["tests"][REVIEW]["applicability"],"FALSE");self.assertEqual(rr["tests"][REVIEW]["execution"],"NOT_EXECUTED")
+        self.assertEqual(rr["requirements"][STUDY]["status"],"INCONCLUSIVE")
+        self.assertEqual(rr["study_metrics"][METRIC]["status"],"COMPUTED_NOT_VALIDATED")
         t["applicability"]["guard"]={"truth":"UNKNOWN","reason":"MISSING_DATA"};reb(d,i)
         self.assertEqual(run(d,i)["tests"][REVIEW]["verdict"],"INCONCLUSIVE")
         t["applicability"]={"slot":"slot:benefit","guard":{"truth":"TRUE","reason":None}}

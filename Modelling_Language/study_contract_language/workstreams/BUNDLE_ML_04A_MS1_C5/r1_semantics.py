@@ -309,6 +309,7 @@ def aggregate_children(req,assessments):
         deps={x:walk(x) for x in req[k]["depends_on"]}
         a=assessments[k];local=a["status"];a["local_status"]=local;a["child_assessments"]=statuses;a["dependency_assessments"]=deps
         all_=[local,*statuses.values()]
+        if local=="NOT_APPLICABLE" and any(x!="NOT_APPLICABLE" for x in statuses.values()):all_.append("INCONCLUSIVE")
         if local!="NOT_APPLICABLE" and any(x!="PASS" for x in deps.values()):all_.append("BLOCKED")
         for s in ("FAIL","INCONCLUSIVE","BLOCKED","NOT_EXECUTED"):
             if s in all_:a["status"]=s;break
