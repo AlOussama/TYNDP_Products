@@ -67,8 +67,13 @@ jobs:
           test "$(git -C .. rev-parse d4e11fcac0c4741535609b85b438416061a85ca2^{tree})" = a622698a7a778922c945ad831fac2b656b04fed9
           git -C .. merge-base --is-ancestor d4e11fcac0c4741535609b85b438416061a85ca2 HEAD
           openssl version
-          pixi run --locked -e py313 python -c "import jsonschema; print(jsonschema.__file__)"
           pixi run --locked -e py313 python ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/test_r1.py 2>&1 | tee ../Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/r1_test_log.txt
+      - name: Independent structural schema validation
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/c5-schema"
+          "$RUNNER_TEMP/c5-schema/bin/python" -m pip install --disable-pip-version-check 'jsonschema==4.23.0' 'attrs==25.3.0' 'jsonschema-specifications==2024.10.1' 'referencing==0.36.2' 'rpds-py==0.22.3' 'typing-extensions==4.12.2'
+          "$RUNNER_TEMP/c5-schema/bin/python" Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/tests/validate_r1_schema.py | tee Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C5/generated/r1_schema_log.txt
       - name: Upload actual C5 authored variants, canonical packages and native logs
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
