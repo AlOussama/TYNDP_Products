@@ -98,7 +98,15 @@ def criterion_depends(base,tabs,metric_target,criterion):
 
 def input_population(base,target):
     f=base["frame"]
-    if target["kind"]=="DATA_QUALITY":return {target["record"]["id"]}
+    if target["kind"]=="DATA_QUALITY":
+        record=target["record"];out={record["id"]};qa=set(record["quality_assertions"])
+        for row in base["slots"]:
+            if qa&{a["id"] for a in row["assertions"]}:
+                s=next(x for x in f["slots"] if x["id"]==row["id"])
+                out.update(s["inputs"]+s["observables"])
+        cv=record["conversion"]
+        if cv is not None and cv["kind"]=="SIGN_CONVENTION":out.add(cv["source_observable"])
+        return out
     if target["slot"] is None:return None
     s=next(r for r in f["slots"] if r["id"]==target["slot"])
     out=set(s["inputs"]+s["observables"])
@@ -130,6 +138,8 @@ def validate_test(t,target,m,metric_target,base,tabs,source,targs):
         k=target["record"]["id"];records={x["id"]:x for c in ("inputs","observables","context_fields") for x in base["frame"][c]}
         record=records[k];scope=tabs["scopes"][t["scope"]]
         need(set(record["axes"])<=set(scope["domains"]) and ("subject" not in record or record["subject"] in scope["subjects"]),"R1_DATA_TEST_SCOPE")
+        qa=set(target["record"]["quality_assertions"])
+        need(all(contains(tabs,t["scope"],a["scope"]) for row in base["slots"] for a in row["assertions"] if a["id"] in qa),"R1_DATA_QUALITY_ASSERTION_SCOPE")
     if t["method"] in NATIVE:
         wanted=input_population(base,target)
         need(wanted is not None,"R1_TEST_INPUT_COVERAGE")

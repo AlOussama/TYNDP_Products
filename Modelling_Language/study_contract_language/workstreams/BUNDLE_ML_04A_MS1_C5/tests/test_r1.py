@@ -313,6 +313,16 @@ class R1(unittest.TestCase):
         n,ni,_=vm.migrate_r1(d,digest(d),i,digest(i),self.sources[:1],{SYSTEM:"NORMATIVE_REQUIREMENT_PENDING_OWNER"})
         self.assertEqual(n["requirements"][1]["normativity"],"NORMATIVE_REQUIREMENT_PENDING_OWNER")
         self.assertEqual(run(n,ni)["owner"],"OWNER_TBD")
+    def test_r1_30_native_quality_dependency_coverage(self):
+        for bad in (False,True):
+            d,i=self.independent_native(bad=bad)
+            c=next(x for x in d["base"]["requirements"]["data_contracts"] if x["id"]=="input:expected")
+            c.update(quality="NATIVE_ASSERTION",quality_assertions=["assertion:cross"])
+            a,m,t=add_requirement(d,i,"quality-native","input:expected","NATIVE_DATA_QUALITY");reb(d,i)
+            self.assertEqual(set(t["input_refs"]),{"input:expected","output:mid"})
+            self.assertEqual(run(d,i)["tests"][t["id"]]["verdict"],"FAIL" if bad else "PASS")
+            t["input_refs"]=["input:expected"]
+            with self.assertRaisesRegex(Reject,"R1_TEST_INPUT_COVERAGE"):vm.admit(d,digest(d))
     def test_r1_29_duplicate_evidence_id(self):
         d,i,_=self.migrate();a=self.sign(d,i);a["id"]=TEST;i["attestations"]=[a]
         with self.assertRaisesRegex(Reject,"R1_EVIDENCE_ID_COLLISION"):run(d,i)
