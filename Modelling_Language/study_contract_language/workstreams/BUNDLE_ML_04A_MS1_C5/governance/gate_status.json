@@ -1,71 +1,93 @@
 {
-  "decision": "C_TARGETED_TECHNICAL_CLOSURE_REQUIRED",
+  "status": "NON-NORMATIVE / RESEARCH ONLY",
+  "owner": "OWNER_TBD",
+  "decision": "OPTION_C_TARGETED_TECHNICAL_CLOSURE_REQUIRED",
   "release": "NOT_RELEASED",
   "gates": [
     {
       "id": "C5-G0",
-      "status": "PARTIAL",
-      "reason": "Connector verified commit and PR identities; tree verification pending CI"
+      "name": "Baseline Integrity",
+      "status": "MET",
+      "evidence": "CI verified exact C4 trees, ancestor pins, 27 blob pins, pinned mathspec tree; historical replay success."
     },
     {
       "id": "C5-G1",
+      "name": "Requirements Semantic Closure",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Explicit versioned registries and native trace controls; exact scope only, no arbitrary refinement or decomposition completeness."
     },
     {
       "id": "C5-G2",
+      "name": "Metrics Semantic Closure",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Typed output, native comparison, assertion, method composition controls; same-slot numerical dependency; broad negative diagnostic tests; quantitative scope limited."
     },
     {
       "id": "C5-G3",
+      "name": "System Test Semantic Closure",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Three reusable methods, finite support, inherited input/precondition bindings; no independently executable external oracles or broader test method contracts."
     },
     {
       "id": "C5-G4",
+      "name": "Evidence & Assessment Closure",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Native computed receipts, claims and applicability tested; external review/authenticity not established; trace aggregation bounded."
     },
     {
       "id": "C5-G5",
-      "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "name": "Native Mathematical Integrity",
+      "status": "MET",
+      "evidence": "C4 native Program authority unchanged; no competing AST; pinned upstream mathspec 4140 pass, 47 skipped."
     },
     {
       "id": "C5-G6",
-      "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "name": "Canonical Integration",
+      "status": "MET",
+      "evidence": "Within admitted C5 structural fragment, native A/B roundtrip, pins, recomputed receipt and versioned identities observed; no general semantic equivalence."
     },
     {
       "id": "C5-G7",
+      "name": "Minimality & Reuse",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Five ablations; no matched-scope alternate implementation or global minimality proof."
     },
     {
       "id": "C5-G8",
+      "name": "Maintainability & Migration",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Controlled edits, method exchange and explicit migration; not all 9 experiments independently measured; no independent human authoring."
     },
     {
       "id": "C5-G9",
+      "name": "Native Regression",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "20 grouped C5 test methods passed; historical replay succeeded on earlier C5 commit. Latest combined exact-tree workflow exit not established at recording time."
     },
     {
       "id": "C5-G10",
-      "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "name": "Integrated CBA Reference Demonstration",
+      "status": "MET",
+      "evidence": "Nine positive/negative/incomplete cases each executed A/B, exact canonical match, native receipts and evidence; synthetic not full CBA."
     },
     {
       "id": "C5-G11",
+      "name": "Final Specification",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Consolidated candidate specification, grammar, metamodel, structural schema and limits; consistency not fully demonstrated and candidate not final release."
     },
     {
       "id": "C5-G12",
+      "name": "Critical Scientific Review",
       "status": "PARTIAL",
-      "reason": "Candidate implementation or inherited scope only; actual complete C5 gate evidence pending."
+      "evidence": "Separate critical review and risk register; AI internal not person-independent audit; residual material gaps."
     }
-  ]
+  ],
+  "implementation": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
+  "evidence_for_c5": "bea3ffcb834f6d2468e7aa0b4d3ae8b1af2c2314",
+  "c5_run": 46091934392,
+  "c5_job": 140814603843,
+  "historical_run": 46091488209,
+  "historical_job": 140813186263,
+  "limitations": "No scope reduction used to mark partially satisfied material gates MET."
 }

@@ -1,0 +1,27 @@
+{
+  "run": 46091934392,
+  "job": 140814603843,
+  "actual_change_logs": [
+    "2_new_records,1_requested_test_ref,1_definition_ref_update;0_base_or_validator_edits",
+    "metric_reuse:2_new_records,2_ref_updates,1_definition_ref_update;0_base_or_validator_edits",
+    "criterion:one_native_condition,derived_repinning;0_outer_requirement_or_test_edits",
+    "semantic_wording:1_requirement_field,1_definition_ref_update;0_native_math_edits"
+  ],
+  "method_swap_control": {
+    "id": "VT19",
+    "test_method": "test_vt19_vt20_vt21_method_composition",
+    "execution": "PASS",
+    "scope": "BOUNDED_FINITE_CONTROL",
+    "run": 46091934392,
+    "job": 140814603843
+  },
+  "migration_control": {
+    "id": "VT27",
+    "test_method": "test_vt27_migration",
+    "execution": "PASS",
+    "scope": "BOUNDED_FINITE_CONTROL",
+    "run": 46091934392,
+    "job": 140814603843
+  },
+  "limitation": "Composite controlled changes; 9 fully independent change experiments with measured human effort not available. No empirical usability result."
+}

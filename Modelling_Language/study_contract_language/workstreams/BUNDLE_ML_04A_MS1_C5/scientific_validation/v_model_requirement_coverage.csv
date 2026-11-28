@@ -1,12 +1,29 @@
-ID,Requirement,Status,Evidence target,Limit
-VM-01,Stable study and system requirement identity,IMPLEMENTED_PENDING_TEST,VT01 VT03 VT04,Exact scope only
-VM-02,Study metric and verification metric roles,IMPLEMENTED_PENDING_TEST,VT05 VT06,Native output or Boolean target
-VM-03,Typed metric and native criterion binding,IMPLEMENTED_PENDING_TEST,VT07 VT08 VT09 VT10,Restricted native subset
-VM-04,System test coverage and applicability,IMPLEMENTED_PENDING_TEST,VT11 VT12 VT13 VT14,Finite declared support
-VM-05,Execution and assessment distinction,IMPLEMENTED_PENDING_TEST,VT15 VT16 VT17 VT18,No general conformity
-VM-06,Method exchangeability and authorization,NOT_EXECUTED,VT19 VT20 VT21,C4 composition inherited; C5 explicit change trace not yet tested
-VM-07,Canonical identity and representation,IMPLEMENTED_PENDING_TEST,VT22 VT23,C4 native authority unchanged
-VM-08,Modelling freedom,NOT_EXECUTED,VT24 VT25,Historical analytical controls only until rerun
-VM-09,Qualitative review reference,IMPLEMENTED_PENDING_TEST,VT26,External review not performed
-VM-10,Migration,IMPLEMENTED_PENDING_TEST,VT27,Explicit profile composition only
-VM-11,CBA integrated reference,IMPLEMENTED_PENDING_TEST,VT28,Nine synthetic variants
+VT,test_method,actual_control_status,scope,run,job
+"VT01","test_vt01_vt02_requirements_and_tests","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT02","test_vt01_vt02_requirements_and_tests","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT03","test_vt03_multiple_requirements_and_tests","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT04","test_vt04_references_and_cycles","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT05","test_vt05_vt06_roles_native_metric","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT06","test_vt05_vt06_roles_native_metric","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT07","test_vt07_vt08_incompatible_types","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT08","test_vt07_vt08_incompatible_types","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT09","test_vt09_vt10_native_benchmark","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT10","test_vt09_vt10_native_benchmark","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT11","test_vt11_vt12_applicability","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT12","test_vt11_vt12_applicability","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT13","test_vt13_vt14_missing_support","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT14","test_vt13_vt14_missing_support","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT15","test_vt15_vt16_native_pass_fail","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT16","test_vt15_vt16_native_pass_fail","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT17","test_vt17_vt18_evidence","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT18","test_vt17_vt18_evidence","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT19","test_vt19_vt20_vt21_method_composition","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT20","test_vt19_vt20_vt21_method_composition","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT21","test_vt19_vt20_vt21_method_composition","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT22","test_vt22_vt23_canonical_and_pin_integrity","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT23","test_vt22_vt23_canonical_and_pin_integrity","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT24","test_vt24_vt25_projected_model_formulations","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT25","test_vt24_vt25_projected_model_formulations","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT26","test_vt26_qualitative_review","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT27","test_vt27_migration","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
+"VT28","test_vt28_integrated_nine_variants","PASS","BOUNDED_FINITE_CONTROL","46091934392","140814603843"
