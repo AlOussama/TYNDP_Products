@@ -1,0 +1,470 @@
+{
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "owner": "OWNER_TBD",
+  "c3_head": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+  "tested_commit": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+  "head_tree": "3230721ccf140123d54939dcfafde9fbd5ee6ecc",
+  "tested_tree": "569d1f0aaaaa440366e452ed9a2fd337cd15b0a8",
+  "c3_ci": 46086101815,
+  "source_checks": [
+    {
+      "label": "PR head",
+      "expected": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "actual": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "match": true
+    },
+    {
+      "label": "PR draft",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "label": "CI head",
+      "expected": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+      "actual": "5c98c295db90e973bbfe4bfce3d82d2a4a6b2505",
+      "match": true
+    },
+    {
+      "label": "CI conclusion",
+      "expected": "success",
+      "actual": "success",
+      "match": true
+    },
+    {
+      "label": "tested tree completeness",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "label": "final tree completeness",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json",
+      "expected": "12adb68a3f76c105661a771150bc9548ca7d9a5a",
+      "actual": "12adb68a3f76c105661a771150bc9548ca7d9a5a",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv",
+      "expected": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+      "actual": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv",
+      "expected": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+      "actual": "81dc87d54e36baf10c773b55cdecb314a4a0df8b",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv",
+      "expected": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+      "actual": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv",
+      "expected": "b70ebae3212e4e712751b28432bb3fac08d98cb6",
+      "actual": "b70ebae3212e4e712751b28432bb3fac08d98cb6",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+      "expected": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9",
+      "actual": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py",
+      "expected": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
+      "actual": "4ecf322c5522721dd463f0c6a465d982a94f2c22",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/dependency_manifest.json",
+      "expected": "7d06b62cc8f2731399cf3f11c0edc600fc77d137",
+      "actual": "7d06b62cc8f2731399cf3f11c0edc600fc77d137",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/original_regression_manifest.json",
+      "expected": "7ed73cf1080d7443141ee48f715cbc5cf200fb30",
+      "actual": "7ed73cf1080d7443141ee48f715cbc5cf200fb30",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/requirement_coverage_matrix.csv",
+      "expected": "33c51cafe94475c7e97aa36fb2d15fb9b7f14db9",
+      "actual": "33c51cafe94475c7e97aa36fb2d15fb9b7f14db9",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json",
+      "expected": "39ace6db99f2e030cfb717db56c0f7907daf7da8",
+      "actual": "39ace6db99f2e030cfb717db56c0f7907daf7da8",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n1r.py",
+      "expected": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+      "actual": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n2r.py",
+      "expected": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13",
+      "actual": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n7.py",
+      "expected": "b9234f4d3f32463cb675d22d5b153a0ab83d7114",
+      "actual": "b9234f4d3f32463cb675d22d5b153a0ab83d7114",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+      "expected": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "actual": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "expected": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "actual": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/units_r1.py",
+      "expected": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f",
+      "actual": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/original_diagnostic_contracts.json",
+      "expected": "2d9321293450511d7bafdd6b8b2ffa7fe0f7b814",
+      "actual": "2d9321293450511d7bafdd6b8b2ffa7fe0f7b814",
+      "match": true
+    },
+    {
+      "label": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/closure_v1/requirement_traceability.csv",
+      "expected": "ffaf99882531fe03c12e1be1d3e2924d2ca8d474",
+      "actual": "ffaf99882531fe03c12e1be1d3e2924d2ca8d474",
+      "match": true
+    },
+    {
+      "label": "P5 fixture",
+      "expected": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "actual": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "match": true
+    },
+    {
+      "label": "original rows",
+      "expected": 58,
+      "actual": 58,
+      "match": true
+    },
+    {
+      "label": "original paths",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    },
+    {
+      "label": "actual paths",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    },
+    {
+      "label": "actual pairs",
+      "expected": 58,
+      "actual": 58,
+      "match": true
+    },
+    {
+      "label": "diagnostic paths",
+      "expected": 96,
+      "actual": 96,
+      "match": true
+    },
+    {
+      "label": "physical RC rows",
+      "expected": 10,
+      "actual": 10,
+      "match": true
+    },
+    {
+      "label": "actual returned",
+      "expected": 32,
+      "actual": 32,
+      "match": true
+    },
+    {
+      "label": "actual rejected",
+      "expected": 84,
+      "actual": 84,
+      "match": true
+    },
+    {
+      "label": "matched frozen path identities",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    },
+    {
+      "label": "source blobs match tested AND final trees",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    },
+    {
+      "label": "coverage receipts agree",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    },
+    {
+      "label": "all receipt rows research only",
+      "expected": 116,
+      "actual": 116,
+      "match": true
+    }
+  ],
+  "changed_inputs": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/C4_handoff.md",
+      "before": "4dddcef536cb638304be846517d6907c20f791de",
+      "after": "0ba0a548a136c775133262f6deb9cd17a42c5785"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/README.md",
+      "before": "635cddb38ebe0e3d05f5d33f5e90dbe8c8d0757f",
+      "after": "452a50b62f86e6314e9a77f11962239186bbfe5c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/artifact_manifest.json",
+      "before": "5dc4b293f1c1064fd66199b76fd5f2775b6775c7",
+      "after": "335c419f4486cd6b4ce76f47a6ff05fe860124f0"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/blocker_register.json",
+      "before": "8ec58bcfa41e41083c1d801dbfd5cc86fc85b358",
+      "after": "ea36c2cd8bc4c1ace4020d62b8d5621da0ba12b1"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/critical_review.md",
+      "before": "ce2846bc1bcde3933f100ee7d4895559adc970c5",
+      "after": "1ce0ec7793506deeddfb18d57dee42340233ee86"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/gate_status.json",
+      "before": "9cb4e9ab470fad7e25b30797acd48654d783d66e",
+      "after": "ace116ff583e23d26dc2f9c9fc38cff56af1f3c8"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_path_coverage.json",
+      "before": "d2306cd396342f3b512eb9c73f7877c676810c4f",
+      "after": "95f527472a5749efc326d42594a370d224860995"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/p5_catalogue.json",
+      "before": "90301836dd767c86e0bb08c975dde8aef3888e3b",
+      "after": "6006fd8e5785deda744acf32bfbc9131078825ad"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/originals/rc_catalogue.json",
+      "before": "69874fc9cf766de22a1b18169040ae025a094f9f",
+      "after": "506273aef3a0f003f5fdeeb7f4065da197f40531"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/requirement_coverage.csv",
+      "before": "c36256643d6203a1b48a035f3e1835582e76c31a",
+      "after": "2915031fd13e1889324c98fc69f09a6b32950785"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/source_baseline.json",
+      "before": "5f5820ab1a031dfc981296fb0f446f28ac4bbead",
+      "after": "2b88911d5f97e01ee494cd8a9aa15b4200f58315"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_ci_46086101815_excerpt.txt",
+      "before": null,
+      "after": "75142837a7ac0cdee09050f8650a7c8d5bf904fa"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_attempt_46085848033.json",
+      "before": null,
+      "after": "ae254365dedd08afbdf3a5a8eb5dfbf04534a604"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_results_46086101815.json",
+      "before": null,
+      "after": "4ac0f071be72ab6c5aa576c726d901a2f17fc75c"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/mathematical_physical_traceability.json",
+      "before": null,
+      "after": "bf2b0875e9c03285b1c6bfe31a62df9b8122ed6b"
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_diagnostic_register.json",
+      "before": null,
+      "after": "976f4c586bdf7d174b98a40e3de4cd515b70119f"
+    }
+  ],
+  "read_artifacts": [
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/source_baseline.json",
+      "blob": "2b88911d5f97e01ee494cd8a9aa15b4200f58315",
+      "characters": 2364
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/actual_original_results_46086101815.json",
+      "blob": "4ac0f071be72ab6c5aa576c726d901a2f17fc75c",
+      "characters": 751560
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_path_coverage.json",
+      "blob": "95f527472a5749efc326d42594a370d224860995",
+      "characters": 640323
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/original_diagnostic_register.json",
+      "blob": "976f4c586bdf7d174b98a40e3de4cd515b70119f",
+      "characters": 284775
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/mathematical_physical_traceability.json",
+      "blob": "bf2b0875e9c03285b1c6bfe31a62df9b8122ed6b",
+      "characters": 36714
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/requirement_coverage.csv",
+      "blob": "2915031fd13e1889324c98fc69f09a6b32950785",
+      "characters": 49096
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/artifact_manifest.json",
+      "blob": "335c419f4486cd6b4ce76f47a6ff05fe860124f0",
+      "characters": 29328
+    },
+    {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/blocker_register.json",
+      "blob": "ea36c2cd8bc4c1ace4020d62b8d5621da0ba12b1",
+      "characters": 33497
+    }
+  ],
+  "inherited": {
+    "schema": "c2-closure-source-0.1",
+    "governance": "NON-NORMATIVE / RESEARCH ONLY",
+    "parent": {
+      "pr": 94,
+      "commit": "415cf8285797a4bd695c5bfe85500753563af547",
+      "validated_commit": "a51add278cfda655a101ce7d5797228145cec46d",
+      "run": 46040116020,
+      "job": 140645396629
+    },
+    "inherited_manifest": {
+      "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json",
+      "blob": "39ace6db99f2e030cfb717db56c0f7907daf7da8"
+    },
+    "direct_reused_blobs": [
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/physical_type_registry.json",
+        "blob": "12adb68a3f76c105661a771150bc9548ca7d9a5a"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/k01_k17.csv",
+        "blob": "351dc88d2f9eb3a49fa9f561e9ff15419c768a2a"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/nfr01_nfr18.csv",
+        "blob": "81dc87d54e36baf10c773b55cdecb314a4a0df8b"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/slr01_slr42.csv",
+        "blob": "a4d67079a8e8ed1f5cd9101a1027767ee715b85f"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen/traceability.csv",
+        "blob": "b70ebae3212e4e712751b28432bb3fac08d98cb6"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/frozen_original_test_manifest.json",
+        "blob": "ca75ee61c1fe1cdab15bb2287e04a41cf34430d9"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C1/WS_B_original_reference_corpus/independent_oracles/oracles.py",
+        "blob": "4ecf322c5522721dd463f0c6a465d982a94f2c22"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/dependency_manifest.json",
+        "blob": "7d06b62cc8f2731399cf3f11c0edc600fc77d137"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/original_regression_manifest.json",
+        "blob": "7ed73cf1080d7443141ee48f715cbc5cf200fb30"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/requirement_coverage_matrix.csv",
+        "blob": "33c51cafe94475c7e97aa36fb2d15fb9b7f14db9"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C2/source_manifest.json",
+        "blob": "39ace6db99f2e030cfb717db56c0f7907daf7da8"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n1r.py",
+        "blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n2r.py",
+        "blob": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/n7.py",
+        "blob": "b9234f4d3f32463cb675d22d5b153a0ab83d7114"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+        "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+        "blob": "d98289b3e07d6ba9377a5698d273ff5c88327179"
+      },
+      {
+        "path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_R1/units_r1.py",
+        "blob": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f"
+      }
+    ],
+    "upstream": {
+      "repository": "energy-models/mathspec",
+      "commit": "5f1464c334c1012cdee2947d4d55b4d1d6bef40a",
+      "tree": "635a594392e990e2e22393d408cc5b307704cda0",
+      "canonical_blob": "a8487b60f03839fc622834ffcaf76e1f9c99f6e9",
+      "canonical_sha256": "e35e688c294c0986a9333895f98400b734d82a5c63db45dc9da308bb82383093",
+      "pixi_lock_blob": "dcf89e3e6b3794a1ae79d00a07978ceaec37daba",
+      "pixi_lock_sha256": "4dc324582e4cc4d701cac688026c252c4880634a7d34a7642c99248be05927d2",
+      "python": "3.13.15"
+    },
+    "original_p5": {
+      "commit": "eaea6dd99b736f2560866abda722cde78b908bce",
+      "fixture_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+      "oracle_blob": "ef2c7fa4ea4deab919f0c84ac7020aa1a32ff0a2",
+      "use": "original domain oracle unchanged; actual native graph controls use separate synthetic fixtures"
+    },
+    "note": "Inherited indirect pins retained through prior manifest; not all historical branches independently replayed. No upstream or R1 modification."
+  },
+  "limitations": [
+    "C3 result is not C4 regression; direct native SHA256 verification and transitive source history remain CI tasks",
+    "C3 audit reads changed coverage and requirement CSV",
+    "C3 catalogue changes are descriptive only by field comparison; no source files changed"
+  ]
+}

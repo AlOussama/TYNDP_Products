@@ -1,0 +1,154 @@
+{
+  "scope": "INDEPENDENT_SYNTHETIC_ANALYTICAL_PROXIES_NOT_NATIVE_TESTS",
+  "tests": [
+    {
+      "id": "C4-A-STORAGE",
+      "pass": true,
+      "details": {
+        "count": 85,
+        "capacity": 4,
+        "proof": "positive fixed C; map E=C*s bijective; multiply SOC equation by C",
+        "negative": "C=0 map undefined; wrong sign violates balance"
+      }
+    },
+    {
+      "id": "C4-A-EV",
+      "pass": true,
+      "details": {
+        "individual": [
+          "1,0",
+          "1,1"
+        ],
+        "aggregate": [
+          "0,1",
+          "1,0",
+          "1,1"
+        ],
+        "counterexample": [
+          0,
+          1
+        ],
+        "scope": "EV A must charge in t0 before departure; aggregate energy alone misses deadline"
+      }
+    },
+    {
+      "id": "C4-A-KVL",
+      "pass": true,
+      "details": {
+        "KCL_only": [
+          [
+            -3,
+            -3,
+            -3
+          ],
+          [
+            -2,
+            -2,
+            -2
+          ],
+          [
+            -1,
+            -1,
+            -1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            3,
+            3
+          ]
+        ],
+        "KCL_KVL": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "PTDF": [
+          0,
+          0,
+          0
+        ],
+        "assumptions": "triangle oriented cycle, equal unit reactance, zero injections, no phase shift"
+      }
+    },
+    {
+      "id": "C4-A-INVEST",
+      "pass": true,
+      "details": {
+        "common": "0<=capacity<=4; deliver>=1",
+        "discreteOptimum": 2,
+        "continuousOptimum": 1,
+        "cost": "unit capex",
+        "scope": "explicitly permitted granularity required; E4 false"
+      }
+    },
+    {
+      "id": "C4-A-H2",
+      "pass": true,
+      "details": {
+        "mass": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "energy": [
+          0,
+          33,
+          66,
+          99
+        ],
+        "basis": "synthetic 33 kWh/kg LHV; 39 alternate HHV deliberately incompatible",
+        "scope": "fixed positive factor; power and mass flow convert with same duration and basis"
+      }
+    },
+    {
+      "id": "C4-A-SELECT",
+      "pass": true,
+      "details": {
+        "accepted": [
+          "a",
+          "b"
+        ],
+        "rejected": [
+          "c",
+          "d"
+        ],
+        "scope": "declared complete finite candidate support, no global optimizer"
+      }
+    },
+    {
+      "id": "C4-A-SENS",
+      "pass": true,
+      "details": {
+        "outcomes": [
+          10,
+          14,
+          18,
+          22
+        ],
+        "mean": 16,
+        "variance": 20,
+        "scope": "equal weights; no attribution without factorial design"
+      }
+    }
+  ],
+  "passed": 7,
+  "total": 7
+}

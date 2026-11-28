@@ -1,0 +1,2 @@
+# Evidence limits
+C3 finite research data and authority unresolved. No human audit, independent human authoring, real model conformity, general equivalence proof, normative methodology approval, full IoSN or productive tool integration. 47 upstream skips separate. C4 proxies are independent of candidate/oracle code but not native executions. Final HEAD audit inputs changed; repeat full CI. C3 assessment harness uses case-ID verdict mapping; investigate falsification without changing frozen oracle.
