@@ -39,7 +39,7 @@ Let source feasible set F_G, target F_P, common observable coordinates z include
 | RV01 | one bus, load 5 MW and gen 10 MW at 20 EUR/MWh, 1 h: dispatch 5, cost 100; verify ENS penalty | mapping candidate |
 | RV02 | shared a=1 consumes 1 electricity and yields 0.6 H2 + 0.2 heat; two independent links wrongly permit 2 activities / different heat | multiport exact only, otherwise reject |
 | RV03 | 1 MW StorageUnit p_min_pu=-0.2, p_max_pu=1, 1h empty; native charging bound 0.2, forward YAML permits 1.0; inverse must not pretend original 0.2 is recoverable | reject ambiguous lineage; explicit model meaning |
-| RV04 | triangle with equal x, zero injections and one nonzero phase shift gives circulating flow magnitude |phi|/(3x), not zero; omitted phase not reconstructible | reject nonzero/missing PST metadata |
+| RV04 | triangle with equal x, zero injections and one nonzero phase shift gives circulating flow magnitude abs(phi)/(3x), not zero; omitted phase not reconstructible | reject nonzero/missing PST metadata |
 | RV05 | custom budget p1+p2<=1 with individual [0,1] bounds; dropping budget admits (1,1) | exact augmentation or reject |
 | RV06 | time intervals 1h/2h, constant 1 MW =3 MWh; scenario probabilities 0.25/0.75 distinct from duration | explicit clock and cost weights; no unweighted expec substitute |
 | RV07 | 2 scenarios demand 0/1, shared capacity cost 2, shed cost 10, weights 0.25/0.75; common x=1 cost 2, wait-and-see expected investment 1.5; cost difference flags perfect foresight | preserve shared x |
