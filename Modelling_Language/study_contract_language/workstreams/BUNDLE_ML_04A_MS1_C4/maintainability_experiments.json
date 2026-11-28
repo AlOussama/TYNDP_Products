@@ -1,0 +1,45 @@
+{
+  "status": "PARTIAL",
+  "observed": {
+    "issue": "4 active candidate modules directly import test helpers; active P5 method builder shares code with legacy fixture builder",
+    "modules": [
+      "original_compiler.py",
+      "original_p5.py",
+      "record_contract.py",
+      "p5_graph_projection.py"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "M1",
+      "task": "exchange method profile",
+      "evidence": "C2 CL11/18, CL28–30/33; repeat native in C4",
+      "new_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "M2",
+      "task": "add component obligation",
+      "new_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "M3",
+      "task": "change physical unit/sign convention",
+      "new_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "M4",
+      "task": "add evidence request",
+      "new_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "M5",
+      "task": "extend existing domain type",
+      "new_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "M6",
+      "task": "decouple candidate helpers",
+      "new_execution": "PENDING_CONTROLLED_CONSOLIDATION"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "status": "HISTORICAL_ACTUAL_MIGRATION_RECEIPTS_ONLY",
+  "methodical": [
+    {
+      "timing": "begin",
+      "legacy": "415/11",
+      "native": "415/11",
+      "same": true,
+      "source_blob_sha256": "723cae8e4644bf9d8a9e4aab408ba45e45e279d5b0ee4de86008eb960b3a342d"
+    },
+    {
+      "timing": "end",
+      "legacy": "4150/121",
+      "native": "4150/121",
+      "same": true,
+      "source_blob_sha256": "207fb0c06065f637872bcfef0a71ac349969d727b2a28b22e75d64faa2e92e7e"
+    }
+  ],
+  "component": [
+    {
+      "id": "RC01",
+      "scope": "Signed grid exchange only; terminal/efficiency ledger outside comparison. R1 fixed duration specialization uses the original 0.5 h frame.",
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      },
+      "same_numeric_outputs": false,
+      "M0": "EXECUTED",
+      "M2_predicate": "EXECUTED",
+      "M2_profile": "UNSUPPORTED_OR_REJECTED",
+      "M3": "EXECUTED",
+      "mapped_nodes": [
+        "ExpressionComparison",
+        "ExpressionReference",
+        "Multiply",
+        "ParameterReference"
+      ]
+    },
+    {
+      "id": "RC07",
+      "scope": "Explicit pre-revelation pair projection; full information-partition and quantifier semantics not evaluated.",
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      },
+      "same_numeric_outputs": false,
+      "M0": "EXECUTED",
+      "M2_predicate": "EXECUTED",
+      "M2_profile": "UNSUPPORTED_OR_REJECTED",
+      "M3": "EXECUTED",
+      "mapped_nodes": [
+        "ExpressionComparison",
+        "ParameterReference"
+      ]
+    },
+    {
+      "id": "RC10",
+      "scope": "Scalar agreement only; no E4/E5 promotion or proof of independent models.",
+      "legacy_equal": {
+        "semantic": true,
+        "audit": true
+      },
+      "same_numeric_outputs": false,
+      "M0": "EXECUTED",
+      "M2_predicate": "EXECUTED",
+      "M2_profile": "UNSUPPORTED_OR_REJECTED",
+      "M3": "EXECUTED",
+      "mapped_nodes": [
+        "ExpressionComparison",
+        "ParameterReference"
+      ]
+    }
+  ],
+  "limits": [
+    "M0/M2 static projections agree on three fragment cases; no full component migration claim",
+    "C1 ABL06 source provenance loss in M2 target mapping",
+    "C4 repeat and count manual mappings still pending",
+    "no human time estimate"
+  ]
+}

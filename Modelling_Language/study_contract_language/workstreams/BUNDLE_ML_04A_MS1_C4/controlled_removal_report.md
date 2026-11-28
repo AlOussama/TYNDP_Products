@@ -1,0 +1,2 @@
+# Planned disposition following measured dependency inspection
+No deletion in WS-B. The original source and independent oracles remain frozen. Candidate helper dependency is confirmed. WS-C may extract exact helper implementations into generic research assembly libraries and redirect callers. Preserve legacy source/reference, exact behavior, original test assertions and fail-closed admission; native regression and output equivalence required before declaring validated removal.

@@ -1,0 +1,98 @@
+[
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/A/RC01.scn",
+    "blob": "12a2498b18881e27691db51a511efa1b0edcc51e",
+    "characters": 16365,
+    "nonblank_non_comment_lines": 552,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "A",
+    "record_leaf_count": null,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/B/RC01.json",
+    "blob": "893d82237387afcf0658decedbe39761bac2dfc9",
+    "characters": 17649,
+    "nonblank_non_comment_lines": 698,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "B",
+    "record_leaf_count": 399,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/A/RC02.scn",
+    "blob": "7b7745e8a2d686c82fc63d4e78809ed389af453b",
+    "characters": 10037,
+    "nonblank_non_comment_lines": 317,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "A",
+    "record_leaf_count": null,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/B/RC02.json",
+    "blob": "e4c2d0477c69fe8b613b77e19614a1abdbb41239",
+    "characters": 11422,
+    "nonblank_non_comment_lines": 458,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "B",
+    "record_leaf_count": 246,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/A/RC04.scn",
+    "blob": "1a9027ce8bd33662e648c83672ae34a715b24554",
+    "characters": 10611,
+    "nonblank_non_comment_lines": 360,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "A",
+    "record_leaf_count": null,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/originals/B/RC04.json",
+    "blob": "c47a786da13e2de3650f4eef705c631537095958",
+    "characters": 11429,
+    "nonblank_non_comment_lines": 452,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "B",
+    "record_leaf_count": 252,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/controls/A/P5-BASE.scn",
+    "blob": "f5aa943a39c59807800ef8ea75710824740ba9c3",
+    "characters": 28267,
+    "nonblank_non_comment_lines": 855,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "A",
+    "record_leaf_count": null,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  },
+  {
+    "path": "BUNDLE_ML_04A_MS1_C3/controls/B/P5-BASE.json",
+    "blob": "c630de4cfb8581260c78c11964c3f78d6ab3c07c",
+    "characters": 32414,
+    "nonblank_non_comment_lines": 1250,
+    "functions": 0,
+    "classes": 0,
+    "import_statements": 0,
+    "representation": "B",
+    "record_leaf_count": 745,
+    "scope": "Existing same-design source; character and line counts, not human usability"
+  }
+]
