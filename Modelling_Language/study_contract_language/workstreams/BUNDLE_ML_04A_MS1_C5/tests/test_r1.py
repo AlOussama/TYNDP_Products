@@ -20,13 +20,13 @@ def reb(d,i):
 def add_requirement(d,i,identifier,target,method,scope=SCOPE,metric_target=None,kind="VERIFICATION"):
     m=metric("metric:"+identifier,"VERIFICATION" if kind=="VERIFICATION" else "VALIDATION","Synthetic check",metric_target or target)
     a=requirement("requirement:"+identifier,"SYSTEM" if kind=="VERIFICATION" else "STUDY","Explicit controlled requirement",[STUDY] if kind=="VERIFICATION" else [],[target],[m["id"]])
-    a.update(scope=scope,normativity="RESEARCH_ASSUMPTION",refinement_policy="DIRECT_AND_CHILDREN")
+    a.update(scope=scope,normativity="RESEARCH_ASSUMPTION",refinement_policy="DIRECT_AND_CHILDREN",depends_on=[])
     t=test("test:"+identifier,kind,[a["id"]],m["id"],target,method)
     t["scope"]=scope
     targets=r1.extra_targets(d["base"],vm.targets(d["base"]))
     inputs=r1.input_population(d["base"],targets[target])
     external=method in r1.EXTERNAL
-    t.update(input_refs=sorted(inputs or []),preconditions=[],procedure_ref=SOURCE,reviewer_refs=[s["id"] for s in d["base"]["sources"] if s["id"].startswith("reviewer:")] if external else [],coverage="EXTERNAL_SCOPE" if external else "ALL_DECLARED_SUPPORT",evidence="EXTERNAL_REVIEW_RECEIPT" if external else "COMPUTED_NATIVE_RECEIPT")
+    t.update(input_refs=sorted(inputs or []),preconditions=[],procedure_ref=SOURCE,reviewer_refs=[s["id"] for s in d["base"]["sources"] if s["id"].startswith("reviewer:")] if external else [],applicability={"slot":None,"guard":{"truth":"TRUE","reason":None}},coverage="EXTERNAL_SCOPE" if external else "ALL_DECLARED_SUPPORT",evidence="EXTERNAL_REVIEW_RECEIPT" if external else "COMPUTED_NATIVE_RECEIPT")
     d["requirements"].append(a);d["metrics"].append(m);d["tests"].append(t);i["requested_tests"].append(t["id"])
     return a,m,t
 
@@ -115,7 +115,7 @@ class R1(unittest.TestCase):
         i={"schema":r1.INST,"base":bi,"definition_ref":"","requested_tests":[],"run_id":"synthetic-"+kind,"claims":[],"attestations":[]}
         # A nonmandatory study root allows focused native controls without fabricating review.
         a=requirement(STUDY,"STUDY","Synthetic verification experiment",[],[],[],required=False)
-        a.update(normativity="RESEARCH_ASSUMPTION",refinement_policy="DIRECT_AND_CHILDREN");d["requirements"].append(a)
+        a.update(normativity="RESEARCH_ASSUMPTION",refinement_policy="DIRECT_AND_CHILDREN",depends_on=[]);d["requirements"].append(a)
         if kind=="cross":add_requirement(d,i,"cross","assertion:cross","NATIVE_ASSERTION",metric_target="output:mid")
         if kind=="policy":add_requirement(d,i,"policy","policy:decision","NATIVE_POLICY")
         if kind=="state":add_requirement(d,i,"state","state:ledger","NATIVE_STATE")
@@ -271,5 +271,48 @@ class R1(unittest.TestCase):
         d,i=self.old;(out/"schema-valid-c5.json").write_text(vm.export(d,digest(d),i,digest(i)))
         p["definition"]["tests"][0].pop("input_refs")
         (out/"schema-invalid-r1.json").write_text(json.dumps(p))
+
+    def test_r1_24_requirement_dependency_and_cycle(self):
+        d,i,_=self.migrate(*build(numeric=True,expected=[15,21]))
+        a=next(x for x in d["requirements"] if x["id"]==SYSTEM);a["depends_on"]=["requirement:benchmark"];reb(d,i)
+        rr=run(d,i);self.assertEqual(rr["requirements"][SYSTEM]["local_status"],"PASS");self.assertEqual(rr["requirements"][SYSTEM]["status"],"BLOCKED")
+        a["depends_on"]=[STUDY]
+        with self.assertRaisesRegex(Reject,"R1_REQUIREMENT_DEPENDENCY_CYCLE"):vm.admit(d,digest(d))
+    def test_r1_25_explicit_test_applicability(self):
+        d,i,_=self.migrate();t=next(x for x in d["tests"] if x["id"]==REVIEW)
+        t["applicability"]={"slot":None,"guard":{"truth":"FALSE","reason":None}};reb(d,i)
+        rr=run(d,i);self.assertEqual(rr["tests"][REVIEW]["applicability"],"FALSE");self.assertEqual(rr["tests"][REVIEW]["execution"],"NOT_EXECUTED")
+        t["applicability"]["guard"]={"truth":"UNKNOWN","reason":"MISSING_DATA"};reb(d,i)
+        self.assertEqual(run(d,i)["tests"][REVIEW]["verdict"],"INCONCLUSIVE")
+        t["applicability"]={"slot":"slot:benefit","guard":{"truth":"TRUE","reason":None}}
+        t["input_refs"]=sorted(set(t["input_refs"])|set(next(s for s in d["base"]["frame"]["slots"] if s["id"]=="slot:benefit")["inputs"]+next(s for s in d["base"]["frame"]["slots"] if s["id"]=="slot:benefit")["observables"]))
+        reb(d,i);i["attestations"]=[self.sign(d,i)];rr=run(d,i)
+        self.assertEqual(rr["tests"][REVIEW]["verdict"],"PASS")
+        self.assertEqual(rr["study_metrics"][METRIC]["status"],"COMPUTED_WITH_PINNED_VALIDATION_ATTESTATION")
+    def test_r1_26_context_data_quality(self):
+        d,i,_=self.migrate();a,m,t=add_requirement(d,i,"weather-quality","context:R:weather","NATIVE_DATA_QUALITY");reb(d,i)
+        self.assertEqual(t["input_refs"],["context:R:weather"])
+        self.assertEqual(run(d,i)["tests"][t["id"]]["verdict"],"PASS")
+        i["base"]["context_data"]["context:R:weather"].pop()
+        self.assertEqual(run(d,i)["tests"][t["id"]]["verdict"],"BLOCKED")
+    def test_r1_27_requirement_revision_authorization(self):
+        d,i,_=self.migrate();n,ni=copy.deepcopy((d,i));n["requirements"][1]["statement"]+=" Revised research wording."
+        with self.assertRaisesRegex(Reject,"R1_REVISION_VERSION_REQUIRED"):r1.revision_changes(d,n)
+        n["requirements"][1]["version"]="2";reb(n,ni)
+        changes=r1.revision_changes(d,n);src=next(x for x in d["base"]["sources"] if x["id"]==SOURCE)
+        a={"schema":"c5-r1-revision-authorization-0.1","base_ref":digest(d),"proposed_ref":digest(n),"changes":changes,"authority_ref":SOURCE,"source_sha256":src["sha256"],"decision":"APPROVED_RESEARCH_REVISION","reason":"Synthetic research revision"}
+        with self.assertRaisesRegex(Reject,"R1_REVISION_AUTHORIZATION"):vm.revise_requirements(d,digest(d),n,digest(n),a,"0"*64)
+        r=vm.revise_requirements(d,digest(d),n,digest(n),a,digest(a));self.assertEqual(r["changes"],changes)
+        with self.assertRaisesRegex(Reject,"C5_INSTANCE_PIN"):run(n,i)
+        self.assertEqual(run(n,ni)["tests"][TEST]["verdict"],"PASS")
+    def test_r1_28_original_normativity_migration(self):
+        d,i=copy.deepcopy(self.old);d["requirements"][1]["source_kind"]="ORIGINAL_SOURCE";reb(d,i)
+        with self.assertRaisesRegex(Reject,"R1_MIGRATION_NORMATIVITY_REQUIRED"):self.migrate(d,i)
+        n,ni,_=vm.migrate_r1(d,digest(d),i,digest(i),self.sources[:1],{SYSTEM:"NORMATIVE_REQUIREMENT_PENDING_OWNER"})
+        self.assertEqual(n["requirements"][1]["normativity"],"NORMATIVE_REQUIREMENT_PENDING_OWNER")
+        self.assertEqual(run(n,ni)["owner"],"OWNER_TBD")
+    def test_r1_29_duplicate_evidence_id(self):
+        d,i,_=self.migrate();a=self.sign(d,i);a["id"]=TEST;i["attestations"]=[a]
+        with self.assertRaisesRegex(Reject,"R1_EVIDENCE_ID_COLLISION"):run(d,i)
 
 if __name__=="__main__":unittest.main(verbosity=2)

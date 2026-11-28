@@ -67,9 +67,9 @@ def check_design(d,dp):
     source={r["id"]:r for r in b["sources"]}
     targs=targets(b)
     if advanced:targs=r1.extra_targets(b,targs)
-    req=index(d["requirements"],("id","version","level","statement","source_ref","source_kind","authority_ref","scope","required","parents","targets","metric_refs")+(("normativity","refinement_policy") if advanced else ()),"C5_REQUIREMENT")
+    req=index(d["requirements"],("id","version","level","statement","source_ref","source_kind","authority_ref","scope","required","parents","targets","metric_refs")+(("normativity","refinement_policy","depends_on") if advanced else ()),"C5_REQUIREMENT")
     met=index(d["metrics"],("id","version","role","meaning","target","source_ref"),"C5_METRIC")
-    tests=index(d["tests"],("id","version","kind","objective","requirements","metric","criterion","scope","oracle_ref","method","coverage","evidence")+(("input_refs","preconditions","procedure_ref","reviewer_refs") if advanced else ()),"C5_TEST")
+    tests=index(d["tests"],("id","version","kind","objective","requirements","metric","criterion","scope","oracle_ref","method","coverage","evidence")+(("input_refs","preconditions","procedure_ref","reviewer_refs","applicability") if advanced else ()),"C5_TEST")
     ids=set(req)|set(met)|set(tests)
     need(len(ids)==len(req)+len(met)+len(tests) and not ids.intersection({k for t in tabs.values() for k in t}|set(targs)|set(source)|{b["study"]["id"],b["frame"]["id"]}),"C5_ID_COLLISION")
     for k,r in req.items():
@@ -92,6 +92,7 @@ def check_design(d,dp):
         need(k not in path,"C5_DERIVATION_CYCLE")
         for p in req[k]["parents"]:visit(p,path|{k})
     for k in req:visit(k,set())
+    if advanced:r1.validate_dependencies(req)
     for k,m in met.items():
         need(nonempty(m["meaning"]) and m["source_ref"] in source and m["target"] in targs,"C5_METRIC_REFERENCE")
         kind=targs[m["target"]]["kind"]
@@ -145,7 +146,7 @@ def check_design(d,dp):
     need({t["metric"] for t in tests.values()}=={k for k,m in met.items() if m["role"]!="STUDY"},"C5_METRIC_TEST_COVERAGE")
     if advanced:r1.mandatory_coverage(req,met,tests,targs,tabs)
     sem={"schema":d["schema"],"base_semantic":static["semantic_identity"],
-         "requirements":[{**r,"parents":sorted(r["parents"]),"targets":sorted(r["targets"]),"metric_refs":sorted(r["metric_refs"])} for _,r in sorted(req.items())],
+         "requirements":[{**r,"parents":sorted(r["parents"]),"targets":sorted(r["targets"]),"metric_refs":sorted(r["metric_refs"]),**({"depends_on":sorted(r["depends_on"])} if advanced else {})} for _,r in sorted(req.items())],
          "metrics":[r for _,r in sorted(met.items())],
          "tests":[{**r,"requirements":sorted(r["requirements"]),**({k:sorted(r[k]) for k in ("input_refs","preconditions","reviewer_refs")} if advanced else {})} for _,r in sorted(tests.items())]}
     return static,req,met,tests,targs,digest(sem)
@@ -234,6 +235,7 @@ def instantiate(d,dp,i,ip):
     claims=index(i["claims"],("id","version","test","test_version","definition_pin","base_instance_pin","verdict","source_ref"),"C5_DECLARED_EVIDENCE")
     for r in claims.values():
         need(r["test"] in tests and r["test_version"]==tests[r["test"]]["version"] and r["definition_pin"]==dp and r["base_instance_pin"]==bi and r["source_ref"] in {s["id"] for s in base["sources"]} and r["verdict"] in ("PASS","FAIL","INCONCLUSIVE"),"C5_DECLARED_EVIDENCE_BINDING")
+    if advanced:r1.validate_evidence_ids(d,i,targs)
     verified=r1.verify_attestations(d,dp,i,static,tests,tabs,native) if advanced else {}
     result={};evidences=[]
     for k,t in sorted(tests.items()):
@@ -242,7 +244,11 @@ def instantiate(d,dp,i,ip):
         if k not in i["requested_tests"]:
             status,app,execution="NOT_EXECUTED","UNKNOWN","NOT_EXECUTED";reason={"reason":"TEST_NOT_REQUESTED"}
         else:
-            if advanced and any(x!="TRUE" for x in r1.preconditions(t,native).values()):
+            applicability=r1.test_applicability(t,base,b,tabs,native) if advanced else None
+            if advanced and applicability["truth"]!="TRUE":
+                app=applicability["truth"];status="NOT_EXECUTED" if app=="FALSE" else "INCONCLUSIVE"
+                observed={"test_applicability":applicability};reason={"reason":"R1_TEST_NOT_APPLICABLE" if app=="FALSE" else "R1_TEST_APPLICABILITY_UNKNOWN"}
+            elif advanced and any(x!="TRUE" for x in r1.preconditions(t,native).values()):
                 status,app,observed,reason="BLOCKED","UNKNOWN",{"preconditions":r1.preconditions(t,native)},{"reason":"R1_PRECONDITION_UNSATISFIED_OR_UNKNOWN"}
             elif advanced and t["method"] in r1.EXTERNAL:
                 status,app,observed,reason=r1.external_result(t,verified,native)
@@ -252,10 +258,11 @@ def instantiate(d,dp,i,ip):
                 status,app,observed,reason=result_for(t,target,native,base,b)
                 if advanced and target["kind"]=="ASSERTION":
                     status,app,observed,reason=r1.improve_assertion(status,app,observed,reason,base,b,tabs,target,native)
+            if advanced:observed["test_applicability"]=applicability
             if targs[m["target"]]["kind"]=="OUTPUT":
                 observed["metric_value"]=(native.get("result") or {}).get("graph",{}).get("outputs",{}).get(m["target"])
                 if status=="PASS" and observed["metric_value"] is None:status="BLOCKED";reason={"reason":"MISSING_METRIC_OUTPUT"}
-            execution=("BLOCKED" if status=="BLOCKED" else "NOT_EXECUTED" if status=="NOT_EXECUTED" and not observed else "EXECUTED") if advanced else ("NOT_EXECUTED" if t["kind"]=="VALIDATION" else "BLOCKED" if status=="BLOCKED" else "EXECUTED")
+            execution=("BLOCKED" if status=="BLOCKED" else "NOT_EXECUTED" if status=="NOT_EXECUTED" else "EXECUTED") if advanced else ("NOT_EXECUTED" if t["kind"]=="VALIDATION" else "BLOCKED" if status=="BLOCKED" else "EXECUTED")
             if (t["kind"]=="VERIFICATION" and (not advanced or t["method"] not in r1.EXTERNAL)) or (advanced and observed.get("verified_attestations")):
                 record={"test":k,"test_version":t["version"],"requirement_refs":sorted(t["requirements"]),
                         "metric":m["id"],"metric_version":m["version"],"oracle_ref":t["oracle_ref"],"subject":t["criterion"],"metric_target":m["target"],"expected":"DECLARED_CRITERION_SATISFIED",
@@ -288,6 +295,11 @@ def instantiate(d,dp,i,ip):
     if advanced:r1.aggregate_children(req,assessments)
     outputs=(native.get("result") or {}).get("graph",{}).get("outputs",{})
     study_metrics={k:{"output":m["target"],"value":outputs.get(m["target"]),"status":"COMPUTED_NOT_VALIDATED" if m["target"] in outputs else "NOT_EXECUTED"} for k,m in sorted(met.items()) if m["role"]=="STUDY"}
+    if advanced:
+        for k,r in study_metrics.items():
+            linked=[z for z in req.values() if k in z["metric_refs"] and z["level"]=="STUDY" and z["required"]]
+            r["validation_assessments"]={z["id"]:assessments[z["id"]]["status"] for z in linked}
+            r["status"]="COMPUTED_WITH_PINNED_VALIDATION_ATTESTATION" if r["value"] is not None and linked and all(assessments[z["id"]]["status"]=="PASS" for z in linked) else r["status"]
     return {"schema":r1.PACKAGE if advanced else PACKAGE,"definition_semantic_identity":semantic,"definition_pin":dp,"instance_pin":ip,
             "native_receipt":native,"study_metrics":study_metrics,"tests":result,"requirements":assessments,"evidence":evidences,
             "declared_evidence":list(claims.values()),"contract_conformance":"NOT_PROVED","owner":"OWNER_TBD"}
@@ -323,7 +335,7 @@ def compose_method(d,dp,request,request_pin,authorization,authorization_pin):
             "retained_tests":sorted(t["id"] for t in d["tests"]),"evidence_policy":"REEXECUTE_NEW_ROOT",
             "owner":"OWNER_TBD","conformance":"NOT_PROVED"}
 
-def migrate_r1(d,dp,i,ip,reviewer_sources):
+def migrate_r1(d,dp,i,ip,reviewer_sources,normativity_by_id=None):
     """Explicit wire migration, not proof of approval or lossless satisfaction.
     Add independent reviewer key sources explicitly; invalidate all old claims.
     """
@@ -336,15 +348,40 @@ def migrate_r1(d,dp,i,ip,reviewer_sources):
         base["sources"].append(deepcopy(s))
         f["authorities"].append({"id":s["id"],"role":"PROVENANCE","immutable_ref":s["immutable_ref"],"revision":s["revision"],"decision_state":"OWNER_TBD"})
     ts=r1.extra_targets(base,targets(base))
+    normativity_by_id=normativity_by_id or {}
+    need(set(normativity_by_id)<= {r["id"] for r in nd["requirements"]},"R1_MIGRATION_NORMATIVITY_REFERENCE")
     for req in nd["requirements"]:
-        req.update(normativity="RESEARCH_ASSUMPTION",refinement_policy="DIRECT_AND_CHILDREN")
+        need(req["source_kind"]!="ORIGINAL_SOURCE" or req["id"] in normativity_by_id,"R1_MIGRATION_NORMATIVITY_REQUIRED")
+        req.update(normativity=normativity_by_id.get(req["id"],"RESEARCH_ASSUMPTION"),refinement_policy="DIRECT_AND_CHILDREN",depends_on=[])
     for t in nd["tests"]:
         target=ts[t["criterion"]]
         inputs=r1.input_population(base,target)
         if inputs is None:
             inputs={m["target"] for m in nd["metrics"] if m["role"]=="STUDY" and any(m["id"] in req["metric_refs"] for req in nd["requirements"] if req["id"] in t["requirements"])}
-        t.update(input_refs=sorted(inputs),preconditions=[],procedure_ref=t["oracle_ref"],reviewer_refs=[s["id"] for s in reviewer_sources] if t["method"] in r1.EXTERNAL else [])
+        t.update(input_refs=sorted(inputs),preconditions=[],procedure_ref=t["oracle_ref"],reviewer_refs=[s["id"] for s in reviewer_sources] if t["method"] in r1.EXTERNAL else [],applicability={"slot":None,"guard":{"truth":"TRUE","reason":None}})
     ni["base"]["definition_ref"]=definition.admit(base,digest(base))["semantic_identity"]
     ni["definition_ref"]=admit(nd,digest(nd))["semantic_identity"]
     ni["claims"]=[];ni["attestations"]=[]
     return nd,ni,{"previous_definition_pin":dp,"previous_instance_pin":ip,"previous_receipt_sha256":digest(old),"definition_pin":digest(nd),"instance_pin":digest(ni),"discarded_claim_ids":[x["id"] for x in i["claims"]],"policy":"EXPLICIT_REAUTHOR_AND_REEXECUTE","owner":"OWNER_TBD"}
+
+def revise_requirements(old,old_pin,proposed,proposed_pin,authorization,authorization_pin):
+    """Research-only revision against an externally pinned prior definition.
+    Direct authoring remains a new baseline, not an authorized history transition.
+    C4 base is immutable here: native method exchange uses compose_method.
+    """
+    before=admit(old,old_pin);after=admit(proposed,proposed_pin)
+    need(old["schema"]==proposed["schema"]==r1.DEF and old["base"]==proposed["base"],"R1_REVISION_BASE_DRIFT")
+    changes=r1.revision_changes(old,proposed)
+    fields(authorization,("schema","base_ref","proposed_ref","changes","authority_ref","source_sha256","decision","reason"),"R1_REVISION_AUTHORIZATION_FIELDS")
+    need(digest(authorization)==authorization_pin and authorization["schema"]=="c5-r1-revision-authorization-0.1" and authorization["base_ref"]==old_pin and authorization["proposed_ref"]==proposed_pin and authorization["decision"]=="APPROVED_RESEARCH_REVISION" and nonempty(authorization["reason"]),"R1_REVISION_AUTHORIZATION")
+    need(authorization["changes"]==changes and bool(changes),"R1_REVISION_CHANGE_SET")
+    src={r["id"]:r for r in old["base"]["sources"]};a=authorization["authority_ref"]
+    need(a in src and src[a]["sha256"]==authorization["source_sha256"],"R1_REVISION_AUTHORITY")
+    for ch in changes:
+        for d in (old,proposed):
+            rows={r["id"]:r for r in d[ch["collection"]]}
+            if ch["id"] in rows:
+                r=rows[ch["id"]];ref=r.get("authority_ref",r.get("source_ref",r.get("oracle_ref")))
+                need(ref==a,"R1_REVISION_AUTHORITY_SCOPE")
+    return {"schema":"c5-r1-revision-receipt-0.1","base_ref":old_pin,"proposed_ref":proposed_pin,"authorization_pin":authorization_pin,"changes":changes,
+            "old_semantic_identity":before["semantic_identity"],"semantic_identity":after["semantic_identity"],"evidence_policy":"REEXECUTE_NEW_ROOT","owner":"OWNER_TBD","conformance":"NOT_PROVED"}

@@ -54,9 +54,7 @@ def extra_targets(base,targs):
     # No new parallel object is introduced. Data quality tests consume the
     # actual C4 quality receipt, not a second quality predicate.
     for a in base["requirements"]["data_contracts"]:
-        users=[s for s in f["slots"] if a["id"] in s["inputs"]+s["observables"]]
-        if len(users)==1:
-            targs[a["id"]]={"kind":"DATA_QUALITY","scope":users[0]["scope"],"slot":users[0]["id"],"record":a}
+        targs[a["id"]]={"kind":"DATA_QUALITY","scope":None,"slot":None,"record":a}
     return targs
 
 def criterion_depends(base,tabs,metric_target,criterion):
@@ -100,6 +98,7 @@ def criterion_depends(base,tabs,metric_target,criterion):
 
 def input_population(base,target):
     f=base["frame"]
+    if target["kind"]=="DATA_QUALITY":return {target["record"]["id"]}
     if target["slot"] is None:return None
     s=next(r for r in f["slots"] if r["id"]==target["slot"])
     out=set(s["inputs"]+s["observables"])
@@ -126,15 +125,21 @@ def validate_test(t,target,m,metric_target,base,tabs,source,targs):
     need(all(contains(tabs,targs[x]["scope"],t["scope"]) for x in t["preconditions"]),"R1_PRECONDITION_SCOPE")
     need(t["criterion"] not in t["preconditions"],"R1_SELF_PRECONDITION")
     need(t["procedure_ref"] in source,"R1_PROCEDURE_REFERENCE")
+    app_inputs=validate_applicability(t,base,tabs)
+    if target["kind"]=="DATA_QUALITY":
+        k=target["record"]["id"];records={x["id"]:x for c in ("inputs","observables","context_fields") for x in base["frame"][c]}
+        record=records[k];scope=tabs["scopes"][t["scope"]]
+        need(set(record["axes"])<=set(scope["domains"]) and ("subject" not in record or record["subject"] in scope["subjects"]),"R1_DATA_TEST_SCOPE")
     if t["method"] in NATIVE:
         wanted=input_population(base,target)
         need(wanted is not None,"R1_TEST_INPUT_COVERAGE")
-        wanted.update(x for p in t["preconditions"] for x in input_population(base,targs[p]))
+        wanted.update(x for p in t["preconditions"] for x in input_population(base,targs[p]));wanted.update(app_inputs)
         need(set(t["input_refs"])==wanted,"R1_TEST_INPUT_COVERAGE")
         need(not t["reviewer_refs"],"R1_NATIVE_REVIEWER")
         need(t["coverage"]=="ALL_DECLARED_SUPPORT" and t["evidence"]=="COMPUTED_NATIVE_RECEIPT","R1_NATIVE_EVIDENCE_ROLE")
     else:
         need(t["method"] in EXTERNAL and target["kind"]=="REPORT","R1_EXTERNAL_METHOD_TARGET")
+        need(app_inputs|{x for p in t["preconditions"] for x in input_population(base,targs[p])}<=set(t["input_refs"]),"R1_EXTERNAL_PREREQUISITE_INPUTS")
         need(t["coverage"] in ("EXTERNAL_SCOPE","ALL_DECLARED_SUPPORT") and t["evidence"]=="EXTERNAL_REVIEW_RECEIPT","R1_EXTERNAL_EVIDENCE_ROLE")
         need(refs(t["reviewer_refs"],source) and bool(t["reviewer_refs"]),"R1_REVIEWER_REFERENCE")
         # A separate pinned key, not the method source, oracle or model source.
@@ -301,11 +306,82 @@ def aggregate_children(req,assessments):
         if k in done:return assessments[k]["status"]
         children=sorted(x for x,r in req.items() if k in r["parents"] and r["required"])
         statuses={x:walk(x) for x in children}
-        a=assessments[k];local=a["status"];a["local_status"]=local;a["child_assessments"]=statuses
+        deps={x:walk(x) for x in req[k]["depends_on"]}
+        a=assessments[k];local=a["status"];a["local_status"]=local;a["child_assessments"]=statuses;a["dependency_assessments"]=deps
         all_=[local,*statuses.values()]
+        if local!="NOT_APPLICABLE" and any(x!="PASS" for x in deps.values()):all_.append("BLOCKED")
         for s in ("FAIL","INCONCLUSIVE","BLOCKED","NOT_EXECUTED"):
             if s in all_:a["status"]=s;break
         else:a["status"]="NOT_APPLICABLE" if all(x=="NOT_APPLICABLE" for x in all_) else "PASS"
         done.add(k);return a["status"]
     for k in sorted(req):walk(k)
     return assessments
+
+def validate_dependencies(req):
+    # Assessment edges are parent -> required child and dependent ->
+    # prerequisite. Detect cycles over the combined evaluation graph.
+    for k,r in req.items():
+        ds=r["depends_on"]
+        need(type(ds) is list and all(type(x) is str and x in req and x!=k for x in ds) and len(ds)==len(set(ds)),"R1_REQUIREMENT_DEPENDENCY_REFERENCE")
+    done=set()
+    def visit(k,path):
+        need(k not in path,"R1_REQUIREMENT_DEPENDENCY_CYCLE")
+        if k in done:return
+        children=[x for x,r in req.items() if k in r["parents"] and r["required"]]
+        for x in set(children+req[k]["depends_on"]):visit(x,path|{k})
+        done.add(k)
+    for k in req:visit(k,set())
+
+def validate_applicability(t,base,tabs):
+    a=t["applicability"];fields(a,("slot","guard"),"R1_APPLICABILITY_FIELDS")
+    g=a["guard"];need(type(g) is dict,"R1_APPLICABILITY_GUARD")
+    if a["slot"] is None:
+        fields(g,("truth","reason"),"R1_APPLICABILITY_CONSTANT")
+        need(g["truth"] in ob.TRUTH and (g["reason"] in ob.UNKNOWN_REASONS if g["truth"]=="UNKNOWN" else g["reason"] is None),"R1_APPLICABILITY_REASON")
+        return set()
+    slots={x["id"]:x for x in base["slots"]};need(a["slot"] in slots,"R1_APPLICABILITY_SLOT")
+    f=next(x for x in base["frame"]["slots"] if x["id"]==a["slot"])
+    need(contains(tabs,f["scope"],t["scope"]),"R1_APPLICABILITY_SCOPE")
+    bd=ob.Bound(slots[a["slot"]]["package"],tabs,None)
+    bd.guard_refs(g,set(tabs["scopes"][t["scope"]]["domains"]))
+    return set(f["inputs"]+f["observables"])
+
+def test_applicability(t,base,i,tabs,native):
+    a=t["applicability"];g=a["guard"]
+    if a["slot"] is None:return {"truth":g["truth"],"reason":g["reason"],"source":"DECLARED_CONSTANT"}
+    if not graph_of(native):return {"truth":"UNKNOWN","reason":"MISSING_NATIVE_RECEIPT"}
+    row=next(x for x in base["slots"] if x["id"]==a["slot"])
+    ir=next(x for x in i["slots"] if x["id"]==a["slot"])
+    bd=ob.Bound(row["package"],tabs,ir["data"])
+    axes=sorted(bd.guard_refs(g,set(tabs["scopes"][t["scope"]]["domains"])))
+    count=1
+    for ax in axes:count*=len(tabs["domains"][ax]["members"])
+    if count>MAX_POINT_REPLAYS:return {"truth":"UNKNOWN","reason":"R1_APPLICABILITY_REPLAY_LIMIT","expected":count}
+    pts=[]
+    for key in product(*(tabs["domains"][ax]["members"] for ax in axes)):
+        truth,reasons=bd.guard(g,dict(zip(axes,key,strict=True)));pts.append({"key":list(key),"truth":truth,"reasons":reasons})
+    truths={x["truth"] for x in pts}
+    truth=next(iter(truths)) if len(truths)==1 else "UNKNOWN"
+    return {"truth":truth,"axes":axes,"points":pts,"expected":count,"source":"NATIVE_GUARD",
+            "reason":"MIXED_OR_UNKNOWN_WHOLE_TEST_APPLICABILITY" if truth=="UNKNOWN" else None}
+
+def validate_evidence_ids(d,i,targs):
+    ids={x["id"] for c in ("requirements","metrics","tests") for x in d[c]}|set(targs)|{x["id"] for x in d["base"]["sources"]}
+    ids|={x["id"] for c in d["base"]["frame"].values() if type(c) is list for x in c if type(x) is dict and "id" in x}
+    ids|={d["base"]["frame"]["id"],d["base"]["study"]["id"]}
+    for c in ("claims","attestations"):
+        need(type(i[c]) is list,"R1_EVIDENCE_LIST")
+        for r in i[c]:
+            need(type(r) is dict and "id" in r and qualified(r["id"]) and r["id"] not in ids,"R1_EVIDENCE_ID_COLLISION")
+            ids.add(r["id"])
+
+def revision_changes(old,proposed):
+    result=[]
+    for c in ("requirements","metrics","tests"):
+        a={r["id"]:r for r in old[c]};b={r["id"]:r for r in proposed[c]}
+        for k in sorted(set(a)|set(b)):
+            x,y=a.get(k),b.get(k)
+            if x==y:continue
+            if x is not None and y is not None:need(x["version"]!=y["version"],"R1_REVISION_VERSION_REQUIRED")
+            result.append({"collection":c,"id":k,"old_ref":digest(x) if x is not None else None,"new_ref":digest(y) if y is not None else None})
+    return result

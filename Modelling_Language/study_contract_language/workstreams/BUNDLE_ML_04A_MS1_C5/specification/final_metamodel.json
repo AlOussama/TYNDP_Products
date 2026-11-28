@@ -22,12 +22,14 @@
         "targets",
         "metric_refs",
         "normativity",
-        "refinement_policy"
+        "refinement_policy",
+        "depends_on"
       ],
       "relations": {
         "parents": "Acyclic derivation and equal-axis subject containment; declared complete subject coverage when selected; aggregate local and required descendant outcomes.",
         "targets": "C4 typed target",
-        "metric_refs": "Metric"
+        "metric_refs": "Metric",
+        "depends_on": "Distinct requirement dependency; prerequisite must PASS; reject cycles across assessment edges"
       }
     },
     "Metric": {
@@ -60,14 +62,16 @@
         "input_refs",
         "preconditions",
         "procedure_ref",
-        "reviewer_refs"
+        "reviewer_refs",
+        "applicability"
       ],
       "relations": {
         "requirements": "Requirement",
         "metric": "Native output/predicate/data quality/policy/state or external report; actual typed upstream dependency",
         "criterion": "C4 target",
         "oracle_ref": "C4 source",
-        "scope": "C4 scope"
+        "scope": "C4 scope",
+        "applicability": "Existing native C4 guard or explicit constant with reason; whole-test mixed/unknown inconclusive; never implicit N/A"
       }
     },
     "Claim": {
@@ -125,6 +129,19 @@
         "data_identities"
       ],
       "verification": "Ed25519 exact canonical payload against definition-pinned PROVENANCE key; signer independence unverified"
+    },
+    "RevisionAuthorization": {
+      "fields": [
+        "schema",
+        "base_ref",
+        "proposed_ref",
+        "changes",
+        "authority_ref",
+        "source_sha256",
+        "decision",
+        "reason"
+      ],
+      "semantics": "Exact externally pinned authorization for outer records only; version bump on changed existing record; protected base; no owner approval"
     }
   },
   "identities": [
