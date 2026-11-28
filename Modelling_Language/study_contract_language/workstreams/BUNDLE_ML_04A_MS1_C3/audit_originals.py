@@ -32,9 +32,9 @@ def main():
     with (C2/"requirement_traceability.csv").open(newline="") as f:old=list(csv.DictReader(f))
     with (HERE/"requirement_coverage.csv").open(newline="") as f:new=list(csv.DictReader(f))
     assert len(old)==len(new)==125 and len({x["identity"] for x in new})==125
-    for a,b in zip(old,new,strict=True):
-        assert all(b[k]==v for k,v in a.items())
-        assert b["C3_full_original_evidence"]
+    for inherited,extension in zip(old,new,strict=True):
+        assert all(extension[k]==v for k,v in inherited.items())
+        assert extension["C3_full_original_evidence"]
     print("C3_POPULATION_AUDIT="+json.dumps({"identities":58,"paths":116,"recorded_materialized":c["full_materialized"],
           "recorded_executed":c["full_executed"],"requirements":125,"scope":"POPULATION_INTEGRITY_ONLY","status":"PASS"},sort_keys=True))
     # Historical or observed evidence is separate from fresh CI execution.

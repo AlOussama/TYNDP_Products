@@ -206,7 +206,7 @@ def pair_check(a,b):
     if not(a["full_source"] and b["full_source"] and a["authored_structural_identity"]==b["authored_structural_identity"] and a["source_sha256"]!=b["source_sha256"] and a["representation_audit_identity"]!=b["representation_audit_identity"]):return False
     if a["status"]!=b["status"] or a["candidate_status"]!=b["candidate_status"]:return False
     if a["status"]=="RETURNED":
-        return all(a["result"][k]==b["result"][k] for k in ("semantic_identity","graph_semantic_identity","package_sha256","roundtrip"))
+        return all(a["result"][k]==b["result"][k] for k in ("semantic_identity","graph_semantic_identity","package_sha256","roundtrip")) and a["result"].get("native_decision_context")==b["result"].get("native_decision_context")
     if a["status"]=="REJECTED":
         return [(x["code"],x["candidate_path"],x["rule_id"]) for x in a["diagnostics"]]==[(x["code"],x["candidate_path"],x["rule_id"]) for x in b["diagnostics"]]
     return False
@@ -220,7 +220,7 @@ def p5_control(p5):
                 key=mid.lower();annual=F(res["outputs"]["output:"+key][0]["value"]);npv=F(res["outputs"]["output:"+key+":npv"][0]["value"])
                 refs=res["lineage"]["slot:"+key+":discount"]["npv"][0]["events"]
                 ok=ok and math.isclose(float(annual),z["illustrative_annual_cost_saving_eur"],abs_tol=1e-9,rel_tol=0) and math.isclose(float(npv),z["illustrative_npv_proxy_eur"],abs_tol=1e-9,rel_tol=0)
-                ok=ok and (1 if npv>0 else -1 if npv<0 else 0)==z["decision_sign"] and len(refs)==5 and all(v==1 for v in refs.values())
+                ok=ok and res["native_decision_context"][mid]["decision_sign"]==z["decision_sign"] and len(refs)==5 and all(v==1 for v in refs.values())
             r["control_passed"]=ok
         else:r["control_passed"]=False
         rows.append(r);print("C3_P5_BASE_CONTROL="+stable(r))
