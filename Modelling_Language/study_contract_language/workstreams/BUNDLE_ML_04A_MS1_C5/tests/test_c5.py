@@ -51,10 +51,16 @@ class C5(unittest.TestCase):
         self.assertEqual(r["tests"]["test:benchmark"]["execution"],"EXECUTED")
         d,i=build(numeric=True,expected=[15,21])
         r=run(d,i);self.assertEqual(r["tests"]["test:benchmark"]["verdict"],"FAIL",r)
-        # Native exact threshold, with explicit zero-reference branch.
-        d,i=build(numeric=True,condition="(expected > 0 and benefit - expected <= expected / 10 and expected - benefit <= expected / 10) or (expected == 0 and benefit == 0)",expected=[16,22])
+        # Positive and negative absolute tolerances with an explicit typed input.
+        condition="benefit - expected <= atol and expected - benefit <= atol"
+        d,i=build(numeric=True,condition=condition,thresholds={"atol":2},expected=[17,22])
         self.assertEqual(run(d,i)["tests"]["test:benchmark"]["verdict"],"PASS")
-        d,i=build(numeric=True,condition="(expected > 0 and benefit - expected <= expected / 10 and expected - benefit <= expected / 10) or (expected == 0 and benefit == 0)",expected=[0,20])
+        d,i=build(numeric=True,condition=condition,thresholds={"atol":2},expected=[18,22])
+        self.assertEqual(run(d,i)["tests"]["test:benchmark"]["verdict"],"FAIL")
+        # Native relative tolerance, with explicit typed zero-reference branch.
+        d,i=build(numeric=True,condition="(expected > zero and benefit - expected <= expected / 10 and expected - benefit <= expected / 10) or (expected == zero and benefit == zero)",thresholds={"zero":0},expected=[16,22])
+        self.assertEqual(run(d,i)["tests"]["test:benchmark"]["verdict"],"PASS")
+        d,i=build(numeric=True,condition="(expected > zero and benefit - expected <= expected / 10 and expected - benefit <= expected / 10) or (expected == zero and benefit == zero)",thresholds={"zero":0},expected=[0,20])
         self.assertEqual(run(d,i)["tests"]["test:benchmark"]["verdict"],"FAIL")
     def test_vt11_vt12_applicability(self):
         d,i=build(numeric=True,guard={"truth":"FALSE","reason":None})

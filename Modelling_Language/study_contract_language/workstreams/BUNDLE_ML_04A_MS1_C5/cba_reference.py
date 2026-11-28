@@ -28,7 +28,7 @@ def test(id,kind,requirements,metric,criterion,method):
             "coverage":"ALL_DECLARED_SUPPORT" if kind=="VERIFICATION" else "EXTERNAL_SCOPE",
             "evidence":"COMPUTED_NATIVE_RECEIPT" if kind=="VERIFICATION" else "EXTERNAL_REVIEW_RECEIPT"}
 
-def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None,formula="base-alt",method_version="0.2",costs=None,implementation="fixture:external_model"):
+def build(numeric=False,guard=None,condition="benefit == expected",quant_expected=None,expected=None,formula="base-alt",method_version="0.2",costs=None,implementation="fixture:external_model",thresholds=None):
     f=frame();f["question"]="Synthetic paired project/reference cost comparison; no CBA compliance claim."
     source=[source_row(SOURCE,"fixture:source","Synthetic research requirement: identical exogenous inputs; only explicit project asset change; benefit reference cost minus project cost; scientific review pending.")]
     f["domains"]=[{"id":"domain:s","kind":"scenario","members":SCENARIOS,"ordered":False}]
@@ -66,6 +66,10 @@ def build(numeric=False,guard=None,condition="benefit == expected",quant_expecte
         roles["expected"]="INPUT";params["expected"]=row(expected if expected is not None else [15,20])
         f["inputs"]=[sig("input:expected",quant["expected"],["domain:s"])]
         inputs=["input:expected"];binds["ref:expected"]={"kind":"INPUT","ref":"input:expected"}
+        for n,val in (thresholds or {}).items():
+            doc["parameters"][n]={"dims":["s"]};quant[n]=money;roles[n]="INPUT";params[n]=row([val,val])
+            f["inputs"].append(sig("input:"+n,money,["domain:s"]));inputs.append("input:"+n)
+            binds["ref:"+n]={"kind":"INPUT","ref":"input:"+n}
     c=fixture(doc,quant=quant,roles=roles,domains={"s":SCENARIOS},pred_axes={"within":["s"]} if numeric else {})
     c["method"]["version"]=method_version
     c["study"]["method_ref"]=digest(c["method"])
