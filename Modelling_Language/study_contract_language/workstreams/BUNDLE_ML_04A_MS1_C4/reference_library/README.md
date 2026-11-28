@@ -19,3 +19,6 @@ These are links to actual frozen research sources, not new independent models. O
 
 ## IoSN illustrative contract (not executable or validated)
 Study question: identify system needs under a declared scenario set and system boundary. Declare grid nodes/ports, transfer constraints, common exogenous load/generation and time support, reference and intervention snapshots, admissible network approximations, outputs such as unserved energy/constraint violations with units and weights, comparative tolerance and evidence. Each profile method and decision threshold requires pinned source and approval; OWNER_TBD. No IoSN methodology acceptance.
+
+Actual C4 native replay: CI 46087812255, native job 140801422477, original-corpus-exit 140802432464.
+See [IoSN pinned reference](IoSN_reference_study.md) for the actual historical weather-intake contract and evidence boundary.

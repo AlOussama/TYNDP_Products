@@ -1,0 +1,58 @@
+{
+  "decision": "B_RESEARCH_LANGUAGE_READY_WITH_EXPLICIT_LIMITATIONS",
+  "governance": "NON-NORMATIVE / RESEARCH ONLY",
+  "gates": [
+    {
+      "id": "C4-G0",
+      "status": "MET",
+      "scope": "38 checked comparisons, exact C3 source pins and final CI source checks; not exhaustive all historical transitive refs"
+    },
+    {
+      "id": "C4-G1",
+      "status": "MET",
+      "scope": "125 original identities assessed individually; ten inherited and five deferred explicitly retained; no blanket closure claim"
+    },
+    {
+      "id": "C4-G2",
+      "status": "MET",
+      "scope": "Controlled admitted fragment and synthetic RC/P5 evidence; no full IoSN or H2 transport claim"
+    },
+    {
+      "id": "C4-G3",
+      "status": "MET",
+      "scope": "E1–E5 separated; conditional exact finite projections and counterexamples; no general equivalence proof"
+    },
+    {
+      "id": "C4-G4",
+      "status": "PARTIAL",
+      "scope": "Scoped measured comparisons, ablations and M3 decision; equal-scope full-system inventory/minimum not established"
+    },
+    {
+      "id": "C4-G5",
+      "status": "MET",
+      "scope": "4→0 direct test imports, 2→1 duplicated builder; 116+2 exact before/after; original oracles preserved"
+    },
+    {
+      "id": "C4-G6",
+      "status": "MET",
+      "scope": "Versioned 20-section spec, formal semantics, CSNF, pinned metamodel and schema; scope explicit"
+    },
+    {
+      "id": "C4-G7",
+      "status": "PARTIAL",
+      "scope": "Actual native change and migration controls; authoring same-design proxy, no independent human authoring or general effort evaluation"
+    },
+    {
+      "id": "C4-G8",
+      "status": "MET",
+      "scope": "Both native jobs and exit jobs successful; complete required regression, 47 skips excluded, 9 C4 controls"
+    },
+    {
+      "id": "C4-G9",
+      "status": "MET",
+      "scope": "Critical research review and explicit Option B decision; not independent human sign-off"
+    }
+  ],
+  "completion": "BOUNDED_LANGUAGE_RESEARCH_READY; UNQUALIFIED_WORK_PACKAGE_EXIT_NOT_CLAIMED",
+  "owner": "OWNER_TBD"
+}

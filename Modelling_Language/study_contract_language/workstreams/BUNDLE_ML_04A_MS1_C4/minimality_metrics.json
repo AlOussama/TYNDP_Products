@@ -1,5 +1,5 @@
 {
-  "status": "PARTIAL_STATIC_MEASUREMENT",
+  "status": "SCOPED_MEASUREMENT_COMPLETE_GLOBAL_MINIMALITY_NOT_PROVED",
   "method": "Nonblank non-comment physical lines (includes docstrings); regex function/class/import statements; per selected source module; no AST count or complete comparable architecture LOC claim",
   "modules": [
     {
@@ -178,5 +178,59 @@
     "total adapter burden",
     "independent human effort"
   ],
-  "scope": "C1 common static 3 (RC01/07/10); common numeric M2/M3 2 (RC02/09); EX08 additional narrower control; not identical full architecture scope"
+  "scope": "C1 common static 3 (RC01/07/10); common numeric M2/M3 2 (RC02/09); EX08 additional narrower control; not identical full architecture scope",
+  "actual_replay": {
+    "run": 46087812255,
+    "counts": {
+      "primary_fragments": 10,
+      "M0_static_controls": 3,
+      "M2_legacy_predicate_static": 3,
+      "M2_legacy_profile_numeric": 2,
+      "M3_static_and_finite": 10,
+      "matched_numeric_M2_M3": 2,
+      "matched_legacy_M0_M2": 3
+    },
+    "source_metrics": [
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+        "nonblank_noncomment_lines": 167
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/native_consumer.py",
+        "nonblank_noncomment_lines": 76
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+        "nonblank_noncomment_lines": 359
+      },
+      {
+        "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+        "nonblank_noncomment_lines": 56
+      },
+      {
+        "path": "BUNDLE_ML_04A_R1/n1r.py",
+        "nonblank_noncomment_lines": 159
+      },
+      {
+        "path": "BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+        "nonblank_noncomment_lines": 104
+      }
+    ]
+  },
+  "consolidation": {
+    "affected_nonblank_noncomment_lines_before": 627,
+    "after": 1,
+    "delta": 94,
+    "direct_test_import_modules_before": 4,
+    "after_test_import_modules": 0,
+    "duplicated_slot_builders_before": 2,
+    "independent_math_authority_count": 1,
+    "native_exact_receipt_differences": 0
+  },
+  "extended_inventories": [
+    "architecture_source_inventory_part1.json",
+    "architecture_source_inventory_part2.json",
+    "architecture_source_inventory_part3.json"
+  ],
+  "interpretation": "M3 direct reuse avoids target mathematical rewrite, but no universal minimality or same-coverage whole-system LOC comparison. M0/M2/M3 common static projections only RC01/07/10; numeric common M2/M3 only RC02/09."
 }

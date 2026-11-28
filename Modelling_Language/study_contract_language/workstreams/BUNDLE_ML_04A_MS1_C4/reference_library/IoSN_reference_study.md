@@ -1,0 +1,8 @@
+# IoSN reference study — bounded research mapping
+Sources at C3 base 4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef (not new C4 native IoSN execution):
+- [Process specification](https://github.com/AlOussama/TYNDP_Products/blob/4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef/Modelling_Language/iosn_formal_specification/iosn_process_specification.md), blob 939acb2f851f5e51bedc90816c58fa7bf3b96d7b.
+- [Weather-intake PoC contract](https://github.com/AlOussama/TYNDP_Products/blob/4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef/Modelling_Language/iosn_formal_specification/poc/contract.json), blob a16d4765a9db586708483a53cc7abe37bd055542.
+- [PoC execution results](https://github.com/AlOussama/TYNDP_Products/blob/4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef/Modelling_Language/iosn_formal_specification/poc/execution_results.md), blob a275b153ed589397d16454cf5e201a1456782c8c.
+- Ambiguity register blob 89d539a8a79f1e8f29b597c9560bdfe177a92cf1.
+Historical 11 test cases (4 accepted, 7 rejected) are legacy evidence, not C4 native IoSN. Weather intake only: target-year scenario weights 2035 0.24/0.43/0.33, 2040 0.2/0.4/0.4, 2050 0.23/0.57/0.20; selection upstream out of scope.
+Mapping: scenario domain and typed probability binding (RC07, P5), time support/chronology (RC01), stages and nonanticipation (RC07), same exogenous snapshots (RC09), carrier ports and transformation (RC03/04), cost aggregation and method profiles (RC08/P5), source authority and pending Evidence (RC10). P00–P17 role/process references are not complete native process models. Full IoSN methodology, calendar and weather selection, approved thresholds, real hydrogen and regional datasets, optimization and normative authority remain unproved. No study-specific core rules.

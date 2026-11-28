@@ -1,0 +1,114 @@
+{
+  "scope": "four affected modules plus two extracted helper modules; historical test files retained; nonblank noncomment source lines (including docstrings); not whole architecture",
+  "before": [
+    {
+      "ref": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "file": "original_compiler.py",
+      "blob": "d16c561027c9abf76cad4257948d0dff1d36a423",
+      "lines": 225,
+      "functions": 5,
+      "classes": 0,
+      "direct_test_imports": [
+        "from test_closure_v1 import frame,source_row,sig,assertion,fixture,q,dataset,digest,old_identities"
+      ]
+    },
+    {
+      "ref": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "file": "original_p5.py",
+      "blob": "ca9c706e5a705a720b57f1894022ea2bd9ccfc8f",
+      "lines": 78,
+      "functions": 4,
+      "classes": 0,
+      "direct_test_imports": [
+        "from test_closure import fixture,q,dataset,scalar"
+      ]
+    },
+    {
+      "ref": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "file": "record_contract.py",
+      "blob": "43f87481009a578f3e38dc8a4a700e9a615cdf2a",
+      "lines": 150,
+      "functions": 9,
+      "classes": 1,
+      "direct_test_imports": [
+        "from test_closure import fixture,q,dataset,scalar"
+      ]
+    },
+    {
+      "ref": "4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef",
+      "file": "p5_graph_projection.py",
+      "blob": "6a3b2576bc58852f6f8f38dc563d2fe558447a0c",
+      "lines": 174,
+      "functions": 3,
+      "classes": 0,
+      "direct_test_imports": [
+        "from test_closure_v1 import (frame,source_row,sig,source_for_slot,make_slot,bundle,repin,",
+        "from test_closure import scalar"
+      ]
+    }
+  ],
+  "after": [
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "original_compiler.py",
+      "blob": "39f8fcf43de26d260cb390a79db23f75e3f0875a",
+      "lines": 189,
+      "functions": 3,
+      "classes": 0,
+      "direct_test_imports": []
+    },
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "original_p5.py",
+      "blob": "3a2ddd60b98e8efdfd379e457100e3ea7656e46e",
+      "lines": 78,
+      "functions": 4,
+      "classes": 0,
+      "direct_test_imports": []
+    },
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "record_contract.py",
+      "blob": "24ffbeb499b00491c172b1551bc3cd9b0368ce49",
+      "lines": 150,
+      "functions": 9,
+      "classes": 1,
+      "direct_test_imports": []
+    },
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "p5_graph_projection.py",
+      "blob": "427a94672bccc9f8546c6acbe92d24c82dd00d41",
+      "lines": 162,
+      "functions": 3,
+      "classes": 0,
+      "direct_test_imports": []
+    },
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "research_assembly.py",
+      "blob": "e1a8995b54789b5569fff0f69a1ad0eda5766a20",
+      "lines": 96,
+      "functions": 16,
+      "classes": 0,
+      "direct_test_imports": []
+    },
+    {
+      "ref": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+      "file": "original_record_binding.py",
+      "blob": "5ba250922bc46abf879daf6bd186892f220fb5cb",
+      "lines": 46,
+      "functions": 2,
+      "classes": 0,
+      "direct_test_imports": []
+    }
+  ],
+  "totals": {
+    "before_lines": 627,
+    "after_lines": 721,
+    "before_direct_test_import_modules": 4,
+    "after_direct_test_import_modules": 0,
+    "duplicate_slot_builders_before": 2,
+    "duplicate_slot_builders_after": 1
+  }
+}

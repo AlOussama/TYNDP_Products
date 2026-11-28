@@ -1,0 +1,53 @@
+{
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "Independent authoring / empirical usability",
+      "status": "OPEN",
+      "impact": "No human usability claim",
+      "action": "Independent tasks before empirical claims"
+    },
+    {
+      "id": "R2",
+      "risk": "General equivalence and backend conformance",
+      "status": "OPEN",
+      "impact": "Finite results only",
+      "action": "Specific adapter/model validation when needed"
+    },
+    {
+      "id": "R3",
+      "risk": "Full equal-scope minimality and migration cost",
+      "status": "OPEN",
+      "impact": "No global minimum / effort claim",
+      "action": "Measure common scope if architecture challenged"
+    },
+    {
+      "id": "R4",
+      "risk": "Full IoSN/H2 transport and real datasets",
+      "status": "OPEN",
+      "impact": "No study compliance",
+      "action": "Study-specific validation without core expansion by default"
+    },
+    {
+      "id": "R5",
+      "risk": "External authority and source authenticity",
+      "status": "OWNER_TBD",
+      "impact": "No normative approval",
+      "action": "Authorized owner review"
+    },
+    {
+      "id": "R6",
+      "risk": "C23 case-ID assessment and MUT-11 variation",
+      "status": "RETAINED_LIMITATION",
+      "impact": "Frozen expectation harness not general oracle",
+      "action": "Keep independent expected diagnostics and avoid generalized proof"
+    },
+    {
+      "id": "R7",
+      "risk": "47 upstream skipped tests",
+      "status": "OPEN_UPSTREAM",
+      "impact": "No evidence for skipped features",
+      "action": "Review when admitted subset affected"
+    }
+  ]
+}

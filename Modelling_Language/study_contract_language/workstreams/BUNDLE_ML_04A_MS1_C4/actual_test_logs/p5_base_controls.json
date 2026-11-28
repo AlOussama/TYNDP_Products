@@ -1,0 +1,1446 @@
+[
+  {
+    "authored_structural_identity": "b8a386f82da3851a32527f40ac3b70cba88be6c0470427fc67ce8964149d0ba4",
+    "candidate_status": "BLOCKED",
+    "conformance": "NOT_PROVED",
+    "control_passed": true,
+    "diagnostics": [],
+    "full_source": true,
+    "id": "P5-BASE",
+    "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+    "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+    "owner": "OWNER_TBD",
+    "representation_audit_identity": "1d0b6dbe7e8da8f02075f2737d9f110c57b3f9371ae5f837bd722f6d789cbc8b",
+    "result": {
+      "comparison_evidence": [],
+      "conformance": "NOT_PROVED",
+      "definition_pin": "4b2205d661cde1878110b8cc12c3b81dafd3685f344dfb10258b1d2e8b9c9729",
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:CLIMATE_ADAPTATION",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        },
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": "MWh/year",
+            "value_type": "QUANTITY"
+          },
+          "id": "report:SUPPLY_SECURITY",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "graph_audit_identity": "8aef9e8927444d6e67d04dc4d1b56aa52cb408aff01b06ec81db0f76def92c27",
+      "graph_semantic_identity": "707955284fa8b0720feddea7c8113fff1fe68fd7592cfd1949751f054400eb05",
+      "instance_pin": "9cd70e3c3b60ca30b0b1aa84a3cedf38144d532f7d14941feaa4643e14a15763",
+      "lineage": {
+        "slot:m-a": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-a:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-A:CAPEX_T0": 1,
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-B:CAPEX_T0": 1,
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        }
+      },
+      "native_decision_context": {
+        "M-A": {
+          "conditions": {
+            "negative": false,
+            "neutral": false,
+            "positive": true
+          },
+          "data_sha256": "4fdb8a6934b3590ed143f5d097ad4d4216f08893aad7fce58380f4e1315f6be2",
+          "decision_sign": 1,
+          "margin": "537137711925190/5559960326067",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "537137711925190/5559960326067",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-a:npv"
+        },
+        "M-B": {
+          "conditions": {
+            "negative": true,
+            "neutral": false,
+            "positive": false
+          },
+          "data_sha256": "bb765d167a51d467d740b8813c52f152480050cda82297a9cf3da9256e510bf9",
+          "decision_sign": -1,
+          "margin": "-449348777248750/16679880978201",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "-449348777248750/16679880978201",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-b:npv"
+        }
+      },
+      "native_static": [
+        {
+          "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+          "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+          "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true
+        }
+      ],
+      "numeric_checks": [
+        {
+          "conditions": {
+            "duration_positive": true,
+            "probability_present": true,
+            "probability_total": true
+          },
+          "data_identity": "a6919a07c955565d2d722b6995a6d029432abbcd31845ff5b0548f74a2a49930",
+          "native_identity": "d695841e0d27ae9f232b700c55e9a6657c89f46cb49d5f2a9f193db604fba82a",
+          "outputs": {
+            "weight_sum": [
+              "1"
+            ]
+          },
+          "package_identity": "7b8d959bf6462fd46fa523643a1f23421d88d8a14edfa10db5f6cd8168b6f35c",
+          "path": "/definition/method_profile/native_checks/0",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "capex_valid": true,
+            "horizon_valid": true,
+            "rate_valid": true
+          },
+          "data_identity": "5f17694efc1f9bb020e3804c9b1a8f9e48fb87623098ab99a95f30ac98d219d8",
+          "native_identity": "994033818e0199d6154335f998f31457bf4e3de1f3d1bd454586751625a93978",
+          "outputs": {},
+          "package_identity": "623c5e5d607e0ed0e0f05708e7e267ebde2645e822f49c54c074d003188fea64",
+          "path": "/definition/method_profile/native_checks/1",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "same_information_decision": true
+          },
+          "data_identity": "fbe66e5ae671d6ccfb6a3a8e5c04e9b6942afeffb4e1aab88a8cf8b086527afb",
+          "native_identity": "41d49b2a9aeff86b99bdf372f1cf4b1b1ee298ef9ec45d7e4fc238c9c2841c17",
+          "outputs": {},
+          "package_identity": "f6261f15b1dcda6cb3715152e02d59f469cfa8366f2de2ca4fffda42dd01d1ec",
+          "path": "/definition/method_profile/native_checks/2",
+          "roundtrip": true
+        }
+      ],
+      "outputs": {
+        "output:m-a": [
+          {
+            "key": [],
+            "value": "120"
+          }
+        ],
+        "output:m-a:npv": [
+          {
+            "key": [],
+            "value": "537137711925190/5559960326067"
+          }
+        ],
+        "output:m-b": [
+          {
+            "key": [],
+            "value": "104"
+          }
+        ],
+        "output:m-b:npv": [
+          {
+            "key": [],
+            "value": "-449348777248750/16679880978201"
+          }
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "package_sha256": "d8bfa454cfd067da79beb4fa57ea9d704168fee7a6a746811cfc130bb170e308",
+      "roundtrip": true,
+      "semantic_identity": "8d51b69e6e462eee3a0a4890b7a414d8a6e7f5d60d7437cc17f5cca88be07b77",
+      "status": "BLOCKED",
+      "structural_checks": [
+        {
+          "code": "RESEARCH_SCOPE",
+          "path": "/instance/record/research_kind",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CORE_SCOPE_DRIFT",
+          "path": "/instance/record/study/language_scope",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "STUDY_ID_REQUIRED",
+          "path": "/instance/record/study/id",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_profile",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_profile_version",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_source_status",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNSUPPORTED_OWNER_APPROVAL",
+          "path": "/instance/record/authority/owner_state",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNSUPPORTED_OWNER_APPROVAL",
+          "path": "/instance/record/authority/approval_evidence",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROVENANCE_REVISION_MISSING",
+          "path": "/instance/record/authority/provenance_revision",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SOURCE_LEDGER_LOSS",
+          "path": "/instance/record/source_ledger",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SOURCE_LEDGER_LOSS",
+          "path": "/instance/record/authority/source_refs",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CONSULTATION_SOURCE_PROMOTION",
+          "path": "/instance/record/source_ledger",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/baseline_asset_present",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/allowed_changes",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/additional_exogenous_changes",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/interdependencies_declared",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/id",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_ID_INVALID",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_POPULATION",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "WEIGHT_ROLE_CONFLATION",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "TIME_SUPPORT_INVALID",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_PROVENANCE",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_ID_INVALID",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "INDEPENDENCE_IDENTITY_COLLISION",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_POPULATION",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_VARIATION_NOT_DISCLOSED",
+          "path": "/instance/record/models",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_VARIATION_NOT_DISCLOSED",
+          "path": "/instance/record/models",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_GENERATOR_ID_MISSING",
+          "path": "/instance/record/models",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_SAMPLE_REFERENCE",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_SAMPLE_REFERENCE",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PAIR_INCOMPLETE",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DUPLICATE_SAMPLE_ID",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EXOGENOUS_SNAPSHOT_DRIFT",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/samples",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/samples",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "RESULT_PROVENANCE_PROMOTED",
+          "path": "/instance/record/samples",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/pairing",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/reference",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/project",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "BENEFIT_SIGN_CONVENTION",
+          "path": "/instance/record/comparison/sign",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "BENEFIT_SIGN_CONVENTION",
+          "path": "/instance/record/observable/positive_benefit_sign",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "AGGREGATION_ROLE_MISMATCH",
+          "path": "/instance/record/comparison/annual_aggregation",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "AGGREGATION_ROLE_MISMATCH",
+          "path": "/instance/record/observable/weather_aggregation",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "COST_PROXY_MISLABELED_AS_SEW",
+          "path": "/instance/record/observable/value_kind",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "COST_PROXY_MISLABELED_AS_SEW",
+          "path": "/instance/record/observable/cba_b1_claim",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OBSERVABLE_SELECTION_UNDEFINED",
+          "path": "/instance/record/observable/selection_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_DOUBLE_COUNTING_POLICY",
+          "path": "/instance/record/observable/double_counting_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_PRICE_BASIS_MISSING",
+          "path": "/instance/record/observable/price_basis",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/observable/unit",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "NON_MONETIZED_INDICATORS_MISSING",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_COERCED_TO_NUMBER",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R11",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_PRICE_BASIS_MISSING",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/status",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/role",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/run_id",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/artifact_digest",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "E4_UNSUPPORTED",
+          "path": "/instance/record/comparison/e4_claim",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "path": "/instance/record/economics/cost_currency",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "path": "/instance/record/economics/price_year",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_DOUBLE_COUNTING_POLICY",
+          "path": "/instance/record/economics/capex_scope",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_POLICY_INVALID",
+          "path": "/instance/record/economics/discount_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CARRIER_UNIT_TYPE_MISMATCH",
+          "path": "/instance/record/physical_interfaces",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "STAGE1_INFORMATION_LEAKAGE",
+          "path": "/instance/record/information/decision_before_revelation",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SENSITIVITY_EXECUTION_PROMOTION",
+          "path": "/instance/record/sensitivities/status",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        }
+      ]
+    },
+    "source_blob": "f5aa943a39c59807800ef8ea75710824740ba9c3",
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/A/P5-BASE.scn",
+    "source_sha256": "67116d6cec882c67aea1452ad76099c79979b07a34f3e5713518ee3c37b3e503",
+    "stage_receipts": {
+      "numeric_native_receipts": [
+        {
+          "conditions": {
+            "duration_positive": true,
+            "probability_present": true,
+            "probability_total": true
+          },
+          "data_identity": "a6919a07c955565d2d722b6995a6d029432abbcd31845ff5b0548f74a2a49930",
+          "native_identity": "d695841e0d27ae9f232b700c55e9a6657c89f46cb49d5f2a9f193db604fba82a",
+          "outputs": {
+            "weight_sum": [
+              "1"
+            ]
+          },
+          "package_identity": "7b8d959bf6462fd46fa523643a1f23421d88d8a14edfa10db5f6cd8168b6f35c",
+          "path": "/definition/method_profile/native_checks/0",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "capex_valid": true,
+            "horizon_valid": true,
+            "rate_valid": true
+          },
+          "data_identity": "5f17694efc1f9bb020e3804c9b1a8f9e48fb87623098ab99a95f30ac98d219d8",
+          "native_identity": "994033818e0199d6154335f998f31457bf4e3de1f3d1bd454586751625a93978",
+          "outputs": {},
+          "package_identity": "623c5e5d607e0ed0e0f05708e7e267ebde2645e822f49c54c074d003188fea64",
+          "path": "/definition/method_profile/native_checks/1",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "same_information_decision": true
+          },
+          "data_identity": "fbe66e5ae671d6ccfb6a3a8e5c04e9b6942afeffb4e1aab88a8cf8b086527afb",
+          "native_identity": "41d49b2a9aeff86b99bdf372f1cf4b1b1ee298ef9ec45d7e4fc238c9c2841c17",
+          "outputs": {},
+          "package_identity": "f6261f15b1dcda6cb3715152e02d59f469cfa8366f2de2ca4fffda42dd01d1ec",
+          "path": "/definition/method_profile/native_checks/2",
+          "roundtrip": true
+        }
+      ],
+      "static_native_packages": [
+        {
+          "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+          "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+          "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true
+        }
+      ],
+      "structural_admission_count": 67
+    },
+    "status": "RETURNED",
+    "syntax": "A"
+  },
+  {
+    "authored_structural_identity": "b8a386f82da3851a32527f40ac3b70cba88be6c0470427fc67ce8964149d0ba4",
+    "candidate_status": "BLOCKED",
+    "conformance": "NOT_PROVED",
+    "control_passed": true,
+    "diagnostics": [],
+    "full_source": true,
+    "id": "P5-BASE",
+    "original_source_blob": "8ae7a54a3ff5785ff484dabdb7ed23d1889eb3e0",
+    "original_source_sha256": "a9d974296b0e3ea0319a1d6de18b0d688485f96c5b3664fada35eca7f7675513",
+    "owner": "OWNER_TBD",
+    "representation_audit_identity": "a44b6c0596d9357993b6f7e78e07818a873685e5c2742a5aab42304769efc2ea",
+    "result": {
+      "comparison_evidence": [],
+      "conformance": "NOT_PROVED",
+      "definition_pin": "4b2205d661cde1878110b8cc12c3b81dafd3685f344dfb10258b1d2e8b9c9729",
+      "external_reports": [
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": null,
+            "value_type": "QUALITATIVE"
+          },
+          "id": "report:CLIMATE_ADAPTATION",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        },
+        {
+          "conformance": "NOT_PROVED",
+          "declaration": {
+            "basis": "ORIGINAL_P5_NOT_MONETIZED",
+            "declared_unit": "MWh/year",
+            "value_type": "QUANTITY"
+          },
+          "id": "report:SUPPLY_SECURITY",
+          "reason": "ORIGINAL_P5_INDICATOR_NOT_EXECUTED",
+          "source_ref": "authority:source",
+          "status": "NOT_EXECUTED",
+          "value": null
+        }
+      ],
+      "graph_audit_identity": "8aef9e8927444d6e67d04dc4d1b56aa52cb408aff01b06ec81db0f76def92c27",
+      "graph_semantic_identity": "707955284fa8b0720feddea7c8113fff1fe68fd7592cfd1949751f054400eb05",
+      "instance_pin": "9cd70e3c3b60ca30b0b1aa84a3cedf38144d532f7d14941feaa4643e14a15763",
+      "lineage": {
+        "slot:m-a": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-a:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-A:CAPEX_T0": 1,
+                "event:M-A:S1:P": 1,
+                "event:M-A:S1:R": 1,
+                "event:M-A:S2:P": 1,
+                "event:M-A:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b": {
+          "benefit": [
+            {
+              "events": {
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        },
+        "slot:m-b:discount": {
+          "factor": [
+            {
+              "events": {},
+              "key": []
+            }
+          ],
+          "npv": [
+            {
+              "events": {
+                "event:M-B:CAPEX_T0": 1,
+                "event:M-B:S1:P": 1,
+                "event:M-B:S1:R": 1,
+                "event:M-B:S2:P": 1,
+                "event:M-B:S2:R": 1
+              },
+              "key": []
+            }
+          ]
+        }
+      },
+      "native_decision_context": {
+        "M-A": {
+          "conditions": {
+            "negative": false,
+            "neutral": false,
+            "positive": true
+          },
+          "data_sha256": "4fdb8a6934b3590ed143f5d097ad4d4216f08893aad7fce58380f4e1315f6be2",
+          "decision_sign": 1,
+          "margin": "537137711925190/5559960326067",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "537137711925190/5559960326067",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-a:npv"
+        },
+        "M-B": {
+          "conditions": {
+            "negative": true,
+            "neutral": false,
+            "positive": false
+          },
+          "data_sha256": "bb765d167a51d467d740b8813c52f152480050cda82297a9cf3da9256e510bf9",
+          "decision_sign": -1,
+          "margin": "-449348777248750/16679880978201",
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "npv": "-449348777248750/16679880978201",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true,
+          "threshold": 0,
+          "threshold_source": [
+            "comparison",
+            "decision_threshold_eur"
+          ],
+          "upstream_output": "output:m-b:npv"
+        }
+      },
+      "native_static": [
+        {
+          "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+          "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+          "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true
+        }
+      ],
+      "numeric_checks": [
+        {
+          "conditions": {
+            "duration_positive": true,
+            "probability_present": true,
+            "probability_total": true
+          },
+          "data_identity": "a6919a07c955565d2d722b6995a6d029432abbcd31845ff5b0548f74a2a49930",
+          "native_identity": "d695841e0d27ae9f232b700c55e9a6657c89f46cb49d5f2a9f193db604fba82a",
+          "outputs": {
+            "weight_sum": [
+              "1"
+            ]
+          },
+          "package_identity": "7b8d959bf6462fd46fa523643a1f23421d88d8a14edfa10db5f6cd8168b6f35c",
+          "path": "/definition/method_profile/native_checks/0",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "capex_valid": true,
+            "horizon_valid": true,
+            "rate_valid": true
+          },
+          "data_identity": "5f17694efc1f9bb020e3804c9b1a8f9e48fb87623098ab99a95f30ac98d219d8",
+          "native_identity": "994033818e0199d6154335f998f31457bf4e3de1f3d1bd454586751625a93978",
+          "outputs": {},
+          "package_identity": "623c5e5d607e0ed0e0f05708e7e267ebde2645e822f49c54c074d003188fea64",
+          "path": "/definition/method_profile/native_checks/1",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "same_information_decision": true
+          },
+          "data_identity": "fbe66e5ae671d6ccfb6a3a8e5c04e9b6942afeffb4e1aab88a8cf8b086527afb",
+          "native_identity": "41d49b2a9aeff86b99bdf372f1cf4b1b1ee298ef9ec45d7e4fc238c9c2841c17",
+          "outputs": {},
+          "package_identity": "f6261f15b1dcda6cb3715152e02d59f469cfa8366f2de2ca4fffda42dd01d1ec",
+          "path": "/definition/method_profile/native_checks/2",
+          "roundtrip": true
+        }
+      ],
+      "outputs": {
+        "output:m-a": [
+          {
+            "key": [],
+            "value": "120"
+          }
+        ],
+        "output:m-a:npv": [
+          {
+            "key": [],
+            "value": "537137711925190/5559960326067"
+          }
+        ],
+        "output:m-b": [
+          {
+            "key": [],
+            "value": "104"
+          }
+        ],
+        "output:m-b:npv": [
+          {
+            "key": [],
+            "value": "-449348777248750/16679880978201"
+          }
+        ]
+      },
+      "owner": "OWNER_TBD",
+      "package_sha256": "d8bfa454cfd067da79beb4fa57ea9d704168fee7a6a746811cfc130bb170e308",
+      "roundtrip": true,
+      "semantic_identity": "8d51b69e6e462eee3a0a4890b7a414d8a6e7f5d60d7437cc17f5cca88be07b77",
+      "status": "BLOCKED",
+      "structural_checks": [
+        {
+          "code": "RESEARCH_SCOPE",
+          "path": "/instance/record/research_kind",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CORE_SCOPE_DRIFT",
+          "path": "/instance/record/study/language_scope",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "STUDY_ID_REQUIRED",
+          "path": "/instance/record/study/id",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_profile",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_profile_version",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "METHOD_PROFILE_UNVERSIONED_OR_PREMATURE",
+          "path": "/instance/record/study/method_source_status",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNSUPPORTED_OWNER_APPROVAL",
+          "path": "/instance/record/authority/owner_state",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNSUPPORTED_OWNER_APPROVAL",
+          "path": "/instance/record/authority/approval_evidence",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROVENANCE_REVISION_MISSING",
+          "path": "/instance/record/authority/provenance_revision",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SOURCE_LEDGER_LOSS",
+          "path": "/instance/record/source_ledger",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SOURCE_LEDGER_LOSS",
+          "path": "/instance/record/authority/source_refs",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CONSULTATION_SOURCE_PROMOTION",
+          "path": "/instance/record/source_ledger",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/baseline_asset_present",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/allowed_changes",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/additional_exogenous_changes",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/interdependencies_declared",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_SCOPE_DRIFT",
+          "path": "/instance/record/project/id",
+          "rule_id": "R10",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_ID_INVALID",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_POPULATION",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "WEIGHT_ROLE_CONFLATION",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "TIME_SUPPORT_INVALID",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SCENARIO_PROVENANCE",
+          "path": "/instance/record/scenarios",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_ID_INVALID",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "INDEPENDENCE_IDENTITY_COLLISION",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_POPULATION",
+          "path": "/instance/record/models",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_VARIATION_NOT_DISCLOSED",
+          "path": "/instance/record/models",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_VARIATION_NOT_DISCLOSED",
+          "path": "/instance/record/models",
+          "rule_id": "R09",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "MODEL_GENERATOR_ID_MISSING",
+          "path": "/instance/record/models",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_SAMPLE_REFERENCE",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_SAMPLE_REFERENCE",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PAIR_INCOMPLETE",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DUPLICATE_SAMPLE_ID",
+          "path": "/instance/record/samples",
+          "rule_id": "R01",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EXOGENOUS_SNAPSHOT_DRIFT",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "PROJECT_DELTA_MISASSIGNED",
+          "path": "/instance/record/samples",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/samples",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/samples",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "RESULT_PROVENANCE_PROMOTED",
+          "path": "/instance/record/samples",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/pairing",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/reference",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CROSS_MODEL_PAIRING_FORBIDDEN",
+          "path": "/instance/record/comparison/project",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "BENEFIT_SIGN_CONVENTION",
+          "path": "/instance/record/comparison/sign",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "BENEFIT_SIGN_CONVENTION",
+          "path": "/instance/record/observable/positive_benefit_sign",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "AGGREGATION_ROLE_MISMATCH",
+          "path": "/instance/record/comparison/annual_aggregation",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "AGGREGATION_ROLE_MISMATCH",
+          "path": "/instance/record/observable/weather_aggregation",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "COST_PROXY_MISLABELED_AS_SEW",
+          "path": "/instance/record/observable/value_kind",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "COST_PROXY_MISLABELED_AS_SEW",
+          "path": "/instance/record/observable/cba_b1_claim",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OBSERVABLE_SELECTION_UNDEFINED",
+          "path": "/instance/record/observable/selection_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_DOUBLE_COUNTING_POLICY",
+          "path": "/instance/record/observable/double_counting_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_PRICE_BASIS_MISSING",
+          "path": "/instance/record/observable/price_basis",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "OUTPUT_BASIS_MISMATCH",
+          "path": "/instance/record/observable/unit",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "NON_MONETIZED_INDICATORS_MISSING",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "UNKNOWN_COERCED_TO_NUMBER",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R11",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_PRICE_BASIS_MISSING",
+          "path": "/instance/record/additional_indicators",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/status",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/role",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/run_id",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "EVIDENCE_PROMOTION_UNSUPPORTED",
+          "path": "/instance/record/evidence/artifact_digest",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "E4_UNSUPPORTED",
+          "path": "/instance/record/comparison/e4_claim",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "path": "/instance/record/economics/cost_currency",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_CURRENCY_BASIS",
+          "path": "/instance/record/economics/price_year",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "KPI_DOUBLE_COUNTING_POLICY",
+          "path": "/instance/record/economics/capex_scope",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "DISCOUNT_POLICY_INVALID",
+          "path": "/instance/record/economics/discount_policy",
+          "rule_id": "R12",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "CARRIER_UNIT_TYPE_MISMATCH",
+          "path": "/instance/record/physical_interfaces",
+          "rule_id": "R06",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "STAGE1_INFORMATION_LEAKAGE",
+          "path": "/instance/record/information/decision_before_revelation",
+          "rule_id": "R07",
+          "status": "SATISFIED"
+        },
+        {
+          "code": "SENSITIVITY_EXECUTION_PROMOTION",
+          "path": "/instance/record/sensitivities/status",
+          "rule_id": "R13",
+          "status": "SATISFIED"
+        }
+      ]
+    },
+    "source_blob": "c630de4cfb8581260c78c11964c3f78d6ab3c07c",
+    "source_path": "Modelling_Language/study_contract_language/workstreams/BUNDLE_ML_04A_MS1_C3/controls/B/P5-BASE.json",
+    "source_sha256": "2a7c868d1bd54a57e55a7fa745b5c008b72a4f118e3ddea9094462ad6ceb0fd1",
+    "stage_receipts": {
+      "numeric_native_receipts": [
+        {
+          "conditions": {
+            "duration_positive": true,
+            "probability_present": true,
+            "probability_total": true
+          },
+          "data_identity": "a6919a07c955565d2d722b6995a6d029432abbcd31845ff5b0548f74a2a49930",
+          "native_identity": "d695841e0d27ae9f232b700c55e9a6657c89f46cb49d5f2a9f193db604fba82a",
+          "outputs": {
+            "weight_sum": [
+              "1"
+            ]
+          },
+          "package_identity": "7b8d959bf6462fd46fa523643a1f23421d88d8a14edfa10db5f6cd8168b6f35c",
+          "path": "/definition/method_profile/native_checks/0",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "capex_valid": true,
+            "horizon_valid": true,
+            "rate_valid": true
+          },
+          "data_identity": "5f17694efc1f9bb020e3804c9b1a8f9e48fb87623098ab99a95f30ac98d219d8",
+          "native_identity": "994033818e0199d6154335f998f31457bf4e3de1f3d1bd454586751625a93978",
+          "outputs": {},
+          "package_identity": "623c5e5d607e0ed0e0f05708e7e267ebde2645e822f49c54c074d003188fea64",
+          "path": "/definition/method_profile/native_checks/1",
+          "roundtrip": true
+        },
+        {
+          "conditions": {
+            "same_information_decision": true
+          },
+          "data_identity": "fbe66e5ae671d6ccfb6a3a8e5c04e9b6942afeffb4e1aab88a8cf8b086527afb",
+          "native_identity": "41d49b2a9aeff86b99bdf372f1cf4b1b1ee298ef9ec45d7e4fc238c9c2841c17",
+          "outputs": {},
+          "package_identity": "f6261f15b1dcda6cb3715152e02d59f469cfa8366f2de2ca4fffda42dd01d1ec",
+          "path": "/definition/method_profile/native_checks/2",
+          "roundtrip": true
+        }
+      ],
+      "static_native_packages": [
+        {
+          "native_identity": "78b7c11e66cc65d370e6cbb7a5b09f5675ebd5aae7ccb6eb51b11e72252b69fa",
+          "package_sha256": "8dcc22431f9d69cb4c6f0f78180805a6ca9644b05f51ed0f75ada1360718bb33",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "0911b790fbe8621de7e33b82bec05d6b51c1b36373d1e09c3ca276ba86fff229",
+          "package_sha256": "807a44fd8ed123d799d85a5f9b40d19ef30c8e933e4e1c6c0a390ee0a0c5c556",
+          "roundtrip": true
+        },
+        {
+          "native_identity": "a234c1b633e3b7db00d456eba28dd4809e55ccb83fca4ee3d61fbbcb7cbd8cf9",
+          "package_sha256": "0df3fe4611a1fd6ad293da2d76e9bf3a0565a92d5623e8f8dd87b0addbe3a7f3",
+          "roundtrip": true
+        }
+      ],
+      "structural_admission_count": 67
+    },
+    "status": "RETURNED",
+    "syntax": "B"
+  }
+]

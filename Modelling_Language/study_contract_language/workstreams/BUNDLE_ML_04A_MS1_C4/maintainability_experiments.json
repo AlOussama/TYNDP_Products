@@ -1,5 +1,5 @@
 {
-  "status": "PARTIAL",
+  "status": "ACTUAL_SCOPED_EXPERIMENTS_WITH_LIMITS",
   "observed": {
     "issue": "4 active candidate modules directly import test helpers; active P5 method builder shares code with legacy fixture builder",
     "modules": [
@@ -13,33 +13,45 @@
     {
       "id": "M1",
       "task": "exchange method profile",
-      "evidence": "C2 CL11/18, CL28–30/33; repeat native in C4",
-      "new_execution": "NOT_EXECUTED"
+      "evidence": "Actual C2 original R1/MS1 method-profile swap and new method formula control",
+      "new_execution": "EXECUTED_BOUNDED",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     },
     {
       "id": "M2",
       "task": "add component obligation",
-      "new_execution": "NOT_EXECUTED"
+      "new_execution": "EXECUTED_BOUNDED",
+      "evidence": "Actual one authored condition, true/false observed",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     },
     {
       "id": "M3",
       "task": "change physical unit/sign convention",
-      "new_execution": "NOT_EXECUTED"
+      "new_execution": "EXECUTED_BOUNDED",
+      "evidence": "Existing RC01 native signed-to-unsigned boundary and sign conversion replay (not new independent authored task)",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     },
     {
       "id": "M4",
       "task": "add evidence request",
-      "new_execution": "NOT_EXECUTED"
+      "new_execution": "EXECUTED_BOUNDED",
+      "evidence": "Actual one request and one pending receipt; no validator change",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     },
     {
       "id": "M5",
       "task": "extend existing domain type",
-      "new_execution": "NOT_EXECUTED"
+      "new_execution": "EXECUTED_BOUNDED",
+      "evidence": "Actual added one domain member and one value; no grammar/validator change",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     },
     {
       "id": "M6",
       "task": "decouple candidate helpers",
-      "new_execution": "PENDING_CONTROLLED_CONSOLIDATION"
+      "new_execution": "EXECUTED_BOUNDED",
+      "evidence": "Actual 4 to 0 test import modules; 2 to 1 slot builder; exact 116+2 receipts",
+      "limit": "No extrapolation to arbitrary extensions or empirical engineering time."
     }
-  ]
+  ],
+  "run": 46087812255
 }

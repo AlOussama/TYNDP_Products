@@ -1,0 +1,17 @@
+{
+  "rows_compared": 116,
+  "pairs": 58,
+  "p5_controls": 2,
+  "diff": [],
+  "counts": {
+    "source_files": 116,
+    "paths_attempted": 116,
+    "paths_accounted_for": 116,
+    "pairs_accounted_for": 58,
+    "original_rules_matched": 116,
+    "internal_failures": 0,
+    "returned": 32,
+    "rejected": 84,
+    "p5_control_passed": true
+  }
+}

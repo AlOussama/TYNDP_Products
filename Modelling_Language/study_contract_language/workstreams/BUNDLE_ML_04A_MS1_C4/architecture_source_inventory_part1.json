@@ -1,0 +1,228 @@
+{
+  "scope": "Static source census of selected architecture and shared domain/interop libraries; nonblank noncomment source lines include docstrings. Dependencies by literal imports; not dynamic call graph or comparable total system LOC.",
+  "commit": "d1624692c3f15dfbdbb1fca654048dd96435dd82",
+  "modules": [
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/chain.py",
+      "blob": "7eb5dfea8343edfec8fd5a58aad77ca9143f878a",
+      "nonblank_non_comment_lines": 220,
+      "functions": 32,
+      "classes": 3,
+      "imports": [
+        "import copy, hashlib, json, re",
+        "from dataclasses import dataclass",
+        "from decimal import Decimal, InvalidOperation",
+        "import csnf_validator as c21"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/csnf_validator.py",
+      "blob": "5201bda3c0a611d27e2bc335bbfebc191f252ec7",
+      "nonblank_non_comment_lines": 205,
+      "functions": 13,
+      "classes": 1,
+      "imports": [
+        "from __future__ import annotations",
+        "import copy",
+        "import hashlib",
+        "import json",
+        "from decimal import Decimal, InvalidOperation"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/pinned/profile_engine.py",
+      "blob": "d98289b3e07d6ba9377a5698d273ff5c88327179",
+      "nonblank_non_comment_lines": 104,
+      "functions": 16,
+      "classes": 4,
+      "imports": [
+        "import hashlib,json,sys",
+        "from pathlib import Path",
+        "from fractions import Fraction as F",
+        "from dataclasses import dataclass",
+        "from itertools import product"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/n1r.py",
+      "blob": "005f8fc0172c71eb1b2d7110b0e2cbc921921d6b",
+      "nonblank_non_comment_lines": 159,
+      "functions": 20,
+      "classes": 1,
+      "imports": [
+        "import copy, hashlib, json, re, sys",
+        "from pathlib import Path",
+        "from fractions import Fraction as F",
+        "import chain as old",
+        "import csnf_validator as c21",
+        "from chain import need, fields, ident, num"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/n2r.py",
+      "blob": "d9a4863498a5d8c1687c751d6b043b0e34dbdc13",
+      "nonblank_non_comment_lines": 36,
+      "functions": 1,
+      "classes": 0,
+      "imports": [
+        "import copy, json",
+        "from pathlib import Path",
+        "from n1r import need, fields, unique, digest, file_sha, pins, decode, typed, lower, run, c21, PIN, quantity",
+        "from n7 import verified_file, authority, contribution_table, lineage",
+        "from profile_engine import Engine, read, rational"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/n7.py",
+      "blob": "b9234f4d3f32463cb675d22d5b153a0ab83d7114",
+      "nonblank_non_comment_lines": 43,
+      "functions": 6,
+      "classes": 0,
+      "imports": [
+        "from collections import Counter",
+        "from pathlib import Path",
+        "from n1r import need, fields, unique, digest, file_sha, ident"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R1/units_r1.py",
+      "blob": "0d5a36e98fe79ef10d6361e69e8dda5c96e94d5f",
+      "nonblank_non_comment_lines": 20,
+      "functions": 4,
+      "classes": 1,
+      "imports": [
+        "from dataclasses import dataclass",
+        "from fractions import Fraction as F",
+        "import re",
+        "from n1r import need, fields, digest, ident"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1/architecture_prototypes/adapter.py",
+      "blob": "384530beb13ef96bad6b4165013aaa27944d880f",
+      "nonblank_non_comment_lines": 179,
+      "functions": 22,
+      "classes": 3,
+      "imports": [
+        "from dataclasses import dataclass",
+        "from fractions import Fraction as F",
+        "from itertools import product",
+        "from hashlib import sha256",
+        "from pathlib import Path",
+        "import json, re",
+        "import mathspec as ms",
+        "import mathspec.program as mp"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/comparative_canonical/legacy_comparison.py",
+      "blob": "e7e7976bda1d939ce79df7b7f72a19b58aedfbab",
+      "nonblank_non_comment_lines": 167,
+      "functions": 12,
+      "classes": 1,
+      "imports": [
+        "import json,sys,copy",
+        "from fractions import Fraction as F",
+        "from pathlib import Path",
+        "from itertools import product",
+        "import mathspec.program as mp",
+        "import n1r",
+        "from profile_engine import Engine",
+        "from make_fixtures import measure,quant,cmp"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/closure.py",
+      "blob": "12f0317bf4964ca0c39ee3d38e8e1c73d4a58c2e",
+      "nonblank_non_comment_lines": 359,
+      "functions": 30,
+      "classes": 2,
+      "imports": [
+        "from copy import deepcopy",
+        "from fractions import Fraction",
+        "from hashlib import sha256",
+        "from itertools import product",
+        "from pathlib import Path",
+        "import re,sys",
+        "import yaml",
+        "import mathspec as ms",
+        "import mathspec.program as mp",
+        "from mathspec.errors import LanguageError",
+        "import foundation as c1",
+        "from foundation import Reject,need,fields,digest,canon,qualified,exact,quantity,DIMLESS,constant"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/canonical_closure/package_interface.py",
+      "blob": "79de642a99f82850330384dbb9605ace79f3443f",
+      "nonblank_non_comment_lines": 56,
+      "functions": 5,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from closure import (admit,reimport,bind_data,native,semantic_context,"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C1/WS_A_mathematical_foundation/native_adapter/foundation.py",
+      "blob": "8431d2f1a47e620f8fb2899573440902b2c3732e",
+      "nonblank_non_comment_lines": 227,
+      "functions": 24,
+      "classes": 2,
+      "imports": [
+        "from dataclasses import dataclass",
+        "from fractions import Fraction",
+        "from hashlib import sha256",
+        "from itertools import product",
+        "from pathlib import Path",
+        "import json, re, sys",
+        "import mathspec as ms",
+        "import mathspec.program as mp",
+        "from mathspec.errors import LanguageError",
+        "from units_r1 import Dimension"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/interface.py",
+      "blob": "be8e15b0a033275f6ef1c328c9a7012c0bd622b5",
+      "nonblank_non_comment_lines": 39,
+      "functions": 7,
+      "classes": 0,
+      "imports": [
+        "from pathlib import Path",
+        "import sys",
+        "import package_interface as old",
+        "from closure import need,fields,c1",
+        "from WS_B import affine_boundary",
+        "from WS_B import power_boundary",
+        "from closure_v1.runtime import consumer"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_MS1_C2/canonical.py",
+      "blob": "614cc970ddf53e6a29d88f5400d601d4860f3380",
+      "nonblank_non_comment_lines": 49,
+      "functions": 4,
+      "classes": 0,
+      "imports": [
+        "from copy import deepcopy",
+        "from interface import import_package",
+        "from closure import fields,need,canon,digest,c1",
+        "from WS_A.contract import evaluate_group",
+        "from WS_B.methods import validate,identities"
+      ]
+    },
+    {
+      "path": "BUNDLE_ML_04A_R2/c21_boundary.py",
+      "blob": "0b3d81e3095dbc97b7b12ad3b92ebc93dcd21431",
+      "nonblank_non_comment_lines": 68,
+      "functions": 4,
+      "classes": 0,
+      "imports": [
+        "import hashlib",
+        "import importlib.util",
+        "from pathlib import Path"
+      ]
+    }
+  ]
+}

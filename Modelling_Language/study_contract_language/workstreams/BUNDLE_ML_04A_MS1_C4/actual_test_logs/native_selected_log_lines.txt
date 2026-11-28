@@ -1,0 +1,251 @@
+Exact selected lines from CI 46087812255, native job 140801422477, original-corpus-exit 140802432464; complete original logs remain on GitHub Actions.
+2026-11-28T00:25:49.7245057Z HEAD is now at f31886c Merge d1624692c3f15dfbdbb1fca654048dd96435dd82 into 4a489ef33981b5f972a6e5d0e7bdd8d99fcd63ef
+2026-11-28T00:25:51.8354751Z HEAD is now at 5f1464c3 docs(examples): TIMES examples and a sparse-set example (#1021)
+2026-11-28T00:25:59.0968256Z test_A01_all_arithmetic_nodes (__main__.Closure.test_A01_all_arithmetic_nodes) ... ok
+2026-11-28T00:25:59.1038080Z test_A02_native_roundtrip_and_canonical_as_source (__main__.Closure.test_A02_native_roundtrip_and_canonical_as_source) ... ok
+2026-11-28T00:25:59.1085811Z test_A03_exact_admission_before_float (__main__.Closure.test_A03_exact_admission_before_float) ... ok
+2026-11-28T00:25:59.1214700Z test_A04_nonzero_bound_domain (__main__.Closure.test_A04_nonzero_bound_domain) ... ok
+2026-11-28T00:25:59.1225465Z test_A05_quantity_in_unused_expression (__main__.Closure.test_A05_quantity_in_unused_expression) ... ok
+2026-11-28T00:25:59.1279516Z test_C01_conditions_and_refs (__main__.Closure.test_C01_conditions_and_refs) ... ok
+2026-11-28T00:25:59.1291178Z test_C02_physical_comparison (__main__.Closure.test_C02_physical_comparison) ... ok
+2026-11-28T00:25:59.1299321Z test_C03_folded_invalid_condition (__main__.Closure.test_C03_folded_invalid_condition) ... ok
+2026-11-28T00:25:59.1312473Z test_C04_explicit_typed_literal (__main__.Closure.test_C04_explicit_typed_literal) ... ok
+2026-11-28T00:25:59.1322433Z test_C05_cross_axis_comparison (__main__.Closure.test_C05_cross_axis_comparison) ... ok
+2026-11-28T00:25:59.1372325Z test_C06_assumption_role (__main__.Closure.test_C06_assumption_role) ... ok
+2026-11-28T00:25:59.1461648Z test_C07_bool_guard_no_unknown (__main__.Closure.test_C07_bool_guard_no_unknown) ... ok
+2026-11-28T00:25:59.1521521Z test_C08_cases_all_regions (__main__.Closure.test_C08_cases_all_regions) ... ok
+2026-11-28T00:25:59.1531654Z test_C09_case_requires_explicit_else (__main__.Closure.test_C09_case_requires_explicit_else) ... ok
+2026-11-28T00:25:59.1569028Z test_C10_scalar_parameter_condition (__main__.Closure.test_C10_scalar_parameter_condition) ... ok
+2026-11-28T00:25:59.1609523Z test_C11_dimension_comparison (__main__.Closure.test_C11_dimension_comparison) ... ok
+2026-11-28T00:25:59.1642133Z test_C12_native_count (__main__.Closure.test_C12_native_count) ... ok
+2026-11-28T00:25:59.1741807Z test_C13_native_joined_condition (__main__.Closure.test_C13_native_joined_condition) ... ok
+2026-11-28T00:25:59.1813991Z test_G01_tamper_and_solver (__main__.Closure.test_G01_tamper_and_solver) ... ok
+2026-11-28T00:25:59.1817147Z test_G02_duplicate_source (__main__.Closure.test_G02_duplicate_source) ... ok
+2026-11-28T00:25:59.1828980Z test_G03_unauthorized_authority (__main__.Closure.test_G03_unauthorized_authority) ... ok
+2026-11-28T00:25:59.1838853Z test_G04_duplicate_ids (__main__.Closure.test_G04_duplicate_ids) ... ok
+2026-11-28T00:25:59.6126105Z test_G05_process_determinism (__main__.Closure.test_G05_process_determinism) ... ok
+2026-11-28T00:25:59.6208048Z test_M01_rc03_conversion (__main__.Closure.test_M01_rc03_conversion) ... ok
+2026-11-28T00:25:59.6263118Z test_M02_rc08_cost_and_price_basis (__main__.Closure.test_M02_rc08_cost_and_price_basis) ... ok
+2026-11-28T00:25:59.6421748Z test_M03_method_and_study_signatures (__main__.Closure.test_M03_method_and_study_signatures) ... ok
+2026-11-28T00:25:59.6432600Z test_M04_role_signature_mismatch (__main__.Closure.test_M04_role_signature_mismatch) ... ok
+2026-11-28T00:25:59.6589154Z test_M05_data_context_and_exact_identity (__main__.Closure.test_M05_data_context_and_exact_identity) ... ok
+2026-11-28T00:25:59.6753843Z test_M06_integer_and_unknown (__main__.Closure.test_M06_integer_and_unknown) ... ok
+2026-11-28T00:25:59.6818925Z test_M07_qualified_method_axes (__main__.Closure.test_M07_qualified_method_axes) ... ok
+2026-11-28T00:25:59.6891442Z test_R01_lookup_native (__main__.Closure.test_R01_lookup_native) ... ok
+2026-11-28T00:25:59.6975541Z test_R02_group_sum_native (__main__.Closure.test_R02_group_sum_native) ... ok
+2026-11-28T00:25:59.7047387Z test_R03_duplicate_key (__main__.Closure.test_R03_duplicate_key) ... ok
+2026-11-28T00:25:59.7119908Z test_R04_missing_key (__main__.Closure.test_R04_missing_key) ... ok
+2026-11-28T00:25:59.7193815Z test_R05_empty_group (__main__.Closure.test_R05_empty_group) ... ok
+2026-11-28T00:25:59.7267107Z test_R06_unknown_coordinate (__main__.Closure.test_R06_unknown_coordinate) ... ok
+2026-11-28T00:25:59.7434348Z test_R07_rc05_oriented_net (__main__.Closure.test_R07_rc05_oriented_net) ... ok
+2026-11-28T00:25:59.7478545Z test_T01_explicit_shift (__main__.Closure.test_T01_explicit_shift) ... ok
+2026-11-28T00:25:59.7496503Z test_T02_implicit_edge_rejected (__main__.Closure.test_T02_implicit_edge_rejected) ... ok
+2026-11-28T00:25:59.7545732Z test_T03_window_policy (__main__.Closure.test_T03_window_policy) ... ok
+2026-11-28T00:25:59.7561748Z test_T04_future_shift_rejected (__main__.Closure.test_T04_future_shift_rejected) ... ok
+2026-11-28T00:25:59.7632267Z test_T05_order_changes_bound_identity (__main__.Closure.test_T05_order_changes_bound_identity) ... ok
+2026-11-28T00:25:59.7685972Z test_T06_explicit_wrap (__main__.Closure.test_T06_explicit_wrap) ... ok
+2026-11-28T00:25:59.7701978Z test_T07_window_beyond_support (__main__.Closure.test_T07_window_beyond_support) ... ok
+2026-11-28T00:25:59.7703512Z Ran 44 tests in 0.731s
+2026-11-28T00:26:00.1140680Z test_P01_canonical_package_roundtrip (__main__.Package.test_P01_canonical_package_roundtrip) ... ok
+2026-11-28T00:26:00.1294543Z test_P02_source_audit_separation (__main__.Package.test_P02_source_audit_separation) ... ok
+2026-11-28T00:26:00.1614624Z test_P03_external_contract_client (__main__.Package.test_P03_external_contract_client) ... ok
+2026-11-28T00:26:00.1891844Z test_P04_assumption_not_predicate (__main__.Package.test_P04_assumption_not_predicate) ... ok
+2026-11-28T00:26:00.2083791Z test_P05_independent_method_client (__main__.Package.test_P05_independent_method_client) ... ok
+2026-11-28T00:26:00.2535989Z test_P06_package_tamper (__main__.Package.test_P06_package_tamper) ... ok
+2026-11-28T00:26:00.2918751Z test_P07_different_method_context_same_native_math (__main__.Package.test_P07_different_method_context_same_native_math) ... ok
+2026-11-28T00:26:00.2919997Z Ran 7 tests in 0.208s
+2026-11-28T00:26:00.4579880Z test_RC01_power_energy_fragment (test_generality.Fragments.test_RC01_power_energy_fragment) ... ok
+2026-11-28T00:26:00.4627540Z test_RC03_RC04_hydrogen_mass_flow_fragment (test_generality.Fragments.test_RC03_RC04_hydrogen_mass_flow_fragment) ... ok
+2026-11-28T00:26:00.4677747Z test_RC05_port_connection_fragment (test_generality.Fragments.test_RC05_port_connection_fragment) ... ok
+2026-11-28T00:26:00.4725241Z test_RC07_information_fragment (test_generality.Fragments.test_RC07_information_fragment) ... ok
+2026-11-28T00:26:00.4776650Z test_RC10_variation_fragment (test_generality.Fragments.test_RC10_variation_fragment) ... ok
+2026-11-28T00:26:00.4795138Z test_authority_conflict (test_r1.N1R.test_authority_conflict) ... ok
+2026-11-28T00:26:00.4822059Z test_authority_source_audit_not_semantics (test_r1.N1R.test_authority_source_audit_not_semantics) ... ok
+2026-11-28T00:26:00.4864159Z test_capability_vs_service (test_r1.N1R.test_capability_vs_service) ... ok
+2026-11-28T00:26:00.4900129Z test_dual_syntax_idempotence_and_source (test_r1.N1R.test_dual_syntax_idempotence_and_source) ... ok
+2026-11-28T00:26:00.4916891Z test_duplicate_id (test_r1.N1R.test_duplicate_id) ... ok
+2026-11-28T00:26:00.4918826Z test_duplicate_json_key (test_r1.N1R.test_duplicate_json_key) ... ok
+2026-11-28T00:26:00.4939370Z test_evidence_promotion (test_r1.N1R.test_evidence_promotion) ... ok
+2026-11-28T00:26:00.4958854Z test_exact_units_and_no_silent_rounding (test_r1.N1R.test_exact_units_and_no_silent_rounding) ... ok
+2026-11-28T00:26:00.4977796Z test_guard_nonboolean (test_r1.N1R.test_guard_nonboolean) ... ok
+2026-11-28T00:26:00.4997916Z test_guard_ref (test_r1.N1R.test_guard_ref) ... ok
+2026-11-28T00:26:00.5036018Z test_guard_typed_but_unexecuted (test_r1.N1R.test_guard_typed_but_unexecuted) ... ok
+2026-11-28T00:26:00.5072728Z test_guard_unknown_not_false (test_r1.N1R.test_guard_unknown_not_false) ... ok
+2026-11-28T00:26:00.5092308Z test_information_refinement (test_r1.N1R.test_information_refinement) ... ok
+2026-11-28T00:26:00.5111134Z test_invalid_observable_projection (test_r1.N1R.test_invalid_observable_projection) ... ok
+2026-11-28T00:26:00.5120900Z test_legacy_path (test_r1.N1R.test_legacy_path) ... ok
+2026-11-28T00:26:00.5152388Z test_nested_quantifier_order (test_r1.N1R.test_nested_quantifier_order) ... ok
+2026-11-28T00:26:00.5172203Z test_scope_escape (test_r1.N1R.test_scope_escape) ... ok
+2026-11-28T00:26:00.5194976Z test_unbound_variable (test_r1.N1R.test_unbound_variable) ... ok
+2026-11-28T00:26:00.5227009Z test_unknown_operator_c21_defect_and_reject (test_r1.N1R.test_unknown_operator_c21_defect_and_reject) ... ok
+2026-11-28T00:26:00.5256129Z test_unsupported_approval (test_r1.N1R.test_unsupported_approval) ... ok
+2026-11-28T00:26:00.5283316Z test_wrong_index_domain (test_r1.N1R.test_wrong_index_domain) ... ok
+2026-11-28T00:26:00.5316529Z test_auxiliary_binding (test_r1.N2N7.test_auxiliary_binding) ... ok
+2026-11-28T00:26:00.5363063Z test_bad_probability (test_r1.N2N7.test_bad_probability) ... ok
+2026-11-28T00:26:00.5384233Z test_context_content_changed_with_authorized_data (test_r1.N2N7.test_context_content_changed_with_authorized_data) ... ok
+2026-11-28T00:26:00.5399916Z test_data_bytes_changed (test_r1.N2N7.test_data_bytes_changed) ... ok
+2026-11-28T00:26:00.5432763Z test_double_count_reject (test_r1.N2N7.test_double_count_reject) ... ok
+2026-11-28T00:26:00.5467021Z test_duplicate_contribution (test_r1.N2N7.test_duplicate_contribution) ... ok
+2026-11-28T00:26:00.5705137Z test_integrated_swap_four_runs_oracle_and_hashes (test_r1.N2N7.test_integrated_swap_four_runs_oracle_and_hashes) ... ok
+2026-11-28T00:26:00.5729429Z test_invalid_basis (test_r1.N2N7.test_invalid_basis) ... ok
+2026-11-28T00:26:00.5741731Z test_ledger_policy_override (test_r1.N2N7.test_ledger_policy_override) ... ok
+2026-11-28T00:26:00.5754184Z test_method_bytes_changed (test_r1.N2N7.test_method_bytes_changed) ... ok
+2026-11-28T00:26:00.5790082Z test_missing_contribution (test_r1.N2N7.test_missing_contribution) ... ok
+2026-11-28T00:26:00.5809817Z test_no_result_promotion (test_r1.N2N7.test_no_result_promotion) ... ok
+2026-11-28T00:26:00.5835661Z test_observable_binding (test_r1.N2N7.test_observable_binding) ... ok
+2026-11-28T00:26:00.5864142Z test_period_count (test_r1.N2N7.test_period_count) ... ok
+2026-11-28T00:26:00.5947417Z test_permitted_reuse_separate_policy (test_r1.N2N7.test_permitted_reuse_separate_policy) ... ok
+2026-11-28T00:26:00.5976319Z test_rule_cycle (test_r1.N2N7.test_rule_cycle) ... ok
+2026-11-28T00:26:00.5989839Z test_source_missing (test_r1.N2N7.test_source_missing) ... ok
+2026-11-28T00:26:00.6010065Z test_source_substitution (test_r1.N2N7.test_source_substitution) ... ok
+2026-11-28T00:26:00.6029553Z test_unauthorized_data_rehash (test_r1.N2N7.test_unauthorized_data_rehash) ... ok
+2026-11-28T00:26:00.6064953Z test_unauthorized_method_rehash (test_r1.N2N7.test_unauthorized_method_rehash) ... ok
+2026-11-28T00:26:00.6085068Z test_unknown_not_zero (test_r1.N2N7.test_unknown_not_zero) ... ok
+2026-11-28T00:26:00.6113183Z test_unknown_operator (test_r1.N2N7.test_unknown_operator) ... ok
+2026-11-28T00:26:00.6113915Z test_dimensional_product (test_r1.Units.test_dimensional_product) ... ok
+2026-11-28T00:26:00.6117373Z test_explicit_basis_conversion (test_r1.Units.test_explicit_basis_conversion) ... ok
+2026-11-28T00:26:00.6119239Z Ran 50 tests in 0.159s
+2026-11-28T00:26:00.6537822Z test_RC01_battery (__main__.Freedom.test_RC01_battery) ... ok
+2026-11-28T00:26:00.6538249Z test_RC02_EV (__main__.Freedom.test_RC02_EV) ... ok
+2026-11-28T00:26:00.6538802Z test_RC03_electrolysis (__main__.Freedom.test_RC03_electrolysis) ... ok
+2026-11-28T00:26:00.6539216Z test_RC04_H2 (__main__.Freedom.test_RC04_H2) ... ok
+2026-11-28T00:26:00.6539597Z test_RC05_grid (__main__.Freedom.test_RC05_grid) ... ok
+2026-11-28T00:26:00.6539941Z test_RC06_expansion (__main__.Freedom.test_RC06_expansion) ... ok
+2026-11-28T00:26:00.6540301Z test_RC07_information (__main__.Freedom.test_RC07_information) ... ok
+2026-11-28T00:26:00.6541018Z Ran 7 tests in 0.002s
+2026-11-28T00:26:01.1317369Z test_C2_I01_reference (__main__.Interface.test_C2_I01_reference) ... ok
+2026-11-28T00:26:01.1735557Z test_C2_I02_axis_scope_role (__main__.Interface.test_C2_I02_axis_scope_role) ... ok
+2026-11-28T00:26:01.2014009Z test_C2_I03_method_separate (__main__.Interface.test_C2_I03_method_separate) ... ok
+2026-11-28T00:26:01.2014832Z Ran 3 tests in 0.098s
+2026-11-28T00:26:01.5186274Z test_C2_A01_bool3 (__main__.Contract.test_C2_A01_bool3) ... ok
+2026-11-28T00:26:01.6080501Z test_C2_A02_ordered_quantification (__main__.Contract.test_C2_A02_ordered_quantification) ... ok
+2026-11-28T00:26:01.7502652Z test_C2_A03_guard_and_static_validation (__main__.Contract.test_C2_A03_guard_and_static_validation) ... ok
+2026-11-28T00:26:03.0437258Z test_C2_A04_original_fragments (__main__.Contract.test_C2_A04_original_fragments) ... ok
+2026-11-28T00:26:03.0992576Z test_C2_A05_unbound_axis_and_authority (__main__.Contract.test_C2_A05_unbound_axis_and_authority) ... ok
+2026-11-28T00:26:03.4234997Z test_C2_A06_assumption_gate (__main__.Contract.test_C2_A06_assumption_gate) ... ok
+2026-11-28T00:26:03.6410114Z test_C2_A07_assumption_false_and_where (__main__.Contract.test_C2_A07_assumption_false_and_where) ... ok
+2026-11-28T00:26:03.6411244Z Ran 7 tests in 2.122s
+2026-11-28T00:26:04.1817308Z test_C2_B01_ABL09 (__main__.Methods.test_C2_B01_ABL09) ... ok
+2026-11-28T00:26:04.2865103Z test_C2_B02_ABL11 (__main__.Methods.test_C2_B02_ABL11) ... ok
+2026-11-28T00:26:04.3249769Z test_C2_B03_ABL08 (__main__.Methods.test_C2_B03_ABL08) ... ok
+2026-11-28T00:26:04.3710712Z test_C2_B04_ABL06 (__main__.Methods.test_C2_B04_ABL06) ... ok
+2026-11-28T00:26:04.4019343Z test_C2_B05_original_profile_controls (__main__.Methods.test_C2_B05_original_profile_controls) ... ok
+2026-11-28T00:26:04.7155542Z test_C2_B06_method_swap (__main__.Methods.test_C2_B06_method_swap) ... ok
+2026-11-28T00:26:04.8211307Z test_C2_B07_unpinned_context (__main__.Methods.test_C2_B07_unpinned_context) ... ok
+2026-11-28T00:26:04.9516382Z test_C2_B08_EXPOW_native (__main__.Methods.test_C2_B08_EXPOW_native) ... ok
+2026-11-28T00:26:04.9552963Z Ran 8 tests in 0.981s
+2026-11-28T00:26:05.9377953Z test_C2_B09_original_profiles_native (__main__.OriginalProfiles.test_C2_B09_original_profiles_native) ... ok
+2026-11-28T00:26:06.3274692Z test_C2_B10_n7_original_negative (__main__.OriginalProfiles.test_C2_B10_n7_original_negative) ... ok
+2026-11-28T00:26:06.4340641Z test_C2_B11_disjoint_vs_reuse (__main__.OriginalProfiles.test_C2_B11_disjoint_vs_reuse) ... ok
+2026-11-28T00:26:06.5264283Z test_C2_B12_positive_and_exponent_range (__main__.OriginalProfiles.test_C2_B12_positive_and_exponent_range) ... ok
+2026-11-28T00:26:06.5379584Z Ran 4 tests in 1.249s
+2026-11-28T00:26:07.6198563Z test_C2_C01_roundtrip (__main__.Integrated.test_C2_C01_roundtrip) ... ok
+2026-11-28T00:26:08.0556501Z test_C2_C02_cross_layer (__main__.Integrated.test_C2_C02_cross_layer) ... ok
+2026-11-28T00:26:08.6475442Z test_C2_C03_no_bypass (__main__.Integrated.test_C2_C03_no_bypass) ... ok
+2026-11-28T00:26:09.0418355Z test_C2_C04_power_shared_clients (__main__.Integrated.test_C2_C04_power_shared_clients) ... ok
+2026-11-28T00:26:09.0451775Z Ran 4 tests in 2.161s
+2026-11-28T00:26:09.4829435Z test_CL01_native_shift_window (__main__.ClosureControls.test_CL01_native_shift_window) ... ok
+2026-11-28T00:26:09.5174192Z test_CL02_native_defined_count (__main__.ClosureControls.test_CL02_native_defined_count) ... ok
+2026-11-28T00:26:09.5685211Z test_CL03_native_joined_condition (__main__.ClosureControls.test_CL03_native_joined_condition) ... ok
+2026-11-28T00:26:09.5693038Z test_CL04_metadata_ports_and_carrier (__main__.ClosureControls.test_CL04_metadata_ports_and_carrier) ... ok
+2026-11-28T00:26:09.5699860Z test_CL05_chronology_information (__main__.ClosureControls.test_CL05_chronology_information) ... ok
+2026-11-28T00:26:09.6434925Z test_CL25_conflict_fail_closed (__main__.CriticalControls.test_CL25_conflict_fail_closed) ... ok
+2026-11-28T00:26:09.7429736Z test_CL26_native_finite_robustness_and_selector (__main__.CriticalControls.test_CL26_native_finite_robustness_and_selector) ... ok
+2026-11-28T00:26:11.0194637Z test_CL17_static_no_data_and_instance_roundtrip (__main__.DefinitionControls.test_CL17_static_no_data_and_instance_roundtrip) ... ok
+2026-11-28T00:26:11.1058520Z test_CL18_method_identity_cross_study (__main__.DefinitionControls.test_CL18_method_identity_cross_study) ... ok
+2026-11-28T00:26:11.5596258Z test_CL19_data_policy_and_explicit_conversion (__main__.DefinitionControls.test_CL19_data_policy_and_explicit_conversion) ... ok
+2026-11-28T00:26:11.5968882Z test_CL20_relation_support_binding (__main__.DefinitionControls.test_CL20_relation_support_binding) ... ok
+2026-11-28T00:26:11.5969962Z test_CL21_configurable_probability_scope (__main__.DefinitionControls.test_CL21_configurable_probability_scope) ... ok
+2026-11-28T00:26:14.5223013Z test_CL27_selection_membership_and_order (__main__.FinalClosure.test_CL27_selection_membership_and_order) ... ok
+2026-11-28T00:26:15.6310575Z test_CL28_authorized_composition_and_roundtrip (__main__.FinalClosure.test_CL28_authorized_composition_and_roundtrip) ... ok
+2026-11-28T00:26:16.1589085Z test_CL29_override_rejection (__main__.FinalClosure.test_CL29_override_rejection) ... ok
+2026-11-28T00:26:16.4283665Z test_CL30_protect_transitive_native_obligation (__main__.FinalClosure.test_CL30_protect_transitive_native_obligation) ... ok
+2026-11-28T00:26:16.6097270Z test_CL31_structured_diagnostic_boundary (__main__.FinalClosure.test_CL31_structured_diagnostic_boundary) ... ok
+2026-11-28T00:26:16.6098935Z test_CL32_diagnostic_internal_failure_not_rejection (__main__.FinalClosure.test_CL32_diagnostic_internal_failure_not_rejection) ... ok
+2026-11-28T00:26:17.3771570Z test_CL33_disjoint_override_precedence (__main__.FinalClosure.test_CL33_disjoint_override_precedence) ... ok
+2026-11-28T00:26:17.5798805Z test_CL22_cyclic_endpoint_equality (__main__.FinalControls.test_CL22_cyclic_endpoint_equality) ... ok
+2026-11-28T00:26:18.5623984Z test_CL23_model_comparison_native_metric (__main__.FinalControls.test_CL23_model_comparison_native_metric) ... ok
+2026-11-28T00:26:18.9309995Z test_CL11_multi_method_graph (__main__.GraphControls.test_CL11_multi_method_graph) ... ok
+2026-11-28T00:26:19.1371705Z test_CL12_graph_drift_and_dependency (__main__.GraphControls.test_CL12_graph_drift_and_dependency) ... ok
+2026-11-28T00:26:19.3955545Z test_CL13_counterfactual_context (__main__.GraphControls.test_CL13_counterfactual_context) ... ok
+2026-11-28T00:26:20.0678450Z test_CL14_coordinate_ledger_and_cross_slot (__main__.GraphControls.test_CL14_coordinate_ledger_and_cross_slot) ... ok
+2026-11-28T00:26:20.8639945Z test_CL15_semantic_and_audit_order (__main__.GraphControls.test_CL15_semantic_and_audit_order) ... ok
+2026-11-28T00:26:21.2136621Z test_CL16_evidence_and_variation (__main__.GraphControls.test_CL16_evidence_and_variation) ... ok
+2026-11-28T00:26:21.4565218Z test_CL06_service_requires_actual_witness (__main__.ObligationControls.test_CL06_service_requires_actual_witness) ... ok
+2026-11-28T00:26:21.6663348Z test_CL07_capability_order_and_nonvacuity (__main__.ObligationControls.test_CL07_capability_order_and_nonvacuity) ... ok
+2026-11-28T00:26:21.7783526Z test_CL08_scoped_assumptions_unknown (__main__.ObligationControls.test_CL08_scoped_assumptions_unknown) ... ok
+2026-11-28T00:26:21.8143684Z test_CL09_full_information_policy (__main__.ObligationControls.test_CL09_full_information_policy) ... ok
+2026-11-28T00:26:21.9176761Z test_CL10_explicit_state_boundary_scope (__main__.ObligationControls.test_CL10_explicit_state_boundary_scope) ... ok
+2026-11-28T00:26:22.9208887Z test_CL24_original_p5_numeric_projection_and_external_context (__main__.OriginalProjectionControls.test_CL24_original_p5_numeric_projection_and_external_context) ... ok
+2026-11-28T00:26:22.9210383Z Ran 33 tests in 13.514s
+2026-11-28T00:26:23.2567207Z test_A_N01 (__main__.Foundation.test_A_N01) ... ok
+2026-11-28T00:26:23.2569996Z test_A_N02 (__main__.Foundation.test_A_N02) ... ok
+2026-11-28T00:26:23.2572073Z test_A_N03 (__main__.Foundation.test_A_N03) ... ok
+2026-11-28T00:26:23.2576117Z test_A_N04 (__main__.Foundation.test_A_N04) ... ok
+2026-11-28T00:26:23.2606137Z test_A_N05 (__main__.Foundation.test_A_N05) ... ok
+2026-11-28T00:26:23.2607973Z test_A_N06 (__main__.Foundation.test_A_N06) ... ok
+2026-11-28T00:26:23.2609461Z test_A_N07 (__main__.Foundation.test_A_N07) ... ok
+2026-11-28T00:26:23.2613486Z test_A_N08 (__main__.Foundation.test_A_N08) ... ok
+2026-11-28T00:26:23.2616825Z test_A_N09 (__main__.Foundation.test_A_N09) ... ok
+2026-11-28T00:26:23.2622403Z test_A_N10 (__main__.Foundation.test_A_N10) ... ok
+2026-11-28T00:26:23.2628956Z test_A_N11 (__main__.Foundation.test_A_N11) ... ok
+2026-11-28T00:26:23.2669757Z test_A_N12 (__main__.Foundation.test_A_N12) ... ok
+2026-11-28T00:26:23.2671474Z test_A_N13 (__main__.Foundation.test_A_N13) ... ok
+2026-11-28T00:26:23.2678282Z test_A_N14 (__main__.Foundation.test_A_N14) ... ok
+2026-11-28T00:26:23.2730816Z test_A_N15 (__main__.Foundation.test_A_N15) ... ok
+2026-11-28T00:26:23.2731404Z test_A_N16 (__main__.Foundation.test_A_N16) ... ok
+2026-11-28T00:26:23.2777158Z test_A_N17 (__main__.Foundation.test_A_N17) ... ok
+2026-11-28T00:26:23.2777968Z test_A_N18 (__main__.Foundation.test_A_N18) ... ok
+2026-11-28T00:26:23.2778432Z test_A_N19 (__main__.Foundation.test_A_N19) ... ok
+2026-11-28T00:26:23.2808965Z test_A_N20 (__main__.Foundation.test_A_N20) ... ok
+2026-11-28T00:26:23.2839026Z test_m2_mapping (__main__.Foundation.test_m2_mapping) ... ok
+2026-11-28T00:26:23.7054295Z test_processes (__main__.Foundation.test_processes) ... ok
+2026-11-28T00:26:23.7176392Z test_roundtrip (__main__.Foundation.test_roundtrip) ... ok
+2026-11-28T00:26:23.7198861Z test_static_sum_and_rational (__main__.Foundation.test_static_sum_and_rational) ... ok
+2026-11-28T00:26:23.7200653Z Ran 24 tests in 0.465s
+2026-11-28T00:26:24.0478419Z test_B01_direct_canonical_admission (__main__.CanonicalFirst.test_B01_direct_canonical_admission) ... ok
+2026-11-28T00:26:24.0542659Z test_B02_role_and_quantity_outside_math (__main__.CanonicalFirst.test_B02_role_and_quantity_outside_math) ... ok
+2026-11-28T00:26:24.0660133Z test_B03_ordered_binding (__main__.CanonicalFirst.test_B03_ordered_binding) ... ok
+2026-11-28T00:26:24.0699942Z test_B04_alignment (__main__.CanonicalFirst.test_B04_alignment) ... ok
+2026-11-28T00:26:24.0868753Z test_B05_original_and_audit (__main__.CanonicalFirst.test_B05_original_and_audit) ... ok
+2026-11-28T00:26:24.0928040Z test_B06_raw_extension_and_defaults (__main__.CanonicalFirst.test_B06_raw_extension_and_defaults) ... ok
+2026-11-28T00:26:24.0966308Z test_B07_explicit_guard_signature (__main__.CanonicalFirst.test_B07_explicit_guard_signature) ... ok
+2026-11-28T00:26:24.1014993Z test_B08_RC03_cross_carrier_conversion (__main__.CanonicalFirst.test_B08_RC03_cross_carrier_conversion) ... ok
+2026-11-28T00:26:24.1081395Z test_B09_RC08_weighted_cost (__main__.CanonicalFirst.test_B09_RC08_weighted_cost) ... ok
+2026-11-28T00:26:24.1106710Z test_N01_native_commutativity (__main__.CanonicalFirst.test_N01_native_commutativity) ... ok
+2026-11-28T00:26:24.1146699Z test_N02_native_not_equivalence (__main__.CanonicalFirst.test_N02_native_not_equivalence) ... ok
+2026-11-28T00:26:24.1163771Z test_N03_defaults_and_order (__main__.CanonicalFirst.test_N03_defaults_and_order) ... ok
+2026-11-28T00:26:24.1191357Z test_N04_numeric_preimage_collision (__main__.CanonicalFirst.test_N04_numeric_preimage_collision) ... ok
+2026-11-28T00:26:24.1240111Z test_N05_native_conditions (__main__.CanonicalFirst.test_N05_native_conditions) ... ok
+2026-11-28T00:26:24.1268554Z test_N06_native_relation_and_temporal (__main__.CanonicalFirst.test_N06_native_relation_and_temporal) ... ok
+2026-11-28T00:26:24.1295579Z test_N07_native_condition_cases (__main__.CanonicalFirst.test_N07_native_condition_cases) ... ok
+2026-11-28T00:26:24.1362654Z test_N08_canonical_origin_limit (__main__.CanonicalFirst.test_N08_canonical_origin_limit) ... ok
+2026-11-28T00:26:24.1363767Z Ran 17 tests in 0.097s
+2026-11-28T00:27:06.2083109Z 4140 passed, 47 skipped in 40.52s
+2026-11-28T00:27:07.2004264Z HEAD is now at eaea6dd docs(ML-C24-P5): correct official CBA guideline source URL and rerun 36 microchecks
+2026-11-28T00:27:11.4491089Z test_exact_structural_types_and_independent_source_forms (__main__.Authoring.test_exact_structural_types_and_independent_source_forms) ... ok
+2026-11-28T00:27:14.5408223Z test_native_roundtrip_and_pins (__main__.Authoring.test_native_roundtrip_and_pins) ... ok
+2026-11-28T00:27:14.5437440Z Ran 2 tests in 3.092s
+2026-11-28T00:27:22.8963343Z test_derived_typed_ratio (__main__.Targeted.test_derived_typed_ratio) ... ok
+2026-11-28T00:27:23.6185067Z test_signed_charging_transfer (__main__.Targeted.test_signed_charging_transfer) ... ok
+2026-11-28T00:27:23.6530919Z test_stage_information_without_duration (__main__.Targeted.test_stage_information_without_duration) ... ok
+2026-11-28T00:27:23.6532539Z Ran 3 tests in 0.778s
+2026-11-28T00:28:50.2648096Z C3_ORIGINAL_SUMMARY={"internal_failures":0,"original_rules_matched":116,"p5_control_passed":true,"pairs_accounted_for":58,"paths_accounted_for":116,"paths_attempted":116,"rejected":84,"returned":32,"source_files":116}
+2026-11-28T00:28:50.3974579Z C4_BEFORE_AFTER={"rows_compared": 116, "pairs": 58, "p5_controls": 2, "diff": [], "counts": {"source_files": 116, "paths_attempted": 116, "paths_accounted_for": 116, "pairs_accounted_for": 58, "original_rules_matched": 116, "internal_failures": 0, "returned": 32, "rejected": 84, "p5_control_passed": true}}
+2026-11-28T00:28:50.7181126Z test_authoring_proxy_roundtrip (__main__.C4Controls.test_authoring_proxy_roundtrip) ... ok
+2026-11-28T00:28:50.7195498Z test_candidate_has_no_test_module_dependency (__main__.C4Controls.test_candidate_has_no_test_module_dependency) ... ok
+2026-11-28T00:28:50.7213698Z test_coordinate_tamper_rejected (__main__.C4Controls.test_coordinate_tamper_rejected) ... ok
+2026-11-28T00:29:04.2493524Z test_external_obligation_change_is_observed (__main__.C4Controls.test_external_obligation_change_is_observed) ... ok
+2026-11-28T00:29:08.4496623Z test_missing_evidence_does_not_promote (__main__.C4Controls.test_missing_evidence_does_not_promote) ... ok
+2026-11-28T00:29:08.4964281Z test_new_method_and_domain_member (__main__.C4Controls.test_new_method_and_domain_member) ... ok
+2026-11-28T00:29:08.4985677Z test_original_source_binding (__main__.C4Controls.test_original_source_binding) ... ok
+2026-11-28T00:29:08.5002905Z test_reference_rename_rejected (__main__.C4Controls.test_reference_rename_rejected) ... ok
+2026-11-28T00:29:08.5016456Z test_source_bytes_rejected (__main__.C4Controls.test_source_bytes_rejected) ... ok
+2026-11-28T00:29:08.5017941Z Ran 9 tests in 17.802s
+2026-11-28T00:29:08.5038709Z C4_AUTHORING_PROXY RC01 A=12062 B=17640 (same-design emitted roundtrip, not independent authors)
+2026-11-28T00:29:08.5048980Z C4_AUTHORING_PROXY RC02 A=7724 B=11413 (same-design emitted roundtrip, not independent authors)
+2026-11-28T00:29:08.5049584Z C4_AUTHORING_PROXY RC04 A=7888 B=11420 (same-design emitted roundtrip, not independent authors)
+2026-11-28T00:29:08.5050133Z C4_AUTHORING_PROXY RC08 A=7137 B=10437 (same-design emitted roundtrip, not independent authors)
+2026-11-28T00:29:08.5050573Z C4_CHANGE_OBLIGATION: one authored condition; no validator change; true/false observed
+2026-11-28T00:29:08.5050973Z C4_CHANGE_EVIDENCE: one request and one pending receipt; no validator change
+2026-11-28T00:29:08.5051447Z C4_CHANGE_METHOD_DOMAIN: new native expression, changed formula, added one domain member and one value; no grammar/validator change
